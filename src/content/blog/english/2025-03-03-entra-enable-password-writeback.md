@@ -1,5 +1,5 @@
 ---
-title: "Enable password writeback in Entra ID"
+title: "How to enable password writeback in Entra ID"
 meta_title: ""
 description: ""
 date: 2025-03-03T10:00:00-05:00
