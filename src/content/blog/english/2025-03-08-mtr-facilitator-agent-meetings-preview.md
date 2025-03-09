@@ -7,7 +7,7 @@ image: "/images/blog/mtr/mtr_facilitator_agent_meetings_preview_thumbnail.png"
 categories: ["MTR"]
 author: "Maxime Hiez"
 tags: ["Teams Rooms Pro", "MTRoW", "MTRoW", "Facilitator", "AI"]
-draft: true
+draft: false
 ---
 ---
 
