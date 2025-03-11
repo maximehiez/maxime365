@@ -75,6 +75,11 @@ La version 5.5 du firmware pour les produits Algo apporte des améliorations sig
 
 ---
 
+##### Sources
+[Algo - Firmware Version 5.5](https://www.algosolutions.com/news/2025/firmware-release-v5-5/#download)
+
+---
+
 
 Avez-vous apprécié cet article ? Vous avez des questions, commentaires ou suggestions, n’hésitez pas à laisser un commentaire dans la section ci-dessous ou en m'envoyant un message depuis le formulaire de contact.
 

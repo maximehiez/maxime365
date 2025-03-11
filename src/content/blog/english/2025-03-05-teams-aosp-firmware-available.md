@@ -81,7 +81,7 @@ You now know how to update your Android-based Microsoft Teams devices to AOSP.
 ---
 
 ##### Sources
-[Microsoft Learn - Guide de migration AOSP](https://learn.microsoft.com/en-us/microsoftteams/rooms/android-migration-guide)
+[Microsoft Learn - AOSP migration guide](https://learn.microsoft.com/en-us/microsoftteams/rooms/android-migration-guide)
 
 ---
 
