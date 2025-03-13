@@ -50,6 +50,7 @@ Il est possible de configurer 3 conditions pour déclencher le rappel.
 - Nombre d'appels en attente : Le rappel devient éligible lorsque atteint le nombre d'appels défini est atteint.
 - Ratio entre le nombre d'agents et le nombre d'appels en attente : Le rappel devient éligible lorsque le ratio défini est atteint.
 
+<br/>
 Dans mon exemple, je choisis de configurer 2 minutes.<br/>
 À noter que la musique par défaut dure 2 minutes, donc même si j'avais configuré 1 minute, le rappel n'aurait été offert qu'après la fin de la musique.
 

@@ -52,6 +52,7 @@ It is possible to configure 3 conditions to trigger the callback.
 - Number of calls waiting : The callback becomes eligible when the defined number of calls is reached.
 - Ratio between the number of agents and the number of waiting calls : The callback becomes eligible when the defined ratio is reached.
 
+<br/>
 In my example, I choose to configure 2 minutes.<br/>
 Note that the default music lasts 2 minutes, so even if I had configured 1 minute, the callback would only have been offered after the music ended.
 
