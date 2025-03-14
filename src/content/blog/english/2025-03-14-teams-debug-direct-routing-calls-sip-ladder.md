@@ -4,7 +4,7 @@ meta_title: ""
 description: ""
 date: 2025-03-14T11:00:00-05:00
 image: "/images/blog/teams/tuto/teams_debug_direct_routing_calls_sip_ladder_thumbnail.png"
-categories: ["Teams", "Tutoriel"]
+categories: ["Teams", "Tutorial"]
 author: "Maxime Hiez"
 tags: ["Telephony", "Direct Routing", "Logs"]
 draft: false
