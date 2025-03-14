@@ -29,7 +29,7 @@ Microsoft 365 Copilot is an AI assistant designed to improve work productivity. 
 ---
 
 ##### Why mass adoption by Fortune 500 companies ?
-According to a recent IDC study, adoption of generative AI reached 75% among surveyed companies in 2024. For every dollar invested, companies realize a return on investment of $3.70, and some leaders even report a return of $10. Microsoft's investments in Copilot are paying off, with more than 200 customer stories highlighting accelerated transformations using AI.
+According to a recent IDC study, adoption of generative AI reached 75% among surveyed companies in 2024. For every dollar invested, companies realize a return on investment of 3.70$, and some leaders even report a return of 10$. Microsoft's investments in Copilot are paying off, with more than 200 customer stories highlighting accelerated transformations using AI.
 
 Examples of success :
 - Eaton : This energy management company used Microsoft 365 Copilot to automate operations, improve data access and centralize knowledge. Copilot helped streamline manual and time-consuming documentation processes in Eaton's financial operations.

@@ -19,8 +19,8 @@ Microsoft recently announced a price increase for several Teams telephony licens
 ##### Price increase details
 - Teams Phone Standard : 8.00$ to 10.00$ (120$ per year)
 - Teams Phone Pay-As-You-Go (Zone 1 - US) : 11$ to 12$ (144$ per year)
-- Teams Phone avec Calling Plan (Zone 1 - US) : 15$ to 17$ (204 $ per year)
-- Teams Phone avec Calling Plan national et international : 32$ to 34$ (408 $ per year)
+- Teams Phone avec Calling Plan (Zone 1 - US) : 15$ to 17$ (204$ per year)
+- Teams Phone avec Calling Plan national et international : 32$ to 34$ (408$ per year)
 
 <u>Note :</u> Prices in USD before applicable taxes.
 
