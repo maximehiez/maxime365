@@ -1,0 +1,74 @@
+---
+title: "Comment analyser les appels Direct Routing via l'échelle SIP"
+meta_title: ""
+description: ""
+date: 2025-03-14T11:00:00-05:00
+image: "/images/blog/teams/tuto/teams_debug_direct_routing_calls_sip_ladder_thumbnail.png"
+categories: ["Teams", "Tutoriel"]
+author: "Maxime Hiez"
+tags: ["Téléphonie", "Direct Routing", "Logs"]
+draft: false
+---
+---
+
+##### Introduction
+J'avais publié, en Février dernier, un article qui annonçait la sortie prochaine de l'échelle SIP permettant d'analyser les appels Teams Direct Routing depuis le Microsoft Teams Admin Center. La fonctionnalité est désormais disponible.
+
+Voir l'article de Février 2025 [ICI](https://maxime.hiez.ca/blog/2025-02-03-teams-roadmap-479413-sip-ladder).
+
+---
+
+##### Prérequis
+**<u>Téléphonie Microsoft Teams activée</u>**
+- La configuration Direct Routing avec un SBC.
+
+**<u>Rôle d’administrateur</u>**
+- Un compte avec le rôle *Administrateur Global* ou *Administrateur Teams* pour accéder au Microsoft Teams Admin Center.
+
+---
+
+##### Étape 1 : Se connecter au Microsoft Teams Admin Center
+Connectez vous au Microsoft Teams Admin Center en ouvrant votre navigateur web sur https://admin.teams.microsoft.com.
+
+---
+
+##### Étape 2 : Accéder à l'échelle SIP
+Dans le menu de gauche, cliquez sur *<u>Analytics & reports</u>*, puis sur *<u>Usage reports</u>*.<br/>
+Choisissez le type de rapport *<u>PSTN usage</u>* ainsi que la plage de recherche, puis cliquez sur *<u>Run report</u>*.
+
+![image](/images/blog/teams/tuto/teams_debug_direct_routing_calls_sip_ladder_001.png)
+
+Une fois le rapport récupéré, cliquez sur l'onglet *<u>Direct Routing</u>*.
+
+![image](/images/blog/teams/tuto/teams_debug_direct_routing_calls_sip_ladder_002.png)
+
+Sélectionnez l'appel que vous souhaitez analyser et cliquez sur *<u>SIP call flow</u>*.
+
+![image](/images/blog/teams/tuto/teams_debug_direct_routing_calls_sip_ladder_003.png)
+
+L'échelle va s'afficher avec les informations SIP de l'appel.
+
+![image](/images/blog/teams/tuto/teams_debug_direct_routing_calls_sip_ladder_004.png)
+
+En cliquant sur un des SIP events, vous pouvez consulter le contenu du paquet.
+
+![image](/images/blog/teams/tuto/teams_debug_direct_routing_calls_sip_ladder_005.png)
+
+Les données seront disponibles pour tous les appels de moins de 30 jours, avec un délai de 30 minutes avant d'avoir la possibilité de les analyser.
+
+---
+
+##### Conclusion
+L'échelle SIP pour analyser les appels Teams Direct Routing depuis le Microsoft Teams Admin Center va simplifier les analyses pour les administrateurs de la téléphonie Teams.
+
+---
+
+##### Sources
+[Microsoft Learn - Échelle  SIP Teams](https://learn.microsoft.com/fr-ca/microsoftteams/direct-routing-monitor-sip-ladder)
+
+---
+
+
+Avez-vous apprécié cet article ? Vous avez des questions, commentaires ou suggestions, n’hésitez pas à laisser un commentaire dans la section ci-dessous ou en m'envoyant un message depuis le formulaire de contact.
+
+N'oubliez pas de nous suivre et de partager cet article.
