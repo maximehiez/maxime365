@@ -12,7 +12,7 @@ draft: false
 ---
 
 ##### Introduction
-*Microsoft 365 Copilot* continues to revolutionize the way businesses work by integrating advanced artificial intelligence capabilities into everyday tools. One of the key features to get the most out of Copilot is the Copilot prompt gallery. This gallery provides a centralized space to discover, save, and share prompts available in Microsoft 365 Copilot apps and agents. Here's how to maximize its use.
+*Microsoft 365 Copilot* continues to revolutionize the way organizations work by integrating advanced artificial intelligence capabilities into everyday tools. One of the key features to get the most out of Copilot is the Copilot prompt gallery. This gallery provides a centralized space to discover, save, and share prompts available in Microsoft 365 Copilot apps and agents. Here's how to maximize its use.
 
 ---
 

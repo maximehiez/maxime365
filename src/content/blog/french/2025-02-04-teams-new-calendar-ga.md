@@ -40,7 +40,7 @@ Microsoft a récemment annoncé la disponibilité générale du nouveau calendri
 
 ![image](/images/blog/teams/teams_new_calendar_ga_002.png)
 
-<u>Note :</u> Vous pouvez revenir en arrière quand vous le souhaitez. Désactivez simplement l'interrupteur dans le nouveau calendrier et la version classique s'ouvrira automatiquement.
+<u>Note</u> : Vous pouvez revenir en arrière quand vous le souhaitez. Désactivez simplement l'interrupteur dans le nouveau calendrier et la version classique s'ouvrira automatiquement.
 
 ---
 

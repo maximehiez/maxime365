@@ -22,12 +22,12 @@ Microsoft recently announced a price increase for several Teams telephony licens
 - Teams Phone avec Calling Plan (Zone 1 - US) : 15$ to 17$ (204$ per year)
 - Teams Phone avec Calling Plan national et international : 32$ to 34$ (408$ per year)
 
-<u>Note :</u> Prices in USD before applicable taxes.
+<u>Note</u> : Prices in USD before applicable taxes.
 
 ---
 
 ##### Reasons for the increase
-- Continued innovations : Since its launch in 2017, Microsoft Teams Phone has introduced many advanced features, such as call management, integrated voicemail, and the ability to make calls from any device, etc. . These innovations have significantly improved the user experience and productivity of businesses.
+- Continued innovations : Since its launch in 2017, Microsoft Teams Phone has introduced many advanced features, such as call management, integrated voicemail, and the ability to make calls from any device, etc. . These innovations have significantly improved the user experience and productivity of organizations.
 - Increased value : The price increase reflects the added value that Microsoft has brought to Teams Phone, particularly in terms of flexibility, intelligence and reliability of calls. Users now benefit from a seamless integration with Microsoft Teams, enabling more effective collaboration and communication.
 - Market alignment : This pricing update also allows Microsoft to align with market prices for similar services, while continuing to offer a high-quality and secure telephony solution.
 

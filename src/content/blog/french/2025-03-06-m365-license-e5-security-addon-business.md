@@ -69,7 +69,7 @@ L'ajout de Microsoft 365 E5 Security à Microsoft 365 Business Premium permet au
 
 ![image](/images/blog/m365/m365_license_e5_security_addon_business_002.png)
 
-<u>Note :</u> Prix en USD avant les taxes applicables.
+<u>Note</u> : Prix en USD avant les taxes applicables.
 
 ---
 

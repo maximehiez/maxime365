@@ -22,7 +22,7 @@ Microsoft a récemment annoncé une augmentation des prix pour plusieurs licence
 - Teams Phone avec Calling Plan (Zone 1 - US) : 15$ à 17$ (204$ par an)
 - Teams Phone avec Calling Plan national et international : 32$ à 34$ (408$ par an)
 
-<u>Note :</u> Prix en USD avant les taxes applicables.
+<u>Note</u> : Prix en USD avant les taxes applicables.
 
 ---
 

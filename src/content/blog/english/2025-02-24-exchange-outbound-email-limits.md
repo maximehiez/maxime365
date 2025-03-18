@@ -45,7 +45,7 @@ External recipients are those whose email address domains are not accepted domai
 | 10000              | 324979         |
 | 100000             | 1590639        |
 
-<u>Note:</u> The calculation formula is 500 * (Licenses^0.7) + 9500
+<u>Note</u> : The calculation formula is 500 * (Licenses^0.7) + 9500
 
 ---
 

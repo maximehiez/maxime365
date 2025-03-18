@@ -12,7 +12,7 @@ draft: false
 ---
 
 ##### Introduction
-At *Microsoft Ignite 2024*, Microsoft highlighted why nearly 70% of Fortune 500 companies now use Microsoft 365 Copilot. This mass adoption reflects a growing trend in the industry : the rise of generative artificial intelligence and its tangible benefits for businesses.
+At *Microsoft Ignite 2024*, Microsoft highlighted why nearly 70% of Fortune 500 companies now use Microsoft 365 Copilot. This mass adoption reflects a growing trend in the industry : the rise of generative artificial intelligence and its tangible benefits for organizations.
 
 ---
 
@@ -48,7 +48,7 @@ Examples of success :
 ---
 
 ##### Conclusion
-The adoption of Microsoft 365 Copilot by nearly 70% of Fortune 500 companies demonstrates the significant impact of AI on productivity and innovation. By automating tasks, improving collaboration and facilitating access to information, Copilot is transforming the way businesses operate and prepare for the future.
+The adoption of Microsoft 365 Copilot by nearly 70% of Fortune 500 companies demonstrates the significant impact of AI on productivity and innovation. By automating tasks, improving collaboration and facilitating access to information, Copilot is transforming the way organizations operate and prepare for the future.
 
 ---
 

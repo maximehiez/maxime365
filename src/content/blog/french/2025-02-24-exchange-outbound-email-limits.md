@@ -45,7 +45,7 @@ Les destinataires externes sont ceux dont les domaines d'adresse courriels ne so
 | 10000              | 324979         |
 | 100000             | 1590639        |
 
-<u>Note :</u> La formule de calcul est 500 * (Licences^0.7) + 9500
+<u>Note</u> : La formule de calcul est 500 * (Licences^0.7) + 9500
 
 ---
 

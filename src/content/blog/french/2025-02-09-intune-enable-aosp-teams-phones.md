@@ -48,7 +48,7 @@ Créez une politique de restriction d'appareil en activant seulement l'option *B
 
 ![image](/images/blog/intune/tuto/intune_enable_aosp_teams_phones_002.png)
 
-<u>Note :</u> Seule cette option est disponible pour le moment, mais peut être que d'autres arriveront plus tard.
+<u>Note</u> : Seule cette option est disponible pour le moment, mais peut être que d'autres arriveront plus tard.
 
 ---
 
@@ -59,7 +59,7 @@ Créez une politique de conformité en activant seulement les options *Rooted de
 
 ![image](/images/blog/intune/tuto/intune_enable_aosp_teams_phones_003.png)
 
-<u>Note :</u> Seules ces options sont disponibles pour le moment, mais peut être que d'autres arriveront plus tard.
+<u>Note</u> : Seules ces options sont disponibles pour le moment, mais peut être que d'autres arriveront plus tard.
 
 ---
 

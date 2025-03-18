@@ -59,12 +59,12 @@ La politique de stockage pour les comptes OneDrive non licenciés a débuté le 
 - Les comptes OneDrive non licenciés réactivés seront facturés 0,60$ par Go en plus des frais de stockage de 0,05$ par Go par mois.
 
 <br/>
-<u>Exemple :</u> Une organisation a 100 comptes OneDrive non licenciés, chacun consommant 1 To pour un total de 100 To. Les 100 comptes sont automatiquement archivés. Si l'organisation doit réactiver un compte spécifique, les coûts suivants sont appliqués :
+<u>Exemple</u> : Une organisation a 100 comptes OneDrive non licenciés, chacun consommant 1 To pour un total de 100 To. Les 100 comptes sont automatiquement archivés. Si l'organisation doit réactiver un compte spécifique, les coûts suivants sont appliqués :
 
 - Frais de réactivation unique de 0,60$/Go pour 1 To, soit un total de 614,40$.
 - Frais de stockage mensuels de 0,05$/Go pour 100 To, pour un montant total de 5120$ par mois à partir de la réactivation.
 
-<u>Note :</u> Prix en USD avant les taxes applicables.
+<u>Note</u> : Prix en USD avant les taxes applicables.
 
 ---
 

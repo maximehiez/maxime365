@@ -14,7 +14,9 @@ draft: false
 ##### Definition
 A Caller ID Teams policy controls how the caller's name and phone number are displayed during Microsoft Teams calls. This policy allows administrators to manage and customize caller ID information for users within an organization.
 
-<u>Key features of the Caller ID policy :</u>
+---
+
+##### Key features of the Caller ID policy
 - Calling Line ID (CLID): The phone number that is presented as the caller's identity.
 - Calling Name (CNAM): The name that appears with the phone number, such as the company's name, a user's name, or "Anonymous".
 

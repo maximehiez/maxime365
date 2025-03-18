@@ -27,7 +27,7 @@ Microsoft recently announced the release of *Mistral Large 24.11*, an advanced l
 ---
 
 ##### Why upgrade to Mistral Large 24.11 ?
-With the launch of Mistral Large 24.11, businesses can :
+With the launch of Mistral Large 24.11, organizations can :
 - Improve the accuracy and efficiency of tasks involving large sets of unstructured data.
 - Easily integrate advanced AI capabilities into their existing workflows with native function calls and model JSON support.
 - Future-proof their AI initiatives with a model designed to scale across industries and use cases.
@@ -49,9 +49,9 @@ With the launch of Mistral Large 24.11, businesses can :
 ---
 
 ##### Conclusion
-Mistral Large 24.11 represents a major advancement in the field of artificial intelligence, delivering unprecedented reasoning, knowledge and coding capabilities. By adopting this model, businesses can transform their operations and stay at the forefront of technological innovation.
+Mistral Large 24.11 represents a major advancement in the field of artificial intelligence, delivering unprecedented reasoning, knowledge and coding capabilities. By adopting this model, organizations can transform their operations and stay at the forefront of technological innovation.
 
-<u>Note :</u> This is a French solution.
+<u>Note</u> : This is a French solution.
 
 ---
 
