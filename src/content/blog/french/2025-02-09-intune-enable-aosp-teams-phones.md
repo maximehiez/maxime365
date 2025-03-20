@@ -63,8 +63,8 @@ Créez une politique de conformité en activant seulement les options *Rooted de
 
 ---
 
-##### Étape 5 : Créer les règles d'accès conditionnelles
-Je ne couvrirai pas ces configurations dans cet article, mais vous devriez mettre en place des règles d'accès conditionnelles pour n'autoriser des connexions que depuis des appareils taggués conformes.
+##### Étape 5 : Créer les politiques d'accès conditionnels
+Je ne couvrirai pas ces configurations dans cet article, mais vous devriez mettre en place des politiques d'accès conditionnels pour n'autoriser des connexions que depuis des appareils taggués conformes.
 
 ---
 

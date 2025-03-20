@@ -1,32 +1,32 @@
 ---
-title: "Analyse d'impact des politiques d'accès conditionnel Entra"
+title: "Analyse d'impact des politiques d'accès conditionnels Entra"
 meta_title: ""
 description: ""
 date: 2025-03-17T10:00:00-05:00
 image: "/images/blog/entra/entra_conditional_access_policy_impact_thumbnail.png"
 categories: ["Entra ID"]
 author: "Maxime Hiez"
-tags: ["Accès conditionnel", "Sécurité"]
+tags: ["Accès conditionnels", "Sécurité"]
 draft: false
 ---
 ---
 
 ##### Introduction
-Les accès conditionnels dans Entra sont des politiques de sécurité qui permettent aux administrateurs de contrôler l'accès aux applications et aux ressources en fonction de conditions spécifiques. Ces conditions peuvent inclure des facteurs tels que l'emplacement de l'utilisateur, l'appareil utilisé, le niveau de risque de connexion, et bien plus encore. En utilisant des politiques d'accès conditionnel, les organisations peuvent renforcer leur sécurité en appliquant des contrôles d'accès adaptés aux risques identifiés.
+Les accès conditionnels dans Entra sont des politiques de sécurité qui permettent aux administrateurs de contrôler l'accès aux applications et aux ressources en fonction de conditions spécifiques. Ces conditions peuvent inclure des facteurs tels que l'emplacement de l'utilisateur, l'appareil utilisé, le niveau de risque de connexion, et bien plus encore. En utilisant des politiques d'accès conditionnels, les organisations peuvent renforcer leur sécurité en appliquant des contrôles d'accès adaptés aux risques identifiés.
 
-Une nouvelle fonctionnalité en version pré-publique est offerte par Microsoft : l'analyse d'impact des politiques d'accès conditionnel Entra. 
+Une nouvelle fonctionnalité en version pré-publique est offerte par Microsoft : l'analyse d'impact des politiques d'accès conditionnels Entra. 
 
 ---
 
-##### Impact des politiques d'accès conditionnel
-La fonctionnalité permettant d'analyser les impacts des politiques d'accès conditionnel permet aux administrateurs d'obtenir un aperçu des informations sur les impacts potentiels ou existants des politiques sur les connexions interactives au sein de l'organisation. Cette fonctionnalité permet d'analyser l'impact sur une période de 24 heures, 7 jours ou 1 mois.
+##### Impact des politiques d'accès conditionnels
+La fonctionnalité permettant d'analyser les impacts des politiques d'accès conditionnels permet aux administrateurs d'obtenir un aperçu des informations sur les impacts potentiels ou existants des politiques sur les connexions interactives au sein de l'organisation. Cette fonctionnalité permet d'analyser l'impact sur une période de 24 heures, 7 jours ou 1 mois.
 
 ![image](/images/blog/entra/entra_conditional_access_policy_impact_001.png)
 
 ---
 
 ##### Comment créer une polique sans impact ?
-Le mode *Report Only* est un état de politique qui permet aux administrateurs de tester la plupart des politiques d'accès conditionnel avant de les activer. Lorsqu'une politique est en mode *Report Only*, elle est évaluée lors de la connexion, mais les contrôles d'accès ne sont pas appliqués. Les résultats de cette évaluation sont enregistrés dans les journaux de connexion.
+Le mode *Report Only* est un état de politique qui permet aux administrateurs de tester la plupart des politiques d'accès conditionnels avant de les activer. Lorsqu'une politique est en mode *Report Only*, elle est évaluée lors de la connexion, mais les contrôles d'accès ne sont pas appliqués. Les résultats de cette évaluation sont enregistrés dans les journaux de connexion.
 
 Lorsqu'une politique est en mode *Report Only*, plusieurs résultats sont possibles :
 - <u>Report Only: Success</u> : Toutes les conditions de la politique configurée, les contrôles de concession non interactifs requis et les contrôles de session ont été satisfaits.
@@ -46,12 +46,12 @@ Lorsqu'une politique est en mode *Report Only*, plusieurs résultats sont possib
 ---
 
 ##### Conclusion
-Le mode *Report Only* et l'analyse d'impact pour les politiques d'accès conditionnel dans Microsoft Entra sont deux outils précieux pour les administrateurs, leur permettant de tester et d'analyser l'impact des politiques avant leur déploiement. En utilisant ces fonctionnalités, les organisations peuvent améliorer leur sécurité tout en minimisant les perturbations pour les utilisateurs.
+Le mode *Report Only* et l'analyse d'impact pour les politiques d'accès conditionnels dans Microsoft Entra sont deux outils précieux pour les administrateurs, leur permettant de tester et d'analyser l'impact des politiques avant leur déploiement. En utilisant ces fonctionnalités, les organisations peuvent améliorer leur sécurité tout en minimisant les perturbations pour les utilisateurs.
 
 ---
 
 ##### Sources
-[Microsoft Learn - Impact des politiques d'accès conditionnel](https://learn.microsoft.com/fr-ca/entra/identity/conditional-access/concept-conditional-access-report-only#policy-impact-preview)
+[Microsoft Learn - Impact des politiques d'accès conditionnels](https://learn.microsoft.com/fr-ca/entra/identity/conditional-access/concept-conditional-access-report-only#policy-impact-preview)
 
 ---
 
