@@ -66,7 +66,7 @@ Enhancements to Planner in Microsoft Teams channels simplify task management and
 ##### Sources
 [Microsoft - Techcommunity](https://techcommunity.microsoft.com/blog/plannerblog/enhancements-to-planner-in-microsoft-teams-channels/4374748)
 
-[Microsoft - Planner](https://adoption.microsoft.com/en-us/microsoft-planner)
+[Microsoft Adoption - Planner](https://adoption.microsoft.com/en-us/microsoft-planner)
 
 ---
 

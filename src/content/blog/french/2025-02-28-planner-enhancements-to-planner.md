@@ -66,7 +66,7 @@ Les améliorations apportées à Planner dans les canaux Microsoft Teams simplif
 ##### Sources
 [Microsoft - Techcommunity](https://techcommunity.microsoft.com/blog/plannerblog/enhancements-to-planner-in-microsoft-teams-channels/4374748)
 
-[Microsoft - Planner](https://adoption.microsoft.com/en-us/microsoft-planner)
+[Microsoft Adoption - Planner](https://adoption.microsoft.com/fr-fr/microsoft-planner)
 
 ---
 
