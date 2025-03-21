@@ -23,7 +23,7 @@ After October 14, 2025, Exchange Server 2016 and 2019 installations will continu
 - Bug fixes for issues discovered that may impact the stability and usability of the server.
 - Security fixes for vulnerabilities discovered that may make the server vulnerable to security breaches.
 - Timezone updates.
-- ...
+- Etc.
 
 ---
 

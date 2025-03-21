@@ -6,7 +6,7 @@ date: 2024-10-29T10:00:00-05:00
 image: "/images/blog/mtr/mtr_digital_signage_thumbnail.png"
 categories: ["MTR"]
 author: "Maxime Hiez"
-tags: ["Teams Rooms Pro", "MTRoW", "MTRoA", "Affichage dynamique", "Appspace", "XOGO"]
+tags: ["Teams Rooms", "MTRoW", "MTRoA", "Affichage dynamique", "Appspace", "XOGO"]
 draft: false
 ---
 ---

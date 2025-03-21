@@ -27,7 +27,7 @@ Microsoft recently announced a price increase for several Teams telephony licens
 ---
 
 ##### Reasons for the increase
-- Continued innovations : Since its launch in 2017, Microsoft Teams Phone has introduced many advanced features, such as call management, integrated voicemail, and the ability to make calls from any device, etc. . These innovations have significantly improved the user experience and productivity of organizations.
+- Continued innovations : Since its launch in 2017, Microsoft Teams Phone has introduced many advanced features, such as call management, integrated voicemail, and the ability to make calls from any device, etc. These innovations have significantly improved the user experience and productivity of organizations.
 - Increased value : The price increase reflects the added value that Microsoft has brought to Teams Phone, particularly in terms of flexibility, intelligence and reliability of calls. Users now benefit from a seamless integration with Microsoft Teams, enabling more effective collaboration and communication.
 - Market alignment : This pricing update also allows Microsoft to align with market prices for similar services, while continuing to offer a high-quality and secure telephony solution.
 

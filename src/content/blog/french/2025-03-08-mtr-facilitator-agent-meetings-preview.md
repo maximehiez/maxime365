@@ -6,7 +6,7 @@ date: 2025-03-08T10:00:00-05:00
 image: "/images/blog/mtr/mtr_facilitator_agent_meetings_preview_thumbnail.png"
 categories: ["MTR"]
 author: "Maxime Hiez"
-tags: ["Teams Rooms Pro", "MTRoW", "MTRoW", "Facilitator", "IA"]
+tags: ["Teams Rooms", "MTRoW", "MTRoA", "Facilitator", "IA"]
 draft: false
 ---
 ---

@@ -100,7 +100,7 @@ features:
       - "Multiple Microsoft 365 services (Entra, Intune, Exchange, ...)"
       - "Microsoft Azure landing zones"
       - "SBCs (Audiocodes, Ribbon) & ATAs"
-      - "..."
+      - "Etc."
     button:
       enable: false
       label: "Get Started Now"

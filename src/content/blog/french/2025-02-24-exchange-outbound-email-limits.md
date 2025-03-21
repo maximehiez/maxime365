@@ -32,7 +32,7 @@ Voici un aperçu des nouvelles limites :
 ---
 
 ##### Informations supplémentaires
-Les destinataires externes sont ceux dont les domaines d'adresse courriels ne sont pas des domaines acceptés dans le tenant. Les limites TERRL établissent des limites de base pour tous les tenant, mais des restrictions supplémentaires peuvent également survenir en raison de comportements d'envoi suspects, d'envoi de spam, de paiements frauduleux ou excessivement tardifs, etc <br/><br/>
+Les destinataires externes sont ceux dont les domaines d'adresse courriels ne sont pas des domaines acceptés dans le tenant. Les limites TERRL établissent des limites de base pour tous les tenant, mais des restrictions supplémentaires peuvent également survenir en raison de comportements d'envoi suspects, d'envoi de spam, de paiements frauduleux ou excessivement tardifs, etc.<br/><br/>
 
 | Nombre de licences | Limite d'envoi |
 | :----------------: | -------------: |

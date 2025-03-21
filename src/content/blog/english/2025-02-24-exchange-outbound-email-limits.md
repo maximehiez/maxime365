@@ -32,7 +32,7 @@ Here is an overview of the new limits :
 ---
 
 ##### Additional information
-External recipients are those whose email address domains are not accepted domains in the tenant. TERRL limits establish base limits for all tenants, but additional restrictions may also arise due to suspicious sending behavior, spamming, fraudulent or excessively late payments, etc. <br/><br/>
+External recipients are those whose email address domains are not accepted domains in the tenant. TERRL limits establish base limits for all tenants, but additional restrictions may also arise due to suspicious sending behavior, spamming, fraudulent or excessively late payments, etc.<br/><br/>
 
 | Number of licenses | Sending limit  |
 | :----------------: | -------------: |

@@ -6,7 +6,7 @@ date: 2025-01-29T10:00:00-05:00
 image: "/images/blog/mtr/mtr_multicamera_view_thumbnail.png"
 categories: ["MTR"]
 author: "Maxime Hiez"
-tags: ["Teams Rooms Pro", "MTRoW", "Multi-caméras"]
+tags: ["Teams Rooms", "MTRoW", "Multi-caméras"]
 draft: false
 ---
 ---
