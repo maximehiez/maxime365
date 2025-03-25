@@ -19,7 +19,7 @@ Le 31 août 2023, Microsoft a annoncé d'importants changements dans ses license
 ##### Contexte
 La Commission européenne a lancé une enquête formelle sur les pratiques de regroupement de Microsoft, en se concentrant sur la question de savoir si l'inclusion de Microsoft Teams dans ses licenses entravait la concurrence. Microsoft intègre depuis longtemps des outils de communication et de collaboration dans ses offres commerciales, depuis Office Communicator en 2007 jusqu'à Lync, Skype for Business et maintenant Microsoft Teams.
 
-Le 1er Octobre 2023, Microsoft a dissocié Teams des licences Microsoft 365 et Office 365 et a créé une nouvelle offre Teams autonome pour les entreprises.
+Le 1er Octobre 2023, Microsoft a dissocié Teams des licences Microsoft 365 et Office 365 et a créé une nouvelle offre Teams autonome pour les organisations.
 
 ---
 
@@ -82,6 +82,6 @@ Les mesures proactives prises par Microsoft pour répondre aux préoccupations d
 ---
 
 
-Avez-vous apprécié cet article ? Vous avez des questions, commentaires ou suggestions, n’hésitez pas à laisser un commentaire dans la section ci-dessous ou en m'envoyant un message depuis le formulaire de contact.
+Avez-vous apprécié cet article ? Vous avez des questions, commentaires ou suggestions, n’hésitez pas à m'envoyer un message depuis le formulaire de contact.
 
 N'oubliez pas de nous suivre et de partager cet article.

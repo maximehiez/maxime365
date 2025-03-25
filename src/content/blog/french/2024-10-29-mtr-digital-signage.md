@@ -19,7 +19,7 @@ Microsoft Teams continue d'innover pour offrir des solutions de communication et
 ##### Fonctionnalités de l'affichage dynamique
 Lorsque vos Teams Rooms ne sont pas utilisés pour des réunions ou des présentations, vous pouvez les configurer pour fonctionner en mode affichage dynamique, où les écrans de la salle affichent du contenu dynamique et des informations pertinentes en rotation.
 
-- Informations d'entreprise : Affichez des nouvelles de l'entreprise, des mises à jour organisationnelles, des événements à venir et des campagnes internes.
+- Informations d'entreprise : Affichez des nouvelles de l'organisations, des mises à jour organisationnelles, des événements à venir et des campagnes internes.
 - Guides et tutoriels : Proposez des guides pratiques et des tutoriels pour aider les employés à utiliser les outils et les ressources disponibles.
 - Personnalisation : Adaptez le contenu affiché en fonction des besoins et des préférences de votre organisation.
 
@@ -66,6 +66,6 @@ La fonctionnalité d'affichage dynamique dans Microsoft Teams Rooms représente 
 ---
 
 
-Avez-vous apprécié cet article ? Vous avez des questions, commentaires ou suggestions, n’hésitez pas à laisser un commentaire dans la section ci-dessous ou en m'envoyant un message depuis le formulaire de contact.
+Avez-vous apprécié cet article ? Vous avez des questions, commentaires ou suggestions, n’hésitez pas à m'envoyer un message depuis le formulaire de contact.
 
 N'oubliez pas de nous suivre et de partager cet article.

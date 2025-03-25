@@ -55,6 +55,6 @@ La fin du support pour Exchange Server 2016 et 2019 marque une étape importante
 ---
 
 
-Avez-vous apprécié cet article ? Vous avez des questions, commentaires ou suggestions, n’hésitez pas à laisser un commentaire dans la section ci-dessous ou en m'envoyant un message depuis le formulaire de contact.
+Avez-vous apprécié cet article ? Vous avez des questions, commentaires ou suggestions, n’hésitez pas à m'envoyer un message depuis le formulaire de contact.
 
 N'oubliez pas de nous suivre et de partager cet article.

@@ -6,7 +6,7 @@ image: "/images/avatar.png"
 draft: false
 ---
 
-Je suis consultant en environnement de travail moderne à Montréal et j'accompagne les entreprises dans leur transformation numérique en utilisant les produits de la suite Microsoft 365 (Teams, Entra, Intune, ...) et Azure.
+Je suis consultant en environnement de travail moderne à Montréal et j'accompagne les organisations dans leur transformation numérique en utilisant les produits de la suite Microsoft 365 (Teams, Entra, Intune, ...) et Azure.
 Passionné par les nouvelles technologies et l'optimisation des environnements de travail, je m'efforce de créer des solutions innovantes et efficaces pour améliorer la productivité et la collaboration au sein des équipes.
 
 ---
