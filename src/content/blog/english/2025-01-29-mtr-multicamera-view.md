@@ -61,6 +61,6 @@ Multi-camera view in Microsoft Teams Rooms on Windows is a powerful feature that
 ---
 
 
-Did you enjoy this post ? If you have any questions, comments or suggestions, please leave a comment in the section below or by sending me a message from the contact form.
+Did you enjoy this post ? If you have any questions, comments or suggestions, please feel free to send me a message from the contact form.
 
 Don't forget to follow us and share this post.

@@ -38,13 +38,53 @@ Connectez vous au Microsoft Teams Admin Center en ouvrant votre navigateur web s
 ---
 
 ##### Étape 2 : Créer les adresses d'urgence
-Dans le menu de gauche, cliquez sur *<u>Locations</u>*, puis sur *<u>XXXX</u>*.
+Dans le menu de gauche, cliquez sur *<u>Locations</u>*, puis sur *<u>Emergency addresses</u>*.
 
+Créez une adresse d'urgence de restriction d'appareil en inscrivant l'adresse et sans oublier le numéro ELIN.
+
+![image](/images/blog/teams/tuto/teams_how_emergency_calling_works_001.png)
 
 ---
 
+##### Étape 3 : Créer les conditions réseautiques
+Cliquez sur votre emplacement pour l'éditer, puis sur *<u>Subnets</u>*.
+
+Créez une adresse d'urgence de restriction d'appareil en inscrivant l'adresse et sans oublier le numéro ELIN.
+
+![image](/images/blog/teams/tuto/teams_how_emergency_calling_works_002.png)
+
+Vous pouvez aussi créer le sous-réseau via les commandes PowerShell suivantes :
+```powershell
+$subnet1 = "192.168.0.0"
+$description1 = "Montreal - LAN"
+$locationid1 = "a110053e-31e1-4f24-b2df-a2706eec53b8"
+
+Set-CsOnlineLisSubnet -Subnet $subnet1 -Description $description1 -LocationId $locationid1
+```
+
+<u>Note</u> : Si vous sous-réseaux se chevauchent sur plusieurs sites, la localisation ne pourra pas fonctionner. La solution est de les remplacer par les adresses mac des switchs / BSSID des bornes WiFi.
+
+---
+
+##### Étape 4 : Créer la topologie réseau
+Dans le menu de gauche, cliquez sur *<u>Locations</u>*, puis sur *<u>Network topology</u>*.
+
+![image](/images/blog/teams/tuto/teams_how_emergency_calling_works_003.png)
+
+Vous pouvez aussi créer la topologie via les commandes PowerShell suivantes :
+```powershell
+$subnet1 = "192.168.0.0"
+$description1 = "Montreal - LAN"
+$locationid1 = "a110053e-31e1-4f24-b2df-a2706eec53b8"
+
+Set-CsOnlineLisSubnet -Subnet $subnet1 -Description $description1 -LocationId $locationid1
+```
+
+---
+
+
 ##### Fonctionnement des appels d'urgence dynamiques
-Lorsqu'un utilisateur passe un appel d'urgence, le client Teams envoie une requête de localisation contenant ses informations de connectivité réseau au LIS. Si une correspondance est trouvée, le LIS renvoie une localisation au client Teams, qui inclut ces données dans l'appel d'urgence. Ces informations sont ensuite utilisées par le fournisseur de services d'urgence pour déterminer le PSAP approprié et router l'appel2.
+Lorsqu'un utilisateur passe un appel d'urgence, le client Teams envoie une requête de localisation contenant ses informations de connectivité réseau au LIS. Si une correspondance est trouvée, le LIS renvoie une localisation au client Teams, qui inclut ces données dans l'appel d'urgence. Ces informations sont ensuite utilisées par le fournisseur de services d'urgence pour déterminer le PSAP approprié et router l'appel.
 
 ---
 
