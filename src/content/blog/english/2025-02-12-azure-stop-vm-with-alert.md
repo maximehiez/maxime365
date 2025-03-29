@@ -34,7 +34,7 @@ Sign in to the Microsoft Azure portal by opening your web browser to https://por
 ---
 
 ##### Step 2 : Create an automation account
-In the search bar at the top of the screen, type *<u>Automation account</u>* and click the proposed menu.
+In the search bar at the top of the screen, type *<u>Automation account</u>*, and click the proposed menu.
 
 ![image](/images/blog/azure/tuto/azure_stop_vm_with_alert_001.png)
 

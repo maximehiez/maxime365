@@ -12,7 +12,7 @@ draft: false
 ---
 
 ##### Définition
-Une règle de Caller ID Teams permet de déterminer comment le nom et le numéro de téléphone de l’appelant sont affichés lors des appels effectués via Microsoft Teams. Cette stratégie permet aux administrateurs de gérer et de personnaliser les informations d’identification de l’appelant pour les utilisateurs au sein d’une organisation.
+Une règle de Caller ID Teams permet de déterminer comment le nom et le numéro de téléphone de l’appelant sont affichés lors des appels effectués via Microsoft Teams. Cette politique permet aux administrateurs de gérer et de personnaliser les informations d’identification de l’appelant pour les utilisateurs au sein d’une organisation.
 
 <u>Caractéristiques clés de la règle de Caller ID</u> :
 - ID de ligne d’appel (CLID) : Le numéro de téléphone qui est présenté comme l’identité de l’appelant.
@@ -66,12 +66,12 @@ New-CsCallingLineIdentity -Identity "DEMO - 514 456-7890" -CallingIDSubstitute R
 
 ---
 
-##### Étape 3 : Attribuer une stratégie d’identification de l’appelant aux utilisateurs
+##### Étape 3 : Attribuer une politique d’identification de l’appelant aux utilisateurs
 Une fois que votre règle est créée, il vous reste à l’attribuer aux utilisateurs qui nécessitent d'afficher ce numéro lors de leurs appels.
 
 Dans le menu de gauche, cliquez sur *<u>Users</u>* puis le sous-menu *<u>Manage users</u>*. La liste de tous les utilisateurs de votre organisation va s'afficher. Sélectionnez celui ou ceux à qui vous souhaitez activer la règle.
 
-Cliquez sur l'onglet *<u>Policies</u>* et éditer l'attribut *<u>Caller ID policy</u>* pour appliquer la règle de votre choix.
+Cliquez sur l'onglet *<u>Policies</u>*, et éditer l'attribut *<u>Caller ID policy</u>* pour appliquer la règle de votre choix.
 
 ![image](/images/teams/teams_callerid-002.png)
 

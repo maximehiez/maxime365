@@ -34,7 +34,7 @@ Connectez vous au portail Microsoft Azure en ouvrant votre navigateur web sur ht
 ---
 
 ##### Étape 2 : Créer un compte d'automatisation
-Dans la barre de recherche en haut de l'écran, écrivez sur *<u>Automation account</u>* et cliquez sur le menu proposé.
+Dans la barre de recherche en haut de l'écran, écrivez *<u>Automation account</u>*, et cliquez sur le menu proposé.
 
 ![image](/images/blog/azure/tuto/azure_stop_vm_with_alert_001.png)
 
@@ -61,7 +61,7 @@ Votre compte est maintenant créé.
 ---
 
 ##### Étape 3 : Créer une alerte pour détecter les VM inactives
-Dans la barre de recherche en haut de l'écran, écrivez sur *<u>Virtual machines</u>* et cliquez sur le menu proposé.<br/>
+Dans la barre de recherche en haut de l'écran, écrivez *<u>Virtual machines</u>*, et cliquez sur le menu proposé.<br/>
 Toutes vos machines virtuelle vont être affichées ; dans mon cas, il n'y en a qu'une seule (un PC Windows 10).
 
 Dans le menu de gauche, cliquez sur *<u>Monitoring</u>*, puis *<u>Alerts</u>* et *<u>Create custom alert rule</u>*.

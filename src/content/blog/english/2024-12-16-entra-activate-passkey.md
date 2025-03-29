@@ -43,7 +43,7 @@ Click *<u>Passkey (FIDO2)</u>* to activate the service and the users concerned.
 
 ![image](/images/blog/entra/tuto/entra_passkey_001.png)
 
-Click *<u>Configure</u>* and enable all options.
+Click *<u>Configure</u>*, and enable all options.
 
 ![image](/images/blog/entra/tuto/entra_passkey_002.png)
 

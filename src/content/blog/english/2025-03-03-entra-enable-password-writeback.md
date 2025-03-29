@@ -64,7 +64,7 @@ Sign in to the Microsoft Entra Admin Center by opening your web browser to https
 ##### Step 3 : Enable Password Writeback in Microsoft Entra ID
 In the left menu, click *<u>Identity</u>*, then *<u>Protection</u>*, and then *<u>Password reset</u>*.
 
-Click *<u>On-premises integration</u>* and enable all options.
+Click *<u>On-premises integration</u>*, and enable all options.
 
 ![image](/images/blog/entra/tuto/entra_enable_password_writeback_006.png)
 

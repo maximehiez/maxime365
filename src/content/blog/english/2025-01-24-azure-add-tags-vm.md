@@ -34,7 +34,7 @@ Sign in to the Microsoft Azure portal by opening your web browser to https://por
 ---
 
 ##### Step 2 : Add the tags
-In the search bar at the top of the screen, type *<u>Virtual machines</u>* and click the proposed menu.<br/>
+In the search bar at the top of the screen, type *<u>Virtual machines</u>*, and click the proposed menu.<br/>
 All your virtual machines will be displayed; in my case, there is only one (an SBC for telephony).
 
 ![image](/images/blog/azure/tuto/azure_add_tags_vm_001.png)
@@ -68,7 +68,7 @@ Get-AzVM -Name $VirtualMachineName | Select -ExpandProperty Tags
 ---
 
 ##### Where to see the result ?
-In the search bar at the top of the screen, type *<u>Subscritption</u>* and click the proposed menu. If you have several, click the subscription of your choice.<br/>
+In the search bar at the top of the screen, type *<u>Subscritption</u>*, and click the proposed menu. If you have several, click the subscription of your choice.<br/>
 It is possible to track the consumption of your resources in Azure using tags. Note that it is possible to put it on almost all Azure resources (public IPs, network interfaces of virtual machines, resource groups, etc.) which allows for more precise results.
 
 ![image](/images/blog/azure/tuto/azure_add_tags_vm_006.png)

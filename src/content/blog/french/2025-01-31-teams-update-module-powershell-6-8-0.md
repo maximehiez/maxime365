@@ -45,7 +45,7 @@ La version 6.8.0 contient les mises à jour suivantes :
 - [CHANGEMENT MAJEUR] Remplace *PayAsYouGoSendingUserLimit* par *CallingSpendUserLimit* dans *[New|Set]-CsTeamsCallingPolicy*.
 - Ajoute *ShowTeamsCallsInCallLog* à *[New|Set]-CsTeamsCallingPolicy*.
 - Publie les applets de commande *[Get|Set]-CsTeamsMultiTenantOrganizationConfiguration*.
-- Ajoute de nouvelles stratégies, à savoir *TeamsBYODAndDesksPolicy*, *TeamsAIPolicy*, *TeamsWorkLocationDetectionPolicy*, *TeamsMediaConnectivityPolicy*, *TeamsMeetingTemplatePermissionPolicy*, *TeamsVirtualAppointmentsPolicy*, *TeamsWorkLoadPolicy* à - la sortie de l'applet de commande *Get-CsOnlineUser*.
+- Ajoute de nouvelles politiques, à savoir *TeamsBYODAndDesksPolicy*, *TeamsAIPolicy*, *TeamsWorkLocationDetectionPolicy*, *TeamsMediaConnectivityPolicy*, *TeamsMeetingTemplatePermissionPolicy*, *TeamsVirtualAppointmentsPolicy*, *TeamsWorkLoadPolicy* à - la sortie de l'applet de commande *Get-CsOnlineUser*.
 - Publie des mises à jour majeures de l'applet de commande *Get-CsOnlineUser* pour les équipes Microsoft exploitées par 21Vianet avec des améliorations significatives des performances et de nouvelles capacités de filtrage des scénarios sans le paramètre *-Identity*.
 - Publie la cmdlet *Get-M365UnifiedCustomPendingApps* pour obtenir toutes les applications en attente personnalisées unifiées M365.
 - Publie la cmdlet *Update-M365UnifiedCustomPendingApp* pour publier ou rejeter une application en attente personnalisée unifiée M365.

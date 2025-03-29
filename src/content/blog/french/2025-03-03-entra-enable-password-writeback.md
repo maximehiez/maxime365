@@ -64,7 +64,7 @@ Connectez vous au Microsoft Entra Admin Center en ouvrant votre navigateur web s
 ##### Étape 3 : Activer Password Writeback dans Microsoft Entra ID
 Dans le menu de gauche, cliquez sur *<u>Identity</u>*, puis sur *<u>Protection</u>* et sur *<u>Password reset</u>*.
 
-Cliquez sur *<u>On-premises integration</u>* et et activez toutes les options.
+Cliquez sur *<u>On-premises integration</u>*, et et activez toutes les options.
 
 ![image](/images/blog/entra/tuto/entra_enable_password_writeback_006.png)
 
@@ -77,11 +77,11 @@ Démarrez la console de gestion des GPO (gpmc.msc) depuis le serveur Active Dire
 
 Cliquez sur *<u>Computer Configuration</u>*, puis sur *<u>Policies</u>*, sur *<u>Windows Settings</u>*, sur *<u>Security Settings</u>*, sur *<u>Account Policy</u>* et sur *<u>Password Policy</u>*.
 
-Éditez la stratégie *Minimum password age* et définissez-la sur *0 jour*.
+Éditez la politique *Minimum password age* et définissez-la sur *0 jour*.
 
 ![image](/images/blog/entra/tuto/entra_enable_password_writeback_007.png)
 
-Les stratégies de mot de passe dans l'environnement AD DS peuvent empêcher les réinitialisations de mot de passe. L'âge minimum du mot de passe doit être défini sur *0* pour que la réécriture des mots de passe soit fonctionnelle.
+Les politiques de mot de passe dans l'environnement AD DS peuvent empêcher les réinitialisations de mot de passe. L'âge minimum du mot de passe doit être défini sur *0* pour que la réécriture des mots de passe soit fonctionnelle.
 
 ---
 

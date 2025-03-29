@@ -82,7 +82,7 @@ Cochez la case *Allow Teams Rooms Pro Management Remote access* et entrez l'adre
 ##### Étape 5 : Créer le rôle
 Dans le menu de gauche, cliquez sur *<u>Settings</u>*, puis sur *<u>Roles</u>*.
 
-Cliquez sur *<u>Create role</u>* et donnez lui un nom et description.
+Cliquez sur *<u>Create role</u>*, et donnez lui un nom et description.
 
 ![image](/images/blog/mtr/tuto/mtr_enable_remote_access_via_portal_003.png)
 
