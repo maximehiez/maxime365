@@ -23,7 +23,7 @@ In an organization configured as hybrid with Microsoft cloud, user accounts are 
 **<u>Entra Connect</u>**
 - An *Entra Connect* instance connected with Entra ID.
 
-**<u>Administrator Role</u>**
+**<u>Administrator role</u>**
 - An account with the *Global Administrator* or *Hybrid Identity Administrator* role to access the Microsoft Entra Admin Center.
 - An account with the *Enterprise Administrator* role to access the Active Directory server.
 
