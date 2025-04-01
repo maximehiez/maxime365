@@ -6,7 +6,7 @@ date: 2025-03-17T10:00:00-05:00
 image: "/images/blog/entra/entra_conditional_access_policy_impact_thumbnail.png"
 categories: ["Entra ID"]
 author: "Maxime Hiez"
-tags: ["Conditional access", "Securite"]
+tags: ["Conditional access", "Security"]
 draft: false
 ---
 ---

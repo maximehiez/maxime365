@@ -1,0 +1,86 @@
+---
+title: "Comment analyser les appels entrants dans Teams avec les CQD"
+meta_title: ""
+description: ""
+date: 2025-03-31T10:00:00-05:00
+image: "/images/blog/teams/tuto/teams_cqd_historical_reports_thumbnail.png"
+categories: ["Teams", "Tutoriel"]
+author: "Maxime Hiez"
+tags: ["Téléphonie", "Direct Routing", "Calling Plan", "Operator Connect", "CQD", "Répondeur automatique", "File d'attente", "Power BI"]
+draft: false
+---
+---
+
+##### Définition
+Le *Teams Call Quality Dashboard* (*CQD)* de Microsoft est un outil puissant conçu pour aider les administrateurs à surveiller et à améliorer la qualité des appels téléphoniques au sein de leur organisation. CQD fournit des analyses détaillées et des rapports sur les performances des appels, permettant d'identifier et de résoudre rapidement les problèmes de qualité.
+
+---
+
+##### Prérequis
+**<u>Power BI Desktop</u>**
+- Power BI Desktop doit être installé.
+
+**<u>Rôle d’administrateur</u>**
+- Un compte avec le rôle *Administrateur Global*, *Administrateur Teams* ou *Teams Communications Administrator* pour charger les données.
+
+---
+
+##### Étape 1 : Técharger les modèles CQD pour Power BI
+Téléchargez les modèles CQD via https://www.microsoft.com/download/details.aspx?id=104623.
+
+---
+
+##### Étape 2 : Charger les données
+Ouvrez le fichier *.pbit* téléchargé en double cliquant dessus. Power BI devrait démarrer.
+
+Cliquez sur *<u>Compte professionnel</u>*.
+
+![image](/images/blog/teams/tuto/teams_cqd_historical_reports_001.png)
+
+Entrez votre compte administrateur Microsoft 365, puis cliquez sur *<u>Se connecter</u>*.
+
+![image](/images/blog/teams/tuto/teams_cqd_historical_reports_002.png)
+
+---
+
+##### Étape 3 : Accéder aux données
+**<u>Auto Attendant</u>**
+
+Le rapport présente l'analyse des appels entrants dans les répondeurs automatiques. Il est possible de filtrer sur quel compte de ressource de répondeur automatique vous souhaitez obtenir les données.
+
+![image](/images/blog/teams/tuto/teams_cqd_historical_reports_003.png)
+<br/>
+
+**<u>Call Queue</u>**
+
+Le rapport présente l'analyse des appels entrants dans les files d'attente. Il est possible de filtrer sur quel compte de ressource de file d'attente vous souhaitez obtenir les données.
+
+![image](/images/blog/teams/tuto/teams_cqd_historical_reports_004.png)
+<br/>
+
+**<u>Agent Timeline</u>**
+
+Le rapport présente l'analyse chronologique de la prise des appels par les agents dans les files d'attente. Il est possible de filtrer sur quel agent et sur quel compte de ressource de file d'attente vous souhaitez obtenir les données.
+
+![image](/images/blog/teams/tuto/teams_cqd_historical_reports_005.png)
+
+<Notice type="info">Les données seront disponibles pour tous les appels de 28 jours et moins, avec un délai de 30 minutes avant d’avoir la possibilité de les analyser.</Notice>
+
+---
+
+##### Conclusion
+Vous savez maintenant comment récupérer et analyser les appels entrants dans Teams via les modèles CQD pour Power BI.
+
+---
+
+##### Sources
+[Microsoft Learn - Rapports d’historique Teams](https://learn.microsoft.com/fr-ca/microsoftteams/aa-cq-cqd-historical-reports)
+
+[Microsoft Store - Power BI Desktop](https://aka.ms/pbidesktopstore)
+
+---
+
+
+Avez-vous apprécié cet article ? Vous avez des questions, commentaires ou suggestions, n’hésitez pas à m'envoyer un message depuis le formulaire de contact.
+
+N'oubliez pas de nous suivre et de partager cet article.
