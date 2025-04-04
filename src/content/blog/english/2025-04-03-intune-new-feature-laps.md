@@ -1,5 +1,5 @@
 ---
-title: "Comment créer un compte admin local Windows via Intune LAPS"
+title: "How to create a Windows local admin account via Intune LAPS"
 meta_title: ""
 description: ""
 date: 2025-04-03T10:00:00-05:00
