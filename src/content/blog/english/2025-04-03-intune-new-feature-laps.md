@@ -4,7 +4,7 @@ meta_title: ""
 description: ""
 date: 2025-04-03T10:00:00-05:00
 image: "/images/blog/intune/tuto/intune_new_feature_laps_thumbnail.png"
-categories: ["Intune", "Tutoriel"]
+categories: ["Intune", "Tutorial"]
 author: "Maxime Hiez"
 tags: ["LAPS", "Password", "Security"]
 draft: false
@@ -12,7 +12,7 @@ draft: false
 ---
 
 ##### Introduction
-I posted an article last February on how to replace the password of your MTR's local account using LAPS (Local Administrator Password Solution) in Intune. I concluded my article by explaining that it was possible to manage local administrator accounts on computers using the same solution. Microsoft has just released an update that allows you to create the account directly via LAPS without going through a configuration rule with a manual password.
+I wrote an article last February on how to replace the password of your MTR's local account using LAPS (Local Administrator Password Solution) in Intune. I concluded my article by explaining that it was possible to manage local administrator accounts on computers using the same solution. Microsoft has just released an update that allows you to create the account directly via LAPS without going through a configuration rule with a manual password.
 
 Check the February 2025 article [HERE](https://maxime.hiez.ca/en/blog/2025-02-15-intune-enable-laps).
 
