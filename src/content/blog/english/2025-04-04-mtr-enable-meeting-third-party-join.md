@@ -105,8 +105,6 @@ After a few minutes of waiting, the MTR should be able to process the invitation
 ##### What about an Android MTR room ?
 You can follow steps 1, 2, 3, and 4, but activating Zoom and Webex is done directly from the tablet.
 
-Click *<u>More</u>*, then *<u>Settings</u>* and enter your administrator credentials. Click *<u>Meetings</u>* and activate the Zoom and Webex providers.
-
 ---
 
 ##### Conclusion

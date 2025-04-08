@@ -6,13 +6,13 @@ date: 2025-02-24T10:00:00-05:00
 image: "/images/blog/exchange/exchange_outbound_email_limits_thumbnail.png"
 categories: ["Exchange"]
 author: "Maxime Hiez"
-tags: ["TERRL"]
+tags: ["TERRL", "Courriels"]
 draft: false
 ---
 ---
 
 ##### Introduction
-Microsoft a récemment annoncé l'introduction de nouvelles limites d'envoi de courriels sortants pour les tenants Exchange Online. Ces nouvelles limites, appelées *Tenant External Recipient Rate Limit* (*TERRL*), visent à prévenir l'utilisation abusive des ressources Exchange Online et à garantir la disponibilité du service pour tous les utilisateurs.
+Microsoft a récemment annoncé l'introduction de nouvelles limites d'envoi de courriels sortants pour les tenants *Exchange Online*. Ces nouvelles limites, appelées *Tenant External Recipient Rate Limit* (*TERRL*), visent à prévenir l'utilisation abusive des ressources Exchange Online et à garantir la disponibilité du service pour tous les utilisateurs.
 
 ---
 

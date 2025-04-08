@@ -104,8 +104,6 @@ Après plusieurs minutes d'attente, le MTR devrait être capable de traiter l'in
 ##### Et pour une salle MTR Android ?
 Vous pouvez suivre les étapes 1, 2, 3 et 4, mais l'activation de Zoom et Webex se fait directement depuis la tablette tactile.
 
-Cliquez sur *<u>More</u>*, puis sur *<u>Settings</u>* et entrez les identifiants administrateur. Cliquez sur *<u>Meetings</u>*, et activez les fournisseurs Zoom et Webex.
-
 ---
 
 ##### Conclusion
