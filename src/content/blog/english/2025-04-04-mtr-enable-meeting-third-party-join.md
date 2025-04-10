@@ -108,8 +108,8 @@ You can follow steps 1, 2, 3, and 4, but activating Zoom and Webex is done direc
 ---
 
 ##### Conclusion
-The Direct Guest Join feature for Microsoft Teams Rooms improves the flexibility and efficiency of collaborative work environments. By allowing users to join Zoom and Webex meetings directly from their MTR devices, this feature simplifies meeting management and strengthens team collaboration.<br/>
-Now you know how to enable Zoom and Webex meetings on MTR.
+The Direct Guest Join feature for Microsoft Teams Rooms improves the flexibility and efficiency of collaborative work environments. By allowing users to join Zoom and Webex meetings directly from their MTR devices, this feature simplifies meeting management and strengthens team collaboration.<br/><br/>
+You now know how to enable Zoom and Webex meetings on MTR.
 
 ---
 

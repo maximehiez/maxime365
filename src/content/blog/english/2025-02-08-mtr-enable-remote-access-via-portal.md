@@ -115,7 +115,7 @@ After a few moments of loading, the room should be visible.
 
 ##### Conclusion
 The Microsoft Teams Rooms Pro Management portal is an essential tool for administrators, providing detailed monitoring, incident management and remote access capabilities. By following the steps to obtain and configure the portal, administrators can ensure efficient and secure management of meeting rooms equipped with Microsoft Teams.<br/><br/>
-Now you know how to enable remote access to MTR via the Microsoft Teams Rooms Pro Management portal.
+You now know how to enable remote access to MTR via the Microsoft Teams Rooms Pro Management portal.
 
 ---
 

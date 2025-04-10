@@ -32,8 +32,7 @@ Microsoft Intune a récemment introduit (ENFIN !) une nouvelle fonctionnalité q
 ---
 
 ##### Conclusion
-Le blocage de la capture d'écran pour iOS et iPadOS avec Microsoft Intune est une avancée significative pour améliorer la sécurité des applications mobiles gérées. En mettant à jour les applications et en configurant les politiques de protection appropriées, les organisations peuvent assurer une protection robuste de leurs données sensibles.
-<br/><br/>
+Le blocage de la capture d'écran pour iOS et iPadOS avec Microsoft Intune est une avancée significative pour améliorer la sécurité des applications mobiles gérées. En mettant à jour les applications et en configurant les politiques de protection appropriées, les organisations peuvent assurer une protection robuste de leurs données sensibles.<br/><br/>
 Je ferai un tuto bientôt pour cette fonctionnalité avec les appareils Apple et Android.
 
 ---

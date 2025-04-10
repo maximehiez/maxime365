@@ -52,7 +52,7 @@ Using this attribute, searching the directory for a duplicate name will return o
 ---
 
 ##### Conclusion
-Now you know how to fix duplicates when searching by name or extension in the directory.
+You now know how to fix duplicates when searching by name or extension in the directory.
 
 ---
 

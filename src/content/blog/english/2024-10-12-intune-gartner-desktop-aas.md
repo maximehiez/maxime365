@@ -12,7 +12,7 @@ draft: false
 ---
 
 ##### Introduction
-Microsoft has been recognized as a Leader in Gartner's 2024 *Magic Quadrant* for Desktop as a Service (DaaS) for the second year in a row. This recognition highlights Microsoft's commitment to providing innovative and scalable solutions, with built-in security, in an ever-changing market landscape.
+Microsoft has been recognized as a Leader in Gartner's 2024 *Magic Quadrant* for *Desktop as a Service* (*DaaS*) for the second year in a row. This recognition highlights Microsoft's commitment to providing innovative and scalable solutions, with built-in security, in an ever-changing market landscape.
 
 DaaS, as defined by Gartner, is the provision of virtual desktops by a public cloud or service provider. Microsoft offers comprehensive solutions that allow organizations to choose between self-assembled and vendor-assembled services, meeting a wide range of organizational needs.
 

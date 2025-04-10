@@ -32,8 +32,7 @@ Microsoft Intune recently introduced (FINALLY !) a new feature that allows you t
 ---
 
 ##### Conclusion
-Screenshot blocking for iOS and iPadOS with Microsoft Intune is a significant step forward in improving the security of managed mobile apps. By updating applications and configuring the appropriate protection policies, organizations can ensure robust protection of their sensitive data.
-<br/><br/>
+Screenshot blocking for iOS and iPadOS with Microsoft Intune is a significant step forward in improving the security of managed mobile apps. By updating applications and configuring the appropriate protection policies, organizations can ensure robust protection of their sensitive data.<br/><br/>
 I will build a tutorial soon for this feature with Apple and Android devices.
 
 ---

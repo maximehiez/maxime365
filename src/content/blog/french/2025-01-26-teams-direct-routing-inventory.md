@@ -59,7 +59,8 @@ Le numéro est visible avec les autres numéros de type *Calling Plan* et *Opera
 ---
 
 ##### Conclusion
-La gestion des numéros de téléphone de type *Direct Routing* dans le Microsoft Teams Admin Center offre aux entreprises une solution flexible et intégrée pour leurs besoins d'inventaire. Les administrateurs peuvent facilement configurer et gérer ces numéros, améliorant ainsi l'efficacité et la productivité de leur organisation.
+La gestion des numéros de téléphone de type *Direct Routing* dans le Microsoft Teams Admin Center offre aux entreprises une solution flexible et intégrée pour leurs besoins d'inventaire. Les administrateurs peuvent facilement configurer et gérer ces numéros, améliorant ainsi l'efficacité et la productivité de leur organisation.<br/><br/>
+Vous savez maintenant comment inventorier vos numéros de téléphone dans Teams.
 
 ---
 

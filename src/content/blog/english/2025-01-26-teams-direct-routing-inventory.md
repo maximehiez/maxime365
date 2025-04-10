@@ -59,7 +59,8 @@ The phone number is visible with other *Calling Plan* and *Operator Connect* typ
 ---
 
 ##### Conclusion
-*Direct Routing* phone number management in the Microsoft Teams Admin Center provides organizations with a flexible, integrated solution for their inventory needs. Administrators can easily configure and manage these numbers, improving the efficiency and productivity of their organization.
+*Direct Routing* phone number management in the Microsoft Teams Admin Center provides organizations with a flexible, integrated solution for their inventory needs. Administrators can easily configure and manage these numbers, improving the efficiency and productivity of their organization.<br/><br/>
+You now know how to inventory your phone numbers in Teams.
 
 ---
 

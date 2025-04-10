@@ -12,7 +12,7 @@ draft: false
 ---
 
 ##### Introduction
-Microsoft Teams continues to innovate to offer increasingly effective communication and collaboration solutions. Among the recent features, digital signage in Teams Rooms extends organizational communication into your meeting spaces by displaying dynamic content and relevant information.
+Microsoft Teams continues to innovate to offer increasingly effective communication and collaboration solutions. Among the recent features, *digital signage* in Teams Rooms extends organizational communication into your meeting spaces by displaying dynamic content and relevant information.
 
 ---
 
@@ -42,7 +42,7 @@ To configure digital signage in your Teams Rooms, follow these steps :
 ---
 
 ##### Partnerships
-Microsoft has partnered with Appspace and XOGO to develop native integrations that support the automatic registration of Teams Rooms into their content management platform, streamlining device integration and management. As part of the integration, Appspace and XOGO will receive the names of rooms registered in their platform so you can correctly identify your Teams Rooms in their management portal. Once your rooms are registered, you can update and manage the signage content of your rooms directly from their respective content management platform.
+Microsoft has partnered with *Appspace* and *XOGO* to develop native integrations that support the automatic registration of Teams Rooms into their content management platform, streamlining device integration and management. As part of the integration, Appspace and XOGO will receive the names of rooms registered in their platform so you can correctly identify your Teams Rooms in their management portal. Once your rooms are registered, you can update and manage the signage content of your rooms directly from their respective content management platform.
 
 ![image](/images/blog/mtr/mtr_digital_signage_002.png)
 

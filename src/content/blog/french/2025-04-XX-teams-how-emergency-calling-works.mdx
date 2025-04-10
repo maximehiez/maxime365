@@ -2,11 +2,11 @@
 title: "Comment configurer et analyser les appels d'urgence dans Teams"
 meta_title: ""
 description: ""
-date: 2025-04-25T11:00:00-05:00
+date: 2025-04-25T10:00:00-05:00
 image: "/images/blog/teams/tuto/teams_how_emergency_calling_works_thumbnail.png"
 categories: ["Teams", "Tutoriel"]
 author: "Maxime Hiez"
-tags: ["Téléphonie", "Direct Routing", "Syslog", "Appel d'urgence", "911"]
+tags: ["Téléphonie", "Direct Routing", "Syslog", "SBC", "Appel d'urgence", "911"]
 draft: true
 ---
 ---
@@ -130,6 +130,25 @@ Set-CsTeamsEmergencyCallRoutingPolicy -Identity global -EmergencyNumbers @{add=$
 
 ---
 
+##### Étape 7 : Créer les politiques de notification (optionnel)
+Dans le menu de gauche, cliquez sur *<u>Voice</u>*, puis sur *<u>Emergency policies</u>*.
+
+Dans l'onglet *<u>Call routing policies</u>*, éditez la politique *Global (Org-wide default)* ou créez une nouvelle.
+
+![image](/images/blog/teams/tuto/teams_how_emergency_calling_works_006.png)
+
+Vous pouvez aussi créer l'IP publique via les commandes PowerShell suivantes :
+```powershell
+$emergencyusageCA = "CA-911"
+$enstringCA = "911"
+$dialmaskCA = "911;9911"
+$enCA=New-CsTeamsEmergencyNumber -EmergencyDialString $enstringCA -OnlinePSTNUsage $emergencyusageCA -EmergencyDialMask $dialmaskCA
+
+Set-CsTeamsEmergencyCallRoutingPolicy -Identity global -EmergencyNumbers @{add=$enCA} -AllowEnhancedEmergencyServices $true
+```
+
+---
+
 ##### Fonctionnement des appels d'urgence dynamiques
 Lorsqu'un utilisateur se connecte à son client Teams, une requête de localisation est générée pour déterminer si l'adresse IP publique utilisée est connue du tenant.
 - S'il n'y a pas de correspondance, le client Teams ne va pas plus loin dans sa tentative de localisation puisqu'il est automatiquement détecté comme étant hors du bureau.
@@ -138,22 +157,22 @@ Lorsqu'un utilisateur se connecte à son client Teams, une requête de localisat
 
 On peut voir que mon appel au 911 affiche mon emplacement. Il a été détecté puisque mon adresse IP publique et mon sous-réseau sont configurés correctement dans Teams.
 
-![image](/images/blog/teams/tuto/teams_how_emergency_calling_works_006.png)
+![image](/images/blog/teams/tuto/teams_how_emergency_calling_works_007.png)
 
 ---
 
 ##### Analyse de l'appel au 911
-On peut voir dans la trace *Syslog* de mon SBC *Audiocodes* que l'appel de mon extension *+1234* est tagguée avec la priorité *Emergency*, ce qui va permettre de prioriser l'appel. Si mon SBC a atteint sa capacité maximale, un appel sera coupé pour que l'appel d'urgence soit passé.
-
-![image](/images/blog/teams/tuto/teams_how_emergency_calling_works_007.png)
-
-En continuant de fouiller dans la trace d'appel, on retrouve les informations de localisation qui ont été configurées dans le Microsoft Teams Admin Center.
+On peut voir dans la capture *Syslog* de mon SBC *Audiocodes* que l'appel de mon extension *+1234* est tagguée avec la priorité *Emergency*, ce qui va permettre de prioriser l'appel. Si mon SBC a atteint sa capacité maximale, un appel sera coupé pour que l'appel d'urgence soit passé.
 
 ![image](/images/blog/teams/tuto/teams_how_emergency_calling_works_008.png)
 
-J'ai configuré une règle dans mon SBC pour remplacer l'entête FROM par la valeur de l'attribut ELIN envoyé par Teams, ce qui me permet d'afficher le numéro du site sur lequel je me trouve en ce moment et pas le numéro que j'affiche lors de mes appels normaux. L'agent du 911 qui répond à l'appel est donc capable de me localiser avec ce mécanisme.
+En continuant de fouiller dans la capture d'appel, on retrouve les informations de localisation qui ont été configurées dans le Microsoft Teams Admin Center.
 
 ![image](/images/blog/teams/tuto/teams_how_emergency_calling_works_009.png)
+
+J'ai configuré une règle dans mon SBC pour remplacer l'entête FROM par la valeur de l'attribut ELIN envoyé par Teams, ce qui me permet d'afficher le numéro du site sur lequel je me trouve en ce moment et pas le numéro que j'affiche lors de mes appels normaux. L'agent du 911 qui répond à l'appel est donc capable de me localiser avec ce mécanisme.
+
+![image](/images/blog/teams/tuto/teams_how_emergency_calling_works_010.png)
 
 Aux États-Unis, il n'est pas nécessaire de manipuler les appels avec le ELIN puisque les centrales 911 sont capables de lire les informations de localisation envoyées. Le Canada n'est pas encore équipée de cette fonctionnalité, mais elle devrait être disponible lorsque le *Next-generation 9-1-1* sera en service (en date de cet article, le CRTC annonce le 31 Mars 2027).
 <br/>

@@ -12,7 +12,7 @@ draft: false
 ---
 
 ##### Introduction
-Microsoft Teams continue d'innover pour offrir des solutions de communication et de collaboration toujours plus efficaces. Parmi les fonctionnalités récentes, l'affichage dynamique dans les Teams Rooms permet d'étendre la communication organisationnelle dans vos espaces de réunion, en affichant du contenu dynamique et des informations pertinentes.
+Microsoft Teams continue d'innover pour offrir des solutions de communication et de collaboration toujours plus efficaces. Parmi les fonctionnalités récentes, *l'affichage dynamique* dans les Teams Rooms permet d'étendre la communication organisationnelle dans vos espaces de réunion, en affichant du contenu dynamique et des informations pertinentes.
 
 ---
 
@@ -44,7 +44,7 @@ Pour configurer l'affichage dynamique dans vos Teams Rooms, suivez ces étapes :
 ---
 
 ##### Partenariats
-Microsoft s'est associé avec Appspace et XOGO pour développer des intégrations natives qui prennent en charge l'enregistrement automatique des Teams Rooms dans leur plateforme de gestion de contenu, rationalisant ainsi l'intégration et la gestion des appareils. Dans le cadre de l'intégration, Appspace et XOGO recevront les noms des salles enregistrées dans leur plateforme afin que vous puissiez identifier correctement vos Teams Rooms dans leur portail de gestion. Une fois vos salles enregistrées, vous pouvez mettre à jour et gérer le contenu de signalisation de vos salles directement à partir de leur plateforme de gestion de contenu respectif.
+Microsoft s'est associé avec *Appspace* et *XOGO* pour développer des intégrations natives qui prennent en charge l'enregistrement automatique des Teams Rooms dans leur plateforme de gestion de contenu, rationalisant ainsi l'intégration et la gestion des appareils. Dans le cadre de l'intégration, Appspace et XOGO recevront les noms des salles enregistrées dans leur plateforme afin que vous puissiez identifier correctement vos Teams Rooms dans leur portail de gestion. Une fois vos salles enregistrées, vous pouvez mettre à jour et gérer le contenu de signalisation de vos salles directement à partir de leur plateforme de gestion de contenu respectif.
 
 ![image](/images/blog/mtr/mtr_digital_signage_002.png)
 

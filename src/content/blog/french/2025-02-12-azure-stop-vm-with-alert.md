@@ -64,7 +64,7 @@ Votre compte est maintenant créé.
 Dans la barre de recherche en haut de l'écran, écrivez *<u>Virtual machines</u>*, et cliquez sur le menu proposé.<br/>
 Toutes vos machines virtuelle vont être affichées ; dans mon cas, il n'y en a qu'une seule (un PC Windows 10).
 
-Dans le menu de gauche, cliquez sur *<u>Monitoring</u>*, puis *<u>Alerts</u>* et *<u>Create custom alert rule</u>*.
+Dans le menu de gauche, cliquez sur *<u>Monitoring</u>*, puis sur *<u>Alerts</u>* et *<u>Create custom alert rule</u>*.
 
 ![image](/images/blog/azure/tuto/azure_stop_vm_with_alert_007.png)
 
