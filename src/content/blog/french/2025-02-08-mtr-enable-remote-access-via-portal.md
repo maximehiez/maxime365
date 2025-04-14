@@ -20,7 +20,7 @@ Le portail *Microsoft Teams Room Pro Management* est une solution puissante con�
 La fonctionnalité d'accès distant au MTR permet aux administrateurs de :
 - Dépanner à distance : Les administrateurs peuvent résoudre les problèmes de configuration matérielle et logicielle des consoles Teams Room sans avoir besoin d'être physiquement présents.
 - Sécurité et contrôle : L'accès distant est sécurisé et suit les politiques de confidentialité de Microsoft. Les administrateurs peuvent créer des rôles personnalisés avec des permissions spécifiques pour limiter ce que chaque utilisateur peut voir et modifier.
-- Activation de l'accès distant : Par défaut, l'accès distant n'est pas activé. Les administrateurs doivent l'activer en utilisant des permissions basées sur les rôles et en fournissant une adresse e-mail pour l'audit.
+- Activation de l'accès distant : Par défaut, l'accès distant n'est pas activé. Les administrateurs doivent l'activer en utilisant des permissions basées sur les rôles et en fournissant une adresse courriels pour l'audit.
 
 ---
 

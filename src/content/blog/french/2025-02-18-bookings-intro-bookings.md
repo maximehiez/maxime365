@@ -25,7 +25,7 @@ Microsoft Bookings est une application de gestion des rendez-vous qui fait parti
 
 ##### Avantages de Microsoft Bookings
 - Automatisation des réservations : Bookings automatise le processus de prise de rendez-vous, réduisant ainsi le besoin de coordination manuelle. Les clients peuvent voir les disponibilités en temps réel et réserver des créneaux qui leur conviennent.
-- Réduction des no-shows : En envoyant des rappels automatiques par e-mail et SMS, Bookings aide à réduire les absences et les annulations de dernière minute.
+- Réduction des no-shows : En envoyant des rappels automatiques par courriel et SMS, Bookings aide à réduire les absences et les annulations de dernière minute.
 - Personnalisation : Les organisations peuvent personnaliser leur page de réservation avec leur logo, leurs couleurs et des informations spécifiques sur les services proposés.
 - Intégration avec Microsoft 365 : Bookings s'intègre avec les calendriers Outlook, Teams et d'autres applications Microsoft 365, facilitant ainsi la gestion des rendez-vous et la coordination des équipes.
 
@@ -34,7 +34,7 @@ Microsoft Bookings est une application de gestion des rendez-vous qui fait parti
 ##### Fonctionnalités clés de Microsoft Bookings
 - Page de réservation en ligne : Créez une page de réservation en ligne où les clients peuvent choisir des services, voir les disponibilités et réserver des créneaux horaires. Cette page peut être intégrée à votre site web ou partagée via un lien direct.
 - Gestion des calendriers : Synchronisez les calendriers des membres de votre équipe avec Bookings pour éviter les conflits d'horaires et assurer une gestion fluide des rendez-vous.
-- Rappels automatiques : Configurez des rappels automatiques par e-mail et SMS pour informer les clients de leurs rendez-vous à venir et réduire les absences.
+- Rappels automatiques : Configurez des rappels automatiques par courriel et SMS pour informer les clients de leurs rendez-vous à venir et réduire les absences.
 - Rapports et analyses : Utilisez les outils de reporting intégrés pour suivre les tendances de réservation, analyser les performances et optimiser vos services.
 
 ---
@@ -53,7 +53,7 @@ Microsoft Bookings est une application de gestion des rendez-vous qui fait parti
 <br/><br/>
 
 **<u>Partager votre page de réservation</u>**
-- Intégrez la page de réservation à votre site web ou partagez le lien direct avec vos clients via e-mail ou réseaux sociaux.
+- Intégrez la page de réservation à votre site web ou partagez le lien direct avec vos clients via courriel ou réseaux sociaux.
 
 ---
 
