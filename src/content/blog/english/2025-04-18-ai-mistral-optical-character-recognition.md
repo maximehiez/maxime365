@@ -19,7 +19,7 @@ In March 2025, Mistral AI announced the launch of *Mistral OCR*, an optical char
 ##### Mistral OCR key features
 **Complex document understanding**
 
-Mistral OCR excels at understanding complex document elements, including interleaved images, mathematical expressions, tables, and advanced layouts such as LaTeX formatting. The model enables in-depth understanding of rich documents such as scientific articles with graphs, equations, and figures.
+Mistral OCR excels at understanding complex document elements, including interleaved images, mathematical expressions, tables, and advanced layouts such as *LaTeX* formatting. The model enables in-depth understanding of rich documents such as scientific articles with graphs, equations, and figures.
 <br/><br/>
 
 **<u>Multilingual and multimodal</u>**
@@ -65,7 +65,7 @@ Mistral OCR stands out for its ability to understand and transcribe complex docu
 ---
 
 ##### Using Mistral OCR
-Mistral OCR is available via the *mistral-ocr-latest* API, offering a processing capacity of 1,000 pages per dollar, and approximately twice as many pages per dollar in batches. The API is accessible today on the [Platform](http://console.mistral.ai) development suite.
+Mistral OCR is available via the *mistral-ocr-latest* API, offering a processing capacity of 1000 pages per dollar, and approximately twice as many pages per dollar in batches. The API is accessible today on the [Platform](http://console.mistral.ai) development suite.
 
 ---
 
