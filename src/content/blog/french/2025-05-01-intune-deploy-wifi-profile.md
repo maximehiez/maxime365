@@ -43,8 +43,8 @@ Recherchez *Wi-Fi* dans le filtre de noms.
 ![image](/images/blog/intune/tuto/intune_deploy_wifi_profile_001.png)
 
 Utilisez le profil de type :
-- *Basic* si votre connexion WiFi prend en charge des configurations simples telles que le SSID et le mot de passe.
-- *Enterprise* si votre connexion WiFi prend en charge des configurations complexes telles que l'authentification 802.1X.
+- *Basic* : Si votre connexion WiFi prend en charge des configurations simples telles que le SSID et le mot de passe.
+- *Enterprise* : Si votre connexion WiFi prend en charge des configurations complexes telles que l'authentification 802.1X.
 
 Entrez le nom de la connexion (*SSID*) ainsi que son type de sécurité et son mot de passe.
 

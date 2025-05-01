@@ -1,5 +1,5 @@
 ---
-title: "How to Create a WiFi Profile for Windows 10/11 via Intune"
+title: "How to create a WiFi profile for Windows 10/11 via Intune"
 meta_title: ""
 description: ""
 date: 2025-05-01T10:00:00-05:00
@@ -43,8 +43,8 @@ Search for *Wi-Fi* in the name filter.
 ![image](/images/blog/intune/tuto/intune_deploy_wifi_profile_001.png)
 
 Use the following profile types :
-- *Basic* if your WiFi connection supports simple configurations such as SSID and password.
-- *Enterprise* if your WiFi connection supports complex configurations such as 802.1X authentication.
+- *Basic* : If your WiFi connection supports simple configurations such as SSID and password.
+- *Enterprise* : If your WiFi connection supports complex configurations such as 802.1X authentication.
 
 Enter the connection name (*SSID*) as well as its security type and password.
 
