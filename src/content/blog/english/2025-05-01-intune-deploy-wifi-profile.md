@@ -4,10 +4,10 @@ meta_title: ""
 description: ""
 date: 2025-05-01T10:00:00-05:00
 image: "/images/blog/intune/tuto/intune_deploy_wifi_profile_thumbnail.png"
-categories: ["Intune", "Tutoriel"]
+categories: ["Intune", "Tutorial"]
 author: "Maxime Hiez"
 tags: ["WiFi"]
-draft: true
+draft: false
 ---
 ---
 

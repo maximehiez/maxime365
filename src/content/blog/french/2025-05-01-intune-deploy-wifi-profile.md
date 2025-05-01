@@ -7,7 +7,7 @@ image: "/images/blog/intune/tuto/intune_deploy_wifi_profile_thumbnail.png"
 categories: ["Intune", "Tutoriel"]
 author: "Maxime Hiez"
 tags: ["WiFi"]
-draft: true
+draft: false
 ---
 ---
 
