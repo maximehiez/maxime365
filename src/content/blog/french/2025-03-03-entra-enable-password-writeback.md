@@ -73,7 +73,7 @@ La fonctionnalité est maintenant activée sur Entra ID.
 ---
 
 ##### Étape 4 : Définir une politique d'âge minimum du mot de passe
-Démarrez la console de gestion des GPO (gpmc.msc) depuis le serveur Active Directory local.
+Démarrez la console de gestion des GPO (*gpmc.msc*) depuis le serveur Active Directory local.
 
 Cliquez sur *<u>Computer Configuration</u>*, puis sur *<u>Policies</u>*, sur *<u>Windows Settings</u>*, sur *<u>Security Settings</u>*, sur *<u>Account Policy</u>* et sur *<u>Password Policy</u>*.
 

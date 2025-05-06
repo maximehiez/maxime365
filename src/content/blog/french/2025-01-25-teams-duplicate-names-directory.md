@@ -19,9 +19,9 @@ Microsoft a récemment annoncé une optimisation importante pour la fonctionnali
 ##### Détails sur l'optimisation
 Le nouvel attribut *UserNameExtension* est ajouté aux répondeurs automatiques ; il s'agit d'une chaîne qui spécifie comment étendre les noms d'utilisateur dans la recherche en ajoutant des informations supplémentaires après le nom. Lorsque plusieurs résultats de recherche sont trouvés, cet attribut s'active et retourne la valeur d'un autre attribut choisi par l'administrateur.
 
-- None : valeur par défaut, le nom d'utilisateur est prononcé tel quel.
-- Office : ajoute l'information du bureau configuré dans Entra ID.
-- Department : ajoute l'information du service configuré dans Entra ID.
+- None : valeur par défaut, le nom d'utilisateur est prononcé tel quel
+- Office : ajoute l'information du bureau configuré dans Entra ID
+- Department : ajoute l'information du service configuré dans Entra ID
 
 ---
 

@@ -73,7 +73,7 @@ The feature is now enabled on Entra ID.
 ---
 
 ##### Step 4 : Set a Minimum Password Age Policy
-Start the GPO Management Console (gpmc.msc) from the local Active Directory server.
+Start the GPO Management Console (*gpmc.msc*) from the local Active Directory server.
 
 Click *<u>Computer Configuration</u>*, then *<u>Policies</u>*, then *<u>Windows Settings</u>*, then *<u>Security Settings</u>*, then *<u>Account Policy</u>*, and then *<u>Password Policy</u>*.
 

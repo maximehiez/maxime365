@@ -19,9 +19,9 @@ Microsoft recently announced a significant optimization for the search by name a
 ##### Optimization details
 The new *UserNameExtension* attribute is added to attendants ; this is a string that specifies how to expand usernames in search by adding additional information after the name. When multiple search results are found, this attribute activates and returns the value of another attribute chosen by the administrator.
 
-- None : default value, the username is pronounced as is.
-- Office : adds the information of the office configured in Entra ID.
-- Department : adds the information of the department configured in Entra ID.
+- None : default value, the username is pronounced as is
+- Office : adds the information of the office configured in Entra ID
+- Department : adds the information of the department configured in Entra ID
 
 ---
 
