@@ -12,7 +12,7 @@ draft: false
 ---
 
 ##### Définition
-Un compte de ressource dans Microsoft Teams est utilisé pour des fonctionnalités spécifiques comme les files d'attente d'appels ou les répondeurs automatiques.
+Un compte de ressource dans Microsoft Teams est utilisé pour des fonctionnalités spécifiques comme les files d'attente d'appels ou les standards automatiques.
 
 ---
 

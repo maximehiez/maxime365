@@ -6,18 +6,18 @@ date: 2025-01-25T10:00:00-05:00
 image: "/images/blog/teams/tuto/teams_duplicate_name_directory_thumbnail.png"
 categories: ["Teams", "Tutoriel"]
 author: "Maxime Hiez"
-tags: ["Téléphonie", "Direct Routing", "Calling Plan", "Operator Connect", "Annuaire", "Dial by name", "Dial by extension", "Répondeur automatique", "PowerShell"]
+tags: ["Téléphonie", "Direct Routing", "Calling Plan", "Operator Connect", "Annuaire", "Dial by name", "Dial by extension", "Standard automatique", "PowerShell"]
 draft: false
 ---
 ---
 
 ##### Introduction
-Microsoft a récemment annoncé une optimisation importante pour la fonctionnalité de recherche par nom et extension dans ses répondeurs automatiques Teams. Vous avez sûrement déjà eu ce cas où 2 employés partagent le même nom et prénom, rendant la recherche dans l'annaire un peu complexe. Cette nouvelle mise à jour permet d'ajouter un nouvel attribut de recherche, donnant ainsi plus de détails à l'appelant.
+Microsoft a récemment annoncé une optimisation importante pour la fonctionnalité de recherche par nom et extension dans ses standards automatiques Teams. Vous avez sûrement déjà eu ce cas où 2 employés partagent le même nom et prénom, rendant la recherche dans l'annaire un peu complexe. Cette nouvelle mise à jour permet d'ajouter un nouvel attribut de recherche, donnant ainsi plus de détails à l'appelant.
 
 ---
 
 ##### Détails sur l'optimisation
-Le nouvel attribut *UserNameExtension* est ajouté aux répondeurs automatiques ; il s'agit d'une chaîne qui spécifie comment étendre les noms d'utilisateur dans la recherche en ajoutant des informations supplémentaires après le nom. Lorsque plusieurs résultats de recherche sont trouvés, cet attribut s'active et retourne la valeur d'un autre attribut choisi par l'administrateur.
+Le nouvel attribut *UserNameExtension* est ajouté aux standards automatiques ; il s'agit d'une chaîne qui spécifie comment étendre les noms d'utilisateur dans la recherche en ajoutant des informations supplémentaires après le nom. Lorsque plusieurs résultats de recherche sont trouvés, cet attribut s'active et retourne la valeur d'un autre attribut choisi par l'administrateur.
 
 - None : valeur par défaut, le nom d'utilisateur est prononcé tel quel
 - Office : ajoute l'information du bureau configuré dans Entra ID

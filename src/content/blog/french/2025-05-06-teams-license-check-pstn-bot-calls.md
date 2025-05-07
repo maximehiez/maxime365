@@ -17,7 +17,7 @@ Microsoft a annoncé une mise à jour importante concernant la vérification de 
 ---
 
 ##### Contexte de la mise à jour
-Actuellement, les utilisateurs de Teams peuvent transférer des appels à d'autres utilisateurs de Teams, même s'ils ne disposent pas de la licence de téléphonie Teams. Cette flexibilité a créé une lacune dans le système, permettant aux bots d'initier des transferts d'appels (depuis les répondeurs automatiques par exemple) et des demandes d'ajout de participants.
+Actuellement, les utilisateurs de Teams peuvent transférer des appels à d'autres utilisateurs de Teams, même s'ils ne disposent pas de la licence de téléphonie Teams. Cette flexibilité a créé une lacune dans le système, permettant aux bots d'initier des transferts d'appels (depuis les standards automatiquess par exemple) et des demandes d'ajout de participants.
 
 ---
 
