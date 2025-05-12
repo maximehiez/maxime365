@@ -51,7 +51,7 @@ This new user blocking feature in Microsoft Teams provides an additional layer o
 ##### Sources
 [Microsoft Learn - Set-CsTeamsExternalAccessConfiguration](https://learn.microsoft.com/en-us/powershell/module/teams/set-csteamsexternalaccessconfiguration?view=teams-ps)
 
-[Microsoft 365 Roadmap - ID 411138](https://www.microsoft.com/en-us/microsoft-365/roadmap?filters=Microsoft%20Teams&searchterms=411138)
+[Microsoft 365 Roadmap - ID 411138](https://www.microsoft.com/en-us/microsoft-365/roadmap?id=411138)
 
 ---
 

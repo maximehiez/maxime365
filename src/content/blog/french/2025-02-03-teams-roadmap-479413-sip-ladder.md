@@ -24,7 +24,7 @@ Cette fonctionnalité sera disponible pour les administrateurs depuis le Microso
 ---
 
 ##### Sources
-[Microsoft 365 Roadmap - ID 479413](https://www.microsoft.com/fr-ca/microsoft-365/roadmap?filters=Microsoft%20Teams&searchterms=479413)
+[Microsoft 365 Roadmap - ID 479413](https://www.microsoft.com/fr-ca/microsoft-365/roadmap?id=479413)
 
 ---
 

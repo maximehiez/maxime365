@@ -24,7 +24,7 @@ Cette fonctionnalité sera disponible pour les utilisateurs ayant la fonctionnal
 ---
 
 ##### Sources
-[Microsoft 365 Roadmap - ID 470999](https://www.microsoft.com/fr-ca/microsoft-365/roadmap?filters=Microsoft%20Teams&searchterms=470999)
+[Microsoft 365 Roadmap - ID 470999](https://www.microsoft.com/fr-ca/microsoft-365/roadmap?id=470999)
 
 ---
 

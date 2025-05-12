@@ -24,7 +24,7 @@ This feature will be available to users with the Teams Calling Plan telephony fe
 ---
 
 ##### Sources
-[Microsoft 365 Roadmap - ID 470999](https://www.microsoft.com/en-us/microsoft-365/roadmap?filters=Microsoft%20Teams&searchterms=470999)
+[Microsoft 365 Roadmap - ID 470999](https://www.microsoft.com/en-us/microsoft-365/roadmap?id=470999)
 
 ---
 

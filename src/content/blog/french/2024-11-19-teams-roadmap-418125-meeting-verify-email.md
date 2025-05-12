@@ -48,7 +48,7 @@ La vérification par courriel pour les participants externes dans Teams Premium 
 ##### Sources
 [Microsoft - Techcommunity](https://techcommunity.microsoft.com/blog/microsoftteamsblog/enhance-meeting-security-with-teams-premium%E2%80%99s-email-verification-for-external-me/4292196)
 
-[Microsoft 365 Roadmap - ID 418125](https://www.microsoft.com/fr-ca/microsoft-365/roadmap?filters=Microsoft%20Teams&searchterms=418125)
+[Microsoft 365 Roadmap - ID 418125](https://www.microsoft.com/fr-ca/microsoft-365/roadmap?id=418125)
 
 ---
 

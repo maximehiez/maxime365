@@ -51,7 +51,7 @@ Cette nouvelle fonctionnalité de blocage d'utilisateur dans Microsoft Teams off
 ##### Sources
 [Microsoft Learn - Set-CsTeamsExternalAccessConfiguration](https://learn.microsoft.com/fr-ca/powershell/module/teams/set-csteamsexternalaccessconfiguration?view=teams-ps)
 
-[Microsoft 365 Roadmap - ID 411138](https://www.microsoft.com/fr-ca/microsoft-365/roadmap?filters=Microsoft%20Teams&searchterms=411138)
+[Microsoft 365 Roadmap - ID 411138](https://www.microsoft.com/fr-ca/microsoft-365/roadmap?id=411138)
 
 ---
 
