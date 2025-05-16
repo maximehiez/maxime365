@@ -6,7 +6,7 @@ date: 2025-04-07T10:00:00-05:00
 image: "/images/blog/defender/defender_new_approach_email_security_non_rfc_compliant_thumbnail.png"
 categories: ["Defender"]
 author: "Maxime Hiez"
-tags: ["Courriels", "Phishing", "Sécurité", RFC]
+tags: ["Courriels", "Phishing", "Sécurité", "RFC"]
 draft: false
 ---
 ---
