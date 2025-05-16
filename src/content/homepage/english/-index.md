@@ -11,6 +11,10 @@ banner:
   # Certifications
   cert_title: "My certifications"
   certifications:
+    - logo: "/images/certifications/microsoft-places-tech.png"
+      manufacturer: "Microsoft"
+      skill: " - Places"
+      description: "Technical Solutions Professional"
     - logo: "/images/certifications/microsoft-mtr-sales.png"
       manufacturer: "Microsoft"
       skill: " - Teams Rooms"
