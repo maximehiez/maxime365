@@ -42,7 +42,7 @@ These changes aim to strengthen the security and compliance of telephony service
 ---
 
 ##### Conclusion
-Enforcing license checks for PSTN-initiated bot calls in Microsoft Teams represents an important step in improving the security and compliance of telephony services. Administrators and developers should prepare for these changes by updating their applications and informing their customers. For more information on this update, you can read the full articles on Microsoft's blogs.
+Enforcing license checks for PSTN-initiated bot calls in Microsoft Teams represents an important step in improving the security and compliance of telephony services. Administrators and developers should prepare for these changes by updating their applications and informing their customers.
 
 ---
 

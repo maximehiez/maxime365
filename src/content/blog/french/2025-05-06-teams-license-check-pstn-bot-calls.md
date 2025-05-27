@@ -42,7 +42,7 @@ Ces changements visent à renforcer la sécurité et la conformité des services
 ---
 
 ##### Conclusion
-L'application des vérifications de licences pour les appels bot initiés via PSTN dans Microsoft Teams représente une étape importante pour améliorer la sécurité et la conformité des services de téléphonie. Les administrateurs et les développeurs doivent se préparer à ces changements en mettant à jour leurs applications et en informant leurs clients. Pour plus d'informations sur cette mise à jour, vous pouvez consulter les articles complets sur les blogs de Microsoft 
+L'application des vérifications de licences pour les appels bot initiés via PSTN dans Microsoft Teams représente une étape importante pour améliorer la sécurité et la conformité des services de téléphonie. Les administrateurs et les développeurs doivent se préparer à ces changements en mettant à jour leurs applications et en informant leurs clients.
 
 ---
 
