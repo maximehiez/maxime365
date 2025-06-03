@@ -47,6 +47,7 @@ In the left menu, click *<u>Devices</u>*, then *<u>Configuration</u>*.
 Create a device restriction policy by only enabling the *Block screen capture* option.
 
 ![image](/images/blog/intune/tuto/intune_enable_aosp_teams_phones_002.png)
+<br/>
 
 <u>Note</u> : Only this option is available at the moment, but perhaps others will arrive later.
 
@@ -58,6 +59,7 @@ In the left menu, click *<u>Devices</u>*, then *<u>Compliance</u>*.
 Create a compliance policy by only enabling the *Rooted devices* and *Require encryption of data storage on device* options. Optionally, you could set *Minimum OS version*.
 
 ![image](/images/blog/intune/tuto/intune_enable_aosp_teams_phones_003.png)
+<br/>
 
 <u>Note</u> : Only these options are available at the moment, but perhaps others will arrive later.
 

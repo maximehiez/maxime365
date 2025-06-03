@@ -68,6 +68,7 @@ Adding Microsoft 365 E5 Security to Microsoft 365 Business Premium gives SMBs :
 - Workflow automation : Simplify onboarding and user management processes with automated workflows.
 
 ![image](/images/blog/m365/m365_license_e5_security_addon_business_002.png)
+<br/>
 
 <u>Note</u> : Prices in USD before applicable taxes.
 

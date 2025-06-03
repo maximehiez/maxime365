@@ -39,6 +39,7 @@ Microsoft recently announced the general availability of the new unified calenda
 2. Click the *New Calendar* button in the upper right corner of the calendar surface, and the new calendar should load in a few seconds.
 
 ![image](/images/blog/teams/teams_new_calendar_ga_002.png)
+<br/>
 
 <u>Note</u> : You can rollback whenever you want. Simply turn off the switch in the new calendar and the classic version will open automatically.
 

@@ -62,6 +62,7 @@ The storage policy for unlicensed OneDrive accounts began on January 27, 2025, a
 <u>Example</u> : An organization has 100 unlicensed OneDrive accounts, each consuming 1 TB for a total of 100 TB. All 100 accounts are automatically archived. If the organization needs to reactivate a specific account, the following costs apply :
 
 - One-time reactivation fee of 0.60$/GB for 1 TB, for a total of 614.40$. - Monthly storage fee of 0.05$/GB for 100TB, for a total of 5120$ per month from reactivation.
+<br/>
 
 <u>Note</u> : Prices in USD before applicable taxes.
 

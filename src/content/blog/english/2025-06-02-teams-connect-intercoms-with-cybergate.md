@@ -1,0 +1,71 @@
+---
+title: "CyberGate connects your intercoms in Teams"
+meta_title: ""
+description: ""
+date: 2025-06-02T10:00:00-05:00
+image: "/images/blog/teams/teams_connect_intercoms_with_cybergate_thumbnail.png"
+categories: ["Teams"]
+author: "Maxime Hiez"
+tags: ["Telephony", "Intercom", "Paging", "CyberGate"]
+draft: false
+---
+---
+
+##### Introduction
+In a world where unified communications have become essential, *CyberGate* presents an innovative solution for integrating your IP devices directly into Microsoft Teams. Developed by the Dutch company *CyberTwice*, CyberGate is a cloud-based solution hosted on Microsoft Azure, allowing organizations to connect SIP video intercoms, IP paging systems, and IP cameras to Teams without the need for additional hardware or software.
+
+---
+
+##### Key features
+- Two-way audio and live video : Enables real-time communication between IP devices and Teams users.
+- Remote door release : Users can unlock doors or gates directly from the Teams interface.
+- Broad compatibility : Works with various IP devices, including SIP video intercoms, IP paging systems, and SIP-enabled IP cameras.
+- No additional infrastructure required : Eliminates the need for session block controllers (SBCs) or other third-party equipment.
+- Enhanced security : Hosted on Microsoft Azure, ensuring centralized access management via Teams.
+
+![image](/images/blog/teams/teams_connect_intercoms_with_cybergate_001.png)
+
+---
+
+##### Integration with third-party devices
+CyberGate offers compatibility with several brands of IP devices:
+
+![image](/images/blog/teams/teams_connect_intercoms_with_cybergate_002.png)
+
+---
+
+##### Pricing and vvailability
+CyberGate is available through the [Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=cybergate) and [Microsoft AppSource](https://appsource.microsoft.com/en-us/marketplace/apps?search=cybergate&page=1&product=web-apps), with a one-month free trial. Pricing is as follows :
+- Monthly : 25.95$ per device
+- Annual : 280$ per device, a 10% discount
+- 2 years : 273$ per device, a 12.5% ​​discount
+- 3 years : 265$ per device, a 15% discount
+
+![image](/images/blog/teams/teams_connect_intercoms_with_cybergate_003.png)
+
+Licensing fees are charged per connected device (intercom, paging system, camera), regardless of the number of Teams users in your organization.
+<br/>
+
+<u>Note</u> : Prices in USD before applicable taxes.
+
+---
+
+##### Introducing CyberGate
+<Youtube client:load id="gVMX-xgorZU" title="CyberGate recording" />
+
+---
+
+##### Conclusion
+CyberGate represents an effective solution for businesses looking to integrate their IP devices with Microsoft Teams without added complexity. By eliminating the need for third-party hardware or software and offering seamless integration with well-known brands, CyberGate facilitates communications and security management within modern organizations.
+
+---
+
+##### Sources
+[CyberTwice - CyberGate](https://www.cybertwice.com/cybergate)
+
+---
+
+
+Did you enjoy this post ? If you have any questions, comments or suggestions, please feel free to send me a message from the contact form.
+
+Don't forget to follow us and share this post.

@@ -68,6 +68,7 @@ L'ajout de Microsoft 365 E5 Security à Microsoft 365 Business Premium permet au
 - Automatisation des workflows : Simplification des processus d'intégration et de gestion des utilisateurs grâce à des workflows automatisés.
 
 ![image](/images/blog/m365/m365_license_e5_security_addon_business_002.png)
+<br/>
 
 <u>Note</u> : Prix en USD avant les taxes applicables.
 

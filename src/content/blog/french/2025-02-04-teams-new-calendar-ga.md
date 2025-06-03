@@ -39,6 +39,7 @@ Microsoft a récemment annoncé la disponibilité générale du nouveau calendri
 2. Cliquez sur le bouton *Nouveau calendrier* dans le coin supérieur droit de la surface du calendrier, et le nouveau calendrier devrait se charger en quelques secondes.
 
 ![image](/images/blog/teams/teams_new_calendar_ga_002.png)
+<br/>
 
 <u>Note</u> : Vous pouvez revenir en arrière quand vous le souhaitez. Désactivez simplement l'interrupteur dans le nouveau calendrier et la version classique s'ouvrira automatiquement.
 
