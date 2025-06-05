@@ -17,17 +17,17 @@ Microsoft recently released the new version 7.0.0 of the PowerShell module for M
 ---
 
 ##### Installation
-Vous pouvez vérifier la version du module installé via la commande PowerShell suivante :
+You can check the version of the installed module via the following PowerShell command :
 ```powershell
 Get-InstalledModule -Name "MicrosoftTeams"
 ```
 
-Vous pouvez installer le module MicrosoftTeams via la commande PowerShell suivante :
+You can install the MicrosoftTeams module via the following PowerShell command :
 ```powershell
 Install-Module -Name MicrosoftTeams
 ```
 
-Vous pouvez mettre à jour le module MicrosoftTeams via la commande PowerShell suivante :
+You can update the MicrosoftTeams module via the following PowerShell command :
 ```powershell
 Update-Module MicrosoftTeams
 ```
