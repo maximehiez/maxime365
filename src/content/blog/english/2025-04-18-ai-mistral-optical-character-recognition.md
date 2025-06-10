@@ -6,7 +6,7 @@ date: 2025-04-18T10:00:00-05:00
 image: "/images/blog/ai/ai_mistral_optical_character_recognition_thumbnail.png"
 categories: ["Mistral AI"]
 author: "Maxime Hiez"
-tags: ["IA", "OCR", "API"]
+tags: ["AI", "OCR", "API"]
 draft: false
 ---
 ---

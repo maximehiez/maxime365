@@ -1,5 +1,5 @@
 ---
-title: "Le Chat by Mistral AI : Your Personal AI Assistant"
+title: "Le Chat by Mistral AI, your personal AI assistant"
 meta_title: ""
 description: ""
 date: 2025-02-10T10:00:00-05:00
