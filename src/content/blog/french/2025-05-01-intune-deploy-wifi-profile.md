@@ -72,7 +72,7 @@ L'ordinateur a reçu la configuration et est automatiquement connecté au WiFi.
 ---
 
 ##### Conclusion
-Vous savez maintenant comment créer un profil WiFi sur un ordinateeur Windows via Intune.
+Vous savez maintenant comment créer un profil WiFi sur un ordinateur Windows via Intune.
 
 ---
 

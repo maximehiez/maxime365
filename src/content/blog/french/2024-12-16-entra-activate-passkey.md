@@ -39,7 +39,7 @@ Connectez vous au Microsoft Entra Admin Center en ouvrant votre navigateur web s
 ##### Étape 2 : Activer Microsoft 365 Passkey
 Dans le menu de gauche, cliquez sur *<u>Protection</u>*, puis sur *<u>Authentication methods</u>*.
 
-Cliquez sur *<u>Passkey (FIDO2)</u>* pour activer le service et les usagers concernés.
+Cliquez sur *<u>Passkey (FIDO2)</u>* pour activer le service et les utilisateurs concernés.
 
 ![image](/images/blog/entra/tuto/entra_passkey_001.png)
 
