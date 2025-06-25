@@ -7,7 +7,7 @@ image: "/images/blog/teams/tuto/teams_how_emergency_calling_works_thumbnail.png"
 categories: ["Teams", "Tutoriel"]
 author: "Maxime Hiez"
 tags: ["Téléphonie", "Direct Routing", "Syslog", "SBC", "Appel d'urgence", "911"]
-draft: true
+draft: false
 ---
 ---
 
@@ -40,7 +40,7 @@ Connectez vous au Microsoft Teams Admin Center en ouvrant votre navigateur web s
 ##### Étape 2 : Créer les adresses d'urgence
 Dans le menu de gauche, cliquez sur *<u>Locations</u>*, puis sur *<u>Emergency addresses</u>*.
 
-Créez une adresse d'urgence de restriction d'appareil en inscrivant l'adresse, sans oublier le numéro ELIN ; même s'il est indiqué comme optionnel, il est important de le mettre.
+Créez une adresse d'urgence en inscrivant l'adresse, sans oublier le numéro ELIN ; même s'il est indiqué comme optionnel, il est important de le mettre.
 
 ![image](/images/blog/teams/tuto/teams_how_emergency_calling_works_001.png)
 
@@ -64,7 +64,7 @@ $locationid1 = "a110053e-31e1-4f24-b2df-a2706eec53b8"
 Set-CsOnlineLisSubnet -Subnet $subnet1 -Description $description1 -LocationId $locationid1
 ```
 
-<Notice type="tip">Si vous sous-réseaux se chevauchent sur plusieurs sites, la localisation ne pourra pas fonctionner. La solution est de les remplacer par les adresses mac des switchs / BSSID des bornes WiFi.</Notice>
+<Notice type="tip">Si vos sous-réseaux se chevauchent sur plusieurs sites, la localisation ne pourra pas fonctionner. La solution est de les remplacer par les adresses mac des switchs / BSSID des bornes WiFi.</Notice>
 
 ---
 
@@ -89,7 +89,7 @@ New-CsTenantNetworksubnet -Identity $subnet1 -MaskBits $mask1 -Description $desc
 Set-CsTenantNetworkSite -Identity $site1.Identity
 ```
 
-<Notice type="tip">Optionnellement, vous pouvez attachez des politiques pour envoyer des notifications à des groupes de personnes dans Teams.</Notice>
+<Notice type="tip">Optionnellement, vous pouvez attachez des politiques pour envoyer des notifications à des groupes de personnes dans Teams (*emergency calling policy*).</Notice>
 
 ---
 
@@ -100,7 +100,7 @@ Dans l'onglet *<u>Trusted IPs</u>*, créez toutes vos IP publiques / pools d'IP 
 
 ![image](/images/blog/teams/tuto/teams_how_emergency_calling_works_004.png)
 
-Vous pouvez aussi créer l'IP publique via les commandes PowerShell suivantes :
+Vous pouvez aussi créer les IP publiques via les commandes PowerShell suivantes :
 ```powershell
 $publicip1 = "72.16.17.18"
 $publicmask1 = "27"
@@ -118,14 +118,14 @@ Dans l'onglet *<u>Call routing policies</u>*, éditez la politique *Global (Org-
 
 ![image](/images/blog/teams/tuto/teams_how_emergency_calling_works_005.png)
 
-Vous pouvez aussi créer l'IP publique via les commandes PowerShell suivantes :
+Vous pouvez aussi créer la politique de routage d'appels d'urgence via les commandes PowerShell suivantes :
 ```powershell
-$emergencyusageCA = "CA-911"
-$enstringCA = "911"
-$dialmaskCA = "911;9911"
-$enCA=New-CsTeamsEmergencyNumber -EmergencyDialString $enstringCA -OnlinePSTNUsage $emergencyusageCA -EmergencyDialMask $dialmaskCA
+$emergencyusage = "CA-911"
+$emergencystring = "911"
+$dialmask = "911;9911"
+$CA=New-CsTeamsEmergencyNumber -EmergencyDialString $emergencystring -OnlinePSTNUsage $emergencyusage -EmergencyDialMask $dialmask
 
-Set-CsTeamsEmergencyCallRoutingPolicy -Identity global -EmergencyNumbers @{add=$enCA} -AllowEnhancedEmergencyServices $true
+Set-CsTeamsEmergencyCallRoutingPolicy -Identity global -EmergencyNumbers @{add=$CA} -AllowEnhancedEmergencyServices $true
 ```
 
 ---
@@ -133,29 +133,30 @@ Set-CsTeamsEmergencyCallRoutingPolicy -Identity global -EmergencyNumbers @{add=$
 ##### Étape 7 : Créer les politiques de notification (optionnel)
 Dans le menu de gauche, cliquez sur *<u>Voice</u>*, puis sur *<u>Emergency policies</u>*.
 
-Dans l'onglet *<u>Call routing policies</u>*, éditez la politique *Global (Org-wide default)* ou créez une nouvelle.
+Dans l'onglet *<u>Calling policies</u>*, éditez la politique *Global (Org-wide default)* ou créez une nouvelle.
 
 ![image](/images/blog/teams/tuto/teams_how_emergency_calling_works_006.png)
 
-Vous pouvez aussi créer l'IP publique via les commandes PowerShell suivantes :
+Vous pouvez aussi créer la politique de notification via les commandes PowerShell suivantes :
 ```powershell
-$emergencyusageCA = "CA-911"
-$enstringCA = "911"
-$dialmaskCA = "911;9911"
-$enCA=New-CsTeamsEmergencyNumber -EmergencyDialString $enstringCA -OnlinePSTNUsage $emergencyusageCA -EmergencyDialMask $dialmaskCA
+$emergencystring1 = "+911"
+$emergencystring2 = "911"
+$emergencygroup = "911.MaximeLab@hiez.ca"
+$notifs1 = New-CsTeamsEmergencyCallingExtendedNotification -EmergencyDialString $emergencystring1 -NotificationGroup $emergencygroup -NotificationMode NotificationOnly
+$notifs2 = New-CsTeamsEmergencyCallingExtendedNotification -EmergencyDialString $emergencystring2 -NotificationGroup $emergencygroup -NotificationMode NotificationOnly
 
-Set-CsTeamsEmergencyCallRoutingPolicy -Identity global -EmergencyNumbers @{add=$enCA} -AllowEnhancedEmergencyServices $true
+New-CsTeamsEmergencyCallingPolicy -Identity global -ExternalLocationLookupMode Disabled -ExtendedNotifications @{add=$notifs1,$notifs2}
 ```
 
 ---
 
-##### Fonctionnement des appels d'urgence dynamiques
+##### Comment fonctionnent les appels d'urgence dynamiques
 Lorsqu'un utilisateur se connecte à son client Teams, une requête de localisation est générée pour déterminer si l'adresse IP publique utilisée est connue du tenant.
 - S'il n'y a pas de correspondance, le client Teams ne va pas plus loin dans sa tentative de localisation puisqu'il est automatiquement détecté comme étant hors du bureau.
 - Lorsqu'il y a correspondance, alors l'adresse IP privée est reconnue et permet d'établir la localisation du site sur lequel il se trouve. Les données de localisation (adresse, ELIN, ...) sont incluses dans l'appel d'urgence.
 <br/>
 
-On peut voir que mon appel au 911 affiche mon emplacement. Il a été détecté puisque mon adresse IP publique et mon sous-réseau sont configurés correctement dans Teams.
+On peut voir que mon appel au 911 affiche mon emplacement. Il a été détecté puisque mon adresse IP publique et mon sous-réseau sont correctement configurés dans Teams.
 
 ![image](/images/blog/teams/tuto/teams_how_emergency_calling_works_007.png)
 
@@ -170,11 +171,11 @@ En continuant de fouiller dans la capture d'appel, on retrouve les informations 
 
 ![image](/images/blog/teams/tuto/teams_how_emergency_calling_works_009.png)
 
-J'ai configuré une règle dans mon SBC pour remplacer l'entête FROM par la valeur de l'attribut ELIN envoyé par Teams, ce qui me permet d'afficher le numéro du site sur lequel je me trouve en ce moment et pas le numéro que j'affiche lors de mes appels normaux. L'agent du 911 qui répond à l'appel est donc capable de me localiser avec ce mécanisme.
+J'ai configuré une règle dans mon SBC pour remplacer l'entête *FROM* par la valeur de l'attribut *ELIN* envoyé par Teams, ce qui me permet d'afficher le numéro du site sur lequel je me trouve en ce moment et pas le numéro que j'affiche lors de mes appels réguliers. L'agent du 911 qui répond à l'appel est donc capable de me localiser avec ce mécanisme.
 
 ![image](/images/blog/teams/tuto/teams_how_emergency_calling_works_010.png)
 
-Aux États-Unis, il n'est pas nécessaire de manipuler les appels avec le ELIN puisque les centrales 911 sont capables de lire les informations de localisation envoyées. Le Canada n'est pas encore équipée de cette fonctionnalité, mais elle devrait être disponible lorsque le *Next-generation 9-1-1* sera en service (en date de cet article, le CRTC annonce le 31 Mars 2027).
+Aux États-Unis, il n'est pas nécessaire de manipuler les appels avec le ELIN puisque les centrales 911 sont capables de lire les informations de localisation envoyées. Le Canada n'est pas encore équipé de cette fonctionnalité, mais elle devrait être disponible lorsque le *Next-generation 9-1-1* sera en service (en date de cet article, le *CRTC* annonce le 31 Mars 2027).
 <br/>
 
 <Notice type="info">N'oubliez pas de déclarer les numéros ELIN et les adresses de vos sites chez votre fournisseur SIP.</Notice>
@@ -189,7 +190,8 @@ Aux États-Unis, il n'est pas nécessaire de manipuler les appels avec le ELIN p
 ---
 
 ##### Conclusion
-La gestion des appels d'urgence dans la téléphonie Teams est une fonctionnalité cruciale pour assurer la sécurité des utilisateurs. En configurant correctement les adresses d'urgence et en utilisant les appels d'urgence dynamiques, les entreprises peuvent garantir que les informations de localisation précises sont fournies aux services de secours, améliorant ainsi la réactivité et la sécurité.
+La gestion des appels d'urgence dans la téléphonie Teams est une fonctionnalité cruciale pour assurer la sécurité des utilisateurs. En configurant correctement les adresses d'urgence et en utilisant les appels d'urgence dynamiques, les entreprises peuvent garantir que les informations de localisation précises sont fournies aux services de secours, améliorant ainsi la réactivité et la sécurité.<br/><br/>
+Vous savez maintenant comment configurer le 911 dynamique pour les appels d'urgence dans Teams.
 
 ---
 
