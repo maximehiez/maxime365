@@ -4,7 +4,7 @@ meta_title: ""
 description: ""
 date: 2025-06-11T11:00:00-05:00
 image: "/images/blog/teams/tuto/teams_calling_plan_spend_limit_thumbnail.png"
-categories: ["Teams", "Tutoriel"]
+categories: ["Teams", "Tutorial"]
 author: "Maxime Hiez"
 tags: ["Licenses", "Telephony", "Calling Plan", "Pay-As-You-Go"]
 draft: false
