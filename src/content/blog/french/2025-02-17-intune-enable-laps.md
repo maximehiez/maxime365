@@ -34,7 +34,7 @@ LAPS génère automatiquement des mots de passe uniques et complexes pour les co
 
 ##### Prérequis
 **<u>Licences nécessaires</u>**
-- *Teams Rooms Pro* (ou *Basic*).
+- *Teams Rooms Pro* (ou *Teams Rooms Basic*).
 
 **<u>Une salle Teams</u>**
 - Un MTR Windows déployé.

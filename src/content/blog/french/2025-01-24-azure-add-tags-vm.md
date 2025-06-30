@@ -18,7 +18,7 @@ Les tags dans Azure sont des étiquettes personnalisables (sous forme de metadat
 
 ##### Prérequis
 **<u>Licences nécessaires</u>**
-- *Un abonnement Azure*.
+- Un abonnement Azure.
 
 **<u>Des ressources Azure</u>**
 - Une machine virtuelle déployée.

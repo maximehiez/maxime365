@@ -34,7 +34,7 @@ LAPS automatically generates unique and complex passwords for the local administ
 
 ##### Prerequisites
 **<u>Licenses required</u>**
-- *Teams Rooms Pro* (or *Basic*).
+- *Teams Rooms Pro* (or *Teams Rooms Basic*).
 
 **<u>A Teams room</u>**
 - A Windows MTR deployed.

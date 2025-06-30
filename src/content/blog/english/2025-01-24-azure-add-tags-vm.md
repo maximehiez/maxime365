@@ -18,7 +18,7 @@ Tags in Azure are customizable labels (in the form of metadata) that you can app
 
 ##### Prerequisites
 **<u>Licenses required</u>**
-- *An Azure subscription*.
+- An Azure subscription.
 
 **<u>Azure resources</u>**
 - A deployed virtual machine.

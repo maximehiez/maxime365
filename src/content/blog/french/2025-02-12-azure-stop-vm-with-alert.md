@@ -18,7 +18,7 @@ La gestion efficace des coûts du cloud est cruciale pour les entreprises. L'un 
 
 ##### Prérequis
 **<u>Licences nécessaires</u>**
-- *Un abonnement Azure*.
+- Un abonnement Azure.
 
 **<u>Des ressources Azure</u>**
 - Une machine virtuelle déployée.
