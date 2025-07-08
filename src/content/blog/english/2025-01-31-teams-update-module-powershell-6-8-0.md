@@ -59,7 +59,7 @@ Version 6.8.0 contains the following updates :
 ---
 
 ##### Conclusion
-Go and update your PowerShell for Teams module to benefit from the latest updates and possible configurations.
+Go update your Teams module for PowerShell to benefit from the latest updates and possible configurations.
 
 ---
 

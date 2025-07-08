@@ -152,7 +152,7 @@ Version 14.1.0 contains the following updates :
 ---
 
 ##### Conclusion
-Go and update your PowerShell for Azure module to benefit from the latest updates and possible configurations.
+Go update your Azure module for PowerShell to benefit from the latest updates and possible configurations.
 
 ---
 
