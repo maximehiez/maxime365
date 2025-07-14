@@ -11,7 +11,7 @@ draft: false
 ---
 ---
 
-##### Definition
+##### Introduction
 Tags in Azure are customizable labels (in the form of metadata) that you can apply to your resources to organize and manage your cloud environments more efficiently. They play a crucial role in cost management, governance, and task automation.
 
 ---

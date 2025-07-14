@@ -11,7 +11,7 @@ draft: false
 ---
 ---
 
-##### Définition
+##### Introduction
 Le portail *Microsoft Teams Room Pro Management* est une solution puissante conçue pour aider les administrateurs à surveiller et gérer efficacement les salles de réunion équipées de Microsoft Teams. Ce portail offre une vue d'ensemble de la santé des salles de réunion et facilite l'utilisation des outils de surveillance existants. Voici comment configurer l'accès à distance aux MTR Teams sur Windows et un aperçu de ses fonctionnalités.
 
 ---

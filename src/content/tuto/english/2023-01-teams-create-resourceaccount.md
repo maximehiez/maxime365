@@ -11,7 +11,7 @@ draft: false
 ---
 ---
 
-##### Definition
+##### Introduction
 A resource account in Microsoft Teams is used for specific functionalities like call queues or auto attendants.
 
 ---

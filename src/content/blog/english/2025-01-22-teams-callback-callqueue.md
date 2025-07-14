@@ -11,7 +11,7 @@ draft: false
 ---
 ---
 
-##### Definition
+##### Introduction
 Callback in Teams allows callers in a queue to be called back after a certain time rather than waiting until an agent becomes available.
 
 ---

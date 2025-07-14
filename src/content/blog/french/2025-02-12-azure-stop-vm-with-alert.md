@@ -11,7 +11,7 @@ draft: false
 ---
 ---
 
-##### Définition
+##### Introduction
 La gestion efficace des coûts du cloud est cruciale pour les entreprises. L'un des principaux facteurs de coût dans le cloud est la présence de machines virtuelles (VM) inactives qui continuent de fonctionner même lorsqu'elles ne sont pas nécessaires. Au lieu d'arrêter manuellement ces VM, vous pouvez utiliser Azure Automation et les alertes pour les arrêter automatiquement lorsqu'elles sont inactives. Voici comment configurer cette automatisation dans Azure.
 
 ---

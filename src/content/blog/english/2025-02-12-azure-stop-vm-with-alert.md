@@ -11,7 +11,7 @@ draft: false
 ---
 ---
 
-##### Definition
+##### Introduction
 Managing cloud costs effectively is crucial for organizations. One of the biggest cost drivers in the cloud is the presence of idle virtual machines (VMs) that continue to run even when they are not needed. Instead of manually shutting down these VMs, you can use Azure Automation and alerts to automatically shut down them when they are idle. Here's how to configure this automation in Azure.
 
 ---

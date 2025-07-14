@@ -11,7 +11,7 @@ draft: false
 ---
 ---
 
-##### Définition
+##### Introduction
 La solution *LAPS* (*Local Administrator Password Solution*) de Microsoft est un outil gratuit conçu pour améliorer la sécurité des mots de passe des comptes administrateurs locaux sur les postes de travail, les serveurs mais aussi les salles de conférence Microsoft Teams.
 
 ---

@@ -11,7 +11,7 @@ draft: false
 ---
 ---
 
-##### Définition
+##### Introduction
 Les tags dans Azure sont des étiquettes personnalisables (sous forme de metadata) que vous pouvez appliquer à vos ressources pour organiser et gérer vos environnements cloud de manière plus efficace. Ils jouent un rôle crucial dans la gestion des coûts, la gouvernance, et l'automatisation des tâches.
 
 ---

@@ -11,7 +11,7 @@ draft: false
 ---
 ---
 
-##### Definition
+##### Introduction
 A Caller ID Teams policy controls how the caller's name and phone number are displayed during Microsoft Teams calls. This policy allows administrators to manage and customize caller ID information for users within an organization.
 
 ---

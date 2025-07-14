@@ -11,7 +11,7 @@ draft: false
 ---
 ---
 
-##### Définition
+##### Introduction
 Microsoft 365 Passkey est une méthode d'authentification qui remplace les mots de passe par des options plus sécurisées comme la reconnaissance faciale, l'empreinte digitale ou un code PIN.
 
 ---

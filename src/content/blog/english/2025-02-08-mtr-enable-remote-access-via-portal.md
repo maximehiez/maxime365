@@ -11,7 +11,7 @@ draft: false
 ---
 ---
 
-##### Definition
+##### Introduction
 The *Microsoft Teams Room Pro Management* portal is a powerful solution designed to help administrators effectively monitor and manage meeting rooms equipped with Microsoft Teams. This portal provides an overview of meeting room health and makes it easier to use existing monitoring tools. Here's how to set up remote access to MTR Teams on Windows and an overview of its features.
 
 ---

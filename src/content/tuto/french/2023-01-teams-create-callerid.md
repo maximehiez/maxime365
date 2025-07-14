@@ -11,7 +11,7 @@ draft: false
 ---
 ---
 
-##### Définition
+##### Introduction
 Une règle de Caller ID Teams permet de déterminer comment le nom et le numéro de téléphone de l’appelant sont affichés lors des appels effectués via Microsoft Teams. Cette politique permet aux administrateurs de gérer et de personnaliser les informations d’identification de l’appelant pour les utilisateurs au sein d’une organisation.
 
 <u>Caractéristiques clés de la règle de Caller ID</u> :

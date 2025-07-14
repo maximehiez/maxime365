@@ -11,7 +11,7 @@ draft: false
 ---
 ---
 
-##### Définition
+##### Introduction
 Le rappel (callback) dans Teams permet aux appelants dans une file d'attente de se faire rappeler après un certain délai plutôt que de patienter jusqu'à ce qu'un agent se libère.
 
 ---
