@@ -11,6 +11,10 @@ banner:
   # Certifications
   cert_title: "Mes certifications"
   certifications:
+    - logo: "/images/certifications/microsoft-mtr-tech.png"
+      manufacturer: "Microsoft"
+      skill: " - Teams Rooms"
+      description: "Technical Solutions Professional"
     - logo: "/images/certifications/microsoft-places-tech.png"
       manufacturer: "Microsoft"
       skill: " - Places"
@@ -27,10 +31,6 @@ banner:
       manufacturer: "Microsoft"
       skill: " - MD-102"
       description: "Endpoint Administrator Associate"
-    - logo: "/images/certifications/microsoft-mtr-tech.png"
-      manufacturer: "Microsoft"
-      skill: " - Teams Rooms"
-      description: "Technical Solutions Professional"
     - logo: "/images/certifications/microsoft-ms721.png"
       manufacturer: "Microsoft"
       skill: " - MS-721"
