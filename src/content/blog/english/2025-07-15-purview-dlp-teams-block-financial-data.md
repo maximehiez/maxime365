@@ -1,5 +1,5 @@
 ---
-title: "How to enable DLP in Teams with Microsoft Purview"
+title: "How to enable DLP for Teams with Microsoft Purview"
 meta_title: ""
 description: ""
 date: 2025-07-15T10:00:00-05:00
