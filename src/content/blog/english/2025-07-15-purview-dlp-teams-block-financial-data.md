@@ -18,7 +18,7 @@ In a context where sensitive data, particularly banking information, is increasi
 
 ##### Prerequisites
 **<u>Licenses required</u>**
-- *Microsoft 365 Business Premium*, *Microsoft 365 E5*
+- *Microsoft 365 Business Premium*, *Microsoft 365 E5*.
 - *Microsoft 365 E5 Compliance* in addition to another license (*E3*, ...).
 
 **<u>Administrator role</u>**
@@ -72,7 +72,6 @@ Reception is also blocked on the account *External User 1*.
 ---
 
 ##### Step 4 : Receive the notification
-
 If you have configured notifications, an email will be sent to the designated people within seconds.
 
 ![image](/images/blog/purview/tuto/purview_dlp_teams_block_financial_data_009.png)
@@ -80,7 +79,6 @@ If you have configured notifications, an email will be sent to the designated pe
 ---
 
 ##### Step 5 : Bypass the policy (optional)
-
 If you have chosen to enable the option to bypass the policy, you can provide an explanation for sending the content. The message will then be sent without blocking.
 
 ![image](/images/blog/purview/tuto/purview_dlp_teams_block_financial_data_010.png)

@@ -101,7 +101,7 @@ features:
     bulletpoints:
       - "Microsoft Teams telephony"
       - "Microsoft Teams conference rooms"
-      - "Multiple Microsoft 365 services (Entra, Intune, Exchange, ...)"
+      - "Multiple Microsoft 365 services (Entra, Intune, Exchange, Purview,...)"
       - "Microsoft Azure landing zones"
       - "SBCs (Audiocodes, Ribbon) & ATAs"
       - "Etc."

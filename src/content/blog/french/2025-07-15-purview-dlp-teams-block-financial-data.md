@@ -18,7 +18,7 @@ Dans un contexte où les données sensibles, notamment les informations bancaire
 
 ##### Prérequis
 **<u>Licences nécessaires</u>**
-- *Microsoft 365 Business Premium*, *Microsoft 365 E5*
+- *Microsoft 365 Business Premium*, *Microsoft 365 E5*.
 - *Microsoft 365 E5 Compliance* en complément avec une licence autre (*E3*, ...).
 
 **<u>Rôle d’administrateur</u>**
