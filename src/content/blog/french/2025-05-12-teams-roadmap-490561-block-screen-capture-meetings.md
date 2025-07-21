@@ -34,7 +34,7 @@ Bien que Microsoft n'ait pas encore précisé tous les détails, il est probable
 ---
 
 ##### Limites de la fonctionnalité
-Il est important de noter que, même si les captures d'écran sont bloquées, les informations sensibles partagées dans les rencontres Teams peuvent toujours être capturées en prenant une photo de l'écran avec un autre appareil, tel qu'un smartphone. Cette mesure de protection ne peut donc pas empêcher complètement la capture des informations partagées, mais elle réduit considérablement les risques.
+Il est important de noter que, même si les captures d'écran sont bloquées, les informations sensibles partagées dans les rencontres Teams peuvent toujours être capturées en prenant une photo de l'écran avec un autre appareil, tel qu'un cellulaire. Cette mesure de protection ne peut donc pas empêcher complètement la capture des informations partagées, mais elle réduit considérablement les risques.
 
 ---
 
