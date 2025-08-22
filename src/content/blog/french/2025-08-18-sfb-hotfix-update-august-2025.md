@@ -55,10 +55,10 @@ Les correctifs sont disponibles via le *Centre de téléchargement Microsoft* et
 
 ---
 
-##### Pourquoi cette mise à jour est cruciale
-- Sécurité accrue : l’application hybride dédiée améliore le contrôle, la traçabilité et la sécurité de l’authentification entre environnements sur site et Exchange Online.
-- Maintien des fonctionnalités hybrides : sans cette installation, des fonctionnalités essentielles, comme l’archivage ou la présence, risquent de cesser de fonctionner.
-- Continuité des réunions : garantir le fonctionnement de Skype Meetings Application au-delà du 15 Octobre est indispensable pour éviter des perturbations majeures au sein de l’organisation.
+##### Pourquoi cette mise à jour est cruciale ?
+- Sécurité accrue : L’application hybride dédiée améliore le contrôle, la traçabilité et la sécurité de l’authentification entre environnements sur site et Exchange Online.
+- Maintien des fonctionnalités hybrides : Sans cette installation, des fonctionnalités essentielles, comme l’archivage ou la présence, risquent de cesser de fonctionner.
+- Continuité des réunions : Garantir le fonctionnement de Skype Meetings Application au-delà du 15 Octobre est indispensable pour éviter des perturbations majeures au sein de l’organisation.
 
 ---
 

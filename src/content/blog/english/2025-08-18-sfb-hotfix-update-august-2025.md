@@ -55,7 +55,7 @@ Hotfixes are available via the *Microsoft Download Center* and can be installed 
 
 ---
 
-##### Why this update is crucial
+##### Why this update is crucial ?
 - Enhanced security : The dedicated hybrid application improves control, traceability, and authentication security between on-premises environments and Exchange Online.
 - Maintains hybrid functionality : Without this installation, critical features, such as archiving and presence, may cease to function.
 - Meeting continuity : Ensuring the functionality of Skype Meetings Application beyond October 15th is essential to avoid major disruptions within the organization.

@@ -4,7 +4,7 @@ meta_title: ""
 description: ""
 date: 2025-03-19T10:00:00-05:00
 image: "/images/blog/m365/m365_windows_app_replaces_remote_desktop_app_thumbnail.png"
-categories: ["Entra ID"]
+categories: ["Microsoft 365"]
 author: "Maxime Hiez"
 tags: ["Bureau à distance"]
 draft: false

@@ -25,7 +25,7 @@ LAPS automatically generates unique and complex passwords for the local administ
 
 ---
 
-##### Why implement LAPS?
+##### Why implement LAPS ?
 - Reinforced security : Using the same local administrator password on several machines is a risky practice. If an attacker manages to obtain this password, they can move laterally within the network. LAPS eliminates this risk by generating unique passwords for each machine.
 - Simplified management : LAPS automates the management of local administrator passwords, reducing the workload of system administrators. No more manually managing passwords or storing them in insecure files.
 - Compliance : Many security regulations require secure password management. LAPS helps organizations comply with these requirements by providing centralized and secure password management.

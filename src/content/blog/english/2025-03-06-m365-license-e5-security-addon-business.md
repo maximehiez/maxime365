@@ -16,7 +16,7 @@ Microsoft announced that *Microsoft 365 E5 Security* is now available as an add-
 
 ---
 
-##### Why Microsoft 365 E5 Security?
+##### Why Microsoft 365 E5 Security ?
 SMBs are facing an increasing volume of attacks and increasingly sophisticated threats. While Microsoft 365 Business Premium already offers basic security solutions to protect data, defend against cyber threats, and manage access and devices, some organizations need additional protections. That’s where Microsoft 365 E5 Security comes in, providing advanced security features for enhanced protection.
 
 ![image](/images/blog/m365/m365_license_e5_security_addon_business_001.png)

@@ -26,7 +26,7 @@ Ce qui change :
 
 ---
 
-##### Pourquoi une mise à niveau *in-place* est recommandée
+##### Pourquoi une mise à niveau *in-place* est recommandée ?
 Pour les clients déjà sur Skype for Business Server 2019, Microsoft recommande une mise à niveau sur place (*in-place upgrade*) vers SE. Contrairement aux migrations traditionnelles (*side-by-side*), cette méthode est :
 - Plus rapide : pas besoin de déployer une nouvelle topologie.
 - Moins risquée : aucun changement de prérequis, de fonctionnalités ou de configuration.

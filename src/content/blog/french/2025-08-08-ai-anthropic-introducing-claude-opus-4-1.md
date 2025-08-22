@@ -56,10 +56,10 @@ Il prend en charge les fichiers, les actions personnalisées, les plugins, et le
 
 ##### Performances et benchmarks
 Claude Opus 4.1 affiche des résultats supérieurs sur plusieurs benchmarks :
-- SWE-bench : résolution de tickets GitHub
-- HumanEval : génération de code
-- MMLU : compréhension multitâche
-- BIG-bench : tests cognitifs variés
+- SWE-bench : Résolution de tickets GitHub
+- HumanEval : Génération de code
+- MMLU : Compréhension multitâche
+- BIG-bench : Tests cognitifs variés
 
 Il rivalise désormais avec les meilleurs modèles du marché, y compris *GPT-4 Turbo* et *Gemini 1.5 Pro*.
 
