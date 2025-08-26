@@ -1,5 +1,5 @@
 ---
-title: "Entra Private Access pour les contrôleurs de domaine"
+title: "Entra Private Access for Domain Controllers"
 meta_title: ""
 description: ""
 date: 2025-08-22T10:00:00-05:00
