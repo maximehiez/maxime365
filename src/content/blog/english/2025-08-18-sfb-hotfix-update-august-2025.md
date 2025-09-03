@@ -45,7 +45,7 @@ These builds are the minimum versions required to take advantage of the new dedi
 
 ---
 
-##### Recommended Action Plan for Administrators
+##### Recommended action plan for administrators
 Hotfixes are available via the *Microsoft Download Center* and can be installed manually or using standard administrative tools. It is recommended to:
 1. Back up your environment before any update
 2. Retrieve the appropriate hotfixes based on your role (*Core*, *Front End*, *Edge*, *Web Components*, *Enterprise Web App*)
