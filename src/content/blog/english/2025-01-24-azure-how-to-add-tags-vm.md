@@ -3,7 +3,7 @@ title: "How to add tags to an Azure virtual machine"
 meta_title: ""
 description: ""
 date: 2025-01-24T10:00:00-05:00
-image: "/images/blog/azure/tuto/azure_add_tags_vm_thumbnail.png"
+image: "/images/blog/azure/tuto/azure_how_to_add_tags_vm_thumbnail.png"
 categories: ["Azure", "Tutorial"]
 author: "Maxime Hiez"
 tags: ["Tags", "Virtual machine"]
@@ -37,19 +37,19 @@ Sign in to the Microsoft Azure portal by opening your web browser to https://por
 In the search bar at the top of the screen, type *<u>Virtual machines</u>*, and click the proposed menu.<br/>
 All your virtual machines will be displayed; in my case, there is only one (an SBC for telephony).
 
-![image](/images/blog/azure/tuto/azure_add_tags_vm_001.png)
+![image](/images/blog/azure/tuto/azure_how_to_add_tags_vm_001.png)
 
 Click the virtual machine to which you want to apply your tags.
 
-![image](/images/blog/azure/tuto/azure_add_tags_vm_002.png)
+![image](/images/blog/azure/tuto/azure_how_to_add_tags_vm_002.png)
 
 In the left menu, click *<u>Tags</u>*, manually enter the name and value of each tag in the form and click *Apply*.
 
-![image](/images/blog/azure/tuto/azure_add_tags_vm_004.png)
+![image](/images/blog/azure/tuto/azure_how_to_add_tags_vm_004.png)
 
 Once validated, they will be visible after a few seconds.
 
-![image](/images/blog/azure/tuto/azure_add_tags_vm_005.png)
+![image](/images/blog/azure/tuto/azure_how_to_add_tags_vm_005.png)
 
 ---
 
@@ -71,7 +71,7 @@ Get-AzVM -Name $VirtualMachineName | Select -ExpandProperty Tags
 In the search bar at the top of the screen, type *<u>Subscritption</u>*, and click the proposed menu. If you have several, click the subscription of your choice.<br/>
 It is possible to track the consumption of your resources in Azure using tags. Note that it is possible to put it on almost all Azure resources (public IPs, network interfaces of virtual machines, resource groups, etc.) which allows for more precise results.
 
-![image](/images/blog/azure/tuto/azure_add_tags_vm_006.png)
+![image](/images/blog/azure/tuto/azure_how_to_add_tags_vm_006.png)
 
 ---
 

@@ -3,7 +3,7 @@ title: "Comment ajouter des tags sur une machine virtuelle Azure"
 meta_title: ""
 description: ""
 date: 2025-01-24T10:00:00-05:00
-image: "/images/blog/azure/tuto/azure_add_tags_vm_thumbnail.png"
+image: "/images/blog/azure/tuto/azure_how_to_add_tags_vm_thumbnail.png"
 categories: ["Azure", "Tutoriel"]
 author: "Maxime Hiez"
 tags: ["Tags", "Machine virtuelle"]
@@ -37,19 +37,19 @@ Connectez vous au portail Microsoft Azure en ouvrant votre navigateur web sur ht
 Dans la barre de recherche en haut de l'écran, écrivez *<u>Virtual machines</u>*, et cliquez sur le menu proposé.<br/>
 Toutes vos machines virtuelle vont être affichées ; dans mon cas, il n'y en a qu'une seule (un SBC pour de la téléphonie).
 
-![image](/images/blog/azure/tuto/azure_add_tags_vm_001.png)
+![image](/images/blog/azure/tuto/azure_how_to_add_tags_vm_001.png)
 
 Cliquez sur la machine virtuelle sur laquelle vous souhaitez appliquer vos tags.
 
-![image](/images/blog/azure/tuto/azure_add_tags_vm_002.png)
+![image](/images/blog/azure/tuto/azure_how_to_add_tags_vm_002.png)
 
 Dans le menu de gauche, cliquez sur *<u>Tags</u>*, inscrivez manuellement le nom et la valeur de chaque tag dans le formulaire et cliquez sur *Apply*.
 
-![image](/images/blog/azure/tuto/azure_add_tags_vm_004.png)
+![image](/images/blog/azure/tuto/azure_how_to_add_tags_vm_004.png)
 
 Une fois validés, ils seront visibles après quelques secondes.
 
-![image](/images/blog/azure/tuto/azure_add_tags_vm_005.png)
+![image](/images/blog/azure/tuto/azure_how_to_add_tags_vm_005.png)
 
 ---
 
@@ -72,7 +72,7 @@ Get-AzVM -Name $VirtualMachineName | Select -ExpandProperty Tags
 Dans la barre de recherche en haut de l'écran, écrivez *<u>Subscritption</u>*, et cliquez sur le menu proposé. Si vous en avez plusieurs, cliquez sur l'abonnement de votre choix.<br/>
 Il est possible de suivre les consommations de vos ressource dans Azure grâce aux tags. À noter qu'il est possible d'en mettre sur presque toutes les ressources Azure (les IP publiques, les interfaces réseau des machines virtuelles, les groupes de ressources, ...) ce qui permet d'avoir des résultats plus précis.
 
-![image](/images/blog/azure/tuto/azure_add_tags_vm_006.png)
+![image](/images/blog/azure/tuto/azure_how_to_add_tags_vm_006.png)
 
 ---
 
