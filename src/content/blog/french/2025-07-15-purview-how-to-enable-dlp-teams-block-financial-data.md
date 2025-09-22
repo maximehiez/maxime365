@@ -3,7 +3,7 @@ title: "Comment activer le DLP pour Teams avec Microsoft Purview"
 meta_title: ""
 description: ""
 date: 2025-07-15T10:00:00-05:00
-image: "/images/blog/purview/tuto/purview_dlp_teams_block_financial_data_thumbnail.png"
+image: "/images/blog/purview/tuto/purview_how_to_enable_dlp_teams_block_financial_data_thumbnail.png"
 categories: ["Purview", "Tutoriel"]
 author: "Maxime Hiez"
 tags: ["Protection de données", "Gouvernance", "PII", "DLP"]
@@ -36,52 +36,52 @@ Dans le menu de gauche, cliquez sur *<u>Solutions</u>*, puis sur *<u>Data Loss P
 
 Cliquez sur *<u>Create policy</u>*.
 
-![image](/images/blog/purview/tuto/purview_dlp_teams_block_financial_data_001.png)
+![image](/images/blog/purview/tuto/purview_how_to_enable_dlp_teams_block_financial_data_001.png)
 
 Définissez un nom et une description.
 
-![image](/images/blog/purview/tuto/purview_dlp_teams_block_financial_data_002.png)
+![image](/images/blog/purview/tuto/purview_how_to_enable_dlp_teams_block_financial_data_002.png)
 
 Appliquez cette règle pour les messages Teams.
 
-![image](/images/blog/purview/tuto/purview_dlp_teams_block_financial_data_003.png)
+![image](/images/blog/purview/tuto/purview_how_to_enable_dlp_teams_block_financial_data_003.png)
 
 Configurez les nombreux attributs de type de données et notifications. Dans mon exemple, j'ai choisi un type déjà existant (les données bancaires Canadiennes).
 
-![image](/images/blog/purview/tuto/purview_dlp_teams_block_financial_data_004.png)
+![image](/images/blog/purview/tuto/purview_how_to_enable_dlp_teams_block_financial_data_004.png)
 
 Activez la règle pour la mettre en production.
 
-![image](/images/blog/purview/tuto/purview_dlp_teams_block_financial_data_005.png)
+![image](/images/blog/purview/tuto/purview_how_to_enable_dlp_teams_block_financial_data_005.png)
 
 ---
 
 ##### Étape 3 : Envoyer des données financières pour valider la règle
 Après quelques minutes, essayez d'envoyer des informations de carte de crédit via Teams. Ici, on envoie une (<u>fausse</u>) carte de crédit du compte *User* (*user@hiez.ca*) vers *External User 1* (*external.user1@domain.com*).
 
-![image](/images/blog/purview/tuto/purview_dlp_teams_block_financial_data_006.png)
+![image](/images/blog/purview/tuto/purview_how_to_enable_dlp_teams_block_financial_data_006.png)
 
 Le message est automatiquement bloqué sur le compte de *User* après l'envoi.
 
-![image](/images/blog/purview/tuto/purview_dlp_teams_block_financial_data_007.png)
+![image](/images/blog/purview/tuto/purview_how_to_enable_dlp_teams_block_financial_data_007.png)
 
 La réception est également bloquée sur le compte de *External User 1*.
 
-![image](/images/blog/purview/tuto/purview_dlp_teams_block_financial_data_008.png)
+![image](/images/blog/purview/tuto/purview_how_to_enable_dlp_teams_block_financial_data_008.png)
 
 ---
 
 ##### Étape 4 : Recevoir la notification 
 Si vous avez configuré les notifications, un courriel est envoyé aux personnes désignées dans les secondes suivantes.
 
-![image](/images/blog/purview/tuto/purview_dlp_teams_block_financial_data_009.png)
+![image](/images/blog/purview/tuto/purview_how_to_enable_dlp_teams_block_financial_data_009.png)
 
 ---
 
 ##### Étape 5 : Bypasser la règle (optionnel)
 Si vous avez choisi d'activer l'option de bypasser la règle, il est alors possible de fournir une explication pour envoyer le contenu. Le message sera alors envoyé sans blocage.
 
-![image](/images/blog/purview/tuto/purview_dlp_teams_block_financial_data_010.png)
+![image](/images/blog/purview/tuto/purview_how_to_enable_dlp_teams_block_financial_data_010.png)
 
 Une nouvelle notification contenant la justification sera envoyée par courriel aux mêmes personnes.
 
