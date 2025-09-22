@@ -49,8 +49,8 @@ Facilitator will begin rolling out in March 2025 for Windows devices and in Apri
 
 ##### How to enable Facilitator
 1. Admins can choose whether to enable Facilitator in their organization by managing the Facilitator app in the Microsoft Teams Admin Center.
-2. To enable the Microsoft Teams Rooms pre-public version in your environment, use the Microsoft Teams Rooms Pro Management portal. In the left menu, click *<u>Rooms</u>*, then *<u>Settings</u>* and *<u>Account</u>*. Enable the *Enable Public preview* option.
-3. To enable the Facilitator agent QR code in Teams Rooms, use the Microsoft Teams Rooms Pro Management portal. In the left menu, click *<u>Rooms</u>*, then *<u>Settings</u>* and *<u>Meetings</u>*. Enable the *Show Room facilitator QR code* option.
+2. To enable the Microsoft Teams Rooms pre-public version in your environment, use the Microsoft Teams Rooms Pro Management portal. In the left menu, click *<u>Rooms</u>*, then *<u>Settings</u>*, and *<u>Account</u>*. Enable the *Enable Public preview* option.
+3. To enable the Facilitator agent QR code in Teams Rooms, use the Microsoft Teams Rooms Pro Management portal. In the left menu, click *<u>Rooms</u>*, then *<u>Settings</u>*, and *<u>Meetings</u>*. Enable the *Show Room facilitator QR code* option.
 
 ---
 

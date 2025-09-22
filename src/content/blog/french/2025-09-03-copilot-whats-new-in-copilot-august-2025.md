@@ -35,13 +35,13 @@ Microsoft publie chaque mois un récapitulatif des évolutions de *Microsoft 365
 
 **<u>Workflow d’approbation (Frontier & agents)</u>**
 
-- Un flux de demande / approbation centralisé arrive dans le centre d’administration (*<u>Copilot</u>*, puis *<u>Agents</u>* et *<u>Requested agents</u>*) pour Frontier et les agents Microsoft, conciliant expérimentation et exigences de sécurité.
+- Un flux de demande / approbation centralisé arrive dans le centre d’administration (*<u>Copilot</u>*, puis *<u>Agents</u>*, et *<u>Requested agents</u>*) pour Frontier et les agents Microsoft, conciliant expérimentation et exigences de sécurité.
 - Déploiement : Août
 <br/><br/>
 
 **<u>Facturation : Message pack integration</u>**
 
-- Possibilité d’appliquer des crédits pré-payés (*Pay-As-You-Go*) pour *Copilot Chat* avec visibilité et maîtrise des coûts (*<u>Copilot</u>*, puis *<u>Billing & usage</u>* et *<u>Pay-as-you-go services</u>*).
+- Possibilité d’appliquer des crédits pré-payés (*Pay-As-You-Go*) pour *Copilot Chat* avec visibilité et maîtrise des coûts (*<u>Copilot</u>*, puis *<u>Billing & usage</u>*, et *<u>Pay-as-you-go services</u>*).
 - Déploiement : Août
 
 ![image](/images/blog/copilot/copilot_whats_new_in_copilot_august_2025_003.png)

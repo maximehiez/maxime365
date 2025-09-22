@@ -57,7 +57,7 @@ Sign in to the Microsoft Entra Admin Center by opening your web browser to https
 ---
 
 ##### Step 2 : Create a security group
-In the left menu, click *<u>Identity</u>*, then *<u>Groups</u>* and *<u>All groups</u>*.
+In the left menu, click *<u>Identity</u>*, then *<u>Groups</u>*, and *<u>All groups</u>*.
 
 Click *<u>New group</u>* to create a new security group which will contain the administrators who will have access to the MTR.
 

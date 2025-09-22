@@ -45,7 +45,7 @@ Sign in to the Microsoft Defender portal by opening your web browser to https://
 ##### Step 2 : Edit the Safe Links policy
 If your organization uses the *Microsoft Defender for Office 365* *Safe Links* feature, it is important that Zoom and Webex URLs are not rewritten so that the room can read the invitation content.
 
-In the left menu, click *<u>Policies & Rules</u>*, then *<u>Threat Policies</u>* and *<u>Safe Links</u>*.
+In the left menu, click *<u>Policies & Rules</u>*, then *<u>Threat Policies</u>*, and *<u>Safe Links</u>*.
 
 Edit the rule and add the following URLs :
 - \*.zoom.us/* 
@@ -89,7 +89,7 @@ Sign in to the Microsoft Teams Rooms Pro Management portal by opening your web b
 ##### Step 6 : Enable Zoom and Webex providers
 In the left menu, click *<u>Rooms</u>*, then click the room you want to edit.
 
-Click *<u>Settings</u>*, then *<u>Meetings</u>* and enable the Zoom and Webex providers.
+Click *<u>Settings</u>*, then *<u>Meetings</u>*, and enable the Zoom and Webex providers.
 
 ![image](/images/blog/mtr/tuto/mtr_enable_meeting_third_party_join_003.png)
 

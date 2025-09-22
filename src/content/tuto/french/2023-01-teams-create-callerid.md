@@ -69,7 +69,7 @@ New-CsCallingLineIdentity -Identity "DEMO - 514 456-7890" -CallingIDSubstitute R
 ##### Étape 3 : Attribuer une politique d’identification de l’appelant aux utilisateurs
 Une fois que votre règle est créée, il vous reste à l’attribuer aux utilisateurs qui nécessitent d'afficher ce numéro lors de leurs appels.
 
-Dans le menu de gauche, cliquez sur *<u>Users</u>* puis le sous-menu *<u>Manage users</u>*. La liste de tous les utilisateurs de votre organisation va s'afficher. Sélectionnez celui ou ceux à qui vous souhaitez activer la règle.
+Dans le menu de gauche, cliquez sur *<u>Users</u>*, puis le sous-menu *<u>Manage users</u>*. La liste de tous les utilisateurs de votre organisation va s'afficher. Sélectionnez celui ou ceux à qui vous souhaitez activer la règle.
 
 Cliquez sur l'onglet *<u>Policies</u>*, et éditer l'attribut *<u>Caller ID policy</u>* pour appliquer la règle de votre choix.
 

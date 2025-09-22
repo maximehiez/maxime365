@@ -33,7 +33,7 @@ Connectez vous au Microsoft Intune Admin Center en ouvrant votre navigateur web 
 ---
 
 ##### Étape 2 : Créer un profil d'inscription AOSP
-Dans le menu de gauche, cliquez sur *<u>Devices</u>*, puis sur *<u>Enrollment</u>* et *<u>Corporate-owned, user-associated devices</u>*.
+Dans le menu de gauche, cliquez sur *<u>Devices</u>*, puis sur *<u>Enrollment</u>*, et sur *<u>Corporate-owned, user-associated devices</u>*.
 
 Créez un profil en activant seulement l'option *For Microsoft Teams devices (preview)* et en gardant le token par défaut.
 

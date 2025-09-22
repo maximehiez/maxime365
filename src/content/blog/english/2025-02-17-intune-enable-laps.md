@@ -51,7 +51,7 @@ Sign in to the Microsoft Entra Admin Center by opening your web browser to https
 ---
 
 ##### Step 2 : Enable LAPS
-In the left menu, click *<u>Identity</u>*, then *<u>Devices</u>* and *<u>All devices</u>*.
+In the left menu, click *<u>Identity</u>*, then *<u>Devices</u>*, and *<u>All devices</u>*.
 
 Click *<u>Device settings</u>*, then click the *Enable Entra Local Administrator Password Solution (LAPS)* switch to enable the service.
 
@@ -60,7 +60,7 @@ Click *<u>Device settings</u>*, then click the *Enable Entra Local Administrator
 ---
 
 ##### Step 3 : Create a security group
-In the left menu, click *<u>Identity</u>*, then *<u>Groups</u>* and *<u>All groups</u>*.
+In the left menu, click *<u>Identity</u>*, then *<u>Groups</u>*, and *<u>All groups</u>*.
 
 Click *<u>New group</u>* to create a new security group of type *Dynamic device*.
 

@@ -36,7 +36,7 @@ A Caller ID Teams policy controls how the caller's name and phone number are dis
 
 ---
 
-##### Step 1 : Sign in to the Microsoft Teams admin center
+##### Step 1 : Sign in to the Microsoft Teams Admin Center
 Sign in to the Microsoft Teams Admin Center by opening your web browser to https://admin.teams.microsoft.com.
 
 You can also connect to it via the following PowerShell command :
@@ -71,7 +71,7 @@ New-CsCallingLineIdentity -Identity "DEMO - 514 456-7890" -CallingIDSubstitute R
 ##### Step 3 : Assign a Caller ID policy to users
 Once your policy is created, all you have to do is assign it to the users who need to display this number during their calls.
 
-In the left menu, click *<u>Users</u>* then the *<u>Manage users</u>* submenu. The list of all the users in your organization will be displayed. Select the one(s) you want to enable the policy for.
+In the left menu, click *<u>Users</u>*, then the *<u>Manage users</u>* submenu. The list of all the users in your organization will be displayed. Select the one(s) you want to enable the policy for.
 
 Click the *<u>Policies</u>* tab and edit the *<u>Caller ID policy</u>* attribute to apply the policy of your choice.
 

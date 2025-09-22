@@ -30,13 +30,13 @@ Callback in Teams allows callers in a queue to be called back after a certain ti
 
 ---
 
-##### Step 1 : Sign in to the Microsoft Teams admin center
+##### Step 1 : Sign in to the Microsoft Teams Admin Center
 Sign in to the Microsoft Teams Admin Center by opening your web browser to https://admin.teams.microsoft.com.
 
 ---
 
 ##### Step 2 : Enable the callback feature
-In the left menu, click *<u>Voice</u>* then *<u>Call queues</u>*, and edit the queue on which you want to add the callback functionality.
+In the left menu, click *<u>Voice</u>*, then *<u>Call queues</u>*, and edit the queue on which you want to add the callback functionality.
 
 ![image](/images/blog/teams/tuto/teams_callback_callqueue_001.png)
 
@@ -84,7 +84,7 @@ It is possible to notify people by email when a reminder expires. Enter the name
 ##### Step 7 : Apply a voice policy
 Since the queue is placing an outgoing call, it is important not to forget to apply a voice policy on the resource account (like for a user).
 
-In the left menu, click *<u>Voice</u>* then *<u>Resource Accounts</u>*, and edit the resource account of the queue you just add reminder functionality. Add the voice policy that best suits your needs.
+In the left menu, click *<u>Voice</u>*, then *<u>Resource Accounts</u>*, and edit the resource account of the queue you just add reminder functionality. Add the voice policy that best suits your needs.
 
 ![image](/images/blog/teams/tuto/teams_callback_callqueue_007.png)
 

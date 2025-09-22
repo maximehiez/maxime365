@@ -51,7 +51,7 @@ Connectez vous au Microsoft Entra Admin Center en ouvrant votre navigateur web s
 ---
 
 ##### Étape 2 : Activer LAPS
-Dans le menu de gauche, cliquez sur *<u>Identity</u>*, puis sur *<u>Devices</u>* et sur *<u>All devices</u>*.
+Dans le menu de gauche, cliquez sur *<u>Identity</u>*, puis sur *<u>Devices</u>*, et sur *<u>All devices</u>*.
 
 Cliquez sur *<u>Device settings</u>*, puis sur l'interrupteur *Enable Entra Local Administrator Password Solution (LAPS)* pour activer le service.
 
@@ -60,7 +60,7 @@ Cliquez sur *<u>Device settings</u>*, puis sur l'interrupteur *Enable Entra Loca
 ---
 
 ##### Étape 3 : Créer un groupe de sécurité
-Dans le menu de gauche, cliquez sur *<u>Identity</u>*, puis sur *<u>Groups</u>* et sur *<u>All groups</u>*.
+Dans le menu de gauche, cliquez sur *<u>Identity</u>*, puis sur *<u>Groups</u>*, et sur *<u>All groups</u>*.
 
 Cliquez sur *<u>New group</u>* pour créer un nouveau groupe de sécurité de type *Appareil dynamique*.
 

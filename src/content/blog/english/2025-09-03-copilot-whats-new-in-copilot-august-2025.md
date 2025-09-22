@@ -35,14 +35,14 @@ Microsoft releases a monthly update to *Microsoft 365 Copilot* to keep admins an
 
 **<u>Approval workflow (Frontier & agents)</u>**
 
-- A centralized request / approval flow arrives in the admin center (*<u>Copilot</u>*, then *<u>Agents</u>* and *<u>Requested agents</u>*) for Frontier and Microsoft agents, reconciling experimentation and security requirements.
+- A centralized request / approval flow arrives in the admin center (*<u>Copilot</u>*, then *<u>Agents</u>*, and *<u>Requested agents</u>*) for Frontier and Microsoft agents, reconciling experimentation and security requirements.
 - Rollout : August
 
 <br/><br/>
 
 **<u>Billing : Message pack integration</u>**
 
-- Ability to apply pre-paid credits (*Pay-As-You-Go*) for *Copilot Chat* with visibility and cost control (*<u>Copilot</u>*, then *<u>Billing & usage</u>* and *<u>Pay-as-you-go services</u>*).
+- Ability to apply pre-paid credits (*Pay-As-You-Go*) for *Copilot Chat* with visibility and cost control (*<u>Copilot</u>*, then *<u>Billing & usage</u>*, and *<u>Pay-as-you-go services</u>*).
 - Rollout : August
 
 ![image](/images/blog/copilot/copilot_whats_new_in_copilot_august_2025_003.png)

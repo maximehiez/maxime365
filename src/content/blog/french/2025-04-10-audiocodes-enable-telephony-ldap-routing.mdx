@@ -49,7 +49,7 @@ Connectez vous au SBC en ouvrant votre navigateur web sur https://VOTRE_ADRESSE_
 <br/>
 <Notice type="warning">Un redémarrage est requis !</Notice>
 
-Cliquez sur *<u>Setup</u>*, *<u>IP Network</u>*, puis sur *<u>AAA Servers</u>* et *<u>LDAP Settings</u>*.
+Cliquez sur *<u>Setup</u>*, *<u>IP Network</u>*, puis sur *<u>AAA Servers</u>*, et sur *<u>LDAP Settings</u>*.
 
 Passez l'option *<u>LDAP Service</u>* à *Enable*.
 
@@ -60,7 +60,7 @@ Cliquez sur *<u>Save</u>*, puis sur *<u>Restart</u>*.
 ---
 
 ##### Étape 3 : Créer le groupe de serveurs
-Cliquez sur *<u>Setup</u>*, *<u>IP Network</u>*, puis sur *<u>AAA Servers</u>* et *<u>LDAP Server Groups</u>*.
+Cliquez sur *<u>Setup</u>*, *<u>IP Network</u>*, puis sur *<u>AAA Servers</u>*, et sur *<u>LDAP Server Groups</u>*.
 
 Gardez les options par défaut, donnez simplement un nom au groupe.
 
@@ -69,7 +69,7 @@ Gardez les options par défaut, donnez simplement un nom au groupe.
 ---
 
 ##### Étape 4 : Créer le(s) serveur(s) LDAP
-Cliquez sur *<u>Setup</u>*, *<u>IP Network</u>*, puis sur *<u>AAA Servers</u>* et *<u>LDAP Servers</u>*.
+Cliquez sur *<u>Setup</u>*, *<u>IP Network</u>*, puis sur *<u>AAA Servers</u>*, et sur *<u>LDAP Servers</u>*.
 
 Faites pointer votre serveur sur le groupe créé dans l'étape 3, et ajoutez les paramètres suivants :
 - LDAP Network Interface : *l'interface de téléphonie du SBC*
@@ -91,7 +91,7 @@ Cliquez sur *<u>LDAP Servers Search Based DNs 0 items</u>* sur chacun des serveu
 ---
 
 ##### Étape 6 : Créer les requêtes LDAP
-Cliquez sur *<u>Setup</u>*, *<u>Signaling & Media</u>*, puis sur *<u>SIP Definitions</u>* et *<u>Call Setup Rules</u>*.
+Cliquez sur *<u>Setup</u>*, *<u>Signaling & Media</u>*, puis sur *<u>SIP Definitions</u>*, et sur *<u>Call Setup Rules</u>*.
 
 Créez la première règle avec les paramètres suivants :
 - Rules Set ID : *ID de la règle*
@@ -134,7 +134,7 @@ Cette règle va vous permettre de remplacer le Caller Name avec la valeur qui se
 ---
 
 ##### Étape 7 : Créer la route
-Cliquez sur *<u>Setup</u>*, *<u>Signaling & Media</u>*, puis sur *<u>SBC</u>* et *<u>IP-to-IP Routing</u>*.
+Cliquez sur *<u>Setup</u>*, *<u>Signaling & Media</u>*, puis sur *<u>SBC</u>*, et sur *<u>IP-to-IP Routing</u>*.
 
 Créez une route vers votre lien SIP et modifiez l'option *<u>Call Setup Rules Set ID</u>* avec l'ID de votre règle.
 

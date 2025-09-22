@@ -37,8 +37,8 @@ Microsoft Graph possède toutes les fonctionnalités disponibles dans Azure AD G
 Les journaux de connexion Microsoft Entra peuvent être utilisés pour identifier les connexions à partir de MSOnline et AzureAD PowerShell. Ils fournissent des informations sur le client et l'utilisateur de la session PowerShell.
 
 1. Connectez vous au Microsoft Entra Admin Center en ouvrant votre navigateur web sur https://entra.microsoft.com.
-2. Dans le menu de gauche, cliquez sur *<u>Identity</u>*, puis sur *<u>Monitoring & health</u>* et sur *<u>Sign-in logs</u>*.
-3. Sélectionnez l’onglet *<u>User sign-ins (Interactive)</u>*, puis cliquez sur *<u>Add filters</u>* et choisir l'attribut *Application*.
+2. Dans le menu de gauche, cliquez sur *<u>Identity</u>*, puis sur *<u>Monitoring & health</u>*, et sur *<u>Sign-in logs</u>*.
+3. Sélectionnez l’onglet *<u>User sign-ins (Interactive)</u>*, puis cliquez sur *<u>Add filters</u>*, et choisir l'attribut *Application*.
 4. Saisissez *Azure Active Directory PowerShell* pour appliquer le filtre.
 
 ![image](/images/blog/entra/entra_new_powershell_module_ga_001.png)

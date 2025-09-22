@@ -49,7 +49,7 @@ Connect to the SBC by opening your web browser to https://YOUR_IP_ADDRESS.
 <br/>
 <Notice type="warning">A reboot is required!</Notice>
 
-Click *<u>Setup</u>*, *<u>IP Network</u>*, then *<u>AAA Servers</u>* and *<u>LDAP Settings</u>*.
+Click *<u>Setup</u>*, *<u>IP Network</u>*, then *<u>AAA Servers</u>*, and *<u>LDAP Settings</u>*.
 
 Set the *<u>LDAP Service</u>* option to *Enable*.
 
@@ -60,7 +60,7 @@ Click *<u>Save</u>*, then *<u>Restart</u>*.
 ---
 
 ##### Step 3 : Create the server group
-Click *<u>Setup</u>*, *<u>IP Network</u>*, then *<u>AAA Servers</u>* and *<u>LDAP Server Groups</u>*.
+Click *<u>Setup</u>*, *<u>IP Network</u>*, then *<u>AAA Servers</u>*, and *<u>LDAP Server Groups</u>*.
 
 Keep the default options, simply give the group a name.
 
@@ -69,7 +69,7 @@ Keep the default options, simply give the group a name.
 ---
 
 ##### Step 4 : Create the LDAP server(s)
-Click *<u>Setup</u>*, *<u>IP Network</u>*, then *<u>AAA Servers</u>* and *<u>LDAP Servers</u>*.
+Click *<u>Setup</u>*, *<u>IP Network</u>*, then *<u>AAA Servers</u>*, and *<u>LDAP Servers</u>*.
 
 Point your server to the group created in step 3 and add the following parameters :
 - LDAP Network Interface : *the SBC's telephony interface*
@@ -91,7 +91,7 @@ Click *<u>LDAP Servers Search Based DNs 0 items</u>* on each of the created serv
 ---
 
 ##### Step 6 : Create the LDAP queries
-Click *<u>Setup</u>*, *<u>Signaling & Media</u>*, then *<u>SIP Definitions</u>* and *<u>Call Setup Rules</u>*.
+Click *<u>Setup</u>*, *<u>Signaling & Media</u>*, then *<u>SIP Definitions</u>*, and *<u>Call Setup Rules</u>*.
 
 Create the first rule with the following parameters :
 - Rules Set ID : *Rule ID*
@@ -134,7 +134,7 @@ This rule will allow you to replace the Caller Name with the value found in your
 ---
 
 ##### Step 7 : Create the route
-Click *<u>Setup</u>*, *<u>Signaling & Media</u>*, then *<u>SBC</u>* and *<u>IP-to-IP Routing</u>*.
+Click *<u>Setup</u>*, *<u>Signaling & Media</u>*, then *<u>SBC</u>*, and *<u>IP-to-IP Routing</u>*.
 
 Create a route to your SIP trunk and modify the *<u>Call Setup Rules Set ID</u>* option with your rule ID.
 

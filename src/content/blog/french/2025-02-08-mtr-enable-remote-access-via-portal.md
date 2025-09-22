@@ -57,7 +57,7 @@ Connectez vous au Microsoft Entra Admin Center en ouvrant votre navigateur web s
 ---
 
 ##### Étape 2 : Créer un groupe de sécurité
-Dans le menu de gauche, cliquez sur *<u>Identity</u>*, puis sur *<u>Groups</u>* et sur *<u>All groups</u>*.
+Dans le menu de gauche, cliquez sur *<u>Identity</u>*, puis sur *<u>Groups</u>*, et sur *<u>All groups</u>*.
 
 Cliquez sur *<u>New group</u>* pour créer un nouveau groupe de sécurité qui va contenir les administrateurs qui auront les accès aux MTR.
 
