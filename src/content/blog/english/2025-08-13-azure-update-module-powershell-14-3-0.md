@@ -3,7 +3,7 @@ title: "Update to version 14.3.0 of the Azure PowerShell module"
 meta_title: ""
 description: ""
 date: 2025-08-13T10:00:00-05:00
-image: "/images/blog/azure/azure_update_module_powershell_14_2_0_thumbnail.png"
+image: "/images/blog/azure/azure_update_module_powershell_14_3_0_thumbnail.png"
 categories: ["Azure"]
 author: "Maxime Hiez"
 tags: ["Module", "Update", "PowerShell"]

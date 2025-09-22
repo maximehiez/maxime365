@@ -3,7 +3,7 @@ title: "Comment convertir une IP publique en Standard dans Azure"
 meta_title: ""
 description: ""
 date: 2025-07-17T10:00:00-05:00
-image: "/images/blog/azure/tuto/azure_upgrade_public_ip_basic_to_standard_thumbnail.png"
+image: "/images/blog/azure/tuto/azure_how_to_upgrade_public_ip_basic_to_standard_thumbnail.png"
 categories: ["Azure", "Tutoriel"]
 author: "Maxime Hiez"
 tags: ["Adresse IP publique", "SKU"]
@@ -45,36 +45,36 @@ Connectez vous au portail Microsoft Azure en ouvrant votre navigateur web sur ht
 ##### Étape 2 : Accéder aux adresses IP publiques
 Dans la barre de recherche en haut de l'écran, écrivez *<u>Public IP addresses</u>*, et cliquez sur le menu proposé.
 
-![image](/images/blog/azure/tuto/azure_upgrade_public_ip_basic_to_standard_001.png)
+![image](/images/blog/azure/tuto/azure_how_to_upgrade_public_ip_basic_to_standard_001.png)
 
 On peut voir ici que son SKU est de type *Basic* et qu'une bannière bleue nous annonce qu'elle doit être convertie en SKU *Standard*.
 
-![image](/images/blog/azure/tuto/azure_upgrade_public_ip_basic_to_standard_002.png)
+![image](/images/blog/azure/tuto/azure_how_to_upgrade_public_ip_basic_to_standard_002.png)
 
 ---
 
 ##### Étape 3 : Désassigner l'adresse IP publique
 Pour pouvoir la convertir, il faut d'abord la désassigner. Cliquez sur *<u>Dissociate</u>*, puis sur *<u>Yes</u>*.
 
-![image](/images/blog/azure/tuto/azure_upgrade_public_ip_basic_to_standard_003.png)
+![image](/images/blog/azure/tuto/azure_how_to_upgrade_public_ip_basic_to_standard_003.png)
 
 ---
 
 ##### Étape 4 : Convertir l'adresse IP publique
 Dans la bannière bleue, cliquez sur *<u>Upgrade to Standard SKU ...</u>*, puis sur *<u>Yes</u>*.
 
-![image](/images/blog/azure/tuto/azure_upgrade_public_ip_basic_to_standard_004.png)
+![image](/images/blog/azure/tuto/azure_how_to_upgrade_public_ip_basic_to_standard_004.png)
 
 La conversion prend quelques secondes et le SKU change pour devenir *Standard*.
 
-![image](/images/blog/azure/tuto/azure_upgrade_public_ip_basic_to_standard_005.png)
+![image](/images/blog/azure/tuto/azure_how_to_upgrade_public_ip_basic_to_standard_005.png)
 
 ---
 
 ##### Étape 5 : Résassigner l'adresse IP publique
 Cliquez sur *<u>Associate</u>*, puis assignez l'adresse IP publique à l'interface de votre équipement.
 
-![image](/images/blog/azure/tuto/azure_upgrade_public_ip_basic_to_standard_006.png)
+![image](/images/blog/azure/tuto/azure_how_to_upgrade_public_ip_basic_to_standard_006.png)
 
 ---
 
