@@ -65,8 +65,8 @@ Microsoft releases a monthly update to *Microsoft 365 Copilot* to keep admins an
 
 ---
 
-##### For users : an enhanced Copilot experience
-**<u>SharePoint agents : access and reach</u>**
+##### For users : An enhanced Copilot experience
+**<u>SharePoint agents : Access and reach</u>**
 
 - Direct access to SharePoint agents from the Microsoft 365 Copilot app (display in the recently used agents bar).
 - Open by default in Copilot rather than SharePoint.
@@ -89,7 +89,7 @@ Microsoft releases a monthly update to *Microsoft 365 Copilot* to keep admins an
 
 - Upload PDF / Word / PowerPoint and ask the question *What’s shown in the image on page 4* to get visually anchored answers.
 - Generate / edit images in natural language, visually track added elements (snippets).
-- Side-by-side editor : canvas + natural language guidance, upscale and auto-enhance without losing context.
+- Side-by-side editor : Canvas + natural language guidance, upscale and auto-enhance without losing context.
 - Rollout : September
 
 ![image](/images/blog/copilot/copilot_whats_new_in_copilot_august_2025_007.png)

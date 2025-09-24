@@ -64,8 +64,8 @@ Microsoft publie chaque mois un récapitulatif des évolutions de *Microsoft 365
 
 ---
 
-##### Pour les utilisateurs : expérience Copilot enrichie
-**<u>SharePoint agents : accès et portée</u>**
+##### Pour les utilisateurs : Expérience Copilot enrichie
+**<u>SharePoint agents : Accès et portée</u>**
 
 - Accès direct aux agents SharePoint depuis l’application Microsoft 365 Copilot (affichage dans la barre des agents récemment utilisés).
 - Ouverture par défaut dans Copilot plutôt que dans SharePoint.
@@ -73,12 +73,12 @@ Microsoft publie chaque mois un récapitulatif des évolutions de *Microsoft 365
 - Déploiement : Septembre
 <br/><br/>
 
-**<u>Copilot Chat : nouveau modèle & outils</u>**
+**<u>Copilot Chat : Nouveau modèle & outils</u>**
 
 - Bouton *Try GPT-5* : Copilot utilise le routeur temps réel de GPT-5 pour basculer entre un modèle haut débit (tâches simples) et un modèle de raisonnement profond (tâches complexes).
 - Menu Tools dans la zone de saisie (Designer, Pages, agents épinglés, Researcher, Analyst) pour réduire les allers-retours.
 - Références d’e-mails avec pièces jointes (Word, Excel, PowerPoint, PDF, JSON, XML) directement comprises dans la réponse, dans Outlook et l’appli Microsoft 365 Copilot (avec licence Copilot).
-- Présentation PowerPoint : génération d’un deck prêt à l’emploi (structure, visuels, mise en forme) depuis l’appli Copilot ; avec licence, prise en compte du contexte de travail.
+- Présentation PowerPoint : Génération d’un deck prêt à l’emploi (structure, visuels, mise en forme) depuis l’appli Copilot ; avec licence, prise en compte du contexte de travail.
 - Déploiement : Août
 
 ![image](/images/blog/copilot/copilot_whats_new_in_copilot_august_2025_006.png)
@@ -88,7 +88,7 @@ Microsoft publie chaque mois un récapitulatif des évolutions de *Microsoft 365
 
 - Téléversez PDF / Word / PowerPoint et posez la question *Que montre l’image à la page 4 ?* pour obtenir des réponses ancrées sur le visuel.
 - Générer / éditer des images en langage naturel, suivi visuel des éléments ajoutés (snippets).
-- Éditeur côte-à-côte : canvas + guidage en langage naturel, upscale et auto-enhance sans perdre le contexte.
+- Éditeur côte-à-côte : Canvas + guidage en langage naturel, upscale et auto-enhance sans perdre le contexte.
 - Déploiement : Septembre
 
 ![image](/images/blog/copilot/copilot_whats_new_in_copilot_august_2025_007.png)
