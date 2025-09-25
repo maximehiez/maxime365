@@ -3,7 +3,7 @@ title: "Comment activer Microsoft 365 Passkey dans Entra ID"
 meta_title: ""
 description: ""
 date: 2024-12-16T10:00:00-05:00
-image: "/images/blog/entra/tuto/entra_activate_passkey_thumbnail.png"
+image: "/images/blog/entra/tuto/entra_how_to_activate_passkey_thumbnail.png"
 categories: ["Entra ID", "Tutoriel"]
 author: "Maxime Hiez"
 tags: ["Passkey", "Mot de passe", "Authenticator", "FIDO2", "MFA", "Sécurité"]
@@ -41,11 +41,11 @@ Dans le menu de gauche, cliquez sur *<u>Protection</u>*, puis sur *<u>Authentica
 
 Cliquez sur *<u>Passkey (FIDO2)</u>* pour activer le service et les utilisateurs concernés.
 
-![image](/images/blog/entra/tuto/entra_passkey_001.png)
+![image](/images/blog/entra/tuto/entra_how_to_activate_passkey_001.png)
 
 Cliquez sur *<u>Configure</u>*, et activez toutes les options.
 
-![image](/images/blog/entra/tuto/entra_passkey_002.png)
+![image](/images/blog/entra/tuto/entra_how_to_activate_passkey_002.png)
 
 Vous pouvez aussi activer le service via le script Graph PowerShell suivant :
 ```powershell

@@ -3,7 +3,7 @@ title: "Comment se connecter avec une Passkey à Microsoft 365"
 meta_title: ""
 description: ""
 date: 2024-12-17T10:00:00-05:00
-image: "/images/blog/entra/tuto/entra_connect_passkey_thumbnail.png"
+image: "/images/blog/entra/tuto/entra_how_to_connect_with_passkey_thumbnail.png"
 categories: ["Entra ID", "Tutoriel"]
 author: "Maxime Hiez"
 tags: ["Passkey", "Mot de passe", "Authenticator", "FIDO2", "MFA", "Sécurité"]
@@ -37,33 +37,33 @@ Connectez vous à *My Sign-Ins* en ouvrant votre navigateur web sur https://mysi
 ##### Étape 2 : Inscrire une Passkey
 Cliquez sur *<u>Add sign-in method</u>*, puis sur *<u>Passkey in Microsoft Authenticator</u>*.
 
-![image](/images/blog/entra/tuto/entra_passkey_003.png)
+![image](/images/blog/entra/tuto/entra_how_to_connect_with_passkey_001.png)
 
 Ouvrez l'application *<u>Authenticator</u>* sur le cellulaire et cliquez sur *<u>Créer une clé d'accès</u>*.
 
-![image](/images/blog/entra/tuto/entra_passkey_004.png)
+![image](/images/blog/entra/tuto/entra_how_to_connect_with_passkey_002.png)
 
 Suivez toutes les étapes présentées à l'écran.
 
-![image](/images/blog/entra/tuto/entra_passkey_005.png)
+![image](/images/blog/entra/tuto/entra_how_to_connect_with_passkey_003.png)
 
 Une fois les étapes complétées, la Passkey est créée.
 
-![image](/images/blog/entra/tuto/entra_passkey_006.png)
+![image](/images/blog/entra/tuto/entra_how_to_connect_with_passkey_004.png)
 
 ---
 
 ##### Étape 3 : Se connecter avec une Passkey
 Connectez vous à votre compte Microsoft 365 en ouvrant votre navigateur web sur https://www.office.com et entrez votre adresse courriel. Choisissez de vous connecter avec votre appareil iPhone / iPad ou Android.
 
-![image](/images/blog/entra/tuto/entra_passkey_007.png)
+![image](/images/blog/entra/tuto/entra_how_to_connect_with_passkey_005.png)
 
 ---
 
 ##### Étape 4 : Approuver la connexion
 Scannez le QR code avec l'appareil photo de votre appareil pour valider la connexion.
 
-![image](/images/blog/entra/tuto/entra_passkey_008.png)
+![image](/images/blog/entra/tuto/entra_how_to_connect_with_passkey_006.png)
 
 ---
 

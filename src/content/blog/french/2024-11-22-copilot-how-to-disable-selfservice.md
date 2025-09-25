@@ -3,7 +3,7 @@ title: "Comment désactiver le libre service sur les licences Copilot"
 meta_title: ""
 description: ""
 date: 2024-11-22T10:00:00-05:00
-image: "/images/blog/copilot/tuto/copilot_disable_selfservice_thumbnail.png"
+image: "/images/blog/copilot/tuto/copilot_how_to_disable_selfservice_thumbnail.png"
 categories: ["Copilot", "Tutoriel"]
 author: "Maxime Hiez"
 tags: ["Licences", "IA", "Libre service", "PowerShell"]
@@ -24,7 +24,7 @@ Connectez vous au Microsoft 365 Admin Center en ouvrant votre navigateur web sur
 ##### Étape 2 : Désactiver le libre service
 Dans le menu de gauche, cliquez sur *<u>Copilot</u>*, puis sur *<u>Settings</u>*, et désactivez le *self-service purshases* de la licence Copilot.
 
-![image](/images/blog/copilot/tuto/copilot_disable_selfservice_001.png)
+![image](/images/blog/copilot/tuto/copilot_how_to_disable_selfservice_001.png)
 
 ---
 
@@ -47,7 +47,7 @@ Get-MSCommerceProductPolicies -PolicyId AllowSelfServicePurchase | Where { $_.Po
 ##### Résultat
 Le résultat est visible est allant dans le menu de gauche du Microsoft 365 Admin Center et en cliquant sur *<u>Settings</u>*, puis sur *<u>Org settings</u>*, et *<u>Self-service trials and purchases</u>*.
 
-![image](/images/blog/copilot/tuto/copilot_disable_selfservice_002.png)
+![image](/images/blog/copilot/tuto/copilot_how_to_disable_selfservice_002.png)
 
 
 ---
