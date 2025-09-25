@@ -3,7 +3,7 @@ title: "How to sign in with Passkey to Microsoft 365"
 meta_title: ""
 description: ""
 date: 2024-12-17T10:00:00-05:00
-image: "/images/blog/entra/tuto/entra_connect_passkey_thumbnail.png"
+image: "/images/blog/entra/tuto/entra_how_to_connect_with_passkey_thumbnail.png"
 categories: ["Entra ID", "Tutorial"]
 author: "Maxime Hiez"
 tags: ["Passkey", "Password", "Authenticator", "FIDO2", "MFA", "Security"]
@@ -37,33 +37,33 @@ Sign in to *My Sign-Ins* by opening your web browser to https://mysignins.micros
 ##### Step 2 : Register a Passkey
 Click *<u>Add sign-in method</u>*, then *<u>Passkey in Microsoft Authenticator</u>*.
 
-![image](/images/blog/entra/tuto/entra_passkey_003.png)
+![image](/images/blog/entra/tuto/entra_how_to_connect_with_passkey_001.png)
 
 Open the *<u>Authenticator</u>* application on your smartphone and click *<u>Create Access Key</u>*.
 
-![image](/images/blog/entra/tuto/entra_passkey_004.png)
+![image](/images/blog/entra/tuto/entra_how_to_connect_with_passkey_002.png)
 
 Follow all the steps displayed on the screen.
 
-![image](/images/blog/entra/tuto/entra_passkey_005.png)
+![image](/images/blog/entra/tuto/entra_how_to_connect_with_passkey_003.png)
 
 Once the steps are completed, the Passkey is created.
 
-![image](/images/blog/entra/tuto/entra_passkey_006.png)
+![image](/images/blog/entra/tuto/entra_how_to_connect_with_passkey_004.png)
 
 ---
 
 ##### Step 3 : Sign in with a Passkey
 Sign in to your Microsoft 365 account by opening your web browser to https://www.office.com and enter your email address. Choose to connect with your iPhone/iPad or Android device.
 
-![image](/images/blog/entra/tuto/entra_passkey_007.png)
+![image](/images/blog/entra/tuto/entra_how_to_connect_with_passkey_005.png)
 
 ---
 
 ##### Step 4 : Approve the connection
 Scan the QR code with your device's camera to validate the connection.
 
-![image](/images/blog/entra/tuto/entra_passkey_008.png)
+![image](/images/blog/entra/tuto/entra_how_to_connect_with_passkey_006.png)
 
 ---
 
