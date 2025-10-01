@@ -6,7 +6,7 @@ date: 2025-08-18T10:00:00-05:00
 image: "/images/blog/sfb/sfb_hotfix_update_august_2025_thumbnail.png"
 categories: ["Skype for Business"]
 author: "Maxime Hiez"
-tags: ["Mise à jour"]
+tags: ["Update"]
 draft: false
 ---
 ---
@@ -16,7 +16,7 @@ Microsoft continues to actively support *Skype for Business Server*, particularl
 
 ---
 
-##### Supported Versions
+##### Supported versions
 The August 2025 hotfix applies to the following versions :
 - Skype for Business Server 2015 CU13 (build 6.0.9319.881) — KB3061064
 - Skype for Business Server 2019 CU8 (build 7.0.2046.553) — KB4470124
