@@ -3,7 +3,7 @@ title: "Comment configurer le rappel dans une file d'attente Teams"
 meta_title: ""
 description: ""
 date: 2025-01-22T10:00:00-05:00
-image: "/images/blog/teams/tuto/teams_callback_callqueue_thumbnail.png"
+image: "/images/blog/teams/tuto/teams_how_to_configure_callback_callqueue_thumbnail.png"
 categories: ["Teams", "Tutoriel"]
 author: "Maxime Hiez"
 tags: ["Téléphonie", "Direct Routing", "Calling Plan", "Operator Connect", "File d'attente", "Callback", "PowerShell"]
@@ -36,11 +36,11 @@ Connectez vous au Microsoft Teams Admin Center en ouvrant votre navigateur web s
 ##### Étape 2 : Activer la fonctionnalité de rappel
 Dans le menu de gauche, cliquez sur *<u>Voice</u>*, puis sur *<u>Call queues</u>*, et éditez la file d'attente sur laquelle vous voulez ajouter la fonctionnalité de rappel.
 
-![image](/images/blog/teams/tuto/teams_callback_callqueue_001.png)
+![image](/images/blog/teams/tuto/teams_how_to_configure_callback_callqueue_001.png)
 
 Cliquez sur le menu *Callback* et activez l'interrupteur *Callback*.
 
-![image](/images/blog/teams/tuto/teams_callback_callqueue_002.png)
+![image](/images/blog/teams/tuto/teams_how_to_configure_callback_callqueue_002.png)
 
 ---
 
@@ -54,28 +54,28 @@ Il est possible de configurer 3 conditions pour déclencher le rappel.
 Dans mon exemple, je choisis de configurer 2 minutes.<br/>
 À noter que la musique par défaut dure 2 minutes, donc même si j'avais configuré 1 minute, le rappel n'aurait été offert qu'après la fin de la musique.
 
-![image](/images/blog/teams/tuto/teams_callback_callqueue_003.png)
+![image](/images/blog/teams/tuto/teams_how_to_configure_callback_callqueue_003.png)
 
 ---
 
 ##### Étape 4 : Définir le message audio
 Lorsque l'une des conditions est atteinte, le message que vous avez défini va être joué. Il peut être en fichier audio (mp3, wav ou wma) ou en text-to-speech.
 
-![image](/images/blog/teams/tuto/teams_callback_callqueue_004.png)
+![image](/images/blog/teams/tuto/teams_how_to_configure_callback_callqueue_004.png)
 
 ---
 
 ##### Étape 5 : Définir la touche de rappel
 Choisissez la touche du pavé téléphonique qui devra être saisie par l'appelant.
 
-![image](/images/blog/teams/tuto/teams_callback_callqueue_005.png)
+![image](/images/blog/teams/tuto/teams_how_to_configure_callback_callqueue_005.png)
 
 ---
 
 ##### Étape 6 : Définir le groupe de notifications
 Il est possible de notifier des personnes par courriel lorsqu'un rappel arrive à expiration. Entrez le nom du groupe M365 à notifier
 
-![image](/images/blog/teams/tuto/teams_callback_callqueue_006.png)
+![image](/images/blog/teams/tuto/teams_how_to_configure_callback_callqueue_006.png)
 
 ---
 
@@ -84,7 +84,7 @@ Puisque la file d'attente fait un appel sortant, il est important de ne pas oubl
 
 Dans le menu de gauche, cliquez sur *<u>Voice</u>*, puis sur *<u>Resource Accounts</u>*, et éditez le compte de ressource de la file d'attente sur laquelle vous venez d'ajouter la fonctionnalité de rappel. Ajoutez la voice policy qui convient le mieux à votre besoin.
 
-![image](/images/blog/teams/tuto/teams_callback_callqueue_007.png)
+![image](/images/blog/teams/tuto/teams_how_to_configure_callback_callqueue_007.png)
 
 ---
 

@@ -3,7 +3,7 @@ title: "How to configure callback in a Teams queue"
 meta_title: ""
 description: ""
 date: 2025-01-22T10:00:00-05:00
-image: "/images/blog/teams/tuto/teams_callback_callqueue_thumbnail.png"
+image: "/images/blog/teams/tuto/teams_how_to_configure_callback_callqueue_thumbnail.png"
 categories: ["Teams", "Tutorial"]
 author: "Maxime Hiez"
 tags: ["Telephony", "Direct Routing", "Calling Plan", "Operator Connect", "Call Queue", "Callback", "PowerShell"]
@@ -28,8 +28,6 @@ Callback in Teams allows callers in a queue to be called back after a certain ti
 
 ---
 
----
-
 ##### Step 1 : Sign in to the Microsoft Teams Admin Center
 Sign in to the Microsoft Teams Admin Center by opening your web browser to https://admin.teams.microsoft.com.
 
@@ -38,11 +36,11 @@ Sign in to the Microsoft Teams Admin Center by opening your web browser to https
 ##### Step 2 : Enable the callback feature
 In the left menu, click *<u>Voice</u>*, then *<u>Call queues</u>*, and edit the queue on which you want to add the callback functionality.
 
-![image](/images/blog/teams/tuto/teams_callback_callqueue_001.png)
+![image](/images/blog/teams/tuto/teams_how_to_configure_callback_callqueue_001.png)
 
 Click the *Callback* menu and activate the *Callback* switch.
 
-![image](/images/blog/teams/tuto/teams_callback_callqueue_002.png)
+![image](/images/blog/teams/tuto/teams_how_to_configure_callback_callqueue_002.png)
 
 ---
 
@@ -56,28 +54,28 @@ It is possible to configure 3 conditions to trigger the callback.
 In my example, I choose to configure 2 minutes.<br/>
 Note that the default music lasts 2 minutes, so even if I had configured 1 minute, the callback would only have been offered after the music ended.
 
-![image](/images/blog/teams/tuto/teams_callback_callqueue_003.png)
+![image](/images/blog/teams/tuto/teams_how_to_configure_callback_callqueue_003.png)
 
 ---
 
 ##### Step 4 : Define the audio greeting
 When one of the conditions is met, the greeting you defined will be played. It can be an audio file (mp3, wav or wma) or text-to-speech.
 
-![image](/images/blog/teams/tuto/teams_callback_callqueue_004.png)
+![image](/images/blog/teams/tuto/teams_how_to_configure_callback_callqueue_004.png)
 
 ---
 
 ##### Step 5 : Set the callback key
 Choose the key on the telephone keypad that should be entered by the caller.
 
-![image](/images/blog/teams/tuto/teams_callback_callqueue_005.png)
+![image](/images/blog/teams/tuto/teams_how_to_configure_callback_callqueue_005.png)
 
 ---
 
 ##### Step 6 : Set the notification group
 It is possible to notify people by email when a reminder expires. Enter the name of the M365 group to notify
 
-![image](/images/blog/teams/tuto/teams_callback_callqueue_006.png)
+![image](/images/blog/teams/tuto/teams_how_to_configure_callback_callqueue_006.png)
 
 ---
 
@@ -86,7 +84,7 @@ Since the queue is placing an outgoing call, it is important not to forget to ap
 
 In the left menu, click *<u>Voice</u>*, then *<u>Resource Accounts</u>*, and edit the resource account of the queue you just add reminder functionality. Add the voice policy that best suits your needs.
 
-![image](/images/blog/teams/tuto/teams_callback_callqueue_007.png)
+![image](/images/blog/teams/tuto/teams_how_to_configure_callback_callqueue_007.png)
 
 ---
 
