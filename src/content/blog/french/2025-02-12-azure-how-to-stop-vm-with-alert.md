@@ -3,7 +3,7 @@ title: "Comment arrêter une machine virtuelle inactive dans Azure"
 meta_title: ""
 description: ""
 date: 2025-02-12T10:00:00-05:00
-image: "/images/blog/azure/tuto/azure_stop_vm_with_alert_thumbnail.png"
+image: "/images/blog/azure/tuto/azure_how_to_stop_vm_with_alert_thumbnail.png"
 categories: ["Azure", "Tutoriel"]
 author: "Maxime Hiez"
 tags: ["Azure monitor", "Alerte", "Machine virtuelle"]
@@ -36,27 +36,27 @@ Connectez vous au portail Microsoft Azure en ouvrant votre navigateur web sur ht
 ##### Étape 2 : Créer un compte d'automatisation
 Dans la barre de recherche en haut de l'écran, écrivez *<u>Automation account</u>*, et cliquez sur le menu proposé.
 
-![image](/images/blog/azure/tuto/azure_stop_vm_with_alert_001.png)
+![image](/images/blog/azure/tuto/azure_how_to_stop_vm_with_alert_001.png)
 
 Remplissez les informations basiques (abonnement, groupe de ressource, nom et région) pour votre compte.
 
-![image](/images/blog/azure/tuto/azure_stop_vm_with_alert_002.png)
+![image](/images/blog/azure/tuto/azure_how_to_stop_vm_with_alert_002.png)
 
 Cochez la case *System assigned*.
 
-![image](/images/blog/azure/tuto/azure_stop_vm_with_alert_003.png)
+![image](/images/blog/azure/tuto/azure_how_to_stop_vm_with_alert_003.png)
 
 Cochez la case *Public access*.
 
-![image](/images/blog/azure/tuto/azure_stop_vm_with_alert_004.png)
+![image](/images/blog/azure/tuto/azure_how_to_stop_vm_with_alert_004.png)
 
-Optionnellement, vous pouvez attacher des tags. Voir l'article de Janvier 2025 [ICI](https://maxime.hiez.ca/blog/2025-01-24-azure-add-tags-vm) dans lequel je parlais des tags.
+Optionnellement, vous pouvez attacher des tags. Voir l'article de Janvier 2025 [ICI](https://maxime.hiez.ca/blog/2025-01-24-azure-how-to-add-tags-vm) dans lequel je parlais des tags.
 
-![image](/images/blog/azure/tuto/azure_stop_vm_with_alert_005.png)
+![image](/images/blog/azure/tuto/azure_how_to_stop_vm_with_alert_005.png)
 
 Votre compte est maintenant créé.
 
-![image](/images/blog/azure/tuto/azure_stop_vm_with_alert_006.png)
+![image](/images/blog/azure/tuto/azure_how_to_stop_vm_with_alert_006.png)
 
 ---
 
@@ -64,13 +64,13 @@ Votre compte est maintenant créé.
 Dans la barre de recherche en haut de l'écran, écrivez *<u>Virtual machines</u>*, et cliquez sur le menu proposé.<br/>
 Toutes vos machines virtuelle vont être affichées ; dans mon cas, il n'y en a qu'une seule (un PC Windows 10).
 
-Dans le menu de gauche, cliquez sur *<u>Monitoring</u>*, puis sur *<u>Alerts</u>* et *<u>Create custom alert rule</u>*.
+Dans le menu de gauche, cliquez sur *<u>Monitoring</u>*, puis sur *<u>Alerts</u>*, et sur *<u>Create custom alert rule</u>*.
 
-![image](/images/blog/azure/tuto/azure_stop_vm_with_alert_007.png)
+![image](/images/blog/azure/tuto/azure_how_to_stop_vm_with_alert_007.png)
 
 Choisissez *Percentage CPU* comme signal, définissez le seuil (j'ai mis 2% pour l'exemple) et la fréquence de vérification (15 minutes dans mon cas).
 
-![image](/images/blog/azure/tuto/azure_stop_vm_with_alert_008.png)
+![image](/images/blog/azure/tuto/azure_how_to_stop_vm_with_alert_008.png)
 
 ---
 
@@ -78,45 +78,45 @@ Choisissez *Percentage CPU* comme signal, définissez le seuil (j'ai mis 2% pour
 Cliquez sur l'onglet *<u>Actions</u>*, puis sur *<u>Create action group</u>*.<br/>
 Remplissez les informations basiques (abonnement, groupe de ressource, région et nom de l'action) pour votre action.
 
-![image](/images/blog/azure/tuto/azure_stop_vm_with_alert_009.png)
+![image](/images/blog/azure/tuto/azure_how_to_stop_vm_with_alert_009.png)
 
 Choisissez le type de notification. J'ai configuré la notification par courriel, mais il est possible de le faire via un SMS.
 
-![image](/images/blog/azure/tuto/azure_stop_vm_with_alert_010.png)
+![image](/images/blog/azure/tuto/azure_how_to_stop_vm_with_alert_010.png)
 
 Choisissez l'action *Stop VM* et le compte *automationaccount01* créé dans l'étape 2.
 
-![image](/images/blog/azure/tuto/azure_stop_vm_with_alert_011.png)
+![image](/images/blog/azure/tuto/azure_how_to_stop_vm_with_alert_011.png)
 
 ---
 
 ##### Étape 5 : Compléter l'alerte de détection
 Remplissez les informations basiques (abonnement, groupe de ressource, sévérité, alerte et description) pour votre alerte.
 
-![image](/images/blog/azure/tuto/azure_stop_vm_with_alert_012.png)
+![image](/images/blog/azure/tuto/azure_how_to_stop_vm_with_alert_012.png)
 
 La configuration est maintenant complétée.
 
-![image](/images/blog/azure/tuto/azure_stop_vm_with_alert_013.png)
+![image](/images/blog/azure/tuto/azure_how_to_stop_vm_with_alert_013.png)
 
 ---
 
 ##### Où voir le résultat ?
 On voit ici que ma VM est allumée (*running*) car le signal (CPU inférieur à 2% pendant 15 minutes) n'est pas encore atteint. Azure surveille l'utilisation du CPU de la VM.
 
-![image](/images/blog/azure/tuto/azure_stop_vm_with_alert_014.png)
+![image](/images/blog/azure/tuto/azure_how_to_stop_vm_with_alert_014.png)
 
 Dès que le signal est atteint, je reçois le courriel de notification (ou le SMS).
 
-![image](/images/blog/azure/tuto/azure_stop_vm_with_alert_015.png)
+![image](/images/blog/azure/tuto/azure_how_to_stop_vm_with_alert_015.png)
 
 Et je peux voir que ma VM est maintenant éteinte (*deallocated*).
 
-![image](/images/blog/azure/tuto/azure_stop_vm_with_alert_016.png)
+![image](/images/blog/azure/tuto/azure_how_to_stop_vm_with_alert_016.png)
 
 Cliquez sur *<u>Alerts</u>* pour valider que l'action programmée est bien la cause de l'arrêt de la VM.
 
-![image](/images/blog/azure/tuto/azure_stop_vm_with_alert_017.png)
+![image](/images/blog/azure/tuto/azure_how_to_stop_vm_with_alert_017.png)
 
 ---
 
