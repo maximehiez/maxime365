@@ -47,7 +47,7 @@ Le déploiement de Facilitator commencera en Mars 2025 pour les appareils Window
 
 ---
 
-##### Comment activer Facilitator
+##### Comment activer Facilitator ?
 1. Les administrateurs peuvent choisir d'activer ou non Facilitator dans leur organisation en gérant l'application Facilitator dans le Microsoft Teams Admin Center.
 2. Pour activer lA version pré-publique des salles Microsoft Teams dans votre environnement, utilisez le portail Microsoft Teams Rooms Pro Management. Dans le menu de gauche, cliquez sur *<u>Rooms </u>*, puis sur *<u>Settings</u>*, et sur *<u>Account</u>*. Activez l'option *Enable Public preview*.
 3. Pour activer le code QR de l'agent Facilitator dans Teams Rooms, utilisez le portail Microsoft Teams Rooms Pro Management. Dans le menu de gauche, cliquez sur *<u>Rooms </u>*, puis sur *<u>Settings</u>*, et sur *<u>Meetings</u>*.  Activez l'option *Show Room facilitator QR code*.

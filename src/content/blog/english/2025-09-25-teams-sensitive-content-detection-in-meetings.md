@@ -12,7 +12,7 @@ draft: false
 ---
 
 ##### Introduction
-In a world where business interactions increasingly take place via video conferencing, the security of information shared in meetings is becoming a major issue. Microsoft is addressing this need with the general availability of sensitive content detection in Teams meetings, a feature that is part of its real-time data protection strategy.
+In a world where business interactions increasingly take place via video conferencing, the security of information shared in meetings is becoming a major issue. Microsoft is addressing this need with the *General Availability* of sensitive content detection in Teams meetings, a feature that is part of its real-time data protection strategy.
 
 ---
 

@@ -12,7 +12,7 @@ draft: false
 ---
 
 ##### Introduction
-Microsoft a récemment annoncé la disponibilité générale du module PowerShell de Microsoft Entra. Ce module offre aux administrateurs et aux professionnels de l'informatique une nouvelle façon de gérer et d'automatiser les tâches liées à Microsoft Entra ID (anciennement Azure Active Directory). Cette mise à jour marque une étape importante dans la simplification de la gestion des identités et des accès dans les environnements cloud.
+Microsoft a récemment annoncé la *General Availability* du module PowerShell de Microsoft Entra. Ce module offre aux administrateurs et aux professionnels de l'informatique une nouvelle façon de gérer et d'automatiser les tâches liées à Microsoft Entra ID (anciennement Azure Active Directory). Cette mise à jour marque une étape importante dans la simplification de la gestion des identités et des accès dans les environnements cloud.
 
 ---
 

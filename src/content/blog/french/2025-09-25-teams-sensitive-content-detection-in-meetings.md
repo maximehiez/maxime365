@@ -12,7 +12,7 @@ draft: false
 ---
 
 ##### Introduction
-Dans un monde où les échanges professionnels se font de plus en plus en visioconférence, la sécurité des informations partagées en réunion devient un enjeu majeur. Microsoft répond à ce besoin avec la disponibilité générale de la détection de contenu sensible dans les réunions Teams, une fonctionnalité qui s’inscrit dans la stratégie de protection des données en temps réel.
+Dans un monde où les échanges professionnels se font de plus en plus en visioconférence, la sécurité des informations partagées en réunion devient un enjeu majeur. Microsoft répond à ce besoin avec la *General Availability* de la détection de contenu sensible dans les réunions Teams, une fonctionnalité qui s’inscrit dans la stratégie de protection des données en temps réel.
 
 ---
 

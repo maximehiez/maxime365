@@ -12,7 +12,7 @@ draft: false
 ---
 
 ##### Introduction
-Microsoft recently announced the general availability of the new unified contacts experience in Microsoft Teams and Outlook. This update allows Microsoft 365 users to access and manage the same set of contacts in both apps, providing a more integrated and efficient collaboration experience.
+Microsoft recently announced the *General Availability* of the new unified contacts experience in Microsoft Teams and Outlook. This update allows Microsoft 365 users to access and manage the same set of contacts in both apps, providing a more integrated and efficient collaboration experience.
 
 ---
 

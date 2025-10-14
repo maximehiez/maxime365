@@ -3,7 +3,7 @@ title: "Comment gérer les doublons dans la recherche annuaire Teams"
 meta_title: ""
 description: ""
 date: 2025-01-25T10:00:00-05:00
-image: "/images/blog/teams/tuto/teams_duplicate_name_directory_thumbnail.png"
+image: "/images/blog/teams/tuto/teams_how_to_handle_duplicate_names_directory_thumbnail.png"
 categories: ["Teams", "Tutoriel"]
 author: "Maxime Hiez"
 tags: ["Téléphonie", "Direct Routing", "Calling Plan", "Operator Connect", "Annuaire", "Dial by name", "Dial by extension", "Standard automatique", "PowerShell"]
@@ -37,7 +37,7 @@ Set-CsAutoAttendant -Instance $$AAToModify = Get-CsAutoAttendant -Identity 45693
 
 La configuration peut prendre plusieurs minutes avant d'être effective. Votre menu devrait ensuite ressembler à ceci :
 
-![image](/images/blog/teams/tuto/teams_duplicate_name_directory_001.png)
+![image](/images/blog/teams/tuto/teams_how_to_handle_duplicate_names_directory_001.png)
 
 À noter que le changement n'est possible qu'en PowerShell pour le moment et toute mise à jour via le Teams Admin Center annulerait cette configuration ; mais comme d'habitude, une prochaine mise à jour permettra de la faire en mode web, soyez patients.
 

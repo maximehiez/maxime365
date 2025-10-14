@@ -3,7 +3,7 @@ title: "How to handle duplicates in Teams directory search"
 meta_title: ""
 description: ""
 date: 2025-01-25T10:00:00-05:00
-image: "/images/blog/teams/tuto/teams_duplicate_name_directory_thumbnail.png"
+image: "/images/blog/teams/tuto/teams_how_to_handle_duplicate_names_directory_thumbnail.png"
 categories: ["Teams", "Tutorial"]
 author: "Maxime Hiez"
 tags: ["Telephony", "Direct Routing", "Calling Plan", "Operator Connect", "Directory", "Dial by name", "Dial by extension", "Auto attendant", "PowerShell"]
@@ -37,7 +37,7 @@ Set-CsAutoAttendant -Instance $$AAToModify = Get-CsAutoAttendant -Identity 45693
 
 The configuration may take several minutes to be effective. Your menu should then look like this:
 
-![image](/images/blog/teams/tuto/teams_duplicate_name_directory_001.png)
+![image](/images/blog/teams/tuto/teams_how_to_handle_duplicate_names_directory_001.png)
 
 Note that the change is only possible in PowerShell at the moment and any update via the Teams Admin Center would cancel this configuration ; but as usual, a future update will allow it to be done in web mode, be patient.
 

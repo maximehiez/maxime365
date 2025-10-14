@@ -26,7 +26,7 @@ When inviting external participants to join Teams meetings, it is common for the
 
 ---
 
-##### How to enable this feature
+##### How to enable this feature ?
 This feature is available to meeting organizers with a <u>Teams Premium</u> license. Administrators can manage this feature through a new meeting policy called *Anonymous users can join a meeting after verifying by email code*. Meeting organizers will also have a new option labeled *Unverified participants can join the meeting* which will be enabled by default if the administrator has allowed unverified participants.
 
 ![image](/images/blog/teams/teams_roadmap_418125_meeting_verify_email_001.png)

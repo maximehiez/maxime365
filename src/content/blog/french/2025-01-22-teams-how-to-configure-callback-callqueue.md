@@ -89,7 +89,7 @@ Dans le menu de gauche, cliquez sur *<u>Voice</u>*, puis sur *<u>Resource Accoun
 ---
 
 ##### Configuration en mode PowerShell
-Vous pouvez aussi vous y configurer la fonctionnalité de rappel via les commandes PowerShell suivantes :
+Vous pouvez aussi configurer la fonctionnalité de rappel via les commandes PowerShell suivantes :
 ```powershell
 Connect-MicrosoftTeams
 

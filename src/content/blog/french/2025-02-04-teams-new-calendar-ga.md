@@ -12,7 +12,7 @@ draft: false
 ---
 
 ##### Introduction
-Microsoft a récemment annoncé la disponibilité générale du nouveau calendrier unifié dans Teams. Cette mise à jour vise à améliorer l'expérience utilisateur en offrant une interface plus intuitive et des fonctionnalités avancées pour la gestion des réunions et des événements. Découvrez comment cette nouvelle fonctionnalité peut transformer votre manière de planifier et de gérer vos activités quotidiennes dans Teams.
+Microsoft a récemment annoncé la *General Availability* du nouveau calendrier unifié dans Teams. Cette mise à jour vise à améliorer l'expérience utilisateur en offrant une interface plus intuitive et des fonctionnalités avancées pour la gestion des réunions et des événements. Découvrez comment cette nouvelle fonctionnalité peut transformer votre manière de planifier et de gérer vos activités quotidiennes dans Teams.
 
 ---
 

@@ -12,7 +12,7 @@ draft: false
 ---
 
 ##### Introduction
-Microsoft recently announced the general availability of the new unified calendar in Teams. This update aims to improve the user experience by providing a more intuitive interface and advanced features for meeting and event management. Learn how this new feature can transform the way you plan and manage your daily activities in Teams.
+Microsoft recently announced the *General Availability* of the new unified calendar in Teams. This update aims to improve the user experience by providing a more intuitive interface and advanced features for meeting and event management. Learn how this new feature can transform the way you plan and manage your daily activities in Teams.
 
 ---
 

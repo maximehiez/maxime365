@@ -2,7 +2,7 @@
 title: "Mise à jour en version 7.4.0 du module PowerShell Teams"
 meta_title: ""
 description: ""
-date: 2025-10-14T10:00:00-05:00
+date: 2025-10-13T10:00:00-05:00
 image: "/images/blog/teams/teams_update_module_powershell_7_4_0_thumbnail.png"
 categories: ["Teams"]
 author: "Maxime Hiez"
