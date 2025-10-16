@@ -1,5 +1,5 @@
 ---
-title: "How to enable DLP for Teams with Microsoft Purview"
+title: "How to enable DLP for Teams with Purview"
 meta_title: ""
 description: ""
 date: 2025-07-15T10:00:00-05:00
@@ -19,7 +19,7 @@ In a context where sensitive data, particularly banking information, is increasi
 ##### Prerequisites
 **<u>Licenses required</u>**
 - *Microsoft 365 Business Premium*, *Microsoft 365 E5*.
-- *Microsoft 365 E5 Compliance* in addition to another license (*E3*, ...).
+- *Microsoft Purview Suite* in addition to another license (*E3*, ...).
 
 **<u>Administrator role</u>**
 - An account with the *Global Administrator* or *Teams Administrator* role to access the Microsoft Purview Portal.

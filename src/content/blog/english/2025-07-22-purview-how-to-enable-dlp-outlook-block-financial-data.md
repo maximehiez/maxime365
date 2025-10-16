@@ -1,5 +1,5 @@
 ---
-title: "How to enable DLP for Outlook with Microsoft Purview"
+title: "How to enable DLP for Outlook with Purview"
 meta_title: ""
 description: ""
 date: 2025-07-22T10:00:00-05:00
@@ -21,7 +21,7 @@ Check the last week's article [HERE](https://maxime.hiez.ca/en/blog/2025-07-15-p
 ##### Prerequisites
 **<u>Licenses required</u>**
 - *Microsoft 365 Business Premium*, *Microsoft 365 E5*.
-- *Microsoft 365 E5 Compliance* in addition to another license (*E3*, ...).
+- *Microsoft Purview Suite* in addition to another license (*E3*, ...).
 
 **<u>Administrator role</u>**
 - An account with the *Global Administrator* or *Teams Administrator* role to access the Microsoft Purview Portal.
