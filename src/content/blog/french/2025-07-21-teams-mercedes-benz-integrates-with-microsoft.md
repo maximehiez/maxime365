@@ -48,9 +48,9 @@ Une première mondiale : un assistant IA complet dans un véhicule, pour transfo
 ---
 
 ##### Réactions du marché et enjeux
-- Acclamation technologique : un utilisateur professionnel dispose désormais d’un espace de travail nomade et sûr
-- Critiques appuyées : certains jugent l’idée de travailler en conduisant comme imprudente et téméraire, malgré les garanties d’intégration sécurisée
-- Position de Mercedes : *Conforme aux lois locales*, *pensé pour minimiser la distraction* 
+- Acclamation technologique : Un utilisateur professionnel dispose désormais d’un espace de travail nomade et sûr.
+- Critiques appuyées : Certains jugent l’idée de travailler en conduisant comme imprudente et téméraire, malgré les garanties d’intégration sécurisée.
+- Position de Mercedes : *Conforme aux lois locales*, *pensé pour minimiser la distraction*.
 
 ---
 

@@ -18,10 +18,10 @@ La startup française Mistral AI, déjà reconnue pour ses modèles de langage o
 
 ##### Qu’est-ce que Mistral Code ?
 Mistral Code est un client de développement *in-IDE* (*intégré à l’environnement de développement*) qui regroupe plusieurs modèles maison de Mistral, notamment :
-- Codestral : pour l’autocomplétion de code
-- Codestral Embed : pour la recherche et la récupération de code
-- Devstral : pour les tâches de développement autonomes (*agentic coding*)
-- Mistral Medium : pour l’assistance conversationnelle
+- Codestral : Pour l’autocomplétion de code.
+- Codestral Embed : Pour la recherche et la récupération de code.
+- Devstral : Pour les tâches de développement autonomes (*agentic coding*).
+- Mistral Medium : Pour l’assistance conversationnelle.
 
 Le tout est intégré dans une interface fluide compatible avec *VS Code* et les *IDE JetBrains*, avec une version bêta privée déjà disponible.
 
@@ -31,11 +31,11 @@ Le tout est intégré dans une interface fluide compatible avec *VS Code* et les
 
 ##### Fonctionnalités clés
 Mistral Code se distingue par une combinaison de puissance et de contrôle :
-- Complétion intelligente : suggestions en temps réel, multi-lignes, adaptées au contexte du projet
-- Chat contextuel : poser des questions sur le code, obtenir des explications ou des suggestions
-- Refactoring et édition : transformer du code via des instructions en langage naturel
-- Recherche intelligente : retrouver des fonctions ou fichiers via des requêtes naturelles
-- Codage autonome : prise en charge de tâches complexes comme la documentation, les tests ou la correction de bugs
+- Complétion intelligente : Suggestions en temps réel, multi-lignes, adaptées au contexte du projet.
+- Chat contextuel : Poser des questions sur le code, obtenir des explications ou des suggestions.
+- Refactoring et édition : Transformer du code via des instructions en langage naturel.
+- Recherche intelligente : Retrouver des fonctions ou fichiers via des requêtes naturelles.
+- Codage autonome : Prise en charge de tâches complexes comme la documentation, les tests ou la correction de bugs.
 
 ![image](/images/blog/ai/ai_mistral_introducing_mistral_code_002.png)
 
@@ -48,7 +48,7 @@ Les entreprises peuvent également :
 - Post-entraîner les modèles sur leurs propres dépôts
 - Distiller des variantes légères adaptées à leurs besoins
 - Superviser l’usage via une console d’administration complète (gestion des accès, analytics, observabilité)
-- Parmi les premiers clients figurent Capgemini, Abanca et la SNCF, qui utilisent déjà Mistral Code en production.
+- Parmi les premiers clients figurent Capgemini, Abanca et la SNCF, qui utilisent déjà Mistral Code en production
 
 ![image](/images/blog/ai/ai_mistral_introducing_mistral_code_003.png)
 

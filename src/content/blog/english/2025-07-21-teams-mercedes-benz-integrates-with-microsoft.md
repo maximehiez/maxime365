@@ -48,9 +48,9 @@ A world first : a complete AI assistant in a vehicle, to transform your journey 
 ---
 
 ##### Market reactions and challenges
-- Technological acclaim : A professional user now has a secure and mobile workspace
-- Strong criticism : Some consider the idea of working while driving to be reckless and foolhardy, despite the guarantees of secure integration
-- Mercedes' position : *Compliant with local laws*, *designed to minimize distraction*
+- Technological acclaim : A professional user now has a secure and mobile workspace.
+- Strong criticism : Some consider the idea of working while driving to be reckless and foolhardy, despite the guarantees of secure integration.
+- Mercedes' position : *Compliant with local laws*, *designed to minimize distraction*.
 
 ---
 

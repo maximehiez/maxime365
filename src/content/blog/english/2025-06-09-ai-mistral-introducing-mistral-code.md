@@ -18,10 +18,10 @@ French startup Mistral AI, already recognized for its open source language model
 
 ##### What is Mistral Code ?
 Mistral Code is an *in-IDE* (*integrated Into the development environment*) development client that brings together several of Mistral's proprietary models, including :
-- Codestral : for code autocompletion
-- Codestral Embed : for code search and retrieval
-- Devstral : for autonomous development tasks (*agentic coding*)
-- Mistral Medium : for conversational assistance
+- Codestral : For code autocompletion.
+- Codestral Embed : For code search and retrieval.
+- Devstral : For autonomous development tasks (*agentic coding*).
+- Mistral Medium : For conversational assistance.
 
 All of this is integrated into a seamless interface compatible with *VS Code* and *JetBrains* IDEs, with a private beta version already available.
 
@@ -31,11 +31,11 @@ All of this is integrated into a seamless interface compatible with *VS Code* an
 
 ##### Key features
 Mistral Code stands out for its combination of power and control :
-- Smart completion : real-time, multi-line suggestions tailored to the project context
-- Contextual chat : ask questions about the code, get explanations or suggestions
-- Refactoring and editing : transform code using natural language instructions
-- Smart search : find functions or files using natural queries
-- Autonomous coding : handle complex tasks such as documentation, testing, or bug fixing
+- Smart completion : Real-time, multi-line suggestions tailored to the project context.
+- Contextual chat : Ask questions about the code, get explanations or suggestions.
+- Refactoring and editing : Transform code using natural language instructions.
+- Smart search : Find functions or files using natural queries.
+- Autonomous coding : Handle complex tasks such as documentation, testing, or bug fixing.
 
 ![image](/images/blog/ai/ai_mistral_introducing_mistral_code_002.png)
 
@@ -48,7 +48,7 @@ Businesses can also :
 - Post-train models on their own repositories
 - Distill lightweight variants tailored to their needs
 - Monitor usage via a comprehensive administration console (access management, analytics, observability)
-- Among the first customers are Capgemini, Abanca, and SNCF, which are already using Mistral Code in production.
+- Among the first customers are Capgemini, Abanca, and SNCF, which are already using Mistral Code in production
 
 ![image](/images/blog/ai/ai_mistral_introducing_mistral_code_003.png)
 
