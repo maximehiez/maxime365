@@ -96,7 +96,7 @@ The user who sent the inappropriate message in Teams will receive the notificati
 
 ##### Conclusion
 With Microsoft Purview Communication Compliance, organizations have a robust framework for monitoring and managing sensitive communications without compromising collaboration. User reporting thus becomes a lever for collective compliance : each employee can actively contribute to the detection of risky behavior, while administrators have powerful tools to investigate and take targeted action.<br/><br/>
-You now know how to handle flagged messages in Teams with Purview.
+You now know how to handle reported messages in Teams with Purview.
 
 ---
 
