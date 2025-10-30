@@ -3,7 +3,7 @@ title: "Comment bloquer un utilisateur externe spécifique dans Teams"
 meta_title: ""
 description: ""
 date: 2025-02-07T10:00:00-05:00
-image: "/images/blog/teams/tuto/teams_roadmap_411138_block_user_thumbnail.png"
+image: "/images/blog/teams/tuto/teams_how_to_block_external_user_thumbnail.png"
 categories: ["Teams", "Tutoriel"]
 author: "Maxime Hiez"
 tags: ["Blocage", "PowerShell", "Roadmap"]
@@ -19,23 +19,23 @@ Microsoft a récemment introduit une nouvelle fonctionnalité pour les administr
 ##### Fonctionnalité de blocage d'utilisateur
 Traditionnellement, les administrateurs pouvaient utiliser l'API de suppression (*removeallaccessforuser API*) pour empêcher un utilisateur malveillant de renvoyer des messages à la même victime. Cependant, cette méthode n'était pas toujours suffisante pour bloquer complètement l'utilisateur. Désormais, une nouvelle API de blocage d'utilisateur permet aux administrateurs de bloquer un utilisateur externe de manière plus efficace, empêchant toute reprise de contact.
 
-![image](/images/blog/teams/tuto/teams_roadmap_411138_block_user_001.png)
+![image](/images/blog/teams/tuto/teams_how_to_block_external_user_001.png)
 
 ---
 
 ##### Mise en œuvre de la fonctionnalité
 Pour utiliser cette nouvelle capacité, un administrateur Microsoft Teams doit se connecter dans le Microsoft Teams Admin Center en ouvrant son navigateur web sur https://admin.teams.microsoft.com, et dans le menu de gauche, cliquer sur *<u>Users</u>*, puis sur *<u>External access</u>*. Par défaut, la fonctionnalité *Block specific users from communicating wih people in my organization* est désactivée.
 
-![image](/images/blog/teams/tuto/teams_roadmap_411138_block_user_002.png)
+![image](/images/blog/teams/tuto/teams_how_to_block_external_user_002.png)
 
 En activant l'interrupteur, l'option *Block a user* apparait, et il devient alors possible de rajouter manuellement les adresses Teams à bloquer.
 
-![image](/images/blog/teams/tuto/teams_roadmap_411138_block_user_003.png)
+![image](/images/blog/teams/tuto/teams_how_to_block_external_user_003.png)
 
 ---
 
 ##### Configuration en mode PowerShell
-Vous pouvez aussi vous y configurer la fonctionnalité de blocage via les commandes PowerShell suivantes :
+Vous pouvez aussi configurer la fonctionnalité de blocage via les commandes PowerShell suivantes :
 ```powershell
 Set-CsTeamsExternalAccessConfiguration -Identity Global -BlockExternalAccessUserAccess $true
 Set-CsTeamsExternalAccessConfiguration -Identity Global -BlockedUsers @("user1@domain.com", "user2@domain.com")
