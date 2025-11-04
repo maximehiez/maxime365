@@ -1,0 +1,117 @@
+---
+title: "Anthropic unveils Claude Sonnet 4.5, more advanced"
+meta_title: ""
+description: ""
+date: 2025-10-30T10:00:00-05:00
+image: "/images/blog/ai/ai_anthropic_introducing_claude_sonnet_4_5_thumbnail.png"
+categories: ["Anthropic"]
+author: "Maxime Hiez"
+tags: ["AI", "Claude"]
+draft: false
+---
+---
+
+##### Introduction
+*Anthropic*, a leading player in artificial intelligence, has announced the release of *Claude Sonnet 4.5*, touted as *the world's best coding model* and a significant leap forward for building autonomous agents and AI's use of computers. The release is accompanied by a series of product enhancements (*Claude Code*, *VS Code* extension, *checkpoints*, *Agent SDK*) and a suite of tools to enable developers to leverage the new capabilities. The company emphasizes coding performance, long-term endurance, and improved alignment and security.
+
+---
+
+##### What Sonnet 4.5 offers
+- Coding performance : Sonnet 4.5 dominates the *SWE-bench Verified* benchmarks and shows significant gains on real-world programming and code editing tasks.
+- Endurance : Anthropic reports that the model can maintain focus on long tasks—over 30 hours on multi-step scenarios—a game-changer for persistent agents.
+- Computer utilization : Sonnet 4.5 makes significant progress on *OSWorld* (a real-world computer usage benchmark), now reaching 61.4% compared to 42.2% a few months earlier.
+- Ecosystem and product features : Checkpoints in Claude Code, a refreshed terminal editor, a native VS Code extension, code execution and file creation directly within the Claude conversation, and the availability of Claude for Chrome for select users.
+
+![image](/images/blog/ai/ai_anthropic_introducing_claude_sonnet_4_5_001.png)
+
+---
+
+##### New product features
+**<u>Checkpoints & developer experience</u>**
+
+Claude Code receives checkpoints—state saves that allow instant reversion to a previous point—and a redesigned terminal. These elements facilitate iterative experimentation and reduce the risk of work loss during long agent-coding sessions.
+<br/>
+
+**<u>Context editing & memory tool for agents</u>**
+
+The new context editing feature and memory tool in the API allow agents to handle even longer and more complex tasks by maintaining and modifying context in a structured way. This is a key driver for the model's promised endurance.
+<br/>
+
+**<u>Claude Agent SDK</u>**
+
+Anthropic publishes the Claude Agent SDK, the infrastructure used to build Claude Code. The SDK provides primitives for memory management, sub-agent coordination, and permission systems—essential building blocks for creating robust agents in production.
+
+<Youtube client:load id="OZ-aLrJ0oVg" title="Claude Agent SDK" />
+<br/>
+
+**<u>Imagine with Claude</u>**
+
+A research preview, *Imagine with Claude*, showcases the model generating software in real time (no pre-written code) — a demonstration of Sonnet 4.5's ability to create tools and applications on the fly. This experiment was temporarily made available to *Max* subscribers.
+
+<Youtube client:load id="dGiqrsv530Y" title="Imagine with Claude" />
+
+---
+
+##### Performance and benchmarks
+Anthropic publishes detailed results :
+- <u>SWE-bench Verified</u> : Sonnet 4.5 achieves top scores (reported tests indicate 77.2% under certain configurations), and internal procedures (parallel sampling, replay, and internal scoring) optimize results for *high-compute configurations*.
+- <u>OSWorld</u> : Major progress on *using a computer* tasks (currently 61.4%), reflecting the ability to navigate, complete spreadsheets, and execute complex sequences of actions.
+- Gains were also assessed in reasoning, mathematics, and specialized performance for finance, law, medicine, and STEM, based on internal evaluations and customer feedback.
+
+![image](/images/blog/ai/ai_anthropic_introducing_claude_sonnet_4_5_002.png)
+<br/>
+
+![image](/images/blog/ai/ai_anthropic_introducing_claude_sonnet_4_5_003.png)
+
+---
+
+##### Safety and alignment : ASL-3 and classifiers
+Anthropic positions Sonnet 4.5 as the *most aligned frontier model to date* :
+- Reduction of problematic behaviors (sycophancy, deception, power-seeking, encouragement of delusions).
+- ASL-3 Mechanisms : Sonnet 4.5 is deployed under the AI ​​Safety Level 3 framework, with classifiers designed to detect potentially dangerous inputs/outputs (including CBRN risks). These safeguards can sometimes generate false positives; however, Anthropic indicates that it has reduced these false positives by a factor of 10 since their initial description, and by a factor of 2 since Opus 4.
+- Mitigation : When a conversation is interrupted by a classifier, Anthropic offers to continue on Sonnet 4 (less sensitive) and provides allowlist processes for industries with specific needs (cybersecurity, biological research).
+
+![image](/images/blog/ai/ai_anthropic_introducing_claude_sonnet_4_5_004.png)
+
+---
+
+##### Availability and pricing
+- Availability : Sonnet 4.5 is available everywhere starting today via the Claude API (claude-sonnet-4-5) and integrated into products (Claude Code, Claude apps).
+- Partner Platforms : Amazon Bedrock, Google Vertex AI, GitHub Copilot (public preview), Vercel, etc. — broad distribution to facilitate enterprise integration.
+- Pricing : Anthropic indicates that the price remains unchanged from Sonnet 4: 3$ / 15$ per million tokens (depending on the announced pricing configuration).
+
+<u>Note</u> : Prices in USD before applicable taxes.
+
+---
+
+##### Limitations & points of consideration
+- False positives from classifiers : Although reduced, they can disrupt legitimate use cases and require operational workflows (fallback, allowlist).
+- Cost & integration : Intensive use (1 million token contexts, continuous agent execution) requires careful consideration of costs and architecture.
+- Production testing : Lab gains must be validated in your own business scenarios (CI/CD, pipelines, codebase complexity).
+
+---
+
+##### Practical recommendations
+1. First, pilot coding cases (test automation, skeleton generation, code review) to measure the gains.
+2. Leverage the Claude Agent SDK to prototype controlled agents (memory management, permissions).
+3. Plan interrupt handling (classifiers) : fallback workflows, allowlists for sensitive areas.
+4. Monitor costs and contextual configurations (200K vs. 1M tokens) based on contextual memory requirements.
+
+---
+
+##### Conclusion
+Claude Sonnet 4.5 represents a significant milestone for Anthropic: a model focused on coding, agency, and the extended use of a *computer by AI*, delivered with product tools and an SDK to industrialize these capabilities. The model combines performance gains, extended endurance, and enhanced security mechanisms (ASL-3 and classifiers). For engineering teams and organizations looking to automate complex workflows or deploy AI agents in production, Sonnet 4.5 is a serious option—one that should be managed with careful consideration of integration constraints, costs, and mechanisms for mitigating security disruptions.
+
+---
+
+##### Sources
+[Anthropic - Claude Sonnet 4.5](https://www.anthropic.com/news/claude-sonnet-4-5)
+
+[Chat with Claude Sonnet 4.5](https://claude.ai)
+
+---
+
+
+Did you enjoy this post ? If you have any questions, comments or suggestions, please feel free to send me a message from the contact form.
+
+Don't forget to follow us and share this post.
