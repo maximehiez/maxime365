@@ -3,7 +3,7 @@ title: "Comment créer un profil WiFi pour Windows 10/11 via Intune"
 meta_title: ""
 description: ""
 date: 2025-05-01T10:00:00-05:00
-image: "/images/blog/intune/tuto/intune_deploy_wifi_profile_thumbnail.png"
+image: "/images/blog/intune/tuto/intune_how_to_deploy_wifi_profile_thumbnail.png"
 categories: ["Intune", "Tutoriel"]
 author: "Maxime Hiez"
 tags: ["WiFi"]
@@ -40,7 +40,7 @@ Dans le menu de gauche, cliquez sur *<u>Devices</u>*, puis sur *<u>Configuration
 Créez une règle pour la plateforme *Windows 10 and later* avec le type de profil *Template*.<br/>
 Recherchez *Wi-Fi* dans le filtre de noms.
 
-![image](/images/blog/intune/tuto/intune_deploy_wifi_profile_001.png)
+![image](/images/blog/intune/tuto/intune_how_to_deploy_wifi_profile_001.png)
 
 Utilisez le profil de type :
 - *Basic* : Si votre connexion WiFi prend en charge des configurations simples telles que le SSID et le mot de passe.
@@ -48,26 +48,26 @@ Utilisez le profil de type :
 
 Entrez le nom de la connexion (*SSID*) ainsi que son type de sécurité et son mot de passe.
 
-![image](/images/blog/intune/tuto/intune_deploy_wifi_profile_002.png)
+![image](/images/blog/intune/tuto/intune_how_to_deploy_wifi_profile_002.png)
 
 Assignez le groupe de sécurité contenant vos postes Windows.
 
-![image](/images/blog/intune/tuto/intune_deploy_wifi_profile_003.png)
+![image](/images/blog/intune/tuto/intune_how_to_deploy_wifi_profile_003.png)
 
 Optionnellement, une règle peut être créée pour appliquer la configuration uniquement sur certaines versions d'ordinateurs.
 
-![image](/images/blog/intune/tuto/intune_deploy_wifi_profile_004.png)
+![image](/images/blog/intune/tuto/intune_how_to_deploy_wifi_profile_004.png)
 
 ---
 
 ##### Étape 3 : Valider la connexion WiFi
 Après quelques minutes, le nouveau profil devrait être synchronisé sur les ordinateurs ciblés qui devraient recevoir la connexion WiFi automatiquement.
 
-![image](/images/blog/intune/tuto/intune_deploy_wifi_profile_005.png)
+![image](/images/blog/intune/tuto/intune_how_to_deploy_wifi_profile_005.png)
 
 L'ordinateur a reçu la configuration et est automatiquement connecté au WiFi.
 
-![image](/images/blog/intune/tuto/intune_deploy_wifi_profile_006.png)
+![image](/images/blog/intune/tuto/intune_how_to_deploy_wifi_profile_006.png)
 
 ---
 
