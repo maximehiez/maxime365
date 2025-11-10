@@ -57,7 +57,7 @@ Créez une règle pour la plateforme *Windows 10 and later* avec le type de prof
 
 ![image](/images/blog/intune/tuto/intune_how_to_locate_windows_device_004.png)
 
-Recherchez *Location and Sensors* dans le filtre de noms, cliquez sur *<u>Location and Sensors</u>*, et cochez la case *<u>Tun off location (Users)</u>*.
+Recherchez *Location and Sensors* dans le filtre de noms, cliquez sur *<u>Location and Sensors</u>*, et cochez la case *<u>Turn off location (Users)</u>*.
 
 ![image](/images/blog/intune/tuto/intune_how_to_locate_windows_device_005.png)
 

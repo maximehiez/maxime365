@@ -57,7 +57,7 @@ Create a rule for the *Windows 10 and later* platform with with the *Settings ca
 
 ![image](/images/blog/intune/tuto/intune_how_to_locate_windows_device_004.png)
 
-Search for *Location and Sensors* in the name filter, click *<u>Location and Sensors</u>*, and check the *<u>Tun off location (Users)</u>* box.
+Search for *Location and Sensors* in the name filter, click *<u>Location and Sensors</u>*, and check the *<u>Turn off location (Users)</u>* box.
 
 ![image](/images/blog/intune/tuto/intune_how_to_locate_windows_device_005.png)
 
