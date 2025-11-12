@@ -61,7 +61,7 @@ Enable the policy to put it into production.
 ##### Step 3 : Send financial data to validate the policy
 After a few minutes, try sending credit card information via Outlook. Here, we're sending a (<u>fake</u>) credit card from the account *User* (*user@hiez.ca*) to *External User 1* (*external.user1@domain.com*).
 
-The banner configured in the rule is displayed at the top of the email warning that this is data prohibited from sending.
+The banner configured in the policy is displayed at the top of the email warning that this is data prohibited from sending.
 
 ![image](/images/blog/purview/tuto/purview_how_to_enable_dlp_outlook_block_financial_data_006.png)
 

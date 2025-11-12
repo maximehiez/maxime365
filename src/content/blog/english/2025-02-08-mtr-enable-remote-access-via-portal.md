@@ -94,7 +94,7 @@ Assign the security group created in step 2.
 
 ![image](/images/blog/mtr/tuto/mtr_enable_remote_access_via_portal_005.png)
 
-Assign the room(s) to the rule.
+Assign the room(s) to the policy.
 
 ![image](/images/blog/mtr/tuto/mtr_enable_remote_access_via_portal_006.png)
 

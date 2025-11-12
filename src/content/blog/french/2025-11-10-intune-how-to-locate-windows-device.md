@@ -57,7 +57,7 @@ Créez une règle pour la plateforme *Windows 10 and later* avec le type de prof
 
 ![image](/images/blog/intune/tuto/intune_how_to_locate_windows_device_004.png)
 
-Recherchez *Location and Sensors* dans le filtre de noms, cliquez sur *<u>Location and Sensors</u>*, et cochez la case *<u>Turn off location (Users)</u>*.
+Recherchez *Location and Sensors* dans le filtre de noms, cliquez sur *<u>Location and Sensors</u>*, et décochez la case *<u>Turn off location (Users)</u>*.
 
 ![image](/images/blog/intune/tuto/intune_how_to_locate_windows_device_005.png)
 
@@ -74,7 +74,7 @@ Après quelques minutes, les nouvelles configurations devraient être synchronis
 
 Dans le menu de gauche, cliquez sur *<u>Devices</u>*, puis sur *<u>All devices</u>*, et cliquez sur l'ordinateur désiré.<br/>
 
-Cliquez sur les 3 points au bout de la ligne d'actions, puis sur *<u>Locate device</u>*.
+Cliquez sur les ***...*** au bout de la ligne d'actions, puis sur *<u>Locate device</u>*.
 
 ![image](/images/blog/intune/tuto/intune_how_to_locate_windows_device_008.png)
 

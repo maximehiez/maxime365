@@ -14,7 +14,7 @@ draft: false
 ##### Introduction
 Je vous montrais la semaine dernière comment activer le DLP pour Teams avec *Microsoft Purview* afin de prévenir des fuites de données accidentelles ou malveillantes (*Data Loss Prevention*). Puview est une solution de protection de données complète et vaste, et je creuse dedans petit à petit. Toujours dans l'idée de vous parler du DLP, voici cette fois-ci comment protéger l'envoi de données financières depuis Microsoft Outlook.
 
-Voir l'article de la semaine passées [ICI](https://maxime.hiez.ca/blog/2025-07-15-purview-how-to-enable-dlp-teams-block-financial-data).
+Voir l'article de la semaine passée [ICI](https://maxime.hiez.ca/blog/2025-07-15-purview-how-to-enable-dlp-teams-block-financial-data).
 
 ---
 

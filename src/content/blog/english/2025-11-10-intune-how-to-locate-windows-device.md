@@ -36,7 +36,7 @@ Sign in to the Microsoft Intune Admin Center by opening your web browser to http
 ##### Step 2 : Activate the *Find My Device* feature
 In the left menu, click *<u>Devices</u>*, then *<u>Configuration</u>*.
 
-Create a rule for the *Windows 10 and later* platform with with the *Settings catalog* profile type.
+Create a policy for the *Windows 10 and later* platform with with the *Settings catalog* profile type.
 
 ![image](/images/blog/intune/tuto/intune_how_to_locate_windows_device_001.png)
 
@@ -53,11 +53,11 @@ Assign the security group containing your Windows PC.
 ##### Step 3 : Enable location services
 In the left-hand menu, click *<u>Devices</u>*, then *<u>Configuration</u>*.
 
-Create a rule for the *Windows 10 and later* platform with with the *Settings catalog* profile type.
+Create a policy for the *Windows 10 and later* platform with with the *Settings catalog* profile type.
 
 ![image](/images/blog/intune/tuto/intune_how_to_locate_windows_device_004.png)
 
-Search for *Location and Sensors* in the name filter, click *<u>Location and Sensors</u>*, and check the *<u>Turn off location (Users)</u>* box.
+Search for *Location and Sensors* in the name filter, click *<u>Location and Sensors</u>*, and uncheck the *<u>Turn off location (Users)</u>* box.
 
 ![image](/images/blog/intune/tuto/intune_how_to_locate_windows_device_005.png)
 
@@ -74,7 +74,7 @@ After a few minutes, the new configurations should be synchronized on the target
 
 In the left-hand menu, click *<u>Devices</u>*, then *<u>All devices</u>*, and click the desired computer.
 
-Click the three dots at the end of the action bar, then click <u>*Locate device</u>*.
+Click the ***...*** at the end of the action bar, then click <u>*Locate device</u>*.
 
 ![image](/images/blog/intune/tuto/intune_how_to_locate_windows_device_008.png)
 

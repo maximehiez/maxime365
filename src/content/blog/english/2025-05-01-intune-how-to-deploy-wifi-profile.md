@@ -37,7 +37,7 @@ Sign in to the Microsoft Intune Admin Center by opening your web browser to http
 ##### Step 2 : Create a WiFi profile
 In the left menu, click *<u>Devices</u>*, then *<u>Configuration</u>*.
 
-Create a rule for the *Windows 10 and later* platform with the *Template* profile type.<br/>
+Create a policy for the *Windows 10 and later* platform with the *Template* profile type.<br/>
 Search for *Wi-Fi* in the name filter.
 
 ![image](/images/blog/intune/tuto/intune_how_to_deploy_wifi_profile_001.png)
@@ -54,7 +54,7 @@ Assign the security group containing your Windows PC.
 
 ![image](/images/blog/intune/tuto/intune_how_to_deploy_wifi_profile_003.png)
 
-Optionally, a rule can be created to apply the configuration only to certain computer versions.
+Optionally, a policy can be created to apply the configuration only to certain computer versions.
 
 ![image](/images/blog/intune/tuto/intune_how_to_deploy_wifi_profile_004.png)
 
