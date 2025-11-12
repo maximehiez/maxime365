@@ -25,7 +25,7 @@ Dans un contexte où les menaces informatiques évoluent constamment, les soluti
 
 **<u>Licences nécessaires</u>**
 - *Microsoft 365 E5*.
-- *Microsoft Defender for Office 365 (Plan 2)* en complément avec une licence autre (*E3*, ...).
+- *Microsoft Defender for Endpoint Plan 2* en complément avec une licence autre (*E3*, ...).
 
 **<u>Rôles d’administrateur</u>**
 - Un compte avec le rôle *Administrateur Global* ou *Administrateur Intune* pour accéder au Microsoft Intune Admin Center.
