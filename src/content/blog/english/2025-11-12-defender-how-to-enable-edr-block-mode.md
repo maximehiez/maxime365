@@ -24,7 +24,7 @@ In a context of constantly evolving cyber threats, antivirus solutions are no lo
 - An Entra ID security group that contains the relevant PCs.
 
 **<u>Licences nécessaires</u>**
-- *Microsoft 365 E5*.
+- *Microsoft 365 Business Premium*, *Microsoft 365 E5*.
 - *Microsoft Defender for Endpoint Plan 2* in addition to another license (*E3*, ...).
 
 **<u>Administrator role</u>**

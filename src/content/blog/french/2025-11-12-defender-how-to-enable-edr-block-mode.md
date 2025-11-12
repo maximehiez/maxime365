@@ -24,7 +24,7 @@ Dans un contexte où les menaces informatiques évoluent constamment, les soluti
 - Un groupe de sécurité Entra ID qui contient les PC concernés.
 
 **<u>Licences nécessaires</u>**
-- *Microsoft 365 E5*.
+- *Microsoft 365 Business Premium*, *Microsoft 365 E5*.
 - *Microsoft Defender for Endpoint Plan 2* en complément avec une licence autre (*E3*, ...).
 
 **<u>Rôles d’administrateur</u>**
