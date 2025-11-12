@@ -11,6 +11,10 @@ banner:
   # Certifications
   cert_title: "My certifications"
   certifications:
+    - logo: "/images/certifications/cisco-webex-contact-center.png"
+      manufacturer: "Cisco"
+      skill: " - Webex Contact Center"
+      description: "Webex Contact Center Expert"
     - logo: "/images/certifications/microsoft-mtr-tech.png"
       manufacturer: "Microsoft"
       skill: " - Teams Rooms"
@@ -73,35 +77,14 @@ banner:
       description: "Core Solutions of Microsoft Skype for Business 2015"
 # Features
 features:
-#  - title: "Mes certifications"
-#    image: "/images/service-1.png"
-#    content: "Je passe beaucoup de temps à me maintenir à jour et apprendre de nouvelles choses pour être capable de fournir le meilleur accompagnement dans mes projets."
-#    bulletpoints:
-#      - "**Microsoft SC-300** : *Identity and Access Administrator Associate*"
-#      - "**Microsoft MD-102** : *Endpoint Administrator Associate*"
-#      - "**Microsoft MS-721** : *Collaboration Communications Systems Engineer Associate*"
-#      - "**Microsoft MS-720** : *Teams Voice Engineer Expert*"
-#      - "**Audiocodes ACA** : *SBC in the Microsoft Teams Environment (Essentials & Configuration)*"
-#      - "**Microsoft MS-700** : *Teams Administrator Associate*"
-#      - "**Microsoft MS-300** : *Deploying Microsoft 365 Teamwork*"
-#      - "**Microsoft MS-101** : *Mobility and Security*"
-#      - "**Microsoft MS-100** : *Identity and Services*"
-#      - "**Microsoft 70-333** : *Deploying Enterprise Voice with Skype for Business 2015*"
-#      - "**Microsoft 70-334** : *Core Solutions of Microsoft Skype for Business 2015*"
-#      - "**En préparation :**"
-#      - "Microsoft SC-400 : *Information Protection and Compliance Administrator Associate*"
-#    button:
-#      enable: false
-#      label: "Commencer maintenant"
-#      link: "#"
-
   - title: "My skills"
     image: "/images/service-2.png"
     content: "I spend a lot of time keeping up to date and learning new things to be able to provide the best support in my projects."
     bulletpoints:
       - "Microsoft Teams telephony"
       - "Microsoft Teams conference rooms"
-      - "Multiple Microsoft 365 services (Entra, Intune, Exchange, Purview,...)"
+      - "Multiple Microsoft 365 services (Entra, Intune, Purview, Exchange, ...)"
+      - "Centre de contacts (Landis, Cisco Webex Contact Center)"
       - "Microsoft Azure landing zones"
       - "SBCs (Audiocodes, Ribbon) & ATAs"
       - "Etc."
