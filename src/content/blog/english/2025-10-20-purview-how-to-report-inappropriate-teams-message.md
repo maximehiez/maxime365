@@ -17,7 +17,7 @@ In an environment where digital communication is omnipresent, organizations must
 ---
 
 ##### Prerequisites
-**<u>Licenses required</u>**
+**<u>Required licenses</u>**
 - *Microsoft 365 E5*.
 - *Microsoft Purview Suite* in addition to another license (*E3*, *Business*, ...).
 

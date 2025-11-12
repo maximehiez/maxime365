@@ -17,7 +17,7 @@ Callback in Teams allows callers in a queue to be called back after a certain ti
 ---
 
 ##### Prerequisites
-**<u>Licenses required</u>**
+**<u>Required licenses</u>**
 - *Microsoft Teams Phone Resource Account*.
 
 **<u>Microsoft Teams telephony enabled</u>**

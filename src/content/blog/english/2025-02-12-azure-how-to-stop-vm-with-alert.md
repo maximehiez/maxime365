@@ -17,7 +17,7 @@ Managing cloud costs effectively is crucial for organizations. One of the bigges
 ---
 
 ##### Prerequisites
-**<u>Licenses required</u>**
+**<u>Required licenses</u>**
 - An Azure subscription.
 
 **<u>Azure resources</u>**

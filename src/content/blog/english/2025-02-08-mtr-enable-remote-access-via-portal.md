@@ -25,7 +25,7 @@ The MTR remote access feature allows administrators to :
 ---
 
 ##### Prerequisites
-**<u>Licenses required</u>**
+**<u>Required licenses</u>**
 - *Teams Rooms Pro*.
 
 **<u>A Teams room</u>**

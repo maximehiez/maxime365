@@ -17,7 +17,7 @@ Microsoft 365 Passkey is an authentication method that replaces passwords with m
 ---
 
 ##### Prerequisites
-**<u>Licenses required</u>**
+**<u>Required licenses</u>**
 - *Microsoft 365* (all editions supporting modern authentication).
 
 **<u>Others</u>**

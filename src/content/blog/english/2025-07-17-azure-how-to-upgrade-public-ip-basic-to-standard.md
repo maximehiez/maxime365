@@ -26,7 +26,7 @@ The Standard SKU offers several advantages over the Basic SKU :
 ---
 
 ##### Prerequisites
-**<u>Licenses required</u>**
+**<u>Required licenses</u>**
 - An Azure subscription.
 
 **<u>Azure resources</u>**

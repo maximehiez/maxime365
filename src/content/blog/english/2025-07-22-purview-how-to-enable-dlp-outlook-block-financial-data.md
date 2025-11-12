@@ -19,7 +19,7 @@ Check the last week's article [HERE](https://maxime.hiez.ca/en/blog/2025-07-15-p
 ---
 
 ##### Prerequisites
-**<u>Licenses required</u>**
+**<u>Required licenses</u>**
 - *Microsoft 365 Business Premium*, *Microsoft 365 E5*.
 - *Microsoft Purview Suite* in addition to another license (*E3*, ...).
 

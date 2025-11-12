@@ -17,7 +17,7 @@ In a context where sensitive data, particularly banking information, is increasi
 ---
 
 ##### Prerequisites
-**<u>Licenses required</u>**
+**<u>Required licenses</u>**
 - *Microsoft 365 Business Premium*, *Microsoft 365 E5*.
 - *Microsoft Purview Suite* in addition to another license (*E3*, ...).
 
