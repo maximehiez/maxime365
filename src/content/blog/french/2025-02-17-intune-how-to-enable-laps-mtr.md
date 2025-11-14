@@ -3,7 +3,7 @@ title: "Comment activer LAPS sur le compte Admin du MTR via Intune"
 meta_title: ""
 description: ""
 date: 2025-02-17T10:00:00-05:00
-image: "/images/blog/intune/tuto/intune_enable_laps_thumbnail.png"
+image: "/images/blog/intune/tuto/intune_how_to_enable_laps_thumbnail.png"
 categories: ["Intune", "Tutoriel"]
 author: "Maxime Hiez"
 tags: ["Teams Rooms", "MTRoW", "LAPS", "Mot de passe", "Sécurité"]
@@ -55,7 +55,7 @@ Dans le menu de gauche, cliquez sur *<u>Identity</u>*, puis sur *<u>Devices</u>*
 
 Cliquez sur *<u>Device settings</u>*, puis sur l'interrupteur *Enable Entra Local Administrator Password Solution (LAPS)* pour activer le service.
 
-![image](/images/blog/intune/tuto/intune_enable_laps_001.png)
+![image](/images/blog/intune/tuto/intune_how_to_enable_laps_001.png)
 
 ---
 
@@ -64,11 +64,11 @@ Dans le menu de gauche, cliquez sur *<u>Identity</u>*, puis sur *<u>Groups</u>*,
 
 Cliquez sur *<u>New group</u>* pour créer un nouveau groupe de sécurité de type *Appareil dynamique*.
 
-![image](/images/blog/intune/tuto/intune_enable_laps_002.png)
+![image](/images/blog/intune/tuto/intune_how_to_enable_laps_002.png)
 
 Cliquez sur *<u>Add dynamic query</u>*, puis ajouter *(device.displayName -startsWith "MTR-")* dans la règle. Ceci va permettre de rassembler tous les MTR dans le même groupe.
 
-![image](/images/blog/intune/tuto/intune_enable_laps_003.png)
+![image](/images/blog/intune/tuto/intune_how_to_enable_laps_003.png)
 
 ---
 
@@ -82,27 +82,27 @@ Dans le menu de gauche, cliquez sur *<u>Endpoint security</u>*, puis sur *<u>Acc
 
 Créez une règle pour la plateforme *Windows 10 and later* avec le profil *Local admin password solution (Windows LAPS)*.
 
-![image](/images/blog/intune/tuto/intune_enable_laps_004.png)
+![image](/images/blog/intune/tuto/intune_how_to_enable_laps_004.png)
 
 Activez les options avec les valeurs de votre choix.<br/>
 On va vouloir cibler le compte *Admin* (dont le mot de passe par défaut est *sfb*) du MTR.
 
-![image](/images/blog/intune/tuto/intune_enable_laps_005.png)
+![image](/images/blog/intune/tuto/intune_how_to_enable_laps_005.png)
 
 Assignez le groupe de sécurité créé en étape 3.
 
-![image](/images/blog/intune/tuto/intune_enable_laps_006.png)
+![image](/images/blog/intune/tuto/intune_how_to_enable_laps_006.png)
 
 ---
 
 ##### Étape 6 : Accéder au mot de passe
 Dans le menu de gauche, cliquez sur *<u>Devices</u>*, puis recherchez le MTR que vous souhaitez vérifier.
 
-![image](/images/blog/intune/tuto/intune_enable_laps_007.png)
+![image](/images/blog/intune/tuto/intune_how_to_enable_laps_007.png)
 
 Cliquez sur *<u>Show local administrator password</u>* pour révéler son mot de passe temporaire.
 
-![image](/images/blog/intune/tuto/intune_enable_laps_008.png)
+![image](/images/blog/intune/tuto/intune_how_to_enable_laps_008.png)
 
 En dessous, on peut voir quand a été automatiquement changé le mot passe pour la dernière fois, et quand il sera de nouveau remplacé.
 
@@ -111,7 +111,7 @@ En dessous, on peut voir quand a été automatiquement changé le mot passe pour
 ##### Étape 7 : Valider les logs
 Depuis l'interface Windows (avec le nouveau mot de passe), allez dans le *Event Viewer* et ouvrez le répertoire *Applications and Services Logs / Microsoft / Windows / LAPS*. Les logs vont être visibles.
 
-![image](/images/blog/intune/tuto/intune_enable_laps_009.png)
+![image](/images/blog/intune/tuto/intune_how_to_enable_laps_009.png)
 
 ---
 
