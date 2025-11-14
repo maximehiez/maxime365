@@ -3,7 +3,7 @@ title: "Comment configurer une limite de plan d'appels dans Teams"
 meta_title: ""
 description: ""
 date: 2025-06-11T11:00:00-05:00
-image: "/images/blog/teams/tuto/teams_calling_plan_spend_limit_thumbnail.png"
+image: "/images/blog/teams/tuto/teams_how_to_configure_calling_plan_spend_limit_thumbnail.png"
 categories: ["Teams", "Tutoriel"]
 author: "Maxime Hiez"
 tags: ["Licences", "Téléphonie", "Calling Plan", "Pay-As-You-Go"]
@@ -33,11 +33,11 @@ Connectez vous au Microsoft Teams Admin Center en ouvrant votre navigateur web s
 ##### Étape 2 : Activer la limite de dépense mensuelle
 Dans le menu de gauche, cliquez sur *<u>Voice</u>*, puis sur *<u>Calling policies</u>*, et éditez la calling policy par défaut (vous pouvez aussi en créer une nouvelle).
 
-![image](/images/blog/teams/tuto/teams_calling_plan_spend_limit_001.png)
+![image](/images/blog/teams/tuto/teams_how_to_configure_calling_plan_spend_limit_001.png)
 
 Activez l'interrupteur *Enable calling plans spend limit* et entrez la valeur correspondant au montant (en devise locale) après lequel vous souhaitez bloquer les appels.
 
-![image](/images/blog/teams/tuto/teams_calling_plan_spend_limit_002.png)
+![image](/images/blog/teams/tuto/teams_how_to_configure_calling_plan_spend_limit_002.png)
 
 ---
 
