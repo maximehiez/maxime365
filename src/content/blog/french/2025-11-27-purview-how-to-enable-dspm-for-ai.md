@@ -3,7 +3,7 @@ title: "Comment activer le DSPM for AI avec Purview"
 meta_title: ""
 description: ""
 date: 2025-11-27T10:00:00-05:00
-image: "/images/blog/purview/tuto/purview_how_to_enable_dspm_ai_thumbnail.png"
+image: "/images/blog/purview/tuto/purview_how_to_enable_dspm_for_ai_thumbnail.png"
 categories: ["Purview", "Tutoriel"]
 author: "Maxime Hiez"
 tags: ["Conformité", "IA", "Sécurité", "DSPM", "Shadow AI"]
@@ -38,7 +38,7 @@ Connectez vous au Microsoft Purview Portal en ouvrant votre navigateur web sur h
 ##### Étape 2 : Activer Microsoft Purview Audit
 Dans le menu de gauche, cliquez sur *<u>Solutions</u>*, puis sur *<u>DSPM for AI</u>*, et activez *Microsoft Purview Audit*.
 
-![image](/images/blog/purview/tuto/purview_how_to_enable_dspm_ai_001.png)
+![image](/images/blog/purview/tuto/purview_how_to_enable_dspm_for_ai_001.png)
 
 ---
 
@@ -52,27 +52,27 @@ Dans le menu de gauche, cliquez sur *<u>Devices</u>*, puis sur *<u>Configuration
 
 Créez une règle pour la plateforme *Windows 10 and later* avec le type de profil *Settings catalog*.
 
-![image](/images/blog/purview/tuto/purview_how_to_enable_dspm_ai_002.png)
+![image](/images/blog/purview/tuto/purview_how_to_enable_dspm_for_ai_002.png)
 
 Recherchez *Control which extension are installed silently* dans le filtre de noms, cliquez sur *<u>Microsoft Edge\Extensions</u>*, et cochez la case *<u>Control which extension are installed silently</u>*.
 
-![image](/images/blog/purview/tuto/purview_how_to_enable_dspm_ai_003.png)
+![image](/images/blog/purview/tuto/purview_how_to_enable_dspm_for_ai_003.png)
 
 Entrez la valeur *lcmcgbabdcbngcbcfabdncmoppkajglo* dans l'attribut *Extension/App IDs*.
 
-![image](/images/blog/purview/tuto/purview_how_to_enable_dspm_ai_004.png)
+![image](/images/blog/purview/tuto/purview_how_to_enable_dspm_for_ai_004.png)
 
 Assignez le groupe de sécurité contenant vos postes Windows.
 
-![image](/images/blog/purview/tuto/purview_how_to_enable_dspm_ai_005.png)
+![image](/images/blog/purview/tuto/purview_how_to_enable_dspm_for_ai_005.png)
 
 Après quelques minutes, l'extension devrait être installée sur les ordinateurs ciblés.
 
-![image](/images/blog/purview/tuto/purview_how_to_enable_dspm_ai_006.png)
+![image](/images/blog/purview/tuto/purview_how_to_enable_dspm_for_ai_006.png)
 
 Si on regarde sur mon ordinateur, on peut voir que l'extension est installée et grisée, ce qui signifie qu'elle est gérée par mon entreprise.
 
-![image](/images/blog/purview/tuto/purview_how_to_enable_dspm_ai_007.png)
+![image](/images/blog/purview/tuto/purview_how_to_enable_dspm_for_ai_007.png)
 
 <Notice type="tip">Il est aussi recommandé de faire une règle pour installer le module dans Chrome.</Notice>
 
@@ -81,22 +81,22 @@ Si on regarde sur mon ordinateur, on peut voir que l'extension est installée et
 ##### Étape 5 : Inscrire les postes dans Defender et/ou Purview
 Si le poste est déjà inscrit dans Defender for Endpoint / Purview, il sera déjà visible dans Purview. On peut voir ici que mon poste Windows 11 est déjà disponible.
 
-![image](/images/blog/purview/tuto/purview_how_to_enable_dspm_ai_008.png)
+![image](/images/blog/purview/tuto/purview_how_to_enable_dspm_for_ai_008.png)
 
 S'il ne l'est pas, vous pouvez exécuter le script *Intune* fournit pour l'inscrire dans Purview.
 
-![image](/images/blog/purview/tuto/purview_how_to_enable_dspm_ai_009.png)
+![image](/images/blog/purview/tuto/purview_how_to_enable_dspm_for_ai_009.png)
 
 ---
 
 ##### Étape 6 : Activer les règles de détection des interactions IA
 Cliquez sur *<u>Create policies</u>*.
 
-![image](/images/blog/purview/tuto/purview_how_to_enable_dspm_ai_010.png)
+![image](/images/blog/purview/tuto/purview_how_to_enable_dspm_for_ai_010.png)
 
 Après quelques minutes, les règles sont créés.
 
-![image](/images/blog/purview/tuto/purview_how_to_enable_dspm_ai_011.png)
+![image](/images/blog/purview/tuto/purview_how_to_enable_dspm_for_ai_011.png)
 
 ---
 
@@ -106,20 +106,20 @@ Après quelques minutes, les règles sont créés.
 - *DSPM for AI - Detect sensitive info shared in AI prompts in Edge*
 - *DSPM for AI - Detect when users visit AI sites*
 
-![image](/images/blog/purview/tuto/purview_how_to_enable_dspm_ai_012.png)
+![image](/images/blog/purview/tuto/purview_how_to_enable_dspm_for_ai_012.png)
 <br/>
 
 **<u>Data Loss Prevention Collection policy</u>** : Découvre les interactions et les données partagées avec les applications d'IA via le navigateur Edge.
 
-![image](/images/blog/purview/tuto/purview_how_to_enable_dspm_ai_013.png)
+![image](/images/blog/purview/tuto/purview_how_to_enable_dspm_for_ai_013.png)
 
 **<u>Insider Risk Management policy</u>** : Détecte les comportements de navigation Web susceptibles d'enfreindre la politique d'utilisation acceptable de l'organisation, tels que la visite de sites faisant l'apologie de la haine, contenant du contenu pour adultes ou présentant un risque (sites d'hameçonnage, ...).
 
-![image](/images/blog/purview/tuto/purview_how_to_enable_dspm_ai_014.png)
+![image](/images/blog/purview/tuto/purview_how_to_enable_dspm_for_ai_014.png)
 
 **<u>Data Loss Prevention policy</u>** : Détecte les contenus sensibles collés ou téléchargés depuis Microsoft Edge, Chrome et Firefox sur des sites d'IA.
 
-![image](/images/blog/purview/tuto/purview_how_to_enable_dspm_ai_015.png)
+![image](/images/blog/purview/tuto/purview_how_to_enable_dspm_for_ai_015.png)
 
 ---
 
@@ -128,11 +128,11 @@ Cliquez sur *<u>Reports</u>* pour voir les résultats des règles configurées (
 
 On peut constater ici que plusieurs site d'IA ont été consultés sans qu'ils soient approuvés par l'entreprise. On parle alors de *Shadow AI*. On verra dans un prochain article comment bloquer la navigation vers *Deepseek* par exemple.
 
-![image](/images/blog/purview/tuto/purview_how_to_enable_dspm_ai_016.png)
+![image](/images/blog/purview/tuto/purview_how_to_enable_dspm_for_ai_016.png)
 
 Cliquez sur *<u>Activity explorer</u>* pour voir quelles interactions ont été réalisées avec ces sites. Dans mon cas ici, on peut voir que des informations détectées comme sensibles ont été envoyées dans *Copilot*, ce qui représente une fuite de données.
 
-![image](/images/blog/purview/tuto/purview_how_to_enable_dspm_ai_017.png)
+![image](/images/blog/purview/tuto/purview_how_to_enable_dspm_for_ai_017.png)
 
 ---
 
@@ -141,7 +141,7 @@ Plusieurs autres règles sont disponibles à l'activation si vous avez un abonne
 
 Cliquez sur *<u>Recommendations</u>* et activez les règles supplémentaires que vous aimeriez mettre en place.
 
-![image](/images/blog/purview/tuto/purview_how_to_enable_dspm_ai_018.png)
+![image](/images/blog/purview/tuto/purview_how_to_enable_dspm_for_ai_018.png)
 
 Je ferai peut être un article prochainement sur les possibilités offertes par les autres règles.
 

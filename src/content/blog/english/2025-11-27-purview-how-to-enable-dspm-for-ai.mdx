@@ -3,7 +3,7 @@ title: "How to enable DSPM for AI with Purview"
 meta_title: ""
 description: ""
 date: 2025-11-27T10:00:00-05:00
-image: "/images/blog/purview/tuto/purview_how_to_enable_dspm_ai_thumbnail.png"
+image: "/images/blog/purview/tuto/purview_how_to_enable_dspm_for_ai_thumbnail.png"
 categories: ["Purview", "Tutorial"]
 author: "Maxime Hiez"
 tags: ["Compliance", "AI", "Security", "DSPM", "Shadow AI"]
@@ -35,7 +35,7 @@ Sign in to the Microsoft Purview Portal by opening your web browser to https://p
 ##### Step 2 : Enable Microsoft Purview Audit
 In the left menu, click *<u>Solutions</u>*, then *<u>DSPM for AI</u>*, and enable *Microsoft Purview Audit*.
 
-![image](/images/blog/purview/tuto/purview_how_to_enable_dspm_ai_001.png)
+![image](/images/blog/purview/tuto/purview_how_to_enable_dspm_for_ai_001.png)
 
 ---
 
@@ -49,27 +49,27 @@ In the left menu, click *<u>Devices</u>*, then *<u>Configuration</u>*.
 
 Create a policy for the *Windows 10 and later* platform with the *Settings catalog* profile type.
 
-![image](/images/blog/purview/tuto/purview_how_to_enable_dspm_ai_002.png)
+![image](/images/blog/purview/tuto/purview_how_to_enable_dspm_for_ai_002.png)
 
 Search for *Control which extension are installed silently* in the name filter, click *<u>Microsoft Edge\Extensions</u>*, and check the *<u>Control which extension are installed silently</u>* box.
 
-![image](/images/blog/purview/tuto/purview_how_to_enable_dspm_ai_003.png)
+![image](/images/blog/purview/tuto/purview_how_to_enable_dspm_for_ai_003.png)
 
 Enter the value *lcmcgbabdcbngcbcfabdncmoppkajglo* in the *Extension/App IDs* attribute.
 
-![image](/images/blog/purview/tuto/purview_how_to_enable_dspm_ai_004.png)
+![image](/images/blog/purview/tuto/purview_how_to_enable_dspm_for_ai_004.png)
 
 Assign the security group containing your Windows PC.
 
-![image](/images/blog/purview/tuto/purview_how_to_enable_dspm_ai_005.png)
+![image](/images/blog/purview/tuto/purview_how_to_enable_dspm_for_ai_005.png)
 
 After a few minutes, the extension should be installed on the targeted computers.
 
-![image](/images/blog/purview/tuto/purview_how_to_enable_dspm_ai_006.png)
+![image](/images/blog/purview/tuto/purview_how_to_enable_dspm_for_ai_006.png)
 
 If you look at my computer, you can see that the extension is installed and greyed out, which means that it is managed by my organization.
 
-![image](/images/blog/purview/tuto/purview_how_to_enable_dspm_ai_007.png)
+![image](/images/blog/purview/tuto/purview_how_to_enable_dspm_for_ai_007.png)
 
 <Notice type="tip">It is also recommended to create a policy to install the module in Chrome.</Notice>
 
@@ -78,22 +78,22 @@ If you look at my computer, you can see that the extension is installed and grey
 ##### Step 5 : Enroll the computers in Defender and/or Purview
 If the computer is already enroll in Defender for Endpoint / Purview, it will already be visible in Purview. Here you can see that my Windows 11 computer is already available.
 
-![image](/images/blog/purview/tuto/purview_how_to_enable_dspm_ai_008.png)
+![image](/images/blog/purview/tuto/purview_how_to_enable_dspm_for_ai_008.png)
 
 If it is not, you can run the provided *Intune* script to enroll it in Purview.
 
-![image](/images/blog/purview/tuto/purview_how_to_enable_dspm_ai_009.png)
+![image](/images/blog/purview/tuto/purview_how_to_enable_dspm_for_ai_009.png)
 
 ---
 
 ##### Step 6 : Enable AI interaction detection policies
 Click *<u>Create policies</u>*.
 
-![image](/images/blog/purview/tuto/purview_how_to_enable_dspm_ai_010.png)
+![image](/images/blog/purview/tuto/purview_how_to_enable_dspm_for_ai_010.png)
 
 After a few minutes, policies are created.
 
-![image](/images/blog/purview/tuto/purview_how_to_enable_dspm_ai_011.png)
+![image](/images/blog/purview/tuto/purview_how_to_enable_dspm_for_ai_011.png)
 
 ---
 
@@ -103,20 +103,20 @@ After a few minutes, policies are created.
 - *DSPM for AI - Detect sensitive info shared in AI prompts in Edge*
 - *DSPM for AI - Detect when users visit AI sites*
 
-![image](/images/blog/purview/tuto/purview_how_to_enable_dspm_ai_012.png)
+![image](/images/blog/purview/tuto/purview_how_to_enable_dspm_for_ai_012.png)
 <br/>
 
 **<u>Data Loss Prevention Collection policy</u>** : Discovers the interactions and data shared with AI applications via the Edge browser.
 
-![image](/images/blog/purview/tuto/purview_how_to_enable_dspm_ai_013.png)
+![image](/images/blog/purview/tuto/purview_how_to_enable_dspm_for_ai_013.png)
 
 **<u>Insider Risk Management policy</u>** : Detects web browsing behavior that may violate the organization's acceptable use policy, such as visiting sites that promote hate, contain adult content, or present a risk (phishing sites, etc.).
 
-![image](/images/blog/purview/tuto/purview_how_to_enable_dspm_ai_014.png)
+![image](/images/blog/purview/tuto/purview_how_to_enable_dspm_for_ai_014.png)
 
 **<u>Data Loss Prevention policy</u>** : Detects sensitive content pasted or downloaded from Microsoft Edge, Chrome and Firefox on AI websites.
 
-![image](/images/blog/purview/tuto/purview_how_to_enable_dspm_ai_015.png)
+![image](/images/blog/purview/tuto/purview_how_to_enable_dspm_for_ai_015.png)
 
 ---
 
@@ -125,11 +125,11 @@ Click *<u>Reports</u>* to see the results of the configured policies (after 24 h
 
 Here we can see that several AI sites were accessed without being approved by the company. This is referred to as *Shadow AI*. We will see in a future article how to block navigation to *Deepseek*, for example.
 
-![image](/images/blog/purview/tuto/purview_how_to_enable_dspm_ai_016.png)
+![image](/images/blog/purview/tuto/purview_how_to_enable_dspm_for_ai_016.png)
 
 Click *<u>Activity explorer</u>* to see what interactions have occurred with these sites. In my case here, we can see that information detected as sensitive has been sent to *Copilot*, which represents a data breach.
 
-![image](/images/blog/purview/tuto/purview_how_to_enable_dspm_ai_017.png)
+![image](/images/blog/purview/tuto/purview_how_to_enable_dspm_for_ai_017.png)
 
 ---
 
@@ -138,7 +138,7 @@ Several additional policies are available for activation if you have an Azure *P
 
 Click *<u>Recommendations</u>* and activate the additional policies you would like to implement.
 
-![image](/images/blog/purview/tuto/purview_how_to_enable_dspm_ai_018.png)
+![image](/images/blog/purview/tuto/purview_how_to_enable_dspm_for_ai_018.png)
 
 I may write an article soon about the possibilities offered by the other policies.
 
