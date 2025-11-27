@@ -1,0 +1,161 @@
+---
+title: "How to enable DSPM for AI with Purview"
+meta_title: ""
+description: ""
+date: 2025-11-27T10:00:00-05:00
+image: "/images/blog/purview/tuto/purview_how_to_enable_dspm_ai_thumbnail.png"
+categories: ["Purview", "Tutorial"]
+author: "Maxime Hiez"
+tags: ["Compliance", "AI", "Security", "DSPM", "Shadow AI"]
+draft: false
+---
+---
+
+##### Introduction
+With the rise of generative AI models, the phenomenon of *Shadow AI* (the use of artificial intelligence tools and services not approved or controlled by organizations) is increasing dangerously. Managing sensitive information is becoming critical : risks of data leaks, non-compliance, and loss of governance are all on the rise. Microsoft *Purview DSPM for AI* (*Data Security Posture Management*) enables you to ensure compliance and mitigate the risks associated with using artificial intelligence. DSPM for AI can be used in conjunction with other Purview solutions to improve the security and compliance of your data, including *Microsoft M365 Copilot*, Copilot agents, other Copilot solutions, and non-Microsoft generative AI applications.
+
+---
+
+##### Prerequisites
+**<u>Required licenses</u>**
+- *Microsoft 365 E5*.
+- *Microsoft Purview Suite* in addition to another license (*E3*, *Business*, ...).
+
+**<u>Administrator role</u>**
+- An account with the *Global Administrator* or *Compliance Administrator* role to access the Microsoft Purview Portal.
+- An account with the *Global Administrator* or *Intune Administrator* role to access the Microsoft Intune Admin Center.
+
+---
+
+##### Step 1 : Sign in to the Microsoft Purview Portal
+Sign in to the Microsoft Purview Portal by opening your web browser to https://purview.microsoft.com.
+
+---
+
+##### Step 2 : Enable Microsoft Purview Audit
+In the left menu, click *<u>Solutions</u>*, then *<u>DSPM for AI</u>*, and enable *Microsoft Purview Audit*.
+
+![image](/images/blog/purview/tuto/purview_how_to_enable_dspm_ai_001.png)
+
+---
+
+##### Step 3 : Sign in to the Microsoft Intune Admin Center
+Sign in to the Microsoft Intune Admin Center by opening your web browser to https://intune.microsoft.com.
+
+---
+
+##### Step 4 : Install the Purview extension for Edge
+In the left menu, click *<u>Devices</u>*, then *<u>Configuration</u>*.
+
+Create a policy for the *Windows 10 and later* platform with the *Settings catalog* profile type.
+
+![image](/images/blog/purview/tuto/purview_how_to_enable_dspm_ai_002.png)
+
+Search for *Control which extension are installed silently* in the name filter, click *<u>Microsoft Edge\Extensions</u>*, and check the *<u>Control which extension are installed silently</u>* box.
+
+![image](/images/blog/purview/tuto/purview_how_to_enable_dspm_ai_003.png)
+
+Enter the value *lcmcgbabdcbngcbcfabdncmoppkajglo* in the *Extension/App IDs* attribute.
+
+![image](/images/blog/purview/tuto/purview_how_to_enable_dspm_ai_004.png)
+
+Assign the security group containing your Windows PC.
+
+![image](/images/blog/purview/tuto/purview_how_to_enable_dspm_ai_005.png)
+
+After a few minutes, the extension should be installed on the targeted computers.
+
+![image](/images/blog/purview/tuto/purview_how_to_enable_dspm_ai_006.png)
+
+If you look at my computer, you can see that the extension is installed and greyed out, which means that it is managed by my organization.
+
+![image](/images/blog/purview/tuto/purview_how_to_enable_dspm_ai_007.png)
+
+<Notice type="tip">It is also recommended to create a policy to install the module in Chrome.</Notice>
+
+---
+
+##### Step 5 : Enroll the computers in Defender and/or Purview
+If the computer is already enroll in Defender for Endpoint / Purview, it will already be visible in Purview. Here you can see that my Windows 11 computer is already available.
+
+![image](/images/blog/purview/tuto/purview_how_to_enable_dspm_ai_008.png)
+
+If it is not, you can run the provided *Intune* script to enroll it in Purview.
+
+![image](/images/blog/purview/tuto/purview_how_to_enable_dspm_ai_009.png)
+
+---
+
+##### Step 6 : Enable AI interaction detection policies
+Click *<u>Create policies</u>*.
+
+![image](/images/blog/purview/tuto/purview_how_to_enable_dspm_ai_010.png)
+
+After a few minutes, policies are created.
+
+![image](/images/blog/purview/tuto/purview_how_to_enable_dspm_ai_011.png)
+
+---
+
+##### Step 7 : Analyze the policies
+3 policies have been added to the existing Purview configurations :
+- *DSPM for AI - Detect sensitive info added to AI sites*
+- *DSPM for AI - Detect sensitive info shared in AI prompts in Edge*
+- *DSPM for AI - Detect when users visit AI sites*
+
+![image](/images/blog/purview/tuto/purview_how_to_enable_dspm_ai_012.png)
+<br/>
+
+**<u>Data Loss Prevention Collection policy</u>** : Discovers the interactions and data shared with AI applications via the Edge browser.
+
+![image](/images/blog/purview/tuto/purview_how_to_enable_dspm_ai_013.png)
+
+**<u>Insider Risk Management policy</u>** : Detects web browsing behavior that may violate the organization's acceptable use policy, such as visiting sites that promote hate, contain adult content, or present a risk (phishing sites, etc.).
+
+![image](/images/blog/purview/tuto/purview_how_to_enable_dspm_ai_014.png)
+
+**<u>Data Loss Prevention policy</u>** : Detects sensitive content pasted or downloaded from Microsoft Edge, Chrome and Firefox on AI websites.
+
+![image](/images/blog/purview/tuto/purview_how_to_enable_dspm_ai_015.png)
+
+---
+
+##### Step 8 : Let's analyze the results
+Click *<u>Reports</u>* to see the results of the configured policies (after 24 hours). Unconfigured policies will display an empty box.
+
+Here we can see that several AI sites were accessed without being approved by the company. This is referred to as *Shadow AI*. We will see in a future article how to block navigation to *Deepseek*, for example.
+
+![image](/images/blog/purview/tuto/purview_how_to_enable_dspm_ai_016.png)
+
+Click *<u>Activity explorer</u>* to see what interactions have occurred with these sites. In my case here, we can see that information detected as sensitive has been sent to *Copilot*, which represents a data breach.
+
+![image](/images/blog/purview/tuto/purview_how_to_enable_dspm_ai_017.png)
+
+---
+
+##### Step 9 : Let's go further
+Several additional policies are available for activation if you have an Azure *Pay-as-you-go* subscription connected to Purview.
+
+Click *<u>Recommendations</u>* and activate the additional policies you would like to implement.
+
+![image](/images/blog/purview/tuto/purview_how_to_enable_dspm_ai_018.png)
+
+I may write an article soon about the possibilities offered by the other policies.
+
+---
+
+##### Conclusion
+With Microsoft Purview DSPM for AI, organizations can ensure comprehensive monitoring of their employees' AI activities.<br/><br/>
+You now know how to implement the DSPM for AI feature with Purview.
+
+---
+
+##### Sources
+[Microsoft Learn - DSPM for AI](https://learn.microsoft.com/en-us/purview/dspm-for-ai?tabs=m365)
+
+---
+
+
+Did you enjoy this post ? If you have any questions, comments or suggestions, please feel free to send me a message from the contact form.
+
+Don't forget to follow us and share this post.

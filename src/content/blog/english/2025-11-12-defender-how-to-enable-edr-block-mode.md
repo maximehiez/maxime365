@@ -43,9 +43,7 @@ In the left menu, click *<u>System</u>*, then *<u>Settings</u>*.
 
 ![image](/images/blog/defender/tuto/defender_how_to_enable_edr_block_mode_001.png)
 
-Click *<u>Endpoints</u>*, then *<u>General</u>*, and *<u>Advanced features</u>*.
-
-Activate the *Enable EDR in block mode* switch.
+Click *<u>Endpoints</u>*, then *<u>Advanced features</u>*, and activate the *Enable EDR in block mode* switch.
 
 ![image](/images/blog/defender/tuto/defender_how_to_enable_edr_block_mode_002.png)
 
@@ -70,7 +68,7 @@ After a few minutes, the policy is deployed on the device.
 ---
 
 ##### Step 5 : Validate the *Block Mode*
-In the left-hand menu, click *<u>Assets*</u>, then *<u>Devices*</u>.
+In the left menu, click *<u>Assets*</u>, then *<u>Devices*</u>.
 
 The device is now visible in the Defender console.
 

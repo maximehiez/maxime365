@@ -43,9 +43,7 @@ Dans le menu de gauche, cliquez sur *<u>System</u>*, puis sur sur *<u>Settings</
 
 ![image](/images/blog/defender/tuto/defender_how_to_enable_edr_block_mode_001.png)
 
-Cliquez sur *<u>Endpoints</u>*, puis sur *<u>General</u>*, et sur *<u>Advanced features</u>*.
-
-Activez l'interrupteur *Enable EDR in block mode*.
+Cliquez sur *<u>Endpoints</u>*, puis sur *<u>Advanced features</u>*, et activez l'interrupteur *Enable EDR in block mode*.
 
 ![image](/images/blog/defender/tuto/defender_how_to_enable_edr_block_mode_002.png)
 
@@ -57,7 +55,7 @@ Connectez vous au Microsoft Intune Admin Center en ouvrant votre navigateur web 
 ---
 
 ##### Étape 4 : Activer la règle *Endpoint Detection and Response*
-Dans le menu de gauche, cliquez sur *<u>Endpoint security</u>*, puis sur *<u>Endpoint detection and response </u>*.
+Dans le menu de gauche, cliquez sur *<u>Endpoint security</u>*, puis sur *<u>Endpoint detection and response</u>*.
 
 Cliquez sur *<u>Deploy preconfigured policy</u>*, et créez une règle pour la plateforme *Windows* en gardant toutes les options par défaut.
 

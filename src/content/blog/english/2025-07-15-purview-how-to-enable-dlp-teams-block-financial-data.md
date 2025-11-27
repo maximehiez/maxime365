@@ -22,7 +22,7 @@ In a context where sensitive data, particularly banking information, is increasi
 - *Microsoft Purview Suite* in addition to another license (*E3*, ...).
 
 **<u>Administrator role</u>**
-- An account with the *Global Administrator* or *Teams Administrator* role to access the Microsoft Purview Portal.
+- An account with the *Global Administrator* or *Compliance Administrator* role to access the Microsoft Purview Portal.
 
 ---
 

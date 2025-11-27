@@ -65,8 +65,8 @@ During the 2025 Anti-Tampering Test in April 2025, AV-Comparatives subjected Mic
 This certification places Microsoft Defender for Endpoint among the most reliable solutions on the market for protecting workstations and servers against malicious tampering.
 
 Why it's important for organizations :
-- Reduced risk of compromise : by preventing attackers from disabling defenses.
-- Strengthened compliance : by ensuring the integrity of security policies.
+- Reduced risk of compromise : By preventing attackers from disabling defenses.
+- Strengthened compliance : By ensuring the integrity of security policies.
 - Less maintenance : Protections are active by default and do not require complex configuration.
 - Protection of critical environments : Ability to create specific rules for domain controllers or other sensitive systems.
 

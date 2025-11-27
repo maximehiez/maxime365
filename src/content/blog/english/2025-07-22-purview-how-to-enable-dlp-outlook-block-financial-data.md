@@ -24,7 +24,7 @@ Check the last week's article [HERE](https://maxime.hiez.ca/en/blog/2025-07-15-p
 - *Microsoft Purview Suite* in addition to another license (*E3*, ...).
 
 **<u>Administrator role</u>**
-- An account with the *Global Administrator* or *Teams Administrator* role to access the Microsoft Purview Portal.
+- An account with the *Global Administrator* or *Compliance Administrator* role to access the Microsoft Purview Portal.
 
 ---
 

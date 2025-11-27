@@ -65,10 +65,10 @@ Lors du test anti-tampering 2025 en Avril 2025, AV-Comparatives a soumis Microso
 Cette certification place Microsoft Defender for Endpoint parmi les solutions les plus fiables du marché pour la protection des postes de travail et serveurs contre les manipulations malveillantes.
 
 Pourquoi c’est important pour les organisations :
-- Réduction du risque de compromission : en empêchant les attaquants de désactiver les défenses.
-- Conformité renforcée : en assurant l’intégrité des politiques de sécurité.
-- Moins de maintenance : les protections sont actives par défaut et ne nécessitent pas de configuration complexe.
-- Protection des environnements critiques : possibilité de créer des règles spécifiques pour les contrôleurs de domaine ou autres systèmes sensibles.
+- Réduction du risque de compromission : En empêchant les attaquants de désactiver les défenses.
+- Conformité renforcée : En assurant l’intégrité des politiques de sécurité.
+- Moins de maintenance : Les protections sont actives par défaut et ne nécessitent pas de configuration complexe.
+- Protection des environnements critiques : Possibilité de créer des règles spécifiques pour les contrôleurs de domaine ou autres systèmes sensibles.
 
 ---
 
