@@ -31,7 +31,7 @@ La fonctionnalité d'accès distant au MTR permet aux administrateurs de :
 **<u>Une salle Teams</u>**
 - Un MTR Windows déployé.
 
-**<u>Rôle d’administrateur</u>**
+**<u>Rôles d’administrateur</u>**
 - Un compte avec le rôle *Administrateur Global* pour accéder au Microsoft Teams Rooms Pro Management.
 - Un compte avec le rôle *Administrateur Global* ou *Administrateur d'utilisateurs* pour accéder au Microsoft Entra Admin Center.
 

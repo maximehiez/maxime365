@@ -39,7 +39,7 @@ LAPS automatically generates unique and complex passwords for the local administ
 **<u>A Teams room</u>**
 - A Windows MTR deployed.
 
-**<u>Administrator role</u>**
+**<u>Administrator roles</u>**
 - An account with the *Global Administrator* or *User Administrator* role to access the Microsoft Entra Admin Center.
 - An account with the *Global Administrator* or *Intune Administrator* role to access the Microsoft Intune Admin Center.
 

@@ -39,7 +39,7 @@ Connectez vous au Microsoft Defender Portal en ouvrant votre navigateur web sur 
 ---
 
 ##### Étape 2 : Activer le *Block Mode*
-Dans le menu de gauche, cliquez sur *<u>System</u>*, puis sur sur *<u>Settings</u>*.
+Dans le menu de gauche, cliquez sur *<u>System</u>*, puis sur *<u>Settings</u>*.
 
 ![image](/images/blog/defender/tuto/defender_how_to_enable_edr_block_mode_001.png)
 
@@ -68,7 +68,7 @@ Après quelques minutes, la règle est déployée sur l'appareil.
 ---
 
 ##### Étape 5 : Valider le *Block Mode*
-Dans le menu de gauche, cliquez sur *<u>Assests</u>*, puis sur sur *<u>Devices</u>*.
+Dans le menu de gauche, cliquez sur *<u>Assests</u>*, puis sur *<u>Devices</u>*.
 
 Le poste est maintenant visible dans la console Defender.
 

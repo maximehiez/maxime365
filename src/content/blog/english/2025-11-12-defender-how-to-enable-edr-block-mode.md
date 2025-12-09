@@ -27,7 +27,7 @@ In a context of constantly evolving cyber threats, antivirus solutions are no lo
 - *Microsoft 365 Business Premium*, *Microsoft 365 E5*.
 - *Microsoft Defender for Endpoint Plan 2* in addition to another license (*E3*, ...).
 
-**<u>Administrator role</u>**
+**<u>Administrator roles</u>**
 - An account with the *Global Administrator* or *Intune Administrator* role to access the Microsoft Intune Admin Center.
 - An account with the *Global Administrator* or *Security Administrator* role to access the Microsoft Defender Portal.
 

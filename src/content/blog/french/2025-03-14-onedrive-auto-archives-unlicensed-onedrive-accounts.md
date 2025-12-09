@@ -35,7 +35,7 @@ Depuis le 27 Janvier 2025, les organisations sont facturées pour le stockage de
 Pour identifier les comptes OneDrive non licenciés, les administrateurs peuvent utiliser le centre d'administration SharePoint. Voici comment générer un rapport de tous les comptes OneDrive non licenciés :
 1. Accédez au SharePoint Admin Center
 2. Dans le menu de gauche, cliquez sur *<u>Reports</u>*, puis sur *<u>OneDrive accounts</u>*.
-3. Cliquez *<u>Download report</u>* pour obtenir une liste des comptes OneDrive non licenciés.
+3. Cliquez sur *<u>Download report</u>* pour obtenir une liste des comptes OneDrive non licenciés.
 
 ![image](/images/blog/onedrive/onedrive_auto_archives_unlicensed_onedrive_accounts_001.png)
 

@@ -39,7 +39,7 @@ LAPS génère automatiquement des mots de passe uniques et complexes pour les co
 **<u>Une salle Teams</u>**
 - Un MTR Windows déployé.
 
-**<u>Rôle d’administrateur</u>**
+**<u>Rôles d’administrateur</u>**
 - Un compte avec le rôle *Administrateur Global* ou *Administrateur d'utilisateurs* pour accéder au Microsoft Entra Admin Center.
 - Un compte avec le rôle *Administrateur Global* ou *Administrateur Intune* pour accéder au Microsoft Intune Admin Center.
 
