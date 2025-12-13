@@ -83,7 +83,7 @@ If you are trying to configure an organizational relationship between a Microsof
 
 ##### Conclusion
 Implementing calendar availability sharing is a great option for organizations with simple collaboration needs across other Microsoft 365 environments. This feature simplifies meeting scheduling and improves collaboration between users. However, this approach is just a first step toward deeper integration.
-When two organizations have more complex needs (*B2B Collaboration*), the *Multi-Tenant Organization* (*MTO*) concept goes far beyond simple availability sharing: access to resources between tenants, a unified experience, and more. We will explore this option in a future article.<br/><br/>
+When two organizations have more complex needs (*B2B Collaboration*), the *Multi-Tenant Organization* (*MTO*) concept goes far beyond simple availability sharing : access to resources between tenants, a unified experience, and more. We will explore this option in a future article.<br/><br/>
 You now know how to configure calendar sharing in Exchange Online.
 
 ---
