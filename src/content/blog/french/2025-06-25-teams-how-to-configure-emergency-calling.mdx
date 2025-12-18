@@ -3,7 +3,7 @@ title: "Comment configurer et analyser les appels d'urgence dans Teams"
 meta_title: ""
 description: ""
 date: 2025-06-25T10:00:00-05:00
-image: "/images/blog/teams/tuto/teams_how_emergency_calling_works_thumbnail.png"
+image: "/images/blog/teams/tuto/teams_how_to_configure_emergency_calling_thumbnail.png"
 categories: ["Teams", "Tutoriel"]
 author: "Maxime Hiez"
 tags: ["Téléphonie", "Direct Routing", "Syslog", "SBC", "Appel d'urgence", "911"]
@@ -42,7 +42,7 @@ Dans le menu de gauche, cliquez sur *<u>Locations</u>*, puis sur *<u>Emergency a
 
 Créez une adresse d'urgence en inscrivant l'adresse, sans oublier le numéro ELIN ; même s'il est indiqué comme optionnel, il est important de le mettre.
 
-![image](/images/blog/teams/tuto/teams_how_emergency_calling_works_001.png)
+![image](/images/blog/teams/tuto/teams_how_to_configure_emergency_calling_001.png)
 
 <Notice type="info">Vous ne pourrez pas changer ces informations plus tard, alors prenez bien soin de les remplir correctement.</Notice>
 
@@ -53,7 +53,7 @@ Cliquez sur votre emplacement pour l'éditer, puis sur *<u>Subnets</u>*.
 
 Créez tous vos sous-réseaux filaires et sans-fil pour ce site.
 
-![image](/images/blog/teams/tuto/teams_how_emergency_calling_works_002.png)
+![image](/images/blog/teams/tuto/teams_how_to_configure_emergency_calling_002.png)
 
 Vous pouvez aussi créer le sous-réseau via les commandes PowerShell suivantes :
 ```powershell
@@ -73,7 +73,7 @@ Dans le menu de gauche, cliquez sur *<u>Locations</u>*, puis sur *<u>Network top
 
 Dans l'onglet *<u>Network sites</u>*, créez un site et attachez tous vos sous-réseaux filaires et sans-fil. Définissez également une région.
 
-![image](/images/blog/teams/tuto/teams_how_emergency_calling_works_003.png)
+![image](/images/blog/teams/tuto/teams_how_to_configure_emergency_calling_003.png)
 
 Vous pouvez aussi créer la topologie via les commandes PowerShell suivantes :
 ```powershell
@@ -98,7 +98,7 @@ Dans le menu de gauche, cliquez sur *<u>Locations</u>*, puis sur *<u>Network top
 
 Dans l'onglet *<u>Trusted IPs</u>*, créez toutes vos IP publiques / pools d'IP publiques. Elles vont service à différencier un client Teams lorsqu'il est au bureau ou à l'extérieur.
 
-![image](/images/blog/teams/tuto/teams_how_emergency_calling_works_004.png)
+![image](/images/blog/teams/tuto/teams_how_to_configure_emergency_calling_004.png)
 
 Vous pouvez aussi créer les IP publiques via les commandes PowerShell suivantes :
 ```powershell
@@ -116,7 +116,7 @@ Dans le menu de gauche, cliquez sur *<u>Voice</u>*, puis sur *<u>Emergency polic
 
 Dans l'onglet *<u>Call routing policies</u>*, éditez la politique *Global (Org-wide default)* ou créez une nouvelle.
 
-![image](/images/blog/teams/tuto/teams_how_emergency_calling_works_005.png)
+![image](/images/blog/teams/tuto/teams_how_to_configure_emergency_calling_005.png)
 
 Vous pouvez aussi créer la politique de routage d'appels d'urgence via les commandes PowerShell suivantes :
 ```powershell
@@ -135,7 +135,7 @@ Dans le menu de gauche, cliquez sur *<u>Voice</u>*, puis sur *<u>Emergency polic
 
 Dans l'onglet *<u>Calling policies</u>*, éditez la politique *Global (Org-wide default)* ou créez une nouvelle.
 
-![image](/images/blog/teams/tuto/teams_how_emergency_calling_works_006.png)
+![image](/images/blog/teams/tuto/teams_how_to_configure_emergency_calling_006.png)
 
 Vous pouvez aussi créer la politique de notification via les commandes PowerShell suivantes :
 ```powershell
@@ -158,22 +158,22 @@ Lorsqu'un utilisateur se connecte à son client Teams, une requête de localisat
 
 On peut voir que mon appel au 911 affiche mon emplacement. Il a été détecté puisque mon adresse IP publique et mon sous-réseau sont correctement configurés dans Teams.
 
-![image](/images/blog/teams/tuto/teams_how_emergency_calling_works_007.png)
+![image](/images/blog/teams/tuto/teams_how_to_configure_emergency_calling_007.png)
 
 ---
 
 ##### Analyse de l'appel au 911
 On peut voir dans la capture *Syslog* de mon SBC *Audiocodes* que l'appel de mon extension *+1234* est tagguée avec la priorité *Emergency*, ce qui va permettre de prioriser l'appel. Si mon SBC a atteint sa capacité maximale, un appel sera coupé pour que l'appel d'urgence soit passé.
 
-![image](/images/blog/teams/tuto/teams_how_emergency_calling_works_008.png)
+![image](/images/blog/teams/tuto/teams_how_to_configure_emergency_calling_008.png)
 
 En continuant de fouiller dans la capture d'appel, on retrouve les informations de localisation qui ont été configurées dans le Microsoft Teams Admin Center.
 
-![image](/images/blog/teams/tuto/teams_how_emergency_calling_works_009.png)
+![image](/images/blog/teams/tuto/teams_how_to_configure_emergency_calling_009.png)
 
 J'ai configuré une règle dans mon SBC pour remplacer l'entête *FROM* par la valeur de l'attribut *ELIN* envoyé par Teams, ce qui me permet d'afficher le numéro du site sur lequel je me trouve en ce moment et pas le numéro que j'affiche lors de mes appels réguliers. L'agent du 911 qui répond à l'appel est donc capable de me localiser avec ce mécanisme.
 
-![image](/images/blog/teams/tuto/teams_how_emergency_calling_works_010.png)
+![image](/images/blog/teams/tuto/teams_how_to_configure_emergency_calling_010.png)
 
 Aux États-Unis, il n'est pas nécessaire de manipuler les appels avec le ELIN puisque les centrales 911 sont capables de lire les informations de localisation envoyées. Le Canada n'est pas encore équipé de cette fonctionnalité, mais elle devrait être disponible lorsque le *Next-generation 9-1-1* sera en service (en date de cet article, le *CRTC* annonce le 31 Mars 2027).
 <br/>
