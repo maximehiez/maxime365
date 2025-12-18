@@ -1,0 +1,128 @@
+---
+title: "How to block a website URL with Defender"
+meta_title: ""
+description: ""
+date: 2025-12-18T10:00:00-05:00
+image: "/images/blog/defender/tuto/defender_how_to_block_url_website_thumbnail.png"
+categories: ["Defender", "Tutorial"]
+author: "Maxime Hiez"
+tags: ["EDR", "Security", "URL"]
+draft: false
+---
+---
+
+##### Introduction
+Web browsing is one of the most common attack vectors in business environments. To strengthen security, *Microsoft Defender for Endpoint* offers a powerful feature : blocking malicious or non-compliant URLs using *indicators*. This approach allows administrators to define precise rules to prevent access to dangerous sites, while maintaining flexibility tailored to the organization's needs.
+
+In last month's article [HERE](https://maxime.hiez.ca/en/blog/2025-11-27-purview-how-to-enable-dspm-for-ai), it was possible to see in the *Purview DSPM for AI* console that connections to the AI ​​site *Deepseek* were made, and it would be best to block it for security reasons.
+
+---
+
+##### Prerequisites
+**<u>A Windows 10/11 PC</u>**
+- A Windows 10/11 PC enrolled in Defender.
+
+**<u>Required licenses</u>**
+- *Microsoft 365 Business Premium*, *Microsoft 365 E3* and *Microsoft 365 E5*.
+- *Microsoft Defender for Endpoint Plan 1* or *Microsoft Defender for Endpoint Plan 2* in addition to another license (*Business Standard*, ...).
+
+**<u>Administrator role</u>**
+- An account with the *Global Administrator* or *Security Administrator* role to access the Microsoft Defender Portal.
+
+---
+
+##### Step 1 : Sign in to the Microsoft Defender Portal
+Sign in to the Microsoft Defender Portal by opening your web browser to https://security.microsoft.com.
+
+---
+
+##### Step 2 : Activate *Custom network indicators*
+In the left menu, click *<u>System</u>*, then *<u>Settings</u>*.
+
+![image](/images/blog/defender/tuto/defender_how_to_block_url_website_001.png)
+
+Click *<u>Endpoints</u>*, then *<u>Advanced features</u>*, and activate the *Custom network indicators* switch.
+
+![image](/images/blog/defender/tuto/defender_how_to_block_url_website_002.png)
+
+---
+
+##### Step 3 : Declare the URL to block
+Still in the *<u>Endpoints</u>* menu, click *<u>Indicators</u>*, then the *<u>ULRs/Domains</u>* tab, and *<u>Add item</u>* to create a new policy.
+
+![image](/images/blog/defender/tuto/defender_how_to_block_url_website_003.png)
+
+Enter the URL you wish to block and choose whether the policy expires or not.
+
+![image](/images/blog/defender/tuto/defender_how_to_block_url_website_004.png)
+
+Choose the *Block execution* action.
+
+![image](/images/blog/defender/tuto/defender_how_to_block_url_website_005.png)
+
+After a few seconds, the policy is deployed.
+
+![image](/images/blog/defender/tuto/defender_how_to_block_url_website_006.png)
+
+<Notice type="tip">The policy can take up to 48 hours to take effect, but it took a few hours for me.</Notice>
+
+---
+
+##### Step 4 : Confirm website blocking
+Here on my computer, you can see that the attempt to navigate to the *Deepseek AI* website is automatically blocked.
+
+![image](/images/blog/defender/tuto/defender_how_to_block_url_website_007.png)
+
+---
+
+##### Step 5 : Let's analyze the logs
+In the left menu, click *<u>Reports</u>*, then *<u>Web protection</u>*.
+
+![image](/images/blog/defender/tuto/defender_how_to_block_url_website_008.png)
+
+We can see here 3 attempts to access *Custom Indicators*.
+
+![image](/images/blog/defender/tuto/defender_how_to_block_url_website_009.png)
+
+The two PC *vm-win11* and *vm-demo* attempted to access the URL of *Deepseek AI*.
+
+![image](/images/blog/defender/tuto/defender_how_to_block_url_website_010.png)
+
+---
+
+##### What if I want to allow browsing but display an alert ?
+In the URL blocking policy, it's possible to replace the *Block execution* action with *Warn*. Here, we're applying a policy for the *Facebook* website.
+
+![image](/images/blog/defender/tuto/defender_how_to_block_url_website_011.png)
+
+Access is blocked ...
+
+![image](/images/blog/defender/tuto/defender_how_to_block_url_website_012.png)
+
+... but clicking the *Allow* button bypasses the block.
+
+![image](/images/blog/defender/tuto/defender_how_to_block_url_website_013.png)
+
+<Notice type="tip">By configuring the *User notification custom URL* attribute, if the user clicks on *Visit the support page*, they will be redirected to this URL.</Notice>
+
+---
+
+##### What if I use Google Chrome as my browser?
+The settings shown work as is with the *Microsoft Edge* browser ; by default, *Google Chrome* will allow you to access blocked websites. You can deploy the *Microsoft Defender Browser Protection* extension via *Intune* if you want your settings to apply to it. I will write an article about this soon.
+
+---
+
+##### Conclusion
+You now know how to block website URLs via Defender.
+
+---
+
+##### Sources
+[Microsoft Learn - Indicators for IPs and URLs/domains](https://learn.microsoft.com/en-us/defender-endpoint/indicator-ip-domain)
+
+---
+
+
+Did you enjoy this post ? If you have any questions, comments or suggestions, please feel free to send me a message from the contact form.
+
+Don't forget to follow us and share this post.
