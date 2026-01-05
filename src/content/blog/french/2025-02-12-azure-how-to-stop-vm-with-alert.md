@@ -29,7 +29,7 @@ La gestion efficace des coûts du cloud est cruciale pour les entreprises. L'un 
 ---
 
 ##### Étape 1 : Se connecter au portail Microsoft Azure
-Connectez vous au portail Microsoft Azure en ouvrant votre navigateur web sur https://portal.azure.com.
+Connectez-vous au portail Microsoft Azure en ouvrant votre navigateur web sur https://portal.azure.com.
 
 ---
 

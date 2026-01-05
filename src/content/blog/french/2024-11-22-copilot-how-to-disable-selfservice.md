@@ -17,7 +17,7 @@ Microsoft a activé un paramètre dans les tenants (par défaut) pour autoriser 
 ---
 
 ##### Étape 1 : Se connecter au Microsoft 365 Admin Center
-Connectez vous au Microsoft 365 Admin Center en ouvrant votre navigateur web sur https://admin.microsoft.com/Adminportal.
+Connectez-vous au Microsoft 365 Admin Center en ouvrant votre navigateur web sur https://admin.microsoft.com/Adminportal.
 
 ---
 

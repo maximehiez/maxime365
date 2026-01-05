@@ -52,7 +52,7 @@ La fonctionnalité d'accès distant au MTR permet aux administrateurs de :
 ---
 
 ##### Étape 1 : Se connecter au Microsoft Entra Admin Center
-Connectez vous au Microsoft Entra Admin Center en ouvrant votre navigateur web sur https://entra.microsoft.com.
+Connectez-vous au Microsoft Entra Admin Center en ouvrant votre navigateur web sur https://entra.microsoft.com.
 
 ---
 
@@ -66,7 +66,7 @@ Cliquez sur *<u>New group</u>* pour créer un nouveau groupe de sécurité qui v
 ---
 
 ##### Étape 3 : Se connecter au portail Microsoft Teams Rooms Pro Management
-Connectez vous au portail Microsoft Teams Rooms Pro Management en ouvrant votre navigateur web sur https://portal.rooms.microsoft.com.
+Connectez-vous au portail Microsoft Teams Rooms Pro Management en ouvrant votre navigateur web sur https://portal.rooms.microsoft.com.
 
 ---
 

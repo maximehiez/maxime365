@@ -32,7 +32,7 @@ Microsoft 365 Passkey est une méthode d'authentification qui remplace les mots 
 ---
 
 ##### Étape 1 : Se connecter au Microsoft Entra Admin Center
-Connectez vous au Microsoft Entra Admin Center en ouvrant votre navigateur web sur https://entra.microsoft.com.
+Connectez-vous au Microsoft Entra Admin Center en ouvrant votre navigateur web sur https://entra.microsoft.com.
 
 ---
 

@@ -29,7 +29,7 @@ Voir l'article de la semaine passée [ICI](https://maxime.hiez.ca/blog/2025-07-1
 ---
 
 ##### Étape 1 : Se connecter au Microsoft Purview Portal
-Connectez vous au Microsoft Purview Portal en ouvrant votre navigateur web sur https://purview.microsoft.com.
+Connectez-vous au Microsoft Purview Portal en ouvrant votre navigateur web sur https://purview.microsoft.com.
 
 ---
 

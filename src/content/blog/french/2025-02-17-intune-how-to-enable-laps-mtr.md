@@ -46,7 +46,7 @@ LAPS génère automatiquement des mots de passe uniques et complexes pour les co
 ---
 
 ##### Étape 1 : Se connecter au Microsoft Entra Admin Center
-Connectez vous au Microsoft Entra Admin Center en ouvrant votre navigateur web sur https://entra.microsoft.com.
+Connectez-vous au Microsoft Entra Admin Center en ouvrant votre navigateur web sur https://entra.microsoft.com.
 
 ---
 
@@ -73,7 +73,7 @@ Cliquez sur *<u>Add dynamic query</u>*, puis ajouter *(device.displayName -start
 ---
 
 ##### Étape 4 : Se connecter au Microsoft Intune Admin Center
-Connectez vous au Microsoft Intune Admin Center en ouvrant votre navigateur web sur https://intune.microsoft.com.
+Connectez-vous au Microsoft Intune Admin Center en ouvrant votre navigateur web sur https://intune.microsoft.com.
 
 ---
 

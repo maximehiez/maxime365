@@ -27,7 +27,7 @@ Dans un contexte où les données sensibles, notamment les informations bancaire
 ---
 
 ##### Étape 1 : Se connecter au Microsoft Purview Portal
-Connectez vous au Microsoft Purview Portal en ouvrant votre navigateur web sur https://purview.microsoft.com.
+Connectez-vous au Microsoft Purview Portal en ouvrant votre navigateur web sur https://purview.microsoft.com.
 
 ---
 

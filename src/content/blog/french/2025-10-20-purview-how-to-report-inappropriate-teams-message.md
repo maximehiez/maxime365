@@ -45,7 +45,7 @@ Cliquez sur *<u>Report</u>* pour envoyer la signalisation aux administrateurs.
 ---
 
 ##### Étape 3 : Se connecter au Microsoft Purview Portal
-Connectez vous au Microsoft Purview Portal en ouvrant votre navigateur web sur https://purview.microsoft.com.
+Connectez-vous au Microsoft Purview Portal en ouvrant votre navigateur web sur https://purview.microsoft.com.
 
 ---
 

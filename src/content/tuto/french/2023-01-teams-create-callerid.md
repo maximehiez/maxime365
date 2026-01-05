@@ -35,7 +35,7 @@ Une règle de Caller ID Teams permet de déterminer comment le nom et le numéro
 ---
 
 ##### Étape 1 : Se connecter au Microsoft Teams Admin Center
-Connectez vous au Microsoft Teams Admin Center en ouvrant votre navigateur web sur https://admin.teams.microsoft.com.
+Connectez-vous au Microsoft Teams Admin Center en ouvrant votre navigateur web sur https://admin.teams.microsoft.com.
 
 Vous pouvez aussi vous y connecter via la commande PowerShell suivante :
 ```powershell

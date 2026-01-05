@@ -23,7 +23,7 @@ Dans un contexte où les organisations collaborent de plus en plus étroitement,
 ---
 
 ##### Étape 1 : Se connecter au Exchange Admin Center
-Connectez vous au Exchange Admin Center en ouvrant votre navigateur web sur https://admin.exchange.microsoft.com.
+Connectez-vous au Exchange Admin Center en ouvrant votre navigateur web sur https://admin.exchange.microsoft.com.
 
 ---
 

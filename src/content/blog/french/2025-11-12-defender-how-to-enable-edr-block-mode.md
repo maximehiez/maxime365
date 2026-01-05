@@ -34,7 +34,7 @@ Dans un contexte où les menaces informatiques évoluent constamment, les soluti
 ---
 
 ##### Étape 1 : Se connecter au Microsoft Defender Portal
-Connectez vous au Microsoft Defender Portal en ouvrant votre navigateur web sur https://security.microsoft.com.
+Connectez-vous au Microsoft Defender Portal en ouvrant votre navigateur web sur https://security.microsoft.com.
 
 ---
 
@@ -50,7 +50,7 @@ Cliquez sur *<u>Endpoints</u>*, puis sur *<u>Advanced features</u>*, et activez 
 ---
 
 ##### Étape 3 : Se connecter au Microsoft Intune Admin Center
-Connectez vous au Microsoft Intune Admin Center en ouvrant votre navigateur web sur https://intune.microsoft.com.
+Connectez-vous au Microsoft Intune Admin Center en ouvrant votre navigateur web sur https://intune.microsoft.com.
 
 ---
 

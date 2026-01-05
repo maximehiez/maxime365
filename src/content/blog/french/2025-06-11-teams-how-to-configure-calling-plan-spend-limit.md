@@ -26,7 +26,7 @@ Les entreprises souhaitant utiliser Microsoft Teams comme fournisseur unique pou
 ---
 
 ##### Étape 1 : Se connecter au Microsoft Teams Admin Center
-Connectez vous au Microsoft Teams Admin Center en ouvrant votre navigateur web sur https://admin.teams.microsoft.com.
+Connectez-vous au Microsoft Teams Admin Center en ouvrant votre navigateur web sur https://admin.teams.microsoft.com.
 
 ---
 

@@ -28,9 +28,8 @@ Microsoft 365 Passkey est une méthode d'authentification qui remplace les mots 
 
 ---
 
-
 ##### Étape 1 : Se connecter à My Sign-Ins
-Connectez vous à *My Sign-Ins* en ouvrant votre navigateur web sur https://mysignins.microsoft.com/security-info.
+Connectez-vous à *My Sign-Ins* en ouvrant votre navigateur web sur https://mysignins.microsoft.com/security-info.
 
 ---
 
@@ -54,7 +53,7 @@ Une fois les étapes complétées, la Passkey est créée.
 ---
 
 ##### Étape 3 : Se connecter avec une Passkey
-Connectez vous à votre compte Microsoft 365 en ouvrant votre navigateur web sur https://www.office.com et entrez votre adresse courriel. Choisissez de vous connecter avec votre appareil iPhone / iPad ou Android.
+Connectez-vous à votre compte Microsoft 365 en ouvrant votre navigateur web sur https://www.office.com et entrez votre adresse courriel. Choisissez de vous connecter avec votre appareil iPhone / iPad ou Android.
 
 ![image](/images/blog/entra/tuto/entra_how_to_connect_with_passkey_005.png)
 

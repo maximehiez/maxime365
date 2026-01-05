@@ -38,7 +38,7 @@ La solution est de mettre en place un routage basé sur ce code 404 retourné pa
 ---
 
 ##### Étape 1 : Se connecter au SBC
-Connectez vous au SBC en ouvrant votre navigateur web sur https://VOTRE_ADRESSE_IP.
+Connectez-vous au SBC en ouvrant votre navigateur web sur https://VOTRE_ADRESSE_IP.
 
 ![image](/images/blog/sbc/tuto/sbc_audiocodes_how_to_reroute_calls_on_404_002.png)
 

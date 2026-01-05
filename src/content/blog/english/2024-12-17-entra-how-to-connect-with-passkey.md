@@ -28,7 +28,6 @@ Microsoft 365 Passkey is an authentication method that replaces passwords with m
 
 ---
 
-
 ##### Step 1 : Sign in to My Sign-Ins
 Sign in to *My Sign-Ins* by opening your web browser to https://mysignins.microsoft.com/security-info.
 

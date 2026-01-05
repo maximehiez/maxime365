@@ -29,7 +29,7 @@ Windows 10/11 intègre une option pour retrouver un appareil égaré ou volé ; 
 ---
 
 ##### Étape 1 : Se connecter au Microsoft Intune Admin Center
-Connectez vous au Microsoft Intune Admin Center en ouvrant votre navigateur web sur https://intune.microsoft.com.
+Connectez-vous au Microsoft Intune Admin Center en ouvrant votre navigateur web sur https://intune.microsoft.com.
 
 ---
 
