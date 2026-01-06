@@ -1,0 +1,113 @@
+---
+title: "Comment activer le DLP pour le stockage cloud avec Purview"
+meta_title: ""
+description: ""
+date: 2026-01-06T10:00:00-05:00
+image: "/images/blog/purview/tuto/purview_how_to_enable_dlp_cloud_storage_block_financial_data_thumbnail.png"
+categories: ["Purview", "Tutoriel"]
+author: "Maxime Hiez"
+tags: ["Protection de données", "Gouvernance", "PII", "DLP"]
+draft: false
+---
+---
+
+##### Introduction
+Je vous montrais il y a quelques mois comment activer le *DLP* pour Outlook avec *Microsoft Purview* afin de prévenir des fuites de données accidentelles ou malveillantes (*Data Loss Prevention*). Puview est une solution de protection de données complète et vaste, et je creuse dedans petit à petit. Toujours dans l'idée de vous parler du DLP, voici cette fois-ci comment protéger la copie de données financières vers une solution de stockage cloud externe.
+
+Voir l'article de Juillet 2025 [ICI](https://maxime.hiez.ca/blog/2025-07-22-purview-how-to-enable-dlp-outlook-block-financial-data).
+
+---
+
+##### Prérequis
+**<u>Licences nécessaires</u>**
+- *Microsoft 365 Business Premium*, *Microsoft 365 E5*.
+- *Microsoft Purview Suite* en complément avec une licence autre (*E3*, ...).
+
+**<u>Rôle d’administrateur</u>**
+- Un compte avec le rôle *Administrateur Global* ou *Compliance Administrator* pour accéder au Microsoft Purview Portal.
+
+---
+
+##### Étape 1 : Se connecter au Microsoft Purview Portal
+Connectez-vous au Microsoft Purview Portal en ouvrant votre navigateur web sur https://purview.microsoft.com.
+
+---
+
+##### Étape 2 : Déclarer les sites de stockage cloud à bloquer
+Dans le menu de gauche, cliquez sur *<u>Settings</u>*, puis sur *<u>Data Loss Prevention</u>*.
+
+Cliquez sur *<u>Browser and domain restrictions to sensitive data</u>* et créez la liste des sites à protéger.
+
+![image](/images/blog/purview/tuto/purview_how_to_enable_dlp_cloud_storage_block_financial_data_001.png)
+
+---
+
+##### Étape 3 : Créer une règle DLP pour les appareils
+Dans le menu de gauche, cliquez sur *<u>Solutions</u>*, puis sur *<u>Data Loss Prevention</u>*.
+
+Cliquez sur *<u>Create policy</u>*.
+
+![image](/images/blog/purview/tuto/purview_how_to_enable_dlp_cloud_storage_block_financial_data_002.png)
+
+Définissez un nom et une description.
+
+![image](/images/blog/purview/tuto/purview_how_to_enable_dlp_cloud_storage_block_financial_data_003.png)
+
+Appliquez cette règle pour les appareils.
+
+![image](/images/blog/purview/tuto/purview_how_to_enable_dlp_cloud_storage_block_financial_data_004.png)
+
+Configurez les nombreux attributs de type de données et notifications. Dans mon exemple, j'ai choisi un type déjà existant (les données bancaires Canadiennes).
+
+![image](/images/blog/purview/tuto/purview_how_to_enable_dlp_cloud_storage_block_financial_data_005.png)
+
+Activez la règle pour la mettre en production.
+
+![image](/images/blog/purview/tuto/purview_how_to_enable_dlp_cloud_storage_block_financial_data_006.png)
+
+---
+
+##### Étape 4 : Copier des données financières pour valider la règle
+J'ai créé 2 fichiers Word :
+- *<u>Cards.docx</u>* contenant une (<u>fausse</u>) carte de crédit
+
+![image](/images/blog/purview/tuto/purview_how_to_enable_dlp_cloud_storage_block_financial_data_007.png)
+
+- *<u>NotCards.docx</u>* contenant du texte non sensible
+
+![image](/images/blog/purview/tuto/purview_how_to_enable_dlp_cloud_storage_block_financial_data_008.png)
+
+Après quelques heures, essayez de copier *NotCards.docx* dans *Dropbox* ou toute autre solution de stockage cloud que vous avez déclarée en étape 2.
+
+On peut voir que la copie a fonctionné.
+
+![image](/images/blog/purview/tuto/purview_how_to_enable_dlp_cloud_storage_block_financial_data_009.png)
+
+Mais la tentative avec *Cards.docx* est bloquée. La bannière configurée dans la règle s'affiche en haut du navigateur avertissant que c'est une donnée interdite à l'envoi.
+
+![image](/images/blog/purview/tuto/purview_how_to_enable_dlp_cloud_storage_block_financial_data_010.png)
+
+---
+
+##### Étape 6 : Recevoir la notification 
+Si vous avez configuré les notifications, un courriel est envoyé aux personnes désignées dans les secondes suivantes.
+
+![image](/images/blog/purview/tuto/purview_how_to_enable_dlp_cloud_storage_block_financial_data_011.png)
+
+---
+
+##### Conclusion
+Grâce à Microsoft Purview DLP, les organisations peuvent détecter, surveiller et bloquer automatiquement le partage non autorisé de données critiques, comme les numéros de carte de crédit ou les informations de comptes bancaires, avec des solutions de stockage cloud externes.<br/><br/>
+Vous savez maintenant comment activer le DLP pour les solutions de stockage cloud externes.
+
+---
+
+##### Sources
+[Microsoft Learn - DLP et appareils](https://learn.microsoft.com/fr-ca/purview/endpoint-dlp-using)
+
+---
+
+
+Avez-vous apprécié cet article ? Vous avez des questions, commentaires ou suggestions, n’hésitez pas à m'envoyer un message depuis le formulaire de contact.
+
+N'oubliez pas de nous suivre et de partager cet article.
