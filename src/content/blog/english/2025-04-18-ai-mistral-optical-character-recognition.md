@@ -12,7 +12,7 @@ draft: false
 ---
 
 ##### Introduction
-In March 2025, Mistral AI announced the launch of *Mistral OCR*, an optical character recognition (*OCR*) API that sets a new standard in document understanding. This advanced technology enables complex documents to be processed and transcribed with unparalleled accuracy and speed, delivering document understanding capabilities at a level never before achieved.
+In March 2025, *Mistral AI* announced the launch of *Mistral OCR*, an optical character recognition (*OCR*) API that sets a new standard in document understanding. This advanced technology enables complex documents to be processed and transcribed with unparalleled accuracy and speed, delivering document understanding capabilities at a level never before achieved.
 
 ---
 
