@@ -3,7 +3,7 @@ title: "How to enable password writeback in Entra ID"
 meta_title: ""
 description: ""
 date: 2025-03-03T10:00:00-05:00
-image: "/images/blog/entra/tuto/entra_enable_password_writeback_thumbnail.png"
+image: "/images/blog/entra/tuto/entra_how_to_enable_password_writeback_thumbnail.png"
 categories: ["Entra ID", "Tutorial"]
 author: "Maxime Hiez"
 tags: ["Password", "Writeback", "Entra Connect", "GPO", "Active Directory"]
@@ -23,7 +23,7 @@ In an organization configured as hybrid with Microsoft cloud, user accounts are 
 **<u>Entra Connect</u>**
 - An *Entra Connect* instance connected with Entra ID.
 
-**<u>Administrator role</u>**
+**<u>Administrator roles</u>**
 - An account with the *Global Administrator* or *Hybrid Identity Administrator* role to access the Microsoft Entra Admin Center.
 - An account with the *Enterprise Administrator* role to access the Active Directory server.
 
@@ -34,23 +34,23 @@ Start the *<u>Microsoft Entra Connect Sync</u>* application from the local Entra
 
 On the setup wizard welcome screen, click *<u>Configure</u>*.
 
-![image](/images/blog/entra/tuto/entra_enable_password_writeback_001.png)
+![image](/images/blog/entra/tuto/entra_how_to_enable_password_writeback_001.png)
 
 Click *<u>Customize synchronization options</u>*, then *<u>Next</u>*.
 
-![image](/images/blog/entra/tuto/entra_enable_password_writeback_002.png)
+![image](/images/blog/entra/tuto/entra_how_to_enable_password_writeback_002.png)
 
 Enter your Microsoft 365 administrator account, then click *<u>Next</u>*.
 
-![image](/images/blog/entra/tuto/entra_enable_password_writeback_003.png)
+![image](/images/blog/entra/tuto/entra_how_to_enable_password_writeback_003.png)
 
 Check the *<u>Password writeback</u>* box, then click *<u>Next</u>*.
 
-![image](/images/blog/entra/tuto/entra_enable_password_writeback_004.png)
+![image](/images/blog/entra/tuto/entra_how_to_enable_password_writeback_004.png)
 
 On the last menu, click *<u>Exit</u>*.
 
-![image](/images/blog/entra/tuto/entra_enable_password_writeback_005.png)
+![image](/images/blog/entra/tuto/entra_how_to_enable_password_writeback_005.png)
 
 The feature is now enabled on the local Entra Connect server.
 
@@ -66,7 +66,7 @@ In the left menu, click *<u>Identity</u>*, then *<u>Protection</u>*, and then *<
 
 Click *<u>On-premises integration</u>*, and enable all options.
 
-![image](/images/blog/entra/tuto/entra_enable_password_writeback_006.png)
+![image](/images/blog/entra/tuto/entra_how_to_enable_password_writeback_006.png)
 
 The feature is now enabled on Entra ID.
 
@@ -79,7 +79,7 @@ Click *<u>Computer Configuration</u>*, then *<u>Policies</u>*, then *<u>Windows 
 
 Edit the *Minimum password age* policy and set it to *0 days*.
 
-![image](/images/blog/entra/tuto/entra_enable_password_writeback_007.png)
+![image](/images/blog/entra/tuto/entra_how_to_enable_password_writeback_007.png)
 
 Password policies in the AD DS environment can prevent password resets. Minimum password age must be set to *0* for password rewrite to work.
 
