@@ -1,0 +1,129 @@
+---
+title: "How to enable MTO between two Microsoft 365 organizations"
+meta_title: ""
+description: ""
+date: 2026-01-19T10:00:00-05:00
+image: "/images/blog/entra/tuto/entra_how_to_configure_mto_between_tenants_thumbnail.png"
+categories: ["Entra ID", "Tutorial"]
+author: "Maxime Hiez"
+tags: ["MTO", "Multi tenant", "Sharing"]
+draft: false
+---
+---
+
+##### Introduction
+A few weeks ago, I showed you how to configure calendar sharing in Exchange to enable calendar sharing between two organizations using *Microsoft 365*. This configuration allows you to see the availability of an external person's *Outlook* calendar. I explained in conclusion that for more complex needs (*B2B collaboration*), the *Multi-Tenant Organization* (*MTO*) concept was the preferred option.
+
+Implementing an MTO in Microsoft 365 allows two organizations to collaborate as one, without merging tenants. It unifies the directory, streamlines Teams (chat, calls, meetings), and improves access to content across tenants, all while maintaining security and compliance boundaries specific to each entity.
+
+Check the article from December 2025 [HERE](https://maxime.hiez.ca/en/blog/2025-12-08-exchange-how-to-setup-calendar-sharing-between-tenants).
+
+---
+
+##### Prerequisites
+**<u>Administrator role</u>**
+- An account with the *Global Administrator* role to access the Microsoft Entra Admin Center.
+
+---
+
+##### Step 1 : Sign in to the Microsoft 365 Admin Center
+Sign in to the Microsoft Entra Admin Center by opening your web browser to https://admin.cloud.microsoft.
+
+---
+
+##### Step 2 : Enable MTO on the 1st tenant
+In the left menu, click *<u>Settings</u>*, then *<u>Org settings</u>*.
+
+In the *<u>Organization profile</u>* tab, click *<u>Multitenant collaboration</u>*, and then click *<u>Get started</u>*.
+
+![image](/images/blog/entra/tuto/entra_how_to_configure_mto_between_tenants_001.png)
+
+Click *<u>Create a new multitenant organization</u>*.
+
+![image](/images/blog/entra/tuto/entra_how_to_configure_mto_between_tenants_002.png)
+
+Enter the name of the organization with which the MTO will be mounted and its *Tenant ID* ; it will be automatically replaced by the name if the value is correct.
+
+![image](/images/blog/entra/tuto/entra_how_to_configure_mto_between_tenants_003.png)
+
+Check the 2 boxes *Allow users ...* and *Suppress consent ...* .
+
+![image](/images/blog/entra/tuto/entra_how_to_configure_mto_between_tenants_004.png)
+
+Click *<u>Create multitenant organization</u>*.
+
+![image](/images/blog/entra/tuto/entra_how_to_configure_mto_between_tenants_005.png)
+
+The MTO is created on the first tenant.
+
+![image](/images/blog/entra/tuto/entra_how_to_configure_mto_between_tenants_006.png)
+
+---
+
+##### Step 3 : Enable MTO on the 2nd tenant
+Perform the same configurations on the 2nd tenant, but choosing *<u>Join an existing multitenant organization</u>*, and reversing the values.
+
+![image](/images/blog/entra/tuto/entra_how_to_configure_mto_between_tenants_007.png)
+
+---
+
+##### Step 4 : Activate the 1st synchronization
+On each tenant, activate the 1st account to synchronize.
+
+![image](/images/blog/entra/tuto/entra_how_to_configure_mto_between_tenants_008.png)
+
+---
+
+##### Step 5 : Sign in to the Microsoft Entra Admin Center
+Sign in to the Microsoft Entra Admin Center by opening your web browser to https://entra.microsoft.com.
+
+---
+
+##### Step 6: Add more accounts to synchronize
+In the left menu, click *<u>Cross-tenant synchronization</u>*.
+
+Click on the created MTO configuration, then *<u>Users and groups</u>*. The account is visible, and you can add other accounts by clicking *<u>Add user/group</u>*.
+
+![image](/images/blog/entra/tuto/entra_how_to_configure_mto_between_tenants_009.png)
+
+<Notice type="tip">Add a security group rather than multiple accounts ; management will be simpler.</Notice>
+
+---
+
+##### Step 7 : Validate the MTO
+In my user list, you can see that there are now accounts whose identity is defined as *ExternalAzureAD* and with the suffix of my tenant *#EXT#@Lab.onmicrosoft.com*. These are the accounts that were synchronized from the other tenant.
+
+![image](/images/blog/entra/tuto/entra_how_to_configure_mto_between_tenants_010.png)
+
+They can be found in the Outlook directory search ...
+
+![image](/images/blog/entra/tuto/entra_how_to_configure_mto_between_tenants_011.png)
+
+... and in Teams ...
+
+![image](/images/blog/entra/tuto/entra_how_to_configure_mto_between_tenants_012.png)
+
+... and I am able to start a conversation with these accounts.
+
+![image](/images/blog/entra/tuto/entra_how_to_configure_mto_between_tenants_013.png)
+
+We can also see that the account is not detected as *External*, there is no badge in the top right corner.
+
+---
+
+##### Conclusion
+You now know how to configure the MTO between 2 organizations.
+
+---
+
+##### Sources
+[Microsoft Learn - Configure an MTO](https://learn.microsoft.com/en-us/microsoft-365/enterprise/set-up-multi-tenant-org?view=o365-worldwide)
+
+[Microsoft Learn - Organization capabilities with MTO](https://learn.microsoft.com/en-us/entra/identity/multi-tenant-organizations/overview)
+
+---
+
+
+Did you enjoy this post ? If you have any questions, comments or suggestions, please feel free to send me a message from the contact form.
+
+Don't forget to follow us and share this post.
