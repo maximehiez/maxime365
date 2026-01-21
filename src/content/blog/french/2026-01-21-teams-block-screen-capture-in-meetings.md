@@ -1,0 +1,61 @@
+---
+title: "Bloquer les captures d'écran dans les rencontres Teams"
+meta_title: ""
+description: ""
+date: 2026-01-21T10:00:00-05:00
+image: "/images/blog/teams/teams_block_screen_capture_in_meetings_thumbnail.png"
+categories: ["Teams"]
+author: "Maxime Hiez"
+tags: ["Rencontre", "Protection de données", "Gouvernance", "Capture d'écran", "DLP"]
+draft: false
+---
+---
+
+##### Introduction
+Dans un monde où les échanges professionnels se font de plus en plus en visioconférence, la sécurité des informations partagées en réunion devient un enjeu majeur. Une simple capture d’écran peut suffire à faire fuiter des informations confidentielles discutées en réunion (stratégie, données clients, finances). Microsoft introduit, dans la licence *Teams Premium*, l'option qui bloque les captures d’écran pendant les réunions — un vrai filet de sécurité pour limiter les fuites involontaires.
+
+---
+
+##### Ce que fait exactement la fonctionnalité
+- Blocage des captures natives et de la majorité des apps tierces lorsque l’option est activée par l’organisateur / co‑organisateur
+- Comportement par plateforme :
+    - Application (Windows) : Les captures affichent un rectangle noir à la place de la fenêtre Teams
+    - Android : Les captures et enregistrements sont bloqués, un message *screen capture restricted* s’affiche
+    - Teams Rooms (Windows)
+    - iOS/macOS, Teams Rooms (Android), Teams web, ... : Ces plateformes ne sont pas prises en charge, les participants seront en audio seulement
+
+<Notice type="info">Comme toute technologie de protection logicielle, rien n’empêche une photo externe de l’écran.</Notice>
+
+---
+
+##### Comment ça fonctionne ?
+La fonctionnalité est disponible pour les clients disposant de la licence *Microsoft Teams Premium*.
+
+Les utilisateurs pourront activer la fonctionnalité *Prevent screen captures* sur les nouvelles rencontres ou celles existantes.
+
+![image](/images/blog/teams/teams_block_screen_capture_in_meetings_001.png)
+
+L'écran s'affiche lors du partage de contenu ...
+
+![image](/images/blog/teams/teams_block_screen_capture_in_meetings_002.png)
+
+... mais donne un écran noir lors de la capture d'écran.
+
+![image](/images/blog/teams/teams_block_screen_capture_in_meetings_003.png)
+
+---
+
+##### Conclusion
+Empêcher la capture d’écran dans Teams est une avancée simple mais efficace pour réduire le risque de fuite d’information en réunion. En intégrant cette fonctionnalité, Microsoft permet aux organisations de prévenir les fuites de données et renforcer la conformité, sans compromettre la fluidité des échanges. Une fonctionnalité essentielle pour les environnements professionnels exigeants.
+
+---
+
+##### Sources
+[Microsoft - Support](https://support.microsoft.com/fr-ca/office/emp%C3%AAcher-les-captures-d-%C3%A9cran-dans-les-r%C3%A9unions-microsoft-teams-e0ebf537-79df-4489-8aaa-1d5c6670b1a8)
+
+---
+
+
+Avez-vous apprécié cet article ? Vous avez des questions, commentaires ou suggestions, n’hésitez pas à m'envoyer un message depuis le formulaire de contact.
+
+N'oubliez pas de nous suivre et de partager cet article.

@@ -60,7 +60,7 @@ For example, here is what I was trying to share.
 ---
 
 ##### Conclusion
-Sensitive content detection in Teams meetings represents a major step forward in proactive security and regulatory compliance. By integrating this capability directly into collaboration workflows, Microsoft enables organizations to prevent data leaks, strengthen compliance, and protect users without compromising seamless communication. This is an essential feature for demanding business environments.
+Sensitive content detection in Teams meetings represents a major step forward in proactive security and regulatory compliance. By integrating this feature directly into collaboration workflows, Microsoft enables organizations to prevent data leaks, strengthen compliance, and protect users without compromising seamless communication. This is an essential feature for demanding business environments.
 
 ---
 

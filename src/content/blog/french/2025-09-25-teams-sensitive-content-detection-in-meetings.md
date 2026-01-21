@@ -60,7 +60,7 @@ Pour l'exemple, voici ce que j'essayais de partager.
 ---
 
 ##### Conclusion
-La détection de contenu sensible dans les réunions Teams représente une avancée majeure en matière de sécurité proactive et de conformité réglementaire. En intégrant cette capacité directement dans les flux de collaboration, Microsoft permet aux organisations de prévenir les fuites de données, renforcer la conformité et protéger les utilisateurs, sans compromettre la fluidité des échanges. Une fonctionnalité essentielle pour les environnements professionnels exigeants.
+La détection de contenu sensible dans les réunions Teams représente une avancée majeure en matière de sécurité proactive et de conformité réglementaire. En intégrant cette fonctionnalité directement dans les flux de collaboration, Microsoft permet aux organisations de prévenir les fuites de données, renforcer la conformité et protéger les utilisateurs, sans compromettre la fluidité des échanges. Une fonctionnalité essentielle pour les environnements professionnels exigeants.
 
 ---
 
