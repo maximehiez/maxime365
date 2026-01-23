@@ -3,7 +3,7 @@ title: "Comment activer les rencontres Zoom et Webex sur MTR"
 meta_title: ""
 description: ""
 date: 2025-04-04T10:00:00-05:00
-image: "/images/blog/mtr/tuto/mtr_enable_meeting_third_party_join_thumbnail.png"
+image: "/images/blog/mtr/tuto/mtr_how_to_enable_meeting_third_party_join_thumbnail.png"
 categories: ["MTR", "Tutoriel"]
 author: "Maxime Hiez"
 tags: ["Teams Rooms", "MTRoW", "MTRoA", "Zoom", "Webex", "Microsoft Teams Rooms Pro Management", "Direct Guest Join", "Safe Links"]
@@ -30,7 +30,7 @@ Dans le monde moderne des affaires, la collaboration efficace est essentielle. L
 **<u>Une salle Teams</u>**
 - Un MTR déployé.
 
-**<u>Rôle d’administrateur</u>**
+**<u>Rôles d’administrateur</u>**
 - Un compte avec le rôle *Administrateur Global* pour accéder au Microsoft Teams Rooms Pro Management.
 - Un compte avec le rôle *Administrateur Global* ou *Administrateur Sécurité* pour accéder au portail Microsoft Defender.
 - Un compte avec le rôle *Administrateur Global* ou *Administrateur Exchange* pour accéder à Microsoft Exchange Online.
@@ -38,14 +38,14 @@ Dans le monde moderne des affaires, la collaboration efficace est essentielle. L
 ---
 
 ##### Étape 1 : Se connecter au portail Microsoft Defender
-Connectez vous au portail Microsoft Defender en ouvrant votre navigateur web sur https://security.microsoft.com.
+Connectez-vous au portail Microsoft Defender en ouvrant votre navigateur web sur https://security.microsoft.com.
 
 ---
 
 ##### Étape 2 : Éditer la règle Safe Links
-Si votre organisation utilise la fonctionnalité *Safe links* de *Microsoft Defender for Office 365*, il est important que les URL Zoom et Webex ne soient pas réécrits pour que la salle soit capable de lire le contenu de l'invitation.
+Si votre organisation utilise la fonctionnalité *Safe Links* de *Microsoft Defender for Office 365*, il est important que les URL Zoom et Webex ne soient pas réécrits pour que la salle soit capable de lire le contenu de l'invitation.
 
-Dans le menu de gauche, cliquez sur *<u>Policies & rules</u>*, puis sur *<u>Threat policies</u>*, et sur *<u>Safe links</u>*.
+Dans le menu de gauche, cliquez sur *<u>Policies & rules</u>*, puis sur *<u>Threat policies</u>*, et sur *<u>Safe Links</u>*.
 
 Éditez la règle et ajoutez les URL suivants :
 - \*.zoom.us/* 
@@ -53,12 +53,12 @@ Dans le menu de gauche, cliquez sur *<u>Policies & rules</u>*, puis sur *<u>Thre
 - \*.zoomgov.com/* 
 - \*.webex.com/* 
 
-![image](/images/blog/mtr/tuto/mtr_enable_meeting_third_party_join_001.png)
+![image](/images/blog/mtr/tuto/mtr_how_to_enable_meeting_third_party_join_001.png)
 
 ---
 
 ##### Étape 3 : Se connecter à Microsoft Exchange Online en PowerShell
-Connectez vous à Microsoft Exchange Online via la commande PowerShell suivante :
+Connectez-vous à Microsoft Exchange Online via la commande PowerShell suivante :
 ```powershell
 Connect-ExchangeOnline
 ```
@@ -76,12 +76,12 @@ Set-CalendarProcessing -Identity "Salle.Montreal@hiez.ca" -DeleteComments $False
 
 La configuration peut prendre plusieurs minutes avant d’être effective. Votre compte devrait ensuite ressembler à ceci :
 
-![image](/images/blog/mtr/tuto/mtr_enable_meeting_third_party_join_002.png)
+![image](/images/blog/mtr/tuto/mtr_how_to_enable_meeting_third_party_join_002.png)
 
 ---
 
 ##### Étape 5 : Se connecter au portail Microsoft Teams Rooms Pro Management
-Connectez vous au portail Microsoft Teams Rooms Pro Management en ouvrant votre navigateur web sur https://portal.rooms.microsoft.com.
+Connectez-vous au portail Microsoft Teams Rooms Pro Management en ouvrant votre navigateur web sur https://portal.rooms.microsoft.com.
 
 ---
 
@@ -90,14 +90,14 @@ Dans le menu de gauche, cliquez sur *<u>Rooms</u>*, puis sur cliquez sur la sall
 
 Cliquez sur *<u>Settings</u>*, puis sur *<u>Meetings</u>*, et activez les fournisseurs Zoom et Webex.
 
-![image](/images/blog/mtr/tuto/mtr_enable_meeting_third_party_join_003.png)
+![image](/images/blog/mtr/tuto/mtr_how_to_enable_meeting_third_party_join_003.png)
 
 ---
 
 ##### Résultat
 Après plusieurs minutes d'attente, le MTR devrait être capable de traiter l'invitation et afficher sur la tablette, un bouton *Rejoindre* avec un logo Zoom (ou Webex).
 
-![image](/images/blog/mtr/tuto/mtr_enable_meeting_third_party_join_004.png)
+![image](/images/blog/mtr/tuto/mtr_how_to_enable_meeting_third_party_join_004.png)
 
 ---
 

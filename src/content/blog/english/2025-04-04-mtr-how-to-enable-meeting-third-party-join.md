@@ -3,7 +3,7 @@ title: "How to enable Zoom and Webex meetings on MTR"
 meta_title: ""
 description: ""
 date: 2025-04-04T10:00:00-05:00
-image: "/images/blog/mtr/tuto/mtr_enable_meeting_third_party_join_thumbnail.png"
+image: "/images/blog/mtr/tuto/mtr_how_to_enable_meeting_third_party_join_thumbnail.png"
 categories: ["MTR", "Tutorial"]
 author: "Maxime Hiez"
 tags: ["Teams Rooms", "MTRoW", "MTRoA", "Zoom", "Webex", "Microsoft Teams Rooms Pro Management", "Direct Guest Join", "Safe Links"]
@@ -24,13 +24,13 @@ In the modern business world, effective collaboration is essential. Organization
 ---
 
 ##### Prerequisites
-**<u>Licenses required</u>**
+**<u>Required licenses</u>**
 - *Teams Rooms Pro* (or *Teams Rooms Basic*).
 
 **<u>A Teams room</u>**
 - An MTR deployed.
 
-**<u>Administrator role</u>**
+**<u>Administrator roles</u>**
 - An account with the *Global Administrator* role to access Microsoft Teams Rooms Pro Management.
 - An account with the *Global Administrator* or *Security Administrator* role to access the Microsoft Defender portal.
 - An account with the *Global Administrator* or *Exchange Administrator* role to access Microsoft Exchange Online.
@@ -53,7 +53,7 @@ Edit the rule and add the following URLs :
 - \*.zoomgov.com/* 
 - \*.webex.com/* 
 
-![image](/images/blog/mtr/tuto/mtr_enable_meeting_third_party_join_001.png)
+![image](/images/blog/mtr/tuto/mtr_how_to_enable_meeting_third_party_join_001.png)
 
 ---
 
@@ -77,7 +77,7 @@ Set-CalendarProcessing -Identity "Salle.Montreal@hiez.ca" -DeleteComments $False
 
 It may take several minutes for the configuration to take effect. Your account should then look like this :
 
-![image](/images/blog/mtr/tuto/mtr_enable_meeting_third_party_join_002.png)
+![image](/images/blog/mtr/tuto/mtr_how_to_enable_meeting_third_party_join_002.png)
 
 ---
 
@@ -87,18 +87,18 @@ Sign in to the Microsoft Teams Rooms Pro Management portal by opening your web b
 ---
 
 ##### Step 6 : Enable Zoom and Webex providers
-In the left menu, click *<u>Rooms</u>*, then click the room you want to edit.
+In the left menu, click *<u>Rooms</u>*, then the room you want to edit.
 
 Click *<u>Settings</u>*, then *<u>Meetings</u>*, and enable the Zoom and Webex providers.
 
-![image](/images/blog/mtr/tuto/mtr_enable_meeting_third_party_join_003.png)
+![image](/images/blog/mtr/tuto/mtr_how_to_enable_meeting_third_party_join_003.png)
 
 ---
 
 ##### Result
 After a few minutes of waiting, the MTR should be able to process the invitation and display a *Join* button with a Zoom (or Webex) logo on the tablet.
 
-![image](/images/blog/mtr/tuto/mtr_enable_meeting_third_party_join_004.png)
+![image](/images/blog/mtr/tuto/mtr_how_to_enable_meeting_third_party_join_004.png)
 
 ---
 

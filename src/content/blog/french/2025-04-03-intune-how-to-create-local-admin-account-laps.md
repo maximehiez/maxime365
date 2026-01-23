@@ -3,7 +3,7 @@ title: "Comment créer un compte admin local Windows via Intune LAPS"
 meta_title: ""
 description: ""
 date: 2025-04-03T10:00:00-05:00
-image: "/images/blog/intune/tuto/intune_new_feature_laps_thumbnail.png"
+image: "/images/blog/intune/tuto/intune_how_to_create_local_admin_account_laps_thumbnail.png"
 categories: ["Intune", "Tutoriel"]
 author: "Maxime Hiez"
 tags: ["LAPS", "Mot de passe", "Sécurité"]
@@ -14,7 +14,7 @@ draft: false
 ##### Introduction
 J'avais publié, en Février dernier, un article qui expliquait comment remplacer le mot de passe du compte local de votre MTR via *LAPS* (*Local Administrator Password Solution*) dans Intune. J'avais conclu mon article en expliquant qu'il était possible de gérer les comptes administrateurs locaux des ordinateurs avec la même solution. Microsoft vient justement de sortir une mise à jour qui permet de créer directement le compte via LAPS sans passer via une règle de configuration avec un mot de passe manuel.
 
-Voir l'article de Février 2025 [ICI](https://maxime.hiez.ca/blog/2025-02-17-intune-enable-laps).
+Voir l'article de Février 2025 [ICI](https://maxime.hiez.ca/blog/2025-02-17-intune-how-to-enable-laps-mtr).
 
 ---
 
@@ -31,7 +31,7 @@ Voir l'article de Février 2025 [ICI](https://maxime.hiez.ca/blog/2025-02-17-int
 ---
 
 ##### Étape 1 : Se connecter au Microsoft Intune Admin Center
-Connectez vous au Microsoft Intune Admin Center en ouvrant votre navigateur web sur https://intune.microsoft.com.
+Connectez-vous au Microsoft Intune Admin Center en ouvrant votre navigateur web sur https://intune.microsoft.com.
 
 ---
 
@@ -40,27 +40,27 @@ Dans le menu de gauche, cliquez sur *<u>Endpoint security</u>*, puis sur *<u>Acc
 
 Créez une règle pour la plateforme *Windows 10 and later* avec le profil *Local admin password solution (Windows LAPS)*.
 
-![image](/images/blog/intune/tuto/intune_new_feature_laps_001.png)
+![image](/images/blog/intune/tuto/intune_how_to_create_local_admin_account_laps_001.png)
 
 Activez les options avec les valeurs de votre choix.<br/>
 Contrairement à la règle pour les MTR qui ciblait le compte *Admin*, on va vouloir ici créer un nouveau compte avec un préfixe (j'ai choisi ici *laps-admin-*) et ajouter un suffixe numérique aléatoire.
 
-![image](/images/blog/intune/tuto/intune_new_feature_laps_002.png)
+![image](/images/blog/intune/tuto/intune_how_to_create_local_admin_account_laps_002.png)
 
 Assignez le groupe de sécurité contenant vos postes Windows.
 
-![image](/images/blog/intune/tuto/intune_new_feature_laps_003.png)
+![image](/images/blog/intune/tuto/intune_how_to_create_local_admin_account_laps_003.png)
 
 ---
 
 ##### Étape 3 : Valider le nouveau compte
 Après quelques minutes, le nouveau compte devrait être visible dans la fenêtre *Computer Management*.
 
-![image](/images/blog/intune/tuto/intune_new_feature_laps_004.png)
+![image](/images/blog/intune/tuto/intune_how_to_create_local_admin_account_laps_004.png)
 
 Vous pouvez aussi aller valider en vous rendant dans le *Event Viewer* et en ouvrant le répertoire *Applications and Services Logs / Microsoft / Windows / LAPS*.
 
-![image](/images/blog/intune/tuto/intune_new_feature_laps_005.png)
+![image](/images/blog/intune/tuto/intune_how_to_create_local_admin_account_laps_005.png)
 
 ---
 

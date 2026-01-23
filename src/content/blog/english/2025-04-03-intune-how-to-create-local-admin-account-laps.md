@@ -3,7 +3,7 @@ title: "How to create a Windows local admin account via Intune LAPS"
 meta_title: ""
 description: ""
 date: 2025-04-03T10:00:00-05:00
-image: "/images/blog/intune/tuto/intune_new_feature_laps_thumbnail.png"
+image: "/images/blog/intune/tuto/intune_how_to_create_local_admin_account_laps_thumbnail.png"
 categories: ["Intune", "Tutorial"]
 author: "Maxime Hiez"
 tags: ["LAPS", "Password", "Security"]
@@ -12,9 +12,9 @@ draft: false
 ---
 
 ##### Introduction
-I wrote an article last February on how to replace the password of your MTR's local account using LAPS (Local Administrator Password Solution) in Intune. I concluded my article by explaining that it was possible to manage local administrator accounts on computers using the same solution. Microsoft has just released an update that allows you to create the account directly via LAPS without going through a configuration rule with a manual password.
+I wrote an article last February on how to replace the password of your MTR's local account using LAPS (Local Administrator Password Solution) in Intune. I concluded my article by explaining that it was possible to manage local administrator accounts on computers using the same solution. Microsoft has just released an update that allows you to create the account directly via LAPS without going through a configuration policy with a manual password.
 
-Check the February 2025 article [HERE](https://maxime.hiez.ca/en/blog/2025-02-15-intune-enable-laps).
+Check the February 2025 article [HERE](https://maxime.hiez.ca/en/blog/2025-02-17-intune-how-to-enable-laps-mtr).
 
 ---
 
@@ -35,32 +35,32 @@ Sign in to the Microsoft Intune Admin Center by opening your web browser to http
 
 ---
 
-##### Step 2 : Create a LAPS Rule
+##### Step 2 : Create a LAPS policy
 In the left menu, click *<u>Endpoint security</u>*, then *<u>Account protection</u>*.
 
-Create a rule for the *Windows 10 and later* platform with the *Local admin password solution (Windows LAPS)* profile.
+Create a policy for the *Windows 10 and later* platform with the *Local admin password solution (Windows LAPS)* profile.
 
-![image](/images/blog/intune/tuto/intune_new_feature_laps_001.png)
+![image](/images/blog/intune/tuto/intune_how_to_create_local_admin_account_laps_001.png)
 
 Enable the options with the values ​​of your choice.<br/>
-Unlike the MTR rule, which targeted the *Admin* account, here we will create a new account with a prefix (I chose *laps-admin-* here) and add a random numeric suffix.
+Unlike the MTR policy, which targeted the *Admin* account, here we will create a new account with a prefix (I chose *laps-admin-* here) and add a random numeric suffix.
 
-![image](/images/blog/intune/tuto/intune_new_feature_laps_002.png)
+![image](/images/blog/intune/tuto/intune_how_to_create_local_admin_account_laps_002.png)
 
 Assign the security group containing your Windows PC.
 
-![image](/images/blog/intune/tuto/intune_new_feature_laps_003.png)
+![image](/images/blog/intune/tuto/intune_how_to_create_local_admin_account_laps_003.png)
 
 ---
 
 ##### Step 3 : Validate the new account
 After a few minutes, the new account should be visible in the *Computer Management* window.
 
-![image](/images/blog/intune/tuto/intune_new_feature_laps_004.png)
+![image](/images/blog/intune/tuto/intune_how_to_create_local_admin_account_laps_004.png)
 
 You can also validate by going to the *Event Viewer* and opening the *Applications and Services Logs / Microsoft / Windows / LAPS* directory.
 
-![image](/images/blog/intune/tuto/intune_new_feature_laps_005.png)
+![image](/images/blog/intune/tuto/intune_how_to_create_local_admin_account_laps_005.png)
 
 ---
 
