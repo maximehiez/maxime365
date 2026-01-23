@@ -3,7 +3,7 @@ title: "Comment activer le routage LDAP dans un SBC Audiocodes"
 meta_title: ""
 description: ""
 date: 2025-04-10T10:00:00-05:00
-image: "/images/blog/sbc/tuto/sbc_audiocodes_enable_telephony_ldap_routing_thumbnail.png"
+image: "/images/blog/sbc/tuto/sbc_audiocodes_how_to_enable_telephony_ldap_routing_thumbnail.png"
 categories: ["Audiocodes", "Tutoriel"]
 author: "Maxime Hiez"
 tags: ["Téléphonie", "Direct Routing", "Syslog", "SBC", "LDAP", "Routage", "Active Directory"]
@@ -29,7 +29,7 @@ Je connecte donc mon SBC à mes serveurs Active Directory pour aller chercher le
 **<u>Compte de service</u>**
 - Un compte de service sur le serveur Active Directory.
 
-**<u>Rôle d’administrateur</u>**
+**<u>Rôles d’administrateur</u>**
 - Un compte administrateur pour accéder au SBC Audiocodes.
 - Un compte avec le rôle *Administrateur d'enterprise* pour accéder au serveur Active Directory.
 
@@ -39,9 +39,9 @@ Je connecte donc mon SBC à mes serveurs Active Directory pour aller chercher le
 ---
 
 ##### Étape 1 : Se connecter au SBC
-Connectez vous au SBC en ouvrant votre navigateur web sur https://VOTRE_ADRESSE_IP.
+Connectez-vous au SBC en ouvrant votre navigateur web sur https://VOTRE_ADRESSE_IP.
 
-![image](/images/blog/sbc/tuto/sbc_audiocodes_enable_telephony_ldap_routing_001.png)
+![image](/images/blog/sbc/tuto/sbc_audiocodes_how_to_enable_telephony_ldap_routing_001.png)
 
 ---
 
@@ -55,7 +55,7 @@ Passez l'option *<u>LDAP Service</u>* à *Enable*.
 
 Cliquez sur *<u>Save</u>*, puis sur *<u>Restart</u>*.
 
-![image](/images/blog/sbc/tuto/sbc_audiocodes_enable_telephony_ldap_routing_002.png)
+![image](/images/blog/sbc/tuto/sbc_audiocodes_how_to_enable_telephony_ldap_routing_002.png)
 
 ---
 
@@ -64,7 +64,7 @@ Cliquez sur *<u>Setup</u>*, *<u>IP Network</u>*, puis sur *<u>AAA Servers</u>*, 
 
 Gardez les options par défaut, donnez simplement un nom au groupe.
 
-![image](/images/blog/sbc/tuto/sbc_audiocodes_enable_telephony_ldap_routing_003.png)
+![image](/images/blog/sbc/tuto/sbc_audiocodes_how_to_enable_telephony_ldap_routing_003.png)
 
 ---
 
@@ -79,14 +79,14 @@ Faites pointer votre serveur sur le groupe créé dans l'étape 3, et ajoutez le
 - LDAP Server IP : *l'adresse IP du serveur*
 - LDAP Server Port : *le port de connexion (636 si TLS)*
 
-![image](/images/blog/sbc/tuto/sbc_audiocodes_enable_telephony_ldap_routing_004.png)
+![image](/images/blog/sbc/tuto/sbc_audiocodes_how_to_enable_telephony_ldap_routing_004.png)
 
 ---
 
 ##### Étape 5 : Créer la base de recherche
 Cliquez sur *<u>LDAP Servers Search Based DNs 0 items</u>* sur chacun des serveurs créés et entrez les OU dans lesquels se trouvent les comptes d'utilisateurs.
 
-![image](/images/blog/sbc/tuto/sbc_audiocodes_enable_telephony_ldap_routing_005.png)
+![image](/images/blog/sbc/tuto/sbc_audiocodes_how_to_enable_telephony_ldap_routing_005.png)
 
 ---
 
@@ -99,7 +99,7 @@ Créez la première règle avec les paramètres suivants :
 - Action Type : *Exit*
 - Action Value : *True*
 
-![image](/images/blog/sbc/tuto/sbc_audiocodes_enable_telephony_ldap_routing_006.png)
+![image](/images/blog/sbc/tuto/sbc_audiocodes_how_to_enable_telephony_ldap_routing_006.png)
 
 <br/>
 Créez la deuxième règle avec les paramètres suivants :
@@ -113,7 +113,7 @@ Créez la deuxième règle avec les paramètres suivants :
 - Action Type : *Modify*
 - Action Value : *LDAP.Attr.ipPhone*
 
-![image](/images/blog/sbc/tuto/sbc_audiocodes_enable_telephony_ldap_routing_007.png)
+![image](/images/blog/sbc/tuto/sbc_audiocodes_how_to_enable_telephony_ldap_routing_007.png)
 
 Cette règle va aller chercher le compte de l'utilisateur dont l'extension match avec la valeur de l'attribut *otherIpPhone*, et la remplacer par la valeur de l'attribut *ipPhone* (s'il est bien renseigné).
 
@@ -138,7 +138,7 @@ Cliquez sur *<u>Setup</u>*, *<u>Signaling & Media</u>*, puis sur *<u>SBC</u>*, e
 
 Créez une route vers votre lien SIP et modifiez l'option *<u>Call Setup Rules Set ID</u>* avec l'ID de votre règle.
 
-![image](/images/blog/sbc/tuto/sbc_audiocodes_enable_telephony_ldap_routing_008.png)
+![image](/images/blog/sbc/tuto/sbc_audiocodes_how_to_enable_telephony_ldap_routing_008.png)
 
 ---
 
@@ -149,22 +149,22 @@ Pour les besoins de la démo, j'ai utilisé l'attribut *otherTelephone* à la pl
 - otherTelephone : *+15141237890*   (où *5141237890* est le numéro à afficher)
 - Company : *Maxime Lab*
 
-![image](/images/blog/sbc/tuto/sbc_audiocodes_enable_telephony_ldap_routing_009.png)
+![image](/images/blog/sbc/tuto/sbc_audiocodes_how_to_enable_telephony_ldap_routing_009.png)
 
 ---
 
 ##### Analyse de l'appel
 On peut voir dans la capture *Syslog* de mon SBC Audiocodes que mon appel sort avec l'extension *+9999* en Caller ID et *Maxime Hiez* en Caller Name.
 
-![image](/images/blog/sbc/tuto/sbc_audiocodes_enable_telephony_ldap_routing_010.png)
+![image](/images/blog/sbc/tuto/sbc_audiocodes_how_to_enable_telephony_ldap_routing_010.png)
 
 Les 2 requêtes LDAP ont trouvé une correspondance dans l'Active Directory et les conditions ont pu s'exécuter.
 
-![image](/images/blog/sbc/tuto/sbc_audiocodes_enable_telephony_ldap_routing_011.png)
+![image](/images/blog/sbc/tuto/sbc_audiocodes_how_to_enable_telephony_ldap_routing_011.png)
 
 Mon Caller ID a été réécrit en *+15141237890* et mon Caller Name en *Maxime Lab*.
 
-![image](/images/blog/sbc/tuto/sbc_audiocodes_enable_telephony_ldap_routing_012.png)
+![image](/images/blog/sbc/tuto/sbc_audiocodes_how_to_enable_telephony_ldap_routing_012.png)
 
 ---
 
