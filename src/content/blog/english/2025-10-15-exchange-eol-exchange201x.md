@@ -2,7 +2,7 @@
 title: "Fin du support pour Exchange Server 2016/2019"
 meta_title: ""
 description: ""
-date: 2025-10-15T10:30:00-05:00
+date: 2025-10-15T10:00:00-05:00
 image: "/images/blog/exchange/exchange_eol_thumbnail.png"
 categories: ["Exchange"]
 author: "Maxime Hiez"

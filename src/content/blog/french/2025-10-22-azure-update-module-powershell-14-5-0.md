@@ -2,7 +2,7 @@
 title: "Mise à jour en version 14.5.0 du module PowerShell Azure"
 meta_title: ""
 description: ""
-date: 2025-10-22T10:30:00-05:00
+date: 2025-10-22T10:00:00-05:00
 image: "/images/blog/azure/azure_update_module_powershell_14_5_0_thumbnail.png"
 categories: ["Azure"]
 author: "Maxime Hiez"

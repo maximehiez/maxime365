@@ -6,7 +6,7 @@ date: 2025-07-22T10:00:00-05:00
 image: "/images/blog/purview/tuto/purview_how_to_enable_dlp_outlook_block_financial_data_thumbnail.png"
 categories: ["Purview", "Tutorial"]
 author: "Maxime Hiez"
-tags: ["Data protection", "Governance", "PII", "DLP"]
+tags: ["Data protection", "Governance", "PII", "DLP", "Security"]
 draft: false
 ---
 ---
