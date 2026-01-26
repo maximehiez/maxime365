@@ -38,7 +38,7 @@ Update-Module Az -Force
 La version 14.5.0 contient les mises à jour suivantes :
 
 **<u>Az.Automation</u>**
-- Correction de runbook_type : 'PowerShell72' [#24779][#23967].
+- Correction de runbook_type : *PowerShell72* [#24779][#23967].
 <br/><br/>
 
 **<u>Az.CloudService</u>**

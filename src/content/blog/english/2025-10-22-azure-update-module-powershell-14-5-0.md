@@ -38,7 +38,7 @@ Update-Module Az -Force
 Version 14.5.0 contains the following updates :
 
 **<u>Az.Automation</u>**
-- Fixed runbook_type : 'PowerShell72' [#24779][#23967].
+- Fixed runbook_type : *PowerShell72* [#24779][#23967].
 <br/><br/>
 
 **<u>Az.CloudService</u>**
@@ -211,7 +211,7 @@ Version 14.5.0 contains the following updates :
 ---
 
 ##### Conclusion
-Allez faire la mise à jour de votre module PowerShell pour Azure pour pouvoir bénéficier des dernières mises à jour et configurations possibles.
+Go update your Azure module for PowerShell to benefit from the latest updates and possible configurations.
 
 ---
 

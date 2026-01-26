@@ -1,0 +1,157 @@
+---
+title: "Update to version 15.2.0 of the Azure PowerShell module"
+meta_title: ""
+description: ""
+date: 2026-01-26T10:00:00-05:00
+image: "/images/blog/azure/azure_update_module_powershell_15_2_0_thumbnail.png"
+categories: ["Azure"]
+author: "Maxime Hiez"
+tags: ["Module", "Update", "PowerShell"]
+draft: false
+---
+---
+
+##### Introduction
+Microsoft recently released the new version 15.2.0 of the PowerShell module for Microsoft Azure.
+
+---
+
+##### Installation
+You can check the version of the installed module via the following PowerShell command :
+```powershell
+Get-InstalledModule -Name "Az*"
+```
+
+You can install the Az module via the following PowerShell command :
+```powershell
+Install-Module -Name Az
+```
+
+You can update the Az module via the following PowerShell command :
+```powershell
+Update-Module Az -Force
+```
+
+---
+
+##### What's new ?
+Version 15.2.0 contains the following updates :
+
+**<u>Az.Accounts</u>**
+- Updated *Azure.Core* from *1.47.3* to *1.50.0*.
+- Fixed telemetry to capture client request ID instead of server response ID for *AutoRest*-generated cmdlets [#23555].
+<br/><br/>
+
+**<u>Az.Aks</u>**
+- Bumped API version to *2025-08-01*.
+- Added cmdlets *Get-AzAksMachine*, *Get-AzAksManagedClusterMeshRevisionProfile*, *Get-AzAksManagedClusterMeshUpgradeProfile*, *Get-AzAksTrustedAccessRole*, *Get-AzAksTrustedAccessRoleBinding*, *New-AzAksTrustedAccessRoleBinding*, *Remove-AzAksAgentPoolMachine*, *Remove-AzAksTrustedAccessRoleBinding*, *Update-AzAksTrustedAccessRoleBinding*.
+- Added necessary parameters for *New-AzAksCluster*, *Set-AzAksCluster*, *New-AzAksNodePool*, *Update-AzAksNodePool*.
+- Removed cmdlet *Get-AzAksManagedClusterOSOption*.
+<br/><br/>
+
+**<u>Az.Batch</u>**
+- Updated *Azure.Core* from *1.47.3* to *1.50.0*.
+- Updated the implementation of *New-AzBatchApplicationPackage* cmdlet to not call *Get-AzBatchApplicationPackage* to retrieve storage keys for security improvements. No behavior changes to the cmdlet.
+<br/><br/>
+
+**<u>Az.Compute</u>**
+- Added *-HighSpeedInterconnectPlacement* parameter to *New-AzVmssConfig* and *New-AzVmss* cmdlets.
+- Added new parameters *ZonePlacementPolicy*, *IncludeZone*, *ExcludeZone*, *MaxZoneCount*, *EnableMaxInstancePercentPerZone* and *MaxInstancePercentPerZoneValue* to *New-AzVmssConfig* cmdlet.
+- Added new parameters *ZonePlacementPolicy*, *IncludeZone* and *ExcludeZone* to *New-AzVmss* cmdlet.
+- Added new parameters *MaxZoneCount*, *EnableMaxInstancePercentPerZone* and *MaxInstancePercentPerZoneValue* to *Update-AzVmss* cmdlet.
+- Updated *Azure.Core* from *1.47.3* to *1.50.0*.
+<br/><br/>
+
+**<u>Az.ContainerRegistry</u>**
+- Fixed *-ExposeToken* with *Connect-AzContainerRegistry*.
+- Updated *Azure.Core* from *1.47.3* to *1.50.0*.
+<br/><br/>
+
+**<u>Az.CosmosDB</u>**
+- Updated *Azure.Core* from *1.47.3* to *1.50.0*.
+<br/><br/>
+
+**<u>Az.DataFactory</u>**
+- Added more support for *Jira V2* and *Netezza V2* connection properties.
+<br/><br/>
+
+**<u>Az.DataLakeStore</u>**
+- Updated *Azure.Core* from *1.47.3* to *1.50.0*.
+<br/><br/>
+
+**<u>Az.FrontDoor</u>**
+- Fixed *New-AzFrontDoorWafManagedRuleOverrideObject* issue.
+<br/><br/>
+
+**<u>Az.KeyVault</u>**</u>**
+- Updated *Azure.Core* from *1.47.3* to *1.50.0*.
+<br/><br/>
+
+**<u>Az.MachineLearningServices</u>**
+- Preannounced breaking changes. Please refer to https://go.microsoft.com/fwlink/?linkid=2333229.
+<br/><br/>
+
+**<u>Az.Migrate</u>**
+- Updated *DefaultCrashConsistentFrequencyInMinutes* and *DefaultAppConsistentFrequencyInMinutes* to align with Azure Portal UX for Replication Policy.
+- *New-AzMigrateLocalServerReplication*.
+<br/><br/>
+
+**<u>Az.NetAppFiles</u>**
+- Updated *Azure.Core* from *1.47.3* to *1.50.0*.
+- General availability for module *Az.NetAppFiles*.
+<br/><br/>
+
+**<u>Az.Network</u>**
+- Onboarded *Microsoft.Security/privateLinks* to Private Link Common Cmdlets.
+<br/><br/>
+
+**<u>Az.PolicyInsights</u>**
+- Updated *Azure.Core* from *1.47.3* to *1.50.0*.
+<br/><br/>
+
+**<u>Az.RecoveryServices</u>**
+- Added Cross region restore support for Bleu cloud regions.
+- Added Availability Zone support in Update Protection.
+- Added Platform Fault Domain support in Enable, Update, and Switch Protection workflows.
+<br/><br/>
+
+**<u>Az.SignalR</u>**
+- Updated *Azure.Core* from *1.47.3* to *1.50.0*.
+<br/><br/>
+
+**<u>Az.Sql</u>**
+- Added *Get-AzSqlDeletedServer* cmdlet to retrieve soft deleted Azure SQL servers.
+   - Supports retrieving deleted servers by location or specific deleted server by name
+- Preannounced breaking changes. Please refer to https://go.microsoft.com/fwlink/?linkid=2333229.
+- The *EnableSoftDelete* parameter is deprecated from *New-AzSqlServer* and *Set-AzSqlServer* cmdlets and will be removed by May 2026.
+<br/><br/>
+
+**<u>Az.StackHCI</u>**
+- ARC Enablement of Nodes Before Triggering Registration in New Registration Flow.
+- Resolved double hop authentication issue.
+<br/><br/>
+
+**<u>Az.Storage</u>**
+- Upgraded management plane SDK and auto generated cmdlets to base on API spec generated by TSP.
+- Updated *Azure.Core* from *1.47.3* to *1.50.0*.
+<br/><br/>
+
+**<u>Az.Synapse</u>**
+- Updated *Azure.Core* from *1.47.3* to *1.50.0*.
+
+---
+
+##### Conclusion
+Go update your Azure module for PowerShell to benefit from the latest updates and possible configurations.
+
+---
+
+##### Sources
+[PowerShell Gallery](https://www.powershellgallery.com/packages/Az/15.2.0)
+
+---
+
+
+Did you enjoy this post ? If you have any questions, comments or suggestions, please feel free to send me a message from the contact form.
+
+Don't forget to follow us and share this post.
