@@ -46,7 +46,7 @@ Apply this policy for Teams messages.
 
 ![image](/images/blog/purview/tuto/purview_how_to_enable_dlp_teams_block_financial_data_003.png)
 
-Configure the various data type attributes and notifications. In my example, I chose an existing type (Canadian banking data).
+Configure the various data type attributes and notifications. In my example, I chose an existing type (Canadian financial data).
 
 ![image](/images/blog/purview/tuto/purview_how_to_enable_dlp_teams_block_financial_data_004.png)
 
