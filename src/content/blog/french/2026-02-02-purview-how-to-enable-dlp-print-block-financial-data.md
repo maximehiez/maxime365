@@ -7,7 +7,7 @@ image: "/images/blog/purview/tuto/purview_how_to_enable_dlp_print_block_financia
 categories: ["Purview", "Tutoriel"]
 author: "Maxime Hiez"
 tags: ["Protection de données", "Gouvernance", "PII", "DLP", "Sécurité"]
-draft: false
+draft: true
 ---
 ---
 
