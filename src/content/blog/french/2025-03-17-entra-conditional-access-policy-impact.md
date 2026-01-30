@@ -1,5 +1,5 @@
 ---
-title: "Analyse d'impact des politiques d'accès conditionnels Entra"
+title: "Analyse d'impact des politiques d'accès conditionnels Entra ID"
 meta_title: ""
 description: ""
 date: 2025-03-17T10:00:00-05:00
