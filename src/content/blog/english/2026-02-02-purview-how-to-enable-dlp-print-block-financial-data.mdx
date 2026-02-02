@@ -1,0 +1,110 @@
+---
+title: "How to enable DLP for printing with Purview"
+meta_title: ""
+description: ""
+date: 2026-02-02T10:00:00-05:00
+image: "/images/blog/purview/tuto/purview_how_to_enable_dlp_print_block_financial_data_thumbnail.png"
+categories: ["Purview", "Tutorial"]
+author: "Maxime Hiez"
+tags: ["Data protection", "Governance", "PII", "DLP", "Security"]
+draft: false
+---
+---
+
+##### Introduction
+A few weeks ago, I showed you how to enable DLP to prevent the copying of financial data to an external cloud storage solution using *Microsoft Purview*, thus preventing accidental or malicious data leaks (*Data Loss Prevention*). Continuing with the idea of talking to you about DLP, here this time is how to protect the printing of financial data.
+
+Check the article from January 2026 [HERE](https://maxime.hiez.ca/en/blog/2026-01-06-purview-how-to-enable-dlp-cloud-storage-block-financial-data).
+
+---
+
+##### Prerequisites
+**<u>Required licenses</u>**
+- *Microsoft 365 Business Premium*, *Microsoft 365 E5*.
+- *Microsoft Purview Suite* in addition to another license (*E3*, ...).
+
+**<u>Administrator role</u>**
+- An account with the *Global Administrator* or *Compliance Administrator* role to access the Microsoft Purview Portal.
+
+---
+
+##### Step 1 : Sign in to the Microsoft Purview Portal
+Sign in to the Microsoft Purview Portal by opening your web browser to https://purview.microsoft.com.
+
+---
+
+##### Step 2 : Create a DLP policy for devices
+In the left menu, click *<u>Solutions</u>*, then *<u>Data Loss Prevention</u>*.
+
+Click *<u>Create policy</u>*.
+
+![image](/images/blog/purview/tuto/purview_how_to_enable_dlp_print_block_financial_data_001.png)
+
+Set a name and description.
+
+![image](/images/blog/purview/tuto/purview_how_to_enable_dlp_print_block_financial_data_002.png)
+
+Apply this policy for devices.
+
+![image](/images/blog/purview/tuto/purview_how_to_enable_dlp_print_block_financial_data_003.png)
+
+Configure the various data type attributes and notifications. In my example, I chose an existing type (Canadian financial data).
+
+![image](/images/blog/purview/tuto/purview_how_to_enable_dlp_print_block_financial_data_004.png)
+
+Enable the policy to put it into production.
+
+![image](/images/blog/purview/tuto/purview_how_to_enable_dlp_print_block_financial_data_005.png)
+
+<Notice type="note">The policy can take up to 24 hours to take effect.</Notice>
+
+---
+
+##### Step 3 : Print financial data to validate the policy
+I'm reusing the Word file *<u>Cards.docx</u>* containing a (<u>fake</u>) credit card, which I created for my previous article.
+
+I don't have a printer, but I'm printing it to PDF and ...
+
+![image](/images/blog/purview/tuto/purview_how_to_enable_dlp_print_block_financial_data_006.png)
+
+... the attempt is blocked. The popup configured in the policy appears warning that this is data that cannot be printed.
+
+![image](/images/blog/purview/tuto/purview_how_to_enable_dlp_print_block_financial_data_007.png)
+
+---
+
+##### Step 4 : Receive the notification
+If you have configured notifications, an email is sent to the designated people within the next few seconds.
+
+![image](/images/blog/purview/tuto/purview_how_to_enable_dlp_print_block_financial_data_008.png)
+
+---
+
+##### What if I want to allow / block certain printers ?
+In the left menu, click *<u>Settings</u>*, then *<u>Data Loss Prevention</u>*.
+
+Click *<u>Printer groups</u>* and add the target printer(s).
+
+![image](/images/blog/purview/tuto/purview_how_to_enable_dlp_print_block_financial_data_009.png)
+
+Edit the DLP policy by adding the printer group and the action to apply.
+
+![image](/images/blog/purview/tuto/purview_how_to_enable_dlp_print_block_financial_data_010.png)
+
+---
+
+##### Conclusion
+With Microsoft Purview DLP, organizations can automatically detect, monitor, and block unauthorized printing of critical data, such as credit card numbers or bank account information.<br/><br/>
+You now know how to enable DLP for printing.
+
+---
+
+##### Sources
+[Microsoft Learn - DLP and devices](https://learn.microsoft.com/en-us/purview/endpoint-dlp-using)
+
+---
+
+
+Did you enjoy this post ? If you have any questions, comments or suggestions, please feel free to send me a message from the contact form.
+
+Don't forget to follow us and share this post.
