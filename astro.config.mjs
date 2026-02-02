@@ -32,7 +32,12 @@ export default defineConfig({
   },
   integrations: [
     react(),
-    sitemap(),
+    sitemap({
+      i18n: {
+      defaultLocale: default_language,
+      locales: filteredSupportedLang,
+    },
+}),
     tailwind({
       applyBaseStyles: false,
     }),
