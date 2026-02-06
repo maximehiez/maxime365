@@ -6,7 +6,7 @@ date: 2025-08-26T10:00:00-05:00
 image: "/images/blog/teams/teams_inclusive_communication_with_sign_language_mode_thumbnail.png"
 categories: ["Teams"]
 author: "Maxime Hiez"
-tags: ["Inclusion", "Meeting"]
+tags: ["Inclusion", "Meeting", "Transcription"]
 draft: false
 ---
 ---

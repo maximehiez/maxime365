@@ -6,7 +6,7 @@ date: 2025-12-11T10:00:00-05:00
 image: "/images/blog/teams/teams_meeting_record_audio_only_thumbnail.png"
 categories: ["Teams"]
 author: "Maxime Hiez"
-tags: ["Rencontre", "Enregistrement"]
+tags: ["Rencontre", "Enregistrement", "Transcription"]
 draft: false
 ---
 ---
