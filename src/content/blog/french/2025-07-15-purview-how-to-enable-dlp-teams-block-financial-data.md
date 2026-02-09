@@ -89,7 +89,7 @@ Une nouvelle notification contenant la justification sera envoyée par courriel 
 
 ##### Conclusion
 Grâce à Microsoft Purview DLP, les organisations peuvent détecter, surveiller et bloquer automatiquement le partage non autorisé de données critiques, comme les numéros de carte de crédit ou les informations de comptes bancaires, que ce soit dans les conversations Teams, les fichiers partagés ou les canaux collaboratifs.<br/><br/>
-Vous savez maintenant comment activer le DLP pour Teams dans Purview.
+Vous savez maintenant comment activer le DLP pour Teams avec Purview.
 
 ---
 

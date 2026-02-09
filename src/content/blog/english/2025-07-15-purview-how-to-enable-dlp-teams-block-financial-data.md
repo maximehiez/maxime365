@@ -89,7 +89,7 @@ A new notification containing the justification will be sent by email to the sam
 
 ##### Conclusion
 With Microsoft Purview DLP, organizations can automatically detect, monitor, and block unauthorized sharing of critical data, such as credit card numbers or bank account information, whether in Teams conversations, shared files, or collaborative channels.<br/><br/>
-You now know how to enable DLP for Teams in Purview.
+You now know how to enable DLP for Teams with Purview.
 
 ---
 

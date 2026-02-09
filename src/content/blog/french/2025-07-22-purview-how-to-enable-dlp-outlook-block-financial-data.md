@@ -87,7 +87,7 @@ Si vous avez configuré les notifications, un courriel est envoyé aux personnes
 
 ##### Conclusion
 Grâce à Microsoft Purview DLP, les organisations peuvent détecter, surveiller et bloquer automatiquement le partage non autorisé de données critiques, comme les numéros de carte de crédit ou les informations de comptes bancaires, que ce soit dans le corps des courriels Outlook ou les pièces jointes attachées.<br/><br/>
-Vous savez maintenant comment activer le DLP pour Outlook dans Purview.
+Vous savez maintenant comment activer le DLP pour Outlook avec Purview.
 
 ---
 

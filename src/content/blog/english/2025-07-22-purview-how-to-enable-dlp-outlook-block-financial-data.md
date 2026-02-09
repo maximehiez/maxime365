@@ -87,7 +87,7 @@ If you have configured notifications, an email is sent to the designated people 
 
 ##### Conclusion
 With Microsoft Purview DLP, organizations can automatically detect, monitor, and block unauthorized sharing of critical data, such as credit card numbers or bank account information, whether in the body of Outlook emails or attached files.<br/><br/>
-You now know how to enable DLP for Outlook in Purview.
+You now know how to enable DLP for Outlook with Purview.
 
 ---
 

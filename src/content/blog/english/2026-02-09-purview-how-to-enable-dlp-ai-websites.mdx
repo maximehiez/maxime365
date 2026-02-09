@@ -1,0 +1,100 @@
+---
+title: "How to enable DLP for artificial intelligence websites"
+meta_title: ""
+description: ""
+date: 2026-02-09T10:00:00-05:00
+image: "/images/blog/purview/tuto/purview_how_to_enable_dlp_ai_websites_thumbnail.png"
+categories: ["Purview", "Tutoriel"]
+author: "Maxime Hiez"
+tags: ["Data protection", "Governance", "PII", "DLP", "Security", "AI"]
+draft: false
+---
+---
+
+##### Introduction
+Je vous montrais la semaine dernière comment activer le *DLP* contre l'impression de données financières *Microsoft Purview* afin de prévenir des fuites de données accidentelles ou malveillantes (*Data Loss Prevention*). Toujours dans l'idée de vous parler du DLP, voici cette fois-ci comment protéger la copie de données financières dans un site d'intelligence artificielle.
+
+Voir l'article de la semaine passée [ICI](https://maxime.hiez.ca/blog/2026-02-02-purview-how-to-enable-dlp-print-block-financial-data).
+
+---
+
+##### Prerequisites
+**<u>Required licenses</u>**
+- *Microsoft 365 E5*.
+- *Microsoft Purview Suite* in addition to another license (*E3*, *Business*, ...).
+
+**<u>Administrator role</u>**
+- An account with the *Global Administrator* or *Compliance Administrator* role to access the Microsoft Purview Portal.
+
+---
+
+##### Step 1 : Sign in to the Microsoft Purview Portal
+Sign in to the Microsoft Purview Portal by opening your web browser to https://purview.microsoft.com.
+
+---
+
+##### Step 2 : Create a DLP policy for devices
+In the left menu, click *<u>Solutions</u>*, then *<u>Data Loss Prevention</u>*.
+
+Click *<u>Create policy</u>*.
+
+![image](/images/blog/purview/tuto/purview_how_to_enable_dlp_ai_websites_001.png)
+
+Set a name and description.
+
+![image](/images/blog/purview/tuto/purview_how_to_enable_dlp_ai_websites_002.png)
+
+Apply this policy for devices.
+
+![image](/images/blog/purview/tuto/purview_how_to_enable_dlp_ai_websites_003.png)
+
+Configure the various data type attributes and notifications. In my example, I chose an existing type (Canadian financial data).
+
+![image](/images/blog/purview/tuto/purview_how_to_enable_dlp_ai_websites_004.png)
+
+Enable the policy to put it into production.
+
+![image](/images/blog/purview/tuto/purview_how_to_enable_dlp_ai_websites_005.png)
+
+<Notice type="note">The policy can take up to 24 hours to take effect.</Notice>
+
+---
+
+##### Step 3 : Copy financial data into an AI website to validate the rule
+From *ChatGPT*, I choose to import a document ...
+
+![image](/images/blog/purview/tuto/purview_how_to_enable_dlp_ai_websites_006.png)
+
+... and I select my Word file *<u>Cards.docx</u>* containing a (<u>fake</u>) credit card, created for my previous articles ...
+
+![image](/images/blog/purview/tuto/purview_how_to_enable_dlp_ai_websites_007.png)
+
+... the attempt is blocked. The popup configured in the policy appears warning that this is data that cannot be uploaded.
+
+![image](/images/blog/purview/tuto/purview_how_to_enable_dlp_ai_websites_008.png)
+
+---
+
+##### Step 4 : Receive the notification
+If you have configured notifications, an email is sent to the designated people within the next few seconds.
+
+![image](/images/blog/purview/tuto/purview_how_to_enable_dlp_ai_websites_009.png)
+
+---
+
+##### Conclusion
+
+With Microsoft Purview DLP, organizations can automatically detect, monitor, and block the upload of critical data to an AI website, such as credit card numbers or bank account information.<br/><br/>
+You now know how to enable DLP for upload to AI websites with Purview.
+
+---
+
+##### Sources
+[Microsoft Learn - DLP and devices](https://learn.microsoft.com/en-us/purview/endpoint-dlp-using)
+
+---
+
+
+Did you enjoy this post ? If you have any questions, comments or suggestions, please feel free to send me a message from the contact form.
+
+Don't forget to follow us and share this post.
