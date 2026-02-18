@@ -121,7 +121,7 @@ La version 15.2.0 contient les mises à jour suivantes :
 
 **<u>Az.Sql</u>**
 - Ajout de l'applet de commande *Get-AzSqlDeletedServer* pour récupérer les serveurs Azure SQL supprimés (suppression réversible).
-    - Prise en charge de la récupération des serveurs supprimés par emplacement ou d'un serveur spécifique par son nom
+    - Prise en charge de la récupération des serveurs supprimés par emplacement ou d'un serveur spécifique par son nom.
 - Modifications majeures annoncées. Veuillez consulter https://go.microsoft.com/fwlink/?linkid=2333229.
 - Le paramètre *EnableSoftDelete* est obsolète dans les applets de commande *New-AzSqlServer* et *Set-AzSqlServer* et sera supprimé d'ici Mai 2026.
 <br/><br/>
