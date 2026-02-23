@@ -1,0 +1,63 @@
+---
+title: "Nouveaux certificats racines requis pour la téléphonie Teams"
+meta_title: ""
+description: ""
+date: 2025-12-15T10:00:00-05:00
+image: "/images/blog/teams/teams_certificate_changes_for_teams_direct_routing_thumbnail.png"
+categories: ["Teams"]
+author: "Maxime Hiez"
+tags: ["Téléphonie", "Direct Routing", "SBC", "Certificat", "DigiCert"]
+draft: false
+---
+---
+
+##### Introduction
+Si vous avez mis en place la téléphonie Teams via *Direct Routing* dans votre environnement *Microsoft 365*, vous dépendez d’une connectivité *TLS/mTLS* entre les proxy SIP chez Microsoft et vos *Session Border Controllers* (*SBC*). Microsoft a annoncé un changement important lié aux certificats TLS et aux autorités de certification (CA), avec un enjeu simple : si votre SBC ne fait pas confiance à la nouvelle chaîne, vous risquez des échecs d’appels et une rupture de service.
+
+Microsoft rappelle que la connectivité TLS entre ses proxy SIP et les SBC repose sur du *mutual TLS* (*mTLS*), ce qui implique des certificats côté client avec le *Client Authentication Extended Key Usage* (*EKU*). 
+Or, depuis Février 2025, Google (*Chrome Root Program Policy v1.6*) a fait évoluer ses exigences et déprécie l’usage de *Client Authentication EKU* dans les certificats TLS serveur approuvés par Chrome. À partir de Juin 2026, les certificats devront inclure exclusivement *Server Authentication EKU* pour conserver la confiance des principaux navigateurs (Chrome, Mozilla).
+
+---
+
+##### Autorités de certification (CA) supportées
+
+| Certificat                                    | Emprunte numérique (SHA1)                | Numéro de série                    |
+| :-------------------------------------------: | :--------------------------------------: | ---------------------------------: |
+| DigiCert Global Root CA                       | A8985D3A65E5E5C4B2D7D66D40C6DD2FB19C5436 | 0x083be056904246b1a1756ac95991c74a |
+| DigiCert Global Root G3                       | 7E04DE896A3E666D00E687D33FFAD93BE83D349E | 0x055556bcf25ea43535c3a40fd5ab4572 |
+| DigiCert TLS ECC P384 Root G5                 | 17F3DE5E9F0F19E98EF61F32266E20C407AE30EE | 0x09e09365acf7d9c8b93e1c0b042a2ef3 |
+| DigiCert TLS RSA 4096 Root G5                 | A78849DC5D7C758C8CDE399856B3AAD0B2A57135 | 0x08f9b478a8fa7eda6a333789de7ccf8a |
+| Microsoft ECC Root Certificate Authority 2017 | 999A64C37FF47D9FAB95F14769891460EEC4C3C5 | 0x66f23daf87de8bb14aea0c573101c2ec |
+| Microsoft RSA Root Certificate Authority 2017 | 73A5E64A3BFF8316FF0EDCCC618A906E4EAE4D74 | 0x1ed397095fd8b4b347701eaabe7f45b3 |
+
+---
+
+##### Ce que ça implique pour vous
+Les administrateurs de vos SBC vont devoir prendre en compte les points suivants :
+- S'assurer que toutes les autorités de certification sont incluses dans le magasin de confiance SBC.
+- Configurer les SBC pour faire confiance aux certificats client et serveur.
+- Tester que la connectivité avec les proxy SIP de Microsoft répond correctement.
+- Consulter la documentation du fournisseur SBC pour obtenir des conseils sur la mise à jour des listes de certificats acceptés.
+
+<Notice type="warning">Les SBC dépourvus de ces nouvelles autorités de certification racine pouront rencontrer des erreurs de validation de certificat, ce qui a un impact sur la disponibilité du service.</Notice>
+
+---
+
+##### Conclusion
+Ces changements ne sont pas cosmétiques, ils touchent le socle de confiance TLS entre Teams et votre infrastructure téléphonique. Le bon réflexe est d’agir comme pour toute maintenance : mettre à jour les racines, valider la chaîne, tester les appels, et anticiper les renouvellements, le tout avant fin Février 2026 pour éviter une interruption de service.
+
+---
+
+##### Sources
+[Microsoft Learn - Nouveaux certificats requis](https://learn.microsoft.com/fr-ca/microsoftteams/direct-routing-whats-new#update-on-upcoming-certificate-changes-updated-december-12-2025)
+
+[Microsoft Learn - Détails de l’autorité de certification Azure](https://learn.microsoft.com/fr-ca/azure/security/fundamentals/azure-certificate-authority-details?tabs=root-and-subordinate-cas-list)
+
+[Message Center - MC1213773](https://admin.cloud.microsoft/#/MessageCenter/:/messages/MC1213773)
+
+---
+
+
+Avez-vous apprécié cet article ? Vous avez des questions, commentaires ou suggestions, n’hésitez pas à m'envoyer un message depuis le formulaire de contact.
+
+N'oubliez pas de nous suivre et de partager cet article.

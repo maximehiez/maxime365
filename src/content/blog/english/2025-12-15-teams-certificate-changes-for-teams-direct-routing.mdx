@@ -1,0 +1,65 @@
+---
+title: "New root certificates required for Teams telephony"
+meta_title: ""
+description: ""
+date: 2025-12-15T10:00:00-05:00
+image: "/images/blog/teams/teams_certificate_changes_for_teams_direct_routing_thumbnail.png"
+categories: ["Teams"]
+author: "Maxime Hiez"
+tags: ["Telephony", "Direct Routing", "SBC", "Certificate", "DigiCert"]
+draft: false
+---
+---
+
+##### Introduction
+
+
+If you have set up Teams telephony via *Direct Routing* in your *Microsoft 365* environment, you depend on *TLS/mTLS* connectivity between Microsoft SIP proxies and your *Session Border Controllers* (*SBC*). Microsoft announced a significant change related to TLS certificates and certificate authorities (CAs), with a simple issue : if your SBC does not trust the new chain, you risk call failures and service disruption.
+
+Microsoft recalls that TLS connectivity between its SIP proxies and SBCs relies on *mutual TLS* (*mTLS*), which involves client-side certificates with *Client Authentication Extended Key Usage* (*EKU*).
+However, since February 2025, Google (*Chrome Root Program Policy v1.6*) has changed its requirements and depreciates the use of *Client Authentication EKU* in server TLS certificates approved by Chrome. From June 2026, certificates must exclusively include *Server Authentication EKU* to maintain the trust of the main browsers (Chrome, Mozilla).
+
+---
+
+##### Supported certificate authorities (CAs)
+
+| Certificate                                   | Thumbprint (SHA1)                        | Serial number                      |
+| :-------------------------------------------: | :--------------------------------------: | ---------------------------------: |
+| DigiCert Global Root CA                       | A8985D3A65E5E5C4B2D7D66D40C6DD2FB19C5436 | 0x083be056904246b1a1756ac95991c74a |
+| DigiCert Global Root G3                       | 7E04DE896A3E666D00E687D33FFAD93BE83D349E | 0x055556bcf25ea43535c3a40fd5ab4572 |
+| DigiCert TLS ECC P384 Root G5                 | 17F3DE5E9F0F19E98EF61F32266E20C407AE30EE | 0x09e09365acf7d9c8b93e1c0b042a2ef3 |
+| DigiCert TLS RSA 4096 Root G5                 | A78849DC5D7C758C8CDE399856B3AAD0B2A57135 | 0x08f9b478a8fa7eda6a333789de7ccf8a |
+| Microsoft ECC Root Certificate Authority 2017 | 999A64C37FF47D9FAB95F14769891460EEC4C3C5 | 0x66f23daf87de8bb14aea0c573101c2ec |
+| Microsoft RSA Root Certificate Authority 2017 | 73A5E64A3BFF8316FF0EDCCC618A906E4EAE4D74 | 0x1ed397095fd8b4b347701eaabe7f45b3 |
+
+---
+
+##### What this means for you
+The administrators of your SBCs will have to take the following points into account :
+- Ensure all certificate authorities are included in the SBC trust store.
+- Configure SBCs to trust client and server certificates.
+- Test that connectivity with Microsoft SIP proxies answers correctly.
+- Consult the SBC provider's documentation for guidance on updating accepted certificate lists.
+
+<Notice type="warning">SBCs without these new root CAs may experience certificate validation errors, impacting service availability.</Notice>
+
+---
+
+##### Conclusion
+These changes are not cosmetic, they affect the TLS trust base between Teams and your telephone infrastructure. The right reflex is to act as for any maintenance: update the roots, validate the chain, test the calls, and anticipate renewals, all before the end of February 2026 to avoid an interruption of service.
+
+---
+
+##### Sources
+[Microsoft Learn - New certificates required](https://learn.microsoft.com/en-us/microsoftteams/direct-routing-whats-new#update-on-upcoming-certificate-changes-updated-december-12-2025)
+
+[Microsoft Learn - Azure certificate authority details](https://learn.microsoft.com/en-us/azure/security/fundamentals/azure-certificate-authority-details?tabs=root-and-subordinate-cas-list)
+
+[Message Center - MC1213773](https://admin.cloud.microsoft/#/MessageCenter/:/messages/MC1213773)
+
+---
+
+
+Did you enjoy this post ? If you have any questions, comments or suggestions, please feel free to send me a message from the contact form.
+
+Don*t forget to follow us and share this post.
