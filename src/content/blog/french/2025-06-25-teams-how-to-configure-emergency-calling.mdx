@@ -81,7 +81,7 @@ $subnet1 = "192.168.0.0"
 $mask1 = "24"
 $description1 = "Montreal - LAN"
 $region = "Lab"
-$nsite1 = "Maxime Lab"
+$nsite1 = "Lab Maxime"
 $nr = New-CsTenantNetworkRegion -Identity $region
 $site1 = New-CsTenantNetworkSite -Identity $nsite1 -NetworkRegionID $nr.NetworkRegionId
 
@@ -141,7 +141,7 @@ Vous pouvez aussi créer la politique de notification via les commandes PowerShe
 ```powershell
 $emergencystring1 = "+911"
 $emergencystring2 = "911"
-$emergencygroup = "911.MaximeLab@hiez.ca"
+$emergencygroup = "911.LabMaxime@hiez.ca"
 $notifs1 = New-CsTeamsEmergencyCallingExtendedNotification -EmergencyDialString $emergencystring1 -NotificationGroup $emergencygroup -NotificationMode NotificationOnly
 $notifs2 = New-CsTeamsEmergencyCallingExtendedNotification -EmergencyDialString $emergencystring2 -NotificationGroup $emergencygroup -NotificationMode NotificationOnly
 

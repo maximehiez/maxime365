@@ -59,7 +59,6 @@ Edit the rule and add the following URLs :
 
 ##### Step 3 : Sign in to Microsoft Exchange Online using PowerShell
 Sign in to Microsoft Exchange Online using the following PowerShell command :
-
 ```powershell
 Connect-ExchangeOnline
 ```
@@ -70,7 +69,6 @@ Connect-ExchangeOnline
 For an MTR to join a Teams meeting, they must use hidden properties in the Outlook invitation. However, to be able to join a Zoom or Webex meeting, they must be able to read the body of the invitation message. Therefore, you must preserve this body to ensure a *Join* button is generated. Also, these meetings are created outside of your organization, and it's important that the room calendar accepts the invitation.
 
 Edit the two Exchange attributes *DeleteComments* and *ProcessExternalMeetingMessages* using the following PowerShell command :
-
 ```powershell
 Set-CalendarProcessing -Identity "Salle.Montreal@hiez.ca" -DeleteComments $False -ProcessExternalMeetingMessages $True
 ```

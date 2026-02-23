@@ -69,7 +69,6 @@ Connect-ExchangeOnline
 Pour qu'un MTR rejoigne une réunion Teams, il doit utiliser des propriétés masquées dans l'invitation Outlook. Mais pour pouvoir se connecter dans une réunion Zoom ou Webex, il doit être capable de lire le corps du message d'invitation. Vous devez donc conserver ce corps pour garantir la génération d'un bouton *Rejoindre*. Également, ces réunions sont créées en dehors de votre organisation et il est important que le calendrier de la salle accepte l'invitation.
 
 Éditez les deux attributs Exchange *DeleteComments* et *ProcessExternalMeetingMessages* via la commande PowerShell suivante :
-
 ```powershell
 Set-CalendarProcessing -Identity "Salle.Montreal@hiez.ca" -DeleteComments $False -ProcessExternalMeetingMessages $True
 ```

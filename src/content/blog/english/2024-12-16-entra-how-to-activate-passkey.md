@@ -47,7 +47,7 @@ Click *<u>Configure</u>*, and enable all options.
 
 ![image](/images/blog/entra/tuto/entra_how_to_activate_passkey_002.png)
 
-You can also enable the service via the following Graph PowerShell script:
+You can also enable the service via the following Graph PowerShell script :
 ```powershell
 Connect-MgGraph -Scopes "Policy.ReadWrite.AuthenticationMethod"
 $params = @{

@@ -49,7 +49,6 @@ New-OrganizationRelationship -Name "RelationshipWithMaxime" -DomainNames "hiez.c
 
 ##### Étape 3 : Activer la relation d'organisation sur le tenant B
 Il faut faire la même configuration dans le deuxième tenant, en ciblant bien sûr l'autre domaine via l'interface web ou la commande PowerShell suivante :
-
 ```powershell
 New-OrganizationRelationship -Name "RelationshipWithOtherDomain" -DomainNames "otherdomain.ca" -FreeBusyAccessEnabled $true -FreeBusyAccessLevel AvailabilityOnly -TargetApplicationUri outlook.com -TargetAutodiscoverEpr https://autodiscover-s.outlook.com/autodiscover/autodiscover.svc/WSSecurity 
 ```
@@ -58,7 +57,6 @@ New-OrganizationRelationship -Name "RelationshipWithOtherDomain" -DomainNames "o
 
 ##### Étape 4 : Valider la relation d'organisation
 La commande PowerShell suivante permet de valider que la relation d'organisation configurée correspond bien aux besoins.
-
 ```powershell
 Get-OrganizationRelationship | Fl
 ```

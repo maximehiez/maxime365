@@ -1,0 +1,237 @@
+---
+title: "How to migrate a Surface Hub 2S to a Windows MTR"
+meta_title: ""
+description: ""
+date: 2026-02-23T10:00:00-05:00
+image: "/images/blog/mtr/tuto/mtr_how_to_migrate_surface_hub_2s_to_mtrow_thumbnail.png"
+categories: ["MTR", "Tutorial"]
+author: "Maxime Hiez"
+tags: ["Teams Rooms", "MTRoW", "Surface Hub"]
+draft: false
+---
+---
+
+##### Introduction
+With the end of support for *Windows 10*, businesses can migrate their *Surface Hub 2S* to *Microsoft Teams Rooms on Windows* (*MTRoW*). USB migration is the method that allows the entire process to be completed on-premises and offline in a single operation. It requires no internet connection, no third-party cloud services, and no application installation, making it the fastest option.
+
+---
+
+##### Prerequisites
+**<u>Equipment</u>**
+- A Surface Hub 2S running Windows 10.
+- 2 32GB USB 3.0 flash drives formatted in FAT32.
+- A Windows 10/11 PC.
+
+**<u>Download the executable</u>**
+- The *Surface IT Toolkit* can be downloaded from https://learn.microsoft.com/en-us/surface/surface-it-toolkit.
+
+---
+
+##### Step 1 : Create a certificate
+On the PC, generate a self-signed certificate using the following PowerShell commands :
+```powershell
+if (-not (Test-Path "$home\Downloads\MTR Certificate"))  { New-Item -ItemType Directory -Force -Path "MTR Certificate" } 
+if (Test-Path "$home\Downloads\MTR Certificate\CertificateMTR.pfx") { Remove-Item "$home\Downloads\MTR Certificate\CertificateMTR.pfx" } 
+
+$pw = ConvertTo-SecureString "P@sSw0rD" -AsPlainText -Force 
+
+$UefiV2 = New-SelfSignedCertificate ` 
+    -Subject "CN=Surface Demo Kit, O=Lab Maxime, C=CA" ` 
+    -Type SSLServerAuthentication ` 
+    -HashAlgorithm sha256 ` 
+    -KeyAlgorithm RSA ` 
+    -KeyLength 2048 ` 
+    -KeyUsage KeyEncipherment ` 
+    -KeyUsageProperty All ` 
+    -Provider "Microsoft Enhanced RSA and AES Cryptographic Provider" ` 
+    -NotAfter (Get-Date).AddYears(25) ` 
+    -TextExtension @("2.5.29.37={text}1.2.840.113549.1.1.1") ` 
+    -KeyExportPolicy Exportable 
+
+$UefiV2 | Export-PfxCertificate -Password $pw -FilePath "MTR Certificate\CertificateMTR.pfx" 
+```
+
+Retrieve the certificate's thumbprint using the following PowerShell commands :
+```powershell
+$pfx = Get-PfxCertificate -FilePath "$home\Downloads\MTR Certificate\CertificateMTR.pfx" 
+$pfx.Thumbprint 
+```
+
+---
+
+##### Step 2 : Install Surface IT Toolkit
+On the same PC, launch the *Surface IT Toolkit* installation and click *<u>Start App Configuration</u>*.
+
+![image](/images/blog/mtr/tuto/mtr_how_to_migrate_surface_hub_2s_to_mtrow_001.png)
+
+Click *<u>Surface Hub</u>*, then the 2 models *<u>Surface Hub 3</u>* and *<u>Surface Hub 2S</u>*.
+
+![image](/images/blog/mtr/tuto/mtr_how_to_migrate_surface_hub_2s_to_mtrow_002.png)
+
+Leave the last windows as default ...
+
+![image](/images/blog/mtr/tuto/mtr_how_to_migrate_surface_hub_2s_to_mtrow_003.png)
+
+... and complete the installation.
+
+![image](/images/blog/mtr/tuto/mtr_how_to_migrate_surface_hub_2s_to_mtrow_004.png)
+
+---
+
+##### Step 3 : Create the bootable USB drive with the SEMM package
+Insert the 1st USB drive into the PC and run the application.
+
+Click *<u>UEFI Configurator</u>*, then *<u>Configure Device(s)</u>*.
+
+![image](/images/blog/mtr/tuto/mtr_how_to_migrate_surface_hub_2s_to_mtrow_005.png)
+
+Configure the attributes (replace the values ​​with your own) :
+- <u>Choose the deployment version</u> : *DFI*
+- <u>Import certificate protection</u> : *Add → CertificateMTR.pfx*
+- <u>Certificate password</u> : *P@sSw0rD*
+- <u>Choose the DFI package type</u> : *Configuration Package*
+- <u>Select the device</u> : *Surface Hub → Surface Hub 2S*
+
+![image](/images/blog/mtr/tuto/mtr_how_to_migrate_surface_hub_2s_to_mtrow_006.png)
+
+Confirm that the *EnableOsMigration* option is enabled.
+
+![image](/images/blog/mtr/tuto/mtr_how_to_migrate_surface_hub_2s_to_mtrow_007.png)
+
+Click *<u>Create</u>* to create the first USB key.
+
+![image](/images/blog/mtr/tuto/mtr_how_to_migrate_surface_hub_2s_to_mtrow_008.png)
+
+Click *<u>Finish</u>*.
+
+![image](/images/blog/mtr/tuto/mtr_how_to_migrate_surface_hub_2s_to_mtrow_009.png)
+
+<Notice type="warning">All data will be erased from USB key 1 !</Notice>
+
+---
+
+##### Step 4 : Create the bootable USB drive with the MTR image
+Browse USB drive 1 ; you should see a file named *DfciUpdate.dfi*. Copy the certificate to the drive and then eject it. Insert USB drive 2.
+
+Click *<u>Recovery Tool</u>*, then *<u>Create</u>*.
+
+![image](/images/blog/mtr/tuto/mtr_how_to_migrate_surface_hub_2s_to_mtrow_010.png)
+
+Click *<u>Surface Hub 2S</u>*.
+
+![image](/images/blog/mtr/tuto/mtr_how_to_migrate_surface_hub_2s_to_mtrow_011.png)
+
+Select the language and version of the MTR.
+
+![image](/images/blog/mtr/tuto/mtr_how_to_migrate_surface_hub_2s_to_mtrow_012.png)
+
+Click *<u>Rest of World</u>*, unless you are in China.
+
+![image](/images/blog/mtr/tuto/mtr_how_to_migrate_surface_hub_2s_to_mtrow_013.png)
+
+Click *<u>Create</u>* to create the 2nd USB key.
+
+![image](/images/blog/mtr/tuto/mtr_how_to_migrate_surface_hub_2s_to_mtrow_014.png)
+
+Click *<u>Finish</u>*.
+
+![image](/images/blog/mtr/tuto/mtr_how_to_migrate_surface_hub_2s_to_mtrow_015.png)
+
+<Notice type="warning">All data will be erased from USB key 2 !</Notice>
+
+---
+
+##### Step 5 : Check firmware requirements
+On your Surface Hub, verify that the UEFI version is *699.845.768.0* or later. If it isn't, update the UEFI firmware before migrating.
+- Tap *Start*, then *All apps*, then *Surface*, and then *Your Surface*.
+- Under *Device information*, check the UEFI version.
+<br/>
+
+You can also check the UEFI version in the UEFI menu :
+- Turn off your Surface Hub 2S.
+- Press and hold the *Volume +* button, then briefly press the *Power* button. Continue holding the *Volume +* button until the UEFI menu appears on the screen.
+- Tap *System information* to view the UEFI version.
+
+---
+
+##### Step 6 : Migrate the Windows version to MTRoW
+Insert the first USB drive into the Surface Hub 2S and power off the device.
+
+Press and hold the *Volume +* button, then briefly press the *Power* button. Continue holding the *Volume +* button until the UEFI menu appears.
+
+In the UEFI menu, tap *Management*, then tap *Install from USB*.
+
+![image](/images/blog/mtr/tuto/mtr_how_to_migrate_surface_hub_2s_to_mtrow_016.png)
+
+After installation, tap *<u>Restart now</u>*.
+
+![image](/images/blog/mtr/tuto/mtr_how_to_migrate_surface_hub_2s_to_mtrow_017.png)
+
+The Surface Hub 2S will display the white Microsoft logo, then power off.
+
+![image](/images/blog/mtr/tuto/mtr_how_to_migrate_surface_hub_2s_to_mtrow_018.png)
+
+Turn the Surface Hub 2S back on. A red activation message will appear.
+
+Enter the last two characters of the certificate's thumbprint and tap *<u>OK</u>*.
+
+![image](/images/blog/mtr/tuto/mtr_how_to_migrate_surface_hub_2s_to_mtrow_019.png)
+
+The Surface Hub 2S will restart one last time, display a white Microsoft logo, and then shut down again.
+
+![image](/images/blog/mtr/tuto/mtr_how_to_migrate_surface_hub_2s_to_mtrow_020.png)
+
+Eject USB drive 1 and insert USB drive 2.
+
+Press and hold the *Volume +* button simultaneously, then press the *Power* button. Keep both buttons pressed until the Windows logo with the loading dots appears, then release them.
+
+Select the language to use on the MTR.
+
+![image](/images/blog/mtr/tuto/mtr_how_to_migrate_surface_hub_2s_to_mtrow_021.png)
+
+Choose the keyboard layout to use on the MTR.
+
+![image](/images/blog/mtr/tuto/mtr_how_to_migrate_surface_hub_2s_to_mtrow_022.png)
+
+Tap *<u>Recover from a drive</u>*.
+
+![image](/images/blog/mtr/tuto/mtr_how_to_migrate_surface_hub_2s_to_mtrow_023.png)
+
+Tap *<u>Fully clean the drive</u>*.
+
+![image](/images/blog/mtr/tuto/mtr_how_to_migrate_surface_hub_2s_to_mtrow_024.png)
+
+Tap *<u>Recover</u>*. If the system asks you for a *BitLocker* key, tap *<u>Skip this drive</u>*.
+
+![image](/images/blog/mtr/tuto/mtr_how_to_migrate_surface_hub_2s_to_mtrow_025.png)
+
+The Surface Hub 2S will restart several times during the process (up to 90 minutes). When the *Windows 11 IoT Enterprise* screen appears, eject the USB 2 drive and complete the initial Windows setup (language, region, network, etc.).
+
+---
+
+##### And then what ?
+The Surface Hub 2S is now converted to MTRoW. However, you still need to configure several settings to make your device fully functional :
+- Create an M365 account with a *Teams Rooms Pro* license
+- Create conditional access rules to protect connections
+- Create Intune rules (*LAPS*, *BitLocker*, *EDR*, *MTR Pro portal*, etc.)
+- Enroll the MTR in Entra / Intune / MTR Pro portal
+- Sign in to Teams
+
+I won't cover this part in this article.
+
+---
+
+##### Conclusion
+You now know how to migrate a Surface Hub 2S to a Windows MTR.
+
+---
+
+##### Sources
+[Microsoft Learn - Migrating a Surface Hub 2S via USB](https://learn.microsoft.com/en-us/surface-hub/surface-hub-2s-migrate-os)
+
+---
+
+
+Did you enjoy this post ? If you have any questions, comments or suggestions, please feel free to send me a message from the contact form.
+
+Don*t forget to follow us and share this post.
