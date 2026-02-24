@@ -72,7 +72,7 @@ Ajoutez une nouvelle règle de routage pour envoyer les appels vers le CUCM, sou
 ---
 
 ##### Analyse de l'appel
-On peut voir dans la capture *Syslog* de mon SBC Audiocodes que mon appel est envoyé par Intrado au SBC, qui l'envoie ensuite au premier proxy Teams ; l'appel est retourné avec une erreur 404 puisque l'extension *+1234* y est inconnue. L'appel est testé sur les 3 proxies Teams avant d'être ensuite envoyé au proxy CUCM qui va accepter l'appel (*200 OK (SDP)*) puisque l'extension *+1234* y est connue.
+On peut voir dans la capture *Syslog* de mon *SBC Audiocodes* que mon appel est envoyé par Intrado au SBC, qui l'envoie ensuite au premier proxy Teams ; l'appel est retourné avec une erreur 404 puisque l'extension *+1234* y est inconnue. L'appel est testé sur les 3 proxies Teams avant d'être ensuite envoyé au proxy CUCM qui va accepter l'appel (*200 OK (SDP)*) puisque l'extension *+1234* y est connue.
 
 ![image](/images/blog/sbc/tuto/sbc_audiocodes_how_to_reroute_calls_on_404_006.png)
 

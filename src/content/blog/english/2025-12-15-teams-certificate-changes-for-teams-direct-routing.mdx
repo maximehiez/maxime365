@@ -12,12 +12,9 @@ draft: false
 ---
 
 ##### Introduction
-
-
 If you have set up Teams telephony via *Direct Routing* in your *Microsoft 365* environment, you depend on *TLS/mTLS* connectivity between Microsoft SIP proxies and your *Session Border Controllers* (*SBC*). Microsoft announced a significant change related to TLS certificates and certificate authorities (CAs), with a simple issue : if your SBC does not trust the new chain, you risk call failures and service disruption.
 
-Microsoft recalls that TLS connectivity between its SIP proxies and SBCs relies on *mutual TLS* (*mTLS*), which involves client-side certificates with *Client Authentication Extended Key Usage* (*EKU*).
-However, since February 2025, Google (*Chrome Root Program Policy v1.6*) has changed its requirements and depreciates the use of *Client Authentication EKU* in server TLS certificates approved by Chrome. From June 2026, certificates must exclusively include *Server Authentication EKU* to maintain the trust of the main browsers (Chrome, Mozilla).
+Microsoft recalls that TLS connectivity between its SIP proxies and SBCs relies on *mutual TLS* (*mTLS*), which involves client-side certificates with *Client Authentication Extended Key Usage* (*EKU*). However, since February 2025, Google (*Chrome Root Program Policy v1.6*) has changed its requirements and depreciates the use of *Client Authentication EKU* in server TLS certificates approved by Chrome. From June 2026, certificates must exclusively include *Server Authentication EKU* to maintain the trust of the main browsers (Chrome, Mozilla).
 
 ---
 
@@ -26,6 +23,7 @@ However, since February 2025, Google (*Chrome Root Program Policy v1.6*) has cha
 | Certificate                                   | Thumbprint (SHA1)                        | Serial number                      |
 | :-------------------------------------------: | :--------------------------------------: | ---------------------------------: |
 | DigiCert Global Root CA                       | A8985D3A65E5E5C4B2D7D66D40C6DD2FB19C5436 | 0x083be056904246b1a1756ac95991c74a |
+| DigiCert Global Root G2                       | DF3C24F9BFD666761B268073FE06D1CC8D4F82A4 | 0x033af1e6a711a9a0bb2864b11d09fae5 |
 | DigiCert Global Root G3                       | 7E04DE896A3E666D00E687D33FFAD93BE83D349E | 0x055556bcf25ea43535c3a40fd5ab4572 |
 | DigiCert TLS ECC P384 Root G5                 | 17F3DE5E9F0F19E98EF61F32266E20C407AE30EE | 0x09e09365acf7d9c8b93e1c0b042a2ef3 |
 | DigiCert TLS RSA 4096 Root G5                 | A78849DC5D7C758C8CDE399856B3AAD0B2A57135 | 0x08f9b478a8fa7eda6a333789de7ccf8a |
@@ -62,4 +60,4 @@ These changes are not cosmetic, they affect the TLS trust base between Teams and
 
 Did you enjoy this post ? If you have any questions, comments or suggestions, please feel free to send me a message from the contact form.
 
-Don*t forget to follow us and share this post.
+Don't forget to follow us and share this post.

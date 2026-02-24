@@ -1,0 +1,100 @@
+---
+title: "How to validate the new Teams Direct Routing certificates"
+meta_title: ""
+description: ""
+date: 2026-02-24T10:00:00-05:00
+image: "/images/blog/sbc/tuto/sbc_audiocodes_how_to_validate_new_certificates_teams_direct_routing_thumbnail.png"
+categories: ["Audiocodes", "Teams", "Tutorial"]
+author: "Maxime Hiez"
+tags: ["Telephony", "Direct Routing", "SBC", "Certificate", "DigiCert"]
+draft: false
+---
+---
+
+##### Introduction
+In December 2025, Microsoft published a message *MC1213773* in the *Message Center* of the *Microsoft 365 Admin Center*, explaining that new certificates were required to maintain the Teams *Direct Routing* telephony service. Microsoft will begin implementing these changes in March 2026, and without these new certificates, the service will be discontinued.
+
+Check the article from December 2025 [HERE](https://maxime.hiez.ca/en/blog/2025-12-15-teams-certificate-changes-for-teams-direct-routing).
+
+---
+
+##### Prerequisites
+**<u>Administrator role</u>**
+- An administrator account to access the Audiocodes SBC.
+
+**<u>Download the certificates</u>**
+- The DigiCert Global Root CA certificate is downloadable via https://cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem.
+- The DigiCert Global Root G2 certificate is downloadable via https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem.
+- The DigiCert Global Root G3 certificate is downloadable via https://cacerts.digicert.com/DigiCertGlobalRootG3.crt.pem.
+- The DigiCert TLS ECC P384 Root G5 certificate is downloadable via https://cacerts.digicert.com/DigiCertTLSECCP384RootG5.crt.pem.
+- The DigiCert TLS RSA 4096 Root G5 certificate is downloadable via https://cacerts.digicert.com/DigiCertTLSRSA4096RootG5.crt.pem.
+- The Microsoft ECC Root Certificate Authority 2017 certificate is downloadable via https://www.microsoft.com/pkiops/certs/Microsoft%20ECC%20Root%20Certificate%20Authority%202017.crt.
+- The Microsoft RSA Root Certificate Authority 2017 certificate is downloadable via https://www.microsoft.com/pkiops/certs/Microsoft%20RSA%20Root%20Certificate%20Authority%202017.crt.
+
+**<u>Others</u>**
+- Schedule the installation during off-hours.
+
+---
+
+##### Step 1 : Log in to the SBC
+Connect to the SBC by opening your web browser to https://YOUR_IP_ADDRESS.
+
+![image](/images/blog/sbc/tuto/sbc_audiocodes_how_to_validate_new_certificates_teams_direct_routing_001.png)
+
+---
+
+##### Step 2 : Import the certificate
+I already covered how to install the *DigiCert Global Root G2* certificate in the December 2025 article, you can refer to it.
+
+You should move from a list similar to the one below ...
+
+![image](/images/blog/sbc/tuto/sbc_audiocodes_how_to_validate_new_certificates_teams_direct_routing_002.png)
+
+... to a list containing the new certificates.
+
+![image](/images/blog/sbc/tuto/sbc_audiocodes_how_to_validate_new_certificates_teams_direct_routing_003.png)
+
+Note that I converted the *Microsoft ECC Root Certificate Authority 2017* and *Microsoft RSA Root Certificate Authority 2017* certificates from *CRT* to *PEM* so that I could import them into my SBC.
+
+<Notice type="info">The import does not require a restart but I recommend doing it during closed hours just in case !</Notice>
+
+---
+
+##### Step 3 : Enable the test proxy
+Click *<u>Setup</u>*, *<u>Signaling & Media</u>*, then *<u>Core Entities</u>*, and *<u>Proxy sets</u>*.
+
+In the *Teams* proxy settings, add the test proxy **sip.g1.pstnhub.microsoft.com:5061**.
+
+![image](/images/blog/sbc/tuto/sbc_audiocodes_how_to_validate_new_certificates_teams_direct_routing_004.png)
+
+---
+
+##### Step 4 : Validate the good connection
+We can see in the *Syslog* capture of my *Audiocodes* SBC that the new proxy resolves to the IP address *52.112.39.0* and that my *SIP Options* are answered with a *200 OK* from Microsoft.
+
+![image](/images/blog/sbc/tuto/sbc_audiocodes_how_to_validate_new_certificates_teams_direct_routing_005.png)
+
+And that the *SIP Options* sent by Microsoft are answered by a *200 OK* from my SBC.
+
+![image](/images/blog/sbc/tuto/sbc_audiocodes_how_to_validate_new_certificates_teams_direct_routing_006.png)
+
+---
+
+##### Conclusion
+You now know how to validate the correct installation of the new certificates for Teams Direct Routing telephony in an Audiocodes SBC.
+
+---
+
+##### Sources
+[Microsoft Learn - New certificates required](https://learn.microsoft.com/en-us/microsoftteams/direct-routing-whats-new#update-on-upcoming-certificate-changes-updated-december-12-2025)
+
+[Microsoft Learn - Azure certificate authority details](https://learn.microsoft.com/en-us/azure/security/fundamentals/azure-certificate-authority-details?tabs=root-and-subordinate-cas-list)
+
+[Message Center - MC1213773](https://admin.cloud.microsoft/#/MessageCenter/:/messages/MC1213773)
+
+---
+
+
+Did you enjoy this post ? If you have any questions, comments or suggestions, please feel free to send me a message from the contact form.
+
+Don't forget to follow us and share this post.

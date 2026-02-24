@@ -121,4 +121,4 @@ Go update your Azure module for PowerShell to benefit from the latest updates an
 
 Did you enjoy this post ? If you have any questions, comments or suggestions, please feel free to send me a message from the contact form.
 
-Don*t forget to follow us and share this post.
+Don't forget to follow us and share this post.
