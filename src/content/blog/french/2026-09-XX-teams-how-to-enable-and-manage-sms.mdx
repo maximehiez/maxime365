@@ -1,0 +1,135 @@
+---
+title: "Comment configurer et activer les SMS dans Teams"
+meta_title: ""
+description: ""
+date: 2030-09-28T10:00:00-05:00
+image: "/images/blog/teams/tuto/teams_how_to_enable_and_manage_sms_thumbnail.png"
+categories: ["Teams", "Tutoriel"]
+author: "Maxime Hiez"
+tags: ["Téléphonie", "SMS", "Calling Plan"]
+draft: false
+---
+---
+
+##### Introduction
+Je vous parlais en Décembre dernier de l'intégration des SMS nativement dans Teams pour permettre aux utilisateurs de communiquer facilement avec des participants externes via des messages texte. Je viens de le déployer dans mon lab et voici un tuto.
+
+Voir l'article de Décembre 2024 [ICI](https://maxime.hiez.ca/blog/2024-12-06-teams-roadmap-470999-sms).
+
+---
+
+##### Prérequis
+**<u>Téléphonie Microsoft Teams activée</u>**
+- La configuration *Calling Plan*.
+
+**<u>Licences nécessaires</u>**
+- *Teams Phone Standard* (inclus dans la licence Microsoft 365 E5).
+- *Teams Calling Plan* (domestique ou international) ou *Pay-As-You-Go*.
+
+**<u>Rôle d’administrateur</u>**
+- Un compte avec le rôle *Administrateur Global* ou *Administrateur Teams* pour accéder au Microsoft Teams Admin Center.
+
+---
+
+##### Étape 1 : Se connecter au Microsoft Teams Admin Center
+Connectez-vous au Microsoft Teams Admin Center en ouvrant votre navigateur web sur https://admin.teams.microsoft.com.
+
+---
+
+##### Étape 2 : Créer une marque
+L’activation repose sur le système *10DLC* (*10-digit long code*), qui impose une vérification de l’identité de l’organisation et de l’usage prévu.
+
+Dans le menu de gauche, cliquez sur *<u>Voice</u>*, puis sur *<u>Service configuration</u>*.
+
+Cliquez sur *<u>Create your brand to start</u>* pour démarrer la vérification.
+
+![image](/images/blog/teams/tuto/teams_enable_and_manage_sms_001.png)
+
+<Notice type="note">La vérification par Microsoft prend 2-3 jours ouvrés.</Notice>
+
+---
+
+##### Étape 3 : Créer une campagne SMS
+Une fois la marque approuvée, il est possible de créer la campagne.
+
+Cliquez sur *<u>Create your campaign to start</u>*.
+
+![image](/images/blog/teams/tuto/teams_enable_and_manage_sms_002.png)
+
+Vous devrez spécifier :
+
+Le cas d’usage (ex. : notifications, rappels, support client)
+Le type de contenu envoyé
+Le public cible
+Le volume estimé de messages
+Le lien vers la politique de confidentialité
+⚠️ Microsoft limite actuellement les cas d’usage à UCaaS – Low Volume, ce qui exclut les campagnes marketing massives.
+
+Domestique 120 : 100
+Domestique : 200
+Domestique + international : 200
+Attention, si vous utilisez le mode *Pay-As-You-Go*, aucun SMS n'est inclus dans la solution et ils seront facturés à l'usage
+
+---
+
+##### Étape 4 : Attendre l’approbation
+Le processus complet (marque + campagne) peut prendre 4 à 6 semaines. Une fois que tout est approuvé, il est possible d'associer des numéros Teams à la campagne.
+
+---
+
+##### Étape 5 : Gestion des SMS dans Teams
+Une fois activée, la gestion des SMS se fait via le Centre d’administration Teams :
+
+Affectation des numéros : vous pouvez attribuer un numéro SMS à un utilisateur Teams.
+Suivi de l’activité : visualisez les messages envoyés/reçus, les erreurs, les statistiques.
+Révocation : vous pouvez désactiver un numéro ou retirer une campagne à tout moment.
+
+![image](/images/blog/teams/tuto/teams_enable_and_manage_sms_00X.png)
+
+---
+
+##### Étape 6 : Accèder aux rapports
+Dans le menu de gauche, cliquez sur *<u>Analytics & reports</u>*, puis sur *<u>Usage reports</u>*.
+
+Choisissez le rapport de type *<u>XXXX</u>* ainsi que le période voulue et cliquez sur *<u>Run report</u>*.
+
+
+
+![image](/images/blog/teams/tuto/teams_enable_and_manage_sms_00X.png)
+
+
+---
+
+##### Conformité et bonnes pratiques
+Microsoft impose des règles strictes pour garantir la conformité :
+- Consentement explicite des destinataires
+- Politique de confidentialité claire
+- Option de désabonnement dans chaque message
+- Aucune revente ou partage des données de consentement
+
+---
+
+##### Disponibilité
+Actuellement, cette fonctionnalité est disponible seulement aux États-Unis, au Canada et à Porto Rico, et uniquement pour les numéros Teams *Calling Plan* (pas pour les numéros *Direct Routing* ou *Operator Connect*).
+
+---
+
+##### Conclusion
+La fonctionnalité SMS dans Microsoft Teams permet aux organisations de centraliser leurs communications tout en respectant les normes de sécurité et de confidentialité. Bien que le processus d’activation soit rigoureux, il garantit une utilisation responsable et conforme. Pour les entreprises nord-américaines, c’est une opportunité stratégique pour renforcer la relation client et simplifier les échanges externes.<br/><br/>
+Vous savez maintenant comment activer le service SMS dans Teams.
+
+---
+
+##### Sources
+[Microsoft Learn - SMS dans Microsoft Teams](https://learn.microsoft.com/fr-ca/microsoftteams/sms-overview)
+
+[Microsoft Learn - Licences pour les SMS dans Microsoft Teams](https://learn.microsoft.com/fr-ca/microsoftteams/sms-overview#licensing)
+
+[The Campaign Registry - Inscription au réseau 10DLC](https://www.campaignregistry.com)
+
+---
+
+
+Avez-vous apprécié cet article ? Vous avez des questions, commentaires ou suggestions, n’hésitez pas à m'envoyer un message depuis le formulaire de contact.
+
+N'oubliez pas de nous suivre et de partager cet article.
