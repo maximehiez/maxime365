@@ -1,0 +1,95 @@
+---
+title: "How to enable DLP for copy/paste with Purview"
+meta_title: ""
+description: ""
+date: 2026-03-02T10:00:00-05:00
+image: "/images/blog/purview/tuto/purview_how_to_enable_dlp_clipboard_block_financial_data_thumbnail.png"
+categories: ["Purview", "Tutorial"]
+author: "Maxime Hiez"
+tags: ["Data protection", "Governance", "PII", "DLP", "Security"]
+draft: false
+---
+---
+
+##### Introduction
+Last month, I showed you how to enable *DLP* to prevent financial data from being sent to an AI website using *Microsoft Purview*, in order to prevent accidental or malicious data leaks (*Data Loss Prevention*). Continuing with the idea of talking to you about DLP, here this time is how to protect the copy/paste of financial data into the clipboard.
+
+Check the article from February 2026 [HERE](https://maxime.hiez.ca/blog/2026-02-09-purview-how-to-enable-dlp-ai-websites).
+
+---
+
+##### Prerequisites
+**<u>Required licenses</u>**
+- *Microsoft 365 E5*.
+- *Microsoft Purview Suite* in addition to another license (*E3*, *Business*, ...).
+
+**<u>Administrator role</u>**
+- An account with the *Global Administrator* or *Compliance Administrator* role to access the Microsoft Purview Portal.
+
+---
+
+##### Step 1 : Sign in to the Microsoft Purview Portal
+Sign in to the Microsoft Purview Portal by opening your web browser to https://purview.microsoft.com.
+
+---
+
+##### Step 2 : Create a DLP policy for devices
+In the left menu, click *<u>Solutions</u>*, then *<u>Data Loss Prevention</u>*.
+
+Click *<u>Create policy</u>*.
+
+![image](/images/blog/purview/tuto/purview_how_to_enable_dlp_clipboard_block_financial_data_001.png)
+
+Set a name and description.
+
+![image](/images/blog/purview/tuto/purview_how_to_enable_dlp_clipboard_block_financial_data_002.png)
+
+Apply this policy for devices.
+
+![image](/images/blog/purview/tuto/purview_how_to_enable_dlp_clipboard_block_financial_data_003.png)
+
+Configure the various data type attributes and notifications. In my example, I chose an existing type (Canadian financial data).
+
+![image](/images/blog/purview/tuto/purview_how_to_enable_dlp_clipboard_block_financial_data_004.png)
+
+Enable the policy to put it into production.
+
+![image](/images/blog/purview/tuto/purview_how_to_enable_dlp_clipboard_block_financial_data_005.png)
+
+<Notice type="note">The policy can take up to 24 hours to take effect.</Notice>
+
+---
+
+##### Step 3 : Copy/paste financial data into another file to validate the rule
+I'm reusing the Word file *<u>Cards.docx</u>* containing a (<u>fake</u>) credit card, created for my previous articles, and attempt to copy/paste its contents into another file. The attempt is blocked. The popup configured in the rule appears, warning that this data is prohibited from being copied.
+
+![image](/images/blog/purview/tuto/purview_how_to_enable_dlp_clipboard_block_financial_data_006.png)
+
+If I do the same test with my Word file *<u>NotCards.docx</u>* containing non-sensitive text, it works normally.
+
+![image](/images/blog/purview/tuto/purview_how_to_enable_dlp_clipboard_block_financial_data_007.png)
+
+---
+
+##### Step 4 : Receive the notification
+If you have configured notifications, an email is sent to the designated people within the next few seconds.
+
+![image](/images/blog/purview/tuto/purview_how_to_enable_dlp_clipboard_block_financial_data_008.png)
+
+---
+
+##### Conclusion
+With Microsoft Purview DLP, organizations can automatically detect, monitor, and block the copy/paste of critical data, such as credit card numbers or bank account information.<br/><br/>
+You now know how to enable DLP for copy/paste with Purview.
+
+---
+
+##### Sources
+[Microsoft Learn - DLP and devices](https://learn.microsoft.com/en-us/purview/endpoint-dlp-using)
+
+---
+
+
+Did you enjoy this post ? If you have any questions, comments or suggestions, please feel free to send me a message from the contact form.
+
+Don't forget to follow us and share this post.
