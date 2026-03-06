@@ -56,6 +56,10 @@ Ouvrez l'application *Microsoft Teams Queues App* et appelez la file d'attente. 
 
 ![image](/images/blog/teams/tuto/teams_how_to_enable_shared_calling_history_004.png)
 
+Il devient possible d'assurer un suivi sur les appels appels manqués en appliquant un statut à l'appel.
+
+![image](/images/blog/teams/tuto/teams_how_to_enable_shared_calling_history_005.png)
+
 ---
 
 ##### Conclusion

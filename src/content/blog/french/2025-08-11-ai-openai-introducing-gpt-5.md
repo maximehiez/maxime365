@@ -71,7 +71,7 @@ Avec GPT-5, OpenAI propose une IA plus intelligente, plus sûre, plus multimodal
 ---
 
 ##### Sources
-[OpenAI - GPT-5](https://openai.com/index/introducing-gpt-5)
+[OpenAI - GPT-5](https://openai.com/fr-CA/index/introducing-gpt-5)
 
 ---
 

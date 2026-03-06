@@ -56,6 +56,9 @@ Open the *Microsoft Teams Queues App* and join the queue. New calls will now be 
 
 ![image](/images/blog/teams/tuto/teams_how_to_enable_shared_calling_history_004.png)
 
+It becomes possible to track missed calls by applying a status to the call.
+
+![image](/images/blog/teams/tuto/teams_how_to_enable_shared_calling_history_005.png)
 
 ---
 
