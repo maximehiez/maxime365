@@ -40,7 +40,7 @@ The new unified contacts experience in Microsoft Teams and Outlook is a welcome 
 ##### Sources
 [Microsoft - Techcommunity](https://techcommunity.microsoft.com/blog/microsoft_365blog/new-unified-contacts-in-microsoft-teams-and-outlook-now-generally-available/4365811)
 
-[Microsoft - Manage contacts in Teams](https://support.microsoft.com/en-us/office/manage-your-contacts-with-the-people-app-in-teams-cfea34b9-ac23-4cff-b3d1-c97bb2b1e751)
+[Microsoft Support - Manage contacts in Teams](https://support.microsoft.com/en-us/office/manage-your-contacts-with-the-people-app-in-teams-cfea34b9-ac23-4cff-b3d1-c97bb2b1e751)
 
 ---
 

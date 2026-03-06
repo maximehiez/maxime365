@@ -31,9 +31,9 @@ The September 2025 hotfix fixes two minor issues with your Skype for Business Se
 ##### Sources
 [Microsoft - Techcommunity](https://techcommunity.microsoft.com/blog/skype_for_business_blog/hotfix-released-for-skype-for-business-server-se-se-rtm-hotfix-2/4456324)
 
-[Microsoft - KB5067476](https://support.microsoft.com/en-us/topic/macp-icons-don-t-load-in-skype-for-business-server-2019-1f68c6a6-8c2a-465b-9a64-5bcabdef9a19)
+[Microsoft Support - KB5067476](https://support.microsoft.com/en-us/topic/macp-icons-don-t-load-in-skype-for-business-server-2019-1f68c6a6-8c2a-465b-9a64-5bcabdef9a19)
 
-[Microsoft - KB5067477](https://support.microsoft.com/en-us/topic/export-csrgsconfiguration-command-fails-in-skype-for-business-server-se-c68a0335-fbdb-4c5a-beeb-f3484367e175)
+[Microsoft Support - KB5067477](https://support.microsoft.com/en-us/topic/export-csrgsconfiguration-command-fails-in-skype-for-business-server-se-c68a0335-fbdb-4c5a-beeb-f3484367e175)
 
 [Microsoft - Download center](https://www.microsoft.com/en-us/download/details.aspx?id=108307)
 

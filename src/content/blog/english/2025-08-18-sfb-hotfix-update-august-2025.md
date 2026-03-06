@@ -74,11 +74,11 @@ A well-planned transition will preserve the user experience while strengthening 
 
 [Windows Forum - Dedicated hybrid app for Skype for Business Hybrid](https://windowsforum.com/threads/august-2025-dedicated-hybrid-app-for-skype-for-business-hybrid-act-by-oct-15.378059)
 
-[Microsoft - KB5065372](https://support.microsoft.com/en-us/topic/updates-for-skype-for-business-server-subscription-edition-se-kb5065372-45f6768c-d60e-4ac3-b60e-0f850b9911cd)
+[Microsoft Support - KB5065372](https://support.microsoft.com/en-us/topic/updates-for-skype-for-business-server-subscription-edition-se-kb5065372-45f6768c-d60e-4ac3-b60e-0f850b9911cd)
 
-[Microsoft - KB4470124](https://support.microsoft.com/en-us/topic/updates-for-skype-for-business-server-2019-kb4470124-890f4878-c6fe-f71b-c85f-db2acc284b94)
+[Microsoft Support - KB4470124](https://support.microsoft.com/en-us/topic/updates-for-skype-for-business-server-2019-kb4470124-890f4878-c6fe-f71b-c85f-db2acc284b94)
 
-[Microsoft - KB3061064](https://support.microsoft.com/en-us/topic/updates-for-skype-for-business-server-2015-kb3061064-7c3cdc53-6d6d-0c1e-e2ee-2b598c53cc7e)
+[Microsoft Support - KB3061064](https://support.microsoft.com/en-us/topic/updates-for-skype-for-business-server-2015-kb3061064-7c3cdc53-6d6d-0c1e-e2ee-2b598c53cc7e)
 
 ---
 

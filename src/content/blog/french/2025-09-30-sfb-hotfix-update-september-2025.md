@@ -31,9 +31,9 @@ La mise à jour corrective de Septembre 2025 permet de corriger deux problèmes 
 ##### Sources
 [Microsoft - Techcommunity](https://techcommunity.microsoft.com/blog/skype_for_business_blog/hotfix-released-for-skype-for-business-server-se-se-rtm-hotfix-2/4456324)
 
-[Microsoft - KB5067476](https://support.microsoft.com/fr-fr/topic/les-ic%C3%B4nes-macp-ne-se-chargent-pas-dans-skype-entreprise-server-2019-1f68c6a6-8c2a-465b-9a64-5bcabdef9a19)
+[Microsoft Support - KB5067476](https://support.microsoft.com/fr-fr/topic/les-ic%C3%B4nes-macp-ne-se-chargent-pas-dans-skype-entreprise-server-2019-1f68c6a6-8c2a-465b-9a64-5bcabdef9a19)
 
-[Microsoft - KB5067477](https://support.microsoft.com/fr-fr/topic/export-csrgsconfiguration-commande-%C3%A9choue-dans-skype-entreprise-server-se-c68a0335-fbdb-4c5a-beeb-f3484367e175)
+[Microsoft Support - KB5067477](https://support.microsoft.com/fr-fr/topic/export-csrgsconfiguration-commande-%C3%A9choue-dans-skype-entreprise-server-se-c68a0335-fbdb-4c5a-beeb-f3484367e175)
 
 [Microsoft - Centre de téléchargement](https://www.microsoft.com/en-us/download/details.aspx?id=108307)
 
