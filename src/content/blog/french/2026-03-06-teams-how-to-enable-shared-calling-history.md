@@ -52,7 +52,7 @@ Dans le menu de gauche, cliquez sur *<u>Voice</u>*, puis sur *<u>Call queues</u>
 ---
 
 ##### Étape 4 : Valider le résultat
-Ouvrez l'application *Microsoft Teams Queues App* et appelez la file d'attente. Les nouveaux appels seront désormais visibles dans L'historique.
+Ouvrez l'application *Microsoft Teams Queues App* et appelez la file d'attente. Les nouveaux appels seront désormais visibles dans l'historique.
 
 ![image](/images/blog/teams/tuto/teams_how_to_enable_shared_calling_history_004.png)
 
