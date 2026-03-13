@@ -4,7 +4,7 @@ meta_title: ""
 description: ""
 date: 2025-02-08T10:00:00-05:00
 image: "/images/blog/mtr/tuto/mtr_enable_remote_access_via_portal_thumbnail.png"
-categories: ["MTR"]
+categories: ["MTR", "Tutoriel"]
 author: "Maxime Hiez"
 tags: ["Teams Rooms", "MTRoW", "Microsoft Teams Rooms Pro Management"]
 draft: false
