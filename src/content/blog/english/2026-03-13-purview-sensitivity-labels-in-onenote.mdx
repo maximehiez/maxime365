@@ -1,0 +1,137 @@
+---
+title: "Purview Sensitivity Labels are coming to OneNote"
+meta_title: ""
+description: ""
+date: 2026-03-13T10:00:00-05:00
+image: "/images/blog/purview/purview_sensitivity_labels_in_onenote_thumbnail.png"
+categories: ["Purview"]
+author: "Maxime Hiez"
+tags: ["Data protection", "Governance", "Sensitivity Labels", "Security"]
+draft: false
+---
+---
+
+##### Introduction
+Good news for security and compliance teams, *Sensitivity Labels* are now *General Availability* in *OneNote*. This update finally allows you to apply the same classification and protection mechanisms as in *Word*, *Excel*, *PowerPoint*, *Outlook* or *PDF* directly to your notes. This was a highly anticipated feature for businesses, especially those using OneNote to document projects, store sensitive information, or share notes within teams.
+
+I will soon be publishing articles on Purview Sensitivity Labels to help you protect your data.
+
+---
+
+##### Why is this important ?
+In many organizations, OneNote is used to capture critical information :
+- Meeting notes containing strategic decisions
+- Internal project documentation
+- Technical or confidential information
+<br/>
+
+Until now, this information could be stored in OneNote without fully benefiting from the *Microsoft Purview* classification model.
+
+With this update, organizations can now :
+- Classify sensitive information in OneNote
+- Apply protection policies (encryption, access restrictions)
+- Meet compliance requirements
+<br/>
+
+When a OneNote section receives a sensitivity label, the policies associated with that label are automatically applied, just like in other Microsoft 365 applications.
+
+![image](/images/blog/purview/purview_sensitivity_labels_in_onenote_001.png)
+
+---
+
+##### How do labels work in OneNote ?
+Unlike standard Office documents, OneNote has a specific structure :
+
+![image](/images/blog/purview/purview_sensitivity_labels_in_onenote_002.png)
+<br/>
+
+Sensitivity Labels apply at the section level. This means :
+- The label does not apply to the entire notebook.
+- It also does not apply to individual pages or sections.
+- All pages within a section automatically inherit the same level of protection.
+<br/>
+
+This model offers some flexibility. For example, within the same notebook you could have :
+- A *Public* section
+- An *Internal* section
+- A *Highly Confidential* section
+
+Each section then applies its own protection rules.
+
+---
+
+##### What's included in this GA release
+The first available version already brings several key features :
+
+- <u>Manual labeling</u> : Users can apply a label directly to a section in OneNote.
+
+- <u>Integration with Microsoft Purview</u>: OneNote uses the same labels configured for files in Microsoft Purview.
+
+- <u>Automatic protection</u> : Depending on the label configuration, OneNote can apply :
+    - Encryption
+    - Access restrictions
+    - Compliance policies
+
+- <u>Cross-Platform Support</u> : This feature is available on :
+    - OneNote Windows (Desktop)
+    - OneNote Web
+    - OneNote Mac
+    - OneNote iOS
+    - OneNote Android
+
+<Notice type="note">OneNote for Windows 10 (UWP) is not supported.</Notice>
+
+---
+
+##### What's not yet available
+As is often the case with new Microsoft 365 features, some capabilities will arrive later. Currently, OneNote only supports manual labeling.
+
+The following features are not yet available :
+- Content-based auto-labeling
+- Recommended labeling
+- Default labeling
+- Mandatory labeling
+
+These options may be added in future platform updates.
+
+---
+
+##### Impact on Copilot and AI
+An interesting point concerns integration with AI features. Services like Copilot only access content that the user has permission to access. Therefore, using Sensitivity Labels in OneNote adds an extra layer of governance for content used by AI.
+
+This allows organizations to :
+- Protect sensitive information
+- Maintain compliance
+- Use AI with confidence
+
+---
+
+##### Administrator-side activation
+Even if your organization already uses Sensitivity Labels in Microsoft Purview, the feature is not automatically enabled in OneNote.
+
+The following PowerShell commands will allow you to enable the service :
+```powershell
+Connect-SPOService -Url https://XXXX-admin.sharepoint.com
+Set-SPOTenant -EnableSensitivityLabelforOneNote $true
+```
+
+---
+
+##### Conclusion
+The availability of Sensitivity Labels in OneNote is a significant step for data governance in Microsoft 365. It finally allows for the protection of sensitive information within notes, harmonizes data classification across all applications, and strengthens compliance and security. For organizations that use OneNote extensively, this feature addresses a major blind spot in their data protection strategy.
+
+---
+
+##### Sources
+[Microsoft - Techcommunity](https://techcommunity.microsoft.com/blog/microsoft_365blog/sensitivity-labels-in-onenote-now-generally-available/4499502)
+
+[Microsoft - Support](https://support.microsoft.com/en-us/office/microsoft-purview-sensitivity-labels-in-onenote-5e822ea9-4b50-4e83-8e5b-1a30ffb2d08d)
+
+[Microsoft Learn - Enable labels](https://learn.microsoft.com/en-us/purview/sensitivity-labels-sharepoint-onedrive-files#:~:text=the%20Setup%20configuration.-,Run%20the%20PowerShell%20command%20to%20enable%20support%20for%20sensitivity%20labels,-To%20enable%20the)
+
+---
+
+
+Did you enjoy this post ? If you have any questions, comments or suggestions, please feel free to send me a message from the contact form.
+
+Don't forget to follow us and share this post.

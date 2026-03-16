@@ -70,7 +70,7 @@ Pour qu'un MTR rejoigne une réunion Teams, il doit utiliser des propriétés ma
 
 Éditez les deux attributs Exchange *DeleteComments* et *ProcessExternalMeetingMessages* via la commande PowerShell suivante :
 ```powershell
-Set-CalendarProcessing -Identity "Salle.Montreal@hiez.ca" -DeleteComments $False -ProcessExternalMeetingMessages $True
+Set-CalendarProcessing -Identity "Salle.Montreal@hiez.ca" -DeleteComments $false -ProcessExternalMeetingMessages $true
 ```
 
 La configuration peut prendre plusieurs minutes avant d’être effective. Votre compte devrait ensuite ressembler à ceci :

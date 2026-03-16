@@ -70,7 +70,7 @@ For an MTR to join a Teams meeting, they must use hidden properties in the Outlo
 
 Edit the two Exchange attributes *DeleteComments* and *ProcessExternalMeetingMessages* using the following PowerShell command :
 ```powershell
-Set-CalendarProcessing -Identity "Salle.Montreal@hiez.ca" -DeleteComments $False -ProcessExternalMeetingMessages $True
+Set-CalendarProcessing -Identity "Salle.Montreal@hiez.ca" -DeleteComments $false -ProcessExternalMeetingMessages $true
 ```
 
 It may take several minutes for the configuration to take effect. Your account should then look like this :
