@@ -72,7 +72,7 @@ Microsoft indique que des dizaines de millions d’agents sont déjà apparus da
 La Frontier Suite repose également sur une couche appelée *Work IQ*.
 
 Cette technologie analyse les signaux provenant de Microsoft 365 :
-- Emails Outlook
+- Courriels Outlook
 - Conversations Teams
 - Documents SharePoint
 - Fichiers OneDrive

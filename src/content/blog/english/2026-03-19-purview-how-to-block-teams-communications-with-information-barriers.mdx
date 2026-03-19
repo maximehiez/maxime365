@@ -1,0 +1,146 @@
+---
+title: "How to block Teams calls and chats with Purview IB"
+meta_title: ""
+description: ""
+date: 2026-03-19T10:00:00-05:00
+image: "/images/blog/purview/tuto/purview_how_to_block_teams_communications_with_information_barriers_thumbnail.png"
+categories: ["Purview", "Tutorial"]
+author: "Maxime Hiez"
+tags: ["Data protection", "Governance", "Information Barriers", "Security"]
+draft: false
+---
+---
+
+##### Introduction
+
+
+*Microsoft Purview*'s *Information Barriers* allow you to restrict communication and collaboration between specific user groups within a *Microsoft 365* environment. Their primary purpose is to prevent conflicts of interest or leaks of sensitive information between teams that should not interact directly.
+
+This feature is particularly useful in highly regulated sectors, such as finance, law, and consulting firms, where it is necessary to compartmentalize certain information between departments (for example, between trading and analysis teams).
+
+![image](/images/blog/purview/tuto/purview_how_to_block_teams_communications_with_information_barriers_001.png)
+
+---
+
+##### Prerequisites
+**<u>Required licenses</u>**
+- *Microsoft 365 E5*.
+- *Microsoft Purview Suite* in addition to another license (*E3*, *Business*, ...).
+
+**<u>Administrator role</u>**
+- An account with the *Global Administrator* or *Compliance Administrator* role to access the Microsoft Purview Portal.
+
+---
+
+##### Step 1 : Sign in to the Microsoft Purview Portal
+Sign in to the Microsoft Purview Portal by opening your web browser to https://purview.microsoft.com.
+
+---
+
+##### Step 2 : Create the segments to block
+In the left menu, click *<u>Solutions</u>*, then *<u>Information Barriers</u>*, and *<u>Segments</u>*.
+
+Click *<u>New segment</u>* to create the first segment.
+
+![image](/images/blog/purview/tuto/purview_how_to_block_teams_communications_with_information_barriers_002.png)
+
+Set a name.
+
+![image](/images/blog/purview/tuto/purview_how_to_block_teams_communications_with_information_barriers_003.png)
+
+Choose which attribute to filter on. In my case, I decide to filter by the department to which the users belong.
+
+![image](/images/blog/purview/tuto/purview_how_to_block_teams_communications_with_information_barriers_004.png)
+
+Create the 2nd segment following the same logic.
+
+![image](/images/blog/purview/tuto/purview_how_to_block_teams_communications_with_information_barriers_005.png)
+
+---
+
+##### Step 3 : Create the Information Barriers policies
+In the left menu, click *<u>Policies</u>*, then *<u>Create policy</u>* to create the policy in one direction.
+
+![image](/images/blog/purview/tuto/purview_how_to_block_teams_communications_with_information_barriers_006.png)
+
+Set a name.
+
+![image](/images/blog/purview/tuto/purview_how_to_block_teams_communications_with_information_barriers_007.png)
+
+Choose the original group ...
+
+![image](/images/blog/purview/tuto/purview_how_to_block_teams_communications_with_information_barriers_008.png)
+
+... then the action and the destination group.
+
+![image](/images/blog/purview/tuto/purview_how_to_block_teams_communications_with_information_barriers_009.png)
+
+Create the policy in the opposite direction, following the same logic.
+
+![image](/images/blog/purview/tuto/purview_how_to_block_teams_communications_with_information_barriers_010.png)
+
+---
+
+##### Step 4 : Activate the Information Barriers policies
+In the left menu, click *<u>Policy applications</u>*.
+
+Click *<u>Apply all policies</u>* ...
+
+![image](/images/blog/purview/tuto/purview_how_to_block_teams_communications_with_information_barriers_011.png)
+
+... and wait a few minutes for the status to be 100% complete.
+
+![image](/images/blog/purview/tuto/purview_how_to_block_teams_communications_with_information_barriers_012.png)
+
+<Notice type="note">The policy can take up to 24 hours to take effect.</Notice>
+
+---
+
+##### Step 4 : Validate the result
+Try getting 2 people to communicate in Teams via chat or call ... it's impossible.
+
+Here you can see that my two users were able to talk yesterday, but the chat is now disabled, and the call button has disappeared.
+
+![image](/images/blog/purview/tuto/purview_how_to_block_teams_communications_with_information_barriers_013.png)
+
+---
+
+##### What will be blocked
+Users included in a Purview Information Barriers policy will have the following Teams actions blocked :
+- Searching for a user
+- Adding a member to a team
+- Starting a chat session with someone
+- Starting a group chat
+- Inviting someone to join a meeting
+- Sharing a screen
+- Placing a call
+- Sharing a file with another user
+- Accessing a file through a sharing link
+
+And also in SharePoint and OneDrive :
+- Adding a member to a site
+- Accessing site or content by a user
+- Sharing site or content with another user
+- Searching a site
+
+---
+
+##### What won't be blocked
+Information Barriers will not block the sending of emails. If your organization needs to define and control these communications, you can consider using Exchange mail flow rules.
+
+---
+
+##### Conclusion
+You now know how to block Teams communications (audio, video and chat) between 2 groups with Purview Information Barriers.
+
+---
+
+##### Sources
+[Microsoft Learn - Information barriers](https://learn.microsoft.com/en-us/purview/information-barriers)
+
+---
+
+
+Avez-vous apprécié cet article ? Vous avez des questions, commentaires ou suggestions, n’hésitez pas à m'envoyer un message depuis le formulaire de contact.
+
+N'oubliez pas de nous suivre et de partager cet article.

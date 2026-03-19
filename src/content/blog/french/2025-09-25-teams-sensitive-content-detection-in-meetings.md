@@ -28,7 +28,7 @@ Lorsqu’un contenu sensible est détecté, Teams alerte automatiquement le pré
 ---
 
 ##### Une protection en temps réel, intégrée à Microsoft Purview
-Cette fonctionnalité repose sur les capacités de *Microsoft Purview Data Loss Prevention* (*DLP*), déjà utilisées pour surveiller les emails, les fichiers et les messages Teams. Elle s’étend désormais aux réunions en direct, offrant une couche de sécurité proactive.
+Cette fonctionnalité repose sur les capacités de *Microsoft Purview Data Loss Prevention* (*DLP*), déjà utilisées pour surveiller les courriels, les fichiers et les messages Teams. Elle s’étend désormais aux réunions en direct, offrant une couche de sécurité proactive.
 
 ---
 
