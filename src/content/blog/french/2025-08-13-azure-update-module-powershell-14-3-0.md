@@ -182,9 +182,9 @@ La version 14.3.0 contient les mises à jour suivantes :
 <br/><br/>
 
 **<u>Az.ServiceFabric</u>**
-- Added parameter *Location* to allow users to specify a different node type location than the resource group location in cmdlet *Add-AzServiceFabricNodeType*.
-- Added parameter *VmSize* to allow for in-place sku swap for cmdlet *Set-AzServiceFabricManagedNodeType*.
-- Updated SFMC to latest API preview version *2025-03-01-preview*.
+- Ajout du paramètre *Location* pour permettre aux utilisateurs de spécifier un emplacement de type de nœud différent de celui du groupe de ressources dans l'applet de commande *Add-AzServiceFabricNodeType*.
+- Ajout du paramètre *VmSize* pour permettre le remplacement direct de la référence SKU dans l'applet de commande *Set-AzServiceFabricManagedNodeType*.
+- Mise à jour de SFMC vers la dernière version préliminaire de l'API *2025-03-01-preview*.
 <br/><br/>
 
 **<u>Az.Sql</u>**

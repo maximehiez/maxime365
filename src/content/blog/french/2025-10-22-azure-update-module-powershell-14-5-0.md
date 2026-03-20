@@ -111,9 +111,9 @@ La version 14.5.0 contient les mises à jour suivantes :
 
 **<u>Az.Network</u>**
 - Ajout d'un avertissement d'obsolescence pour l'applet de commande *Invoke-AzFirewallPacketCapture*.
-- Ajout d'une nouvelle applet de commande pour Invoke *PacketCaptureOperation* sur le Pare-feu Azure :
+- Ajout d'une nouvelle applet de commande pour Invoke *PacketCaptureOperation* sur le pare-feu Azure :
     - *Invoke-AzFirewallPacketCaptureOperation*
-- Mise à jour de l'applet de commande pour ajouter la propriété obligatoire *Operation* et rendre toutes les autres propriétés non obligatoires pour les paramètres de capture de paquets du Pare-feu Azure. Mise à jour des applets de commande correspondantes :
+- Mise à jour de l'applet de commande pour ajouter la propriété obligatoire *Operation* et rendre toutes les autres propriétés non obligatoires pour les paramètres de capture de paquets du pare-feu Azure. Mise à jour des applets de commande correspondantes :
     - *New-AzFirewallPacketCaptureParameter*
 - Ajout d'une nouvelle applet de commande pour la liste des balises de service *NetworkSecurityPerimeter* :
     - *Get-AzNetworkSecurityPerimeterServiceTag*

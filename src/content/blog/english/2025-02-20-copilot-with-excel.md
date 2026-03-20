@@ -30,7 +30,7 @@ Copilot in Excel is an AI assistant that helps you work more efficiently with yo
 <br/><br/>
 
 **<u>Use Copilot prompts</u>**
-- Copilot works with prompts, which are instructions or questions you ask it. For example, you can ask Copilot to *“create a monthly sales chart”* or *“average expenses”*.
+- Copilot works with prompts, which are instructions or questions you ask it. For example, you can ask Copilot to *"create a monthly sales chart"* or *"average expenses"*.
 - Type your prompt in the Copilot pane and press Enter. Copilot will analyze your request and provide an appropriate response or action.
 <br/><br/>
 
@@ -43,20 +43,19 @@ Copilot in Excel is an AI assistant that helps you work more efficiently with yo
 ---
 
 ##### Key features of Copilot in Excel
-
 **<u>Data analysis</u>**
 - Copilot can analyze your data and provide valuable insights. For example, it can identify trends, anomalies or correlations in your data.
-- Use prompts like “sales analysis by region” or “identify growth trends” to get detailed analyses.
+- Use prompts like *"sales analysis by region"* or *"identify growth trends"* to get detailed analyses.
 <br/><br/>
 
 **<u>Task automation</u>**
 - Copilot can automate repetitive tasks like data cleaning, creating pivot tables or generating reports.
-- Ask Copilot to "clean data" or "create monthly report" to save time and reduce errors.
+- Ask Copilot to *"clean data"* or *"create monthly report"* to save time and reduce errors.
 <br/><br/>
 
 **<u>Creating visualizations</u>**
 - Copilot can create charts and visualizations based on your data. It can choose the most suitable type of chart and customize it according to your needs.
-- Use prompts like “create quarterly sales bar chart” or “generate expense histogram” to visualize your data clearly and concisely.
+- Use prompts like *"create quarterly sales bar chart"* or *"generate expense histogram"* to visualize your data clearly and concisely.
 
 ![image](/images/blog/copilot/copilot_excel_003.png)
 

@@ -75,18 +75,18 @@ La version 15.3.0 contient les mises à jour suivantes :
 <br/><br/>
 
 **<u>Az.Resources</u>**
-- Correction d'un problème où la console PowerShell se fermait lors de l'utilisation des cmdlets du module Ressources sans être connecté.
+- Correction d'un problème où la console PowerShell se fermait lors de l'utilisation des applets de commande du module Ressources sans être connecté.
    - Problème GitHub : https://github.com/Azure/azure-powershell/issues/28774.
-- Correction de l'affichage d'un message de confirmation incorrect (espace réservé non formaté) et d'un GUID vide comme cible par la cmdlet *Remove-AzRoleDefinition* lors de l'utilisation des paramètres *-Confirm* ou *-WhatIf* avec le paramètre *-Name* [#29075].
-- Ajout d'une annonce préalable concernant les modifications importantes apportées au type *PSRoleDefinition* dans Az.Resources 10.0.0 [#29058] :
+- Correction de l'affichage d'un message de confirmation incorrect (espace réservé non formaté) et d'un GUID vide comme cible par l'applet de commande *Remove-AzRoleDefinition* lors de l'utilisation des paramètres *-Confirm* ou *-WhatIf* avec le paramètre *-Name* [#29075].
+- Ajout d'une annonce préalable concernant les modifications majeures apportées au type *PSRoleDefinition* dans Az.Resources 10.0.0 [#29058] :
    - Les propriétés aplaties *Actions*, *NotActions*, *DataActions*, *NotDataActions*, *Condition* et *ConditionVersion* seront supprimées de *PSRoleDefinition*. Utilisez plutôt *Permissions[n].Actions*, *Permissions[n].DataActions*, etc. pour accéder à la structure complète des autorisations avec des conditions spécifiques à chaque autorisation.
-   - Affecte la sortie des cmdlets *Get-AzRoleDefinition*, *New-AzRoleDefinition*, *Set-AzRoleDefinition* et *Remove-AzRoleDefinition* (avec *-PassThru*).
-   - Affecte le format d'entrée des cmdlets *New-AzRoleDefinition* et *Set-AzRoleDefinition*.
-   - Affecte le paramètre *-InputObject* de la cmdlet *Remove-AzRoleDefinition*.
+   - Affecte la sortie des applets de commande *Get-AzRoleDefinition*, *New-AzRoleDefinition*, *Set-AzRoleDefinition* et *Remove-AzRoleDefinition* (avec *-PassThru*).
+   - Affecte le format d'entrée des applets de commande *New-AzRoleDefinition* et *Set-AzRoleDefinition*.
+   - Affecte le paramètre *-InputObject* de l'applet de commande *Remove-AzRoleDefinition*.
 <br/><br/>
 
 **<u>Az.SignalR</u>**
-- Modifications importantes annoncées à l'avance. Veuillez consulter https://go.microsoft.com/fwlink/?linkid=2333229.
+- Modifications majeures annoncées à l'avance. Veuillez consulter https://go.microsoft.com/fwlink/?linkid=2333229.
 <br/><br/>
 
 **<u>Az.StackHCI</u>**
@@ -108,7 +108,7 @@ La version 15.3.0 contient les mises à jour suivantes :
 ---
 
 ##### Conclusion
-Go update your Azure module for PowerShell to benefit from the latest updates and possible configurations.
+Allez faire la mise à jour de votre module PowerShell pour Azure pour pouvoir bénéficier des dernières mises à jour et configurations possibles.
 
 ---
 

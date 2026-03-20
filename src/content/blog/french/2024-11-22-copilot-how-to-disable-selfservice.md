@@ -39,7 +39,7 @@ Get-MSCommerceProductPolicies -PolicyId AllowSelfServicePurchase
 
 Le commande PowerShell suivante va vous permettre de toutes les désactiver :
 ```powershell
-Get-MSCommerceProductPolicies -PolicyId AllowSelfServicePurchase | Where { $_.PolicyValue -eq “Enabled”} | forEach { Update-MSCommerceProductPolicy -PolicyId AllowSelfServicePurchase -ProductId $_.ProductID -Enabled $false }
+Get-MSCommerceProductPolicies -PolicyId AllowSelfServicePurchase | Where { $_.PolicyValue -eq "Enabled"} | forEach { Update-MSCommerceProductPolicy -PolicyId AllowSelfServicePurchase -ProductId $_.ProductID -Enabled $false }
 ```
 
 ---
