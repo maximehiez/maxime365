@@ -1,0 +1,116 @@
+---
+title: "End of implicit internet access for new Azure VNets"
+meta_title: ""
+description: ""
+date: 2026-03-24T10:00:00-05:00
+image: "/images/blog/azure/azure_new_vnets_end_implicit_outbound_internet_thumbnail.png"
+categories: ["Azure"]
+author: "Maxime Hiez"
+tags: ["Public IP address", "NAT Gateway", "VNet", "Firewall", "Zero Trust"]
+draft: false
+---
+---
+
+##### Introduction
+Starting March 31, 2026, Microsoft is making a major change to Azure's default network behavior. New *Virtual Networks* (*VNet*) will no longer have implicit outbound internet access. All internet connectivity will now need to be explicitly configured, for example, via an Azure NAT Gateway, a firewall, or a load balancer with outbound rules. This change marks the end of a long-standing, often overlooked, but widely used Azure behavior.
+
+---
+
+##### How did Azure work until now ?
+Historically, when a virtual machine was deployed in a VNet without a public IP address, without a NAT Gateway, and without an explicit outbound rule, Azure still provided automatic outbound internet access. This mechanism is called *Default Outbound Access* (*DOA*) :
+- Azure assigned a *Microsoft-managed* public IP address in the background
+- This IP address could change without notice
+- Outbound traffic was largely invisible, difficult to control, and unauditable
+
+---
+
+##### What exactly changes
+Starting March 31, 2026 :
+- All new VNets created in Azure will be *private by default*
+- Subnets will have the property *defaultOutboundAccess = false*
+- No outbound internet access will be available without explicit configuration
+<br/>
+
+In practice, a VM deployed in a new VNet will no longer have internet access by default and will need to use an explicit solution :
+- Azure NAT Gateway (recommended)
+- Azure Firewall / third-party firewall (Fortinet, Checkpoint, etc.)
+- Load balancer with egress rules
+- Public IP address (not recommended in production)
+
+![image](/images/blog/azure/azure_new_vnets_end_implicit_outbound_internet_001.png)
+
+<Notice type="note">Existing VNets are not impacted and will continue to function, including for new VMs deployed in these existing VNets.</Notice>
+
+---
+
+##### Why is Microsoft making this change ?
+Microsoft justifies this decision with several strategic objectives :
+
+**<u>Security</u>**
+
+Implicit internet access goes against the *Zero Trust* principles. A resource should never have external connectivity without an explicit decision.
+<br/>
+
+**<u>Governance and auditing</u>**
+
+- Implicit outgoing IPs :
+    - Do not belong to you
+    - Can change
+    - Are difficult to trace
+
+- With a NAT Gateway or firewall :
+    - IPs are static
+    - Traffic is logged
+    - Flows are predictable and controlled
+
+---
+
+##### Who is actually impacted ?
+
+No impact for :
+- Existing VNets (created before March 31, 2026)
+- VMs already in production
+- New VMs deployed in existing VNets
+
+Direct impact for :
+- Any new VNet created after March 31, 2026
+- Dev/test environments created *"on the fly"*
+- Automated deployments that assume implicit internet access
+
+---
+
+##### Azure NAT Gateway : The preferred solution
+Microsoft clearly recommends Azure NAT Gateway as the default method for restoring outbound connectivity, with key advantages including :
+- Static public IP address (or IP prefix)
+- Automatic SNAT port management
+- Built-in high availability
+- Simplified deployment (subnet association)
+
+![image](/images/blog/azure/azure_new_vnets_end_implicit_outbound_internet_002.png)
+
+Today, this is the simplest and cleanest option to replace Default Outbound Access, especially for SMEs and environments without a central firewall.
+
+---
+
+##### Conclusion
+The change introduced by Microsoft on March 31, 2026, marks a significant milestone in the evolution of Azure's network model. By ending implicit outbound internet access for new Virtual Networks, Azure is definitively abandoning a *"it just works"* approach in favor of a secure, explicit, and controlled one.
+
+While this change won't disrupt existing environments, it does impose a new design discipline for all future deployments. From now on, all outbound connectivity must be intentionally planned, documented, and configured.
+
+Beyond the technical constraints, this is primarily an opportunity to regain control over network traffic, improve governance, strengthen security, and finally align Azure architectures with the principles of secure by default and Zero Trust.
+
+---
+
+##### Sources
+[Microsoft - Techcommunity](https://techcommunity.microsoft.com/discussions/azurevirtualdesktopforum/azure%E2%80%99s-default-outbound-access-changes-guidance-for-azure-virtual-desktop-custo/4494462)
+
+[Microsoft Learn - Default outbound access in Azure](https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/default-outbound-access)
+
+[Microsoft Learn - Azure NAT Gateway](https://learn.microsoft.com/en-us/azure/nat-gateway/nat-overview)
+
+---
+
+
+Did you enjoy this post ? If you have any questions, comments or suggestions, please feel free to send me a message from the contact form.
+
+Don't forget to follow us and share this post.

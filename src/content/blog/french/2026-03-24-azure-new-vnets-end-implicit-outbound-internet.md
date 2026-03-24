@@ -1,0 +1,115 @@
+---
+title: "Fin de l’accès Internet implicite pour les nouveaux VNets Azure"
+meta_title: ""
+description: ""
+date: 2026-03-24T10:00:00-05:00
+image: "/images/blog/azure/azure_new_vnets_end_implicit_outbound_internet_thumbnail.png"
+categories: ["Azure"]
+author: "Maxime Hiez"
+tags: ["Adresse IP publique", "NAT Gateway", "VNet", "Pare-feu", "Zero Trust"]
+draft: false
+---
+---
+
+##### Introduction
+À compter du 31 Mars 2026, Microsoft change en profondeur le comportement réseau par défaut d’Azure. Les nouveaux *Virtual Networks* (*VNets*) n’auront plus d’accès Internet sortant implicite. Toute connectivité vers Internet devra désormais être explicitement configurée, par exemple via une *Azure NAT Gateway*, un pare-feu, ou un load balancer avec règles de sortie. Cette évolution marque la fin d’un comportement historique d’Azure souvent méconnu, mais largement utilisé.
+
+---
+
+##### Comment fonctionnait Azure jusqu’à maintenant ?
+Historiquement, lorsqu’on déployait une machine virtuelle dans un VNet sans IP publique, sans NAT Gateway et sans règle de sortie explicite, Azure fournissait malgré tout un accès Internet sortant automatique. Ce mécanisme s’appelle le *Default Outbound Access* (*DOA*) :
+- Azure attribuait en arrière‑plan une IP publique *Microsoft‑managed*
+- Cette IP pouvait changer sans préavis
+- Le trafic sortant était peu visible, peu contrôlable et non auditable
+
+---
+
+##### Ce qui change exactement
+À partir du 31 Mars 2026 :
+- Tout nouveau VNet créé dans Azure sera *private by default*
+- Les sous-réseaux auront la propriété *defaultOutboundAccess = false*
+- Aucun accès Internet sortant ne sera disponible sans configuration explicite
+<br/>
+
+Concrètement, une VM déployée dans un nouveau VNet ne pourra plus accéder à Internet par défaut, et devra utiliser une solution explicite :
+- Azure NAT Gateway (recommandé)
+- Azure Firewall / pare-feu tiers (Fortinet, Checkpoint, ...)
+- Load Balancer avec règles de sortie
+- IP publique (non recommandé en production)
+
+![image](/images/blog/azure/azure_new_vnets_end_implicit_outbound_internet_001.png)
+
+<Notice type="note">Les VNets existants ne sont pas impactés et continueront à fonctionner, y compris pour les nouvelles VMs déployées dans ces VNets existants.</Notice>
+
+---
+
+##### Pourquoi Microsoft fait ce changement ?
+Microsoft justifie cette décision par plusieurs objectifs stratégiques :
+
+**<u>Sécurité</u>**
+
+L’accès Internet implicite va à l’encontre des principes *Zero Trust*. Une ressource ne devrait jamais avoir de connectivité externe sans décision explicite.
+<br/>
+
+**<u>Gouvernance et audit</u>**
+
+- Les IP sortantes implicites :
+    - Ne vous appartiennent pas
+    - Peuvent changer
+    - Sont difficiles à tracer
+
+- Avec une NAT Gateway ou un pare-feu :
+    - Les IP sont statiques
+    - Le trafic est journalisé
+    - Les flux sont prévisibles et contrôlés
+
+---
+
+##### Qui est réellement impacté ?
+Pas d’impact pour :
+- Les VNets existants (créés avant le 31 Mars 2026)
+- Les VMs déjà en production
+- Les nouvelles VMs déployées dans des VNets existants
+
+Impact direct pour :
+- Tout nouveau VNet créé après le 31 Mars 2026
+- Les environnements dev/test créés *"à la volée"*
+- Les déploiements automatisés qui supposent un accès Internet implicite
+
+---
+
+##### Azure NAT Gateway : la solution privilégiée
+Microsoft recommande clairement Azure NAT Gateway comme méthode par défaut pour rétablir la connectivité sortante, avec les avantages clés :
+- IP publique statique (ou préfixe IP)
+- Gestion automatique des ports SNAT
+- Haute disponibilité intégrée
+- Simplicité de déploiement (association au sous-réseau)
+
+![image](/images/blog/azure/azure_new_vnets_end_implicit_outbound_internet_002.png)
+
+C’est aujourd’hui l’option la plus simple et la plus propre pour remplacer le Default Outbound Access, en particulier pour les PME et les environnements sans pare-feu central.
+
+---
+
+##### Conclusion
+Le changement introduit par Microsoft au 31 Mars 2026 marque une étape importante dans l’évolution du modèle réseau d’Azure. En mettant fin à l’accès Internet sortant implicite pour les nouveaux Virtual Networks, Azure abandonne définitivement une logique de *"ça fonctionne tout seul"* au profit d’une approche sécurisée, explicite et maîtrisée.
+
+Si ce changement ne perturbe pas les environnements existants, il impose en revanche une nouvelle discipline de conception pour tous les déploiements à venir. Désormais, toute connectivité sortante devra être pensée, documentée et configurée volontairement.
+
+Au‑delà de la contrainte technique, c’est surtout une opportunité, celle de reprendre le contrôle sur les flux réseau, d’améliorer la gouvernance, de renforcer la sécurité et d’aligner enfin les architectures Azure avec les principes secure by default et Zero Trust.
+
+---
+
+##### Sources
+[Microsoft - Techcommunity](https://techcommunity.microsoft.com/discussions/azurevirtualdesktopforum/azure%E2%80%99s-default-outbound-access-changes-guidance-for-azure-virtual-desktop-custo/4494462)
+
+[Microsoft Learn - Accès sortant par défaut dans Azure](https://learn.microsoft.com/fr-ca/azure/virtual-network/ip-services/default-outbound-access)
+
+[Microsoft Learn - Azure NAT Gateway](https://learn.microsoft.com/fr-ca/azure/nat-gateway/nat-overview)
+
+---
+
+
+Avez-vous apprécié cet article ? Vous avez des questions, commentaires ou suggestions, n’hésitez pas à m'envoyer un message depuis le formulaire de contact.
+
+N'oubliez pas de nous suivre et de partager cet article.

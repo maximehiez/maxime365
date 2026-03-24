@@ -6,7 +6,7 @@ date: 2025-07-17T10:00:00-05:00
 image: "/images/blog/azure/tuto/azure_how_to_upgrade_public_ip_basic_to_standard_thumbnail.png"
 categories: ["Azure", "Tutorial"]
 author: "Maxime Hiez"
-tags: ["Adresse IP publique", "SKU"]
+tags: ["Public IP address", "SKU"]
 draft: false
 ---
 ---
