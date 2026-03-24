@@ -92,6 +92,16 @@ Today, this is the simplest and cleanest option to replace Default Outbound Acce
 
 ---
 
+##### How much does Azure NAT Gateway cost ?
+Billing starts when the resource is created. Data processing charges for NAT Gateway include outbound and return data.
+
+Azure NAT Gateway offers 2 SKUs, *Standard* and *StandardV2*. Standard provides single availability zone support, whereas StandardV2 provides zone redundancy. Both are matched in price. There is no cost difference between the two SKUs.
+
+- Resource hours : 0,06158$ per hour
+- Data processed : 0,06158$ per GB
+
+---
+
 ##### Conclusion
 The change introduced by Microsoft on March 31, 2026, marks a significant milestone in the evolution of Azure's network model. By ending implicit outbound internet access for new Virtual Networks, Azure is definitively abandoning a *"it just works"* approach in favor of a secure, explicit, and controlled one.
 

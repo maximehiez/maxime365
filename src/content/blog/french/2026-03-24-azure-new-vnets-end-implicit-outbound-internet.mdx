@@ -91,6 +91,16 @@ C’est aujourd’hui l’option la plus simple et la plus propre pour remplacer
 
 ---
 
+##### Combien ça coute Azure NAT Gateway ?
+La facturation commence à la création de la ressource. Les frais de traitement des données pour NAT Gateway incluent les données sortantes et de retour.
+
+Azure NAT Gateway propose deux références : *Standard* et *StandardV2*. Standard prend en charge une seule zone de disponibilité, tandis que StandardV2 offre une redondance de zone. Le prix est identique pour les deux SKUs :
+
+- Heures de ressource : 0,06158$ par heure
+- Données traitées : 0,06158$ par Go
+
+---
+
 ##### Conclusion
 Le changement introduit par Microsoft au 31 Mars 2026 marque une étape importante dans l’évolution du modèle réseau d’Azure. En mettant fin à l’accès Internet sortant implicite pour les nouveaux Virtual Networks, Azure abandonne définitivement une logique de *"ça fonctionne tout seul"* au profit d’une approche sécurisée, explicite et maîtrisée.
 
@@ -106,6 +116,8 @@ Au‑delà de la contrainte technique, c’est surtout une opportunité, celle d
 [Microsoft Learn - Accès sortant par défaut dans Azure](https://learn.microsoft.com/fr-ca/azure/virtual-network/ip-services/default-outbound-access)
 
 [Microsoft Learn - Azure NAT Gateway](https://learn.microsoft.com/fr-ca/azure/nat-gateway/nat-overview)
+
+[Tarification Azure NAT Gateway](https://azure.microsoft.com/fr-ca/pricing/details/azure-nat-gateway)
 
 ---
 
