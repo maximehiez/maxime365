@@ -39,7 +39,7 @@ const {
     <div class="container">
       <div class="row">
         <div class="mx-auto md:col-10 lg:col-6">
-          <form action={contact_form_action} method="POST">
+          <form id="contact-form" action={contact_form_action} method="POST">
             <input type="hidden" name="access_key" value="2bbe8feb-99db-408f-992c-c63d5d2fa505" />
             <div class="mb-6">
               <label for="name" class="form-label">
@@ -53,6 +53,7 @@ const {
                 placeholder="John Doe"
                 type="text"
               />
+              <p class="text-red-500 text-sm hidden" id="error-name">Name is required</p>
             </div>
             <div class="mb-6">
               <label for="email" class="form-label">
@@ -66,6 +67,7 @@ const {
                 placeholder="john.doe@email.com"
                 type="email"
               />
+              <p class="text-red-500 text-sm hidden" id="error-email">Valid email is required</p>
             </div>
             <div class="mb-6">
               <label for="message" class="form-label">
@@ -78,11 +80,52 @@ const {
                 class="form-input"
                 placeholder={contact_message_placeholder}
                 rows="8"></textarea>
+                <p class="text-red-500 text-sm hidden" id="error-message">Message is required</p>
             </div>
             <button type="submit" class="btn btn-primary">{submit}</button>
+            <input type="hidden" name="redirect" value="https://maxime.hiez.ca/thank-you" />
           </form>
         </div>
       </div>
     </div>
   </section>
+  <script is:inline>
+    const form = document.getElementById("contact-form");
+
+    form.addEventListener("submit", function (e) {
+      let valid = true;
+
+      const name = document.getElementById("name");
+      const email = document.getElementById("email");
+      const message = document.getElementById("message");
+
+      const errorName = document.getElementById("error-name");
+      const errorEmail = document.getElementById("error-email");
+      const errorMessage = document.getElementById("error-message");
+
+      // Reset errors
+      errorName.classList.add("hidden");
+      errorEmail.classList.add("hidden");
+      errorMessage.classList.add("hidden");
+
+      if (!name.value.trim()) {
+        errorName.classList.remove("hidden");
+        valid = false;
+      }
+
+      if (!email.value.trim() || !email.value.includes("@")) {
+        errorEmail.classList.remove("hidden");
+        valid = false;
+      }
+
+      if (!message.value.trim()) {
+        errorMessage.classList.remove("hidden");
+        valid = false;
+      }
+
+      if (!valid) {
+        e.preventDefault();
+      }
+    });
+  </script>
 </Base>
