@@ -83,7 +83,7 @@ const {
                 <p class="text-red-500 text-sm hidden" id="error-message">Message is required</p>
             </div>
             <button type="submit" class="btn btn-primary">{submit}</button>
-            <input type="hidden" name="redirect" value="https://maxime.hiez.ca/thank-you" />
+            <input type="hidden" name="redirect" value={`https://maxime.hiez.ca/thank-you?lang=${lang ?? "en"}`} />
           </form>
         </div>
       </div>
