@@ -77,7 +77,7 @@ Microsoft publie chaque mois un récapitulatif des évolutions de *Microsoft 365
 
 - Bouton *Try GPT-5* : Copilot utilise le routeur temps réel de GPT-5 pour basculer entre un modèle haut débit (tâches simples) et un modèle de raisonnement profond (tâches complexes).
 - Menu Tools dans la zone de saisie (Designer, Pages, agents épinglés, Researcher, Analyst) pour réduire les allers-retours.
-- Références d’e-mails avec pièces jointes (Word, Excel, PowerPoint, PDF, JSON, XML) directement comprises dans la réponse, dans Outlook et l’appli Microsoft 365 Copilot (avec licence Copilot).
+- Références de courriels avec pièces jointes (Word, Excel, PowerPoint, PDF, JSON, XML) directement comprises dans la réponse, dans Outlook et l’appli Microsoft 365 Copilot (avec licence Copilot).
 - Présentation PowerPoint : Génération d’un deck prêt à l’emploi (structure, visuels, mise en forme) depuis l’appli Copilot ; avec licence, prise en compte du contexte de travail.
 - Déploiement : Août
 

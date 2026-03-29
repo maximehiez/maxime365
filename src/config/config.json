@@ -9,7 +9,7 @@
     "logo_darkmode": "/images/logo-darkmode.png",
     "logo_width": "150",
     "logo_height": "30",
-    "logo_text": "Astroplate"
+    "logo_text": "Maxime's Blog"
   },
 
   "settings": {
@@ -26,7 +26,7 @@
   },
 
   "params": {
-    "contact_form_action": "#",
+    "contact_form_action": "https://api.web3forms.com/submit",
     "copyright": "© 2026 Maxime Hiez. All rights reserved."
   },
 

@@ -48,7 +48,7 @@ Conditional access allows for identity-based, risk-based, and context-based cont
 
 ---
 
-##### How conditional access Works for Agents
+##### How conditional access works for agents ?
 When an agent identity or an agent user requests a token, Microsoft Entra follows this process :
 1. Identify the requesting agent
 2. Check conditional access rule assignments

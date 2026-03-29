@@ -48,7 +48,7 @@ L’accès conditionnel permet d’appliquer des contrôles basés sur l’ident
 
 ---
 
-##### Comment fonctionne l’accès conditionnel pour les agents
+##### Comment fonctionne l’accès conditionnel pour les agents ?
 Lorsque une identité d’agent ou un agent user demande un jeton, Microsoft Entra suit ce processus :
 1. Identifier l’agent demandeur
 2. Vérifier les affectations de règles d'accès conditionnel
