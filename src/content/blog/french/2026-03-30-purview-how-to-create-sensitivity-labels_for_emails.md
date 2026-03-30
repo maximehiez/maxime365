@@ -1,0 +1,133 @@
+---
+title: "Comment créer des Sensitivity Labels de courriels dans Purview"
+meta_title: ""
+description: ""
+date: 2026-03-30T10:00:00-05:00
+image: "/images/blog/purview/tuto/purview_how_to_create_sensitivity_labels_for_emails_thumbnail.png"
+categories: ["Purview", "Tutoriel"]
+author: "Maxime Hiez"
+tags: ["Protection de données", "Gouvernance", "Sensitivity Labels", "Sécurité"]
+draft: false
+---
+---
+
+##### Introduction
+Les courriels restent encore aujourd’hui, l’un des principaux vecteurs de fuite d’information en entreprise. Qu’il s’agisse d’un message envoyé au mauvais destinataire, d’une pièce jointe transférée sans contrôle ou d’un contenu sensible partagé à l’externe, les risques sont bien réels et souvent humains. C’est précisément pour répondre à ces enjeux que les *Microsoft Purview Sensitivity Labels* jouent un rôle clé dans la protection des courriels. Bien au‑delà d’un simple bandeau visuel ou d’une classification manuelle, les Sensitivity Labels permettent d’encadrer l’usage des courriels, d’appliquer du chiffrement, de restreindre le partage et d’éduquer les utilisateurs au bon niveau de confidentialité, directement depuis Outlook.
+
+---
+
+##### Prérequis
+**<u>Licences nécessaires</u>**
+- *Microsoft 365 Business Premium*, *Microsoft 365 E5*.
+- *Microsoft Purview Suite* en complément avec une licence autre (*E3*, *Business*, ...).
+
+**<u>Rôle d’administrateur</u>**
+- Un compte avec le rôle *Administrateur Global* ou *Compliance Administrator* pour accéder au Microsoft Purview Portal.
+
+---
+
+##### Étape 1 : Se connecter au Microsoft Purview Portal
+Connectez-vous au Microsoft Purview Portal en ouvrant votre navigateur web sur https://purview.microsoft.com.
+
+---
+
+##### Étape 2 : Créer un groupe
+Dans le menu de gauche, cliquez sur *<u>Solutions</u>*, puis sur *<u>Information Protection</u>*, et sur *<u>Sensitivity Labels</u>*.
+
+Cliquez sur *<u>Create</u>*, et sur *<u>Label group</u>* pour créer le groupe.
+
+![image](/images/blog/purview/tuto/purview_how_to_create_sensitivity_labels_for_emails_001.png)
+
+Définissez un nom, une description et une couleur.
+
+![image](/images/blog/purview/tuto/purview_how_to_create_sensitivity_labels_for_emails_002.png)
+
+Choisissez (ou non) de créer un label dans ce groupe.
+
+![image](/images/blog/purview/tuto/purview_how_to_create_sensitivity_labels_for_emails_003.png)
+
+--- 
+
+##### Étape 3 : Créer deux Sensitivity Labels pour courriels
+Définissez un nom et une description.
+
+![image](/images/blog/purview/tuto/purview_how_to_create_sensitivity_labels_for_emails_004.png)
+
+Dans mon cas, je décide de faire une encryption basique, et de laisser à l'utilisateur le choix de l'appliquer ou non.
+
+![image](/images/blog/purview/tuto/purview_how_to_create_sensitivity_labels_for_emails_005.png)
+
+Ne le publiez pas tout de suite ...
+
+![image](/images/blog/purview/tuto/purview_how_to_create_sensitivity_labels_for_emails_006.png)
+
+... et faites un 2ème label.
+
+![image](/images/blog/purview/tuto/purview_how_to_create_sensitivity_labels_for_emails_007.png)
+
+Je décide de faire une encryption avancée, et de laisser à l'utilisateur le choix de l'appliquer ou non.
+
+![image](/images/blog/purview/tuto/purview_how_to_create_sensitivity_labels_for_emails_008.png)
+
+Encore une fois, ne le publiez pas tout de suite.
+
+![image](/images/blog/purview/tuto/purview_how_to_create_sensitivity_labels_for_emails_009.png)
+
+Vos 2 Sensitivity Labels sont maintenant créés.
+
+![image](/images/blog/purview/tuto/purview_how_to_create_sensitivity_labels_for_emails_010.png)
+
+---
+
+##### Étape 4 : Publier les Sensitivity Labels
+Dans le menu de gauche, cliquez sur *<u>Policies</u>*, puis sur *<u>Label publishing poicies</u>*.
+
+Cliquez sur *<u>Publish label</u>* pour publier les Sensitivity Labels.
+
+![image](/images/blog/purview/tuto/purview_how_to_create_sensitivity_labels_for_emails_011.png)
+
+Choisissez les 2 labels créés précédemment.
+
+![image](/images/blog/purview/tuto/purview_how_to_create_sensitivity_labels_for_emails_012.png)
+
+Cochez la case *Users must provide a justification ...*. Optionnellement, vous pouvez cocher les autres cases selon vos besoins.
+
+![image](/images/blog/purview/tuto/purview_how_to_create_sensitivity_labels_for_emails_013.png)
+
+Définissez un nom et une description pour valider la publication.
+
+![image](/images/blog/purview/tuto/purview_how_to_create_sensitivity_labels_for_emails_014.png)
+
+<Notice type="note">Les Sensitivity Labels peuvent prendre jusqu'à 24 heures avant d'être disponibles.</Notice>
+
+---
+
+##### Étape 5 : Valider le résultat
+Mon client Outlook a maintenant les 2 Sensitivity Labels disponibles.
+
+![image](/images/blog/purview/tuto/purview_how_to_create_sensitivity_labels_for_emails_015.png)
+
+---
+
+##### Et maintenant, quoi faire avec ça ?
+En appliquant un de ces Sensitivity Label à votre courriel, il sera chiffré en fonction de ce que vous avez appliqué.
+
+Je vous ferai un article prochainement pour vous démontrer l'uilisation et les résultats.
+
+---
+
+##### Conclusion
+Les Sensitivity Labels appliqués aux courriels vont vous permette de protéger l’information là où les erreurs se produisent le plus souvent : au moment de l’envoi. En combinant classification, chiffrement et restrictions d’usage, ils offrent une protection efficace sans alourdir l’expérience utilisateur.<br/><br/>
+Vous savez maintenant comment créer des Sensitivity Labels pour courriels dans Purview.
+
+---
+
+##### Sources
+[Microsoft Learn - Sensitivity Labels](https://learn.microsoft.com/fr-ca/purview/sensitivity-labels)
+
+---
+
+
+Avez-vous apprécié cet article ? Vous avez des questions, commentaires ou suggestions, n’hésitez pas à m'envoyer un message depuis le formulaire de contact.
+
+N'oubliez pas de nous suivre et de partager cet article.
