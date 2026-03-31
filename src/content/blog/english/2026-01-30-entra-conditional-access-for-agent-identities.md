@@ -6,7 +6,7 @@ date: 2026-01-30T10:00:00-05:00
 image: "/images/blog/entra/entra_conditional_access_for_agent_identities_thumbnail.png"
 categories: ["Entra ID"]
 author: "Maxime Hiez"
-tags: ["Accès conditionnels", "Sécurité", "Zero Trust", "MFA", "Agent", "IA"]
+tags: ["Conditional access", "Security", "Zero Trust", "MFA", "Agent", "AI"]
 draft: false
 ---
 ---

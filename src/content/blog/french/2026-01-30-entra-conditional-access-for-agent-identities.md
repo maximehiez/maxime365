@@ -51,7 +51,7 @@ L’accès conditionnel permet d’appliquer des contrôles basés sur l’ident
 ##### Comment fonctionne l’accès conditionnel pour les agents ?
 Lorsque une identité d’agent ou un agent user demande un jeton, Microsoft Entra suit ce processus :
 1. Identifier l’agent demandeur
-2. Vérifier les affectations de règles d'accès conditionnel
+2. Vérifier les affectations de règles d'accès conditionnels
 3. Évaluer tout critère de risque d’agent
 4. Autoriser ou bloquer l’émission du jeton
 
@@ -60,7 +60,7 @@ Pas de prompt MFA, pas de vérification d'appareil, pas d’évaluation de l’a
 ---
 
 ##### Cas d’usage pratiques
-Même avec ces limitations, les règles d'accès conditionnel pour agents peuvent être utiles :
+Même avec ces limitations, les règles d'accès conditionnels pour agents peuvent être utiles :
 - Arrêter les agents compromis : Si un agent présente un comportement à risque élevé, la demande de jeton est immédiatement bloquée, arrêtant toute action non autorisée.
 - Séparer les rôles des agents : Vous pouvez définir des règles pour autoriser certains agents spécifiques tout en bloquant d’autres, selon le département ou le scénario d’usage.
 - Limiter la prolifération des agents : Dans de grandes organisations, des centaines d’agents peuvent être créés ; seuls les agents approuvés peuvent accéder aux ressources.
@@ -68,7 +68,7 @@ Même avec ces limitations, les règles d'accès conditionnel pour agents peuven
 ---
 
 ##### Licences requises
-- La fonctionnalité d'accès conditionnel nécessite la licence *Microsoft Entra ID P1* (incluse dans *Microsoft 365 E3* et *Microsoft 365 Business Premium*).
+- La fonctionnalité d'accès conditionnels nécessite la licence *Microsoft Entra ID P1* (incluse dans *Microsoft 365 E3* et *Microsoft 365 Business Premium*).
 - Les politiques qui s’appuient sur des signaux *risk‑based* requièrent *Microsoft Entra ID P2* (incluse dans *Microsoft 365 E5*). Assurez‑vous que chaque identité ciblée par la politique dispose de la licence adéquate.
 
 ---
@@ -83,7 +83,7 @@ Microsoft indique que les capacités pour les agents pourraient évoluer vers :
 ---
 
 ##### Conclusion
-Avec les règles d’accès conditionnel pour les identités d’agent, Microsoft Entra apporte au monde des agents IA, les mêmes garanties d’accès adaptatif que pour les personnes et applications : signal → décision → application. Même si les contrôles sont volontairement limités dans cette première itération, l’architecture (attributs, ciblage par blueprint, logs dédiés) donne un cadre robuste pour industrialiser la sécurité des agents ... sans ralentir l’adoption.
+Avec les règles d’accès conditionnels pour les identités d’agent, Microsoft Entra apporte au monde des agents IA, les mêmes garanties d’accès adaptatif que pour les personnes et applications : signal → décision → application. Même si les contrôles sont volontairement limités dans cette première itération, l’architecture (attributs, ciblage par blueprint, logs dédiés) donne un cadre robuste pour industrialiser la sécurité des agents ... sans ralentir l’adoption.
 
 ---
 
