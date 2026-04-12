@@ -51,7 +51,6 @@ La version 7.7.0 contient les mises à jour suivantes :
 - Ajoute le paramètre *IncomingRedirectedCalls* à l'applet de commande *New-CsSharedCallQueueHistoryTemplate*.
 - Introduit les applets de commande *[Get|New|Set|Remove]-CsSharedCallHistoryTemplate*. Ces applets de commande remplaceront les applets de commande *[Get|New|Set|Remove]-CsSharedCallQueueHistoryTemplate* ultérieurement.
 - Ajoute le paramètre *SharedVoicemailHistoryTemplateId* à l'applet de commande *New-CsAutoAttendantCallableEntity*.
-- Les notes de publication complètes sont disponibles à l'adresse suivante : https://docs.microsoft.com/MicrosoftTeams/teams-powershell-release-notes
 
 ---
 
