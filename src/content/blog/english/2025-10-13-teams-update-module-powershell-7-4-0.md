@@ -1,5 +1,5 @@
 ---
-title: "Update to version 7.4.0 of the Teams PowerShell module"
+title: "PowerShell Teams module updated to version 7.4.0"
 meta_title: ""
 description: ""
 date: 2025-10-13T10:00:00-05:00

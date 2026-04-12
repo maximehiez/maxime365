@@ -1,5 +1,5 @@
 ---
-title: "Update to version 15.2.0 of the Azure PowerShell module"
+title: "PowerShell Azure module updated to version 15.2.0"
 meta_title: ""
 description: ""
 date: 2026-01-26T10:00:00-05:00
