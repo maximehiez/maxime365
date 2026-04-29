@@ -42,7 +42,7 @@ Vous pouvez configurer des lignes supplémentaires et valider la bonne assignati
 ```powershell
 Set-CsPhoneNumberAssignment -Identity user.3@hiez.ca -PhoneNumber '+15141237891' -PhoneNumberType DirectRouting -AssignmentCategory Alternate
 
-Get-CsOnlineUser -Identity user.3@hiez.ca | TelephoneNumbers 
+Get-CsOnlineUser -Identity user.3@hiez.ca | fl TelephoneNumbers
 ```
 
 ---
