@@ -1,0 +1,100 @@
+---
+title: "How to activate multi-lines for Teams telephony"
+meta_title: ""
+description: ""
+date: 2026-04-29T10:00:00-05:00
+image: "/images/blog/teams/tuto/teams_how_to_enable_multi_lines_telephony_thumbnail.png"
+categories: ["Teams", "Tutorial"]
+author: "Maxime Hiez"
+tags: ["Telephony", "Direct Routing", "Calling Plan", "Operator Connect", "Multi line"]
+draft: false
+---
+---
+
+##### Introduction
+Microsoft has just introduced a feature that allows a user to have up to 11 numbers (including their primary and private lines) in their *Microsoft Teams* phone system. Users can now make and receive calls from multiple business numbers, display different *Caller IDs*, all without changing accounts or hardware.
+
+---
+
+##### Prerequisites
+**<u>Microsoft Teams telephony enabled</u>**
+- *Direct Routing* configuration with an SBC.
+- *Calling Plan* configuration.
+- *Operator Connect* configuration.
+
+**<u>PowerShell module</u>**
+- The Teams PowerShell module in version 7.6.0 or later.
+
+**<u>Administrator role</u>**
+- An account with the *Global Administrator* or *Teams Administrator* role to access the Microsoft Teams Admin Center.
+
+---
+
+##### Step 1 : Sign in to the Microsoft Teams Admin Center
+Sign in to the Microsoft Teams Admin Center via the following PowerShell command :
+```powershell
+Connect-MicrosoftTeams
+```
+---
+
+##### Step 2 : Enable additional lines
+You can configure additional lines and validate the correct assignment using the following PowerShell commands :
+```powershell
+Set-CsPhoneNumberAssignment -Identity user.3@hiez.ca -PhoneNumber '+15141237891' -PhoneNumberType DirectRouting -AssignmentCategory Alternate
+
+Get-CsOnlineUser -Identity user.3@hiez.ca | TelephoneNumbers 
+```
+
+---
+
+##### Step 3 : Assign telephony policies
+A key aspect of multi-line configuration is that certain policies can be assigned per phone number, independently of those already assigned to the user.
+
+- <u>CallingLineIdentity</u> : Display the number on outbound calls (*Caller ID*)
+- <u>OnlineDialOutPolicy</u> : Restrict outbound dialing permissions
+- <u>OnlineVoiceRoutingPolicy</u> : Allow calls in *Direct Routing* mode
+- <u>TeamsEmergencyCallingPolicy</u> : Enable notifications for emergency calls
+- <u>TeamsEmergencyCallRoutingPolicy</u> : Required for alternate phone numbers with direct routing
+- <u>TeamsSharedCallingRoutingPolicy</u> : Assign a software phone number that uses the *Shared Calling* feature
+- <u>TenantDialPlan</u> : Assign normalization rules
+<br /><br />
+
+You can configure the policies using the following PowerShell commands :
+```powershell
+Set-CsPhoneNumberPolicyAssignment -TelephoneNumber +15141237891 -PolicyType OnlineVoiceRoutingPolicy -PolicyName "CA-INTERNATIONAL"
+
+Set-CsPhoneNumberPolicyAssignment -TelephoneNumber +15141237891 -PolicyType TenantDialPlan -PolicyName "DialPlan-Global"
+
+Set-CsPhoneNumberPolicyAssignment -TelephoneNumber +15141237891 -PolicyType CallingLineIdentity -PolicyName "514 842 1161"
+
+Set-CsPhoneNumberPolicyAssignment -TelephoneNumber +15141237891 -PolicyType TeamsEmergencyCallRoutingPolicy -PolicyName "LAB-911"
+
+```
+
+<Notice type="note">These policies are not inherited from your main line.</Notice>
+
+---
+
+##### Step 4 : Validate the result
+You can see that I now have 2 additional lines assigned to my account. I can choose which number I can make my call from.
+
+![image](/images/blog/teams/tuto/teams_how_to_enable_multi_lines_telephony_001.png)
+
+---
+
+##### Conclusion
+You now know how to activate multi-line for Teams telephony.
+
+---
+
+##### Sources
+[Microsoft Learn - Multi-line for Teams telephony](https://learn.microsoft.com/en-us/microsoftteams/multi-line)
+
+[Microsoft Learn - Set-CsPhoneNumberPolicyAssignment](https://learn.microsoft.com/en-us/powershell/module/microsoftteams/set-csphonenumberpolicyassignment)
+
+---
+
+
+Did you enjoy this post ? If you have any questions, comments or suggestions, please feel free to send me a message from the contact form.
+
+Don't forget to follow us and share this post.
