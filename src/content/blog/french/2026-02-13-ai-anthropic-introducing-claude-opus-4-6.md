@@ -19,7 +19,7 @@ L’intelligence artificielle progresse rapidement dans les métiers de la finan
 ##### Une IA spécialisée pour la finance
 À la base, Opus 4.6 se distingue par des progrès significatifs en matière de raisonnement financier et d’analyse multi-étapes. Dans les évaluations internes d’Anthropic, le modèle affiche une amélioration de plus de 23 points sur l’exercice de Finance du monde réel comparé à la génération précédente.
 
-Contrairement à une IA qui répond seulement à des requêtes simples, Claude Opus 4.6 est conçu pour comprendre des documents complexes, analyser des données non structurées, et produire des résultats utilisables dans des contextes professionnels réalistes — que ce soit des rapports, des modèles ou des présentations.
+Contrairement à une IA qui répond seulement à des requêtes simples, Claude Opus 4.6 est conçu pour comprendre des documents complexes, analyser des données non structurées, et produire des résultats utilisables dans des contextes professionnels réalistes, que ce soit des rapports, des modèles ou des présentations.
 
 ![image](/images/blog/ai/ai_anthropic_introducing_claude_opus_4_6_001.png)
 

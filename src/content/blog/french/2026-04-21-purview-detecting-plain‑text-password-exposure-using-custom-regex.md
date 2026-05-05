@@ -32,10 +32,10 @@ Le problème : un mot de passe peut être n’importe quelle chaîne de caractè
 
 ##### L’approche : Combiner regex et contexte
 L’approche efficace est de ne pas détecter uniquement le mot de passe, mais plutôt le contexte dans lequel il apparaît. 
-<br /><br />
+<br/><br/>
 
 **Exemple typique : password = P@ssw0rd123**
-<br /><br />
+<br/><br/>
 
 Dans ce cas, la stratégie consiste à :
 - Détecter des mots-clés comme *"password"*, *"pwd"*, *"secret"*

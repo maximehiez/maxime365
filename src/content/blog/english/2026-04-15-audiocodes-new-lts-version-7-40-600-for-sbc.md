@@ -12,12 +12,12 @@ draft: false
 ---
 
 ##### Introduction
-*AudioCodes* has officially announced a significant change in its support strategy : version *7.40A.600* is now the *Long-Term Support* (*LTS*) branch for its *SBCs* and *Media Gateways*, replacing *7.40A.500*. For *Microsoft Teams Direct Routing* environments and production telephony deployments, this is important information for supporting your systems : remaining on the old feed might work in the short term, but you will gradually fall behind in receiving bug fixes and security updates.
+*Audiocodes* has officially announced a significant change in its support strategy : version *7.40A.600* is now the *Long-Term Support* (*LTS*) branch for its *SBCs* and *Media Gateways*, replacing *7.40A.500*. For *Microsoft Teams Direct Routing* environments and production telephony deployments, this is important information for supporting your systems : remaining on the old feed might work in the short term, but you will gradually fall behind in receiving bug fixes and security updates.
 
 ---
 
-##### LR vs LTS at AudioCodes
-AudioCodes offers two families of releases, with a very structured approach :
+##### LR vs LTS at Audiocodes
+Audiocodes offers two families of releases, with a very structured approach :
 
 **<u>Latest Release (LR)</u>**
 - Includes new features
@@ -45,27 +45,27 @@ Here are the key features introduced in the new LTS baseline :
 ##### Why migrate to 7.40A.600 even if 7.40A.500 is working ?
 **<u>Prepare for certificate projects</u>**
 
-The lifespan of TLS certificates will be drastically reduced (from 397 days to 46 days by 2029), increasing the pressure on management and automation. AudioCodes anticipates the arrival of automatic renewal via *ACME* (announced for LR 7.6.3, H2 2026). In this context, remaining on a supported and scalable platform is all the more important.
+The lifespan of TLS certificates will be drastically reduced (from 397 days to 46 days by 2029), increasing the pressure on management and automation. Audiocodes anticipates the arrival of automatic renewal via *ACME* (announced for LR 7.6.3, H2 2026). In this context, remaining on a supported and scalable platform is all the more important.
 <br/><br/>
 
 **<u>Stay on a pipeline that receives patches</u>**
 
-The most important message in the AudioCodes notice is this : 7.40A.500 will no longer be updated, while patches will be applied in 7.40A.600. Telephony is a critical environment ; a SIP/TLS bug or vulnerability can be enough to break a service.
+The most important message in the Audiocodes notice is this : 7.40A.500 will no longer be updated, while patches will be applied in 7.40A.600. Telephony is a critical environment ; a SIP/TLS bug or vulnerability can be enough to break a service.
 <br/><br/>
 
-**<u>Alignment with the AudioCodes Roadmap</u>**
+**<u>Alignment with the Audiocodes Roadmap</u>**
 
 The 7.4 LTS branch remains stability-oriented, and functional innovation will move to the 7.6 LR branch. Migrating to 7.40A.600 therefore means being correctly positioned within the versioning strategy (stability now, innovation elsewhere).
 
 ---
 
 ##### Concrete impacts for Teams Direct Routing
-If you use AudioCodes SBCs for your Teams Direct Routing telephony and are still on version 7.40A.500 (or older), now is a good time to plan a migration to 7.40A.600, starting by checking the product notes.
+If you use Audiocodes SBCs for your Teams Direct Routing telephony and are still on version 7.40A.500 (or older), now is a good time to plan a migration to 7.40A.600, starting by checking the product notes.
 
 ---
 
 ##### Conclusion
-The transition from version 7.40A.500 to 7.40A.600 is not a simple update ; it's a change in support branch. AudioCodes maintains 7.40A.500 in production but is ceasing all new maintenance on it and redirecting fixes to 7.40A.600, which is now the reference LTS starting with 7.40A.604.077. For Teams Direct Routing (and other) environments, migrating to the new LTS is the healthiest decision: support, fixes, stability, and a clear path towards upcoming innovations on the 7.6 LR side.
+The transition from version 7.40A.500 to 7.40A.600 is not a simple update ; it's a change in support branch. Audiocodes maintains 7.40A.500 in production but is ceasing all new maintenance on it and redirecting fixes to 7.40A.600, which is now the reference LTS starting with 7.40A.604.077. For Teams Direct Routing (and other) environments, migrating to the new LTS is the healthiest decision: support, fixes, stability, and a clear path towards upcoming innovations on the 7.6 LR side.
 
 ---
 

@@ -12,7 +12,7 @@ draft: false
 ---
 
 ##### Introduction
-Microsoft has just introduced a feature that allows call history to be shared within the *Microsoft Teams Queues* app. This feature provides queue members with a unified view of all call events—missed, incoming, and outgoing—within a call queue. By enabling shared history, teams can access consistent, up-to-date information, follow up efficiently, and improve operational responsiveness.
+Microsoft has just introduced a feature that allows call history to be shared within the *Microsoft Teams Queues* app. This feature provides queue members with a unified view of all call events (missed, incoming, and outgoing) within a call queue. By enabling shared history, teams can access consistent, up-to-date information, follow up efficiently, and improve operational responsiveness.
 
 ---
 

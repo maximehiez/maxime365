@@ -55,7 +55,7 @@ Lorsque une identité d’agent ou un agent user demande un jeton, Microsoft Ent
 3. Évaluer tout critère de risque d’agent
 4. Autoriser ou bloquer l’émission du jeton
 
-Pas de prompt MFA, pas de vérification d'appareil, pas d’évaluation de l’authentification forte — juste une décision de blocage ou d’autorisation basée sur l’identité et le risque.
+Pas de prompt MFA, pas de vérification d'appareil, pas d’évaluation de l’authentification forte, juste une décision de blocage ou d’autorisation basée sur l’identité et le risque.
 
 ---
 

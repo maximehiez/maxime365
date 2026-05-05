@@ -20,7 +20,7 @@ Microsoft a récemment annoncé le lancement de *Mistral Large 24.11*, un modèl
 - Prompts système améliorés : Mistral Large 24.11 fournit des réponses plus contextuellement pertinentes et dynamiques, adaptées aux besoins des entreprises.
 - Performance sur long contexte : Le modèle peut traiter jusqu'à 128 000 tokens, permettant une gestion supérieure des entrées longues et complexes.
 - Appels de fonctions avancés : Il dispose de capacités natives de sortie JSON et de fonctionnalités centrées sur les agents pour des intégrations fluides.
-- Support multilingue : Mistral Large 24.11 prend en charge des dizaines de langues, dont l'anglais, le français, l'allemand, l'espagnol, l'italien, le chinois, le japonais et le coréen.
+- Support multilingue : Mistral Large 24.11 prend en charge des dizaines de langues, dont l'Anglais, le Français, l'Allemand, l'Espagnol, l'Italien, le Chinois, le Japonais et le Coréen.
 - Proficience en codage : Le modèle est formé sur plus de 80 langages de programmation, y compris Python, Java, C++, JavaScript, et même des langages de niche comme Fortran et Swift.
 - Raisonnement de pointe : Il excelle dans la résolution de problèmes mathématiques et logiques, ce qui le rend idéal pour des tâches sophistiquées.
 

@@ -55,7 +55,7 @@ When an agent identity or an agent user requests a token, Microsoft Entra follow
 3. Evaluate any agent risk criteria
 4. Allow or block token issuance
 
-No MFA prompt, no device verification, no strong authentication evaluation — just a block or allow decision based on identity and risk.
+No MFA prompt, no device verification, no strong authentication evaluation, just a block or allow decision based on identity and risk.
 
 ---
 

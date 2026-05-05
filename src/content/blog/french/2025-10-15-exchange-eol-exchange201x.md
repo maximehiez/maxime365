@@ -37,7 +37,7 @@ Disponible depuis Juillet 2025, cette édition permet aux entreprises qui souhai
 ---
 
 ##### Conclusion
-La fin du support pour Exchange Server 2016 et 2019 marque un tournant vers des solutions plus modernes et sécurisées. Que vous choisissiez Exchange Online ou Exchange SE, l’objectif est clair : garantir la sécurité, la performance et la continuité de vos communications. L’avenir est au cloud et à l’intelligence artificielle — et il est temps de franchir le pas.
+La fin du support pour Exchange Server 2016 et 2019 marque un tournant vers des solutions plus modernes et sécurisées. Que vous choisissiez Exchange Online ou Exchange SE, l’objectif est clair : garantir la sécurité, la performance et la continuité de vos communications. L’avenir est au cloud et à l’intelligence artificielle, et il est temps de franchir le pas.
 
 ---
 

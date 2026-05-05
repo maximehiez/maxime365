@@ -19,7 +19,7 @@ Artificial intelligence is rapidly growing in the finance industry, but one real
 ##### Specialized AI for finance
 At its core, Opus 4.6 stands out for its significant advancements in financial reasoning and multi-step analysis. In Anthropic's internal assessments, the model showed an improvement of over 23 points in the real-world finance exercise compared to the previous generation.
 
-Unlike an AI that only responds to simple queries, Claude Opus 4.6 is designed to understand complex documents, analyze unstructured data, and produce results usable in realistic business contexts—whether reports, models, or presentations.
+Unlike an AI that only responds to simple queries, Claude Opus 4.6 is designed to understand complex documents, analyze unstructured data, and produce results usable in realistic business contexts-whether reports, models, or presentations.
 
 ![image](/images/blog/ai/ai_anthropic_introducing_claude_opus_4_6_001.png)
 
@@ -36,7 +36,7 @@ Version Opus 4.6 now handles advanced tasks such as :
 - Validating data
 - Formatting tailored to financial needs
 
-This means that complex models—previously time-consuming to build—can be generated, revised, and automated without tedious copying and pasting between multiple worksheets.
+This means that complex models, previously time-consuming to build, can be generated, revised, and automated without tedious copying and pasting between multiple worksheets.
 
 ![image](/images/blog/ai/ai_anthropic_introducing_claude_opus_4_6_002.png)
 <br/>

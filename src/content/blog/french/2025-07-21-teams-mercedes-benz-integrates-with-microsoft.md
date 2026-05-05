@@ -12,7 +12,7 @@ draft: false
 ---
 
 ##### Introduction
-Dans un marché automobile de plus en plus tourné vers la mobilité intelligente et connectée, *Mercedes-Benz* fait un pas de géant. Avec la nouvelle génération du modèle *CLA*, le constructeur allemand s’affranchit de la simple connectivité. Grâce à son partenariat avec Microsoft, il installe dans ses véhicules une panoplie d’outils dédiés aux professionnels : *Microsoft Teams*, *Intune*, et bientôt *Copilot*. Il ne s’agit plus seulement de voyager. Il s’agit de travailler en mouvement, sans renoncer à la sécurité ni à la conformité.
+Dans un marché automobile de plus en plus tourné vers la mobilité intelligente et connectée, *Mercedes-Benz* fait un pas de géant. Avec la nouvelle génération du modèle *CLA*, le constructeur Allemand s’affranchit de la simple connectivité. Grâce à son partenariat avec Microsoft, il installe dans ses véhicules une panoplie d’outils dédiés aux professionnels : *Microsoft Teams*, *Intune*, et bientôt *Copilot*. Il ne s’agit plus seulement de voyager. Il s’agit de travailler en mouvement, sans renoncer à la sécurité ni à la conformité.
 
 ---
 
@@ -68,7 +68,7 @@ Avec cette suite d’outils poussés (Teams, Intune, Copilot), Mercedes-Benz et 
 
 [Computerworld - Mercedes integrates Teams, Intune and Copilot](https://www.computerworld.com/article/4024644/auto-als-office-mercedes-integriert-teams-intune-und-copilot-2.html)
 
-[PCWorld - Copilot is coming to cars — and so are Teams calls](https://www.pcworld.com/article/2850680/copilot-is-coming-to-cars-and-so-are-teams-calls-on-the-road.html)
+[PCWorld - Copilot is coming to cars - and so are Teams calls](https://www.pcworld.com/article/2850680/copilot-is-coming-to-cars-and-so-are-teams-calls-on-the-road.html)
 
 ---
 

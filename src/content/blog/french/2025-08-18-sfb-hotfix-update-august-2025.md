@@ -18,9 +18,9 @@ Microsoft continue de maintenir activement *Skype for Business Server*, notammen
 
 ##### Versions prises en charge
 Le correctif d’Août 2025 s’applique aux versions suivantes :
-- Skype for Business Server 2015 CU13 (build 6.0.9319.881) — KB3061064
-- Skype for Business Server 2019 CU8 (build 7.0.2046.553) — KB4470124
-- Skype for Business Server Subscription Edition (SE) RTM (build 7.0.2046.820) — KB5065372
+- Skype for Business Server 2015 CU13 (build 6.0.9319.881) - KB3061064
+- Skype for Business Server 2019 CU8 (build 7.0.2046.553) - KB4470124
+- Skype for Business Server Subscription Edition (SE) RTM (build 7.0.2046.820) - KB5065372
 
 Ces builds constituent les versions minimales requises pour bénéficier de la nouvelle fonctionnalité d’application hybride dédiée.
 
@@ -30,7 +30,7 @@ Ces builds constituent les versions minimales requises pour bénéficier de la n
 **<u>Application hybride dédiée</u>**
 
 - Jusqu’à présent, Skype for Business utilisait un *Shared Service Principal* géré par Microsoft pour l’authentification et l’accès à *Exchange Online* (archives, présence via calendrier, synchronisation des photos de profil).
-- Désormais, Microsoft recommande vivement — et bientôt exigera — la mise en place d’une *application hybride dédiée* gérée par chaque organisation via leur tenant Entra ID. L’absence de cette configuration entraînera l’arrêt des fonctionnalités hybrides.
+- Désormais, Microsoft recommande vivement, et bientôt exigera, la mise en place d’une *application hybride dédiée* gérée par chaque organisation via leur tenant Entra ID. L’absence de cette configuration entraînera l’arrêt des fonctionnalités hybrides.
 <br/><br/>
 
 **<u>Continuité de *Skype Meetings Application*</u>**

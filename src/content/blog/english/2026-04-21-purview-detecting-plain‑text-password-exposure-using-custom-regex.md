@@ -32,10 +32,10 @@ Problem : a password can be any string of characters, which greatly increases fa
 
 ##### The Approach : Combining regex and context
 The effective approach is to detect not just the password itself, but rather the context in which it appears.
-<br /><br />
+<br/><br/>
 
 **Typical example : password = P@ssw0rd123**
-<br /><br />
+<br/><br/>
 
 In this case, the strategy consists of :
 - Detecting keywords like *"password"*, *"pwd"*, *"secret"*

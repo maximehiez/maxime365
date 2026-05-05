@@ -126,7 +126,7 @@ Microsoft releases a monthly update to *Microsoft 365 Copilot* to keep admins an
 ---
 
 ##### Conclusion
-This August 2025 wave strengthens agent governance, brings AI risk detection to Purview, and streamlines daily usage (on-demand GPT-5, centralized tools, image understanding, presentation generation, page summaries). Administrators gain control, users gain speed and context—enough to accelerate adoption while maintaining control.
+This August 2025 wave strengthens agent governance, brings AI risk detection to Purview, and streamlines daily usage (on-demand GPT-5, centralized tools, image understanding, presentation generation, page summaries). Administrators gain control, users gain speed and context-enough to accelerate adoption while maintaining control.
 
 ---
 

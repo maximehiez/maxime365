@@ -18,9 +18,9 @@ Microsoft continues to actively support *Skype for Business Server*, particularl
 
 ##### Supported versions
 The August 2025 hotfix applies to the following versions :
-- Skype for Business Server 2015 CU13 (build 6.0.9319.881) — KB3061064
-- Skype for Business Server 2019 CU8 (build 7.0.2046.553) — KB4470124
-- Skype for Business Server Subscription Edition (SE) RTM (build 7.0.2046.820) — KB5065372
+- Skype for Business Server 2015 CU13 (build 6.0.9319.881) - KB3061064
+- Skype for Business Server 2019 CU8 (build 7.0.2046.553) - KB4470124
+- Skype for Business Server Subscription Edition (SE) RTM (build 7.0.2046.820) - KB5065372
 
 These builds are the minimum versions required to take advantage of the new dedicated hybrid app feature.
 
@@ -30,7 +30,7 @@ These builds are the minimum versions required to take advantage of the new dedi
 **<u>Dedicated hybrid application</u>**
 
 - Until now, Skype for Business used a Microsoft-managed *Shared Service Principal* for authentication and access to *Exchange Online* (archives, presence via calendar, profile picture synchronization).
-- Microsoft now strongly recommends — and will soon require — the implementation of a *dedicated hybrid application* managed by each organization via their Entra ID tenant. Failure to do so will result in the discontinuation of hybrid functionality.
+- Microsoft now strongly recommends - and will soon require - the implementation of a *dedicated hybrid application* managed by each organization via their Entra ID tenant. Failure to do so will result in the discontinuation of hybrid functionality.
 <br/><br/>
 
 **<u>Continuity of *Skype Meetings Application*</u>**

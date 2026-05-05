@@ -19,7 +19,7 @@ Microsoft publie chaque mois un récapitulatif des évolutions de *Microsoft 365
 ##### Pour les administrateurs : Copilot Control System
 **<u>Inventaire des agents dans le centre d’administration</u>**
 
-- Les *agents SharePoint* rejoignent l’inventaire des agents du centre d’administration Microsoft 365, aux côtés des agents développés en interne et déployés sur les interfaces Microsoft 365, les agents créés par les utilisateurs avec *Microsoft Copilot Studio* dans *Copilot Chat*, et les agents tiers — avec actions de gouvernance (blocage, déblocage).
+- Les *agents SharePoint* rejoignent l’inventaire des agents du centre d’administration Microsoft 365, aux côtés des agents développés en interne et déployés sur les interfaces Microsoft 365, les agents créés par les utilisateurs avec *Microsoft Copilot Studio* dans *Copilot Chat*, et les agents tiers, avec actions de gouvernance (blocage, déblocage).
 - Déploiement : Septembre
 
 ![image](/images/blog/copilot/copilot_whats_new_in_copilot_august_2025_001.png)
@@ -125,7 +125,7 @@ Microsoft publie chaque mois un récapitulatif des évolutions de *Microsoft 365
 ---
 
 ##### Conclusion
-Cette vague d'Août 2025 renforce la gouvernance des agents, apporte des détections de risques IA côté Purview et fluidifie l’usage au quotidien (GPT-5 à la demande, outils centralisés, compréhension d’images, génération de présentations, résumé de pages). Les administrateurs gagnent en pilotage, les utilisateurs en vitesse et contexte — de quoi accélérer l’adoption tout en gardant la maîtrise.
+Cette vague d'Août 2025 renforce la gouvernance des agents, apporte des détections de risques IA côté Purview et fluidifie l’usage au quotidien (GPT-5 à la demande, outils centralisés, compréhension d’images, génération de présentations, résumé de pages). Les administrateurs gagnent en pilotage, les utilisateurs en vitesse et contexte, de quoi accélérer l’adoption tout en gardant la maîtrise.
 
 ---
 

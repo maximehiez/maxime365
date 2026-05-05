@@ -28,7 +28,7 @@ En Décembre 2025, *Mistral AI* a annoncé le lancement de *Mistral OCR* en vers
 ##### Expérience développeur et studio
 - Modèle : *mistral-ocr-2512* (intégration via API publique).
 - Document AI Playground dans Mistral AI Studio : Importez un PDF ou une image et récupérez du texte propre ou du JSON structuré sans coder.
-- Placeholders intelligents : Le Markdown fait référence aux images / tableaux via des placeholders (*![img-0.jpeg], [tbl-3.html]*) résolus à partir des tableaux images / tables du JSON — cela simplifie la reconstruction fidèle du document.
+- Placeholders intelligents : Le Markdown fait référence aux images / tableaux via des placeholders (*![img-0.jpeg], [tbl-3.html]*) résolus à partir des tableaux images / tables du JSON, cela simplifie la reconstruction fidèle du document.
 
 ---
 

@@ -56,11 +56,11 @@ Existing customers who already subscribe to Microsoft 365 or Office 365 suites w
 | Office 365 F3                    | 4.00$ (USD)   | Office 365 F3 (no Teams)                      | 3.50$ (USD)   |
 
 ###### Changes to Business Suites
-|    Existing suites with Teams    |    Pricing    |    New Suites without Teams (after Apr. 1)    |    Pricing    |
-| :------------------------------: | ------------: | :-------------------------------------------: | ------------: |
-| Microsoft 365 Business Basic     | 6.00$ (USD)   | Microsoft 365 Business Basic (no Teams)       | 4.75$ (USD)   |
-| Microsoft 365 Business Standard​  | 12.50$ (USD)   | Microsoft 365 Business Standard​ (no Teams)   | 10.25$ (USD)  |
-| Microsoft 365 Business Premium   | 22.00$ (USD)   | Microsoft 365 Business Premium (no Teams)    | 19.75$ (USD)  |
+|    Existing suites with Teams    |    Pricing     |    New Suites without Teams (after Apr. 1)    |    Pricing    |
+| :------------------------------: | -------------: | :-------------------------------------------: | ------------: |
+| Microsoft 365 Business Basic     | 6.00$ (USD)    | Microsoft 365 Business Basic (no Teams)       | 4.75$ (USD)   |
+| Microsoft 365 Business Standard​  | 12.50$ (USD)   | Microsoft 365 Business Standard​ (no Teams)    | 10.25$ (USD)  |
+| Microsoft 365 Business Premium   | 22.00$ (USD)   | Microsoft 365 Business Premium (no Teams)     | 19.75$ (USD)  |
 
 ###### Introducing a new Teams standalone license
 |    New Microsoft Teams Standalone (after Apr. 1)    |    Pricing    |
