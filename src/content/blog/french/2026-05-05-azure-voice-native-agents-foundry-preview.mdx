@@ -1,0 +1,100 @@
+---
+title: "Agents vocaux natifs dans Foundry en Public Preview"
+meta_title: ""
+description: ""
+date: 2026-05-05T10:00:00-05:00
+image: "/images/blog/azure/azure_voice_native_agents_foundry_preview_thumbnail.png"
+categories: ["Azure"]
+author: "Maxime Hiez"
+tags: ["IA", "Azure AI Foundry", "Voice Live", "API", "Agents IA", "Speech"]
+draft: false
+---
+---
+
+##### Introduction
+Microsoft a annoncé le 16 Mars 2026 la *Public Preview* des *Voice Native Agents* dans *Microsoft Azure AI Foundry*, une combinaison native de la *Voice Live API* et du *Foundry Agent Service*. L'objectif : permettre aux équipes de développement de construire des agents vocaux pilotés par l'IA, capables d'écouter, de raisonner et de répondre en temps réel, sans avoir à orchestrer manuellement les couches de reconnaissance vocale, de modèle de langage et de synthèse vocale. Pour les administrateurs *Microsoft 365* et *Azure* qui supervisent des projets d'automatisation ou de centre de contact, cette annonce marque un point d'inflexion concret.
+
+---
+
+##### Architecture : Voice Live API et Foundry Agent Service
+Les Voice Native Agents reposent sur deux briques complémentaires. La Voice Live API est une interface unifiée intégrant la reconnaissance vocale (*STT*), un moteur d'IA générative et la synthèse vocale (*TTS*), compatible avec l'API Azure OpenAI Realtime. Le *Foundry Agent Service* prend en charge le raisonnement, l'appel d'outils et l'exécution des flux de travail. Ensemble, ils forment un pipeline bout-en-bout en quatre étapes :
+
+1. L'utilisateur parle, l'audio est transmis en continu via la Voice Live API.
+2. La parole est traitée en temps réel et convertie en entrée conversationnelle.
+3. Le Foundry Agent Service raisonne, appelle des outils et exécute les actions définies.
+4. La réponse est générée et synthétisée, puis renvoyée sous forme de flux audio.
+
+Un point important pour les équipes déjà sur Azure OpenAI Realtime , il est possible d'ajouter les capacités *Azure Speech* (suppression de bruit, annulation d'écho, détection de fin de tour) aux applications existantes sans modifier l'architecture en place.
+
+![image](/images/blog/azure/azure_voice_native_agents_foundry_preview_001.png)
+
+---
+
+##### Modèles supportés et capacités vocales
+L'offre couvre une large gamme de modèles, tous gérés sans déploiement manuel. Les modèles disponibles à ce jour incluent : *<u>gpt-realtime</u>*, *<u>gpt-realtime-mini</u>*, *<u>gpt-4o</u>*, *<u>gpt-4o-mini</u>*, *<u>gpt-4.1</u>*, *<u>gpt-4.1-mini</u>*, *<u>gpt-5</u>*, *<u>gpt-5-mini</u>*, *<u>gpt-5-nano</u>*, ainsi que *<u>phi4-mm-realtime</u>* et *<u>phi4-mini</u>* (en preview).
+
+Sur le volet vocal, les capacités déclarées sont :
+
+- <u>Voix disponibles</u> : Plus de 700 voix réparties sur plus de 140 paramètres régionaux, dont 40 voix conversationnelles à haute naturalité.
+- <u>Traitement audio</u> : Suppression de bruit, annulation d'écho, détection d'interruption et détection avancée de fin de tour.
+- <u>Avatar TTS</u> : Disponible dans un nombre limité de régions (fonctionnalité en accès restreint à ce stade).
+
+La tarification s'articule en trois niveaux, effectifs depuis le 1er Juillet 2025 (les niveaux existaient avant l'intégration native avec Foundry, annoncée en Mars 2026) :
+
+- <u>Voice Live Pro</u> : gpt-realtime, gpt-4o, gpt-4.1, gpt-5, gpt-5-chat
+- <u>Voice Live Basic</u> : gpt-realtime-mini, gpt-4o-mini, gpt-4.1-mini, gpt-5-mini
+- <u>Voice Live Lite</u> : gpt-5-nano, phi4-mm-realtime, phi4-mini
+
+---
+
+##### Mise en place et prérequis
+La prise en main est conçue pour être rapide :
+- Abonnement Azure : Actif, avec une ressource *Microsoft Foundry* dans une région supportée.
+- Agent Foundry existant : La fonctionnalité s'applique à un agent déjà configuré dans le service.
+- Authentification : *Microsoft Entra ID* est obligatoire pour l'invocation de l'agent en mode vocal. L'authentification par clé API n'est pas supportée dans ce contexte.
+
+L'activation depuis le portail se limite à basculer l'interrupteur *Voice mode* dans le playground de l'agent. Aucune reconfiguration d'infrastructure n'est requise.
+
+Côté développement, des SDK sont disponibles pour les quatre environnements principaux :
+- <u>Python</u> : *azure-ai-voicelive*
+- <u>C#</u> : *Azure.AI.VoiceLive*
+- <u>JavaScript</u> : *@azure/ai-voicelive*
+- <u>Java</u> : Disponible
+
+![image](/images/blog/azure/azure_voice_native_agents_foundry_preview_002.png)
+
+<Notice type="note">L'intégration classique *Agent Service* est dépréciée au 31 Août 2026. Les équipes concernées doivent planifier la migration dès maintenant.</Notice>
+
+---
+
+##### Disponibilité régionale et limites de la preview
+La couverture régionale est large. La région *francecentral* est supportée, ce qui est pertinent pour les organisations soumises à des exigences de souveraineté des données. En revanche, l'intégration agent n'est pas disponible dans les régions suivantes : *canadacentral*, *centralindia*, *centralus*, *japanwest*, *koreacentral*, *northcentralus*, *uaenorth*, *westcentralus*.
+
+Deux cas d'usage concrets illustrent le potentiel en entreprise. *Gulf Air* utilise la solution pour permettre à ses dirigeants d'accéder à des données de gestion en temps réel par la voix, transformant la consultation de tableaux de bord statiques en interaction conversationnelle. *Sutherland* l'applique dans le secteur de la santé pour réduire les interventions manuelles sur les vérifications de statut et les suivis de refus de remboursement.
+
+La limite principale à retenir : aucun SLA n'est garanti en phase de preview. Un déploiement en production n'est pas recommandé à ce stade.
+
+---
+
+##### Conclusion
+Les Voice Native Agents dans Microsoft Azure AI Foundry s'adressent dès aujourd'hui aux équipes qui veulent prototyper des agents vocaux IA sans assembler manuellement une chaîne STT/LLM/TTS. La disponibilité en région francecentral et la compatibilité avec l'API Azure OpenAI Realtime existante en font une option viable pour les environnements européens dès l'évaluation. L'absence de SLA et la dépréciation du quickstart classique en août 2026 sont les deux points à surveiller pour ceux qui ont déjà commencé à construire sur l'ancienne intégration.
+
+---
+
+##### Sources
+[Microsoft - Techcommunity](https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/public-preview-voice-native-agents-in-microsoft-foundry/4502756)
+
+[Microsoft Learn - Voice Live API](https://learn.microsoft.com/fr-ca/azure/ai-services/speech-service/voice-live)
+
+[Microsoft Learn - Voice Live Agents Quickstart](https://learn.microsoft.com/fr-ca/azure/ai-services/speech-service/voice-live-agents-quickstart?tabs=windows&pivots=ai-foundry-portal)
+
+[Microsoft Learn - Régions supportées Voice Live](https://learn.microsoft.com/fr-ca/azure/ai-services/speech-service/regions?tabs=voice-live)
+
+[Microsoft Learn - Classic Quickstart (déprécié)](https://learn.microsoft.com/azure/ai-services/speech-service/voice-live-agents-quickstart-classic)
+
+---
+
+
+Avez-vous apprécié cet article ? Vous avez des questions, commentaires ou suggestions, n'hésitez pas à m'envoyer un message depuis le formulaire de contact.
+
+N'oubliez pas de nous suivre et de partager cet article.
