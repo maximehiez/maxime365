@@ -1,0 +1,95 @@
+---
+title: "Anthropic dévoile Claude Opus 4.7, avec un nouveau tokenizer"
+meta_title: ""
+description: ""
+date: 2026-05-12T10:00:00-05:00
+image: "/images/blog/ai/ai_anthropic_introducing_claude_opus_4_7_thumbnail.png"
+categories: ["Anthropic"]
+author: "Maxime Hiez"
+tags: ["IA", "Claude", "API", "Agentique"]
+draft: false
+---
+---
+
+##### Introduction
+*Anthropic* a annoncé le 16 Avril 2026 la disponibilité générale de *Claude Opus 4.7*, successeur direct de [Claude Opus 4.6](https://maxime.hiez.ca/blog/2026-02-13-ai-anthropic-introducing-claude-opus-4-6). Le tarif affiché reste identique, 5$ / 1M tokens en entrée et 25$ / 1M tokens en sortie, mais un nouveau tokenizer modifie le coût réel par requête de façon significative. Pour les équipes qui opèrent des workflows agentiques ou des pipelines de code sur l'*API* *Anthropic*, *Amazon Bedrock*, *Google Cloud Vertex AI* ou *Microsoft Foundry*, les implications sont concrètes avant même de regarder les performances.
+
+---
+
+##### Ce qui change par rapport à Opus 4.6
+Claude Opus 4.7 introduit plusieurs changements structurants qui affectent directement la façon dont les prompts existants se comportent.
+
+Le premier point concerne le suivi d'instructions. Le modèle est nettement plus strict dans l'interprétation littérale des directives. Les prompts écrits pour Opus 4.6 qui reposaient sur une interprétation souple risquent de produire des résultats inattendus. Un audit des prompts en production est à prévoir avant toute migration.
+
+Les autres changements notables :
+- <u>Niveau d'effort *xhigh*</u> : Un nouveau palier s'intercale entre *high* et *max*, offrant un contrôle plus fin sur le compromis raisonnement/latence. *Claude Code* adopte ce niveau par défaut.
+- <u>Mémoire fichier système</u> : Le modèle gère mieux la persistance de contexte entre sessions longues via le système de fichiers, un atout pour les agents multi-sessions.
+- <u>Mode autonome étendu</u> : Les abonnés *Max* bénéficient d'un mode où le modèle prend des décisions de façon plus autonome pendant les tâches longues, avec moins d'interruptions.
+- <u>Fonctionnalités bêta</u> : *Task budgets* (enveloppe de tokens pour guider les agents) et la commande */ultrareview* pour les sessions de revue de code.
+
+![image](/images/blog/ai/ai_anthropic_introducing_claude_opus_4_7_001.png)
+
+---
+
+##### Vision haute résolution : un saut utile pour l'agentique
+Opus 4.7 accepte désormais des images jusqu'à 2576 pixels sur le grand côté, soit environ 3.75 mégapixels, soit plus de trois fois la résolution supportée par les versions antérieures de Claude. Cette capacité n'est pas anecdotique pour les workflows agentiques : les agents de type *computer use* peuvent traiter des captures d'écran denses, des diagrammes techniques et des structures chimiques sans perte d'information liée au redimensionnement. Pour les équipes qui utilisent le modèle pour l'analyse de dashboards ou de documents scannés à haute résolution, ce changement réduit les étapes de prétraitement.
+
+---
+
+##### Benchmarks
+Les résultats ci-dessous proviennent de sources secondaires, aucun rapport technique officiel Anthropic n'avait été publié au moment de la rédaction. Ils donnent un positionnement indicatif.
+
+|                    | Opus 4.7 | Opus 4.6 | Écart     |
+|--------------------|---------:|---------:|----------:|
+| SWE-bench Verified | 87.6%    | 80.8%    | +6.8 pts  |
+| SWE-bench Pro      | 64.3%    | 53.4%    | +10.9 pts |
+| GPQA Diamond       | 94.2%    | 91.3%    | +2.9 pts  |
+| OSWorld-Verified   | 78.0%    | 72.7%    | +5.3 pts  |
+| XBOW visual-acuity | 98.5%    | 54.5%    | +44 pts   |
+| Finance Agent      | 64.4%    | 60.7%    | +3.7 pts  |
+
+Le gain de 44 points sur *XBOW visual-acuity* reflète directement l'amélioration de la résolution image. Les progressions sur *SWE-bench Pro* (+10.9 pts) et *OSWorld-Verified* (+5.3 pts) confirment un renforcement concret sur les tâches agentiques et l'ingénierie logicielle.
+
+---
+
+##### L'impact financier réel : le nouveau tokenizer
+Le tarif affiché d'Opus 4.7 est identique à celui d'Opus 4.6, mais un nouveau tokenizer génère jusqu'à 35% de tokens supplémentaires pour un même texte. Le surcoût réel par requête se situe entre 0% et +35% selon le contenu :
+- <u>Code et données structurées</u> : Les plus exposés, la densité syntaxique amplifie l'effet tokenizer.
+- <u>Textes non-anglais</u> : Également plus impactés que l'anglais courant.
+- <u>Texte narratif en anglais</u> : Impact minimal ou nul.
+
+Plusieurs leviers permettent de mitiger ce surcoût :
+- <u>Prompt caching</u> : Cache write 5 min à 6.25$ / 1M tokens, cache write 1h à 10$ / 1M tokens, cache hit à 0.50$ / 1M tokens. Efficace pour les prompts système stables.
+- <u>Batch API</u> : 2.50$ / 1M tokens en entrée et 12.50$ / 1M tokens en sortie, soit une réduction de 50% pour les traitements différés.
+- <u>Microsoft Foundry</u> : Opus 4.7 est disponible via Microsoft Foundry, avec la tarification publiée sur [https://azure.microsoft.com/fr-ca/pricing/details/microsoft-foundry](https://azure.microsoft.com/fr-ca/pricing/details/microsoft-foundry).
+
+À noter, le mode *Fast* n'est pas disponible pour Opus 4.7 ; il reste réservé à Opus 4.6 (30$ / 150$ par 1M tokens).
+
+<Notice type="info">Avant de migrer un workflow Opus 4.6 en production, il est conseillé de mesurer le volume de tokens réel avec Opus 4.7 sur un échantillon représentatif de requêtes. La facturation peut augmenter sensiblement sans changement de tarif affiché.</Notice>
+
+---
+
+##### Conclusion
+*Claude Opus 4.7* apporte des gains mesurables sur les tâches agentiques, l'ingénierie logicielle et l'analyse visuelle. Le changement le plus risqué à court terme n'est pas la performance, c'est la combinaison d'un suivi d'instructions plus strict et d'un tokenizer plus gourmand. Pour les équipes M365/Azure qui opèrent des pipelines sur l'API Anthropic ou via Microsoft Foundry, la démarche recommandée est de qualifier les prompts existants sur *Opus 4.7* en environnement de staging, de mesurer la différence de tokens sur des requêtes représentatives, puis d'activer le prompt caching sur les prompts système avant de basculer en production.
+
+---
+
+##### Sources
+[Anthropic - Claude Opus 4.7](https://www.anthropic.com/news/claude-opus-4-7)
+
+[Parler avec Claude Opus 4.6](https://claude.ai)
+
+[Anthropic - Pricing](https://platform.claude.com/docs/en/about-claude/pricing)
+
+[llm-stats.com - Claude Opus 4.7 Launch](https://llm-stats.com/blog/research/claude-opus-4-7-launch)
+
+[OpenRouter - Claude Opus 4.7](https://openrouter.ai/anthropic/claude-opus-4.7)
+
+[Finout - Claude Opus 4.7 Pricing : The Real Cost Story](https://www.finout.io/blog/claude-opus-4.7-pricing-the-real-cost-story-behind-the-unchanged-price-tag)
+
+---
+
+
+Avez-vous apprécié cet article ? Vous avez des questions, commentaires ou suggestions, n'hésitez pas à m'envoyer un message depuis le formulaire de contact.
+
+N'oubliez pas de nous suivre et de partager cet article.

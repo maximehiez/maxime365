@@ -1,0 +1,95 @@
+---
+title: "Anthropic unveils Claude Opus 4.7, with a new tokenizer"
+meta_title: ""
+description: ""
+date: 2026-05-12T10:00:00-05:00
+image: "/images/blog/ai/ai_anthropic_introducing_claude_opus_4_7_thumbnail.png"
+categories: ["Anthropic"]
+author: "Maxime Hiez"
+tags: ["AI", "Claude", "API", "Agentic"]
+draft: false
+---
+---
+
+##### Introduction
+*Anthropic* announced on April 16, 2026 the general availability of *Claude Opus 4.7*, the direct successor to [Claude Opus 4.6](https://maxime.hiez.ca/en/blog/2026-02-13-ai-anthropic-introducing-claude-opus-4-6). The listed price remains identical, 5$ / 1M input tokens and 25$ / 1M output tokens, but a new tokenizer changes the real cost per request significantly. For teams running agentic workflows or code pipelines on the *Anthropic* API, *Amazon Bedrock*, *Google Cloud Vertex AI*, or *Microsoft Foundry*, the implications are concrete before even looking at performance.
+
+---
+
+##### What changes compared to Opus 4.6
+Claude Opus 4.7 introduces several structural changes that directly affect how existing prompts behave.
+
+The first point concerns instruction following. The model is substantially stricter in its literal interpretation of directives. Prompts written for Opus 4.6 that relied on loose interpretation may produce unexpected results. An audit of production prompts is recommended before any migration.
+
+Other notable changes :
+- <u>*xhigh* effort level</u> : A new tier sits between *high* and *max*, offering finer control over the reasoning/latency tradeoff. *Claude Code* defaults to this level.
+- <u>Filesystem memory</u> : The model handles context persistence better across long multi-session work via the file system, an asset for multi-session agents.
+- <u>Extended autonomous mode</u> : *Max* subscribers benefit from a mode where the model makes decisions more autonomously during long tasks, with fewer interruptions.
+- <u>Beta features</u> : *Task budgets* (token envelope to guide agents) and the */ultrareview* command for code review sessions.
+
+![image](/images/blog/ai/ai_anthropic_introducing_claude_opus_4_7_001.png)
+
+---
+
+##### High-resolution vision : a useful leap for agentic use
+Opus 4.7 now accepts images up to 2576 pixels on the long edge, approximately 3.75 megapixels, more than three times the resolution supported by previous Claude versions. This capability is not trivial for agentic workflows : *computer use* agents can process dense screenshots, technical diagrams, and chemical structures without information loss from resizing. For teams using the model to analyze dashboards or high-resolution scanned documents, this change reduces preprocessing steps.
+
+---
+
+##### Benchmarks
+The results below come from secondary sources, no official Anthropic technical report had been published at the time of writing. They provide an indicative positioning.
+
+|                    | Opus 4.7 | Opus 4.6 | Delta     |
+|--------------------|---------:|---------:|----------:|
+| SWE-bench Verified | 87.6%    | 80.8%    | +6.8 pts  |
+| SWE-bench Pro      | 64.3%    | 53.4%    | +10.9 pts |
+| GPQA Diamond       | 94.2%    | 91.3%    | +2.9 pts  |
+| OSWorld-Verified   | 78.0%    | 72.7%    | +5.3 pts  |
+| XBOW visual-acuity | 98.5%    | 54.5%    | +44 pts   |
+| Finance Agent      | 64.4%    | 60.7%    | +3.7 pts  |
+
+The 44-point gain on *XBOW visual-acuity* directly reflects the image resolution improvement. The progressions on *SWE-bench Pro* (+10.9 pts) and *OSWorld-Verified* (+5.3 pts) confirm concrete reinforcement on agentic tasks and software engineering.
+
+---
+
+##### The real financial impact : the new tokenizer
+The listed price of Opus 4.7 is identical to Opus 4.6, but a new tokenizer generates up to 35% more tokens for the same text. The real cost increase per request sits between 0% and +35% depending on content :
+- <u>Code and structured data</u> : Most exposed, syntactic density amplifies the tokenizer effect.
+- <u>Non-English text</u> : Also more impacted than everyday English.
+- <u>Narrative English text</u> : Minimal or no impact.
+
+Several levers can mitigate this cost increase :
+- <u>Prompt caching</u> : Cache write 5 min at 6.25$ / 1M tokens, cache write 1h at 10$ / 1M tokens, cache hit at 0.50$ / 1M tokens. Effective for stable system prompts.
+- <u>Batch API</u> : 2.50$ / 1M input tokens and 12.50$ / 1M output tokens, a 50% reduction for deferred processing.
+- <u>Microsoft Foundry</u> : Opus 4.7 is available via Microsoft Foundry, with pricing published at [https://azure.microsoft.com/en-us/pricing/details/microsoft-foundry](https://azure.microsoft.com/en-us/pricing/details/microsoft-foundry).
+
+To note, *Fast* mode is not available for Opus 4.7 ; it remains reserved for Opus 4.6 (30$ / 150$ per 1M tokens).
+
+<Notice type="info">Before migrating an Opus 4.6 workflow to production, measure the actual token volume with Opus 4.7 on a representative sample of requests. The bill can increase noticeably without any change to the listed price.</Notice>
+
+---
+
+##### Conclusion
+Claude Opus 4.7 delivers measurable gains on agentic tasks, software engineering, and visual analysis. The highest short-term risk is not performance, it is the combination of stricter instruction following and a more token-hungry tokenizer. For M365/Azure teams running pipelines on the Anthropic API or via Microsoft Foundry, the recommended approach is to qualify existing prompts on Opus 4.7 in a staging environment, measure the token delta on representative requests, then enable prompt caching on system prompts before switching to production.
+
+---
+
+##### Sources
+[Anthropic - Claude Opus 4.7](https://www.anthropic.com/news/claude-opus-4-7)
+
+[Chat with Claude Opus 4](https://claude.ai)
+
+[Anthropic - Pricing](https://platform.claude.com/docs/en/about-claude/pricing)
+
+[llm-stats.com - Claude Opus 4.7 Launch](https://llm-stats.com/blog/research/claude-opus-4-7-launch)
+
+[OpenRouter - Claude Opus 4.7](https://openrouter.ai/anthropic/claude-opus-4.7)
+
+[Finout - Claude Opus 4.7 Pricing : The Real Cost Story](https://www.finout.io/blog/claude-opus-4.7-pricing-the-real-cost-story-behind-the-unchanged-price-tag)
+
+---
+
+
+Did you enjoy this post ? If you have any questions, comments or suggestions, please feel free to send me a message from the contact form.
+
+Don't forget to follow us and share this post.
