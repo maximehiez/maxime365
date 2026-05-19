@@ -83,7 +83,7 @@ La version 15.2.0 contient les mises à jour suivantes :
 - Correction d'un problème lié à *New-AzFrontDoorWafManagedRuleOverrideObject*.
 <br/><br/>
 
-**<u>Az.KeyVault</u>**</u>**
+**<u>Az.KeyVault</u>*
 - Mise à jour d'*Azure Core* de la version *1.47.3* à la version *1.50.0*.
 <br/><br/>
 

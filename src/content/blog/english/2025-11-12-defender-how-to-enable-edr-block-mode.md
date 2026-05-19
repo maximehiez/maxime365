@@ -55,9 +55,9 @@ Sign in to the Microsoft Intune Admin Center by opening your web browser to http
 ---
 
 ##### Step 4 : Activate the *Endpoint Detection and Response* policy
-In the left menu, click *<u>Endpoint security*</u>, then *<u>Endpoint detection and response*</u>.
+In the left menu, click *<u>Endpoint security</u>*, then *<u>Endpoint detection and response</u>*.
 
-Click *<u>Deploy preconfigured policy*</u>, and create a policy for the *Windows* platform, keeping all the default options.
+Click *<u>Deploy preconfigured policy</u>*, and create a policy for the *Windows* platform, keeping all the default options.
 
 ![image](/images/blog/defender/tuto/defender_how_to_enable_edr_block_mode_003.png)
 
@@ -68,7 +68,7 @@ After a few minutes, the policy is deployed on the device.
 ---
 
 ##### Step 5 : Validate the *Block Mode*
-In the left menu, click *<u>Assets*</u>, then *<u>Devices*</u>.
+In the left menu, click *<u>Assets</u>*, then *<u>Devices</u>*.
 
 The device is now visible in the Defender console.
 

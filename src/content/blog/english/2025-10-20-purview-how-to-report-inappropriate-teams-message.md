@@ -49,7 +49,7 @@ Sign in to the Microsoft Purview Portal by opening your web browser to https://p
 
 ---
 
-##### Step 4: Access Reported Messages
+##### Step 4 : Access reported messages
 In the left menu, click *<u>Solutions</u>*, then *<u>Communication Compliance</u>*.
 
 Click *<u>User-reported messages</u>* to view the list of reported messages.

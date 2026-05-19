@@ -29,7 +29,7 @@ Sign in to the Microsoft 365 Admin Center by opening your web browser to https:/
 
 ---
 
-##### Step 2: Activate Claude AI as a model
+##### Step 2 : Activate Claude AI as a model
 In the left menu, click *<u>Copilot</u>*, then *<u>Settings</u>*, and *<u>Data access</u>*.
 
 ![image](/images/blog/copilot/tuto/copilot_how_to_add_claude_ai_as_a_subprocessor_001.png)
