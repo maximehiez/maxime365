@@ -75,7 +75,7 @@ With Claude Opus 4.1, Anthropic confirms its position as a leader in generative 
 ##### Sources
 [Anthropic - Claude Opus 4.1](https://www.anthropic.com/news/claude-4)
 
-[Chat with Claude Opus 4](https://claude.ai)
+[Chat with Claude Opus 4.1](https://claude.ai)
 
 ---
 

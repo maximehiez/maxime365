@@ -87,7 +87,7 @@ With Claude Opus 4.6, artificial intelligence does more than just assist, it tru
 ##### Sources
 [Anthropic - Claude Opus 4.6](https://claude.com/blog/opus-4-6-finance)
 
-[Chat with Claude Opus 4](https://claude.ai)
+[Chat with Claude Opus 4.6](https://claude.ai)
 
 ---
 

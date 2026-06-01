@@ -4,7 +4,7 @@ meta_title: ""
 description: ""
 date: 2025-06-13T10:00:00-05:00
 image: "/images/blog/sharepoint/sharepoint_esignaturefor_word_thumbnail.png"
-categories: ["Sharepoint"]
+categories: ["SharePoint"]
 author: "Maxime Hiez"
 tags: ["Word", "Signature", "PDF"]
 draft: false
