@@ -35,7 +35,7 @@ Update-Module MicrosoftTeams
 ---
 
 ##### What's new ?
-Version 7.5.0 contains the following updates :
+Version 7.5.0 includes the following updates :
 
 - Adds *PickUpHeldCalls* and *JoinActiveCalls* parameters to the *[New|Set]-CsUserCallingDelegate* cmdlets and corresponding output attributes to the *Get-CsUserCallingSettings* cmdlet.
 - Adds *AssignmentBlockedState* and *AssignmentBlockedUntil* output attributes to *[Get]-CsPhoneNumberAssignment* cmdlet.

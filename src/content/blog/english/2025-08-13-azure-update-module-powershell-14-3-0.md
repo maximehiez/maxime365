@@ -35,7 +35,7 @@ Update-Module Az -Force
 ---
 
 ##### What's new ?
-Version 14.3.0 contains the following updates :
+Version 14.3.0 includes the following updates :
 
 **<u>Az.Accounts</u>**
 - Fixed an issue where *Clear-AzContext* does not clear the token cache when broker is enabled.

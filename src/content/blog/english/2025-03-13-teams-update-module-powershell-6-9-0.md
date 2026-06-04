@@ -35,7 +35,7 @@ Update-Module MicrosoftTeams
 ---
 
 ##### What's new ?
-Version 6.9.0 contains the following updates :
+Version 6.9.0 includes the following updates :
 
 - Adds *FileContent* parameter to *New-CsOnlineDirectRoutingTelephoneNumberUploadOrder* cmdlet.
 - Adds *FileContent* parameter to *New-CsOnlineTelephoneNumberReleaseOrder* cmdlet.

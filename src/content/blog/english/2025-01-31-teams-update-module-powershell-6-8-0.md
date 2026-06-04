@@ -35,7 +35,7 @@ Update-Module MicrosoftTeams
 ---
 
 ##### What's new ?
-Version 6.8.0 contains the following updates :
+Version 6.8.0 includes the following updates :
 
 - Adds an optional parameter *TargetType* to *Get-CsOnlineTelephoneNumberOrder* cmdlet.
 - [BREAKING CHANGE] Changes output attribute from *TelephoneNumber* to *TelephoneNumbers* in *Get-CsOnlineTelephoneNumberOrder* cmdlet.

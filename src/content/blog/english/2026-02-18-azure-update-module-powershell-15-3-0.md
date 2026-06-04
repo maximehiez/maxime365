@@ -35,7 +35,7 @@ Update-Module Az -Force
 ---
 
 ##### What*s new ?
-Version 15.3.0 contains the following updates :
+Version 15.3.0 includes the following updates :
 
 **<u>Az.Aks</u>**
 - Fixed the default SSH key generation logic in *New-AzAksCluster* to enforce RSA key type (instead of ed25519 that became the default in *OpenSSH* 9.4 and above).

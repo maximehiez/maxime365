@@ -35,7 +35,7 @@ Update-Module Az -Force
 ---
 
 ##### What's new ?
-Version 14.1.0 contains the following updates :
+Version 14.1.0 includes the following updates :
 
 **<u>Az.Accounts</u>**
 - Upgrade *Azure.Core* to 1.45.0.

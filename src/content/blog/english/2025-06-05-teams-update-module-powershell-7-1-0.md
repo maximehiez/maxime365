@@ -35,7 +35,7 @@ Update-Module MicrosoftTeams
 ---
 
 ##### What's new ?
-Version 7.1.0 contains the following updates :
+Version 7.1.0 includes the following updates :
 
 - Adds *ThreadedChannelCreation* parameter to *[New|Set]-CsTeamsChannelsPolicy* cmdlets.
 - Adds *BroadcastPremiumApps* parameter to *[New|Set]-CsTeamsEventsPolicy* cmdlets.

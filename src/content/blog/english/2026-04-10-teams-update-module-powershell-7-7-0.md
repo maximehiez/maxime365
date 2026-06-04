@@ -35,7 +35,7 @@ Update-Module MicrosoftTeams
 ---
 
 ##### What's new ?
-Version 7.7.0 contains the following updates :
+Version 7.7.0 includes the following updates :
 
 - Fixes *IPAddressVersion* parameter in *[Set|New]-CsOnlinePstnGateway* cmdlets.
 - Releases *[Set|Remove]-CsPhoneNumberSmsActivation* cmdlets.

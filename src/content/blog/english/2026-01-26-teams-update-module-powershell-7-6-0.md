@@ -35,7 +35,7 @@ Update-Module MicrosoftTeams
 ---
 
 ##### What's new ?
-Version 7.6.0 contains the following updates :
+Version 7.6.0 includes the following updates :
 
 - Releases *Get-CsAiAgents* cmdlet.
 - Releases *New-CsPhoneNumberBulkUpdateTagsOrder* cmdlet.

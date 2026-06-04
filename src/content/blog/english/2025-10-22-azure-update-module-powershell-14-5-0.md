@@ -35,7 +35,7 @@ Update-Module Az -Force
 ---
 
 ##### What's new ?
-Version 14.5.0 contains the following updates :
+Version 14.5.0 includes the following updates :
 
 **<u>Az.Automation</u>**
 - Fixed runbook_type : *PowerShell72* [#24779][#23967].

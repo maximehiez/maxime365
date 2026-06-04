@@ -35,7 +35,7 @@ Update-Module MicrosoftTeams
 ---
 
 ##### What's new ?
-Version 7.0.0 contains the following updates :
+Version 7.0.0 includes the following updates :
 
 - Adds *ShiftsTeamId* and *ShiftsSchedulingGroupId* parameters to *[New|Set]-CsCallQueue* cmdlets.
 - [BREAKING CHANGE] Deprecates *CustomizeFederation* parameter from *[Get|Set]-CsTenantFederationConfiguration* cmdlets.

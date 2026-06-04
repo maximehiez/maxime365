@@ -35,7 +35,7 @@ Update-Module Az -Force
 ---
 
 ##### What's new ?
-Version 13.3.0 contains the following updates :
+Version 13.3.0 includes the following updates :
 
 **<u>Az.CosmosDB</u>**
 - Added support for Cosmos DB Table role definition and role assignment related cmdlets.

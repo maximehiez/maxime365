@@ -35,7 +35,7 @@ Update-Module Az -Force
 ---
 
 ##### What's new ?
-Version 15.2.0 contains the following updates :
+Version 15.2.0 includes the following updates :
 
 **<u>Az.Accounts</u>**
 - Updated *Azure.Core* from *1.47.3* to *1.50.0*.

@@ -35,7 +35,7 @@ Update-Module Az -Force
 ---
 
 ##### What's new ?
-Version 15.4.0 contains the following updates :
+Version 15.4.0 includes the following updates :
 
 **<u>Az.Accounts</u>**
 - Updated MSAL to *4.82.1* to fix an issue with ARM endpoint discovery.

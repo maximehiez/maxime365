@@ -35,7 +35,7 @@ Update-Module Az -Force
 ---
 
 ##### What's new ?
-Version 14.2.0 contains the following updates :
+Version 14.2.0 includes the following updates :
 
 **<u>Az.Accounts</u>**
 - Updated the date in the message about multi-factor authentication (MFA). For more details, see https://go.microsoft.com/fwlink/?linkid=2276971

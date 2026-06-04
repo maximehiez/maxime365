@@ -35,7 +35,7 @@ Update-Module MicrosoftTeams
 ---
 
 ##### What's new ?
-Version 7.3.0 contains the following updates :
+Version 7.3.0 includes the following updates :
 
 - Adds *Notify* parameter to *[Set|Remove]-CsPhoneNumberAssignment* cmdlets.
 - Releases *[New|Set|Remove|Get|Grant]-CsTeamsPersonalAttendantPolicy* cmdlets.

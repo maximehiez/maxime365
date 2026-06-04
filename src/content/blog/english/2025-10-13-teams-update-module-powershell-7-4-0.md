@@ -35,7 +35,7 @@ Update-Module MicrosoftTeams
 ---
 
 ##### What's new ?
-Version 7.4.0 contains the following updates :
+Version 7.4.0 includes the following updates :
 
 - Releases *Get-TeamsArtifacts* cmdlet.
 - Adds *MainlineAttendantAgentVoiceId* parameter to *New-CsAutoAttendant* cmdlet.
