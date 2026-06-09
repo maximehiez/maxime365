@@ -4,7 +4,7 @@ meta_title: ""
 description: ""
 date: 2026-06-08T10:00:00-05:00
 image: "/images/blog/teams/tuto/teams_how_to_create_direct_routing_alerts_sbc_thumbnail.png"
-categories: ["Teams"]
+categories: ["Teams", "Tutorial"]
 author: "Maxime Hiez"
 tags: ["Direct Routing", "SBC", "Alerts"]
 draft: false
