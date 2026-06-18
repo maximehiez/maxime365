@@ -6,7 +6,7 @@ date: 2025-11-12T10:00:00-05:00
 image: "/images/blog/defender/tuto/defender_how_to_enable_edr_block_mode_thumbnail.png"
 categories: ["Defender", "Tutoriel"]
 author: "Maxime Hiez"
-tags: ["EDR", "Antivirus", "Block Mode", "Sécurité"]
+tags: ["EDR", "Antivirus", "Block Mode", "Sécurité", "PowerShell"]
 draft: false
 ---
 ---

@@ -6,7 +6,7 @@ date: 2025-04-04T10:00:00-05:00
 image: "/images/blog/mtr/tuto/mtr_how_to_enable_meeting_third_party_join_thumbnail.png"
 categories: ["MTR", "Tutorial"]
 author: "Maxime Hiez"
-tags: ["Teams Rooms", "MTRoW", "MTRoA", "Zoom", "Webex", "Microsoft Teams Rooms Pro Management", "Direct Guest Join", "Safe Links"]
+tags: ["Teams Rooms", "MTRoW", "MTRoA", "Zoom", "Webex", "Microsoft Teams Rooms Pro Management", "Direct Guest Join", "Safe Links", "PowerShell"]
 draft: false
 ---
 ---

@@ -6,7 +6,7 @@ date: 2025-06-11T11:00:00-05:00
 image: "/images/blog/teams/tuto/teams_how_to_configure_calling_plan_spend_limit_thumbnail.png"
 categories: ["Teams", "Tutoriel"]
 author: "Maxime Hiez"
-tags: ["Licences", "Téléphonie", "Calling Plan", "Pay-As-You-Go"]
+tags: ["Licences", "Téléphonie", "Calling Plan", "Pay-As-You-Go", "PowerShell"]
 draft: false
 ---
 ---

@@ -6,7 +6,7 @@ date: 2025-10-14T10:00:00-05:00
 image: "/images/blog/teams/teams_malicious_url_protection_thumbnail.png"
 categories: ["Teams"]
 author: "Maxime Hiez"
-tags: ["Safe Links", "Phishing"]
+tags: ["Safe Links", "Phishing", "PowerShell"]
 draft: false
 ---
 ---

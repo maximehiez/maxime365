@@ -6,7 +6,7 @@ date: 2024-12-16T10:00:00-05:00
 image: "/images/blog/entra/tuto/entra_how_to_activate_passkey_thumbnail.png"
 categories: ["Entra ID", "Tutorial"]
 author: "Maxime Hiez"
-tags: ["Passkey", "Password", "Authenticator", "FIDO2", "MFA", "Security"]
+tags: ["Passkey", "Password", "Authenticator", "FIDO2", "MFA", "Security", "PowerShell"]
 draft: false
 ---
 ---

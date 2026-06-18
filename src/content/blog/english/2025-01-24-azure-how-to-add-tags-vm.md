@@ -6,7 +6,7 @@ date: 2025-01-24T10:00:00-05:00
 image: "/images/blog/azure/tuto/azure_how_to_add_tags_vm_thumbnail.png"
 categories: ["Azure", "Tutorial"]
 author: "Maxime Hiez"
-tags: ["Tags", "Virtual machine"]
+tags: ["Tags", "Virtual machine", "PowerShell"]
 draft: false
 ---
 ---

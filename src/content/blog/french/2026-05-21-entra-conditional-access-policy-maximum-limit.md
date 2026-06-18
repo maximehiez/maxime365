@@ -6,7 +6,7 @@ date: 2026-05-21T10:00:00-05:00
 image: "/images/blog/entra/entra_conditional_access_policy_maximum_limit_thumbnail.png"
 categories: ["Entra ID"]
 author: "Maxime Hiez"
-tags: ["Accès conditionnels", "Sécurité"]
+tags: ["Accès conditionnels", "Sécurité", "PowerShell"]
 draft: false
 ---
 ---

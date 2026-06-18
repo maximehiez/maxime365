@@ -6,7 +6,7 @@ date: 2026-05-26T10:00:00-05:00
 image: "/images/blog/teams/teams_interpreter_agent_consecutive_interpretation_thumbnail.png"
 categories: ["Teams"]
 author: "Maxime Hiez"
-tags: ["AI", "Interpreter", "Meeting"]
+tags: ["AI", "Interpreter", "Meeting", "PowerShell"]
 draft: false
 ---
 ---

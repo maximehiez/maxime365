@@ -6,7 +6,7 @@ date: 2025-12-08T10:00:00-05:00
 image: "/images/blog/exchange/tuto/exchange_how_to_setup_calendar_sharing_between_tenants_thumbnail.png"
 categories: ["Exchange", "Tutorial"]
 author: "Maxime Hiez"
-tags: ["Calendar", "Sharing"]
+tags: ["Calendar", "Sharing", "PowerShell"]
 draft: false
 ---
 ---
