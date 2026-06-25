@@ -12,7 +12,7 @@ draft: false
 ---
 
 ##### Introduction
-Microsoft Teams Premium introduit une nouvelle fonctionnalité de vérification par courriel pour les participants externes, renforçant ainsi la sécurité et la fiabilité de vos réunions. Cette fonctionnalité permet aux organisateurs de réunions d'exiger que les participants externes vérifient leur adresse courriel avant de rejoindre la réunion, offrant ainsi une meilleure gestion des participants externes.
+*Microsoft Teams Premium* introduit une nouvelle fonctionnalité de vérification par courriel pour les participants externes, renforçant ainsi la sécurité et la fiabilité de vos réunions. Cette fonctionnalité permet aux organisateurs de réunions d'exiger que les participants externes vérifient leur adresse courriel avant de rejoindre la réunion, offrant ainsi une meilleure gestion des participants externes.
 
 ---
 

@@ -12,7 +12,7 @@ draft: false
 ---
 
 ##### Introduction
-Microsoft Teams Premium introduces a new feature to enhance the security and reliability of your meetings: email verification for external participants. This feature allows meeting organizers to require external participants to verify their email addresses before joining a meeting, providing a more secure and trustworthy environment.
+*Microsoft Teams Premium* introduces a new feature to enhance the security and reliability of your meetings: email verification for external participants. This feature allows meeting organizers to require external participants to verify their email addresses before joining a meeting, providing a more secure and trustworthy environment.
 
 ---
 

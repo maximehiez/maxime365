@@ -16,6 +16,12 @@ Microsoft has activated a setting in the tenants (by default) to allow any user 
 
 ---
 
+##### Prerequisites
+**<u>Administrator role</u>**
+- An account with the *Global Administrator* or *Billing Administrator* role to access the Microsoft 365 Admin Center.
+
+---
+
 ##### Step 1 : Sign in to the Microsoft 365 Admin Center
 Sign in to the Microsoft 365 Admin Center by opening your web browser to https://admin.microsoft.com/Adminportal.
 
@@ -44,7 +50,7 @@ Get-MSCommerceProductPolicies -PolicyId AllowSelfServicePurchase | Where { $_.Po
 
 ---
 
-##### Result
+##### Validate the result
 The result is visible by going to the left menu of the Microsoft 365 Admin Center and clicking *<u>Settings</u>*, then *<u>Org settings</u>*, and *<u>Self-service trials and purchases</u>*.
 
 ![image](/images/blog/copilot/tuto/copilot_how_to_disable_selfservice_002.png)

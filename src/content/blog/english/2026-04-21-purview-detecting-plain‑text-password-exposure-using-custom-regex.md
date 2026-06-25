@@ -79,7 +79,6 @@ Some typical scenarios where this approach is useful :
 - An email contains a line like: *"Here is the password : ..."*
 
 In these cases, a well-configured DLP policy can :
-
 - Block the message
 - Notify the user
 - Alert the security team

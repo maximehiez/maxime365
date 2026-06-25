@@ -16,6 +16,12 @@ Microsoft a activé un paramètre dans les tenants (par défaut) pour autoriser 
 
 ---
 
+##### Prérequis
+**<u>Rôle d’administrateur</u>**
+- Un compte avec le rôle *Administrateur Global* ou *Administrateur de facturation* pour accéder au Microsoft 365 Admin Center.
+
+---
+
 ##### Étape 1 : Se connecter au Microsoft 365 Admin Center
 Connectez-vous au Microsoft 365 Admin Center en ouvrant votre navigateur web sur https://admin.microsoft.com/Adminportal.
 
@@ -37,14 +43,14 @@ Connect-MSCommerce
 Get-MSCommerceProductPolicies -PolicyId AllowSelfServicePurchase
 ```
 
-Le commande PowerShell suivante va vous permettre de toutes les désactiver :
+La commande PowerShell suivante va vous permettre de toutes les désactiver :
 ```powershell
 Get-MSCommerceProductPolicies -PolicyId AllowSelfServicePurchase | Where { $_.PolicyValue -eq "Enabled"} | forEach { Update-MSCommerceProductPolicy -PolicyId AllowSelfServicePurchase -ProductId $_.ProductID -Enabled $false }
 ```
 
 ---
 
-##### Résultat
+##### Valider le résultat
 Le résultat est visible est allant dans le menu de gauche du Microsoft 365 Admin Center et en cliquant sur *<u>Settings</u>*, puis sur *<u>Org settings</u>*, et *<u>Self-service trials and purchases</u>*.
 
 ![image](/images/blog/copilot/tuto/copilot_how_to_disable_selfservice_002.png)
@@ -53,7 +59,7 @@ Le résultat est visible est allant dans le menu de gauche du Microsoft 365 Admi
 ---
 
 ##### Conclusion
-Vous savez maintenant comment désactiver le libre service sur les licence Copilot (et autres).
+Vous savez maintenant comment désactiver le libre service sur les licences Copilot (et autres).
 
 ---
 
