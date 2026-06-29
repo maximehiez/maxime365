@@ -14,7 +14,7 @@ draft: false
 ##### Introduction
 Last week, I showed you how to create *Sensitivity Labels* to secure your emails, without explaining how they work. Today I'll talk about how to use them and what results you get when you apply them to your emails before sending.
 
-Check the last week's article [HERE](https://maxime.hiez.ca/en/blog/2026-03-30-purview-how-to-create-sensitivity-labels_for_emails).
+Check the article from last week [HERE](https://maxime.hiez.ca/en/blog/2026-03-30-purview-how-to-create-sensitivity-labels_for_emails).
 
 ---
 

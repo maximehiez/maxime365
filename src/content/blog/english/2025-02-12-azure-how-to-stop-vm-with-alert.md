@@ -50,7 +50,7 @@ Check the *Public access* box.
 
 ![image](/images/blog/azure/tuto/azure_how_to_stop_vm_with_alert_004.png)
 
-Optionally, you can attach tags. Check the January 2025 post [HERE](https://maxime.hiez.ca/blog/2025-01-24-azure-how-to-add-tags-vm) in which I talked about tags.
+Optionally, you can attach tags. Check the article from January 2025 [HERE](https://maxime.hiez.ca/blog/2025-01-24-azure-how-to-add-tags-vm) in which I talked about tags.
 
 ![image](/images/blog/azure/tuto/azure_how_to_stop_vm_with_alert_005.png)
 

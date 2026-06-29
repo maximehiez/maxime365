@@ -14,7 +14,7 @@ draft: false
 ##### Introduction
 Last week, I showed you how to enable DLP for Teams with *Microsoft Purview* to prevent accidental or malicious data leaks (*Data Loss Prevention*). Purview is a comprehensive and extensive data protection solution, and I'm digging into it little by little. Continuing with the idea of talking to you about DLP, here this time is how to protect the sending of financial data from Microsoft Outlook.
 
-Check the last week's article [HERE](https://maxime.hiez.ca/en/blog/2025-07-15-purview-how-to-enable-dlp-teams-block-financial-data).
+Check the article from last week [HERE](https://maxime.hiez.ca/en/blog/2025-07-15-purview-how-to-enable-dlp-teams-block-financial-data).
 
 ---
 

@@ -14,7 +14,7 @@ draft: false
 ##### Introduction
 I told you last March about the end of implicit Internet access for new *Virtual Networks* (*VNets*) in Azure and the need to configure an explicit Internet outbound solution (*Azure NAT Gateway*, firewall, or load balancer with egress rules).
 
-Check the March 2026 article [HERE](https://maxime.hiez.ca/en/blog/2026-03-24-azure-new-vnets-end-implicit-outbound-internet).
+Check the article from March 2026 [HERE](https://maxime.hiez.ca/en/blog/2026-03-24-azure-new-vnets-end-implicit-outbound-internet).
 
 ---
 

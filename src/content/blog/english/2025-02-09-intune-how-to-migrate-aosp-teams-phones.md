@@ -14,7 +14,7 @@ draft: false
 ##### Introduction
 I told you last November about the approach to migrating to *AOSP* (*Android Open Source Project*) for Android-based Microsoft Teams devices, such as phones, conference rooms and panels. I promised you a tutorial, so here it is.
 
-Check the November 2024 article [HERE](https://maxime.hiez.ca/en/blog/2024-11-23-intune-aosp-teams-phones).
+Check the article from November 2024 [HERE](https://maxime.hiez.ca/en/blog/2024-11-23-intune-aosp-teams-phones).
 
 ---
 
