@@ -2,7 +2,7 @@
 title: "OpenAI dévoile GPT-5.6 Sol, Terra et Luna en préversion"
 meta_title: ""
 description: ""
-date: 2026-06-30T10:00:00-05:00
+date: 2026-06-27T10:00:00-05:00
 image: "/images/blog/ai/ai_openai_gpt_5_6_preview_thumbnail.png"
 categories: ["OpenAI"]
 author: "Maxime Hiez"
