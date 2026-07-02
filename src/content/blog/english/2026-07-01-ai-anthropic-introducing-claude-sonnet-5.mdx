@@ -1,0 +1,90 @@
+---
+title: "Anthropic unveils Claude Sonnet 5, outperforming Opus 4.8"
+meta_title: ""
+description: ""
+date: 2026-07-01T10:00:00-05:00
+image: "/images/blog/ai/ai_anthropic_introducing_claude_sonnet_5_thumbnail.png"
+categories: ["Anthropic"]
+author: "Maxime Hiez"
+tags: ["AI", "Claude", "API", "Agentic"]
+draft: false
+---
+---
+
+##### Introduction
+*Anthropic* announced on June 30, 2026, the availability of *Claude Sonnet 5*, now the default model on the *Free* and *Pro* plans of *Claude.ai*. The model is designed for complex agentic workflows and achieves performance that surpasses *Claude Opus 4.8* on several key benchmarks, at a lower cost.
+
+---
+
+##### What changes compared to Sonnet 4.6
+Claude Sonnet 5 introduces agentic capabilities that were previously reserved for more expensive models :
+- <u>Autonomous planning</u> : The model establishes a plan of action and executes long tasks without continuous supervision.
+- <u>Tool use</u> : Web browsing, terminal command execution, and interactions with external *APIs* across multiple steps.
+- <u>Automatic verification</u> : The model checks its intermediate results without an explicit prompt requesting it.
+- <u>Error reduction</u> : Fewer hallucinations and fewer sycophantic behaviors than *Sonnet 4.6*, according to Anthropic's pre-deployment evaluations.
+
+---
+
+##### Benchmarks
+The progression of Sonnet 5 over Sonnet 4.6 is significant across all evaluated axes, and the model outpaces Opus 4.8 on several software engineering and CLI benchmarks.
+
+|                          | Sonnet 5 | Sonnet 4.6 | Opus 4.8 |
+|--------------------------|---------:|-----------:|---------:|
+| SWE-bench Verified       | 85.2%    | 62.3%      | 79.4%    |
+| SWE-bench Pro            | 63.2%    | 58.1%      | 69.2%    |
+| Terminal-Bench 2.1       | 80.4%    | 55.4%      | 74.6%    |
+| OSWorld-Verified         | 81.2%    | -          | 83.4%    |
+| HealthBench Professional | 57.8%    | -          | -        |
+
+Sonnet 5 outpaces Opus 4.8 on *SWE-bench Verified* (+5.8 pts) and *Terminal-Bench 2.1* (+5.8 pts). This is the first time a model in the Sonnet lineup has surpassed Opus on software engineering and CLI benchmarks.
+
+![image](/images/blog/ai/ai_anthropic_introducing_claude_sonnet_5_001.png)
+
+---
+
+##### Safety
+The deployment of Claude Sonnet 5 is accompanied by a 145-page system card published by Anthropic. Key points :
+- Resistance to prompt injection : Measured improvement over Sonnet 4.6 in agentic contexts.
+- Exploit generation : 0% success on *Firefox* vulnerability generation tests. The model was not trained on offensive cybersecurity tasks.
+- Refusal of malicious requests : Higher refusal rate and reduced hallucinations compared to Sonnet 4.6.
+
+---
+
+##### Pricing and availability
+Claude Sonnet 5 adopts the same tokenizer introduced with *Claude Opus 4.7*, which generates 1.0 to 1.35 times more tokens for the same text. Teams migrating from *Sonnet 4.6* should measure this gap before switching to production.
+
+|  | Input | Output |
+|---|---:|---:|
+| Introductory pricing (until August 31, 2026) | 2$ / 1M tokens | 10$ / 1M tokens |
+| Standard pricing (from September 1, 2026) | 3$ / 1M tokens | 15$ / 1M tokens |
+
+Claude Sonnet 5 is available on :
+- <u>Claude.ai</u> : Default model on Free, Pro, Max, Team and Enterprise plans
+- <u>Anthropic API</u> : Model identifier *claude-sonnet-5*
+- <u>Cloud platforms</u> : *Amazon Bedrock* and *Google Cloud Vertex AI*
+- <u>Developer tools</u> : *Claude Code*, *Cursor*, *VS Code* and *GitHub Copilot*
+
+<Notice type="info">Before migrating a Sonnet 4.6 workflow to production, measure the actual token volume with Sonnet 5 on a representative sample of requests. The bill can increase noticeably even at a reduced rate.</Notice>
+
+---
+
+##### Conclusion
+Claude Sonnet 5 repositions the Sonnet lineup as a credible alternative to Opus 4.8 for the majority of agentic workloads, particularly in software engineering and CLI work. The main variable to monitor before any migration remains the cost increase linked to the new tokenizer, particularly for pipelines processing code or non-English text.
+
+---
+
+##### Sources
+[Anthropic - Claude Sonnet 5](https://www.anthropic.com/news/claude-sonnet-5)
+
+[Chat with Claude Sonnet 5](https://claude.ai)
+
+[Anthropic - System Card Claude Sonnet 5](https://www.anthropic.com/claude-sonnet-5-system-card)
+
+[Anthropic - Pricing](https://platform.claude.com/docs/en/about-claude/pricing)
+
+---
+
+
+Did you enjoy this post ? If you have any questions, comments or suggestions, please feel free to send me a message from the contact form.
+
+Don't forget to follow us and share this post.
