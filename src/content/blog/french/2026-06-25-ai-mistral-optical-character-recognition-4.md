@@ -90,7 +90,7 @@ Avec OCR 4, Mistral propose une solution OCR multilingue et multi-format adapté
 ---
 
 ##### Sources
-[Mistral AI - OCR 4](https://mistral.ai/news/ocr-4/)
+[Mistral AI - OCR 4](https://mistral.ai/news/ocr-4)
 
 [Tester Le Chat de Mistral AI](https://chat.mistral.ai/chat)
 
