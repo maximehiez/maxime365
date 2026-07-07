@@ -56,7 +56,7 @@ Celui avec le Sensitivity Label *<u>Basic encryption</u>* contenant le numéro d
 ---
 
 ##### Étape 3 : Valider le résultat sur Gmail
-L'utilisateur Gmail 365 reçoit les mêmes 2 courriels.
+L'utilisateur Gmail reçoit les mêmes 2 courriels.
 
 ![image](/images/blog/purview/tuto/purview_how_to_secure_emails_with_sensitivity_labels_for_emails_006.png)
 

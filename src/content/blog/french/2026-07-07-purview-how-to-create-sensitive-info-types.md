@@ -1,0 +1,106 @@
+---
+title: "Comment créer des Sensitive Information Types dans Purview"
+meta_title: ""
+description: ""
+date: 2026-07-07T10:00:00-05:00
+image: "/images/blog/purview/tuto/purview_how_to_create_sensitive_info_types_thumbnail.png"
+categories: ["Purview", "Tutoriel"]
+author: "Maxime Hiez"
+tags: ["Protection de données", "Gouvernance", "Sensitive Information Types", "SIT", "Sécurité"]
+draft: false
+---
+---
+
+##### Introduction
+Dans les articles précédents, nous avons examiné comment *Microsoft Purview* peut protéger les données sensibles grâce aux règles de *DLP* (*Data Loss Prevention*) et aux *Sensitivity Labels*. Toutefois, toutes ces fonctionnalités reposent sur un élément essentiel : la capacité à identifier avec précision les informations sensibles.
+
+C'est ici qu'interviennent les *Sensitive Information Types* (*SIT*). Qu'il s'agisse de détecter des numéros de carte de crédit, des numéros de sécurité sociale, des identifiants d'employé, des mots de passe ou des identifiants métier personnalisés, ces types d'informations sensibles constituent le fondement de nombreuses fonctionnalités de Purview. Ils permettent aux organisations de classer, protéger et surveiller automatiquement les données sensibles, ainsi que d'empêcher leur partage non autorisé au sein de Microsoft 365.
+
+---
+
+##### Prérequis
+**<u>Licences nécessaires</u>**
+- *Microsoft 365 Business Premium*, *Microsoft 365 E3* et *Microsoft 365 E5*.
+- *Microsoft Purview Suite* en complément avec une licence autre (*E1*, *Standard*, ...).
+
+**<u>Rôle d’administrateur</u>**
+- Un compte avec le rôle *Administrateur Global* ou *Compliance Administrator* pour accéder au Microsoft Purview Portal.
+
+---
+
+##### Étape 1 : Se connecter au Microsoft Purview Portal
+Connectez-vous au Microsoft Purview Portal en ouvrant votre navigateur web sur https://purview.microsoft.com.
+
+---
+
+##### Étape 2 : Créer un Sensitive Information Type
+Dans le menu de gauche, cliquez sur *<u>Solutions</u>*, puis sur *<u>Information Protection</u>*, sur *<u>Classifiers</u>*, et sur *<u>Sensitive info types</u>*.
+
+Cliquez sur *<u>Create sensitive info type</u>*.
+
+![image](/images/blog/purview/tuto/purview_how_to_create_sensitive_info_types_001.png)
+
+Définissez un nom et une description. (J'utilise un préfixe *">"* pour retrouver facilement mes Sensitive Information Types personnalisés).
+
+![image](/images/blog/purview/tuto/purview_how_to_create_sensitive_info_types_002.png)
+
+Ici, j'utilise une regex pour détecter le format *CLI-20XX-YYYY* (par exemple *CLI-2026-1234*).
+
+![image](/images/blog/purview/tuto/purview_how_to_create_sensitive_info_types_003.png)
+
+Et une liste de mots qui peut accompagner l'expression que je cherche à valider.
+
+![image](/images/blog/purview/tuto/purview_how_to_create_sensitive_info_types_004.png)
+
+<Notice type="tip">La combinaison de la regex et de la liste de mots permet de monter le niveau de confiance dans ce qui est détecté et de réduire les *"faux positifs"*.</Notice>
+
+--- 
+
+##### Étape 3 : Tester le Sensitive Information Type
+J'ai créé le fichier Word *<u>Lorem ipsum.docx</u>* avec du texte aléatoire et le format que je cherche à détecter, noyé au milieu.
+
+![image](/images/blog/purview/tuto/purview_how_to_create_sensitive_info_types_005.png)
+
+Sur le Sensitive Information Type créé, cliquez sur *<u>Test</u>* et importez le fichier.
+
+![image](/images/blog/purview/tuto/purview_how_to_create_sensitive_info_types_006.png)
+
+On peut voir ici 3 résultats :
+- <u>*Low*</u> : Les éléments correspondants présentent le moins de faux négatifs, mais le plus de faux positifs. Le niveau de confiance faible renvoie toutes les correspondances de confiance faible, moyenne et élevée. Ce niveau a une valeur de **65**.
+- <u>*Medium*</u> : Les éléments correspondants présentent un nombre moyen de faux positifs et de faux négatifs. Le niveau de confiance moyenne renvoie toutes les correspondances de confiance moyenne et élevée. Ce niveau a une valeur de **75**.
+- <u>*High*</u> : Les éléments correspondants présentent le moins de faux positifs, mais le plus de faux négatifs. Le niveau de confiance élevée ne renvoie que les correspondances de confiance élevée. Ce niveau a une valeur de **85**.
+
+![image](/images/blog/purview/tuto/purview_how_to_create_sensitive_info_types_007.png)
+
+<Notice type="note">Le niveau de confiance reflète la quantité d'éléments de preuve détectés conjointement avec l'élément principal. Plus l'élément détecté comporte d'éléments de preuve, plus la confiance est élevée quant au fait que l'élément correspondant contient les informations sensibles que vous recherchez.</Notice>
+
+---
+
+##### Et maintenant, quoi faire avec ça ?
+Les Sensitive Information Types permettent de trouver et de trier les informations importantes et sensibles de votre entreprise. Il peut s'agir de numéros de carte de crédit, de numéros de sécurité sociale, de numéros de passeport, ...
+
+Ils sont essentielles pour identifier les informations sensibles lors de l'utilisation de Microsoft Purview, notamment :
+- Data Loss Prevention policies 
+- Sensitivity Labels 
+- Retention Labels 
+- Insider Risk Management 
+- Communication Compliance 
+- Auto-Labelling policies 
+
+---
+
+##### Conclusion
+En comprenant le fonctionnement des Sensitive Information Types et en apprenant à créer des règles de détection personnalisées, les organisations peuvent aller au-delà d'une protection générique et adapter Microsoft Purview à leurs besoins métier spécifiques. Qu'il s'agisse de protéger des données clients, des informations sur les employés, des documents financiers ou des actifs stratégiques de l'entreprise, des types d'informations sensibles bien conçus permettent de réduire les faux positifs, d'améliorer la précision des stratégies et de renforcer votre posture de sécurité globale.<br/><br/>
+Vous savez maintenant comment créer des Sensitive Information Types dans Purview.
+
+---
+
+##### Sources
+[Microsoft Learn - Sensitive Information Type](https://learn.microsoft.com/fr-ca/purview/sit-sensitive-information-type-learn-about)
+
+---
+
+
+Avez-vous apprécié cet article ? Vous avez des questions, commentaires ou suggestions, n’hésitez pas à m'envoyer un message depuis le formulaire de contact.
+
+N'oubliez pas de nous suivre et de partager cet article.

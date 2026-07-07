@@ -56,7 +56,7 @@ The one with the Sensitivity Label *<u>Basic encryption</u>* containing the phon
 ---
 
 ##### Step 3 : Validate the result on Gmail
-The Gmail 365 user receives the same 2 emails.
+The Gmail user receives the same 2 emails.
 
 ![image](/images/blog/purview/tuto/purview_how_to_secure_emails_with_sensitivity_labels_for_emails_006.png)
 
