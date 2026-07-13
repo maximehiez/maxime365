@@ -101,7 +101,7 @@ Version 14.2.0 includes the following updates :
 <br/><br/>
 
 **<u>Az.StorageAction</u>**
-- General availability for module *Az.StorageAction*.
+- General Availability for module *Az.StorageAction*.
 
 ---
 

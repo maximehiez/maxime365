@@ -116,7 +116,7 @@ Version 13.3.0 includes the following updates :
 <br/><br/>
 
 **<u>Az.Workloads</u>**
-- General availability for module *Az.Workloads*.
+- General Availability for module *Az.Workloads*.
 - Upgraded API version to 2024-09-01.
 <br/><br/>
 

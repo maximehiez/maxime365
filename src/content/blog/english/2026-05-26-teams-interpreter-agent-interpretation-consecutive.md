@@ -80,7 +80,7 @@ The Interpreter agent is not available in the following contexts :
 ---
 
 ##### Conclusion
-Consecutive mode fills a concrete gap in the Interpreter agent for interactive meetings, the shared experience without audio overlap facilitates bilingual exchanges without disrupting the flow of conversation. General availability makes the feature accessible now to any *Microsoft 365 Copilot* license holder. Administrators looking to govern usage should configure meeting policies via PowerShell and monitor monthly quota consumption until the counting method between the two modes is clarified.
+Consecutive mode fills a concrete gap in the Interpreter agent for interactive meetings, the shared experience without audio overlap facilitates bilingual exchanges without disrupting the flow of conversation. *General Availability* makes the feature accessible now to any *Microsoft 365 Copilot* license holder. Administrators looking to govern usage should configure meeting policies via PowerShell and monitor monthly quota consumption until the counting method between the two modes is clarified.
 
 ---
 

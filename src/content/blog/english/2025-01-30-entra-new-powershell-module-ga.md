@@ -74,7 +74,7 @@ Get-AzureADUser -Top 1
 ---
 
 ##### Conclusion
-The general availability of the Microsoft Entra PowerShell module provides administrators with a powerful and flexible new way to manage identity and access in cloud environments. By automating common tasks and centralizing management, this module increases efficiency and security.
+The General Availability of the Microsoft Entra PowerShell module provides administrators with a powerful and flexible new way to manage identity and access in cloud environments. By automating common tasks and centralizing management, this module increases efficiency and security.
 
 ---
 

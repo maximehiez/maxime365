@@ -98,7 +98,7 @@ Version 15.2.0 includes the following updates :
 
 **<u>Az.NetAppFiles</u>**
 - Updated *Azure.Core* from *1.47.3* to *1.50.0*.
-- General availability for module *Az.NetAppFiles*.
+- General Availability for module *Az.NetAppFiles*.
 <br/><br/>
 
 **<u>Az.Network</u>**

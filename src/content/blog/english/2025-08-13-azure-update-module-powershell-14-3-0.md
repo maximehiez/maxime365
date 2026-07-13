@@ -44,7 +44,7 @@ Version 14.3.0 includes the following updates :
 <br/><br/>
 
 **<u>Az.ArizeAI</u>**
-- General availability for module *Az.ArizeAI*.
+- General Availability for module *Az.ArizeAI*.
 - Upgraded the API version to *2024-10-01*.
 <br/><br/>
 
@@ -72,11 +72,11 @@ Version 14.3.0 includes the following updates :
 <br/><br/>
 
 **<u>Az.Fabric</u>**
-- General availability for module *Az.Fabric*.
+- General Availability for module *Az.Fabric*.
 <br/><br/>
 
 **<u>Az.LambdaTest</u>**
-- General availability for module *Az.LambdaTest*.
+- General Availability for module *Az.LambdaTest*.
 - Upgraded the API version to *2024-02-01*.
 <br/><br/>
 

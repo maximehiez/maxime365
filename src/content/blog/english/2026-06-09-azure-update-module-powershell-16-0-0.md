@@ -162,7 +162,7 @@ Version 16.0.0 includes the following updates :
 <br/><br/>
 
 **<u>Az.FileShare</u>**
-- General availability for module *Az.FileShare*.
+- General Availability for module *Az.FileShare*.
 <br/><br/>
 
 **<u>Az.FrontDoor</u>**

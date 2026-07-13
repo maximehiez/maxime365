@@ -123,8 +123,8 @@ Microsoft has announced :
 
 | License                           | Price         | Availability                        |
 | :-------------------------------: | ------------: | ----------------------------------: |
-| Microsoft 365 E7 – Frontier Suite | 99$ per month | General availability on May 1, 2026 |
-| Agent 365                         | 15$ per month | General availability on May 1, 2026 |
+| Microsoft 365 E7 – Frontier Suite | 99$ per month | General Availability on May 1, 2026 |
+| Agent 365                         | 15$ per month | General Availability on May 1, 2026 |
 
 And most importantly : the Microsoft 365 E7 license is designed as an integrated suite (E5 + Copilot + Entra Suite + Agent 365). Microsoft even mentions a saving when the whole package is purchased as a suite rather than by assembling the components separately.
 

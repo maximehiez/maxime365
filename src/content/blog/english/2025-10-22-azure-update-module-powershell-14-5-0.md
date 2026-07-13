@@ -61,7 +61,7 @@ Version 14.5.0 includes the following updates :
 <br/><br/>
 
 **<u>Az.DataMigration</u>**
-- General availability for module *Az.DataMigration*.
+- General Availability for module *Az.DataMigration*.
 - Upgraded Data Migration API to stable version *2025-06-30*.
 - Added support for retrying database migrations and for deleting SQL VM and SQL MI Database Migration Services.
 - Added cmdlets :
@@ -71,7 +71,7 @@ Version 14.5.0 includes the following updates :
 <br/><br/>
 
 **<u>Az.FirmwareAnalysis</u>**
-- General availability for module *Az.FirmwareAnalysis*.
+- General Availability for module *Az.FirmwareAnalysis*.
 - Upgraded API support to include *2025-08-02*.
 - Added usage metric support via the *Get-AzFirmwareAnalysisUsageMetric* cmdlet.
 <br/><br/>
@@ -190,7 +190,7 @@ Version 14.5.0 includes the following updates :
 <br/><br/>
 
 **<u>Az.StorageDiscovery</u>**
-- General availability for module *Az.StorageDiscovery*.
+- General Availability for module *Az.StorageDiscovery*.
 <br/><br/>
 
 **<u>Az.StorageMover</u>**

@@ -1,0 +1,58 @@
+---
+title: "Purview Sensitivity Labels now support security groups"
+meta_title: ""
+description: ""
+date: 2026-07-09T10:00:00-05:00
+image: "/images/blog/purview/purview_sensitivity_labels_security_groups_thumbnail.png"
+categories: ["Purview"]
+author: "Maxime Hiez"
+tags: ["Data protection", "Governance", "Sensitivity Labels", "Security"]
+draft: false
+---
+---
+
+##### Introduction
+*Microsoft* has updated the scoping of *Sensitivity Labels* policies in *Microsoft Purview*, now generally available. Administrators can now include *non-mail-enabled* security groups and dynamic groups in their policies, and exclude specific *Microsoft 365* groups. This change has no impact on existing users as long as policies are not modified.
+
+---
+
+##### What changes in policy scoping
+Until now, Sensitivity Labels policies only supported individual users, distribution groups, *mail-enabled* security groups, and Microsoft 365 groups. Three new capabilities have been added :
+- <u>Inclusion of non-mail-enabled security groups</u> : *Entra ID* security groups that do not have an email address can now be used to target a Sensitivity Labels policy. This makes it possible to use existing security groups without converting them to mail-enabled groups.
+- <u>Inclusion of dynamic groups</u> : Groups with dynamic membership based on Entra ID attributes (department, title, location) can now be included in policy scoping. The policy automatically follows changes in group membership.
+- <u>Exclusion of Microsoft 365 groups</u> : It is now possible to explicitly exclude a Microsoft 365 group from a policy. This allows finer targeting when a policy covers a broad scope by default.
+
+---
+
+##### Why is this useful ?
+In many organizations, the Entra ID group structure relies on non-mail-enabled security groups, as they are used to control access to resources without requiring an email address. Not being able to use them directly in Sensitivity Labels policies forced administrators to maintain duplicates or convert existing groups.
+
+Dynamic groups also reduce the administrative workload ; classification policies automatically adapt to organizational changes without manual intervention in the *Purview* portal.
+
+The ability to exclude Microsoft 365 groups is useful in scenarios where a policy is published for all users but must exempt certain teams (test environments, pilot populations, compliance exceptions).
+
+---
+
+##### Availability
+The feature is generally available since late May / early June 2026 (Roadmap ID : 558685). It is accessible from the Microsoft Purview portal in the Sensitivity Labels policy configuration, under the *<u>Publishing policies</u>* section.
+
+<Notice type="note">No impact on users as long as existing policies are not modified. Configurations already in place remain unchanged after deployment.</Notice>
+
+---
+
+##### Conclusion
+Extending Sensitivity Labels policy scoping to non-mail-enabled security groups and dynamic groups reduces friction for organizations that rely on existing Entra ID group structures. For teams maintaining duplicate groups solely to meet Purview policy constraints, it is now possible to simplify that management.
+
+---
+
+##### Sources
+[Microsoft Learn - Sensitivity Labels](https://learn.microsoft.com/en-us/purview/sensitivity-labels)
+
+[Microsoft 365 Roadmap - 558685](https://www.microsoft.com/en-us/microsoft-365/roadmap?filters=&searchterms=558685)
+
+---
+
+
+Did you enjoy this post ? If you have any questions, comments or suggestions, please feel free to send me a message from the contact form.
+
+Don't forget to follow us and share this post.
