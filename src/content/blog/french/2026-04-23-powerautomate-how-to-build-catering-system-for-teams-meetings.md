@@ -41,7 +41,7 @@ Dans le menu de gauche, cliquez sur *<u>New</u>*, puis sur *<u>List</u>*.
 
 ![image](/images/blog/powerautomate/tuto/powerautomate_how_to_build_catering_system_for_teams_meetings_002.png)
 
-Ajouter des colonnes dans vos 2 listes avec des infos nécessaires telles que :
+Ajoutez des colonnes dans vos 2 listes avec des infos nécessaires telles que :
 
 **<u>CateringOrders</u>**
 - RoomName
