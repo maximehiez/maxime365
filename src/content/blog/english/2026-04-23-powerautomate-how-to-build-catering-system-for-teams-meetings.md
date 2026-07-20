@@ -12,10 +12,9 @@ draft: false
 ---
 
 ##### Introduction
-
 There are already catering solutions for *Outlook* on the market ; examples include *arbooMEET*, *AskCody*, *GoBright*, and others. These solutions integrate directly with *Microsoft 365*, allowing users to order food and drinks when booking meeting rooms. These add-ons streamline processes, reduce email exchanges with caterers, and provide real-time updates on orders, room configurations, and attendee management.
 
-I developed a simpler equivalent in my environment using *Power Automate*, combined with *Teams* and *SharePoint*.
+I built a simple equivalent in my environment using *Power Automate*, combined with *Teams* and *SharePoint*.
 
 ---
 
@@ -26,7 +25,7 @@ I developed a simpler equivalent in my environment using *Power Automate*, combi
 ---
 
 ##### Step 1 : Sign in to the Microsoft SharePoint Portal
-Sign in to Microsoft SharePoint by opening your web browser to https://YOUR_TENANT.sharepoint.com/_layouts/15/sharepoint.aspx.
+Sign in to Microsoft SharePoint Portal by opening your web browser to https://YOUR_TENANT.sharepoint.com/_layouts/15/sharepoint.aspx.
 
 ---
 
