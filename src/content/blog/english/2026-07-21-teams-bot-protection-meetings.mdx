@@ -1,0 +1,90 @@
+---
+title: "Bot protection in Microsoft Teams meetings"
+meta_title: ""
+description: ""
+date: 2026-07-21T10:00:00-05:00
+image: "/images/blog/teams/teams_bot_protection_meetings_thumbnail.png"
+categories: ["Teams"]
+author: "Maxime Hiez"
+tags: ["Security", "Meeting", "IA", "PowerShell", "Bot"]
+draft: false
+---
+---
+
+##### Introduction
+AI note-taking tools like *Read.ai*, *Fireflies.ai* or *Otter.ai* join meetings as external participants. For organizers, this raises a real control challenge : when the lobby is configured to automatically admit certain types of participants, these bots can join without any deliberate action. *Microsoft Teams* introduces a new layer of protection to allow administrators and organizers to regain control over bot access to their organization's meetings.
+
+---
+
+##### New protection mechanism
+Microsoft enables, by default, a new *behavioral bot detection* mechanism. Teams analyzes infrastructure and behavioral signals during the meeting join process to identify external bots. Participants identified as bots are automatically placed in the lobby, regardless of configured bypass rules, and the organizer must explicitly admit them.
+
+![image](/images/blog/teams/teams_bot_protection_meetings_001.png)
+
+---
+
+##### Bot detection: How does it work ?
+Detection relies on a combination of signals analyzed during the meeting join process. When a participant is identified as an external bot, several behaviors apply automatically :
+- <u>Lobby placement</u> : The bot is held in the lobby, even if the meeting policy allows bypass for external participants or guests. Detection overrides the usual lobby configuration.
+- <u>Visible labeling</u> : The organizer sees the participant identified as a bot in the lobby view, with a distinct indicator differentiating it from human participants.
+- <u>Explicit admission required</u> : The bot can only join the meeting after a deliberate action by the organizer. A risk reminder is displayed when admitting participants from the lobby.
+
+![image](/images/blog/teams/teams_bot_protection_meetings_002.png)
+
+Microsoft acknowledges that detection may occasionally classify a human participant as a bot. In that case, the organizer has a *"This is not a bot"* option that corrects the representation for the current meeting and helps improve detection accuracy going forward.
+
+<Notice type="note">This feature applies to meetings only, not Webinars or Town halls.</Notice>
+
+---
+
+##### Administrator configuration
+The feature is enabled by default, with no configuration required. To access it :
+1. Sign in to the Teams Admin Center at https://admin.teams.microsoft.com.
+2. In the left menu, click *Meetings*, then *Meeting policies*.
+3. Select the policy you want to modify and edit the *Manage external bots and their access to meetings* option.
+<br/>
+
+The bot detection setting offers two values :
+- <u>When detected, require approval before joining</u> : Default value. Detected bots are placed in the lobby and must be explicitly admitted by the organizer.
+- <u>Do not detect bots</u> : Detection is disabled. External bots are treated as ordinary external participants.
+<br/>
+
+In PowerShell, this setting is configured via *Set-CsTeamsMeetingPolicy* with the *-ExternalBotAccessMode* argument. Since the default value is *RequireApprovalWhenDetected*, detection is enabled for all policies without administrator intervention.
+<br/>
+
+Microsoft also recommends configuring the lobby so that only the organizer and co-organizers can admit participants, to limit accidental bot admissions.
+
+<Notice type="note">Microsoft's documentation on the *manage-external-bots* page incorrectly references *Set-CsTeamsEventsPolicy* in its PowerShell examples. The *-ExternalBotAccessMode* parameter belongs to *Set-CsTeamsMeetingPolicy*, as confirmed by the official cmdlet reference.</Notice>
+
+---
+
+##### Availability
+The rollout of behavioral bot detection follows a progressive schedule by environment :
+- <u>Worldwide</u> : Generally available since approximately June 2026, with a targeted release available since mid-May 2026.
+- <u>GCC</u> : Generally available since July 1, 2026.
+- <u>GCC High and DoD</u> : No confirmed date in the government channel release notes.
+
+Microsoft also announced the *Teams Bot Identification Program*, which will allow independent software vendors to register their bots to be recognized as compliant within Teams. The registration page is announced as coming soon, with no specific date.
+
+---
+
+##### Conclusion
+Bot detection is enabled by default in all meeting policies, with no action required from the administrator. It is recommended to verify the lobby configuration to ensure that only organizers and co-organizers can admit participants, preventing a bot from being admitted inadvertently. The upcoming Teams Bot Identification Program is worth monitoring closely for organizations that use IT-approved transcription tools.
+
+---
+
+##### Sources
+[Microsoft - Techcommunity](https://techcommunity.microsoft.com/blog/microsoftteamsblog/introducing-smarter-bot-protection-in-microsoft-teams-meetings/4531375)
+
+[Microsoft Learn - Manage external bots](https://learn.microsoft.com/en-us/microsoftteams/manage-external-bots)
+
+[Microsoft Learn - Teams Bot Identification Program](https://learn.microsoft.com/en-us/microsoftteams/teams-bot-identification)
+
+[Microsoft Learn - Set-CsTeamsMeetingPolicy](https://learn.microsoft.com/en-us/powershell/module/microsoftteams/set-csteamsmeetingpolicy)
+
+---
+
+
+Did you enjoy this post ? If you have any questions, comments or suggestions, please feel free to send me a message from the contact form.
+
+Don't forget to follow us and share this post.
