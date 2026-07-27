@@ -32,7 +32,7 @@ Parmi les caractéristiques à retenir :
 ##### Ce qui change par rapport à Small 3
 La différence la plus structurante avec *Mistral Small 3* n'est pas uniquement de performance, c'est la consolidation de plusieurs modèles en un seul point de déploiement. Auparavant, une stack IA complète nécessitait de router les requêtes vers des modèles distincts selon la nature de la tâche, un modèle de vision comme celui présenté dans [Mistral OCR](https://maxime.hiez.ca/blog/2026-01-15-ai-mistral-optical-character-recognition-3), un modèle de code comme [Mistral Code](https://maxime.hiez.ca/blog/2025-06-09-ai-mistral-introducing-mistral-code). *Small 4* supprime ce routage.
 
-Sur le plan des performances brutes, Mistral annonce une réduction de latence de 40% de bout en bout et un débit trois fois supérieur en requêtes par seconde par rapport à *Small 3*. Ces chiffres sont publiés par Mistral sans méthodologie détaillée disponible ; ils sont à considérer comme indicatifs jusqu'à la publication d'un rapport technique officiel. Les mesures indépendantes d'*Artificial Analysis* placent le modèle à 171,8 tokens par seconde avec un délai avant premier token (*TTFT*) de 0,76 seconde via l'API Mistral.
+Sur le plan des performances brutes, Mistral annonce une réduction de latence de 40% de bout en bout et un débit trois fois supérieur en requêtes par seconde par rapport à *Small 3*. Ces chiffres sont publiés par Mistral sans méthodologie détaillée disponible ; ils sont à considérer comme indicatifs jusqu'à la publication d'un rapport technique officiel. Les mesures indépendantes d'*Artificial Analysis* placent le modèle à 171.8 tokens par seconde avec un délai avant premier token (*TTFT*) de .76 seconde via l'API Mistral.
 
 ---
 
@@ -43,9 +43,9 @@ En l'absence de rapport technique officiel au moment de l'annonce, les résultat
 |---------------|--------------------------------------|-------------|
 | GPQA Diamond  | 71.2%                                | 40.2%       |
 | MMLU-Pro      | 78.0%                                | 64.8%       |
-| LiveCodeBench | Surpasse GPT-OSS 120B (−20 % tokens) | -           |
+| LiveCodeBench | Surpasse GPT-OSS 120B (−20% tokens)  | -           |
 
-Sur le benchmark *AA LCR* (longueur de réponse pondérée), *Small 4* obtient un score de 0,72 pour 1 600 caractères, contre des plages de 5 800 à 6 100 caractères pour *Qwen 3.5-122B*, ce qui reflète une concision marquée des réponses.
+Sur le benchmark *AA LCR* (longueur de réponse pondérée), *Small 4* obtient un score de 0.72 pour 1 600 caractères, contre des plages de 5 800 à 6 100 caractères pour *Qwen 3.5-122B*, ce qui reflète une concision marquée des réponses.
 
 ---
 
@@ -53,7 +53,7 @@ Sur le benchmark *AA LCR* (longueur de réponse pondérée), *Small 4* obtient u
 *Mistral Small 4* est disponible sous licence *Apache 2.0*, ce qui autorise l'usage commercial sans restriction sur les revenus, contrairement aux conditions de *LLaMA* de Meta, qui imposent des seuils d'utilisation selon la taille de l'organisation.
 
 Les canaux d'accès disponibles au lancement :
-- *API Mistral* et *AI Studio* (tarification relevée via *Artificial Analysis* et *OpenRouter* : 0,15$ / million de tokens en entrée, 0,60$ / million de tokens en sortie, non encore publiée sur la page officielle Mistral au moment de la rédaction)
+- *API Mistral* et *AI Studio* (tarification relevée via *Artificial Analysis* et *OpenRouter* : 0.15$ / million de tokens en entrée, 0.60$ / million de tokens en sortie, non encore publiée sur la page officielle Mistral au moment de la rédaction)
 - *Hugging Face* : *mistralai/Mistral-Small-4-119B-2603*
 - *NVIDIA NIM*, *vLLM*, *llama.cpp*, *SGLang*, *Transformers*, *Axolotl* (fine-tuning)
 <br/><br/>

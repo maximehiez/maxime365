@@ -30,7 +30,7 @@ La solution couvre les principaux objets du répertoire, avec une couverture com
 - <u>Utilisateurs</u> : Couverture partielle (33 propriétés ; les liens manager et sponsor sont exclus).
 - <u>Groupes Microsoft 365 et de sécurité</u> : Couverture partielle (12 propriétés ; membres statiques inclus, règles de groupes dynamiques et liens propriétaires exclus).
 - <u>Applications</u> : Couverture partielle (propriétés de configuration sélectionnées ; secrets, certificats et configuration du proxy d'application exclus).
-- <u>Principaux de service</u> : Couverture partielle (attributions de rôles d'applications récupérées comme ancres).
+- <u>Service principals</u> : Couverture partielle (attributions de rôles d'applications récupérées comme ancres).
 - <u>Stratégies de méthodes d'authentification</u> : Méthodes sélectionnées (FIDO2, Authenticator, SMS, Voice, Email OTP, OATH, TAP, CBA).
 <br/><br/>
 

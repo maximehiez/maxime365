@@ -53,7 +53,7 @@ On the *AA LCR* (weighted response length) benchmark, *Small 4* scores 0.72 for 
 *Mistral Small 4* is available under the *Apache 2.0* license, authorizing commercial use without revenue restrictions, unlike Meta's *LLaMA* conditions, which impose usage thresholds based on organization size.
 
 Available access channels at launch:
-- <u>Mistral API and AI Studio</u> : Pricing sourced via *Artificial Analysis* and *OpenRouter*: $0.15 per million input tokens, $0.60 per million output tokens, not yet published on the official Mistral pricing page at time of writing.
+- <u>Mistral API and AI Studio</u> : Pricing sourced via *Artificial Analysis* and *OpenRouter*: 0.15$ per million input tokens, 0.60$ per million output tokens, not yet published on the official Mistral pricing page at time of writing.
 - <u>Hugging Face</u> : *mistralai/Mistral-Small-4-119B-2603*
 - <u>NVIDIA NIM</u>, *vLLM*, *llama.cpp*, *SGLang*, *Transformers*, *Axolotl* (fine-tuning)
 

@@ -88,11 +88,11 @@ OpenAI publie plusieurs indicateurs et compare GPT‑5.4 à GPT‑5.3‑Codex et
 
 |                               | GPT-5.4 | GPT-5.3-Codex | GPT-5.2 |
 | :---------------------------: | ------: | ------------: | ------: |
-| GDPval (victoires ou ex æquo) | 83,0%   | 70,9%         | 70,9%   |
-| SWE-Bench Pro (Public)        | 57,7%   | 56,80%        | 55,6%   |
-| OSWorld-Verified              | 75,0%   | 74%           | 47,3%   |
-| Toolathlon                    | 54,6%   | 51,9%         | 46,3%   |
-| BrowseComp                    | 82,7%   | 77,30%        | 65,8%   |
+| GDPval (victoires ou ex æquo) | 83.0%   | 70.9%         | 70.9%   |
+| SWE-Bench Pro (Public)        | 57.7%   | 56.80%        | 55.6%   |
+| OSWorld-Verified              | 75.0%   | 74%           | 47.3%   |
+| Toolathlon                    | 54.6%   | 51.9%         | 46.3%   |
+| BrowseComp                    | 82.7%   | 77.30%        | 65.8%   |
 
 
 Même si les benchmarks ne remplacent jamais les tests réels, la tendance est cohérente avec la promesse : plus d’*agentique*, plus de *computer use*, plus de productivité.

@@ -19,7 +19,7 @@ Avec la fin du support de *Windows 10*, les entreprises peuvent migrer leurs *Su
 ##### Prérequis
 **<u>Matériel</u>**
 - Un Surface Hub 2S en Windows 10.
-- 2 clés USB 3.0 de 32 Go formatée en FAT32.
+- 2 clés USB 3.0 de 32Go formatée en FAT32.
 - Un PC Windows 10/11.
 
 **<u>Télécharger l'exécutable</u>**

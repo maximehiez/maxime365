@@ -39,7 +39,7 @@ Avec le lancement de Mistral Large 24.11, les entreprises peuvent :
 ##### Histoires de réussite avec les modèles Mistral
 - **Révolutionner les soins vétérinaires avec Mars Science & Diagnostics**
 <br/>
-*Mars Science & Diagnostics*, une division de Mars Petcare, utilise les modèles Mistral et le catalogue de modèles Azure AI pour développer *RapidRead*, une solution qui améliore les capacités de diagnostic en soins vétérinaires. Face à la pénurie mondiale de radiologues vétérinaires, RapidRead utilise l'IA pour analyser les images radiologiques, aidant ainsi les vétérinaires à diagnostiquer plus rapidement et avec plus de précision. Grâce à RapidRead, Mars a obtenu une augmentation de 38% de la précision moyenne et une précision de 96,9% sur les ensembles de tests, réduisant ainsi les délais d'attente pour les diagnostics et sauvant des centaines de vies animales.
+*Mars Science & Diagnostics*, une division de Mars Petcare, utilise les modèles Mistral et le catalogue de modèles Azure AI pour développer *RapidRead*, une solution qui améliore les capacités de diagnostic en soins vétérinaires. Face à la pénurie mondiale de radiologues vétérinaires, RapidRead utilise l'IA pour analyser les images radiologiques, aidant ainsi les vétérinaires à diagnostiquer plus rapidement et avec plus de précision. Grâce à RapidRead, Mars a obtenu une augmentation de 38% de la précision moyenne et une précision de 96.9% sur les ensembles de tests, réduisant ainsi les délais d'attente pour les diagnostics et sauvant des centaines de vies animales.
 <br/><br/>
 
 - **Améliorer l'efficacité des soins de santé avec Doctolib**

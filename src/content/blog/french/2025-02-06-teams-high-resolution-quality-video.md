@@ -24,7 +24,7 @@ La *Super Résolution* utilise l'intelligence artificielle pour améliorer la qu
 ---
 
 ##### Fonctionnement et avantages
-Lors d'un appel Teams avec une vidéo entrante de faible résolution (par exemple, 360p), la *Super Résolution* peut améliorer la qualité jusqu'à une taille de vue de 720p. Les tests ont montré une augmentation moyenne de +0,6 CMOS (Comparative Mean Opinion Score) en qualité, où les utilisateurs ont évalué la différence de qualité sur une échelle de -3 (dégradé) à +3 (bien meilleur). De plus, 68 % des utilisateurs ont jugé les résultats de la *Super Résolution* supérieurs.
+Lors d'un appel Teams avec une vidéo entrante de faible résolution (par exemple, 360p), la *Super Résolution* peut améliorer la qualité jusqu'à une taille de vue de 720p. Les tests ont montré une augmentation moyenne de +0.6 CMOS (Comparative Mean Opinion Score) en qualité, où les utilisateurs ont évalué la différence de qualité sur une échelle de -3 (dégradé) à +3 (bien meilleur). De plus, 68% des utilisateurs ont jugé les résultats de la *Super Résolution* supérieurs.
 
 ---
 

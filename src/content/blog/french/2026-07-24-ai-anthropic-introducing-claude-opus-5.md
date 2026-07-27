@@ -60,7 +60,7 @@ Sur les domaines scientifiques, deux gains spécifiques sont indiqués par rappo
 Trois partenaires de lancement ont communiqué leur expérience :
 - <u>Devin</u> : Qualifie Claude Opus 5 *"proche des performances de Fable 5 à la moitié du coût"*.
 - <u>Cursor</u> : Décrit Claude Opus 5 comme offrant *"une intelligence proche de Fable 5 à la vitesse et au coût d'Opus"*.
-- <u>Zapier</u> : Rapporte qu'Opus 5 *"atteint 100 % sur les workflows d'automatisation complète"*, là où les modèles précédents échouaient.
+- <u>Zapier</u> : Rapporte qu'Opus 5 *"atteint 100% sur les workflows d'automatisation complète"*, là où les modèles précédents échouaient.
 
 ---
 

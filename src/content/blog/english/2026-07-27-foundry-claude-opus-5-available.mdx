@@ -1,0 +1,79 @@
+---
+title: "Claude Opus 5 available in Microsoft Foundry"
+meta_title: ""
+description: ""
+date: 2026-07-27T10:00:00-05:00
+image: "/images/blog/foundry/foundry_claude_opus_5_available_thumbnail.png"
+categories: ["Foundry"]
+author: "Maxime Hiez"
+tags: ["AI", "Claude", "Agentic"]
+draft: false
+---
+---
+
+##### Introduction
+*Claude Opus 5* has been available in *Microsoft Foundry* since July 24, 2026, simultaneously with its general release by *Anthropic*. For the first time, a *Claude* model arrives in *Foundry* on launch day, with two hosting options : on the Anthropic infrastructure or on the *Azure* infrastructure, each offering a distinct data residency profile.
+
+Check the Claude Opus 5 article [HERE](https://maxime.hiez.ca/en/blog/2026-07-24-ai-anthropic-introducing-claude-opus-5).
+
+---
+
+##### Deployment and regions
+The model is accessible from the Foundry portal catalog ([ai.azure.com](https://ai.azure.com)) : section *Discover* > *Models* > search *claude-opus-5*. The default deployment identifier is *claude-opus-5*. The context window is 1 million tokens, with a maximum output of 128,000 tokens. Acceptance of the *Azure Marketplace* terms is required on first deployment.
+
+Two versions coexist under the same identifier :
+- <u>Version 1 — Hosted on Anthropic</u> : Inference runs on the Anthropic infrastructure. Available in *Global Standard* in the *East US 2* and *Sweden Central* regions.
+- <u>Version 2 — Hosted on Azure</u> : Prompts and responses remain within the Azure infrastructure. Available in *Global Standard* in several US regions and Sweden Central, and in *Data Zone Standard US* in US regions. Advanced agentic features (*tool use* server-side, *structured outputs*, *MCP*, *Files API*) are not available in this version.
+
+---
+
+##### CCU billing
+Claude in Foundry is billed through *Claude Consumption Units* (*CCU*). One CCU equals 0.01$. The Opus 5 rate is identical to the direct Anthropic API : 5$ / 1M input tokens and 25$ / 1M output tokens, or 500 CCU per 1M input tokens and 2,500 CCU per 1M output tokens. Billing is postpaid only, with no prepaid credit option. Claude spending counts toward an existing *Microsoft Azure Consumption Commitment* (*MACC*) and is visible in *Azure Cost Management*.
+
+<Notice type="info">Claude in Microsoft Foundry is billed through the Azure Marketplace. Certain Azure subscription types cannot make purchases on the Marketplace : *CSP*, student subscriptions, *Visual Studio Enterprise*, and free trial subscriptions. Verify the subscription type before planning a production deployment.</Notice>
+
+---
+
+##### Enterprise features and data residency
+Version 2 (hosted on Azure) offers complete data residency : prompts and responses do not leave the Azure infrastructure, with a zero-retention option available. Version 1 runs inference on Anthropic servers, even though billing transits through Azure.
+
+Both versions include the following features :
+- *Azure Virtual Network* integration to restrict network access at the resource level.
+- Access control via Azure API keys or *Entra ID* with RBAC (*Foundry User* role required).
+- Monitoring via *Azure Monitor*, logs in *Azure Log Analytics*, and cost tracking in Azure Cost Management.
+
+For European organizations, the Sweden Central region is available in *Global Standard* (Version 1 and Version 2). The *Data Zone Standard* deployment (guaranteed residency within a geographic zone) is not available for Claude models in Europe. Global Standard routing may traverse Azure regions outside the EU.
+
+---
+
+##### Adaptive thinking and effort control
+On Foundry, Claude Opus 5 supports only the *adaptive* and *disabled* thinking modes, the *enabled* mode (permanent extended thinking) is not available. In *adaptive* mode (default), the model self-adjusts its reasoning depth to the complexity of the request.
+
+The *effort* parameter controls the quality versus cost trade-off :
+- In *adaptive* mode : *low*, *medium*, *high*, *xhigh*, and *max* levels available.
+- In *disabled* mode : effort capped at *high*.
+
+The *Fast* mode (approximately 2.5 times faster, available on the direct Anthropic API as a research preview) is not available in Foundry.
+
+---
+
+##### Conclusion
+The simultaneous availability of Claude Opus 5 in Foundry on launch day marks a step in the maturity of the Azure integration. Version 2 (hosted on Azure) meets the data residency requirements of organizations that cannot use the direct Anthropic API. For teams already deployed on Opus 4.8 in Foundry, migration to Opus 5 follows the same deployment process, with no change in pricing.
+
+---
+
+##### Sources
+[Microsoft - Techcommunity](https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/claude-opus-5-is-available-today-in-microsoft-foundry/4535068)
+
+[Microsoft Learn - Claude models in Foundry](https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/claude-models)
+
+[Microsoft Learn - Partner model availability](https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/models-from-partners)
+
+[Anthropic - Claude in Microsoft Foundry](https://platform.claude.com/docs/en/build-with-claude/claude-in-microsoft-foundry)
+
+---
+
+
+Did you enjoy this post ? If you have any questions, comments or suggestions, please feel free to send me a message from the contact form.
+
+Don't forget to follow us and share this post.
