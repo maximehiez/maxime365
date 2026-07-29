@@ -155,7 +155,7 @@ On the morning of the meeting, the team in charge of orders receives confirmatio
 ---
 
 ##### Let's go further
-I have two ideas worth exploring, which I'll test when I have time :
+I have two ideas worth exploring that I will test when I have the time :
 1. Create a *PowerApps* application connected to Teams to allow order processing within it rather than going to SharePoint.
 2. Connect the solution with the *Uber Eats*, *DoorDash*, and other APIs to have a more complete menu.
 
