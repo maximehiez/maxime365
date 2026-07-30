@@ -97,9 +97,9 @@ Voir l'article de Décembre 2025 sur l'activation de Passkey [ICI](https://maxim
 ##### Étape 5 : Configurer la campagne d'inscription
 La campagne d'inscription sollicite l'utilisateur à sa prochaine connexion avec MFA. L'activer avant le 1er Septembre 2026 permet d'étaler la bascule au rythme de l'organisation plutôt que de subir l'activation automatique.
 
-Dans le menu de gauche, cliquez sur *<u>Entra ID</u>*, puis sur *<u>Authentication methods</u>*, et sur *<u>Registration campaign</u>*.
+Dans le menu de gauche, cliquez sur *<u>Authentication methods</u>*, et sur *<u>Registration campaign</u>*.
 
-Positionnez *<u>State</u>* sur *<u>Microsoft Managed</u>* et ciblez le groupe de sécurité créé à l'étape 3.
+Positionnez *<u>State</u>* sur *<u>Enabled</u>*, *<u>Authentication method</u>* sur *<u>Passkey (FIDO2)</u>*,  et ciblez le groupe de sécurité créé à l'étape 3.
 
 ![image](/images/blog/entra/tuto/entra_how_to_migrate_sms_voice_to_passkey_001.png)
 
