@@ -1,0 +1,163 @@
+---
+title: "How to migrate SMS and voice users to Passkey"
+meta_title: ""
+description: ""
+date: 2026-07-30T10:00:00-05:00
+image: "/images/blog/entra/tuto/entra_how_to_migrate_sms_voice_to_passkey_thumbnail.png"
+categories: ["Entra ID", "Tutorial"]
+author: "Maxime Hiez"
+tags: ["Passkey", "Password", "Authenticator", "FIDO2", "MFA", "Security"]
+draft: false
+---
+---
+
+##### Introduction
+In many *Microsoft 365* tenants, SMS and voice call remain the last MFA safety net for a portion of the accounts. They are also the weakest methods against *SIM swap*, *interception* and *phishing*. *Microsoft* is therefore removing them from its native offering and making *Passkeys* the default sign-in experience. Two dates structure the whole migration : **September 1, 2026** for the automatic enablement, and **February 1, 2027** for the effective retirement.
+
+---
+
+##### The retirement timeline
+The retirement spans six months and each milestone opens a different action.
+
+| Date                 | What changes                                                                                                | Expected action                                                             |
+|----------------------|-------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------|
+| August 1, 2026       | The API and the documentation for the temporary opt-out are published                                        | Decide whether the tenant needs to delay the automatic enablement           |
+| September 1, 2026    | Passkeys become the default experience, SMS and voice users are enabled and prompted at sign-in              | Notify the users and prepare the registration campaign                      |
+| September 18, 2026   | Third-party telecom provider offers are published in the *Microsoft Security Store*                          | Evaluate the options if an exception is justified                           |
+| October 30, 2026     | Selecting and configuring a telecom provider becomes possible                                                | Sign the contract and validate with a pilot group                           |
+| February 1, 2027     | SMS and voice call provided by Microsoft are retired from *Entra ID*                                         | Have every account moved to a phishing-resistant method                     |
+
+On September 1, 2026, users enabled for SMS or voice will be automatically moved into a profile allowing all Passkey types. The tenant registration campaign will switch to the *Microsoft Managed* state and will include those accounts automatically. The prompt will appear at the next sign-in with MFA, and will remain skippable indefinitely by default.
+
+<Notice type="warning">Starting February 1, 2027, users whose only MFA method is SMS or voice call will receive a blocking Passkey registration prompt. It will no longer be possible to skip it, and no opt-out is planned for that milestone.</Notice>
+
+---
+
+##### Prerequisites
+**<u>Required licenses</u>**
+- *Microsoft 365* (all editions supporting modern authentication).
+
+**<u>Administrator role</u>**
+- An account with the *Global Reader*, *Authentication Policy Administrator* or *Security Reader* role to inventory the affected accounts.
+- An account with the *Global Administrator* or *Authentication Policy Administrator* role to modify the authentication methods and the registration campaign.
+
+---
+
+##### Step 1 : Identify the affected users
+The first action is to measure the tenant's actual exposure. Microsoft published the *PowerShell* script *<u>Entra SMS Voice Usage Analyzer</u>*, which lists the accounts enabled for SMS and for voice call.
+
+Run the PowerShell script available on [Microsoft's official GitHub](https://github.com/microsoft/entra-sms-voice-usage-analyzer). Any result other than zero means the tenant is in scope for the retirement.
+
+```powershell
+.\Get-SmsVoicePolicyUsers.ps1 -TenantId "Lab.onmicrosoft.com"
+
+Registration campaign: Microsoft managed
+
+SMS state: disabled
+Voice state: enabled
+
+  Voice scope:
+    Include: ALL USERS
+    Exclude group: Service Accounts (abc-123-def)
+
+Exported to: .\SmsVoicePolicyTargets_20260730_100000.csv
+
+===== IMPACT SUMMARY =====
+  Sep 1, 2026:  Users in SMS/Voice scope auto-enabled for passkeys. Reg campaign set to Microsoft Managed.
+                To prevent: move users out of SMS/Voice AMP scope before Sep 1.
+  Jan 28, 2027: Microsoft SMS/Voice delivery RETIRED. Migrate to passkeys or configure customer-managed provider.
+  Guide: https://aka.ms/passkey-deployment-guide
+```
+
+---
+
+##### Step 2 : Sign in to the Microsoft Entra Admin Center
+Sign in to the Microsoft Entra Admin Center by opening your web browser to https://entra.microsoft.com.
+
+---
+
+##### Step 3 : Create a security group
+In the left menu, click *<u>Groups</u>*, then *<u>New group</u>* to create a security group.
+
+Add the accounts returned by the *Entra SMS Voice Usage Analyzer* script as members. This group is the target for the registration campaign and for the communications, and it avoids prompting the whole organization.
+
+---
+
+##### Step 4 : Enable Passkey in the tenant
+Check the article from December 2025 on activating Passkey [HERE](https://maxime.hiez.ca/en/blog/2024-12-16-entra-how-to-activate-passkey).
+
+*Entra ID* supports two families of Passkeys, and the choice depends on the device fleet :
+- <u>Synced Passkeys</u> : Stored in a platform credential manager such as *iCloud Keychain* or *Google Password Manager*, then synchronized across the user's devices.
+- <u>Device-bound Passkeys</u> : Created and kept on a specific device, through *Passkey in Microsoft Authenticator*, *Entra Passkey on Windows* or a *FIDO2* hardware key.
+
+<Notice type="note">Users who already have Passkeys, *Windows Hello for Business* or another phishing-resistant method have nothing to do.</Notice>
+
+---
+
+##### Step 5 : Configure the registration campaign
+The registration campaign prompts the user at their next sign-in with MFA. Enabling it before September 1, 2026 allows you to spread the move at the organization's own pace instead of being subject to the automatic enablement.
+
+In the left menu, click *<u>Entra ID</u>*, then *<u>Authentication methods</u>*, and *<u>Registration campaign</u>*.
+
+Set *<u>State</u>* to *<u>Microsoft Managed</u>* and target the security group created in step 3.
+
+![image](/images/blog/entra/tuto/entra_how_to_migrate_sms_voice_to_passkey_001.png)
+
+---
+
+##### Step 6 : Handle regulatory exceptions
+Some contexts require keeping an out-of-band telecom channel, for example an explicit regulatory constraint or a segment of users for which no other method is workable. Those cases go through a provider contracted directly via the *Microsoft Security Store*.
+
+The approach is the following :
+- <u>Document the need</u> : Identify the user segment, the regulation invoked and the precise scenario.
+- <u>Evaluate the offers</u> : Compare the providers available from September 18, 2026 against regional and compliance requirements.
+- <u>Configure the provider</u> : Selection in the Security Store opens on October 30, 2026.
+- <u>Validate before rollout</u> : Test with a pilot group before extending the configuration.
+
+Billing is on the organization, usually per message, and varies depending on the provider, the volume and the geographic distribution. Moving to Passkeys, on the other hand, generates no additional cost.
+
+---
+
+##### Step 7 : Communicate the change
+Communication quality is the best predictor of a successful Passkey deployment, well ahead of the technical configuration. Microsoft recommends a three-stage sequence :
+- <u>Awareness</u> : Announce the SMS and voice retirement, explain why and name the replacement method.
+- <u>Action</u> : Direct users to register a Passkey, with separate instructions per device type.
+- <u>Reminder</u> : Follow up with the accounts that still have no phishing-resistant method registered.
+
+Email and Teams message templates are available at https://aka.ms/mfatemplates. Target those sends on the security group from step 3.
+
+---
+
+##### Retirement scope and special cases
+The retirement goes beyond MFA sign-in alone, and a few situations are worth checking before planning :
+- <u>SSPR</u> : The retirement also applies to self-service password reset. SMS and voice remain usable there only through a Security Store provider.
+- <u>External MFA methods</u> : They are not affected, unless the accounts are also enabled for SMS or voice.
+- <u>B2B and internal guest accounts</u> : They are in scope for the retirement, while Passkey support for those accounts is announced for the end of calendar year 2026.
+- <u>Sovereign environments</u> : The timeline above only applies to public environments.
+
+On external MFA methods, check the article from March 2026 [HERE](https://maxime.hiez.ca/en/blog/2026-03-27-entra-external-mfa-now-available).
+
+---
+
+##### Conclusion
+The truly binding milestone is February 1, 2027, with a blocking registration prompt and no possible exemption. The most immediate point of attention concerns B2B accounts, whose Passkey support only arrives at the end of 2026 while they are already in scope : those are the ones to frame first in the migration plan.
+
+You now know how to inventory the accounts still depending on SMS and voice call, enable Passkeys and drive the move through a registration campaign.
+
+---
+
+##### Sources
+[Microsoft Learn - SMS and voice retirement](https://learn.microsoft.com/en-us/entra/identity/authentication/concept-sms-voice-retirement)
+
+[Microsoft Learn - Plan a Passkey deployment](https://learn.microsoft.com/en-us/entra/identity/authentication/how-to-deploy-phishing-resistant-passwordless-authentication)
+
+[Microsoft Learn - Passkeys (FIDO2) in Entra ID](https://learn.microsoft.com/en-us/entra/identity/authentication/concept-authentication-passkeys-fido2)
+
+[GitHub - Entra SMS Voice Usage Analyzer](https://github.com/microsoft/entra-sms-voice-usage-analyzer)
+
+---
+
+
+Did you enjoy this post ? If you have any questions, comments or suggestions, please feel free to send me a message from the contact form.
+
+Don't forget to follow us and share this post.
