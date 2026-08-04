@@ -1,0 +1,71 @@
+---
+title: "Teams Phone Agent and Copilot Studio voice agents in Preview"
+meta_title: ""
+description: ""
+date: 2026-08-04T10:00:00-05:00
+image: "/images/blog/teams/teams_phone_agent_copilot_studio_thumbnail.png"
+categories: ["Teams", "Copilot"]
+author: "Maxime Hiez"
+tags: ["Telephony", "AI", "Agent", "IVR", "Frontier"]
+draft: false
+---
+---
+
+##### Introduction
+*Microsoft Teams* *Auto Attendants* have always relied on a fixed menu, where the caller listens to a list of options before pressing a key. *Teams Phone Agent* replaces that principle with a conversation, the agent understands the request spoken out loud and routes the call without any tree structure. Microsoft adds the *Microsoft Copilot Studio* integration on top, which allows custom business processes to be plugged in behind that same number. The whole thing is restricted to the *Frontier* program in *Public Preview*.
+
+---
+
+##### Teams Phone Agent, beyond the auto attendant
+Teams Phone Agent extends the classic auto attendant with AI-driven conversations. It screens calls, answers common questions, handles appointments and directs the caller without a keypad menu. The goal is call deflection, the agent handles on its own whatever does not require human intervention.
+
+Two native tools are provided :
+- <u>Appointment</u> : Books and manages appointments directly during the call
+- <u>Questions and Answers</u> : Answers recurring requests from a knowledge base
+
+---
+
+##### Two integration paths with Copilot Studio
+Copilot Studio covers the scenarios those two tools cannot handle, for example billing, order tracking or stock checking. Two attachment models coexist and do not address the same need.
+
+|                  | Agents and queues                                | Direct dial                                   |
+|------------------|--------------------------------------------------|-----------------------------------------------|
+| Entry point      | Behind a Teams Phone Agent, through a keypad key | Number dialed directly by the caller          |
+| Resource account | The one of the existing Teams Phone Agent        | Dedicated resource account of type *AI Agent* |
+| Use case         | Escalation from a general-purpose AI reception   | Line dedicated to a specific process          |
+
+In both cases, handing back to traditional telephony is done through *Tags*. A tag template defined in the *Teams Admin Center* exposes destinations, call queue, auto attendant or named user, which the Copilot Studio agent then calls from a *Topic* whose trigger is *User says a phrase*.
+
+---
+
+##### Licensing, availability and limits
+The licensing scope is cumulative and covers two distinct products :
+- <u>On the Teams side</u> : The *Auto Attendant and Call Queue* foundation, the *Teams Phone Agent* license, and the *Teams Phone Agent with Microsoft Copilot Studio* license
+- <u>On the Copilot Studio side</u> : A tenant license to run and publish the agents, and a user license to design them
+
+Several limits are worth knowing before building a mockup. *Quick setup* mode does not allow a Teams Phone Agent to be configured, *Advanced setup* is mandatory. Announcements through an audio file or through typed text are not supported as a destination, neither is the *Force listen* option, and the greeting must be entered as text. Microsoft also recommends restricting each agent to the process it serves and validating the full journey before exposing a number.
+
+<Notice type="note">Teams Phone Agent is restricted to customers of the Frontier program in Public Preview, and the Agents and Queues section entered it on June 15, 2026. The Copilot Studio integration is furthermore subject to an explicit tenant enablement by Microsoft support before the channel appears.</Notice>
+
+---
+
+##### Conclusion
+Teams Phone Agent moves the auto attendant from a tree-based logic to a conversational one, and the Copilot Studio integration opens the door to real business processes rather than generic questions alone. The direct dial model, with its AI Agent resource account, is the most interesting one for dedicating a line to an identified process. The double constraint to keep in mind remains access to the Frontier program and the manual tenant enablement by Microsoft, which make the feature hard to test outside of that scope for now.
+
+---
+
+##### Sources
+[Microsoft - Techcommunity](https://techcommunity.microsoft.com/blog/microsoftteamsblog/engage-customers-with-teams-phone-agent-and-custom-voice-agents-built-in-copilot/4526829)
+
+[Microsoft Learn - Teams Phone Agent overview](https://learn.microsoft.com/en-us/microsoftteams/aa-cq-plan-overview)
+
+[Microsoft Learn - Copilot Studio voice agents with direct dial](https://learn.microsoft.com/en-us/microsoftteams/aa-cq-direct-mcs)
+
+[Microsoft Demo - Teams Phone Agent](https://demos.microsoft.com/Microsoft/play/6165/teams-phone-agent-self-led#/9/1)
+
+---
+
+
+Did you enjoy this post ? If you have any questions, comments or suggestions, please feel free to send me a message from the contact form.
+
+Don't forget to follow us and share this post.

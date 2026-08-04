@@ -6,7 +6,7 @@ date: 2026-04-06T10:00:00-05:00
 image: "/images/blog/purview/tuto/purview_how_to_secure_emails_with_sensitivity_labels_for_emails_thumbnail.png"
 categories: ["Purview", "Tutorial"]
 author: "Maxime Hiez"
-tags: ["Data protection", "Governance", "Sensitivity Labels", "Security"]
+tags: ["Data protection", "Governance", "Sensitivity Labels", "Security", "Encryption"]
 draft: false
 ---
 ---
