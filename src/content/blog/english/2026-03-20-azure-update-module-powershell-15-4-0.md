@@ -46,23 +46,23 @@ Version 15.4.0 includes the following updates :
 - Added *-Tag* and *-Location* parameters to *New-AzSshKey* cmdlet.
 - Added *-Tag* parameter to *Update-AzSshKey* cmdlet.
 - Added support for Disk Availability Policy :
-   - Added *-ActionOnDiskDelay* parameter to *New-AzDiskConfig* cmdlet to configure disk availability behavior.
-   - Added *-ActionOnDiskDelay* parameter to *New-AzDiskUpdateConfig* cmdlet to update disk availability behavior.
+    - Added *-ActionOnDiskDelay* parameter to *New-AzDiskConfig* cmdlet to configure disk availability behavior.
+    - Added *-ActionOnDiskDelay* parameter to *New-AzDiskUpdateConfig* cmdlet to update disk availability behavior.
 <br/><br/>
 
 **<u>Az.Databricks</u>**
 - Upgraded API version to *2026-01-01* :
-   - Added *ComputeMode* parameter to *New-AzDatabricksWorkspace* cmdlet supporting *Hybrid* and *Serverless* compute modes.
-   - Changed *ComplianceStandard* parameter type from *enum* to *String[]* for greater flexibility.
+    - Added *ComputeMode* parameter to *New-AzDatabricksWorkspace* cmdlet supporting *Hybrid* and *Serverless* compute modes.
+    - Changed *ComplianceStandard* parameter type from *enum* to *String[]* for greater flexibility.
 <br/><br/>
 
 **<u>Az.ElasticSan</u>**
 - Supported auto scale when creating and updating an Elastic SAN.
-   - *New-AzElasticSan*.
-   - *Update-AzElasticSan*.
+    - *New-AzElasticSan*.
+    - *Update-AzElasticSan*.
 - Supported checking whether disk snapshot backup can be taken for volumes.
-   - *Test-AzElasticSanVolumeBackup*.
-   - *Test-AzElasticSanVolumeRestore*.
+    - *Test-AzElasticSanVolumeBackup*.
+    - *Test-AzElasticSanVolumeRestore*.
 <br/><br/>
 
 **<u>Az.KeyVault</u>**
@@ -79,7 +79,7 @@ Version 15.4.0 includes the following updates :
 
 **<u>Az.Sql</u>**
 - Add support for the versionless AKV keys.
-   - The cmdlets supported are *Add-AzSqlServerKeyVaultKey*, *Get-AzSqlServerKeyVaultKey*, *Set-AzSqlServerTransparentDataEncryptionProtector*, *Get-AzSqlServerTransparentDataEncryptionProtector*, *New-AzSqlDatabase*, *Get-AzSqlDatabase*, *Set-AzSqlDatabase*, *New-AzSqlDatabaseCopy*, *New-AzSqlDatabaseSecondary* and *Restore-AzSqlDatabase*.
+    - The cmdlets supported are *Add-AzSqlServerKeyVaultKey*, *Get-AzSqlServerKeyVaultKey*, *Set-AzSqlServerTransparentDataEncryptionProtector*, *Get-AzSqlServerTransparentDataEncryptionProtector*, *New-AzSqlDatabase*, *Get-AzSqlDatabase*, *Set-AzSqlDatabase*, *New-AzSqlDatabaseCopy*, *New-AzSqlDatabaseSecondary* and *Restore-AzSqlDatabase*.
 - Added public preview tag for *EnableSoftDelete* and *SoftDeleteRetentionDays* properties in *New-AzSqlServer* and *Set-AzSqlServer* cmdlets.
 - Added public preview tag for *Get-AzSqlDeletedServer* and *Restore-AzSqlServer* cmdlets.
 <br/><br/>

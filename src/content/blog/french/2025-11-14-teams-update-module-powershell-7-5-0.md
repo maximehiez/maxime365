@@ -37,20 +37,20 @@ Update-Module MicrosoftTeams
 ##### Quoi de neuf ?
 La version 7.5.0 contient les mises à jour suivantes :
 
-- Ajoute les paramètres *PickUpHeldCalls* et *JoinActiveCalls* aux applets de commande *[New|Set]-CsUserCallingDelegate* et les attributs de sortie correspondants à l'applet de commande *Get-CsUserCallingSettings*.
-- Ajoute les attributs de sortie *AssignmentBlockedState* et *AssignmentBlockedUntil* à l'applet de commande *[Get]-CsPhoneNumberAssignment*.
-- Supprime les applets de commande *[Set|Remove]-CsPhoneNumberAssignmentBlock*.
-- Ajoute le paramètre *DynamicCallerIdMode* aux applets de commande *[Get|Set]-CsOnlineDialInConferencingTenantSettings*.
-- Ajoute le paramètre *BackroomChat* aux applets de commande *[New|Set]-CsTeamsMeetingPolicy* et *[New|Set]-CsTeamsEventsPolicy*.
-- Ajoute le paramètre *UseUnifiedDomain* à l'applet de commande *Set-CsTeamsClientConfiguration*.
+- Ajout des paramètres *PickUpHeldCalls* et *JoinActiveCalls* aux applets de commande *[New|Set]-CsUserCallingDelegate* et les attributs de sortie correspondants à l'applet de commande *Get-CsUserCallingSettings*.
+- Ajout des attributs de sortie *AssignmentBlockedState* et *AssignmentBlockedUntil* à l'applet de commande *[Get]-CsPhoneNumberAssignment*.
+- Suppression des applets de commande *[Set|Remove]-CsPhoneNumberAssignmentBlock*.
+- Ajout du paramètre *DynamicCallerIdMode* aux applets de commande *[Get|Set]-CsOnlineDialInConferencingTenantSettings*.
+- Ajout du paramètre *BackroomChat* aux applets de commande *[New|Set]-CsTeamsMeetingPolicy* et *[New|Set]-CsTeamsEventsPolicy*.
+- Ajout du paramètre *UseUnifiedDomain* à l'applet de commande *Set-CsTeamsClientConfiguration*.
 - [CHANGEMENT MAJEUR] Remplace le paramètre *MaxResolutionForTownhall* par *TownhallMaxResolution* dans les applets de commande *[Get|Set|New|Remove]-CsTeamsEventsPolicy*.
-- Ajoute le paramètre *ExternalPresenterJoinVerification* aux applets de commande *[Set|New]-CsTeamsEventsPolicy*.
-- Ajoute le paramètre *PasiveVoiceEnrollment* aux applets de commande *[New|Set]-CsTeamsAIPolicy*.
-- Ajoute le paramètre *SetRecordingAndTranscriptOwnership* aux applets de commande *[New|Set]-CsTeamsMeetingPolicy*.
-- Ajoute les paramètres *EnableRecordingAndTranscriptionCustomMessage* et *RecordingAndTranscriptionCustomMessageIdentifier* aux applets de commande *[New|Set]-CsTeamsMeetingPolicy* et *[New|Set]-CsTeamsCallingPolicy*.
-- Publie l'applet de commande *Get-CsTeamsRecordingAndTranscriptionCustomMessagesConfiguration*.
-- Ajoute les applets de commande *[Get|Set|New|Remove]-CsTeamsRecordingAndTranscriptionCustomMessage*.
-- Ajoute *Voicemail* comme valeur prise en charge pour le paramètre *Type* des applets de commande *[New|Set]-CsAutoAttendantCallableEntity*.
+- Ajout du paramètre *ExternalPresenterJoinVerification* aux applets de commande *[Set|New]-CsTeamsEventsPolicy*.
+- Ajout du paramètre *PasiveVoiceEnrollment* aux applets de commande *[New|Set]-CsTeamsAIPolicy*.
+- Ajout du paramètre *SetRecordingAndTranscriptOwnership* aux applets de commande *[New|Set]-CsTeamsMeetingPolicy*.
+- Ajout des paramètres *EnableRecordingAndTranscriptionCustomMessage* et *RecordingAndTranscriptionCustomMessageIdentifier* aux applets de commande *[New|Set]-CsTeamsMeetingPolicy* et *[New|Set]-CsTeamsCallingPolicy*.
+- Publication de l'applet de commande *Get-CsTeamsRecordingAndTranscriptionCustomMessagesConfiguration*.
+- Ajout des applets de commande *[Get|Set|New|Remove]-CsTeamsRecordingAndTranscriptionCustomMessage*.
+- Ajout de *Voicemail* comme valeur prise en charge pour le paramètre *Type* des applets de commande *[New|Set]-CsAutoAttendantCallableEntity*.
 
 ---
 

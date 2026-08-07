@@ -37,23 +37,23 @@ Update-Module MicrosoftTeams
 ##### Quoi de neuf ?
 La version 6.8.0 contient les mises à jour suivantes :
 
-- Ajoute un paramètre facultatif *TargetType* à l’applet de commande *Get-CsOnlineTelephoneNumberOrder*.
+- Ajout d'un paramètre facultatif *TargetType* à l’applet de commande *Get-CsOnlineTelephoneNumberOrder*.
 - [CHANGEMENT MAJEUR] Modifie l'attribut de sortie de *TelephoneNumber* en *TelephoneNumbers* dans l'applet de commande *Get-CsOnlineTelephoneNumberOrder*.
-- Publie l’applet de commande *New-CsOnlineDirectRoutingTelephoneNumberUploadOrder*.
-- Publie l’applet de commande *New-CsOnlineTelephoneNumberReleaseOrder*.
+- Publication de l’applet de commande *New-CsOnlineDirectRoutingTelephoneNumberUploadOrder*.
+- Publication de l’applet de commande *New-CsOnlineTelephoneNumberReleaseOrder*.
 - [CHANGEMENT MAJEUR] Remplace *EnablePayAsYouGoSendingLimits* par *EnableSpendLimits* dans *[New|Set]-CsTeamsCallingPolicy*.
 - [CHANGEMENT MAJEUR] Remplace *PayAsYouGoSendingUserLimit* par *CallingSpendUserLimit* dans *[New|Set]-CsTeamsCallingPolicy*.
-- Ajoute *ShowTeamsCallsInCallLog* à *[New|Set]-CsTeamsCallingPolicy*.
-- Publie les applets de commande *[Get|Set]-CsTeamsMultiTenantOrganizationConfiguration*.
-- Ajoute de nouvelles politiques, à savoir *TeamsBYODAndDesksPolicy*, *TeamsAIPolicy*, *TeamsWorkLocationDetectionPolicy*, *TeamsMediaConnectivityPolicy*, *TeamsMeetingTemplatePermissionPolicy*, *TeamsVirtualAppointmentsPolicy*, *TeamsWorkLoadPolicy* à - la sortie de l'applet de commande *Get-CsOnlineUser*.
-- Publie des mises à jour majeures de l'applet de commande *Get-CsOnlineUser* pour les équipes Microsoft exploitées par 21Vianet avec des améliorations significatives des performances et de nouvelles capacités de filtrage des scénarios sans le paramètre *-Identity*.
-- Publie l’applet de commande *Get-M365UnifiedCustomPendingApps* pour obtenir toutes les applications en attente personnalisées unifiées M365.
-- Publie l’applet de commande *Update-M365UnifiedCustomPendingApp* pour publier ou rejeter une application en attente personnalisée unifiée M365.
-- Ajoute le paramètre *Filter* à l’applet de commande *Get-CsPhoneNumberAssignment*.
-- Ajoute les paramètres *AIInterpreter*, *VoiceSimulationInInterpreter* à *[New|Set]-CsTeamsMeetingPolicy*.
-- Ajoute le paramètre *ImmersiveEvents* à *[New|Set]-CsTeamsEventsPolicy*.
-- Ajoute le paramètre *AnonymousUserAuthenticationMethod* à *[New|Set]-CsTeamsMeetingPolicy*.
-- Ajoute le paramètre *ExtendedWorkInfoInPeopleSearch* à *Set-CsTeamsClientConfiguration*.
+- Ajout de *ShowTeamsCallsInCallLog* à *[New|Set]-CsTeamsCallingPolicy*.
+- Publication des applets de commande *[Get|Set]-CsTeamsMultiTenantOrganizationConfiguration*.
+- Ajout des nouvelles politiques, à savoir *TeamsBYODAndDesksPolicy*, *TeamsAIPolicy*, *TeamsWorkLocationDetectionPolicy*, *TeamsMediaConnectivityPolicy*, *TeamsMeetingTemplatePermissionPolicy*, *TeamsVirtualAppointmentsPolicy*, *TeamsWorkLoadPolicy* à - la sortie de l'applet de commande *Get-CsOnlineUser*.
+- Publication des mises à jour majeures de l'applet de commande *Get-CsOnlineUser* pour les équipes Microsoft exploitées par 21Vianet avec des améliorations significatives des performances et de nouvelles capacités de filtrage des scénarios sans le paramètre *-Identity*.
+- Publication de l’applet de commande *Get-M365UnifiedCustomPendingApps* pour obtenir toutes les applications en attente personnalisées unifiées M365.
+- Publication de l’applet de commande *Update-M365UnifiedCustomPendingApp* pour publier ou rejeter une application en attente personnalisée unifiée M365.
+- Ajout du paramètre *Filter* à l’applet de commande *Get-CsPhoneNumberAssignment*.
+- Ajout des paramètres *AIInterpreter*, *VoiceSimulationInInterpreter* à *[New|Set]-CsTeamsMeetingPolicy*.
+- Ajout du paramètre *ImmersiveEvents* à *[New|Set]-CsTeamsEventsPolicy*.
+- Ajout du paramètre *AnonymousUserAuthenticationMethod* à *[New|Set]-CsTeamsMeetingPolicy*.
+- Ajout du paramètre *ExtendedWorkInfoInPeopleSearch* à *Set-CsTeamsClientConfiguration*.
 - [CHANGEMENT MAJEUR] Remplace *VoiceSimulationInInterpretation* par *VoiceSimulationInInterpreter* dans *[New|Set]-CsTeamsCallingPolicy*.
 
 ---

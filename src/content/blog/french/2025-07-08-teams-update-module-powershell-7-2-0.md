@@ -37,7 +37,7 @@ Update-Module MicrosoftTeams
 ##### Quoi de neuf ?
 La version 7.2.0 contient les mises à jour suivantes :
 
-- Ajoute l’attribut *EffectivePolicyAssignments* à l’applet de commande *Get-CsOnlineUser*. Cet attribut est actuellement pris en charge uniquement dans les environnements commerciaux.
+- Ajout de l’attribut *EffectivePolicyAssignments* à l’applet de commande *Get-CsOnlineUser*. Cet attribut est actuellement pris en charge uniquement dans les environnements commerciaux.
 - Résout les problèmes liés au paramètre *AccountType* (valeurs *SfbOnPremUser* et *In eligibleUser*) dans l’applet de commande *Get-CsOnlineUser*.
 
 ---

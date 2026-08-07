@@ -37,14 +37,14 @@ Update-Module MicrosoftTeams
 ##### Quoi de neuf ?
 La version 7.1.0 contient les mises à jour suivantes :
 
-- Ajoute le paramètre *ThreadedChannelCreation* aux applets de commande *[New|Set]-CsTeamsChannelsPolicy*.
-- Ajoute le paramètre *BroadcastPremiumApps* aux applets de commande *[New|Set]-CsTeamsEventsPolicy*.
-- Ajoute le paramètre *ParticipantSlideControl* aux applets de commande *[New|Set]-CsTeamsMeetingPolicy*.
+- Ajout du paramètre *ThreadedChannelCreation* aux applets de commande *[New|Set]-CsTeamsChannelsPolicy*.
+- Ajout du paramètre *BroadcastPremiumApps* aux applets de commande *[New|Set]-CsTeamsEventsPolicy*.
+- Ajout du paramètre *ParticipantSlideControl* aux applets de commande *[New|Set]-CsTeamsMeetingPolicy*.
 - [CHANGEMENT MAJEUR] Supprime le paramètre *AllowPublicUsers* de l’applet de commande *[Set]-CsTenantFederationConfiguration*.
 - [CHANGEMENT MAJEUR] Supprime le paramètre *EnablePublicCloudAccess* des applets de commande *[New|Set]-CsExternalAccessPolicy*.
-- Publie les applets de commande *[New|Set|Remove|Get]-CsSharedCallQueueHistoryTemplate*.
-- Ajoute le paramètre *SharedCallQueueHistoryTemplateId* aux applets de commande *[New|Set]-CsCallQueue*.
-- Publie les applets de commande *[Get|Set|Update|Remove]-CsPhoneNumberTag*.
+- Publication des applets de commande *[New|Set|Remove|Get]-CsSharedCallQueueHistoryTemplate*.
+- Ajout du paramètre *SharedCallQueueHistoryTemplateId* aux applets de commande *[New|Set]-CsCallQueue*.
+- Publication des applets de commande *[Get|Set|Update|Remove]-CsPhoneNumberTag*.
 - [CHANGEMENT MAJEUR] Supprime l’attribut de sortie *DialPlan* de l’applet de commande *Get-CsOnlineUser*.
 
 ---

@@ -37,20 +37,20 @@ Update-Module MicrosoftTeams
 ##### Quoi de neuf ?
 La version 7.7.0 contient les mises à jour suivantes :
 
-- Corrige le paramètre *IPAddressVersion* dans les applets de commande *[Set|New]-CsOnlinePstnGateway*.
-- Supprime les applets de commande *[Set|Remove]-CsPhoneNumberSmsActivation*.
-- Ajoute l'attribut de sortie *SmsActivationState* à l'applet de commande *Get-CsPhoneNumberAssignment*.
-- Ajoute la prise en charge de l'authentification basée sur l'application dans l'applet de commande *Set-CsTeamsSettingsCustomApp*.
-- Met à jour l'applet de commande *Get-Team* pour améliorer les performances et la fiabilité.
+- Correction du paramètre *IPAddressVersion* dans les applets de commande *[Set|New]-CsOnlinePstnGateway*.
+- Suppression des applets de commande *[Set|Remove]-CsPhoneNumberSmsActivation*.
+- Ajout de l'attribut de sortie *SmsActivationState* à l'applet de commande *Get-CsPhoneNumberAssignment*.
+- Ajout de la prise en charge de l'authentification basée sur l'application dans l'applet de commande *Set-CsTeamsSettingsCustomApp*.
+- Mise à jour de l'applet de commande *Get-Team* pour améliorer les performances et la fiabilité.
 - [CHANGEMENT MAJEUR] Renomme le paramètre *ConfigurationId* dans l'applet de commande *Get-CsMainline AttendantFlow* en *RelatedConfigurationId*.
-- Ajoute les applets de commande *Get-CsMainline AttendantTenantInformation*, *Get-CsMainline AttendantSupportedLanguages* et *Get-CsMainline AttendantSupportedVoices*.
-- Ajoute des paramètres *AgentId*, *AgentIds*, *ContinuationToken*, *DisplayNameContains*, *DisplayNamePrefix*, *MaxResult* et *ShowCount* à l'applet de commande *Get-CsAiAgents*.
-- Ajoute la prise en charge des descriptions basées sur les URL dans les applets de commande *[New|Set]-CsMainline AttendantQuestionAnswerFlow*.
+- Ajout des applets de commande *Get-CsMainline AttendantTenantInformation*, *Get-CsMainline AttendantSupportedLanguages* et *Get-CsMainline AttendantSupportedVoices*.
+- Ajout des paramètres *AgentId*, *AgentIds*, *ContinuationToken*, *DisplayNameContains*, *DisplayNamePrefix*, *MaxResult* et *ShowCount* à l'applet de commande *Get-CsAiAgents*.
+- Ajout de la prise en charge des descriptions basées sur les URL dans les applets de commande *[New|Set]-CsMainline AttendantQuestionAnswerFlow*.
 - [CHANGEMENT MAJEUR] Renomme le paramètre *DomainBlockingForMDOAdminsInTeams* de l'applet de commande *Set-CsTenantFederationConfiguration* en *SecurityTeamAllowBlockListDelegation*.
-- Introduit les applets de commande *[Get|New|Set|Remove]-CsAgent* pour la gestion de l'agent IA lors de l'intégration des comptes de ressources.
-- Ajoute le paramètre *IncomingRedirectedCalls* à l'applet de commande *New-CsSharedCallQueueHistoryTemplate*.
-- Introduit les applets de commande *[Get|New|Set|Remove]-CsSharedCallHistoryTemplate*. Ces applets de commande remplaceront les applets de commande *[Get|New|Set|Remove]-CsSharedCallQueueHistoryTemplate* ultérieurement.
-- Ajoute le paramètre *SharedVoicemailHistoryTemplateId* à l'applet de commande *New-CsAutoAttendantCallableEntity*.
+- Introduition  des applets de commande *[Get|New|Set|Remove]-CsAgent* pour la gestion de l'agent IA lors de l'intégration des comptes de ressources.
+- Ajout du paramètre *IncomingRedirectedCalls* à l'applet de commande *New-CsSharedCallQueueHistoryTemplate*.
+- Introduition des applets de commande *[Get|New|Set|Remove]-CsSharedCallHistoryTemplate*. Ces applets de commande remplaceront les applets de commande *[Get|New|Set|Remove]-CsSharedCallQueueHistoryTemplate* ultérieurement.
+- Ajout du paramètre *SharedVoicemailHistoryTemplateId* à l'applet de commande *New-CsAutoAttendantCallableEntity*.
 
 ---
 

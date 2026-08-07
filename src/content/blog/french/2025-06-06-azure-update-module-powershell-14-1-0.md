@@ -51,7 +51,7 @@ La version 14.1.0 contient les mises à jour suivantes :
 
 **<u>Az.Migrate</u>**
 - Implémentation de l'applet de commande *Get-AzMigrateServerMigrationStatus* pour récupérer l'état de réplication des serveurs dans Azure Migrate.
-- Correction de bugs dans *New-AzMigrateLocalServerReplication* qui entraînaient l'introuvabilité de *HyperVSite* ou *VMwareSite*.
+- Correction des bugs dans *New-AzMigrateLocalServerReplication* qui entraînaient l'introuvabilité de *HyperVSite* ou *VMwareSite*.
 <br/><br/>
 
 **<u>Az.MySql</u>**

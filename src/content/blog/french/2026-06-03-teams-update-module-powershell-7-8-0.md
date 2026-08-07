@@ -37,13 +37,13 @@ Update-Module MicrosoftTeams
 ##### Quoi de neuf ?
 La version 7.8.0 contient les mises à jour suivantes :
 
-- Corrige l'applet de commande *Get-TenantPrivateChannelMigrationStatus* dans les environnements GCC, GCC High et DoD.
-- Publie les applets de commande *New-CsPhoneNumberBulkUpdateDrNumberAcquiredCapabilitiesOrder*, *New-CsPhoneNumberBulkUpdateLocationIdOrder*, *New-CsPhoneNumberBulkUpdateNetworkSiteIdOrder* et *New-CsPhoneNumberBulkUpdateReverseNumberLookupOrder*.
+- Correction de l'applet de commande *Get-TenantPrivateChannelMigrationStatus* dans les environnements GCC, GCC High et DoD.
+- Publication des applets de commande *New-CsPhoneNumberBulkUpdateDrNumberAcquiredCapabilitiesOrder*, *New-CsPhoneNumberBulkUpdateLocationIdOrder*, *New-CsPhoneNumberBulkUpdateNetworkSiteIdOrder* et *New-CsPhoneNumberBulkUpdateReverseNumberLookupOrder*.
 - [CHANGEMENT MAJEUR] Renomme les paramètres *EnableExternalAccessRestrictionsForChatPartipants* et *EnableMutualFederationForChatPartipants* dans l'applet de commande *Set-CsTenantFederationSettings* en *EnableExternalAccessRestrictionsForChatParticipants* et *EnableMutualFederationForChatParticipants* respectivement.
-- Ajoute les paramètres *PreventComplianceRecording* et *DisableAudioAnnouncementsForResourceAccounts* aux applets de commande *[New|Set]-CsTeamsMeetingPolicy*.
-- Ajoute le paramètre *PreventComplianceRecording* aux applets de commande *[New|Set]-CsTeamsCallingPolicy*.
-- Ajoute le paramètre *Communities* à l'applet de commande *Set-CsTeamsMessagingConfiguration*.
-- Ajoute le paramètre *ReportMeeting* à l'applet de commande *Set-CsTeamsMeetingConfiguration*.
+- Ajout des paramètres *PreventComplianceRecording* et *DisableAudioAnnouncementsForResourceAccounts* aux applets de commande *[New|Set]-CsTeamsMeetingPolicy*.
+- Ajout du paramètre *PreventComplianceRecording* aux applets de commande *[New|Set]-CsTeamsCallingPolicy*.
+- Ajout du paramètre *Communities* à l'applet de commande *Set-CsTeamsMessagingConfiguration*.
+- Ajout du paramètre *ReportMeeting* à l'applet de commande *Set-CsTeamsMeetingConfiguration*.
 
 ---
 

@@ -99,7 +99,7 @@ The goal is to transform Copilot into a true agent-based productivity engine, ca
 
 ---
 
-##### A strategy based on « Intelligence + Trust »
+##### A strategy based on "Intelligence + Trust"
 Microsoft summarizes its vision with two key concepts :
 
 - **<u>Intelligence</u>**: Using the most advanced AI models to augment human capabilities.

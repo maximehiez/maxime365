@@ -37,20 +37,20 @@ Update-Module MicrosoftTeams
 ##### Quoi de neuf ?
 La version 7.6.0 contient les mises à jour suivantes :
 
-- Publie l'applet de commande *Get-CsAiAgents*.
-- Publie  l'applet de commande *New-CsPhoneNumberBulkUpdateTagsOrder*.
-- Publie les applets de commande *[Get|Set|Remove]-CsPhoneNumberTenantConfiguration*.
-- Publie les applets de commande *[New|Get|Set|Remove]-CsAutoRecordingTemplate*.
-- Ajoute le paramètre *AutoRecordingTemplateId* aux applets de commande *[New|Set]-CsCallQueue*.
-- Ajoute le paramètre *ResourceAccount* aux applets de commande *[New|Set]-InboundBlockedNumberPattern*.
-- Ajoute le paramètre *CallerNumber* aux applets de commande *[Get|Test]-CsEffectiveTenantDialPlan*.
-- Ajoute le paramètre *LinksInTeams* aux applets de commande *[Set|New]-CsTeamsMobilityPolicy*.
-- Ajoute le paramètre *ReportCall* aux applets de commande *[Set|New]-CsTeamsCallingPolicy*.
-- Ajoute les paramètres *AllowMultipleScreenshare* et *PasscodeComplexity* aux applets de commande *[Set|New]-CsTeamsMeetingPolicy*.
-- Ajoute le paramètre *Registration* aux applets de commande *[Set|New]-CsTeamsEventsPolicy*.
-- Ajoute le paramètre *UserSettingsDefault* aux applets de commande *[Set|New]-CsTeamsWorkLocationDetectionPolicy*.
-- Ajoute le paramètre *ResourceAccount* à l'applet de commande *Test-InboundBlockedNumberPattern*.
-- Ajoute le paramètre *AllowMultipleScreenshare* à l'applet de commande *Set-CsTeamsGuestMeetingConfiguration*.
+- Publication de l'applet de commande *Get-CsAiAgents*.
+- Publication de l'applet de commande *New-CsPhoneNumberBulkUpdateTagsOrder*.
+- Publication des applets de commande *[Get|Set|Remove]-CsPhoneNumberTenantConfiguration*.
+- Publication des applets de commande *[New|Get|Set|Remove]-CsAutoRecordingTemplate*.
+- Ajout du paramètre *AutoRecordingTemplateId* aux applets de commande *[New|Set]-CsCallQueue*.
+- Ajout du paramètre *ResourceAccount* aux applets de commande *[New|Set]-InboundBlockedNumberPattern*.
+- Ajout du paramètre *CallerNumber* aux applets de commande *[Get|Test]-CsEffectiveTenantDialPlan*.
+- Ajout du paramètre *LinksInTeams* aux applets de commande *[Set|New]-CsTeamsMobilityPolicy*.
+- Ajout du paramètre *ReportCall* aux applets de commande *[Set|New]-CsTeamsCallingPolicy*.
+- Ajout des paramètres *AllowMultipleScreenshare* et *PasscodeComplexity* aux applets de commande *[Set|New]-CsTeamsMeetingPolicy*.
+- Ajout du paramètre *Registration* aux applets de commande *[Set|New]-CsTeamsEventsPolicy*.
+- Ajout du paramètre *UserSettingsDefault* aux applets de commande *[Set|New]-CsTeamsWorkLocationDetectionPolicy*.
+- Ajout du paramètre *ResourceAccount* à l'applet de commande *Test-InboundBlockedNumberPattern*.
+- Ajout du paramètre *AllowMultipleScreenshare* à l'applet de commande *Set-CsTeamsGuestMeetingConfiguration*.
 
 ---
 

@@ -38,7 +38,7 @@ Update-Module Az -Force
 La version 14.5.0 contient les mises à jour suivantes :
 
 **<u>Az.Automation</u>**
-- Correction de runbook_type : *PowerShell72* [#24779][#23967].
+- Correction du runbook_type : *PowerShell72* [#24779][#23967].
 <br/><br/>
 
 **<u>Az.CloudService</u>**
@@ -102,10 +102,10 @@ La version 14.5.0 contient les mises à jour suivantes :
 <br/><br/>
 
 **<u>Az.Migrate</u>**
-- Correction de bugs dans *New-AzMigrateLocalDiskMappingObject* : Validation uniquement pour les tailles de secteur physique non 512 du disque dur virtuel lorsque le paramètre *PhysicalSectorSize* est spécifié.
-- Correction de bugs dans *New-AzMigrateLocalServerReplication* : Validation uniquement pour les tailles de secteur physique non 512 du disque dur virtuel lorsque le paramètre *PhysicalSectorSize* est spécifié. Suppression de la validation des mots réservés pour les noms de disques sources, car elle n'est plus nécessaire. Ajout de la validation de l'identifiant ARM pour les paramètres d'entrée.
-- Correction de bugs dans *Set-AzMigrateLocalServerReplication* : Ajout de la validation de l'identifiant ARM pour les paramètres d'entrée.
-- Correction de bugs dans *Get-AzMigrateLocalServerReplication* : Ajout de la validation de l'identifiant ARM pour les paramètres d'entrée.
+- Correction des bugs dans *New-AzMigrateLocalDiskMappingObject* : Validation uniquement pour les tailles de secteur physique non 512 du disque dur virtuel lorsque le paramètre *PhysicalSectorSize* est spécifié.
+- Correction des bugs dans *New-AzMigrateLocalServerReplication* : Validation uniquement pour les tailles de secteur physique non 512 du disque dur virtuel lorsque le paramètre *PhysicalSectorSize* est spécifié. Suppression de la validation des mots réservés pour les noms de disques sources, car elle n'est plus nécessaire. Ajout de la validation de l'identifiant ARM pour les paramètres d'entrée.
+- Correction des bugs dans *Set-AzMigrateLocalServerReplication* : Ajout de la validation de l'identifiant ARM pour les paramètres d'entrée.
+- Correction des bugs dans *Get-AzMigrateLocalServerReplication* : Ajout de la validation de l'identifiant ARM pour les paramètres d'entrée.
 - Amélioration de *Get-AzMigrateServerMigrationStatus* pour la prise en charge du paramètre *-Expedite*.
 <br/><br/>
 

@@ -37,12 +37,12 @@ Update-Module MicrosoftTeams
 ##### Quoi de neuf ?
 La version 7.4.0 contient les mises à jour suivantes :
 
-- Publie l'applet de commande *Get-TeamsArtifacts*.
-- Ajoute le paramètre *MainlineAttendantAgentVoiceId* l'applet de commande *New-CsAutoAttendant*.
-- Publie les applets de commande *[New|Set|Remove|Get]-CsTagsTemplate*.
-- Publie l'applet de commande *New-CsTag*.
+- Publication de l'applet de commande *Get-TeamsArtifacts*.
+- Ajout du paramètre *MainlineAttendantAgentVoiceId* l'applet de commande *New-CsAutoAttendant*.
+- Publication des applets de commande *[New|Set|Remove|Get]-CsTagsTemplate*.
+- Publication de l'applet de commande *New-CsTag*.
 - [CHANGEMENT MAJEUR] Renomme les paramètres *BotId* et *PairedApplication* dans les applets de commande *[New|Set|Get]-CsComplianceRecordingForCallQueueTemplate* à *BotApplicationInstanceObjectId* et *PairedApplicationInstanceObjectId*.
-- Publie les applets de commande *Get-TeamsRemoteLogCollectionConfiguration* et *[Get|Set|New|Remove]-TeamsRemoteLogCollectionDevice*.
+- Publication des applets de commande *Get-TeamsRemoteLogCollectionConfiguration* et *[Get|Set|New|Remove]-TeamsRemoteLogCollectionDevice*.
 
 ---
 

@@ -43,14 +43,14 @@ Version 15.3.0 includes the following updates :
 
 **<u>Az.Compute</u>**
 - Compute SDK generation updates :
-   - Generation now uses *autorest.powershell*, replacing deprecated track 1 SDK.
-   - Removed local swagger files and replaced references with remote swagger files.
+    - Generation now uses *autorest.powershell*, replacing deprecated track 1 SDK.
+    - Removed local swagger files and replaced references with remote swagger files.
 - Added new cmdlets for Availability Set to Virtual Machine Scale Set (VMSS) Flex migration (Public Preview) :
-   - *Convert-AzAvailabilitySet* : Converts an Availability Set to a new Flexible Virtual Machine Scale Set without downtime.
-   - *Test-AzAvailabilitySetMigration* : Validates that VMs in an Availability Set can be migrated to a VMSS.
-   - *Start-AzAvailabilitySetMigration* : Starts migration of an Availability Set to an existing Flexible VMSS.
-   - *Stop-AzAvailabilitySetMigration* : Cancels a migration operation on an Availability Set.
-   - *Move-AzVirtualMachineToVmss*: Migrates a VM from an Availability Set to a Flexible VMSS.
+    - *Convert-AzAvailabilitySet* : Converts an Availability Set to a new Flexible Virtual Machine Scale Set without downtime.
+    - *Test-AzAvailabilitySetMigration* : Validates that VMs in an Availability Set can be migrated to a VMSS.
+    - *Start-AzAvailabilitySetMigration* : Starts migration of an Availability Set to an existing Flexible VMSS.
+    - *Stop-AzAvailabilitySetMigration* : Cancels a migration operation on an Availability Set.
+    - *Move-AzVirtualMachineToVmss*: Migrates a VM from an Availability Set to a Flexible VMSS.
 <br/><br/>
 
 **<u>Az.DataProtection</u>**
@@ -64,10 +64,10 @@ Version 15.3.0 includes the following updates :
 **<u>Az.Network</u>**
 - Added *-IpVersionType* parameter to *New-AzPrivateEndpoint* cmdlet to specify the IP version type for private IPs of the private endpoint. Allowed values are IPv4, IPv6, or DualStack.
 - Added new cmdlets for VirtualNetworkAppliance resource :
-   - *Get-AzVirtualNetworkAppliance* : Get a Virtual Network Appliance resource by name, resource group, or list all.
-   - *New-AzVirtualNetworkAppliance* : Create a new Virtual Network Appliance resource.
-   - *Remove-AzVirtualNetworkAppliance* : Remove a Virtual Network Appliance resource.
-   - *Update-AzVirtualNetworkAppliance* : Update tags on a Virtual Network Appliance resource.
+    - *Get-AzVirtualNetworkAppliance* : Get a Virtual Network Appliance resource by name, resource group, or list all.
+    - *New-AzVirtualNetworkAppliance* : Create a new Virtual Network Appliance resource.
+    - *Remove-AzVirtualNetworkAppliance* : Remove a Virtual Network Appliance resource.
+    - *Update-AzVirtualNetworkAppliance* : Update tags on a Virtual Network Appliance resource.
 <br/><br/>
 
 **<u>Az.RecoveryServices</u>**
@@ -76,14 +76,14 @@ Version 15.3.0 includes the following updates :
 
 **<u>Az.Resources</u>**
 - Fixed issue where the PowerShell console would close when using Resources module cmdlets without being logged in.
-   - Github Issue https://github.com/Azure/azure-powershell/issues/28774.
+    - Github Issue https://github.com/Azure/azure-powershell/issues/28774.
 - Fixed *Remove-AzRoleDefinition* displaying incorrect confirmation message (unformatted placeholder) and empty GUID as target when using *-Confirm* or *-WhatIf* with the *-Name* parameter [#29075].
 - Added breaking change preannouncement for *PSRoleDefinition* type changes in Az.Resources 10.0.0 [#29058] :
-   - The flattened properties *Actions*, *NotActions*, *DataActions*, *NotDataActions*, *Condition*, and *ConditionVersion* will be removed from *PSRoleDefinition*.
-   - Use *Permissions[n].Actions*, *Permissions[n].DataActions*, etc. instead to access the full permission structure with per-permission conditions.
-   - Affects output for *Get-AzRoleDefinition*, *New-AzRoleDefinition*, *Set-AzRoleDefinition*, and *Remove-AzRoleDefinition* (with *-PassThru*).
-   - Affects input format for *New-AzRoleDefinition* and *Set-AzRoleDefinition* cmdlets.
-   - Affects *-InputObject* parameter for *Remove-AzRoleDefinition* cmdlet.
+    - The flattened properties *Actions*, *NotActions*, *DataActions*, *NotDataActions*, *Condition*, and *ConditionVersion* will be removed from *PSRoleDefinition*.
+    - Use *Permissions[n].Actions*, *Permissions[n].DataActions*, etc. instead to access the full permission structure with per-permission conditions.
+    - Affects output for *Get-AzRoleDefinition*, *New-AzRoleDefinition*, *Set-AzRoleDefinition*, and *Remove-AzRoleDefinition* (with *-PassThru*).
+    - Affects input format for *New-AzRoleDefinition* and *Set-AzRoleDefinition* cmdlets.
+    - Affects *-InputObject* parameter for *Remove-AzRoleDefinition* cmdlet.
 <br/><br/>
 
 **<u>Az.SignalR</u>**
@@ -98,13 +98,13 @@ Version 15.3.0 includes the following updates :
 
 **<u>Az.Storage</u>**
 - Supported encryption in transit in file service properties.
-   - *Update-AzStorageFileServiceProperty*.
+    - *Update-AzStorageFileServiceProperty*.
 - When users input TLS 1.0 or TLS 1.1 to create or update a Storage account, automatically upgrade to TLS 1.2.
-   - *New-AzStorageAccount*.
-   - *Set-AzStorageAccount*.
+    - *New-AzStorageAccount*.
+    - *Set-AzStorageAccount*.
 - Added breaking change warnings for TLS 1.0 and TLS 1.1 deprecation when creating or updating a Storage account.
-   - *New-AzStorageAccount*.
-   - *Set-AzStorageAccount*.
+    - *New-AzStorageAccount*.
+    - *Set-AzStorageAccount*.
 
 ---
 

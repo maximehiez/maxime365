@@ -38,18 +38,18 @@ Update-Module MicrosoftTeams
 La version 7.9.0 contient les mises à jour suivantes :
 
 - Met à jour l'applet de commande *Connect-MicrosoftTeams* pour utiliser le *Web Account Manager* (*WAM*) pour l'authentification, afin de renforcer la sécurité.
-- Ajoute le paramètre de commutateur *DisableWAM* à l'applet de commande *Connect-MicrosoftTeams* pour désactiver l'authentification basée sur WAM. Ce paramètre est temporaire et sera obsolète dans une version ultérieure.
-- Publie les applets de commande *[Get|New|Set|Remove]-CsSharedVoicemailTriageSettingsTemplate*.
-- Ajoute le paramètre *SharedVoicemailTriageSettingsTemplateId* aux applets de commande *[New|Set]-CsAutoAttendant*.
-- Ajoute le paramètre *SharedVoicemailTriageSettingsTemplateId* aux applets de commande *[New|Set]-CsCallQueue*.
-- Ajoute le paramètre *Channel* à l'applet de commande *Get-CsAiAgents*.
+- Ajout du paramètre de commutateur *DisableWAM* à l'applet de commande *Connect-MicrosoftTeams* pour désactiver l'authentification basée sur WAM. Ce paramètre est temporaire et sera obsolète dans une version ultérieure.
+- Publication des applets de commande *[Get|New|Set|Remove]-CsSharedVoicemailTriageSettingsTemplate*.
+- Ajout du paramètre *SharedVoicemailTriageSettingsTemplateId* aux applets de commande *[New|Set]-CsAutoAttendant*.
+- Ajout du paramètre *SharedVoicemailTriageSettingsTemplateId* aux applets de commande *[New|Set]-CsCallQueue*.
+- Ajout du paramètre *Channel* à l'applet de commande *Get-CsAiAgents*.
 - Met à jour les applets de commande *[Get|Set|Remove]-CsPhoneNumberAssignment* pour utiliser *-TelephoneNumber* et *-NumberType* comme noms de paramètres principaux, tout en conservant *-PhoneNumber* et *-PhoneNumberType* comme alias pour la compatibilité ascendante.
-- Ajoute les paramètres *AllowCreateChannel*, *AllowCreateClassicChannel*, *AllowCreatePrivateChannel*, *AllowCreateSharedChannel*, *CreateSharedChannelsByDefault*, *AllowUsersFromOutsideTeam*, *AllowGuestsFromOutsideTeam*, *AllowUsersFromOutsideTeamInPrivateChannel*, *AllowGuestsFromOutsideTeamInPrivateChannel*, *AllowSharingWithTeamInOrg* et *AllowSharingPrivateChannelWithTeamInOrg* aux applets de commande *[New|Set]-CsTeamsChannelsPolicy*.
-- Ajoute les paramètres *SyntheticMediaDetection*, *SyntheticMediaDetectionAppId*, *ConditionalAccessAttendeeVerification*, *EnablePreMeetingConsent* et *PreMeetingConsentContentIdentifier* aux applets de commande *[New|Set]-CsTeamsMeetingPolicy*.
-- Ajoute les paramètres *PublishedEntraAuthenticationContexts*, *EnableAttributedTranscripts* et *EnableGraphTranscriptAccess* à l'applet de commande *Set-CsTeamsMeetingConfiguration*.
-- Ajoute les paramètres *AllowMeetingKnowledgeGeneration* et *VoicePhishingDetection* aux applets de commande *[New|Set]-CsTeamsCallingPolicy*.
-- Ajoute les paramètres *AllowEngagementReport* et *InfoShownInReportMode* aux applets de commande *[New|Set]-CsTeamsEventsPolicy*.
-- Ajoute le paramètre *EnableVoicemailTriage* aux applets de commande *[New|Set]-CsOnlineVoicemailPolicy*.
+- Ajout des paramètres *AllowCreateChannel*, *AllowCreateClassicChannel*, *AllowCreatePrivateChannel*, *AllowCreateSharedChannel*, *CreateSharedChannelsByDefault*, *AllowUsersFromOutsideTeam*, *AllowGuestsFromOutsideTeam*, *AllowUsersFromOutsideTeamInPrivateChannel*, *AllowGuestsFromOutsideTeamInPrivateChannel*, *AllowSharingWithTeamInOrg* et *AllowSharingPrivateChannelWithTeamInOrg* aux applets de commande *[New|Set]-CsTeamsChannelsPolicy*.
+- Ajout des paramètres *SyntheticMediaDetection*, *SyntheticMediaDetectionAppId*, *ConditionalAccessAttendeeVerification*, *EnablePreMeetingConsent* et *PreMeetingConsentContentIdentifier* aux applets de commande *[New|Set]-CsTeamsMeetingPolicy*.
+- Ajout des paramètres *PublishedEntraAuthenticationContexts*, *EnableAttributedTranscripts* et *EnableGraphTranscriptAccess* à l'applet de commande *Set-CsTeamsMeetingConfiguration*.
+- Ajout des paramètres *AllowMeetingKnowledgeGeneration* et *VoicePhishingDetection* aux applets de commande *[New|Set]-CsTeamsCallingPolicy*.
+- Ajout des paramètres *AllowEngagementReport* et *InfoShownInReportMode* aux applets de commande *[New|Set]-CsTeamsEventsPolicy*.
+- Ajout du paramètre *EnableVoicemailTriage* aux applets de commande *[New|Set]-CsOnlineVoicemailPolicy*.
 - [CHANGEMENT MAJEUR] Suppression des applets de connexion Teams Shifts : *[Get|New|Set|Remove|Update]-CsTeamsShiftsConnection*, *[Get|New|Set|Remove|Update]-CsTeamsShiftsConnectionInstance*, *[Get|Remove]-CsTeamsShiftsConnectionTeamMap*, *New-CsTeamsShiftsConnectionBatchTeamMap*, *Get-CsTeamsShiftsConnectionConnector*, *Get-CsTeamsShiftsConnectionOperation*, *Get-CsTeamsShiftsConnectionSyncResult*, *[Get|Disable]-CsTeamsShiftsConnectionErrorReport*, *Get-CsTeamsShiftsConnectionWfmTeam*, *Get-CsTeamsShiftsConnectionWfmUser* et *Test-CsTeamsShiftsConnectionValidate*. Ces applets ne sont plus pris en charge.
 
 ---

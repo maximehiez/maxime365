@@ -121,7 +121,7 @@ Version 15.2.0 includes the following updates :
 
 **<u>Az.Sql</u>**
 - Added *Get-AzSqlDeletedServer* cmdlet to retrieve soft deleted Azure SQL servers.
-   - Supports retrieving deleted servers by location or specific deleted server by name.
+    - Supports retrieving deleted servers by location or specific deleted server by name.
 - Preannounced breaking changes. Please refer to https://go.microsoft.com/fwlink/?linkid=2333229.
 - The *EnableSoftDelete* parameter is deprecated from *New-AzSqlServer* and *Set-AzSqlServer* cmdlets and will be removed by May 2026.
 <br/><br/>

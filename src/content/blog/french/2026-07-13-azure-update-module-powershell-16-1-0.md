@@ -63,7 +63,7 @@ La version 16.1.0 contient les mises à jour suivantes :
 <br/><br/>
 
 **<u>Az.Batch</u>**
-- Correction d'un conflit de chargement de module : alignement de *Microsoft.ApplicationInsights* sur la version commune *2.18.0*, résolvant l'erreur *"Assembly with same name is already loaded"*.
+- Correction du conflit de chargement de module : alignement de *Microsoft.ApplicationInsights* sur la version commune *2.18.0*, résolvant l'erreur *"Assembly with same name is already loaded"*.
 <br/><br/>
 
 **<u>Az.CognitiveServices</u>**

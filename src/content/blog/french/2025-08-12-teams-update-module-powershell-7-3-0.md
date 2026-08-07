@@ -37,21 +37,21 @@ Update-Module MicrosoftTeams
 ##### Quoi de neuf ?
 La version 7.3.0 contient les mises à jour suivantes :
 
-- Ajoute le paramètre *Notify* aux applets de commande *[Set|Remove]-CsPhoneNumberAssignment*.
-- Publie les applets de commande *[New|Set|Remove|Get|Grant]-CsTeamsPersonalAttendantPolicy*.
-- Ajoute le paramètre *OCDIRedirect* aux applets de commande *[Set|Remove]-CsTeamsUpdateManagementPolicy*.
-- Ajoute l'attribut de sortie *AppName* aux applets de commande *Get-M365TeamsApp* et *Get-AllM365TeamsApps*.
+- Ajout du paramètre *Notify* aux applets de commande *[Set|Remove]-CsPhoneNumberAssignment*.
+- Publication des applets de commande *[New|Set|Remove|Get|Grant]-CsTeamsPersonalAttendantPolicy*.
+- Ajout du paramètre *OCDIRedirect* aux applets de commande *[Set|Remove]-CsTeamsUpdateManagementPolicy*.
+- Ajout de l'attribut de sortie *AppName* aux applets de commande *Get-M365TeamsApp* et *Get-AllM365TeamsApps*.
 - Inclut une nouvelle implémentation de *[Get|Set]-CsTeamsAcsFederationConfiguration*. Les fonctionnalités restent identiques à l'implémentation précédente.
-- Ajoute les paramètres *HideBannerForAllowedAcsUsers* et *LabelForAllowedAcsUsers* à l'applet de commande *Set-CsTeamsAcsFederationConfiguration*.
+- Ajout des paramètres *HideBannerForAllowedAcsUsers* et *LabelForAllowedAcsUsers* à l'applet de commande *Set-CsTeamsAcsFederationConfiguration*.
 - [CHANGEMENT MAJEUR] Supprime les applets de commande *Get-CsOnlinePowerShellEndpoint* et *Set-CsInternalOnlinePowerShellEndpoint*.
-- Ajoute les paramètres *MainlineAttendantFlow* et *MainlineAttendantTarget* à l'applet de commande *New-CsAutoAttendantMenuOption*.
-- Ajoute le paramètre *EnableMainlineAttendant* aux applets de commande *[New|Set]-CsAutoAttendant*.
+- Ajout des paramètres *MainlineAttendantFlow* et *MainlineAttendantTarget* à l'applet de commande *New-CsAutoAttendantMenuOption*.
+- Ajout du paramètre *EnableMainlineAttendant* aux applets de commande *[New|Set]-CsAutoAttendant*.
 - Libère les applets de commande *New-CsMainlineAttendantAppointmentBookingFlow*, *New-CsMainlineAttendantQuestionAnswerFlow* et *Get-CsMainlineAttendantFlow*.
-- Publie les applets de commande *[Get|Set]-CsPersonalAttendantSettings*.
-- Corrige l'erreur avec l'applet de commande *Set-CsTeamsSettingsCustomApp*.
-- Ajoute les paramètres *UseMicrosoftECDN* et *RecordingForTownhall* aux applets de commande *[New|Set]-CsTeamsEventsPolicy*.
-- Ajoute le paramètre *ExplicitRecordingConsent* aux applets de commande *[New|Set]-CsTeamsCallingPolicy*.
-- Ajoute les paramètres *EduGenerativeAIEnhancements* et *AutoShareFilesInExternalChats* aux applets de commande *[New|Set]-CsTeamsMessagingPolicy*.
+- Publication des applets de commande *[Get|Set]-CsPersonalAttendantSettings*.
+- Correction de l'erreur avec l'applet de commande *Set-CsTeamsSettingsCustomApp*.
+- Ajout des paramètres *UseMicrosoftECDN* et *RecordingForTownhall* aux applets de commande *[New|Set]-CsTeamsEventsPolicy*.
+- Ajout du paramètre *ExplicitRecordingConsent* aux applets de commande *[New|Set]-CsTeamsCallingPolicy*.
+- Ajout des paramètres *EduGenerativeAIEnhancements* et *AutoShareFilesInExternalChats* aux applets de commande *[New|Set]-CsTeamsMessagingPolicy*.
 
 ---
 

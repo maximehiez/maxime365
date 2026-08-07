@@ -38,7 +38,7 @@ Update-Module Az -Force
 La version 14.3.0 contient les mises à jour suivantes :
 
 **<u>Az.Accounts</u>**
-- Correction d'un problème où *Clear-AzContext* ne vidait pas le cache de jetons lorsque le broker était activé.
+- Correction du problème où *Clear-AzContext* ne vidait pas le cache de jetons lorsque le broker était activé.
 - Ajout du nouveau paramètre *-ClaimsChallenge* à *Connect-AzAccount* pour prendre en charge l'authentification par défi de réclamation pour l'authentification multifacteur (MFA).
 - Amélioration du message d'erreur lorsqu'une applet de commande échoue en raison de violations de stratégie concernant l'authentification multifacteur (MFA) afin de fournir des instructions plus concrètes.
 <br/><br/>
@@ -86,7 +86,7 @@ La version 14.3.0 contient les mises à jour suivantes :
 
 **<u>Az.Migrate</u>**
 - Ajout de *-OsType* comme paramètre facultatif à la commande *Set-AzMigrateLocalServerReplication* pour autoriser le type de système d'exploitation spécifié par l'utilisateur.
-- Correction de bugs dans *New-AzMigrateServerReplication* causés par l'obsolescence de *Get-AzVmSize -location*.
+- Correction des bugs dans *New-AzMigrateServerReplication* causés par l'obsolescence de *Get-AzVmSize -location*.
 - Suppression du paramètre *-TargetStoragePathId* de la commande *New-AzMigrateLocalDiskMappingObject* jusqu'à ce que la fonctionnalité permettant d'associer chaque disque à son propre chemin de conteneur de stockage soit prise en charge.
 - Ajout de *-SourceApplianceName* et *-TargetApplianceName* comme paramètres obligatoires à la commande *New-AzMigrateLocalServerReplication* pour permettre aux utilisateurs de spécifier les paires d'appliances de leur choix.
 - Amélioration des validations de ressources dans *Initialize-AzMigrateLocalReplicationInfrastructure* et *New-AzMigrateLocalServerReplication*.
@@ -196,11 +196,11 @@ La version 14.3.0 contient les mises à jour suivantes :
 <br/><br/>
 
 **<u>Az.StorageSync</u>**
-- Correction d'un bug de sécurité dans l'acquisition de jetons pour l'enregistrement du serveur MI.
+- Correction du bug de sécurité dans l'acquisition de jetons pour l'enregistrement du serveur MI.
 <br/><br/>
 
 **<u>Az.Synapse</u>**
-- Correction d'une erreur lors de la suppression d'un artefact générant *ArgumentNullException*.
+- Correction de l'erreur lors de la suppression d'un artefact générant *ArgumentNullException*.
 
 ---
 

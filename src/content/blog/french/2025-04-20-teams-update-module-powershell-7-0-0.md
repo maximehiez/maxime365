@@ -37,16 +37,16 @@ Update-Module MicrosoftTeams
 ##### Quoi de neuf ?
 La version 7.0.0 contient les mises à jour suivantes :
 
-- Ajoute les paramètres *ShiftsTeamId* et *ShiftsSchedulingGroupId* aux applets de commande *[New|Set]-CsCallQueue*.
+- Ajout des paramètres *ShiftsTeamId* et *ShiftsSchedulingGroupId* aux applets de commande *[New|Set]-CsCallQueue*.
 - [CHANGEMENT MAJEUR] Déprécie le paramètre *CustomizeFederation* des applets de commande *[Get|Set]-CsTenantFederationConfiguration*.
-- Ajoute le paramètre *TownhallEventAttendeeAccess* aux applets de commande *[New|Set]-CsTeamsEventsPolicy*.
-- Ajoute les paramètres *AllowedUsersForMeetingDetails* et *RealTimeText* aux applets de commande *[New|Set]-CsTeamsMeetingPolicy*.
-- Ajoute le paramètre *RealTimeText* aux applets de commande *[New|Set]-CsTeamsCallingPolicy*.
-- Ajoute les paramètres *UsersCanDeleteBotMessages*, *ContentBasedPhishingCheck* et *ReportIncorrectSecurityDetections* aux applets de commande *[New|Set]-CsTeamsMessagingConfiguration*.
-- Ajoute le paramètre *SpeakerAttributionForBYOD* aux applets de commande *[New|Set]-CsTeamsAIPolicy*.
+- Ajout du paramètre *TownhallEventAttendeeAccess* aux applets de commande *[New|Set]-CsTeamsEventsPolicy*.
+- Ajout des paramètres *AllowedUsersForMeetingDetails* et *RealTimeText* aux applets de commande *[New|Set]-CsTeamsMeetingPolicy*.
+- Ajout du paramètre *RealTimeText* aux applets de commande *[New|Set]-CsTeamsCallingPolicy*.
+- Ajout des paramètres *UsersCanDeleteBotMessages*, *ContentBasedPhishingCheck* et *ReportIncorrectSecurityDetections* aux applets de commande *[New|Set]-CsTeamsMessagingConfiguration*.
+- Ajout du paramètre *SpeakerAttributionForBYOD* aux applets de commande *[New|Set]-CsTeamsAIPolicy*.
 - [CHANGEMENT MAJEUR] Supprime l’attribut de sortie *OptionFlags* de l’applet de commande *Get-CsOnlineUser*.
-- Publie les applets de commande *[New|Set|Remove|Get]-CsComplianceRecordingForCallQueueTemplate*.
-- Ajoute les paramètres associés à l’enregistrement de conformité (*ComplianceRecordingForCallQueueTemplateId*, *TextAnnouncementForCR*, *CustomAudioFileAnnouncementForCR*, *TextAnnouncementForCRFailure*, *CustomAudioFileAnnouncementForCRFailure*) aux applets de commande *[New|Set]-CsCallQueue* et les attributs de sortie correspondants sur *Get-CsCallQueue*.
+- Publication des applets de commande *[New|Set|Remove|Get]-CsComplianceRecordingForCallQueueTemplate*.
+- Ajout des paramètres associés à l’enregistrement de conformité (*ComplianceRecordingForCallQueueTemplateId*, *TextAnnouncementForCR*, *CustomAudioFileAnnouncementForCR*, *TextAnnouncementForCRFailure*, *CustomAudioFileAnnouncementForCRFailure*) aux applets de commande *[New|Set]-CsCallQueue* et les attributs de sortie correspondants sur *Get-CsCallQueue*.
 
 ---
 

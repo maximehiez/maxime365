@@ -37,14 +37,14 @@ Update-Module MicrosoftTeams
 ##### Quoi de neuf ?
 La version 6.9.0 contient les mises à jour suivantes :
 
-- Ajoute le paramètre *FileContent* à l’applet de commande *New-CsOnlineDirectRoutingTelephoneNumberUploadOrder*.
-- Ajoute le paramètre *FileContent* à l’applet de commande *New-CsOnlineTelephoneNumberReleaseOrder*.
-- Ajoute l’attribut de sortie *EnqueueReason* à l’applet de commande *Get-CsMeetingMigrationStatus*.
-- Corrige le type de données pour le paramètre *AllowedTrialTenantDomains* dans l’applet de commande *Set-CsTenantFederationConfiguration*.
-- Corrige les problèmes liés au paramètre *ForceAccept* dans l’applet de commande *Set-CsOnlineEnhancedEmergencyServiceDisclaimer*.
-- Ajoute l'attribut de sortie *TelephoneNumbers* à l'applet de commande *Get-CsOnlineUser*. Cette option n'est actuellement prise en charge que dans les environnements commerciaux.
-- Ajoute un paramètre d'extension à l’applet de commande *Get-AllM365TeamsApp*.
-- Ajoute le paramètre *Propriétés* à l’applet de commande *Get-CsOnlineUser*.
+- Ajout du paramètre *FileContent* à l’applet de commande *New-CsOnlineDirectRoutingTelephoneNumberUploadOrder*.
+- Ajout du paramètre *FileContent* à l’applet de commande *New-CsOnlineTelephoneNumberReleaseOrder*.
+- Ajout de l’attribut de sortie *EnqueueReason* à l’applet de commande *Get-CsMeetingMigrationStatus*.
+- Correction du type de données pour le paramètre *AllowedTrialTenantDomains* dans l’applet de commande *Set-CsTenantFederationConfiguration*.
+- Correction des problèmes liés au paramètre *ForceAccept* dans l’applet de commande *Set-CsOnlineEnhancedEmergencyServiceDisclaimer*.
+- Ajout de l'attribut de sortie *TelephoneNumbers* à l'applet de commande *Get-CsOnlineUser*. Cette option n'est actuellement prise en charge que dans les environnements commerciaux.
+- Ajout d'un paramètre d'extension à l’applet de commande *Get-AllM365TeamsApp*.
+- Ajout du paramètre *Propriétés* à l’applet de commande *Get-CsOnlineUser*.
 
 ---
 

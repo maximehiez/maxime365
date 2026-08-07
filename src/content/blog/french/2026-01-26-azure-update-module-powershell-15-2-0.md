@@ -80,7 +80,7 @@ La version 15.2.0 contient les mises à jour suivantes :
 <br/><br/>
 
 **<u>Az.FrontDoor</u>**
-- Correction d'un problème lié à *New-AzFrontDoorWafManagedRuleOverrideObject*.
+- Correction du problème lié à *New-AzFrontDoorWafManagedRuleOverrideObject*.
 <br/><br/>
 
 **<u>Az.KeyVault</u>*

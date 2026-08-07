@@ -98,7 +98,7 @@ L’objectif est de transformer Copilot en véritable moteur de productivité ag
 
 ---
 
-##### Une stratégie basée sur « Intelligence + Trust »
+##### Une stratégie basée sur "Intelligence + Trust"
 Microsoft résume sa vision avec deux concepts clés :
 
 - **<u>Intelligence</u>** : Utiliser les modèles d’IA les plus avancés pour augmenter les capacités humaines.

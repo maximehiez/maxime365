@@ -92,19 +92,19 @@ Version 13.3.0 includes the following updates :
 
 **<u>Az.Storage</u>**
 - Supported new SkuName when create/update storage account for Files Provisioned v2 account type : *StandardV2_LRS*, *StandardV2_GRS*, *StandardV2_ZRS*, *StandardV2_GZRS*, *PremiumV2_LRS*, *PremiumV2_ZRS*.
-   - *New-AzStorageAccount*.
-   - *Set-AzStorageAccount*.
+    - *New-AzStorageAccount*.
+    - *Set-AzStorageAccount*.
 - Supported Get File Service Usage on Files Provisioned v2 account type.
-   - *Get-AzStorageFileServiceUsage*.
+    - *Get-AzStorageFileServiceUsage*.
 - Supported create/update file share on new parameters on Files Provisioned v2 account type with new parameter : *-ProvisionedBandwidthMibps*, *-ProvisionedIops*.
-   - *New-AzRmStorageShare*.
-   - *Update-AzRmStorageShare*.
+    - *New-AzRmStorageShare*.
+    - *Update-AzRmStorageShare*.
 - Supported create/update/Get file share on new parameters on Files Provisioned v1 account type with new parameter : *-PaidBurstingEnabled*, *-PaidBurstingMaxBandwidthMibps*, *-PaidBurstingMaxIops*.
-   - *New-AzRmStorageShare*.
-   - *Update-AzRmStorageShare*.
-   - *Get-AzStorageFileServiceUsage*.
+    - *New-AzRmStorageShare*.
+    - *Update-AzRmStorageShare*.
+    - *Get-AzStorageFileServiceUsage*.
 - Supported get file share new properties for Files Provisioned v1/v2 account type.
-   - *Get-AzStorageFileServiceUsage*.
+    - *Get-AzStorageFileServiceUsage*.
 <br/><br/>
 
 **<u>Az.Synapse</u>**
