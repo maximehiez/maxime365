@@ -22,7 +22,7 @@ Dans un contexte où les données sensibles, notamment les informations bancaire
 - *Microsoft Purview Suite* en complément avec une licence autre (*E3*, ...).
 
 **<u>Rôle d’administrateur</u>**
-- Un compte avec le rôle *Administrateur Global* ou *Compliance Administrator* pour accéder au Microsoft Purview Portal.
+- Un compte avec le rôle *Administrateur Global* ou *Administrateur de conformité* pour accéder au Microsoft Purview Portal.
 
 ---
 
