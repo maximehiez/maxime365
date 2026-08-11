@@ -1,0 +1,93 @@
+---
+title: "How to configure role expiration in Purview"
+meta_title: ""
+description: ""
+date: 2026-08-10T10:00:00-05:00
+image: "/images/blog/purview/tuto/purview_how_to_set_expiration_role_groups_thumbnail.png"
+categories: ["Purview", "Tutorial"]
+author: "Maxime Hiez"
+tags: ["Security", "Governance"]
+draft: false
+---
+---
+
+##### Introduction
+In most tenants, *Microsoft Purview* permissions pile up. An external auditor is granted *eDiscovery* access for three weeks, a consultant gets the *Compliance Administrator* role for the duration of a project, and nobody removes the assignment afterwards. Purview now allows an expiration date to be attached to a role group assignment : at the deadline, the assignment is removed automatically and access is revoked without any intervention.
+
+---
+
+##### Prerequisites
+**<u>Required licenses</u>**
+- *Microsoft 365* (all editions).
+
+**<u>Administrator role</u>**
+- An account with the *Global Administrator* or *Role Management* role to access the Microsoft Purview Portal.
+
+---
+
+##### Step 1 : Sign in to the Microsoft Purview Portal
+Sign in to the Microsoft Purview Portal by opening your web browser to https://purview.microsoft.com.
+
+---
+
+##### Step 2 : Access the role groups
+In the left menu, click *<u>Settings</u>*, then *<u>Roles and scopes</u>*, and *<u>Role groups</u>*.
+
+Select the role group to modify, then click *<u>Edit</u>*.
+
+![image](/images/blog/purview/tuto/purview_how_to_set_expiration_role_groups_001.png)
+
+---
+
+##### Step 3 : Assign the group
+Click *<u>Add member</u>*, and *<u>Choose groups</u>* (or *<u>Choose users</u>*) to add the relevant groups (or accounts).
+
+![image](/images/blog/purview/tuto/purview_how_to_set_expiration_role_groups_002.png)
+
+---
+
+##### Step 4 : Set an expiration date
+Select the added group or groups, and click *<u>Edit expiration</u>* to set the deadline. The duration can range from a minimum of one day to a maximum of two years from the current date.
+
+![image](/images/blog/purview/tuto/purview_how_to_set_expiration_role_groups_003.png)
+
+<Notice type="info">The expiration date is evaluated in the time zone of the administrator who sets it. In a multi-region organization, that alone is enough to shift a revocation by several hours from what was planned.</Notice>
+
+---
+
+##### Step 5 : Update, extend or remove an expiration
+An expiration is not set in stone. From the same *Edit expiration* screen, three actions are possible :
+- <u>Update the deadline</u> : Bring forward or push back the date of an existing assignment.
+- <u>Extend the assignment</u> : Push back the deadline before it is reached.
+- <u>Remove the expiration</u> : Make the assignment permanent.
+
+The *<u>My Permissions</u>* page lets the user check the latest expiration date among their active assignments.
+
+---
+
+##### What to check before rolling it out broadly
+Several behaviors are worth knowing before applying the principle to all role groups :
+- <u>Two exceptions</u> : All built-in and custom role groups accept an expiration, except *eDiscovery Administrator* and *eDiscovery Manager*.
+- <u>No notification</u> : Neither the user nor the administrator receives an alert before the deadline. The loss of access is silent.
+- <u>Independent assignments</u> : If a user gets the same role group through an individual assignment and through a security group, each assignment keeps its own deadline. Access remains active as long as one of the two is valid.
+- <u>Inheritance through a security group</u> : When a role group is assigned to a security group, any new member inherits the deadline attached to that assignment.
+- <u>Ongoing actions preserved</u> : At expiration, operations already completed or in progress are not affected, only new operations are refused.
+
+The most structuring point is the absence of notification. A temporary assignment placed on a genuinely operational role, for example a *DLP* administrator in the middle of a deployment campaign, can interrupt a project without warning. The counterpart of this automation is therefore a need for follow-up on the organization side, with a schedule of deadlines maintained outside Purview.
+
+---
+
+##### Conclusion
+You now know how to configure, extend and remove an expiration date on role group assignments in Microsoft Purview.
+
+---
+
+##### Sources
+[Microsoft Learn - Permissions in the Microsoft Purview portal](https://learn.microsoft.com/en-us/purview/purview-permissions)
+
+---
+
+
+Did you enjoy this post ? If you have any questions, comments or suggestions, please feel free to send me a message from the contact form.
+
+Don't forget to follow us and share this post.
