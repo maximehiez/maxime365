@@ -17,7 +17,7 @@ Le *Magic Quadrant* de Gartner pour *les communications unifiées en tant que se
 ---
 
 ##### Sept années consécutives en tête
-Microsoft a été nommé Leader dans le Gartner Magic Quadrant 2025 pour les solutions UCaaS (Unified Communications as a Service), marquant ainsi sa 7ème année consécutive à cette position. Une reconnaissance qui confirme la capacité de Microsoft à exécuter efficacement et à porter une vision complète pour l’avenir des communications unifiées.
+Microsoft a été nommé Leader dans le *Gartner Magic Quadrant 2025* pour les solutions UCaaS (*Unified Communications as a Service*), marquant ainsi sa 7ème année consécutive à cette position. Une reconnaissance qui confirme la capacité de Microsoft à exécuter efficacement et à porter une vision complète pour l’avenir des communications unifiées.
 
 ![image](/images/blog/teams/teams_gartner_ucaas_2025_001.png)
 
