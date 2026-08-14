@@ -1,0 +1,93 @@
+---
+title: "How to record Teams queue calls"
+meta_title: ""
+description: ""
+date: 2026-08-14T10:00:00-05:00
+image: "/images/blog/teams/tuto/teams_how_to_enable_automatic_recording_call_queues_thumbnail.png"
+categories: ["Teams", "Tutorial"]
+author: "Maxime Hiez"
+tags: ["Telephony", "Direct Routing", "Calling Plan", "Operator Connect", "Call Queue", "Queues App", "Recording", "PowerShell"]
+draft: false
+---
+---
+
+##### Introduction
+Call recording in call queues was until now a limited feature in *Microsoft Teams*. Agents had to manually start the recording and the file was stored in their *OneDrive*. This was known as non-compliant recording. As soon as automatic recording was required, you had to use third party solutions such as *Numonix*, *ASC Technologies* and others. This was known as compliance recording.
+
+Teams now has a native feature to record and transcribe inbound calls in call queues.
+
+---
+
+##### Prerequisites
+**<u>Microsoft Teams telephony enabled</u>**
+- A call queue configured with conference mode.
+- Teams Queues App deployed.
+
+**<u>Required licenses</u>**
+- *Microsoft Teams Premium*.
+
+**<u>Administrator role</u>**
+- An account with the *Global Administrator* or *Teams Administrator* role to access the Microsoft Teams Admin Center.
+
+---
+
+##### Step 1 : Sign in to Microsoft Teams using PowerShell
+Sign in to Microsoft Teams via the following PowerShell command :
+```powershell
+Connect-MicrosoftTeams
+```
+
+---
+
+##### Step 2 : Create the automatic recording template
+Create the automatic recording template for the call queue via the following PowerShell command :
+```powershell
+New-CsAutoRecordingTemplate -Name "IT Support - Recording" -Description "Recording policy for the IT Support call queue" -RecordingEnabled $true -TranscriptionEnabled $true -AgentViewPermission All -SharePointHostName "lab.sharepoint.com" -SharePointSiteName "IT Support" -RecordingDocumentOwner "14a3b2c4-46b5-3878-81d4-b9c8be63f8e1" -AutoRecordingAnnouncementTextToSpeechPrompt "This call will be automatically recorded for training purposes."
+```
+
+<Notice type="info">Call answering must use an M365 group or a Teams channel.</Notice>
+
+---
+
+##### Step 3 : Assign the template to the call queue
+Assign the template to the call queue via the following PowerShell command :
+```powershell
+Set-CsCallQueue -Identity e988ce9d-b140-bfa9-44ef-e92959522bf9 -AutoRecordingTemplateId b0908cc3-8d87-49a1-a25b-c5a7d76c2689
+```
+
+<Notice type="tip">Replace the 2 IDs with your own values.</Notice>
+
+---
+
+##### Validate the result
+The result is visible after a few minutes ; the calls answered by the call queue are recorded in the SharePoint site configured in the template.
+
+The recordings (and transcriptions) are accessible from the *Queues App*.
+
+![image](/images/blog/teams/tuto/teams_how_to_enable_automatic_recording_call_queues_001.png)
+
+By clicking the *<u>Open</u>* button, it will also be accessible in the SharePoint site.
+
+![image](/images/blog/teams/tuto/teams_how_to_enable_automatic_recording_call_queues_002.png)
+
+---
+
+##### Conclusion
+The feature can currently only be enabled via PowerShell, but as usual, it will be available through the Microsoft Teams Admin Center in the coming weeks.<br/><br/>
+You now know how to enable recording for the inbound calls of your Teams call queues.
+
+---
+
+##### Sources
+[Microsoft Learn - Automatic recording template for call queue](https://learn.microsoft.com/en-us/microsoftteams/aa-cq-setup-call-queue-template-recording-automatic)
+
+[Microsoft Learn - New-CsAutoRecordingTemplate](https://learn.microsoft.com/en-us/powershell/module/microsoftteams/new-csautorecordingtemplate?view=teams-ps)
+
+[Microsoft Learn - Compliance recording](https://learn.microsoft.com/en-us/microsoftteams/teams-recording-compliance)
+
+---
+
+
+Did you enjoy this post ? If you have any questions, comments or suggestions, please feel free to send me a message from the contact form.
+
+Don't forget to follow us and share this post.
