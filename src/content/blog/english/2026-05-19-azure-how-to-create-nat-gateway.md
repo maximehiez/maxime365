@@ -54,7 +54,7 @@ Assign the Virtual Network(s) you wish to route through the NAT Gateway.
 
 ---
 
-##### Step 3 : Validate the result
+##### Validate the result
 From a server / computer connected to the relevant subnet, navigate to [https://whatismyip.com](https://whatismyip.com). The displayed IP address should be the one you assigned to the NAT Gateway.
 
 ![image](/images/blog/azure/tuto/azure_how_to_create_nat_gateway_004.png)

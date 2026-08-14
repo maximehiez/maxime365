@@ -21,6 +21,9 @@ Microsoft has just introduced a feature that allows call history to be shared wi
 - A configured call queue.
 - Teams Queues App deployed.
 
+**<u>Required licenses</u>**
+- *Microsoft Teams Premium*.
+
 **<u>Administrator role</u>**
 - An account with the *Global Administrator* or *Teams Administrator* role to access the Microsoft Teams Admin Center.
 
@@ -51,7 +54,7 @@ In the left menu, click *<u>Voice</u>*, then *<u>Call queues</u>*, and edit your
 
 ---
 
-##### Step 4 : Validate the result
+##### Validate the result
 Open the *Microsoft Teams Queues App* and join the queue. New calls will now be visible in the History.
 
 ![image](/images/blog/teams/tuto/teams_how_to_enable_shared_calling_history_004.png)

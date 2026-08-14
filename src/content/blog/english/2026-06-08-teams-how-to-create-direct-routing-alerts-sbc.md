@@ -42,7 +42,7 @@ The settings are already pre-filled, but you can adjust the values ​​to suit
 
 ---
 
-##### Step 3 : Validate the result
+##### Validate the result
 After a few minutes, the Teams channel should start receiving alerts.
 
 ![image](/images/blog/teams/tuto/teams_how_to_create_direct_routing_alerts_sbc_003.png)

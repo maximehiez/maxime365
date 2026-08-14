@@ -21,6 +21,9 @@ Microsoft vient d'introduire la fonctionnalité qui permet à l'historique d'app
 - Une file d'attente configurée.
 - Teams Queues App déployée.
 
+**<u>Licences nécessaires</u>**
+- *Microsoft Teams Premium*.
+
 **<u>Rôle d’administrateur</u>**
 - Un compte avec le rôle *Administrateur Global* ou *Administrateur Teams* pour accéder au Microsoft Teams Admin Center.
 
@@ -51,7 +54,7 @@ Dans le menu de gauche, cliquez sur *<u>Voice</u>*, puis sur *<u>Call queues</u>
 
 ---
 
-##### Étape 4 : Valider le résultat
+##### Valider le résultat
 Ouvrez l'application *Microsoft Teams Queues App* et appelez la file d'attente. Les nouveaux appels seront désormais visibles dans l'historique.
 
 ![image](/images/blog/teams/tuto/teams_how_to_enable_shared_calling_history_004.png)
