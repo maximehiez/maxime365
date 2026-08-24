@@ -1,0 +1,91 @@
+---
+title: "Free/Busy sharing moves to Cross-Tenant Access Policy"
+meta_title: ""
+description: ""
+date: 2026-08-19T10:00:00-05:00
+image: "/images/blog/exchange/exchange_cross_tenant_freebusy_access_policy_thumbnail.png"
+categories: ["Exchange"]
+author: "Maxime Hiez"
+tags: ["Calendar", "EWS", "Sharing", "PowerShell"]
+draft: false
+---
+---
+
+##### Introduction
+The *Exchange Online* team announced the move of cross-tenant sharing of Free/Busy, *MailTips* and calendars to the *Microsoft 365 Cross-Tenant Access Policy*. These three scenarios rely today on *Exchange Web Services* (*EWS*), whose progressive disablement starts on October 1, 2026.
+
+The change only concerns organizations that actually share this information with another Microsoft 365 tenant. Internal sharing, sharing in a hybrid environment and sharing with a fully *on-prem* Exchange organization are not affected.
+
+---
+
+##### The configurations concerned
+Three Exchange Online objects are replaced :
+- <u>Organization Relationship</u> : Sharing of Free/Busy and MailTips
+- <u>Availability Address Space</u> : Sharing of Free/Busy, only when *AccessMethod* is set to *OrgWideFBToken*
+- <u>Sharing Policy</u> : Sharing of calendars
+
+Cross-Tenant Access Policy is an inbound setting. Each organization controls what external users can access on its side, which means that both tenants must create complementary policies for bidirectional sharing. Identification is done by *Tenant ID* and no longer by domain name, all the domains of the partner tenant being covered automatically.
+
+---
+
+##### Check if you are concerned
+Three commands are enough to make the inventory from *Exchange Online PowerShell* :
+```powershell
+Get-OrganizationRelationship | Format-List Name, DomainNames, Enabled, FreeBusyAccessEnabled, FreeBusyAccessLevel, FreeBusyAccessScope, MailTipsAccessEnabled, MailTipsAccessLevel, MailTipsAccessScope
+
+Get-AvailabilityAddressSpace | Format-List ForestName, AccessMethod
+
+Get-SharingPolicy | Format-List Name, Domains, Enabled, Default
+```
+
+You are concerned if an organization relationship comes back with *Enabled* set to *True* and *FreeBusyAccessEnabled* or *MailTipsAccessEnabled* set to *True*, if an *Availability Address Space* uses *OrgWideFBToken*, or if an active *Sharing Policy* carries a *CalendarSharingFreeBusySimple*, *CalendarSharingFreeBusyDetail* or *CalendarSharingFreeBusyReviewer* level towards a domain hosted in Microsoft 365.
+
+---
+
+##### What replaces what
+The migration goes through the *Microsoft Graph PowerShell SDK Beta* module and through the activation of the *Microsoft 365 Collaboration* trust level in the Entra Cross-Tenant Access Policy. Each old configuration has its equivalent :
+
+| Old configuration                      | New capability                                |
+|----------------------------------------|-----------------------------------------------|
+| FreeBusyAccessLevel *AvailabilityOnly* | crossTenantCalendarAvailabilityBasic          |
+| FreeBusyAccessLevel *LimitedDetails*   | crossTenantCalendarAvailabilityLimitedDetails |
+| MailTipsAccessLevel *Limited*          | crossTenantMailTipsLimited                    |
+| MailTipsAccessLevel *All*              | crossTenantMailTipsAll                        |
+| CalendarSharingFreeBusySimple          | crossTenantCalendarSharingFreeBusySimple      |
+| CalendarSharingFreeBusyDetail          | crossTenantCalendarSharingFreeBusyDetail      |
+| CalendarSharingFreeBusyReviewer        | crossTenantCalendarSharingFreeBusyReviewer    |
+
+The old configurations take precedence over the new policies. They must therefore be disabled before validating the behavior, in coordination with the administrator of the partner tenant, then removed once the tests are conclusive.
+
+---
+
+##### The schedule to respect
+The rollout of the feature spreads out depending on the environment :
+- <u>Worldwide</u> : Rollout started in August 2026, completion expected on September 1, 2026.
+- <u>GCC</u> : Start in mid-August, completion in mid-September 2026.
+- <u>GCC High and DoD</u> : Start in early September, completion at the end of September 2026.
+
+From October 1, 2026, the disablement of EWS progressively reaches the tenants and the sharing that depends on it stops working. Users in the partner tenant no longer see Free/Busy, MailTips or shared calendars, and the other way around.
+
+<Notice type="note">If the migration can't be completed in time, setting *EWSEnabled* to *True* keeps the old mechanism working until April 1, 2027, the definitive shutdown date of EWS. Both organizations must do it to keep bidirectional sharing. No entry in *EWSAllowedAppIDs* is required, this path not relying on *OAuth*.</Notice>
+
+---
+
+##### Conclusion
+The switch is mechanical but it requires coordination with each partner tenant, which takes time when the relationships are numerous. The inventory in three commands takes a few minutes and immediately tells you whether the topic concerns you. For the organizations concerned, the comfortable window closes on October 1, 2026, the *EWSEnabled* safety valve only postponing the deadline to April 1, 2027.
+
+---
+
+##### Sources
+[Microsoft - Techcommunity](https://techcommunity.microsoft.com/blog/exchange/cross-tenant-freebusy-mailtips-and-calendar-sharing-are-moving-to-cross-tenant-a/4545169)
+
+[Microsoft Learn - Migrate to Microsoft 365 Cross-Tenant Access Policy](https://learn.microsoft.com/en-us/exchange/sharing/migrate-to-m365-xtap)
+
+[Microsoft Learn - Deprecation of EWS in Exchange Online](https://learn.microsoft.com/en-us/exchange/clients-and-mobile-in-exchange-online/deprecation-of-ews-exchange-online)
+
+---
+
+
+Did you enjoy this post ? If you have any questions, comments or suggestions, please feel free to send me a message from the contact form.
+
+Don't forget to follow us and share this post.
