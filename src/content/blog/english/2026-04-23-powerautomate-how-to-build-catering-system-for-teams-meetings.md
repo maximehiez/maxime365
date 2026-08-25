@@ -108,7 +108,7 @@ Send the order confirmation to the team in charge of the service via a message i
 ---
 
 ##### Step 8 : Create a fourth flow to send a satisfaction survey
-In the left menu, click on *<u>Create</u>*, then on *<u>Scheduled cloud flow</u>* and choose a repetition every 30 minutes.
+In the left menu, click *<u>Create</u>*, then *<u>Scheduled cloud flow</u>* and choose a repetition every 30 minutes.
 
 ![image](/images/blog/powerautomate/tuto/powerautomate_how_to_build_catering_system_for_teams_meetings_009.png)
 
