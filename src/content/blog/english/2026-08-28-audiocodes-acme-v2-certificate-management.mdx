@@ -1,0 +1,80 @@
+---
+title: "ACMEv2 support for certificates on AudioCodes SBCs"
+meta_title: ""
+description: ""
+date: 2026-08-28T10:00:00-05:00
+image: "/images/blog/sbc/sbc_audiocodes_acme_v2_certificate_management_thumbnail.png"
+categories: ["Audiocodes"]
+author: "Maxime Hiez"
+tags: ["Telephony", "Direct Routing", "SBC", "Certificate", "ACME"]
+draft: false
+---
+---
+
+##### Introduction
+Renewing the TLS certificate of an *SBC* is a manual operation everyone knows : generate the request, get it signed, import the certificate in the right *TLS Context*, restart the service. Once a year, the operation goes through, but it will become untenable when the validity period of public certificates drops to 46 days, against 199 days today.
+
+*Audiocodes* introduces support for the *ACMEv2* protocol in version *7.60A.300.042*, released on August 18, 2026 in the *Latest Release* branch. The SBC becomes an ACME client and handles the lifecycle of its certificates itself.
+
+---
+
+##### What the SBC handles
+The ACME protocol automates all the exchanges with the certificate authority. The SBC now covers the following steps :
+- <u>Registration</u> : Creation of the account with the certificate authority
+- <u>Domain validation</u> : Proof of ownership of the requested domain
+- <u>CSR generation and submission</u> : Building the signing request and sending it to the authority
+- <u>Certificate installation</u> : Deployment of the signed certificate in the associated TLS Context
+- <u>Automatic renewal</u> : Renewal triggered before expiration, without intervention
+
+Each ACME configuration is attached to a *TLS Context*, which allows the certificate exposed towards *Microsoft Teams* and the one presented to the SIP carrier to be handled differently. The supported authorities include *Let's Encrypt* and *ZeroSSL*.
+
+---
+
+##### The limits of this first version
+Two constraints are worth knowing before planning a deployment.
+
+**<u>DNS validation</u>**
+
+*Microsoft Azure DNS* is the only DNS platform officially validated for *DNS-01* validation in this version. Other providers may be added in the next releases, but a zone hosted elsewhere isn't covered today.
+<br/>
+
+**<u>Supported platforms</u>**
+
+The feature is available on the *Mediant 800B*, *Mediant 800C*, *Mediant VE* and *Mediant CE*. The other models of the range don't benefit from it in this version.
+
+<Notice type="warning">ACMEv2 is only available in the *Latest Release* branch, never in the *Long-Term Support* branch. Audiocodes recommends the LR branch only for the deployments that need a recently introduced feature. For a production SBC on LTS, you have to wait for the next LTS branch.</Notice>
+
+---
+
+##### LR or LTS, the choice to make
+Audiocodes maintains two branches in parallel, and this announcement illustrates the difference well :
+- <u>Latest Release</u> : New features every 4 months, recommended only if a recent feature is necessary
+- <u>Long-Term Support</u> : Bug fixes and security fixes only, new branch every 12 to 15 months, updates roughly every two months
+
+Concretely, an organization running its SBCs on the LTS 7.40A.600 branch can't get ACMEv2 without changing branch. The question to settle is therefore not only technical, it is about the update policy applied to telephony.
+
+---
+
+##### Why this is becoming urgent
+The progressive reduction of the lifetime of public certificates changes the nature of the problem. At 46 days of validity, a certificate has to be renewed about eight times a year. On a fleet of several SBCs, each with several TLS Contexts, manual renewal stops being an annual task and becomes a permanent process, with the risk of expiration that comes with it.
+
+An expired certificate on an SBC doesn't degrade the service, it interrupts it. *Direct Routing* refuses the TLS connection and all the calls stop. This is the reason why automating the renewal deserves to be handled before the constraint becomes effective.
+
+---
+
+##### Conclusion
+ACMEv2 support answers an evolution that will apply to everyone, the reduction of the validity period of certificates. The restriction to the Latest Release branch and to Azure DNS limits the deployment scenarios for now, but the direction is clear. For the organizations whose DNS zones are already on Azure and that accept the LR branch, the feature is usable right now. For the others, this is a topic to put on the plan of the next LTS switch.
+
+---
+
+##### Sources
+[Audiocodes - Product Notice SBC/Gateway 7.60A.300](https://www.audiocodes.com/media/a0ydrley/0595-product-notice-sbc-gateway-software-update-for-latest-release-version-760a300.pdf)
+
+[Audiocodes - Latest Release 7.6 release notes](https://www.audiocodes.com/media/2fvekju0/sbc-gateway-release-notes-for-latest-release-lr-versions-76.pdf)
+
+---
+
+
+Did you enjoy this post ? If you have any questions, comments or suggestions, please feel free to send me a message from the contact form.
+
+Don't forget to follow us and share this post.
