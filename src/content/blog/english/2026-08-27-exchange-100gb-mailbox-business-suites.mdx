@@ -1,0 +1,68 @@
+---
+title: "Exchange mailboxes increased to 100GB"
+meta_title: ""
+description: ""
+date: 2026-08-27T10:00:00-05:00
+image: "/images/blog/exchange/exchange_100gb_mailbox_business_suites_thumbnail.png"
+categories: ["Exchange"]
+author: "Maxime Hiez"
+tags: ["Licenses", "Quota", "PowerShell"]
+draft: false
+---
+---
+
+##### Introduction
+On August 19, 2026, the *Exchange* team detailed a licensing change that went relatively unnoticed ; the *Microsoft 365 Business Basic*, *Business Standard* and *Business Premium* suites now include 50GB of additional storage for the primary mailbox, raising the maximum supported quota from 50GB to 100GB.
+
+The change has been rolling out since June 2026 and should be completed in September 2026, with advance notice through the *Message Center* of the *Microsoft 365 Admin Center* for each tenant.
+
+---
+
+##### How the quota is built
+The increase doesn't come from a modification of the default quota, but from the addition of two service plans :
+- <u>BPOS_S_STANDARD</u> : Grants the base 50GB
+- <u>EXCHANGE_STORAGE_50GB</u> : Adds the additional 50GB
+
+Both plans must be enabled on the user for the quota to reach 100GB. A disabled plan, inherited from a license template or from an old manual deactivation, leaves the user at 50GB without any error message. This is the main checkpoint before announcing the change to the users.
+
+---
+
+##### Two limits to know
+The first one concerns archiving. The increase only covers the size of the primary mailbox and doesn't open any online archive capability. An organization that was looking to solve a retention problem this way will still have to go through a license that includes archiving.
+
+The second one concerns custom quotas. If an administrator has defined a specific quota value on a mailbox, that value remains in effect and isn't replaced by the automatic addition of the 50GB. A fleet where quotas have been capped on purpose, to contain the volume or to force the use of archiving, will therefore see no change as long as those values aren't reviewed.
+
+---
+
+##### Check the actual state of the mailboxes
+The control is done from *Exchange Online PowerShell* :
+```powershell
+Connect-ExchangeOnline
+
+Get-Mailbox -ResultSize Unlimited | Select-Object DisplayName, ProhibitSendReceiveQuota, UseDatabaseQuotaDefaults
+```
+
+A *UseDatabaseQuotaDefaults* value set to *False* flags a mailbox whose quota has been set manually, and therefore excluded from the automatic increase. On the licensing side, checking that both service plans are enabled is done from the *Microsoft 365 Admin Center* or with *Microsoft Graph PowerShell*.
+
+<Notice type="note">The change concerns the three commercial Business suites. The *Microsoft 365 Enterprise* licenses, the *Frontline* licenses and the shared mailboxes follow their own quota rules and are not covered by this announcement.</Notice>
+
+---
+
+##### Conclusion
+A quota increase at no extra cost is good news, but it doesn't apply automatically to everyone. Two checks are needed : both service plans enabled on the users concerned, and the existence of custom quotas that neutralize the addition. For the organizations that used the 50GB ceiling as a document governance lever, this is also the opportunity to review the retention policy rather than letting the mailboxes double in volume.
+
+---
+
+##### Sources
+[Microsoft - Techcommunity](https://techcommunity.microsoft.com/blog/exchange/understanding-the-new-100-gb-mailbox-entitlement-for-microsoft-365-business-suit/4548243)
+
+[Microsoft Learn - Exchange Online limits](https://learn.microsoft.com/en-us/office365/servicedescriptions/exchange-online-service-description/exchange-online-limits)
+
+[Microsoft Learn - Get-Mailbox](https://learn.microsoft.com/en-us/powershell/module/exchangepowershell/get-mailbox)
+
+---
+
+
+Did you enjoy this post ? If you have any questions, comments or suggestions, please feel free to send me a message from the contact form.
+
+Don't forget to follow us and share this post.
