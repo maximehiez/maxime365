@@ -53,12 +53,12 @@ External recipients are those whose email address domains are not accepted domai
 ##### Deployment schedule
 The deployment of the new TERRL limits will be done in 4 phases :
 
-| Phase |         Tenant type         |     Date      |
-| :---: | --------------------------: | ------------: |
-| 1     | Tenants with ≤ 25 licenses  | 3 March 2025  |
-| 2     | Tenants with ≤ 200 licenses | 10 March 2025 |
-| 3     | Tenants with ≤ 500 licenses | 17 March 2025 |
-| 4     | All other tenants           | 31 March 2025 |
+| Phase |         Tenant type         |      Date      |
+| :---: | --------------------------: | -------------: |
+| 1     | Tenants with ≤ 25 licenses  | March 3, 2025  |
+| 2     | Tenants with ≤ 200 licenses | March 10, 2025 |
+| 3     | Tenants with ≤ 500 licenses | March 17, 2025 |
+| 4     | All other tenants           | March 31, 2025 |
 
 ---
 
