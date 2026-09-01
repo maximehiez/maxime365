@@ -1,4 +1,3 @@
-import type { ContentEntryMap } from "astro:content";
 
 export type Certification = {
   logo: string;

@@ -9,7 +9,6 @@ import { supportedLang } from "@/lib/utils/languageParser";
 import { sortByDate } from "@/lib/utils/sortFunctions";
 import PageHeader from "@/partials/PageHeader.astro";
 import PostSidebar from "@/partials/PostSidebar.astro";
-import type { ContentEntryMap } from "astro:content";
 
 export function getStaticPaths() {
   const paths = supportedLang.map((lang) => ({
@@ -21,10 +20,10 @@ const { lang } = Astro.params;
 const BLOG_FOLDER = "blog";
 const postIndex = await getListPage(
   BLOG_FOLDER,
-  lang as keyof ContentEntryMap
+  lang
 );
-const langCollection: keyof ContentEntryMap = lang as keyof ContentEntryMap;
-const posts = await getSinglePage(BLOG_FOLDER, lang as keyof ContentEntryMap);
+const langCollection = lang;
+const posts = await getSinglePage(BLOG_FOLDER, lang);
 
 const allCategories = await getAllTaxonomy(langCollection, "categories");
 const categories = await getTaxonomy(langCollection, "categories");

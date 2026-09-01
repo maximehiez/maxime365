@@ -29,12 +29,16 @@ export function getLangFromUrl(url: URL): string {
   return default_language;
 }
 
-export const getTranslations = async (lang: string) => {
+export const getTranslations = async (lang: string | undefined) => {
   const {
     default_language,
     disable_languages,
   }: { default_language: string; disable_languages: string[] } =
     config.settings;
+
+  if (!lang) {
+    lang = default_language;
+  }
 
   if (disable_languages.includes(lang)) {
     lang = default_language;

@@ -1,7 +1,7 @@
 import { marked } from "marked";
 import React, { useEffect, useRef, useState } from "react";
 
-const Tabs = ({ children }: { children: React.ReactElement }) => {
+const Tabs = ({ children }: { children: React.ReactElement<{ value: string }> }) => {
   const [active, setActive] = useState<number>(0);
   const [defaultFocus, setDefaultFocus] = useState<boolean>(false);
 

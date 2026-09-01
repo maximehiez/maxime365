@@ -3,7 +3,6 @@ import {
   getCollection,
   type CollectionEntry,
   type CollectionKey,
-  type ContentEntryMap,
 } from "astro:content";
 
 import config from "@/config/config.json";
@@ -11,7 +10,7 @@ import languages from "@/config/language.json";
 
 export const getSP = async <C extends CollectionKey>(
   collectionName: C,
-  lang: keyof ContentEntryMap | undefined
+  lang: string | undefined
 ): Promise<CollectionEntry<C>[]> => {
   const { default_language } = config.settings;
 
@@ -30,7 +29,7 @@ export const getSP = async <C extends CollectionKey>(
   const pages: CollectionEntry<C>[] = (await getCollection(
     contentDir as any,
     ({ id }: any) => {
-      return id.startsWith(collectionName) && !id.endsWith("-index.md");
+      return id.startsWith(collectionName) && !id.endsWith("-index");
     }
   )) as CollectionEntry<C>[];
 
@@ -42,7 +41,7 @@ export const getSP = async <C extends CollectionKey>(
 
 export const getLP = async <C extends CollectionKey>(
   collectionName: C,
-  lang: keyof ContentEntryMap | undefined
+  lang: string | undefined
 ): Promise<CollectionEntry<C>[]> => {
   const { default_language } = config.settings;
 
@@ -70,7 +69,7 @@ export const getLP = async <C extends CollectionKey>(
 
 export const getSinglePage = async <C extends CollectionKey>(
   collectionName: C,
-  lang: keyof ContentEntryMap | undefined,
+  lang: string | undefined,
   subCollectionName?: string
 ): Promise<CollectionEntry<C>[]> => {
   const { default_language } = config.settings;
@@ -94,7 +93,7 @@ export const getSinglePage = async <C extends CollectionKey>(
   const pages: CollectionEntry<C>[] = (await getCollection(
     collectionName as any,
     ({ id }: any) => {
-      return id.startsWith(path) && !id.endsWith("-index.md");
+      return id.startsWith(path) && !id.endsWith("-index");
     }
   )) as CollectionEntry<C>[];
 
@@ -106,7 +105,7 @@ export const getSinglePage = async <C extends CollectionKey>(
 
 export const getListPage = async <C extends CollectionKey>(
   collectionName: C,
-  lang: keyof ContentEntryMap | undefined
+  lang: string | undefined
 ): Promise<CollectionEntry<C>[]> => {
   const { default_language } = config.settings;
 
