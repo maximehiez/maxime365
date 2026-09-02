@@ -1,0 +1,85 @@
+---
+title: "Grok 4.6 available in Microsoft Foundry"
+meta_title: ""
+description: ""
+date: 2026-09-02T10:00:00-05:00
+image: "/images/blog/foundry/foundry_grok_4_6_available_thumbnail.png"
+categories: ["Foundry"]
+author: "Maxime Hiez"
+tags: ["AI", "Grok", "Agentic"]
+draft: false
+---
+---
+
+##### Introduction
+*Grok 4.6*, the latest frontier model from *SpaceXAI*, has been available in public preview in *Microsoft Foundry Models* since August 26, 2026. Built on SpaceXAI's model family at the 1.5 trillion parameter scale, it does not aim to stand out on an isolated benchmark category, but to go the distance on long tasks : planning multiple steps, calling tools reliably, recovering after an error, and delivering a usable result.
+
+---
+
+##### A model built for long-running agents
+Most models behave well on an isolated prompt. A real agent has to do something else : make progress on an extended objective, with minimal supervision, navigating between tools and recovering from intermediate failures. That is the ground Grok 4.6 targets, both for software development copilots and for multi-step business workflows.
+
+The model is also positioned beyond code, on structured engineering tasks : computer-aided design (*CAD*), procedural design, and complex technical analysis.
+
+---
+
+##### Highlighted benchmarks
+Microsoft cites three evaluations in its announcement, all provided by the model publisher :
+- <u>Terminal-Bench 3.0</u> : Measures the ability to carry out multi-step, terminal-based execution close to real engineering workflows.
+- <u>3DCodeBench</u> : Evaluates agentic procedural 3D modeling through code, so the ability to reason about technical designs and generate them.
+- <u>AA Briefcase</u> : *Artificial Analysis* benchmark that evaluates agents on long knowledge-work projects, culminating in concrete deliverables such as spreadsheets, presentations, memos, financial models, or *PDF* files.
+
+These results position Grok 4.6 on the workloads that produce a business deliverable, and not just an answer.
+
+---
+
+##### Deployment and regions
+Grok 4.6 is one of the models sold by *Azure*, so it is not billed through the *Azure Marketplace* like partner models. Deployment is done from the Foundry portal catalog ([ai.azure.com](https://ai.azure.com)) by selecting the *grok-4.6* model, or from the command line via *Azure CLI*.
+
+The deployment characteristics are the following :
+- <u>Deployment type</u> : *Global Standard* only, in all supported regions
+- <u>Context window</u> : 200,000 tokens, input and output combined
+- <u>Maximum output</u> : 128,000 tokens, or the remaining context budget if that is smaller
+- <u>Supported inputs</u> : Text and image
+- <u>API</u> : *Chat Completions* and *Responses*
+- <u>Authentication</u> : *Entra ID* recommended, or an API key for the Foundry resource
+
+The *Cognitive Services Contributor* role on the Foundry resource is required to deploy the model. Quotas depend on the subscription tier : 50,000 tokens per minute and 50 requests per minute on the Medium tier, 5,000,000 tokens per minute and 5,000 requests per minute on the High tier.
+
+<Notice type="info">The direct SpaceXAI API advertises a 500,000 token context window for Grok 4.6, with pricing doubled beyond 200,000 tokens. In Foundry, the window is capped at 200,000 tokens : a request that exceeds this limit fails instead of switching to the long-context pricing.</Notice>
+
+---
+
+##### Pricing
+The rate in Foundry is aligned with the direct API, in Global Standard deployment :
+- <u>Input</u> : 2$ / 1M tokens
+- <u>Output</u> : 6$ / 1M tokens
+- <u>Cache</u> : 0.50$ / 1M tokens
+
+At this price level, Grok 4.6 sits well below competing frontier models, which remains its main argument on token-heavy agentic workloads.
+
+---
+
+##### Why deploy it in Foundry ?
+Access to the model is no longer the difficulty, operationalizing it is. Foundry brings a single platform to discover, evaluate, and deploy models, while applying the governance, security, and operational controls expected in the enterprise. Concretely, teams can evaluate Grok 4.6 against other frontier models on their own workloads, run workload-specific evaluations before deployment, expose it through managed endpoints, then integrate it into agentic applications without changing toolchain.
+
+---
+
+##### Conclusion
+Grok 4.6 in Foundry is an additional option for teams building long-running agents, engineering copilots, or business automation, with an aggressive capability versus price ratio. The public preview status and the absence of an *SLA* that comes with it do require keeping it to evaluation phases, not yet to production workloads.
+
+---
+
+##### Sources
+[Microsoft - Techcommunity](https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/grok-4-6-comes-to-microsoft-foundry-models-built-for-long-horizon-reasoning-and-/4547578)
+
+[Microsoft Learn - Deploy and use Grok models](https://learn.microsoft.com/en-us/azure/foundry/foundry-models/how-to/use-foundry-models-grok)
+
+[SpaceXAI - Grok 4.6](https://docs.x.ai/developers/models/grok-4.6)
+
+---
+
+
+Did you enjoy this post ? If you have any questions, comments or suggestions, please feel free to send me a message from the contact form.
+
+Don't forget to follow us and share this post.
