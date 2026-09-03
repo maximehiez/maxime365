@@ -1,0 +1,86 @@
+---
+title: "Claude Fable 5.1 available in Microsoft Foundry"
+meta_title: ""
+description: ""
+date: 2026-09-03T10:00:00-05:00
+image: "/images/blog/foundry/foundry_claude_fable_5_1_available_thumbnail.png"
+categories: ["Foundry"]
+author: "Maxime Hiez"
+tags: ["AI", "Claude", "Agentic"]
+draft: false
+---
+---
+
+##### Introduction
+*Microsoft* expands its *Anthropic* catalog in *Microsoft Foundry* with *Claude Fable 5.1* and *Claude Mythos 5.1*, the same day as their launch by Anthropic. As with *Claude Opus 5* in July, availability is simultaneous, confirming the pace of alignment between the two catalogs.
+
+Check the Claude Fable 5.1 article [HERE](https://maxime.hiez.ca/en/blog/2026-09-02-ai-anthropic-introducing-claude-fable-5-1).
+
+---
+
+##### Deployment and regions
+The model is accessible from the Foundry portal catalog ([ai.azure.com](https://ai.azure.com)) : section *Discover* > *Models* > search *claude-fable-5-1*. The context window is 1 million tokens, with a maximum output of 128,000 tokens. Acceptance of the *Azure Marketplace* terms is required on first deployment.
+
+Two models are added to the catalog :
+- <u>claude-fable-5-1</u> : Available in preview, hosted on the Anthropic infrastructure (Version 1), in *Global Standard* deployment.
+- <u>claude-mythos-5-1</u> : Available in gated research preview, hosted on the Anthropic infrastructure, with *Entra ID* authentication mandatory. Access is granted solely at Anthropic's discretion and prioritized for defensive cybersecurity use cases.
+
+<Notice type="info">Unlike Claude Opus 5, Claude Fable 5.1 is not offered in a Version 2 hosted on Azure. Inference therefore runs on the Anthropic infrastructure, even though billing transits through Azure. Organizations subject to a strict data residency requirement should stay on Opus 5 or Sonnet 5, which offer both versions.</Notice>
+
+---
+
+##### Billing and quotas
+Claude in Foundry is billed through *Claude Consumption Units* (*CCU*), one CCU equaling 0.01$. The Fable 5.1 rate is identical to the direct Anthropic API : 10$ / 1M input tokens and 50$ / 1M output tokens, or 1,000 CCU per 1M input tokens and 5,000 CCU per 1M output tokens. Spending counts toward the *Microsoft Azure Consumption Commitment* (*MACC*) and is visible in *Azure Cost Management*.
+
+Default quotas differ significantly from other Claude models :
+- <u>Enterprise and MCA-E</u> : 2,000 requests per minute, 2,000,000 input tokens per minute, and 400,000 output tokens per minute
+- <u>Pay-as-you-go</u> : No quota allocated by default
+- <u>Free trial</u> : No quota allocated
+
+Unsupported subscription types remain the same as for other Anthropic models : Enterprise Accounts located in South Korea, *CSP* subscriptions, subscriptions without an active pay-as-you-go billing method, and sponsored subscriptions running solely on Azure credits.
+
+---
+
+##### What the model brings
+Fable 5.1 is positioned on work that does not fit into a single interaction. A development task can span dozens of applications, a performance investigation multiple cycles of analysis and testing, an agent an entire backlog. These scenarios call for less a single excellent point-in-time answer than an ability to hold context, make decisions across multiple steps, recover when an approach fails, and keep progressing toward the objective.
+
+The capabilities highlighted in Foundry are the following :
+- <u>Adaptive thinking</u> : The model self-adjusts its reasoning depth to the complexity of the request.
+- <u>Long-running work</u> : Holds context and the objective across extended workflows, with successive tool calls.
+- <u>Scientific research with self-verification</u> : The model checks its own results as the work progresses.
+- <u>Explicit refusal</u> : A refusal *stop_reason* is returned when dual-use safeguards apply.
+
+For teams, the concrete gain is better judgment on ambiguous tasks and fewer confidently asserted wrong answers. The model signals when it is blocked instead of announcing success, and it is less prone to shortcuts like disabling a failing test.
+
+---
+
+##### Migrating from Claude Fable 5
+Existing prompts are expected to work as-is on Fable 5.1. Microsoft nonetheless recommends taking the migration as an opportunity to revisit instructions written specifically to compensate for the previous model's behavior : repeated warnings not to guess, successive layers of self-verification, and highly prescriptive completion criteria are not always necessary anymore. Excessive scaffolding can even limit the effectiveness of a more capable model.
+
+The right approach remains evaluation on representative production workloads, comparing quality, reliability, latency, and the effectiveness of verification mechanisms already in place, before simplifying where the results justify it.
+
+---
+
+##### Enterprise Frontier Safeguards
+Anthropic announced *Enterprise Frontier Safeguards* alongside this release, which allow deploying its most capable models while storing data in cloud infrastructure controlled by the customer. Microsoft Foundry is among the supported platforms, with a phased rollout starting this fall. This is the most direct answer to the absence of a Version 2 hosted on Azure for this model.
+
+---
+
+##### Conclusion
+The arrival of Claude Fable 5.1 in Foundry on launch day gives access to Anthropic's most capable model without leaving Azure governance. The point of caution is the hosting model : without a Version 2 on Azure, this model does not suit the strictest data residency requirements, and the zero default quota on pay-as-you-go effectively reserves it for Enterprise and MCA-E contracts.
+
+---
+
+##### Sources
+[Microsoft - Techcommunity](https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/claude-fable-5-1-is-now-available-in-microsoft-foundry/4550175)
+
+[Microsoft Learn - Claude models in Foundry](https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/claude-models)
+
+[Microsoft Learn - Deploy and use Claude models](https://learn.microsoft.com/en-us/azure/foundry/foundry-models/how-to/use-foundry-models-claude)
+
+---
+
+
+Did you enjoy this post ? If you have any questions, comments or suggestions, please feel free to send me a message from the contact form.
+
+Don't forget to follow us and share this post.
