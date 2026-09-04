@@ -72,7 +72,7 @@ Version 16.3.0 includes the following updates :
 <br/><br/>
 
 **<u>Az.NetAppFiles</u>**
-- Added deprecation notices to Azure NetApp Files subvolume cmdlets.
+- Added deprecation notices to *Azure NetApp Files* subvolume cmdlets.
 - Added breaking change notices for removing *EnableSubvolume* and the *EnableSubvolumes* volume output property.
 - Fixed the output type of *Get-AzNetAppFilesVolumeQuotaRule* from *PSNetAppFilesVolume* to *PSNetAppFilesVolumeQuotaRule*.
 <br/><br/>

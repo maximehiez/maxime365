@@ -72,7 +72,7 @@ La version 16.3.0 contient les mises à jour suivantes :
 <br/><br/>
 
 **<u>Az.NetAppFiles</u>**
-- Ajout d'avis de dépréciation aux applets de commande de sous-volume Azure NetApp Files.
+- Ajout d'avis de dépréciation aux applets de commande de sous-volume *Azure NetApp Files*.
 - Ajout d'avis de changement majeur pour la suppression de *EnableSubvolume* et de la propriété de sortie de volume *EnableSubvolumes*.
 - Correction du type de sortie de *Get-AzNetAppFilesVolumeQuotaRule*, de *PSNetAppFilesVolume* vers *PSNetAppFilesVolumeQuotaRule*.
 <br/><br/>
