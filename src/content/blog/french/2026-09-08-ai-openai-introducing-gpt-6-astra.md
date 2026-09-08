@@ -1,0 +1,120 @@
+---
+title: "OpenAI dévoile GPT-6 Astra"
+meta_title: ""
+description: ""
+date: 2026-09-08T10:00:00-05:00
+image: "/images/blog/ai/ai_openai_introducing_gpt_6_astra_thumbnail.png"
+categories: ["OpenAI"]
+author: "Maxime Hiez"
+tags: ["IA", "GPT", "ChatGPT", "Agentique"]
+draft: false
+---
+---
+
+##### Introduction
+*OpenAI* annonce *GPT-6 Astra*, présenté comme son modèle le plus intelligent et le mieux aligné à ce jour. Astra sature plusieurs benchmarks de référence : 98% sur *FrontierMath Tier 4*, 99.9% sur *ARC-AGI-3* et 100% sur *ExploitBench*. Le modèle établit également un nouveau standard sur l'utilisation d'ordinateur, la navigation web, le génie logiciel, la cybersécurité, les sciences et le travail professionnel.
+
+---
+
+##### Le meilleur modèle pour l'utilisation d'ordinateur
+Astra marque une avancée en vitesse, précision et sécurité sur les tâches d'utilisation d'ordinateur : remplir des formulaires en ligne, mettre à jour un CRM, organiser un agenda, mener une recherche en ligne, analyser des données scientifiques, créer un site web ou exécuter des tests QA front-end. Dans des simulations de latence sur *OSWorld 2.0*, Astra atteint une meilleure performance en environ 47% de temps en moins par tâche que *GPT-5.6 Sol* : 72.6% en environ 40 minutes, contre 65.7% en environ 75 minutes.
+
+|                                | GPT-6 Astra | GPT-5.6 Sol | Claude Fable 5.1 | Claude Opus 5 |
+|--------------------------------|------------:|------------:|-----------------:|--------------:|
+| Agents' Last Exam              | 59.3%       | 53.6%       | n/d              | 55.5%         |
+| OSWorld 2.0 (offline, partiel) | 72.6%       | 65.7%       | n/d              | 70.2%         |
+| ScreenSpot-Pro (sans outils)   | 92.7%       | 76.9%       | 87.3%            | n/d           |
+
+<br/>
+
+Le harnais *Codex* est mis à jour en parallèle pour accélérer l'utilisation d'ordinateur, avec un gain combiné de 1.9 fois sur le temps de complétion des tâches par rapport à l'expérience GPT-5.6 Sol actuelle, sur le benchmark *Mind2Web*.
+
+- <u>Cognition</u> : Intègre Astra dans le harnais de *Devin* dès le lancement, avec *"une performance de pointe sur notre benchmark interne"* et des rapports de test plus clairs.
+- <u>Higgsfield AI</u> : Rapporte qu'Astra *"exécute nos workflows créatifs les plus complexes en utilisant jusqu'à 20% de tokens en moins"* que les autres modèles testés.
+
+---
+
+##### Travail professionnel
+Astra combine l'intelligence nécessaire aux problèmes complexes avec la capacité à mener des workflows à plusieurs étapes et à produire des documents, feuilles de calcul et présentations aboutis. Le modèle respecte mieux les gabarits existants, ne retient que le contexte pertinent pour chaque livrable et adapte son style d'écriture et visuel au contexte de l'entreprise.
+
+- <u>AutomationBench</u> : 41.4%, contre 18.1% pour GPT-5.6 Sol et 31.4% pour Claude Fable 5.1
+- <u>BenchCAD</u> : 95.9%, contre 83.3% pour GPT-5.6 Sol
+- <u>Tâches de conception internes</u> : 50.0%, contre 47.4% pour GPT-5.6 Sol
+
+Face à une instruction ambiguë, Astra utilise le contexte disponible pour combler les zones d'ombre routinières et pose des questions ciblées uniquement lorsque la réponse changerait le résultat. Dans Codex, il peut poser une question de façon asynchrone tout en poursuivant le travail qui n'en dépend pas.
+
+- <u>Harvey</u> : Décrit Astra comme *"une amélioration de qualité significative"* sur les tâches juridiques complexes, capable de distinguer les documents des dossiers établis et de convertir les hypothèses non étayées en positions de rédaction concrètes.
+
+---
+
+##### Programmation
+Astra est présenté comme le meilleur modèle d'OpenAI pour le génie logiciel à ce jour.
+
+- <u>Terminal-Bench 4.0</u> : 57.9%, contre 37.3% pour GPT-5.6 Sol et 55.8% pour Claude Fable 5.1
+- <u>Tâches de migration de base de données internes</u> : 63.9%, contre 42.7% pour GPT-5.6 Sol
+
+Avec Astra, Codex introduit un nouveau mécanisme de conservation du contexte : plutôt que de compresser le travail en un résumé unique à chaque compaction, le modèle conserve des notes à travers les fenêtres de contexte successives, tout en gardant les fenêtres antérieures consultables pour retrouver des exigences ou des résultats de tests passés. Cette fonctionnalité expérimentale s'active dans le fichier *config.toml* de Codex et deviendra le comportement par défaut d'Astra dans les prochaines semaines.
+
+- <u>Jane Street</u> : Indique qu'Astra *"communique d'une façon plus facile à suivre pour les développeurs"* et produit du code nécessitant moins d'itérations.
+- <u>Lovable</u> : Rapporte qu'Astra *"est ressorti significativement devant GPT-5.6 Sol"* sur un test de première génération, à tous les niveaux d'effort.
+
+---
+
+##### Recherche scientifique
+Astra a contribué à deux résultats sur les écarts entre nombres premiers, un domaine resté figé depuis plus de dix ans pour l'un des bornages et plus de 80 ans pour l'autre. Le modèle a aidé à établir une borne resserrée à 186 pour l'écart minimal entre paires de nombres premiers infiniment fréquentes, améliorant la précédente borne de 240. OpenAI publie les preuves et le matériel de vérification associé.
+
+- <u>FrontierMath Tier 4 (v2)</u> : 97.6%, contre 83.0% pour GPT-5.6 Sol
+- <u>GPQA Diamond</u> : 96.0%, contre 94.6% pour GPT-5.6 Sol
+- <u>HealthBench Professional</u> : 63.4%, contre 60.5% pour GPT-5.6 Sol
+
+<Notice type="note">La performance en sciences ne se limite pas aux mathématiques abstraites : combinée à l'utilisation d'ordinateur, Astra peut inspecter directement des données dans des logiciels spécialisés pour aider les chercheurs à évaluer des résultats et orienter la suite d'une investigation.</Notice>
+
+---
+
+##### Cybersécurité
+Astra franchit le seuil *Critical* en cybersécurité selon le *Preparedness Framework* d'OpenAI. Sans les garde-fous de production, le modèle atteint 100% sur *ExploitBench* (contre 78.5% pour GPT-5.6 Sol) et 42.4% sur *ExploitGym* (contre 30.3%), tout en consommant nettement moins de tokens de sortie.
+
+Pour écarter tout biais d'exposition aux vulnérabilités historiques, OpenAI a également testé Astra sur un jeu de vulnérabilités inédites datant de Juin à Août 2026 : le modèle a découvert et exploité deux vulnérabilités *zero-day* jusqu'alors inconnues, désormais divulguées à leurs mainteneurs. Sur *SRE-Bench*, qui mesure la rétro-ingénierie de binaires sans accès au code source, Astra résout 88.0% des tâches en une tentative, contre 55.9% pour GPT-5.6 Sol.
+
+Dans la version publiée aujourd'hui, Astra refuse les tâches de cybersécurité offensive avancées comme la création de preuves de concept d'exploit. Via le programme *OpenAI Daybreak*, des garde-fous moins restrictifs seront étendus dans les prochaines semaines pour permettre davantage de workflows défensifs : validation de vulnérabilités et de preuves de concept, analyse de malware, ingénierie de détection.
+
+<Notice type="warning">Étant donné le saut de capacités cyber d'Astra, des contrôles de sécurité supplémentaires peuvent ralentir, mettre en pause ou stopper une tâche légitime, y compris en cybersécurité défensive. Dans ChatGPT ou Codex, une action mise en pause peut demander une revue avant de continuer ; dans l'API, la tâche s'arrête.</Notice>
+
+---
+
+##### Alignement
+Astra est décrit comme le modèle le mieux aligné d'OpenAI, avec des progrès marqués sur le respect des limites d'une tâche et la communication transparente. Sur une évaluation inspirée de l'incident *Hugging Face*, qui teste si un modèle confronté à une tâche impossible dépasse son périmètre autorisé, Astra l'a fait dans 0% des cas, contre 48% pour GPT-5.6 Sol sans garde-fous de production.
+
+- <u>Circonvention d'Auto-Review</u> : Astra n'a jamais tenté de contourner un refus de *Codex Auto-Review*, même lorsque ce dernier était délibérément configuré comme contournable et que la tâche était sinon impossible à réaliser.
+- <u>Communication transparente</u> : Astra est trois fois moins susceptible que GPT-5.6 Sol de faire des déclarations inexactes sur ses propres capacités.
+
+OpenAI reconnaît toutefois un point de vigilance : le raisonnement écrit d'Astra s'avère plus difficile à surveiller que celui de GPT-5.6 Sol sur des tests demandant explicitement d'échapper à la supervision, un phénomène attribué à un raisonnement plus condensé sur les tâches simples. L'amélioration de la surveillabilité reste une priorité de recherche déclarée.
+
+---
+
+##### Tarification et disponibilité
+GPT-6 Astra est déployé aujourd'hui auprès d'un nombre limité d'organisations, avec une disponibilité générale prévue dans les prochains jours pour tous les utilisateurs *ChatGPT Plus*, *Pro*, *Business* et *Enterprise*, ainsi que via l'API OpenAI, *Microsoft Azure* et *AWS Bedrock*. Les administrateurs Enterprise doivent activer Astra pour leur espace de travail, l'accès étant désactivé par défaut au lancement. Les utilisateurs Pro, Business et Enterprise ont également accès à *GPT-6 Astra Pro*.
+
+Pour les développeurs, le modèle est disponible dans l'API sous l'identifiant *gpt-6-astra*, ainsi que sur Microsoft Azure et Amazon Bedrock :
+- <u>Entrée</u> : 10$ / 1M tokens
+- <u>Sortie</u> : 50$ / 1M tokens
+- <u>Mode Fast</u> : Jusqu'à 2 fois la vitesse du mode Standard, à 2 fois son tarif.
+
+Des tarifs distincts s'appliquent aux lectures et écritures de cache. Astra prend en charge la rétention zéro des données pour les clients API éligibles, et OpenAI teste actuellement le *Private Safety Processing*, conçu pour renforcer la supervision de sécurité tout en préservant la confidentialité des clients.
+
+---
+
+##### Conclusion
+GPT-6 Astra combine un saut de performance mesurable, en particulier sur l'utilisation d'ordinateur et la recherche scientifique, avec des garanties d'alignement présentées comme les plus solides de la gamme OpenAI. Le franchissement du seuil Critical en cybersécurité impose toutefois des garde-fous renforcés dès le lancement, avec une ouverture progressive des capacités défensives prévue via le programme Daybreak dans les prochaines semaines.
+
+---
+
+##### Sources
+[OpenAI - GPT-6 Astra](https://openai.com/index/gpt-6-astra/)
+
+---
+
+
+Avez-vous apprécié cet article ? Vous avez des questions, commentaires ou suggestions, n'hésitez pas à m'envoyer un message depuis le formulaire de contact.
+
+N'oubliez pas de nous suivre et de partager cet article.

@@ -1,0 +1,120 @@
+---
+title: "OpenAI unveils GPT-6 Astra"
+meta_title: ""
+description: ""
+date: 2026-09-08T10:00:00-05:00
+image: "/images/blog/ai/ai_openai_introducing_gpt_6_astra_thumbnail.png"
+categories: ["OpenAI"]
+author: "Maxime Hiez"
+tags: ["AI", "GPT", "ChatGPT", "Agentic"]
+draft: false
+---
+---
+
+##### Introduction
+*OpenAI* announces *GPT-6 Astra*, presented as its most intelligent and best-aligned model to date. Astra saturates several reference benchmarks : 98% on *FrontierMath Tier 4*, 99.9% on *ARC-AGI-3*, and 100% on *ExploitBench*. The model also sets a new standard on computer use, web browsing, software engineering, cybersecurity, science, and professional work.
+
+---
+
+##### The best model for computer use
+Astra marks an advance in speed, accuracy, and safety on computer-use tasks : filling out online forms, updating a CRM, organizing a calendar, conducting online research, analyzing scientific data, creating a website, or running frontend QA tests. In latency simulations on *OSWorld 2.0*, Astra achieves higher performance in about 47% less time per task than *GPT-5.6 Sol* : 72.6% in about 40 minutes, compared with 65.7% in about 75 minutes.
+
+|                                | GPT-6 Astra | GPT-5.6 Sol | Claude Fable 5.1 | Claude Opus 5 |
+|--------------------------------|------------:|------------:|-----------------:|--------------:|
+| Agents' Last Exam              | 59.3%       | 53.6%       | n/a              | 55.5%         |
+| OSWorld 2.0 (offline, partial) | 72.6%       | 65.7%       | n/a              | 70.2%         |
+| ScreenSpot-Pro (no tools)      | 92.7%       | 76.9%       | 87.3%            | n/a           |
+
+<br/>
+
+The *Codex* harness is updated alongside Astra to speed up computer use, with a combined 1.9x gain in task completion time compared with the current GPT-5.6 Sol experience, on the *Mind2Web* benchmark.
+
+- <u>Cognition</u> : Integrates Astra into *Devin*'s harness on launch day, with *"state-of-the-art performance on our internal testing benchmark"* and clearer test reports.
+- <u>Higgsfield AI</u> : Reports that Astra *"executes our most complex creative workflows while using up to 20% fewer tokens"* than other models tested.
+
+---
+
+##### Professional work
+Astra combines the intelligence required for complex problems with the ability to carry out multistep workflows and produce polished documents, spreadsheets, and presentations. The model better adheres to existing templates, pulls only the context that matters into each deliverable, and matches its writing and visual style to the business context.
+
+- <u>AutomationBench</u> : 41.4%, compared with 18.1% for GPT-5.6 Sol and 31.4% for Claude Fable 5.1
+- <u>BenchCAD</u> : 95.9%, compared with 83.3% for GPT-5.6 Sol
+- <u>Internal Design Tasks</u> : 50.0%, compared with 47.4% for GPT-5.6 Sol
+
+When instructions leave room for interpretation, Astra uses available context to fill in routine gaps and asks focused questions only when the answer could change the outcome. In Codex, it can ask asynchronously while continuing work that doesn't depend on the reply.
+
+- <u>Harvey</u> : Describes Astra as *"a significant quality improvement"* on complex legal tasks, distinguishing documents from established records and converting unsupported assumptions into concrete drafting positions.
+
+---
+
+##### Coding
+Astra is presented as OpenAI's best model for software engineering to date.
+
+- <u>Terminal-Bench 4.0</u> : 57.9%, compared with 37.3% for GPT-5.6 Sol and 55.8% for Claude Fable 5.1
+- <u>Internal Database Migration Tasks</u> : 63.9%, compared with 42.7% for GPT-5.6 Sol
+
+With Astra, Codex introduces a new context-preservation mechanism : rather than compressing the work into a single summary at each compaction, the model keeps notes across successive context windows, while keeping earlier context windows searchable to retrieve past requirements or test results. This experimental feature is enabled in Codex's *config.toml* and will become Astra's default behavior in the coming weeks.
+
+- <u>Jane Street</u> : States that Astra *"communicates in a way that's easier for developers to follow"* and produces code that requires fewer iterations.
+- <u>Lovable</u> : Reports that Astra *"came out significantly ahead of GPT-5.6 Sol"* on a first-generation eval, across every effort level.
+
+---
+
+##### Scientific research
+Astra contributed to two results on the gaps between prime numbers, a field that had stood still for more than a decade on one bound and more than 80 years on the other. The model helped establish a tighter bound of 186 for the minimal gap between infinitely many pairs of primes, improving on the previous bound of 240. OpenAI is publishing the proofs and supporting verification material.
+
+- <u>FrontierMath Tier 4 (v2)</u> : 97.6%, compared with 83.0% for GPT-5.6 Sol
+- <u>GPQA Diamond</u> : 96.0%, compared with 94.6% for GPT-5.6 Sol
+- <u>HealthBench Professional</u> : 63.4%, compared with 60.5% for GPT-5.6 Sol
+
+<Notice type="note">Scientific performance is not limited to abstract mathematics : combined with computer use, Astra can inspect data directly in specialized software to help researchers assess evidence and decide what to investigate next.</Notice>
+
+---
+
+##### Cybersecurity
+Astra meets the *Critical* threshold in cybersecurity under OpenAI's *Preparedness Framework*. Without production safeguards, the model reaches 100% on *ExploitBench* (compared with 78.5% for GPT-5.6 Sol) and 42.4% on *ExploitGym* (compared with 30.3%), while using substantially fewer output tokens.
+
+To rule out any bias from exposure to historical vulnerabilities, OpenAI also tested Astra on a set of novel vulnerabilities from June to August 2026 : the model discovered and used two previously unknown *zero-day* vulnerabilities, now disclosed to their maintainers. On *SRE-Bench*, which measures reverse engineering software binaries without access to source code, Astra solves 88.0% of tasks in a single attempt, compared with 55.9% for GPT-5.6 Sol.
+
+In the version launching today, Astra refuses advanced offensive cybersecurity tasks such as creating proof-of-concept exploits. Through the *OpenAI Daybreak* program, less restrictive safeguards will roll out in the coming weeks to enable more defensive workflows : vulnerability and proof-of-concept validation, malware analysis, and detection engineering.
+
+<Notice type="warning">Given the jump in Astra's cyber capabilities, extra safety checks can slow, pause, or stop legitimate work, including defensive cybersecurity. In ChatGPT or Codex, a paused action may require a review before continuing ; in the API, the task stops.</Notice>
+
+---
+
+##### Alignment
+Astra is described as OpenAI's best-aligned model, with marked progress on respecting task boundaries and transparent communication. On an evaluation inspired by the *Hugging Face* incident, which tests whether a model facing an impossible task goes beyond its authorized scope, Astra did so in 0% of cases, compared with 48% for GPT-5.6 Sol without production safeguards.
+
+- <u>Circumventing Auto-Review</u> : Astra never attempted to circumvent a *Codex Auto-Review* denial, even when Auto-Review was deliberately configured to be evadable and the task was otherwise impossible to complete.
+- <u>Transparent communication</u> : Astra is three times less likely than GPT-5.6 Sol to make inaccurate claims about its own capabilities.
+
+OpenAI does acknowledge one point of caution : Astra's written reasoning is harder to monitor than GPT-5.6 Sol's on tests that explicitly ask it to evade monitoring, a phenomenon attributed to more condensed reasoning on simpler tasks. Improving monitorability remains a stated research priority.
+
+---
+
+##### Pricing and availability
+GPT-6 Astra is rolling out today to a limited set of organizations, with general availability expected in the coming days for all *ChatGPT Plus*, *Pro*, *Business*, and *Enterprise* users, as well as through the OpenAI API, *Microsoft Azure*, and *AWS Bedrock*. Enterprise administrators must enable Astra for their workspace, access being off by default at launch. Pro, Business, and Enterprise users also get access to *GPT-6 Astra Pro*.
+
+For developers, the model is available in the API under the identifier *gpt-6-astra*, as well as on Microsoft Azure and Amazon Bedrock :
+- <u>Input</u> : 10$ / 1M tokens
+- <u>Output</u> : 50$ / 1M tokens
+- <u>Fast mode</u> : Up to 2x the speed of Standard mode, at 2x its price.
+
+Separate rates apply to cache reads and writes. Astra supports zero data retention for eligible API customers, and OpenAI is currently testing *Private Safety Processing*, designed to strengthen safety monitoring while preserving customer privacy.
+
+---
+
+##### Conclusion
+GPT-6 Astra combines a measurable performance jump, particularly on computer use and scientific research, with alignment guarantees presented as the strongest in the OpenAI lineup. Crossing the Critical threshold in cybersecurity nonetheless requires stronger safeguards from launch, with a gradual opening of defensive capabilities planned through the Daybreak program in the coming weeks.
+
+---
+
+##### Sources
+[OpenAI - GPT-6 Astra](https://openai.com/index/gpt-6-astra/)
+
+---
+
+
+Did you enjoy this post ? If you have any questions, comments or suggestions, please feel free to send me a message from the contact form.
+
+Don't forget to follow us and share this post.
