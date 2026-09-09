@@ -1,0 +1,62 @@
+---
+title: "Teams tightens the rules for onmicrosoft.com tenants"
+meta_title: ""
+description: ""
+date: 2026-09-10T10:00:00-05:00
+image: "/images/blog/teams/teams_external_chat_onmicrosoft_domains_restriction_thumbnail.png"
+categories: ["Teams"]
+author: "Maxime Hiez"
+tags: ["Security", "Governance", "Domain"]
+draft: false
+---
+---
+
+##### Introduction
+*Microsoft* is introducing an outbound external messaging limit in *Teams* for tenants that only use their default *onmicrosoft.com* domain (*MOERA*). The rollout begins mid-September 2026 and is expected to complete worldwide within the same window.
+
+---
+
+##### What's changing
+For tenants without a custom domain configured, the experience unfolds as follows :
+1. The user sends messages to external contacts as usual, until the limit is reached.
+2. Once the limit is reached, Teams displays a notification indicating that outbound external messaging has been temporarily limited.
+3. The user can no longer send new messages to external contacts for a given period.
+4. Messaging within the organization is not affected.
+
+Microsoft has not disclosed the exact number of allowed messages or the time window used to calculate the limit. Administrators therefore have no way yet to measure their current exposure.
+
+<Notice type="info">This restriction follows on from a limit already applied to outbound emails from onmicrosoft.com domains in Exchange Online : 100 external recipients per 24-hour rolling window, with a *NDR 550 5.7.236* rejection beyond that. The rollout ran from October 2025 to June 2026 depending on the tenant's Exchange license count, and is now complete. Microsoft is now applying the same principle to Teams messaging, without having disclosed the threshold yet.</Notice>
+
+---
+
+##### Why this restriction ?
+The onmicrosoft.com domain provided by default to every tenant requires no verification, making it an easy target for spam, phishing, and other abuse campaigns. By limiting outbound external messaging from these domains, Microsoft adds another layer of protection against these uses. The company states that a normal organization's communication should not approach these thresholds, the limit targeting abusive volumes rather than routine exchanges with clients or partners.
+
+---
+
+##### How to check if your tenant is affected ?
+The protection is enabled by default, no action is required to turn it on. To assess your exposure :
+- <u>Check the domain configuration</u> : In the *Microsoft 365 admin center*, section *<u>Settings</u>* > *<u>Domains</u>*, check whether the tenant has a custom domain or relies solely on the default onmicrosoft.com domain.
+- <u>Add a custom domain</u> : From the Domains page, the *<u>Add domain</u>* option lets you add a domain representing the organization and escape the limitation.
+- <u>Throttling alert</u> : Microsoft plans to introduce an optional administrator alert after the initial rollout, to notify you when the tenant reaches the limit.
+
+---
+
+##### Conclusion
+Organizations that depend heavily on external collaboration and still use their default onmicrosoft.com domain should review their configuration before the mid-September rollout. Adding a custom domain remains the only confirmed mitigation to date, in the absence of precise details on the triggering threshold.
+
+---
+
+##### Sources
+[Microsoft - Techcommunity](https://techcommunity.microsoft.com/discussions/microsoftteams/teams-clamps-down-on-moera-only-tenants/4552579)
+
+[Microsoft - Techcommunity](https://techcommunity.microsoft.com/blog/exchange/limiting-onmicrosoft-domain-usage-for-sending-emails/4446167)
+
+[Microsoft Learn - Add a custom domain](https://learn.microsoft.com/en-us/microsoft-365/admin/setup/add-domain)
+
+---
+
+
+Did you enjoy this post ? If you have any questions, comments or suggestions, please feel free to send me a message from the contact form.
+
+Don't forget to follow us and share this post.
