@@ -1,0 +1,70 @@
+---
+title: "Entra Connect Sync update required before September 30, 2026"
+meta_title: ""
+description: ""
+date: 2026-09-11T10:00:00-05:00
+image: "/images/blog/entra/entra_connect_sync_mandatory_upgrade_2_5_79_0_thumbnail.png"
+categories: ["Entra ID"]
+author: "Maxime Hiez"
+tags: ["Hybrid", "Synchronization", "Security", "Active Directory"]
+draft: false
+---
+---
+
+##### Introduction
+All synchronization services in *Microsoft Entra Connect Sync* will stop working on September 30, 2026 for tenants not on at least version *2.5.79.0*. This version, released in May 2025, introduces a back-end service change that hardens synchronization security between *Active Directory* and *Microsoft Entra ID*.
+
+---
+
+##### What version 2.5.79.0 changes
+The change deploys a dedicated first-party application, the *Microsoft Entra AD Synchronization Service*, visible in the Entra portal's *Enterprise Applications*. This application is now critical to the proper functioning of synchronization between the on-premises directory and Microsoft Entra ID.
+
+Since September 2023, Microsoft has been performing automatic upgrades to a hardened version for most customers. The tenants affected by this deadline are therefore mainly those that disabled automatic upgrade, or for which it failed.
+
+---
+
+##### Impact of non-compliance
+If a tenant is not on the minimum required version by September 30, 2026, all synchronization services in Microsoft Entra Connect Sync fail, not just an isolated feature. This outage lasts until the upgrade is performed : no additional grace period is planned.
+
+*Microsoft Entra Connect Health* is also affected if the agents are not up to date :
+- <u>Connect Sync agent</u> : A subset of alerts stops working, including authentication failures, password synchronization, and the accidental deletion threshold.
+- <u>AD DS agent</u> : All alerts are affected.
+- <u>AD FS agent</u> : All alerts are affected.
+
+<Notice type="warning">The impact is not a partial degradation : every synchronization fails until the upgrade is performed. For a hybrid environment that depends on Microsoft Entra Connect Sync for password synchronization or writeback, this amounts to a complete identity synchronization outage.</Notice>
+
+---
+
+##### How to become compliant ?
+The minimum versions to meet before September 30, 2026 are :
+- <u>Microsoft Entra Connect</u> : Version *2.5.79.0* or higher
+- <u>Connect Sync agent (Connect Health)</u> : Version *4.5.2466.0* or higher
+- <u>AD DS agent (Connect Health)</u> : Version *4.5.2466.0* or higher
+- <u>AD FS agent (Connect Health)</u> : Version *4.5.2466.0* or higher
+
+The *.msi* installation file for Microsoft Entra Connect Sync is available exclusively from the *Microsoft Entra Admin Center*. The minimum prerequisites remain *.NET Framework 4.7.2* and *TLS 1.2*. To benefit from future automatic upgrades, the tenant must be on at least version *2.3.20.0*.
+
+Microsoft also recommends evaluating a migration to *Microsoft Entra Cloud Sync*, the next-generation sync client fully managed from the portal, which avoids this kind of recurring manual upgrade for eligible scenarios.
+
+---
+
+##### Conclusion
+Three weeks separate the publication of this article from the September 30, 2026 deadline. For organizations in a hybrid environment, checking the installed version is the first step, before planning the upgrade or evaluating eligibility for Microsoft Entra Cloud Sync.
+
+---
+
+##### Sources
+[Microsoft Learn - Microsoft Entra Connect version release history](https://learn.microsoft.com/en-us/entra/identity/hybrid/connect/reference-connect-version-history)
+
+[Microsoft Learn - Hardening update to Microsoft Entra Connect Sync](https://learn.microsoft.com/en-us/entra/identity/hybrid/connect/harden-update-ad-fs-pingfederate)
+
+[Microsoft Learn - Security improvements to automatic upgrade](https://learn.microsoft.com/en-us/entra/identity/hybrid/connect/security-updates-pks)
+
+[Microsoft Learn - What is Cloud Sync ?](https://learn.microsoft.com/en-us/entra/identity/hybrid/cloud-sync/what-is-cloud-sync)
+
+---
+
+
+Did you enjoy this post ? If you have any questions, comments or suggestions, please feel free to send me a message from the contact form.
+
+Don't forget to follow us and share this post.

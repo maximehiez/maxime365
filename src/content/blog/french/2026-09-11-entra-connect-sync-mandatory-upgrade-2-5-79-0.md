@@ -1,0 +1,70 @@
+---
+title: "Mise à jour d'Entra Connect Sync avant le 30 Septembre 2026"
+meta_title: ""
+description: ""
+date: 2026-09-11T10:00:00-05:00
+image: "/images/blog/entra/entra_connect_sync_mandatory_upgrade_2_5_79_0_thumbnail.png"
+categories: ["Entra ID"]
+author: "Maxime Hiez"
+tags: ["Hybride", "Synchronisation", "Sécurité", "Active Directory"]
+draft: false
+---
+---
+
+##### Introduction
+Tous les services de synchronisation de *Microsoft Entra Connect Sync* cesseront de fonctionner le 30 Septembre 2026 pour les tenants qui ne sont pas au moins en version *2.5.79.0*. Cette version, publiée en Mai 2025, introduit un changement de service côté back-end qui durcit la sécurité de la synchronisation entre *Active Directory* et *Microsoft Entra ID*.
+
+---
+
+##### Ce que change la version 2.5.79.0
+Le changement déploie une application first-party dédiée, le *Microsoft Entra AD Synchronization Service*, visible dans les *Enterprise Applications* du portail Entra. Cette application est désormais critique au bon fonctionnement de la synchronisation entre l'annuaire local et Microsoft Entra ID.
+
+Depuis Septembre 2023, Microsoft effectue des mises à niveau automatiques vers une version durcie pour la plupart des clients. Les tenants concernés par cette échéance sont donc principalement ceux qui ont désactivé la mise à niveau automatique, ou pour lesquels elle a échoué.
+
+---
+
+##### Impact en cas de non-conformité
+Si le tenant n'est pas à la version minimale requise au 30 Septembre 2026, l'ensemble des services de synchronisation de Microsoft Entra Connect Sync tombe en panne, pas seulement une fonctionnalité isolée. Cette interruption dure jusqu'à ce que la mise à niveau soit effectuée : aucune date de grâce supplémentaire n'est prévue.
+
+*Microsoft Entra Connect Health* est également concerné si les agents ne sont pas à jour :
+- <u>Agent Connect Sync</u> : Un sous-ensemble d'alertes cesse de fonctionner, notamment sur les échecs d'authentification, la synchronisation des mots de passe et le seuil de suppression accidentelle.
+- <u>Agent AD DS</u> : L'ensemble des alertes est affecté.
+- <u>Agent AD FS</u> : L'ensemble des alertes est affecté.
+
+<Notice type="warning">L'impact ne se limite pas à une dégradation partielle : toutes les synchronisations échouent tant que la mise à niveau n'est pas effectuée. Pour un environnement hybride qui dépend de Microsoft Entra Connect Sync pour la synchronisation des mots de passe ou l'écriture différée, cela équivaut à une panne complète de la synchronisation d'identité.</Notice>
+
+---
+
+##### Comment se mettre en conformité ?
+Les versions minimales à respecter avant le 30 Septembre 2026 sont :
+- <u>Microsoft Entra Connect</u> : Version *2.5.79.0* ou supérieure
+- <u>Agent Connect Sync (Connect Health)</u> : Version *4.5.2466.0* ou supérieure
+- <u>Agent AD DS (Connect Health)</u> : Version *4.5.2466.0* ou supérieure
+- <u>Agent AD FS (Connect Health)</u> : Version *4.5.2466.0* ou supérieure
+
+Le fichier d'installation *.msi* de Microsoft Entra Connect Sync est disponible exclusivement depuis le *Microsoft Entra Admin Center*. Les prérequis minimums restent le *.NET Framework 4.7.2* et *TLS 1.2*. Pour bénéficier des mises à niveau automatiques futures, le tenant doit être au moins en version *2.3.20.0*.
+
+Microsoft recommande également d'évaluer une migration vers *Microsoft Entra Cloud Sync*, le client de synchronisation nouvelle génération entièrement géré depuis le portail, qui évite ce type de mise à niveau manuelle récurrente pour les scénarios éligibles.
+
+---
+
+##### Conclusion
+Trois semaines séparent la publication de cet article de l'échéance du 30 Septembre 2026. Pour les organisations en environnement hybride, la vérification de la version installée est la première étape, avant de planifier la mise à niveau ou d'évaluer l'éligibilité à Microsoft Entra Cloud Sync.
+
+---
+
+##### Sources
+[Microsoft Learn - Historique des versions de Microsoft Entra Connect](https://learn.microsoft.com/fr-ca/entra/identity/hybrid/connect/reference-connect-version-history)
+
+[Microsoft Learn - Mise à jour de durcissement de Microsoft Entra Connect Sync](https://learn.microsoft.com/fr-ca/entra/identity/hybrid/connect/harden-update-ad-fs-pingfederate)
+
+[Microsoft Learn - Améliorations de sécurité pour la mise à niveau automatique](https://learn.microsoft.com/fr-ca/entra/identity/hybrid/connect/security-updates-pks)
+
+[Microsoft Learn - Qu'est-ce que Cloud Sync ?](https://learn.microsoft.com/fr-ca/entra/identity/hybrid/cloud-sync/what-is-cloud-sync)
+
+---
+
+
+Avez-vous apprécié cet article ? Vous avez des questions, commentaires ou suggestions, n'hésitez pas à m'envoyer un message depuis le formulaire de contact.
+
+N'oubliez pas de nous suivre et de partager cet article.
