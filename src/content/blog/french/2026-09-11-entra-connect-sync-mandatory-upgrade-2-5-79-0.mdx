@@ -27,9 +27,9 @@ Depuis Septembre 2023, Microsoft effectue des mises à niveau automatiques vers 
 Si le tenant n'est pas à la version minimale requise au 30 Septembre 2026, l'ensemble des services de synchronisation de Microsoft Entra Connect Sync tombe en panne, pas seulement une fonctionnalité isolée. Cette interruption dure jusqu'à ce que la mise à niveau soit effectuée : aucune date de grâce supplémentaire n'est prévue.
 
 *Microsoft Entra Connect Health* est également concerné si les agents ne sont pas à jour :
-- <u>Agent Connect Sync</u> : Un sous-ensemble d'alertes cesse de fonctionner, notamment sur les échecs d'authentification, la synchronisation des mots de passe et le seuil de suppression accidentelle.
-- <u>Agent AD DS</u> : L'ensemble des alertes est affecté.
-- <u>Agent AD FS</u> : L'ensemble des alertes est affecté.
+- <u>Agent Connect Sync</u> : Un sous-ensemble d'alertes cesse de fonctionner, notamment sur les échecs d'authentification, la synchronisation des mots de passe et le seuil de suppression accidentelle
+- <u>Agent AD DS</u> : L'ensemble des alertes est affecté
+- <u>Agent AD FS</u> : L'ensemble des alertes est affecté
 
 <Notice type="warning">L'impact ne se limite pas à une dégradation partielle : toutes les synchronisations échouent tant que la mise à niveau n'est pas effectuée. Pour un environnement hybride qui dépend de Microsoft Entra Connect Sync pour la synchronisation des mots de passe ou l'écriture différée, cela équivaut à une panne complète de la synchronisation d'identité.</Notice>
 

@@ -27,9 +27,9 @@ Since September 2023, Microsoft has been performing automatic upgrades to a hard
 If a tenant is not on the minimum required version by September 30, 2026, all synchronization services in Microsoft Entra Connect Sync fail, not just an isolated feature. This outage lasts until the upgrade is performed : no additional grace period is planned.
 
 *Microsoft Entra Connect Health* is also affected if the agents are not up to date :
-- <u>Connect Sync agent</u> : A subset of alerts stops working, including authentication failures, password synchronization, and the accidental deletion threshold.
-- <u>AD DS agent</u> : All alerts are affected.
-- <u>AD FS agent</u> : All alerts are affected.
+- <u>Connect Sync agent</u> : A subset of alerts stops working, including authentication failures, password synchronization, and the accidental deletion threshold
+- <u>AD DS agent</u> : All alerts are affected
+- <u>AD FS agent</u> : All alerts are affected
 
 <Notice type="warning">The impact is not a partial degradation : every synchronization fails until the upgrade is performed. For a hybrid environment that depends on Microsoft Entra Connect Sync for password synchronization or writeback, this amounts to a complete identity synchronization outage.</Notice>
 

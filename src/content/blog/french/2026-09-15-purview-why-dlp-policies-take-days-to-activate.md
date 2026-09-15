@@ -1,0 +1,69 @@
+---
+title: "Pourquoi une règle DLP Purview met plusieurs jours à s'activer"
+meta_title: ""
+description: ""
+date: 2026-09-15T10:00:00-05:00
+image: "/images/blog/purview/purview_why_dlp_policies_take_days_to_activate_thumbnail.png"
+categories: ["Purview"]
+author: "Maxime Hiez"
+tags: ["DLP", "Sécurité", "Gouvernance"]
+draft: false
+---
+---
+
+##### Introduction
+Une politique *DLP* (*Data Loss Prevention*) qui affiche *"synchronisation terminée"* dans le portail *Purview* peut malgré tout mettre plusieurs jours avant de bloquer réellement quoi que ce soit. Le décalage n'est pas un bug isolé, il tient à la façon dont une politique se propage à travers plusieurs couches de service, chacune avec son propre délai.
+
+---
+
+##### La synchronisation Purview elle-même
+Pour l'évaluation centrale des éléments sensibles, Microsoft indique qu'il n'y a normalement pas de délai de propagation vers les appareils : l'évaluation se fait côté service. Une politique mise à jour dans le portail Purview met généralement environ une heure à se synchroniser à travers le service. Une fois la synchronisation effectuée, les éléments ciblés ne sont réévalués qu'à leur prochain accès ou à leur prochaine modification, pas rétroactivement sur tout le contenu existant.
+
+Un cas à part : les modifications de groupes autorisés (*Authorized Groups*) nécessitent jusqu'à 24 heures pour se synchroniser, un délai distinct de celui des règles elles-mêmes.
+
+---
+
+##### Le cas particulier d'Endpoint DLP
+Pour *Endpoint DLP*, qui agit directement sur les postes de travail via *Microsoft Defender for Endpoint*, un délai supplémentaire s'ajoute pour que la politique atteigne réellement l'appareil. Une politique nouvellement créée ou modifiée peut prendre de 20 à 30 minutes avant de s'appliquer sur un poste donné, un redémarrage ou une synchronisation manuelle du poste pouvant accélérer la prise en compte.
+
+<Notice type="info">Un appareil dont l'agent Defender for Endpoint n'est pas dans un état sain, ou qui communique mal avec le service, n'appliquera pas la politique même après le délai normal de propagation. La vérification de l'état de l'appareil est un point de contrôle à ne pas négliger avant de conclure à un problème de politique.</Notice>
+
+---
+
+##### Le cas de l'activation automatique dans Microsoft Edge
+Pour les politiques DLP ciblant les applications non managées dans *Microsoft Edge for Business*, l'activation ne se limite pas à Purview. Elle déclenche une chaîne de configuration automatique en dehors de Purview :
+1. Deux groupes de sécurité sont créés ou mis à jour (utilisateurs inclus, utilisateurs exclus), reflétant la portée de la politique Purview.
+2. Des stratégies de configuration Edge sont créées pour activer la protection dans Edge for Business, appliquées via ces groupes de sécurité.
+3. Des stratégies *Microsoft Intune* sont créées pour empêcher le contournement de la protection en dehors d'Edge.
+4. Toute modification ultérieure de la portée dans Purview se propage automatiquement à ces groupes et stratégies.
+
+Chacune de ces étapes a sa propre latence de synchronisation. Si le processus automatique échoue, faute de permissions suffisantes côté administrateur Purview ou en raison d'une erreur système, un message d'erreur s'affiche dans Purview et les politiques ne s'appliquent pas dans Edge for Business tant qu'une resynchronisation manuelle n'est pas effectuée depuis le Microsoft Admin Center.
+
+<Notice type="warning">Même après une resynchronisation manuelle, le message d'erreur peut rester affiché jusqu'à une journée pendant que le système termine la synchronisation. Ne pas relancer la resynchronisation en boucle sur la seule foi du message affiché.</Notice>
+
+---
+
+##### Comment vérifier l'état réel
+Avant de conclure à un dysfonctionnement, trois points de contrôle distincts sont à vérifier selon le type de DLP concerné :
+- <u>Purview</u> : Le statut de synchronisation de la politique, dans le portail Purview.
+- <u>Endpoint DLP</u> : L'état de santé de l'agent Defender for Endpoint sur le poste concerné, dans le *Microsoft Admin Center*.
+- <u>Edge for Business</u> : Les stratégies de configuration Edge et Intune générées automatiquement, visibles respectivement dans les sections *Paramètres* > *Microsoft Edge* du Microsoft 365 Admin Center et *Appareils* > *Configuration* du Intune Admin Center, ainsi que la carte *Microsoft Purview DLP protections* pour déclencher une resynchronisation manuelle.
+
+---
+
+##### Conclusion
+Une politique DLP qui semble correctement configurée mais n'applique encore rien n'est pas nécessairement en échec ; elle peut simplement être en cours de propagation à travers plusieurs systèmes qui ne partagent pas le même délai. Le bon réflexe est de vérifier l'état de synchronisation propre à chaque couche concernée avant de modifier ou de recréer la politique, ce qui repousserait d'autant le délai de mise en application.
+
+---
+
+##### Sources
+[Microsoft Learn - Activation automatique d'une politique Purview dans Microsoft Edge](https://learn.microsoft.com/fr-ca/deployedge/microsoft-edge-dlp-purview-configuration)
+
+[Microsoft Learn - Data Loss Prevention des appareils](https://learn.microsoft.com/fr-ca/purview/endpoint-dlp-learn-about)
+
+---
+
+
+Avez-vous apprécié cet article ? Vous avez des questions, commentaires ou suggestions, n'hésitez pas à m'envoyer un message depuis le formulaire de contact.
+
+N'oubliez pas de nous suivre et de partager cet article.
