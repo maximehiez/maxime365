@@ -1,0 +1,64 @@
+---
+title: "Mandatory consent before joining a Teams meeting"
+meta_title: ""
+description: ""
+date: 2026-09-16T10:00:00-05:00
+image: "/images/blog/teams/teams_pre_meeting_consent_thumbnail.png"
+categories: ["Teams"]
+author: "Maxime Hiez"
+tags: ["Security", "Governance", "Meeting", "Roadmap"]
+draft: false
+---
+---
+
+##### Introduction
+*Microsoft Teams* is introducing mandatory consent before entering a meeting, with the announcement *MC1454114*. Administrators can now require every participant to accept custom terms, a recording notice, or responsible AI usage guidelines, before accessing an organization's meeting.
+
+---
+
+##### What the participant sees
+Once the feature is enabled, all participants must accept a consent message to enter a meeting, including organizers and external guests. The message isn't available in any language by default ; the administrator configures a default language along with up to four additional languages.
+
+![image](/images/blog/teams/teams_pre_meeting_consent_001.png)
+
+Each acceptance is logged in *Purview* audit logs, for governance, investigation, and transparency purposes.
+
+<Notice type="info">This consent is distinct from the existing recording and transcription consent (*Require participant agreement for recording and transcription*). Both mechanisms can coexist : the first covers access to the meeting itself, the second specifically covers recording and transcription once in the meeting.</Notice>
+
+---
+
+##### What the administrator needs to configure
+The feature is disabled by default and requires explicit configuration in the *Teams Admin Center*. Before enabling it, Microsoft recommends to :
+- <u>Review the requirements</u> : Examine the organization's compliance and legal requirements.
+- <u>Configure the policy</u> : Create, test, and preview the consent message in the supported languages.
+- <u>Notify users</u> : Communicate about the new requirement before activation to avoid support tickets.
+- <u>Update documentation</u> : Adjust internal procedures and documents handed to support teams.
+
+---
+
+##### Rollout
+The rollout happens progressively :
+- <u>Targeted Release</u> : September 2026
+- <u>Worldwide and GCC availability</u> : Mid-October to mid-November 2026
+- <u>GCC High and DoD</u> : Mid-November to mid-December 2026
+
+<Notice type="note">Detailed *Microsoft Learn* documentation wasn't published yet at the time of writing this article ; it's expected closer to general availability.</Notice>
+
+---
+
+##### Conclusion
+This new consent mechanism addresses a generic compliance need, independent of recording, and adds to the consent layers already present in Teams. For organizations subject to regulatory or contractual obligations on meeting access, planning the consent text and the supported languages is worth anticipating ahead of the September rollout.
+
+---
+
+##### Sources
+[Microsoft 365 Roadmap - Mandatory participant consent](https://www.microsoft.com/en-us/microsoft-365/roadmap?filters=Microsoft%20Teams&searchterms=561914)
+
+[Microsoft 365 Roadmap - Consentement obligatoire des participants](https://www.microsoft.com/en-us/microsoft-365/roadmap?filters=Microsoft%20Teams&searchterms=561914)
+
+---
+
+
+Did you enjoy this post ? If you have any questions, comments or suggestions, please feel free to send me a message from the contact form.
+
+Don't forget to follow us and share this post.

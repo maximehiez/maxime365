@@ -1,0 +1,64 @@
+---
+title: "Consentement obligatoire avant de rejoindre une réunion Teams"
+meta_title: ""
+description: ""
+date: 2026-09-16T10:00:00-05:00
+image: "/images/blog/teams/teams_pre_meeting_consent_thumbnail.png"
+categories: ["Teams"]
+author: "Maxime Hiez"
+tags: ["Sécurité", "Gouvernance", "Rencontre", "Roadmap"]
+draft: false
+---
+---
+
+##### Introduction
+*Microsoft Teams* introduit un consentement obligatoire avant l'entrée en réunion, avec l'annonce *MC1454114*. Les administrateurs peuvent désormais exiger que chaque participant accepte des conditions personnalisées, un avis d'enregistrement ou des lignes directrices sur l'usage de l'IA responsable, avant d'accéder à une réunion de l'organisation.
+
+---
+
+##### Ce que le participant voit
+Une fois la fonctionnalité activée, tous les participants doivent accepter un message de consentement pour entrer en réunion, y compris les organisateurs et les invités externes. Le message n'est disponible dans aucune langue par défaut ; l'administrateur configure une langue par défaut ainsi que jusqu'à quatre langues supplémentaires.
+
+![image](/images/blog/teams/teams_pre_meeting_consent_001.png)
+
+Chaque acceptation est consignée dans les journaux d'audit de *Purview*, à des fins de gouvernance, d'investigation et de transparence.
+
+<Notice type="info">Ce consentement est distinct du consentement d'enregistrement et de transcription déjà existant (*Require participant agreement for recording and transcription*). Les deux mécanismes peuvent coexister : le premier couvre l'accès à la réunion elle-même, le second couvre spécifiquement l'enregistrement et la transcription une fois en réunion.</Notice>
+
+---
+
+##### Ce que l'administrateur doit configurer
+La fonctionnalité est désactivée par défaut et nécessite une configuration explicite dans le *Teams Admin Center*. Avant de l'activer, Microsoft recommande de :
+- <u>Valider les exigences</u> : Examiner les exigences de conformité et juridiques propres à l'organisation.
+- <u>Configurer la politique</u> : Créer, tester et prévisualiser le message de consentement dans les langues prises en charge.
+- <u>Prévenir les utilisateurs</u> : Communiquer sur la nouvelle exigence avant l'activation pour éviter les tickets de support.
+- <u>Mettre à jour la documentation</u> : Ajuster les procédures internes et les documents remis aux équipes de support.
+
+---
+
+##### Déploiement
+Le déploiement se fait progressivement :
+- <u>Targeted Release</u> : Septembre 2026
+- <u>Disponibilité mondiale et GCC</u> : Mi-Octobre à mi-Novembre 2026
+- <u>GCC High et DoD</u> : Mi-Novembre à mi-Décembre 2026
+
+<Notice type="note">La documentation *Microsoft Learn* détaillée n'était pas encore publiée au moment de la rédaction de cet article ; elle est attendue à l'approche de la disponibilité générale.</Notice>
+
+---
+
+##### Conclusion
+Ce nouveau mécanisme de consentement répond à un besoin de conformité générique, indépendant de l'enregistrement, et s'ajoute aux couches de consentement déjà présentes dans Teams. Pour les organisations soumises à des obligations réglementaires ou contractuelles sur l'accès aux réunions, la planification du texte de consentement et des langues prises en charge mérite d'être anticipée avant le déploiement de Septembre.
+
+---
+
+##### Sources
+[Microsoft 365 Roadmap - Consentement obligatoire des participants](https://www.microsoft.com/en-us/microsoft-365/roadmap?filters=Microsoft%20Teams&searchterms=561914)
+
+[Microsoft Learn - Gérer l'accord de participation pour l'enregistrement et la transcription](https://learn.microsoft.com/fr-ca/microsoftteams/participant-agreement-recording-transcription)
+
+---
+
+
+Avez-vous apprécié cet article ? Vous avez des questions, commentaires ou suggestions, n'hésitez pas à m'envoyer un message depuis le formulaire de contact.
+
+N'oubliez pas de nous suivre et de partager cet article.
