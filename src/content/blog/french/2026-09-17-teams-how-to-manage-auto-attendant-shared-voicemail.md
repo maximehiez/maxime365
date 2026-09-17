@@ -1,0 +1,102 @@
+---
+title: "Comment activer l'historique des standards automatiques Teams"
+meta_title: ""
+description: ""
+date: 2026-09-17T10:00:00-05:00
+image: "/images/blog/teams/tuto/teams_how_to_manage_auto_attendant_shared_voicemail_thumbnail.png"
+categories: ["Teams", "Tutoriel"]
+author: "Maxime Hiez"
+tags: ["Téléphonie", "Standard automatique", "Queues App"]
+draft: false
+---
+---
+
+##### Introduction
+Les messages vocaux partagés d'un standard automatique (*Auto Attendant*) étaient jusqu'ici cantonnés à *Outlook* ou au canal Teams du groupe *Microsoft 365* associé. L'application *Teams Queues App* les rend désormais consultables et gérables directement dans Teams, au même titre que les messages vocaux des files d'attente.
+
+---
+
+##### Prérequis
+**<u>Téléphonie Microsoft Teams activée</u>**
+- Une messagerie vocale partagée déjà configurée sur le standard automatique concerné.
+- Teams Queues App déployée.
+
+**<u>Licences nécessaires</u>**
+- *Microsoft Teams Premium*.
+
+**<u>Rôle d'administrateur</u>**
+- Un compte avec le rôle *Administrateur Global* ou *Administrateur Teams* pour accéder au Microsoft Teams Admin Center.
+
+---
+
+##### Étape 1 : Se connecter au Microsoft Teams Admin Center
+Connectez-vous au Microsoft Teams Admin Center en ouvrant votre navigateur web sur https://admin.teams.microsoft.com.
+
+---
+
+##### Étape 2 : Créer le modèle d'historique partagé
+Dans le menu de gauche, cliquez sur *<u>Voice</u>*, puis sur *<u>Templates and resources</u>*, et sur *<u>Templates</u>*.
+
+Sélectionnez *<u>Shared Call History</u>* comme type de modèle et cliquez sur *<u>Add</u>*.
+
+![image](/images/blog/teams/tuto/teams_how_to_manage_auto_attendant_shared_voicemail_001.png)
+
+Définissez le niveau de permission *<u>Auto attendant and shared voicemails permissions</u>* souhaité :
+- *<u>Authorized users and voicemail group members</u>* : Les utilisateurs autorisés et les membres du groupe Microsoft 365 associé peuvent accéder à l'historique des messages vocaux.
+- *<u>Authorized users only</u>* : Seuls les utilisateurs autorisés peuvent accéder à l'historique des messages vocaux.
+
+![image](/images/blog/teams/tuto/teams_how_to_manage_auto_attendant_shared_voicemail_002.png)
+
+<Notice type="note">Le même modèle d'historique partagé peut être réutilisé sur plusieurs standards automatiques. Toute modification apportée au modèle se répercute automatiquement sur l'ensemble des standards qui le référencent.</Notice>
+
+---
+
+##### Étape 3 : Appliquer le modèle sur le standard automatique
+Dans le menu de gauche, cliquez sur *<u>Voice</u>*, puis sur *<u>Auto attendants</u>*, et éditez votre standard automatique.
+
+![image](/images/blog/teams/tuto/teams_how_to_manage_auto_attendant_shared_voicemail_003.png)
+
+À chaque endroit où les appels sont redirigés vers *<u>Voicemail</u>*, le champ *<u>Shared Call History template</u>* apparaît. Sélectionnez le modèle créé à l'étape précédente, puis cliquez sur *<u>Submit</u>*.
+
+![image](/images/blog/teams/tuto/teams_how_to_manage_auto_attendant_shared_voicemail_004.png)
+
+<Notice type="tip">Un même flux de messagerie vocale partagée ne peut pas recevoir un modèle différent selon qu'il provient des heures d'ouverture, des heures de fermeture ou des jours fériés. Un seul modèle s'applique par destination de messagerie vocale partagée.</Notice>
+
+---
+
+##### Valider le résultat
+Ouvrez l’application Microsoft *Teams Queues App* et appelez la standard automatique pour laisser un message. Les nouveaux appels seront désormais visibles dans l’historique.
+
+![image](/images/blog/teams/tuto/teams_how_to_manage_auto_attendant_shared_voicemail_005.png)
+
+Les utilisateurs autorisés retrouvent, pour chaque message :
+- <u>Numéro appelant</u> : Le numéro ou l'identité de l'appelant
+- <u>Date et heure</u> : Le moment de l'appel
+- <u>Statut</u> : Non résolu, En cours ou Résolu
+- <u>Transcription</u> : Le texte du message, si la transcription est activée
+<br/>
+
+Depuis Teams Queues App, les utilisateurs autorisés peuvent mettre à jour le statut d'un message (*Non résolu*, *En cours*, *Résolu*), le filtrer par statut, le marquer comme urgent pour prioriser un traitement, et rappeler directement l'appelant depuis l'historique avec le numéro de l'organisation. Les permissions exactes dépendent du modèle d'historique partagé assigné : certains utilisateurs autorisés peuvent uniquement consulter, d'autres peuvent aussi modifier le statut ou marquer un message comme urgent.
+
+---
+
+##### Conclusion
+Vous savez maintenant comment gérer les messages vocaux partagés d'un standard automatique directement depuis Teams Queues App.
+
+---
+
+##### Sources
+[Microsoft Support - Consulter l'historique des messages vocaux d'un standard automatique dans Queues App](https://support.microsoft.com/en-us/teams/calls-devices/view-queues-app-voice-mail-history)
+
+[Microsoft Learn - Modèle d'historique partagé pour un standard automatique](https://learn.microsoft.com/fr-ca/microsoftteams/aa-cq-setup-auto-attendant-template-shared-history)
+
+[Microsoft Learn - New-CsSharedCallHistoryTemplate](https://learn.microsoft.com/fr-ca/powershell/module/microsoftteams/new-cssharedcallhistorytemplate?view=teams-ps)
+
+[Microsoft Learn - Gérer la messagerie vocale partagée pour les standards automatiques et les files d'attente](https://learn.microsoft.com/fr-ca/microsoftteams/manage-shared-voicemail)
+
+---
+
+
+Avez-vous apprécié cet article ? Vous avez des questions, commentaires ou suggestions, n'hésitez pas à m'envoyer un message depuis le formulaire de contact.
+
+N'oubliez pas de nous suivre et de partager cet article.

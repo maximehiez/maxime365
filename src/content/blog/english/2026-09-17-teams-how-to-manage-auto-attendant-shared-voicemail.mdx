@@ -1,0 +1,102 @@
+---
+title: "How to enable call history for Teams auto attendants"
+meta_title: ""
+description: ""
+date: 2026-09-17T10:00:00-05:00
+image: "/images/blog/teams/tuto/teams_how_to_manage_auto_attendant_shared_voicemail_thumbnail.png"
+categories: ["Teams", "Tutorial"]
+author: "Maxime Hiez"
+tags: ["Telephony", "Auto Attendant", "Queues App"]
+draft: false
+---
+---
+
+##### Introduction
+Shared voicemail for an auto attendant used to be confined to *Outlook* or the Teams channel of the associated *Microsoft 365* group. The *Teams Queues App* now makes it viewable and manageable directly in Teams, the same way call queue voicemail already is.
+
+---
+
+##### Prerequisites
+**<u>Microsoft Teams telephony enabled</u>**
+- A shared voicemail already configured on the auto attendant concerned.
+- Teams Queues App deployed.
+
+**<u>Required licenses</u>**
+- *Microsoft Teams Premium*.
+
+**<u>Administrator role</u>**
+- An account with the *Global Administrator* or *Teams Administrator* role to access the Microsoft Teams Admin Center.
+
+---
+
+##### Step 1 : Sign in to the Microsoft Teams Admin Center
+Sign in to the Microsoft Teams Admin Center by opening your web browser to https://admin.teams.microsoft.com.
+
+---
+
+##### Step 2 : Create the shared call history template
+In the left menu, click *<u>Voice</u>*, then *<u>Templates and resources</u>*, and *<u>Templates</u>*.
+
+Select *<u>Shared Call History</u>* as the template type and click *<u>Add</u>*.
+
+![image](/images/blog/teams/tuto/teams_how_to_manage_auto_attendant_shared_voicemail_001.png)
+
+Set the desired *<u>Auto attendant and shared voicemails permissions</u>* level :
+- *<u>Authorized users and voicemail group members</u>* : Authorized users and members of the associated Microsoft 365 group can access the voicemail history.
+- *<u>Authorized users only</u>* : Only authorized users can access the voicemail history.
+
+![image](/images/blog/teams/tuto/teams_how_to_manage_auto_attendant_shared_voicemail_002.png)
+
+<Notice type="note">The same shared call history template can be reused across multiple auto attendants. Any change made to the template automatically applies to every auto attendant that references it.</Notice>
+
+---
+
+##### Step 3 : Apply the template to the auto attendant
+In the left menu, click *<u>Voice</u>*, then *<u>Auto attendants</u>*, and edit your auto attendant.
+
+![image](/images/blog/teams/tuto/teams_how_to_manage_auto_attendant_shared_voicemail_003.png)
+
+Wherever calls are redirected to *<u>Voicemail</u>*, the *<u>Shared Call History template</u>* field appears. Select the template created in the previous step, then click *<u>Submit</u>*.
+
+![image](/images/blog/teams/tuto/teams_how_to_manage_auto_attendant_shared_voicemail_004.png)
+
+<Notice type="tip">The same shared voicemail flow can't receive a different template depending on whether it comes from business hours, after hours, or holidays. Only one template applies per shared voicemail destination.</Notice>
+
+---
+
+##### Confirm the result
+Open the Microsoft *Teams Queues App* and call the auto attendant to leave a message. The new call will now be visible in the history.
+
+![image](/images/blog/teams/tuto/teams_how_to_manage_auto_attendant_shared_voicemail_005.png)
+
+Authorized users get, for each message :
+- <u>Caller number</u> : The caller's number or identity
+- <u>Date and time</u> : When the call took place
+- <u>Status</u> : Unresolved, In progress, or Resolved
+- <u>Transcript</u> : The message text, if transcription is enabled
+<br/>
+
+From Teams Queues App, authorized users can update a message's status (*Unresolved*, *In progress*, *Resolved*), filter by status, mark it as urgent to prioritize handling, and call the caller back directly from the history using the organization's number. The exact permissions depend on the assigned shared call history template : some authorized users can only view, others can also change the status or mark a message as urgent.
+
+---
+
+##### Conclusion
+You now know how to manage shared voicemail for an auto attendant directly from Teams Queues App.
+
+---
+
+##### Sources
+[Microsoft Support - View auto attendant voicemail history in Queues App](https://support.microsoft.com/en-us/teams/calls-devices/view-queues-app-voice-mail-history)
+
+[Microsoft Learn - Shared call history template for an auto attendant](https://learn.microsoft.com/en-us/microsoftteams/aa-cq-setup-auto-attendant-template-shared-history)
+
+[Microsoft Learn - New-CsSharedCallHistoryTemplate](https://learn.microsoft.com/en-us/powershell/module/microsoftteams/new-cssharedcallhistorytemplate?view=teams-ps)
+
+[Microsoft Learn - Manage shared voicemail for auto attendants and call queues](https://learn.microsoft.com/en-us/microsoftteams/manage-shared-voicemail)
+
+---
+
+
+Did you enjoy this post ? If you have any questions, comments or suggestions, please feel free to send me a message from the contact form.
+
+Don't forget to follow us and share this post.

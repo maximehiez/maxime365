@@ -57,7 +57,7 @@ A *Microsoft 365 Copilot* license is required to enable the Interpreter agent, r
 ---
 
 ##### Admin controls and special cases
-The Interpreter agent is enabled by default for all users with a *Microsoft 365 Copilot* license. There is no dedicated control in the *Teams Admin Center*, management is done exclusively via the following *PowerShell* commands :
+The Interpreter agent is enabled by default for all users with a *Microsoft 365 Copilot* license. There is no dedicated control in the *Microsoft Teams Admin Center*, management is done exclusively via the following *PowerShell* commands :
 
 To disable the Interpreter agent entirely :
 ```powershell

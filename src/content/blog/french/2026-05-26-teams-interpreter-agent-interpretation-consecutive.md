@@ -57,7 +57,7 @@ Une licence *Microsoft 365 Copilot* est obligatoire pour activer l'agent Interpr
 ---
 
 ##### Contrôles admin et cas particuliers
-L'agent Interprète est activé par défaut pour tous les utilisateurs disposant d'une licence *Microsoft 365 Copilot*. Il n'existe pas de contrôle dédié dans l'interface du *Teams Admin Center*, la gestion s'effectue uniquement via les commandes *PowerShell* suivantes :
+L'agent Interprète est activé par défaut pour tous les utilisateurs disposant d'une licence *Microsoft 365 Copilot*. Il n'existe pas de contrôle dédié dans l'interface du *Microsoft Teams Admin Center*, la gestion s'effectue uniquement via les commandes *PowerShell* suivantes :
 
 Pour désactiver complètement l'agent Interprète :
 ```powershell

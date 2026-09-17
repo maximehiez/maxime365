@@ -39,7 +39,7 @@ La configuration peut prendre plusieurs minutes avant d'être effective. Votre m
 
 ![image](/images/blog/teams/tuto/teams_how_to_handle_duplicate_names_directory_001.png)
 
-À noter que le changement n'est possible qu'en PowerShell pour le moment et toute mise à jour via le Teams Admin Center annulerait cette configuration ; mais comme d'habitude, une prochaine mise à jour permettra de la faire en mode web, soyez patients.
+À noter que le changement n'est possible qu'en PowerShell pour le moment et toute mise à jour via le *Microsoft Teams Admin Center* annulerait cette configuration ; mais comme d'habitude, une prochaine mise à jour permettra de la faire en mode web, soyez patients.
 
 ---
 

@@ -1,12 +1,12 @@
 ---
-title: "Comment activer l'historique d'appels des files d'attente Teams"
+title: "Comment activer l'historique des files d'attente Teams"
 meta_title: ""
 description: ""
 date: 2026-03-06T10:00:00-05:00
 image: "/images/blog/teams/tuto/teams_how_to_enable_shared_calling_history_thumbnail.png"
 categories: ["Teams", "Tutoriel"]
 author: "Maxime Hiez"
-tags: ["Téléphonie", "Direct Routing", "Calling Plan", "Operator Connect", "File d'attente", "Queues App"]
+tags: ["Téléphonie", "File d'attente", "Queues App"]
 draft: false
 ---
 ---

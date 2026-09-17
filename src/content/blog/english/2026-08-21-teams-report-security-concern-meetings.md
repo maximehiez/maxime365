@@ -34,9 +34,9 @@ For group calls, reporting is done from the call history of the Teams client. In
 ##### What the administrators see
 The reports feed two locations :
 1. Microsoft Defender portal : *<u>Investigation & Response</u>*, then *<u>Submissions</u>*, and the *<u>User reported</u>* tab
-2. Teams Admin Center : *<u>Analytics & Reports</u>*, then *<u>Protection reports</u>*, and *<u>User reported security submissions</u>*, still in preview, with data export
+2. Microsoft Teams Admin Center : *<u>Analytics & Reports</u>*, then *<u>Protection reports</u>*, and *<u>User reported security submissions</u>*, still in preview, with data export
 
-The feature requires *Microsoft Defender for Office 365 Plan 1*, *Plan 2* or *Microsoft Defender XDR*. As for call reporting, two settings must be active for the reports to show up correctly : the one in the Teams Admin Center and the one in the Defender portal. An existing tenant can have the second one disabled, so it is wise to check it before announcing the feature to the users.
+The feature requires *Microsoft Defender for Office 365 Plan 1*, *Plan 2* or *Microsoft Defender XDR*. As for call reporting, two settings must be active for the reports to show up correctly : the one in the *Microsoft Teams Admin Center* and the one in the Defender portal. An existing tenant can have the second one disabled, so it is wise to check it before announcing the feature to the users.
 
 ---
 
@@ -48,7 +48,7 @@ Check the article about bot protection in meetings [HERE](https://maxime.hiez.ca
 ---
 
 ##### Conclusion
-No action is required to benefit from the feature, but two checks are needed before the general availability of October 2026. First the cross activation between the Teams Admin Center and the Defender portal, without which the reports don't appear. Then the definition of a handling process on the security side, because a reporting channel nobody looks at protects nobody.
+No action is required to benefit from the feature, but two checks are needed before the general availability of October 2026. First the cross activation between the Microsoft Teams Admin Center and the Defender portal, without which the reports don't appear. Then the definition of a handling process on the security side, because a reporting channel nobody looks at protects nobody.
 
 ---
 

@@ -12,12 +12,12 @@ draft: false
 ---
 
 ##### Introduction
-Microsoft a introduit un visualiseur de flux d'appels pour les *Auto Attendants* (*standards automatiques*) dans le Centre d'administration *Microsoft Teams*, permettant aux administrateurs d'avoir une vue rapide sur les configurations des scénarios d'appels entrants.
+Microsoft a introduit un visualiseur de flux d'appels pour les *Auto Attendants* (*standards automatiques*) dans le *Microsoft Teams Admin Center*, permettant aux administrateurs d'avoir une vue rapide sur les configurations des scénarios d'appels entrants.
 
 ---
 
 ##### Qu'est-ce que le visualiseur de flux d'appels ?
-Le visualiseur de flux d'appels est un outil interactif intégré dans le Centre d'administration Teams. Il génère une représentation visuelle en arborescence du routage des appels pour les Auto Attendants et les agents vocaux (*Teams Phone Agents*), avec des contrôles de zoom et de défilement pour naviguer dans les configurations complexes.
+Le visualiseur de flux d'appels est un outil interactif intégré dans le *Microsoft Teams Admin Center*. Il génère une représentation visuelle en arborescence du routage des appels pour les Auto Attendants et les agents vocaux (*Teams Phone Agents*), avec des contrôles de zoom et de défilement pour naviguer dans les configurations complexes.
 
 Le visualiseur affiche dans une vue unifiée les relations de routage en amont et en aval, incluant :
 - <u>Comptes de ressources</u> : Assignations des comptes de ressources liés à l'Auto Attendant
@@ -50,7 +50,7 @@ Le déploiement s'est effectué progressivement selon les environnements :
 ---
 
 ##### Conclusion
-Le visualiseur de flux d'appels simplifie la gestion et le dépannage des Auto Attendants complexes dans le Centre d'administration Teams. L'analyse et la documentation des scénarios d'appels devient beaucoup plus simple avec cette nouvelle fonctionnalité.
+Le visualiseur de flux d'appels simplifie la gestion et le dépannage des Auto Attendants complexes dans le Microsoft Teams Admin Center. L'analyse et la documentation des scénarios d'appels devient beaucoup plus simple avec cette nouvelle fonctionnalité.
 
 ---
 

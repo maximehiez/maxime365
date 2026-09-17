@@ -12,12 +12,12 @@ draft: false
 ---
 
 ##### Introduction
-Microsoft introduced a call flow visualizer for *Auto Attendants* in the *Microsoft Teams* Admin Center, giving administrators a quick view of incoming call scenario configurations.
+Microsoft introduced a call flow visualizer for *Auto Attendants* in the *Microsoft Teams Admin Center*, giving administrators a quick view of incoming call scenario configurations.
 
 ---
 
 ##### What is the Call Flow Visualizer ?
-The call flow visualizer is an interactive tool built into the Teams Admin Center. It generates a tree-like visual representation of call routing for Auto Attendants and voice agents (*Teams Phone Agents*), with zoom and pan controls to navigate complex configurations.
+The call flow visualizer is an interactive tool built into the *Microsoft Teams Admin Center*. It generates a tree-like visual representation of call routing for Auto Attendants and voice agents (*Teams Phone Agents*), with zoom and pan controls to navigate complex configurations.
 
 The visualizer displays upstream and downstream routing relationships in a unified view, including :
 - <u>Resource accounts</u> : Assignments of resource accounts linked to the Auto Attendant
@@ -30,7 +30,7 @@ The visualizer displays upstream and downstream routing relationships in a unifi
 
 ##### How to access the visualizer ?
 The feature is enabled by default, with no configuration required. To access it :
-1. Sign in to the Teams Admin Center at https://admin.teams.microsoft.com.
+1. Sign in to the Microsoft Teams Admin Center at https://admin.teams.microsoft.com.
 2. In the left menu, click *Voice*, then *Auto attendants*.
 3. Select the menu you want to analyze and click the *Call Flow visualizer* option.
 
@@ -50,7 +50,7 @@ The rollout was completed progressively by environment :
 ---
 
 ##### Conclusion
-The call flow visualizer simplifies the management and troubleshooting of complex Auto Attendants in the Teams Admin Center. Analyzing and documenting call scenarios becomes much simpler with this new feature.
+The call flow visualizer simplifies the management and troubleshooting of complex Auto Attendants in the Microsoft Teams Admin Center. Analyzing and documenting call scenarios becomes much simpler with this new feature.
 
 ---
 

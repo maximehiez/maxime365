@@ -34,9 +34,9 @@ Pour les appels de groupe, le signalement se fait depuis l'historique d'appels d
 ##### Ce que voient les administrateurs
 Les signalements alimentent deux emplacements :
 1. Portail Microsoft Defender : *<u>Investigation & Response</u>*, puis <u>Submissions</u>*, et l'onglet *<u>User reported</u>*
-2. Teams Admin Center : *<u>Analytics & Reports</u>*, puis *<u>Protection reports</u>*, et *<u>User reported security submissions</u>*, encore en préversion, avec export des données
+2. Microsoft Teams Admin Center : *<u>Analytics & Reports</u>*, puis *<u>Protection reports</u>*, et *<u>User reported security submissions</u>*, encore en préversion, avec export des données
 
-La fonctionnalité nécessite *Microsoft Defender for Office 365 Plan 1*, *Plan 2* ou *Microsoft Defender XDR*. Comme pour le signalement des appels, deux réglages doivent être actifs pour que les signalements remontent correctement : celui du Teams Admin Center et celui du portail Defender. Un tenant existant peut avoir le second désactivé, il est donc prudent de le vérifier avant d'annoncer la fonctionnalité aux utilisateurs.
+La fonctionnalité nécessite *Microsoft Defender for Office 365 Plan 1*, *Plan 2* ou *Microsoft Defender XDR*. Comme pour le signalement des appels, deux réglages doivent être actifs pour que les signalements remontent correctement : celui du *Microsoft Teams Admin Center* et celui du portail Defender. Un tenant existant peut avoir le second désactivé, il est donc prudent de le vérifier avant d'annoncer la fonctionnalité aux utilisateurs.
 
 ---
 
@@ -48,7 +48,7 @@ Voir l'article sur la protection contre les bots dans les réunions [ICI](https:
 ---
 
 ##### Conclusion
-Aucune action n'est requise pour bénéficier de la fonctionnalité, mais deux vérifications s'imposent avant la disponibilité générale d'Octobre 2026. D'abord l'activation croisée entre le Teams Admin Center et le portail Defender, sans laquelle les signalements n'apparaissent pas. Ensuite la définition d'un processus de traitement côté sécurité, car un canal de signalement que personne ne consulte ne protège personne.
+Aucune action n'est requise pour bénéficier de la fonctionnalité, mais deux vérifications s'imposent avant la disponibilité générale d'Octobre 2026. D'abord l'activation croisée entre le Microsoft Teams Admin Center et le portail Defender, sans laquelle les signalements n'apparaissent pas. Ensuite la définition d'un processus de traitement côté sécurité, car un canal de signalement que personne ne consulte ne protège personne.
 
 ---
 

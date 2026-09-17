@@ -6,7 +6,7 @@ date: 2026-03-06T10:00:00-05:00
 image: "/images/blog/teams/tuto/teams_how_to_enable_shared_calling_history_thumbnail.png"
 categories: ["Teams", "Tutorial"]
 author: "Maxime Hiez"
-tags: ["Telephony", "Direct Routing", "Calling Plan", "Operator Connect", "Call Queue", "Queues App"]
+tags: ["Telephony", "Call Queue", "Queues App"]
 draft: false
 ---
 ---

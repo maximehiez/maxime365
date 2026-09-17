@@ -39,7 +39,7 @@ The configuration may take several minutes to be effective. Your menu should the
 
 ![image](/images/blog/teams/tuto/teams_how_to_handle_duplicate_names_directory_001.png)
 
-Note that the change is only possible in PowerShell at the moment and any update via the Teams Admin Center would cancel this configuration ; but as usual, a future update will allow it to be done in web mode, be patient.
+Note that the change is only possible in PowerShell at the moment and any update via the *Microsoft Teams Admin Center* would cancel this configuration ; but as usual, a future update will allow it to be done in web mode, be patient.
 
 ---
 
