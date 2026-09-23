@@ -1,0 +1,67 @@
+---
+title: "Teams limits transcript access via Graph"
+meta_title: ""
+description: ""
+date: 2026-09-23T10:00:00-05:00
+image: "/images/blog/teams/teams_meeting_transcripts_graph_api_control_thumbnail.png"
+categories: ["Teams"]
+author: "Maxime Hiez"
+tags: ["Security", "Governance", "Microsoft Graph", "Transcription", "PowerShell"]
+draft: false
+---
+---
+
+##### Introduction
+*Microsoft* introduced a control that limits *Microsoft Graph* applications' and agents' access to *Teams* meeting transcripts, with the announcement *MC1393806*. This control is now active in tenants, disabled (*false*) by default : without administrator action, no application or agent connected through Graph can access transcripts.
+
+---
+
+##### Why this restriction
+A Teams meeting transcript can contain extremely sensitive information : a meeting about a reorganization project, a discussion of compensation changes. Microsoft doesn't want agents to have free access to this content without explicit tenant approval, including to prevent transcripts from being processed by third-party connectors such as *ChatGPT* or *Claude* without authorization.
+
+---
+
+##### How to configure the control
+The setting is configured from the *<u>Meeting settings</u>* section of the Microsoft Teams Admin Center, or via PowerShell with the *Set-CsTeamsMeetingConfiguration* cmdlet :
+```powershell
+Set-CsTeamsMeetingConfiguration -EnableAttributedTranscripts $true -EnableGraphTranscriptAccess $true
+```
+
+The *EnableGraphTranscriptAccess* parameter enables Graph access to transcripts. *EnableAttributedTranscripts* separately enables exporting speaker attribution (who said what during the call) ; this second parameter isn't required to enable Graph access and is currently only available through PowerShell, not from the Microsoft Teams Admin Center.
+
+<Notice type="info">Both parameters were added to *Set-CsTeamsMeetingConfiguration* as far back as version 7.9.0 of the Teams PowerShell module. The Graph access control has therefore existed on the module side since July 2026 ; it's the switch to *false* by default across all tenants that is the subject of the MC1393806 announcement.</Notice>
+
+---
+
+##### The other prerequisites
+Enabling the setting isn't enough on its own to grant access to transcripts. A Graph application must also meet two additional conditions :
+- <u>Permissions</u> : Hold the *OnlineMeetings.Read.All* and *OnlineMeetings.Transcripts.Read.All* permissions.
+- <u>Authentication and access policy</u> : Use app-only authentication with a registered application, itself authorized on the targeted user accounts through a *Teams application access policy*. The same requirement applies to any access to online meeting artifacts.
+
+---
+
+##### The JoinURL format trap
+Retrieving a transcript depends on the *JoinURL* property to locate the corresponding online meeting. Teams has used two successive meeting URL formats :
+- <u>Old format</u> : `https://teams.microsoft.com/l/meetup-join/19%3ameeting_` followed by a long value.
+- <u>New format</u> : `https://teams.microsoft.com/meet/382314615403093?p=MhwpbLNlCVE8IvrANn`
+
+Graph APIs only resolve the online meeting with the new format ; an attempt with the old format fails, even though the Teams client can still locate and open the meeting. Online meetings created after a tenant's rollout of the new join experience generally already use the new format.
+
+<Notice type="warning">A script that works on recent meetings can fail silently on older meetings, simply because their JoinURL still uses the old format. Check the format before concluding there's a permissions problem.</Notice>
+
+---
+
+##### Conclusion
+The Graph access control for transcripts closes a real blind spot : without it, any application otherwise correctly authorized could ingest the full content of a meeting. Three elements must now be aligned for an application to retrieve a transcript : the setting enabled on the tenant, the correct permissions and application access policy, and a JoinURL in the recent format.
+
+---
+
+##### Sources
+[Microsoft Learn - Set-CsTeamsMeetingConfiguration](https://learn.microsoft.com/en-us/powershell/module/teams/set-csteamsmeetingconfiguration?view=teams-ps)
+
+---
+
+
+Did you enjoy this post ? If you have any questions, comments or suggestions, please feel free to send me a message from the contact form.
+
+Don't forget to follow us and share this post.

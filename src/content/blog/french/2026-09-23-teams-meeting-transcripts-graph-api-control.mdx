@@ -1,0 +1,67 @@
+---
+title: "Teams limite l'accès aux transcriptions via Graph"
+meta_title: ""
+description: ""
+date: 2026-09-23T10:00:00-05:00
+image: "/images/blog/teams/teams_meeting_transcripts_graph_api_control_thumbnail.png"
+categories: ["Teams"]
+author: "Maxime Hiez"
+tags: ["Sécurité", "Gouvernance", "Microsoft Graph", "Transcription", "PowerShell"]
+draft: false
+---
+---
+
+##### Introduction
+*Microsoft* a introduit un contrôle qui limite l'accès des applications et agents *Microsoft Graph* aux transcriptions de réunion *Teams*, avec l'annonce *MC1393806*. Ce contrôle est désormais actif dans les tenants, désactivé (*false*) par défaut : sans intervention de l'administrateur, aucune application ou agent connecté via Graph ne peut accéder aux transcriptions.
+
+---
+
+##### Pourquoi cette restriction
+Une transcription de réunion Teams peut contenir des informations extrêmement sensibles : une réunion sur un projet de réorganisation, une discussion sur des ajustements de rémunération. Microsoft ne souhaite pas que des agents disposent d'un accès libre à ce contenu sans validation explicite du tenant, y compris pour empêcher que des transcriptions soient traitées par des connecteurs tiers de type *ChatGPT* ou *Claude* sans autorisation.
+
+---
+
+##### Comment configurer le contrôle
+Le paramètre se configure depuis la section *<u>Meeting settings</u>* du Microsoft Teams Admin Center, ou via PowerShell avec l'applet de commande *Set-CsTeamsMeetingConfiguration* :
+```powershell
+Set-CsTeamsMeetingConfiguration -EnableAttributedTranscripts $true -EnableGraphTranscriptAccess $true
+```
+
+Le paramètre *EnableGraphTranscriptAccess* active l'accès Graph aux transcriptions. *EnableAttributedTranscripts* active en parallèle l'export de l'attribution des intervenants (qui a dit quoi durant l'appel) ; ce second paramètre n'est pas requis pour activer l'accès Graph et n'est pour l'instant disponible que par PowerShell, pas depuis le Microsoft Teams Admin Center.
+
+<Notice type="info">Ces deux paramètres ont été ajoutés à *Set-CsTeamsMeetingConfiguration* dès la version 7.9.0 du module PowerShell Teams. Le contrôle d'accès Graph existait donc côté module depuis Juillet 2026 ; c'est sa bascule à *false* par défaut dans tous les tenants qui fait l'objet de l'annonce MC1393806.</Notice>
+
+---
+
+##### Les autres prérequis
+Activer le paramètre ne suffit pas à donner accès aux transcriptions. Une application Graph doit également remplir deux conditions supplémentaires :
+- <u>Permissions</u> : Disposer des permissions *OnlineMeetings.Read.All* et *OnlineMeetings.Transcripts.Read.All*.
+- <u>Authentification et politique d'accès</u> : Utiliser une authentification application uniquement avec une application enregistrée, elle-même autorisée sur les comptes utilisateurs ciblés via une *Teams application access policy*. La même exigence s'applique à tout accès aux artefacts de réunion en ligne.
+
+---
+
+##### Le piège du format de JoinURL
+La récupération d'une transcription dépend de la propriété *JoinURL* pour localiser la réunion en ligne correspondante. Teams a utilisé deux formats d'URL de réunion successifs :
+- <u>Ancien format</u> : `https://teams.microsoft.com/l/meetup-join/19%3ameeting_` suivi d'une longue valeur.
+- <u>Nouveau format</u> : `https://teams.microsoft.com/meet/382314615403093?p=MhwpbLNlCVE8IvrANn`
+
+Les API Graph ne résolvent la réunion en ligne qu'avec le nouveau format ; une tentative avec l'ancien format échoue, même si le client Teams parvient toujours à localiser et ouvrir la réunion. Les réunions en ligne créées après le déploiement de la nouvelle expérience de jonction dans un tenant utilisent généralement déjà le nouveau format.
+
+<Notice type="warning">Un script qui fonctionne sur des réunions récentes peut échouer silencieusement sur des réunions plus anciennes, uniquement parce que leur JoinURL utilise encore l'ancien format. Vérifiez le format avant de conclure à un problème de permissions.</Notice>
+
+---
+
+##### Conclusion
+Le contrôle d'accès Graph aux transcriptions ferme un angle mort réel : sans lui, n'importe quelle application correctement autorisée par ailleurs pouvait ingérer le contenu intégral d'une réunion. Trois éléments doivent désormais être alignés pour qu'une application récupère une transcription : le paramètre activé sur le tenant, les permissions et la politique d'accès applicative correctes, et un JoinURL au format récent.
+
+---
+
+##### Sources
+[Microsoft Learn - Set-CsTeamsMeetingConfiguration](https://learn.microsoft.com/fr-ca/powershell/module/teams/set-csteamsmeetingconfiguration?view=teams-ps)
+
+---
+
+
+Avez-vous apprécié cet article ? Vous avez des questions, commentaires ou suggestions, n'hésitez pas à m'envoyer un message depuis le formulaire de contact.
+
+N'oubliez pas de nous suivre et de partager cet article.
