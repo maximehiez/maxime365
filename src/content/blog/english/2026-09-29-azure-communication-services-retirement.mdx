@@ -1,0 +1,55 @@
+---
+title: "End of most Azure Communication Services in 2028"
+meta_title: ""
+description: ""
+date: 2026-09-29T10:00:00-05:00
+image: "/images/blog/azure/azure_communication_services_retirement_thumbnail.png"
+categories: ["Azure"]
+author: "Maxime Hiez"
+tags: ["End of support", "ACS"]
+draft: false
+---
+---
+
+##### Introduction
+*Microsoft* published the *"Retirement and breaking changes guide for Azure Communication Services"* (*ACS*) on *Microsoft Learn*, with no *Tech Community* announcement or associated formal communication. The document confirms the end of onboarding new customers starting October 23, 2026, and the retirement of most ACS services on September 30, 2028.
+
+---
+
+##### A complete reversal from the original ambition
+ACS was presented at *Ignite 2020* as the first fully managed communication platform from a major cloud provider, letting developers add calling, video, chat, SMS, and telephony to their applications, using the same building blocks used internally by Microsoft. Microsoft now states it wants to prioritize communication experiences natively integrated into *Teams*, *Dynamics 365*, and *Azure*, rather than maintaining ACS as a standalone offering, while relying on third-party *Communications Platform as a Service* (*CPaaS*) providers to fill the remaining needs.
+
+---
+
+##### What's retired and what gets a breaking change
+The guide distinguishes two categories :
+1. <u>Retirement</u> : The service, feature, or SDK completely stops being available after September 30, 2028.
+2. <u>Breaking change</u> : The service remains available, but its behavior or support requirements change, which may require modifying existing applications.
+
+The following services remain usable after 2028, but only combined with a Teams-aligned service : *Call Automation*, the voice and video calling SDK, call recording, call diagnostics, audio streaming, and closed captions. Affected teams will need to migrate to updated SDKs and a service such as *Microsoft Teams Phone Extensibility*.
+
+<Notice type="warning">Capabilities marked *"breaking change"* remain supported after 2028, but only when used with a Teams-aligned service. Continuing to use them standalone, without that integration, effectively amounts to a straight retirement for your organization.</Notice>
+
+---
+
+##### The special case of high-volume email
+*Email Communication Services* (*ECS*), the ACS service built on *Exchange Online* for bulk email sending, is part of the retirement. Microsoft nonetheless built its high-volume external email strategy on this service, all while continuously tightening Exchange Online's controls to discourage its use for mass distribution.
+
+*High Volume Email* (*HVE*), the competing Exchange Online-based service, doesn't solve the problem as it stands : its ability to send to external recipients was withdrawn before it reached general availability, and Microsoft also plans to remove basic authentication support for SMTP AUTH on HVE, on the same timeline as ECS's retirement. Organizations that depend on ECS for high-volume external email will therefore need to turn to a specialized third-party platform, or wait for a replacement Microsoft hasn't announced yet.
+
+---
+
+##### Conclusion
+ACS's disappearance as a standalone platform is another signal of technical consolidation at Microsoft, but the lack of formal communication and of a replacement for high-volume external email leaves a two-year deadline with no clear answer. Organizations using ACS for calling, SMS, WhatsApp, or bulk email should review the retirement guide now to plan their migration, rather than waiting for a clarification that isn't guaranteed to arrive soon.
+
+---
+
+##### Sources
+[Microsoft Learn - Retirement and breaking changes guide for Azure Communication Services](https://learn.microsoft.com/en-us/azure/communication-services/acs-retirement-and-breaking-changes-guide)
+
+---
+
+
+Did you enjoy this post ? If you have any questions, comments or suggestions, please feel free to send me a message from the contact form.
+
+Don't forget to follow us and share this post.
