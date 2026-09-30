@@ -1,0 +1,71 @@
+---
+title: "État des lieux sur la restauration d'un tenant Microsoft 365 détruit"
+meta_title: ""
+description: ""
+date: 2026-09-30T10:00:00-05:00
+image: "/images/blog/m365/m365_restoring_tenant_after_catastrophic_attack_thumbnail.png"
+categories: ["Microsoft 365"]
+author: "Maxime Hiez"
+tags: ["Sécurité", "Sauvegarde", "Gouvernance"]
+draft: false
+---
+---
+
+##### Introduction
+Sauvegarder un seul *workload* Microsoft 365 est un problème résolu. Restaurer un tenant complet après une attaque qui détruit à la fois des données et de la configuration ne l'est pas. La question n'est plus de savoir si une restauration est possible, mais combien de temps il faudrait à une organisation pour reconstruire un tenant utilisable.
+
+---
+
+##### Ce qui a progressé depuis 2020
+Plusieurs évolutions ont amélioré le paysage de la sauvegarde Microsoft 365 ces dernières années :
+- <u>Retrait programmé d'Exchange Web Services</u> : De nombreux éditeurs de solutions de sauvegarde utilisaient *EWS*, jamais conçu pour cet usage, pour extraire les données des boîtes aux lettres Exchange. Le retrait prévu en 2027 pousse ces éditeurs vers l'API *Graph Mailbox Import-Export*.
+- <u>Teams Export API</u> : Élimine le besoin de sauvegarder les enregistrements de conformité Teams stockés dans les boîtes aux lettres à la place des données de message réelles, une pratique que plusieurs éditeurs présentaient à tort comme une sauvegarde véritable.
+- <u>L'entrée de Microsoft dans le marché de la sauvegarde</u> : *Microsoft 365 Backup* pour *SharePoint Online* et *Exchange Online*, ainsi qu'une capacité de sauvegarde limitée pour *Entra ID* introduite cette année.
+- <u>Unified Tenant Configuration Management (*UTCM*)</u> : En préversion depuis début 2026, une première tentative de traiter la sauvegarde de configuration, sans encore couvrir l'ensemble de ce que contient un tenant.
+
+Des API de sauvegarde ou d'export restent absentes pour plusieurs pans d'un tenant, dont des applications comme *Planner* ou *Power BI*, ainsi que de nombreux paramètres de configuration répartis entre les charges de travail. La sauvegarde reste pensée charge par charge, sans réelle tentative de recoudre l'ensemble.
+
+---
+
+##### Le scénario d'une attaque destructrice
+Imaginez un attaquant qui compromet une application disposant de permissions élevées, *Files.ReadWrite.All*, *Sites.ReadWrite.All*, *Mail.ReadWrite* ou des permissions de gestion d'annuaire, exfiltre les données, puis utilise les mêmes permissions pour une suppression massive et malveillante. Avec les bonnes permissions, une application malveillante peut supprimer tous les comptes utilisateurs, tous les groupes, toutes les unités d'administration, toutes les applications enregistrées et toutes les stratégies d'accès conditionnel, tout en supprimant les boîtes aux lettres, les comptes OneDrive et les sites SharePoint Online. Elle peut également retirer la configuration des étiquettes de sensibilité, ce qui complique encore la récupération des fichiers et messages chiffrés.
+
+<Notice type="warning">Ce scénario n'est pas théorique ; il correspond aux attaques par *"wiperware"* déjà documentées. Les alarmes censées signaler ce type d'activité sont souvent manquées, en particulier la nuit.</Notice>
+
+---
+
+##### La récupération artisanale, seule option aujourd'hui
+Aucun produit du marché ne restaure aujourd'hui un tenant Microsoft 365 complet. En cas d'événement catastrophique, la seule méthode disponible reste une récupération artisanale, où les administrateurs reconstruisent le tenant charge par charge avec les données et paramètres encore disponibles.
+
+La priorité va à Entra ID : comptes utilisateurs, groupes, applications, principaux de service et autres objets doivent être restaurés en premier, puisque les boîtes aux lettres et les comptes OneDrive ne peuvent être reconnectés à leurs propriétaires qu'une fois les comptes pleinement provisionnés. Les groupes Microsoft 365 doivent exister pour que leurs sites SharePoint et leurs équipes puissent être reconstruits. Remettre les comptes et les groupes en service n'est qu'un point de départ, la majeure partie du travail de reconstruction commence une fois cette base posée.
+
+Même avec un plan établi, une récupération artisanale prend du temps, beaucoup de temps. Certaines organisations priorisent les comptes et sites critiques pour relancer l'activité, d'autres visent des charges complètes. Il n'est pas exclu qu'une organisation soit encore en cours de récupération plusieurs semaines après le début de l'incident, avec un coût et une perturbation considérables.
+
+---
+
+##### Le précédent Maersk
+En 2017, *Maersk* a mis des mois à se remettre de l'attaque contre son infrastructure *Windows Server* sur site. L'entreprise n'a été sauvée que parce qu'un administrateur système au Nigeria disposait d'une sauvegarde d'un contrôleur de domaine, suffisante pour reconstruire *Active Directory*. Un tenant Microsoft 365 est nettement plus complexe qu'une forêt Active Directory.
+
+---
+
+##### Ce qui manque encore : la reconstruction automatisée
+Si les organisations prennent au sérieux la résilience face aux attaques catastrophiques, récupérer les données ne suffit plus. Le prochain défi pour l'industrie de la sauvegarde est la reconstruction automatisée d'un tenant Microsoft 365 pleinement fonctionnel à partir de données de sauvegarde fiables, pas une simple restauration minimale viable.
+
+L'intelligence artificielle pourrait jouer un rôle dans cet effort, en déterminant les dépendances de récupération, en établissant l'ordre correct de restauration des charges, et en reconstruisant les liens entre applications interconnectées comme Teams, SharePoint Online, OneDrive et Exchange Online. Elle pourrait également aider à reconstruire des paramètres de configuration à partir des données et métadonnées survivantes après une attaque.
+
+---
+
+##### Conclusion
+L'éditeur qui parviendra à automatiser la récupération de bout en bout d'un tenant Microsoft 365 trouvera un marché très réceptif. Se contenter de remettre des données dans quelques charges de travail ne suffit plus : les administrateurs de tenant devraient examiner sérieusement combien de temps il leur faudrait pour reconstruire un tenant utilisable, et exiger des éditeurs de sauvegarde qu'ils expliquent comment leurs produits restaurent un tenant pleinement fonctionnel plutôt que de simplement récupérer des charges de travail isolées.
+
+---
+
+##### Sources
+[Microsoft - Techcommunity](https://techcommunity.microsoft.com/discussions/microsoft-365/how-easy-is-it-to-restore-microsoft-365-tenants-after-a-catastrophic-attack/4559006)
+
+---
+
+
+Avez-vous apprécié cet article ? Vous avez des questions, commentaires ou suggestions, n'hésitez pas à m'envoyer un message depuis le formulaire de contact.
+
+N'oubliez pas de nous suivre et de partager cet article.

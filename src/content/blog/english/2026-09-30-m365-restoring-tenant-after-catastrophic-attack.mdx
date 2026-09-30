@@ -1,0 +1,71 @@
+---
+title: "Status update on restoring a destroyed Microsoft 365 tenant"
+meta_title: ""
+description: ""
+date: 2026-09-30T10:00:00-05:00
+image: "/images/blog/m365/m365_restoring_tenant_after_catastrophic_attack_thumbnail.png"
+categories: ["Microsoft 365"]
+author: "Maxime Hiez"
+tags: ["Security", "Backup", "Governance"]
+draft: false
+---
+---
+
+##### Introduction
+Backing up a single Microsoft 365 *workload* is a solved problem. Restoring a complete tenant after an attack that destroys both data and configuration is not. The question is no longer whether a restore is possible, but how long it would take an organization to rebuild a usable tenant.
+
+---
+
+##### What has improved since 2020
+Several developments have improved the Microsoft 365 backup landscape in recent years :
+- <u>Scheduled retirement of Exchange Web Services</u> : Many backup vendors used *EWS*, never designed for this purpose, to extract data from Exchange mailboxes. The retirement planned for 2027 is pushing these vendors toward the *Graph Mailbox Import-Export* API.
+- <u>Teams Export API</u> : Removes the need to back up Teams compliance records stored in mailboxes instead of real message data, a practice several vendors wrongly presented as a genuine backup.
+- <u>Microsoft's entry into the backup market</u> : *Microsoft 365 Backup* for *SharePoint Online* and *Exchange Online*, along with a limited backup capability for *Entra ID* introduced this year.
+- <u>Unified Tenant Configuration Management (*UTCM*)</u> : In preview since early 2026, a first attempt at addressing configuration backup, without yet covering everything a tenant contains.
+
+Backup or export APIs remain absent for several parts of a tenant, including apps like *Planner* or *Power BI*, as well as numerous configuration settings spread across workloads. Backup remains designed workload by workload, with no real attempt to stitch everything together.
+
+---
+
+##### The scenario of a destructive attack
+Imagine an attacker who compromises an application with elevated permissions, *Files.ReadWrite.All*, *Sites.ReadWrite.All*, *Mail.ReadWrite*, or directory management permissions, exfiltrates the data, then uses the same permissions for a large-scale, malicious deletion. With the right permissions, a malicious app can remove every user account, every group, every administrative unit, every registered app, and every conditional access policy, while also deleting mailboxes, OneDrive accounts, and SharePoint Online sites. It could also remove sensitivity label configuration, which further complicates recovering encrypted files and messages.
+
+<Notice type="warning">This scenario isn't theoretical ; it matches already-documented *"wiperware"* attacks. The alarms meant to flag this kind of activity are often missed, especially at night.</Notice>
+
+---
+
+##### Handcrafted recovery, the only option today
+No product on the market restores a complete Microsoft 365 tenant today. In the event of a catastrophic incident, the only method available remains handcrafted recovery, where administrators rebuild the tenant workload by workload with whatever data and settings are still available.
+
+Priority goes to Entra ID : user accounts, groups, apps, service principals, and other objects must be restored first, since mailboxes and OneDrive accounts can only be reconnected to their owners once accounts are fully provisioned. Microsoft 365 groups must exist for their SharePoint sites and teams to be rebuilt. Getting accounts and groups back up is only a starting point, most of the reconstruction work begins once that foundation is laid.
+
+Even with a plan in hand, handcrafted recovery takes time. A lot of time. Some organizations prioritize critical accounts and sites to get the business running again, others aim for complete workloads. It's not out of the question that an organization could still be recovering some parts of its tenant several weeks after the incident began, at a considerable cost and disruption.
+
+---
+
+##### The Maersk precedent
+In 2017, *Maersk* took months to recover from the attack against its on-premises *Windows Server* infrastructure. The company was only saved because a systems administrator in Nigeria had a backup of a domain controller, enough to rebuild *Active Directory*. A Microsoft 365 tenant is significantly more complex than an Active Directory forest.
+
+---
+
+##### What's still missing : automated reconstruction
+If organizations are serious about resilience against catastrophic attacks, recovering data is no longer enough. The next challenge for the backup industry is automated reconstruction of a fully functional Microsoft 365 tenant from trustworthy backup data, not a simple minimum viable restore.
+
+Artificial intelligence could play a role in this effort, by determining recovery dependencies, establishing the correct sequence for workload restoration, and rebuilding the links between interconnected applications like Teams, SharePoint Online, OneDrive, and Exchange Online. It could also help reconstruct configuration settings from the surviving data and metadata after an attack.
+
+---
+
+##### Conclusion
+The vendor that manages to automate end-to-end recovery of a Microsoft 365 tenant will find a very receptive market. Simply putting data back into a few workloads is no longer enough : tenant administrators should seriously examine how long it would take them to rebuild a usable tenant, and require backup vendors to explain how their products restore a fully functional tenant rather than simply recovering isolated workloads.
+
+---
+
+##### Sources
+[Microsoft - Techcommunity](https://techcommunity.microsoft.com/discussions/microsoft-365/how-easy-is-it-to-restore-microsoft-365-tenants-after-a-catastrophic-attack/4559006)
+
+---
+
+
+Did you enjoy this post ? If you have any questions, comments or suggestions, please feel free to send me a message from the contact form.
+
+Don't forget to follow us and share this post.
