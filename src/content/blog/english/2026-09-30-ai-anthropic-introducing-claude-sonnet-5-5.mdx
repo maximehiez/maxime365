@@ -1,0 +1,96 @@
+---
+title: "Anthropic unveils Claude Sonnet 5.5"
+meta_title: ""
+description: ""
+date: 2026-09-30T10:00:00-05:00
+image: "/images/blog/ai/ai_anthropic_introducing_claude_sonnet_5_5_thumbnail.png"
+categories: ["Anthropic"]
+author: "Maxime Hiez"
+tags: ["AI", "Claude", "API", "Agentic"]
+draft: false
+---
+---
+
+##### Introduction
+*Anthropic* announces *Claude Sonnet 5.5*, the second model in the *Claude 5.5* family after *Opus 5.5*. The model generates responses more than 30% faster than *Sonnet 5* and costs up to 30% less per task, at unchanged pricing.
+
+Check the Claude Opus 5.5 article [HERE](https://maxime.hiez.ca/en/blog/2026-09-24-ai-anthropic-introducing-claude-opus-5-5).
+
+---
+
+##### Positioning within the 5.5 lineup
+Where Opus 5.5 targets complex work requiring sustained judgment, Sonnet 5.5 excels at well-scoped everyday tasks : fixing bugs, producing polished documents, presentations, and spreadsheets. Anthropic also credits it with a sharp eye for visual detail. *Claude Haiku 5.5*, aimed at high-volume, cost-sensitive use cases, will join the family in the coming weeks.
+
+---
+
+##### Performance
+On reference evaluations :
+
+|                       | Sonnet 5.5 | Sonnet 5 | Opus 5.5 |
+|-----------------------|-----------:|---------:|---------:|
+| Terminal-Bench 4.0    | 70.6%      | 10.3%    | 66.4%    |
+| CursorBench 4.0       | 55.5%      | 34.1%    | 57.8%    |
+| GDPval-AA v2.1        | 1844       | 1449     | 1846     |
+| Humanity's Last Exam  | 64.5%      | 54.9%    | 67.7%    |
+| OSWorld 2.1 (partial) | 80.1%      | 57.0%    | 81.8%    |
+
+On several evaluations, Sonnet 5.5 at *Low* or *Medium* effort beats Sonnet 5's best score for about a tenth of the cost per task. At higher effort, it reaches performance comparable to Opus 5.5's. Anthropic tempers this, however : on complex, open-ended work requiring sustained judgment, Opus 5.5 remains clearly stronger, both in its own testing and in that of external testers.
+
+---
+
+##### Coding
+Sonnet 5.5's performance jump is particularly clear in coding. At *High* effort on *FrontierCode*, it scores 10 points higher than Sonnet 5 at the same effort level, for about a fifteenth of the cost per task. On *CursorBench*, its best score sits within about two points of Opus 5.5's.
+
+- <u>Epic Games</u> : Reports that Sonnet 5.5 *"cleared the same quality bar you'd expect from a higher-tier model"*, managing tens of thousands of lines of gameplay architecture code with less prescriptive prompting.
+- <u>Lovable</u> : Reports a third fewer tool calls and roughly half the shell runs to finish a task, compared with Sonnet 5.
+
+---
+
+##### Knowledge work
+On *GDPval-AA*, which tests real-world tasks across 44 occupations and nine industries, Sonnet 5.5 scores nearly level with Opus 5.5, about 400 points above Sonnet 5.
+
+- <u>Balyasny Asset Management</u> : Reports a higher score than Sonnet 5 on a suite of 2,441 finance tasks, using about 121,000 tokens per answer compared with 497,000 for Sonnet 5.
+- <u>Box</u> : States that Sonnet 5.5 rechecks data in source documents and catches errors Sonnet 5 missed, while being 2.4 times faster and using 12% fewer tokens.
+
+---
+
+##### Alignment and safeguards
+Sonnet 5.5 doesn't extend the Claude lineup's capability frontier ; the alignment assessment therefore focused on a targeted set of risks applicable at any capability level. On the automated behavioral audit, which covers about 1,850 scenarios, Sonnet 5.5 matches or improves on Sonnet 5 on most measures of alignment, resistance to misuse, and honesty.
+
+- <u>Cybersecurity</u> : Sonnet 5.5's cyber capabilities improve significantly over Sonnet 5's, earning it safeguards similar to Opus 5.5's. High-risk cybersecurity tasks are redirected to Sonnet 5.
+- <u>Biology</u> : Sonnet 5.5 keeps the same safeguards as Sonnet 5, targeting harmful requests without affecting most research, education, and clinical work.
+- <u>Anti-distillation</u> : The first Sonnet model to ship with safety classifiers that block reasoning extraction, and to extend the *preserved thinking* mechanism already deployed on Fable 5.1 and Opus 5.5.
+
+---
+
+##### Cost and availability
+Sonnet 5.5's pricing stays identical to Sonnet 5's :
+- <u>Input</u> : 2$ / 1M tokens
+- <u>Output</u> : 10$ / 1M tokens
+- <u>Cache (read)</u> : 0.20$ / 1M tokens
+- <u>Cache (write)</u> : 2.50$ / 1M tokens
+
+<Notice type="info">The Claude Sonnet 5 announcement in July 2026 stated an introductory rate of 2$ / 10$ until August 31, 2026, followed by a standard rate of 3$ / 15$ starting September 1. That standard rate never appears to have taken effect : Anthropic confirms here that 2$ / 10$ remains Sonnet 5's rate, with no mention of the originally announced increase.</Notice>
+
+Claude Sonnet 5.5 is available now on all platforms, including *Amazon Web Services*, *Google Cloud*, and *Microsoft Azure*. On the Claude Platform, developers can access it under the identifier *claude-sonnet-5-5*. The model remains available with zero data retention.
+
+<Notice type="warning">Teams running Sonnet with *thinking off* mode must first switch to the new *between_tools* setting, which keeps up-front thinking off, before migrating to Sonnet 5.5.</Notice>
+
+---
+
+##### Conclusion
+Sonnet 5.5 isn't trying to push the Claude lineup's capability frontier, but to bring Sonnet's price-to-performance ratio closer to the level reached by Opus 5.5, at unchanged pricing. For well-scoped agentic workflows, from code to documents to customer support, it's now the lineup's most rational entry point, with Opus 5.5 reserved for work that demands sustained judgment over time.
+
+---
+
+##### Sources
+[Anthropic - Claude Sonnet 5.5](https://www.anthropic.com/news/claude-sonnet-5-5)
+
+[Chat with Claude Sonnet 5.5](https://claude.ai)
+
+---
+
+
+Did you enjoy this post ? If you have any questions, comments or suggestions, please feel free to send me a message from the contact form.
+
+Don't forget to follow us and share this post.
