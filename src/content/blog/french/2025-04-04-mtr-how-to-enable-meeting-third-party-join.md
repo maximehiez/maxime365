@@ -93,7 +93,7 @@ Cliquez sur *<u>Settings</u>*, puis sur *<u>Meetings</u>*, et activez les fourni
 
 ---
 
-##### Résultat
+##### Valider le résultat
 Après plusieurs minutes d'attente, le MTR devrait être capable de traiter l'invitation et afficher sur la tablette, un bouton *Rejoindre* avec un logo Zoom (ou Webex).
 
 ![image](/images/blog/mtr/tuto/mtr_how_to_enable_meeting_third_party_join_004.png)

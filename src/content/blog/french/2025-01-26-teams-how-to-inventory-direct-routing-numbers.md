@@ -51,7 +51,7 @@ Le principe est le même pour plusieurs numéros ou une plage de numéros.
 
 ---
 
-##### Résultat
+##### Valider le résultat
 Le numéro est visible avec les autres numéros de type *Calling Plan* et *Operator Connect*.
 
 ![image](/images/blog/teams/tuto/teams_how_to_inventory_direct_routing_numbers_001.png)

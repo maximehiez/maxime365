@@ -93,7 +93,7 @@ Click *<u>Settings</u>*, then *<u>Meetings</u>*, and enable the Zoom and Webex p
 
 ---
 
-##### Result
+##### Validate the result
 After a few minutes of waiting, the MTR should be able to process the invitation and display a *Join* button with a Zoom (or Webex) logo on the tablet.
 
 ![image](/images/blog/mtr/tuto/mtr_how_to_enable_meeting_third_party_join_004.png)

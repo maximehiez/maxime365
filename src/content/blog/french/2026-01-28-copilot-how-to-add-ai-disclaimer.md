@@ -38,7 +38,7 @@ Cliquez sur *<u>Copilot AI disclaimer</u>*, puis sur *<u>Bold</u>* pour activer 
 
 ---
 
-##### Résultat
+##### Valider le résultat
 Le résultat est visible dans Teams. On peut voir l'inscription ***AI-generated conten may be incorrect***. En cliquant sur le **i** en fin de ligne, une description est ouverte et en cliquant sur *Learn more*, vous serez redirigé vers l'URL défini.
 
 ![image](/images/blog/copilot/tuto/copilot_how_to_add_ai_disclaimer_003.png)
