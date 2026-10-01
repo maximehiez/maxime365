@@ -6,7 +6,7 @@ date: 2026-09-22T10:00:00-05:00
 image: "/images/blog/ai/ai_openai_introducing_astra_for_law_thumbnail.png"
 categories: ["OpenAI"]
 author: "Maxime Hiez"
-tags: ["IA", "GPT", "ChatGPT", "Droit"]
+tags: ["IA", "GPT", "ChatGPT", "Astra", "Droit"]
 draft: false
 ---
 ---

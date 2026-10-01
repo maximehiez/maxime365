@@ -6,7 +6,7 @@ date: 2026-06-02T10:00:00-05:00
 image: "/images/blog/foundry/foundry_claude_opus_4_8_available_thumbnail.png"
 categories: ["Foundry"]
 author: "Maxime Hiez"
-tags: ["IA", "Claude", "Agentique"]
+tags: ["IA", "Claude", "Opus", "Agentique"]
 draft: false
 ---
 ---

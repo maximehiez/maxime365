@@ -6,7 +6,7 @@ date: 2026-02-13T10:00:00-05:00
 image: "/images/blog/ai/ai_anthropic_introducing_claude_opus_4_6_thumbnail.png"
 categories: ["Anthropic"]
 author: "Maxime Hiez"
-tags: ["AI", "Claude"]
+tags: ["AI", "Claude", "Opus"]
 draft: false
 ---
 ---

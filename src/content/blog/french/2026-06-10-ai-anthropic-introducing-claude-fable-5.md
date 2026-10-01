@@ -6,7 +6,7 @@ date: 2026-06-10T10:00:00-05:00
 image: "/images/blog/ai/ai_anthropic_introducing_claude_fable_5_thumbnail.png"
 categories: ["Anthropic"]
 author: "Maxime Hiez"
-tags: ["IA", "Claude", "API"]
+tags: ["IA", "Claude", "Fable", "Mythos", "API"]
 draft: false
 ---
 ---
