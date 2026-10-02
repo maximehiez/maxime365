@@ -1,0 +1,81 @@
+---
+title: "OpenAI dévoile GPT-6.1 Sol"
+meta_title: ""
+description: ""
+date: 2026-10-02T10:00:00-05:00
+image: "/images/blog/ai/ai_openai_introducing_gpt_6_1_sol_thumbnail.png"
+categories: ["OpenAI"]
+author: "Maxime Hiez"
+tags: ["IA", "GPT", "ChatGPT", "Sol", "Agentique"]
+draft: false
+---
+---
+
+##### Introduction
+*OpenAI* a annoncé, lors du *DevDay 2026* du 29 Septembre 2026, *GPT-6.1 Sol*, une version améliorée de *GPT-6 Sol* qui se rapproche des performances de *GPT-6 Astra* sur la programmation agentique, l'utilisation d'ordinateur et le travail professionnel, à un cinquième des tarifs standard d'Astra. Le modèle remplace GPT-6 Sol seulement sept jours après le lancement de ce dernier, le cycle de remplacement le plus court jamais exécuté par OpenAI.
+
+Voir l'article sur GPT-6 Astra [ICI](https://maxime.hiez.ca/blog/2026-09-08-ai-openai-introducing-gpt-6-astra).
+
+---
+
+##### Programmation
+Sur *DeepSWE v1.1*, qui évalue des tâches complexes d'ingénierie logicielle dans des bases de code réelles, GPT-6.1 Sol égale GPT-6 Astra pour environ un cinquième du coût, tout en dépassant le meilleur score de GPT-6 Sol de 6.4 points de pourcentage, avec un effort de raisonnement et un coût inférieurs.
+
+---
+
+##### Travail professionnel
+Sur *GDP.pdf*, qui mesure la précision des réponses à des questions professionnelles à partir de PDF complexes (tableaux, graphiques, mentions en petits caractères), GPT-6.1 Sol dépasse *Claude Opus 5.5* à moins de la moitié du coût par tâche, sur tous les réglages de raisonnement testés, et approche les performances de référence de GPT-6 Astra pour environ un cinquième du coût par tâche.
+
+Sur *AutomationBench*, qui teste des workflows métier de bout en bout sur 47 outils (ventes, marketing, opérations, support, finance, RH), GPT-6.1 Sol dépasse Opus 5.5 de 2.2 points de pourcentage à effort moyen, pour environ un tiers du coût, et dépasse GPT-6 Sol de 4.8 points au même réglage.
+
+---
+
+##### Utilisation d'ordinateur
+Sur le jeu hors ligne d'*OSWorld 2.0*, GPT-6.1 Sol dépasse GPT-6 Sol de 7 points de pourcentage à effort de raisonnement maximal, à moins de la moitié du coût, et se situe à 2.1 points du score de GPT-6 Astra pour environ un septième du coût par tâche.
+
+---
+
+##### Recherche scientifique
+Sur *Terminal-Bench Science 0.1*, GPT-6.1 Sol fait plus que doubler le score de GPT-6 Sol à effort maximal, à moins de la moitié du coût par tâche. À ce réglage, GPT-6.1 Sol coûte en moyenne 5.47$ par tâche, contre 23.21$ pour Opus 5.5 et 23.80$ pour GPT-6 Astra, soit un coût inférieur de plus de 75% à celui de ces deux modèles. GPT-6 Astra reste toutefois en tête avec un score de 68.1%, et demeure recommandé pour les tâches de recherche scientifique les plus exigeantes.
+
+---
+
+##### Exactitude factuelle et alignement
+À effort de raisonnement très élevé, le taux d'erreurs factuelles de GPT-6.1 Sol s'établit à 4.1%, contre 4.5% pour GPT-6 Sol et 4.0% pour GPT-6 Astra, pour environ 83% de coût en moins par tâche qu'Astra.
+
+|                           | GPT-6.1 Sol | GPT-6 Sol | GPT-6 Astra |
+|---------------------------|------------:|----------:|------------:|
+| Taux d'erreurs factuelles | 4.1%        | 4.5%      | 4.0%        |
+
+Sur les évaluations d'alignement, GPT-6.1 Sol réduit les taux d'échec par rapport à GPT-6 Sol sur la transparence concernant les outils de recherche défaillants, le respect des restrictions explicites et la prévention des résultats non autorisés en contexte agentique. OpenAI n'a observé aucune tentative de contournement d'un système de contrôle de sécurité automatisé, comme pour GPT-6 Sol et GPT-6 Astra.
+
+<Notice type="note">Ces évaluations testent délibérément des situations difficiles et ne mesurent pas les taux d'échec en usage courant.</Notice>
+
+---
+
+##### Tarification et disponibilité
+GPT-6.1 Sol est disponible depuis le 29 Septembre 2026 pour tous les utilisateurs *Plus*, *Pro*, *Business*, *Enterprise* et *Edu* dans *ChatGPT Work* et *Codex*. Le modèle n'est pas encore disponible dans Chat. Les développeurs y accèdent via l'API OpenAI sous l'identifiant *gpt-6.1-sol* :
+- <u>Entrée</u> : 2$ / 1M tokens
+- <u>Entrée en cache</u> : 0.10$ / 1M tokens (95% sous le tarif d'entrée standard)
+- <u>Sortie</u> : 10$ / 1M tokens
+
+OpenAI lance en parallèle *GPT-6 Astra Ultrafast*, jusqu'à 8 fois plus rapide que GPT-6 Astra, ainsi que *GPT-6.1 Sol Ultrafast*. Les deux variantes sont disponibles dans l'API ainsi que dans ChatGPT Work et Codex pour les utilisateurs du nouveau palier *Pro* à 500$/mois, qui offre les limites d'utilisation les plus élevées. GPT-6.1 Sol Ultrafast offre une intelligence proche d'Astra jusqu'à 8 fois plus rapide, pour un coût API proche de celui qu'avait GPT-6 Astra seul auparavant.
+
+<Notice type="info">GPT-6.1 Sol remplace GPT-6 Sol sept jours seulement après son lancement. Les workflows API pointant explicitement vers l'identifiant gpt-6-sol doivent être revus pour confirmer leur comportement avec le nouveau modèle.</Notice>
+
+---
+
+##### Conclusion
+GPT-6.1 Sol déplace le curseur entre performance et coût dans la gamme OpenAI : il approche GPT-6 Astra sur plusieurs tâches exigeantes tout en restant au tarif de Sol, ce qui en fait le modèle au meilleur rapport performances-coût de l'offre actuelle. GPT-6 Astra conserve néanmoins le meilleur score absolu sur les tâches scientifiques et de cybersécurité les plus difficiles, et reste le choix recommandé lorsque la performance prime sur le coût.
+
+---
+
+##### Sources
+[OpenAI - GPT-6.1 Sol](https://openai.com/index/introducing-gpt-6-1-sol)
+
+---
+
+
+Avez-vous apprécié cet article ? Vous avez des questions, commentaires ou suggestions, n'hésitez pas à m'envoyer un message depuis le formulaire de contact.
+
+N'oubliez pas de nous suivre et de partager cet article.

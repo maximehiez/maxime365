@@ -29,7 +29,7 @@ Security is a priority for Microsoft, with recent features such as one-way clipb
 ---
 
 ##### Market Growth and Trends
-According to Gartner, DaaS spending is expected to grow from $3.0 billion in 2024 to $4.4 billion in 2028, with a compound annual growth rate of 10%. This growth is partly due to disruptions in the on-premises virtual desktop infrastructure (VDI) market. Additionally, DaaS deployments increasingly meet sustainability needs, in addition to enabling secure remote working.
+According to Gartner, DaaS spending is expected to grow from 3.0 billion $ in 2024 to 4.4 billion $ in 2028, with a compound annual growth rate of 10%. This growth is partly due to disruptions in the on-premises virtual desktop infrastructure (VDI) market. Additionally, DaaS deployments increasingly meet sustainability needs, in addition to enabling secure remote working.
 
 ---
 
