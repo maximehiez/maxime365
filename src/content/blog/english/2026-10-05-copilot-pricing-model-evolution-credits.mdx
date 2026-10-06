@@ -1,0 +1,66 @@
+---
+title: "Evolution of the Copilot pricing model"
+meta_title: ""
+description: ""
+date: 2026-10-05T10:00:00-05:00
+image: "/images/blog/copilot/copilot_pricing_model_evolution_thumbnail.png"
+categories: ["Copilot"]
+author: "Maxime Hiez"
+tags: ["AI", "Licenses", "Copilot Credits", "FinOps"]
+draft: false
+---
+---
+
+##### Introduction
+*Microsoft* announced, on September 25, 2026, an evolution of *Copilot*'s commercial model : everyday AI stays covered by a fixed price per user, while advanced AI moves to usage-based billing through *Copilot Credits*. Microsoft justifies this split by the growing gap between routine tasks, already well served by current models, and long-running agentic workflows that consume noticeably more resources.
+
+---
+
+##### Everyday AI : fixed-price license
+Everyday AI stays covered by the *Copilot user license* (*USL*), billed per user per month, unchanged from the current offering. Microsoft justifies this choice through the idea of saturation : past a certain point, a more powerful model no longer improves the outcome of a task that didn't need it, like summarizing a document or turning a meeting transcript into a bullet list.
+
+The *Auto* model selector relies on this principle : it evaluates the accuracy, speed, and cost of each request to automatically pick the best-suited model and reasoning effort level. Manual model selection remains available under the USL : *GPT-5.6* and *Sonnet 5* are included, and new models like *Opus 5* will be added with usage limits.
+
+The USL keeps its *fair use* principle. Under heavy usage, the user first receives a warning, then a choice : switch to the Auto model at no additional cost, or move to credits.
+
+---
+
+##### Advanced AI and Copilot Credits
+Advanced AI covers work delegated to an agent over a long duration, without continuous supervision : *Copilot Cowork*, *Copilot Code*, *Copilot Autopilot*, the new advanced experiences in apps like *SharePoint*, as well as frontier models like *Fable* and *Astra*. This type of work moves to usage-based billing (*UBB*), which relies on the USL already required to access these capabilities.
+
+- <u>Credit price</u> : 1 Copilot credit equals $0.01 USD
+- <u>Model providers</u> : OpenAI and Anthropic today, with other labs and open-weight models to come
+
+<br/><br/>
+
+Microsoft notes that usage-billed capabilities remain visible in the product even when they aren't enabled, so that the full set of Copilot features stays visible to all users.
+
+---
+
+##### Spend control for administrators
+For Enterprise organizations, usage-billed capabilities stay disabled by default : nothing is billed until an administrator creates a spending policy in the *Microsoft 365 Admin Center*. This policy makes it possible to :
+- <u>Set budgets</u> : At the tenant level, a group level, or a per-user cap within a group
+- <u>Configure alerts</u> : Triggered once spend reaches a given threshold
+- <u>Choose limit behavior</u> : Warning, the option to request more credits, or no notification shown to the user
+- <u>Allocate spend</u> : To existing *Azure* subscriptions or resource groups, for budget tracking consistent with the rest of the organization
+
+Several tracking capabilities are rolling out in parallel : extending cost management to *Copilot Code* and *Managed Runtime* (*Copilot Studio* agents to follow in October 2026), per-group model-choice management in Cowork, detailed per-scenario consumption insights in Cowork, programmatic spending-policy management through the *Microsoft Graph* API, and credit-consumption visibility available directly to each user in Copilot.
+
+<Notice type="info">For an Enterprise tenant, no usage-billed capability is enabled until a spending policy has been created in the Microsoft 365 Admin Center. Administrators planning to roll out Cowork, Code, or Autopilot must plan this configuration before the rollout, not after.</Notice>
+
+---
+
+##### Conclusion
+This new two-speed model clearly separates predictable usage, covered by the existing license, from advanced usage billed on actual consumption. For administrators, the immediate point of attention is the spending policy : without it, no advanced capability can be enabled, which makes it a step to plan for from the start of a Cowork, Code, or Autopilot rollout rather than once that rollout is already underway.
+
+---
+
+##### Sources
+[Microsoft - Techcommunity](https://techcommunity.microsoft.com/blog/microsoft-copilot-blog/evolution-of-the-copilot-pricing-model/4559416)
+
+---
+
+
+Did you enjoy this post ? If you have any questions, comments or suggestions, please feel free to send me a message from the contact form.
+
+Don't forget to follow us and share this post.

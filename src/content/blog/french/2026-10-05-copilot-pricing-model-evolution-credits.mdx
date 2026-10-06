@@ -1,0 +1,66 @@
+---
+title: "Évolution du modèle de tarification Copilot"
+meta_title: ""
+description: ""
+date: 2026-10-05T10:00:00-05:00
+image: "/images/blog/copilot/copilot_pricing_model_evolution_thumbnail.png"
+categories: ["Copilot"]
+author: "Maxime Hiez"
+tags: ["IA", "Licences", "Copilot Credits", "FinOps"]
+draft: false
+---
+---
+
+##### Introduction
+*Microsoft* a annoncé, le 25 Septembre 2026, une évolution du modèle commercial de *Copilot* : l'IA du quotidien reste couverte par un prix fixe par utilisateur, tandis que l'IA avancée bascule sur une facturation à l'usage via les *Copilot Credits*. Microsoft justifie cette séparation par l'écart croissant entre les tâches courantes, déjà bien servies par les modèles actuels, et les workflows agentiques de longue durée qui consomment nettement plus de ressources.
+
+---
+
+##### IA du quotidien : licence à prix fixe
+L'IA du quotidien reste couverte par la *licence utilisateur Copilot* (*USL*), facturée par utilisateur et par mois, sans changement par rapport à l'offre actuelle. Microsoft justifie ce choix par la notion de saturation : au-delà d'un certain niveau, un modèle plus puissant n'améliore plus le résultat d'une tâche qui n'en avait pas besoin, comme résumer un document ou transformer une transcription de réunion en liste à puces.
+
+Le sélecteur de modèle *Auto* s'appuie sur ce principe : il évalue la précision, la vitesse et le coût de chaque requête pour choisir automatiquement le modèle et le niveau d'effort de raisonnement les plus adaptés. Le choix manuel du modèle reste disponible dans le cadre de la USL : *GPT-5.6* et *Sonnet 5* y sont inclus, et de nouveaux modèles comme *Opus 5* y seront intégrés avec des limites d'usage.
+
+La USL conserve son principe d'usage raisonnable (*fair use*). En cas d'usage intensif, l'utilisateur reçoit d'abord un avertissement, puis un choix : basculer sur le modèle Auto sans coût additionnel, ou passer sur les crédits.
+
+---
+
+##### IA avancée et Copilot Credits
+L'IA avancée couvre le travail délégué à un agent sur une longue durée, sans supervision continue : *Copilot Cowork*, *Copilot Code*, *Copilot Autopilot*, les nouvelles expériences avancées dans des applications comme *SharePoint*, ainsi que les modèles de pointe comme *Fable* et *Astra*. Ce type de travail passe sur une facturation à l'usage (*UBB*), qui s'appuie sur la USL déjà requise pour accéder à ces capacités.
+
+- <u>Prix du crédit</u> : 1 crédit Copilot équivaut à 0.01$ USD
+- <u>Fournisseurs de modèles</u> : OpenAI et Anthropic aujourd'hui, avec d'autres laboratoires et modèles à poids ouverts à venir
+
+<br/><br/>
+
+Microsoft précise que les capacités facturées à l'usage restent visibles dans le produit même lorsqu'elles ne sont pas activées, pour que l'ensemble des fonctionnalités de Copilot reste visible par tous les utilisateurs.
+
+---
+
+##### Contrôle des dépenses pour les administrateurs
+Pour les organisations Enterprise, les capacités facturées à l'usage restent désactivées par défaut : rien n'est facturé avant qu'un administrateur ne crée une politique de dépenses dans le *Microsoft 365 Admin Center*. Cette politique permet de :
+- <u>Définir des budgets</u> : Au niveau du tenant, d'un groupe, ou d'un plafond par utilisateur à l'intérieur d'un groupe
+- <u>Configurer des alertes</u> : Déclenchées lorsque la dépense atteint un seuil donné
+- <u>Choisir le comportement à la limite</u> : Avertissement, possibilité de demander plus de crédits, ou aucune notification affichée à l'utilisateur
+- <u>Répartir la dépense</u> : Vers les souscriptions ou groupes de ressources *Azure* existants, pour un suivi budgétaire cohérent avec le reste de l'organisation
+
+Plusieurs capacités de suivi sont déployées en parallèle : l'extension de la gestion des coûts à *Copilot Code* et *Managed Runtime* (les agents *Copilot Studio* suivront en Octobre 2026), la gestion du choix de modèles par groupe dans Cowork, des informations de consommation détaillées par scénario dans Cowork, la gestion programmatique des politiques de dépenses via l'API *Microsoft Graph*, et une visibilité de la consommation de crédits directement accessible à chaque utilisateur dans Copilot.
+
+<Notice type="info">Pour un tenant Enterprise, aucune capacité facturée à l'usage n'est activée tant qu'une politique de dépenses n'a pas été créée dans le Microsoft 365 Admin Center. Les administrateurs qui prévoient de déployer Cowork, Code ou Autopilot doivent planifier cette configuration avant le déploiement, pas après.</Notice>
+
+---
+
+##### Conclusion
+Ce nouveau modèle à deux vitesses sépare clairement un usage prévisible, couvert par la licence existante, d'un usage avancé facturé selon la consommation réelle. Pour les administrateurs, le point de vigilance immédiat est la politique de dépenses : sans elle, aucune capacité avancée ne peut être activée, ce qui en fait une étape à prévoir dès la planification d'un déploiement de Cowork, Code ou Autopilot plutôt qu'une fois ce déploiement entamé.
+
+---
+
+##### Sources
+[Microsoft - Techcommunity](https://techcommunity.microsoft.com/blog/microsoft-copilot-blog/evolution-of-the-copilot-pricing-model/4559416)
+
+---
+
+
+Avez-vous apprécié cet article ? Vous avez des questions, commentaires ou suggestions, n'hésitez pas à m'envoyer un message depuis le formulaire de contact.
+
+N'oubliez pas de nous suivre et de partager cet article.
