@@ -1,0 +1,71 @@
+---
+title: "Mistral Large 4, an open model built for cybersecurity"
+meta_title: ""
+description: ""
+date: 2026-10-08T10:00:00-05:00
+image: "/images/blog/ai/ai_mistral_introducing_mistral_large_4_thumbnail.png"
+categories: ["Mistral AI"]
+author: "Maxime Hiez"
+tags: ["AI", "API", "MoE", "Multimodal"]
+draft: false
+---
+---
+
+##### Introduction
+*Mistral AI* launched, on October 6, 2026, a public preview of *Mistral Large 4*, nicknamed *ML4* or *"Le Chonk"*. Presented as Mistral's most capable model to date, ML4 targets the frontier of open-weight models, with a strong focus on cybersecurity, finance, and law. The preview API is available today on *Mistral Studio* ; the model's weights are due to be released by the end of October 2026.
+
+---
+
+##### Architecture and capabilities
+*Mistral Large 4* runs on a hybrid instruct-and-reasoning *Mixture of Experts* (*MoE*) architecture, natively multimodal, totaling 1 trillion parameters with 49 billion activated per token. The model was trained from scratch on 3,800 *NVIDIA Grace Blackwell* GPUs, in Mistral's own European data centers, and the preview is served on that same infrastructure.
+
+Key characteristics include :
+- <u>Sovereignty</u> : Deployment available across multiple regions, including a European infrastructure operated end-to-end by Mistral, independently of other digital service providers and under European law.
+- <u>Language support</u> : More than 160 languages, including every official language of the European Union.
+- <u>Funding</u> : ML4 is the first milestone on the roadmap funded by Mistral's €3 billion Series D, the largest ever raised by a European technology company.
+
+---
+
+##### Cybersecurity : the central argument
+Mistral presents ML4 as one of the world's strongest models in cybersecurity, well ahead of any open-weight model developed in Europe or the United States. On *Artificial Analysis*'s *AA Cyber Index*, ML4 ranks among the top five models evaluated, across every category. On the test that asks a model to reproduce a real vulnerability in open-source software and then patch it, ML4 scores 82%, the highest score recorded across any model. On *Cybench*, a set of 40 exercises drawn from security competitions, the model solves 93%.
+
+Mistral highlights a revealing practical gap : several leading closed models, including *Claude Opus 5.5* and *GPT-6 Astra*, score near zero on the vulnerability-reproduction test, because they refuse to perform the task. Yet defending software often starts with proving that a flaw is real, exactly the kind of work that closed models' safety filters can block. ML4 targets teams that need sovereign, auditable AI for their security operations, with deployment possible on private cloud or on-premise.
+
+<Notice type="note">Mistral states that trusted partners, cybersecurity leaders, and state authorities are getting parallel access to a version of the model with reduced moderation and expanded cyber capabilities, as part of a real-world red-teaming program.</Notice>
+
+---
+
+##### Coding, agentic work, and multimodality
+In software engineering, ML4 scores 61.7% on *DeepSWE v1.1*, 59.4% on *SWE-Atlas-QnA*, and 28.3% on *Terminal-Bench 4.0*, for a combined score that places it ahead of *DeepSeek V4 Pro* and *Qwen3.8 Max*. A blind human evaluation run with *Surge AI* ranks it 2nd out of 5 models tested, behind *Claude Opus 5*.
+
+On agentic workflows, ML4 reaches 59.9% on *AutomationBench* (657 business workflows across apps like Gmail, Google Sheets, Slack, and Salesforce), ahead of Kimi K3 and DeepSeek V4 Pro. On multimodality, the model even surpasses GPT-6 Astra on visual grounding in the *Dense 200* benchmark (42% versus 41%), an area where Mistral considers it superior to certain reference closed models.
+
+![image](/images/blog/ai/ai_mistral_introducing_mistral_large_4_001.png)
+
+---
+
+##### Pricing and availability
+The Mistral Large 4 preview API is available today on Mistral Studio, at the following rates :
+- <u>Input</u> : $1.36 / 1M tokens
+- <u>Output</u> : $4.18 / 1M tokens
+
+<Notice type="info">The model's weights have not yet been released as of this announcement ; Mistral plans to release them by the end of October 2026, along with further details on the architecture, additional benchmarks, and the post-training methodology. The rates above are preview pricing and may change before the weights are released.</Notice>
+
+---
+
+##### Conclusion
+Mistral Large 4 shifts the open-model competition toward defensive cybersecurity, a space where closed models' systematic refusals leave a gap Mistral is explicitly trying to fill. For organizations evaluating a sovereign, auditable solution for their security operations, ML4 is worth watching closely, keeping in mind that the model remains in preview and that its weights, full architecture, and final pricing are still to be confirmed by the end of October 2026.
+
+---
+
+##### Sources
+[Mistral AI - Mistral Large 4](https://mistral.ai/news/mistral-large-4)
+
+[Try Le Chat by Mistral AI](https://chat.mistral.ai/chat)
+
+---
+
+
+Did you enjoy this post ? If you have any questions, comments or suggestions, please feel free to send me a message from the contact form.
+
+Don't forget to follow us and share this post.
