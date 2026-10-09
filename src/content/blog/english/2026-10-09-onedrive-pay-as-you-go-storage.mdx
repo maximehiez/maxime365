@@ -1,0 +1,65 @@
+---
+title: "Pay-as-you-go OneDrive storage in preview"
+meta_title: ""
+description: ""
+date: 2026-10-09T10:00:00-05:00
+image: "/images/blog/onedrive/onedrive_pay_as_you_go_storage_thumbnail.png"
+categories: ["SharePoint"]
+author: "Maxime Hiez"
+tags: ["Licenses", "FinOps", "Data"]
+draft: false
+---
+---
+
+##### Introduction
+*Microsoft* launched, in July 2026, the public preview of *Microsoft 365 OneDrive Storage*, a consumption-based billing option for *OneDrive* storage. Unlike the existing fixed additional-storage blocks, this option lets selected accounts exceed their license quota, with automatic billing based on actual usage beyond that quota. General availability is planned for November 2026, with full rollout expected in early December 2026.
+
+---
+
+##### How consumption-based billing works
+Consumption-based storage doesn't replace the existing additional-storage blocks (100GB, 500GB, 1 to 6TB) : it's added as a third option alongside them. Only the portion of storage that exceeds an account's license quota gets billed, at a rate of 0.20$ / GB / month, shown on the invoice on a daily prorated basis (0.00667$ / GB / day).
+
+The maximum storage limit per account remains fixed at 25,600 GB (25TB), whether that ceiling is reached through additional blocks or through usage-based consumption.
+
+---
+
+##### Setup and prerequisites
+Before this option can be enabled, the organization must meet two separate prerequisites :
+- <u>Azure subscription</u> : An *Azure* subscription and associated resource group, with an *Owner* or *Contributor* role on that subscription.
+- <u>Microsoft 365 administrator role</u> : The *SharePoint Administrator* or *Global Administrator* role to access the *Microsoft 365 Admin Center*.
+
+Consumption-based billing is then configured from the *Billing* node of the Microsoft 365 Admin Center : at the billing policy creation step, select the *Microsoft 365 OneDrive Storage* service. Once the policy is created, administrators individually choose which OneDrive accounts are allowed to exceed their license quota, and can adjust the storage limit for each selected account.
+
+<Notice type="note">This option isn't available for education organizations, GCC, or Microsoft 365 operated by *21Vianet* in China. Its rollout on government clouds has been deferred to a separate, later announcement.</Notice>
+
+---
+
+##### Cost control for administrators
+No account is billed by default : only accounts explicitly selected by an administrator can exceed their quota and generate usage-based billing. To stay in control of spend, Microsoft recommends creating a consumption billing budget, with alerts triggered as defined thresholds are approached.
+
+Before enabling this option for a tenant, it's recommended to :
+- Identify the OneDrive accounts that are already approaching or exceeding their license quota.
+- Assess whether consumption-based billing is an appropriate response, compared with buying a fixed-price additional storage block.
+
+Disconnecting consumption-based billing doesn't delete existing data, but immediately re-enforces the license quota for accounts that were still over that quota at the time of disconnection.
+
+---
+
+##### Conclusion
+Pay-as-you-go OneDrive storage gives administrators an additional lever against storage growth, without forcing the purchase of a fixed block for just a few accounts that are over quota. The real point of attention remains setting up the budget and alerts before any activation, since nothing technically stops a selected account from consuming well beyond what was anticipated.
+
+---
+
+##### Sources
+[Microsoft Learn - Add storage space for OneDrive and SharePoint](https://learn.microsoft.com/en-us/microsoft-365/commerce/add-storage-space)
+
+[Microsoft Learn - Pay-as-you-go pricing](https://learn.microsoft.com/en-us/microsoft-365/documentprocessing/syntex-pay-as-you-go-services)
+
+[Microsoft Learn - Create a pay-as-you-go billing budget](https://learn.microsoft.com/en-us/microsoft-365/commerce/services/pay-as-you-go-budget)
+
+---
+
+
+Did you enjoy this post ? If you have any questions, comments or suggestions, please feel free to send me a message from the contact form.
+
+Don't forget to follow us and share this post.

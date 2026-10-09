@@ -1,0 +1,65 @@
+---
+title: "Stockage OneDrive à la consommation en préversion"
+meta_title: ""
+description: ""
+date: 2026-10-09T10:00:00-05:00
+image: "/images/blog/onedrive/onedrive_pay_as_you_go_storage_thumbnail.png"
+categories: ["SharePoint"]
+author: "Maxime Hiez"
+tags: ["Licences", "FinOps", "Données"]
+draft: false
+---
+---
+
+##### Introduction
+*Microsoft* a lancé, en Juillet 2026, la préversion publique de *Microsoft 365 OneDrive Storage*, une option de facturation à la consommation pour le stockage *OneDrive*. Contrairement aux blocs de stockage additionnel fixes déjà existants, cette option permet à des comptes sélectionnés de dépasser leur quota de licence, avec une facturation automatique basée sur l'usage réel au-delà de ce quota. La disponibilité générale est prévue en Novembre 2026, avec un déploiement complet attendu début Décembre 2026.
+
+---
+
+##### Comment fonctionne la facturation à la consommation
+Le stockage facturé à la consommation ne remplace pas les blocs de stockage additionnel existants (100Go, 500Go, 1 à 6To) : il s'y ajoute comme une troisième option. Seule la portion de stockage qui dépasse le quota de licence d'un compte est facturée, au tarif de 0.20$ / Go / mois, affiché sur la facture au prorata quotidien (0.00667$ / Go / jour).
+
+La limite de stockage maximale par compte reste fixée à 25 600 Go (25To), que ce plafond soit atteint via des blocs additionnels ou via la consommation facturée à l'usage.
+
+---
+
+##### Mise en place et prérequis
+Avant de pouvoir activer cette option, l'organisation doit remplir deux prérequis distincts :
+- <u>Souscription Azure</u> : Une souscription *Azure* et un groupe de ressources associés, avec un rôle *Owner* ou *Contributor* sur cette souscription.
+- <u>Rôle d'administrateur Microsoft 365</u> : Le rôle *SharePoint Administrator* ou *Global Administrator* pour accéder au *Centre d'administration Microsoft 365*.
+
+La facturation à la consommation se configure ensuite depuis le nœud *Billing* du Centre d'administration Microsoft 365 : à l'étape de création de la politique de facturation, il faut sélectionner le service *Microsoft 365 OneDrive Storage*. Une fois la politique créée, les administrateurs choisissent individuellement quels comptes OneDrive sont autorisés à dépasser leur quota de licence, et peuvent ajuster la limite de stockage propre à chaque compte sélectionné.
+
+<Notice type="note">Cette option n'est pas disponible pour les organisations éducation, GCC, ni pour Microsoft 365 opéré par *21Vianet* en Chine. Son déploiement sur les clouds gouvernementaux a été reporté à une annonce ultérieure distincte.</Notice>
+
+---
+
+##### Contrôle des coûts pour les administrateurs
+Aucun compte n'est facturé par défaut : seuls les comptes explicitement sélectionnés par un administrateur peuvent dépasser leur quota et générer une facturation à l'usage. Pour garder le contrôle des dépenses, Microsoft recommande de créer un budget de facturation à la consommation, avec des alertes déclenchées à l'approche de seuils définis.
+
+Avant d'activer cette option pour un tenant, il est recommandé de :
+- Identifier les comptes OneDrive qui approchent ou dépassent déjà leur quota de licence.
+- Évaluer si la facturation à la consommation est une réponse appropriée, par rapport à l'achat d'un bloc de stockage additionnel à prix fixe.
+
+Déconnecter la facturation à la consommation ne supprime pas les données existantes, mais réactive immédiatement l'application du quota de licence pour les comptes qui dépassaient encore ce quota au moment de la déconnexion.
+
+---
+
+##### Conclusion
+Le stockage OneDrive à la consommation donne aux administrateurs un levier supplémentaire face à la croissance du stockage, sans obliger à acheter un bloc fixe pour quelques comptes seulement en dépassement. Le vrai point de vigilance reste la configuration du budget et des alertes avant toute activation, puisque rien n'empêche techniquement un compte sélectionné de consommer bien au-delà de ce qui était anticipé.
+
+---
+
+##### Sources
+[Microsoft Learn - Ajouter du stockage OneDrive et SharePoint](https://learn.microsoft.com/fr-ca/microsoft-365/commerce/add-storage-space)
+
+[Microsoft Learn - Tarification à la consommation](https://learn.microsoft.com/fr-ca/microsoft-365/documentprocessing/syntex-pay-as-you-go-services)
+
+[Microsoft Learn - Créer un budget de facturation à la consommation](https://learn.microsoft.com/fr-ca/microsoft-365/commerce/services/pay-as-you-go-budget)
+
+---
+
+
+Avez-vous apprécié cet article ? Vous avez des questions, commentaires ou suggestions, n'hésitez pas à m'envoyer un message depuis le formulaire de contact.
+
+N'oubliez pas de nous suivre et de partager cet article.
