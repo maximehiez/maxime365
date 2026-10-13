@@ -1,0 +1,112 @@
+---
+title: "Comment se connecter aux app M365 avec une passkey externe"
+meta_title: ""
+description: ""
+date: 2026-10-12T11:00:00-05:00
+image: "/images/blog/entra/tuto/entra_how_to_enable_browser_authentication_external_idp_thumbnail.png"
+categories: ["Entra ID", "Tutoriel"]
+author: "Maxime Hiez"
+tags: ["Passkey", "Authenticator", "FIDO2", "MFA", "Sécurité"]
+draft: false
+---
+---
+
+##### Introduction
+*Microsoft* a annoncé la disponibilité générale de l'authentification par navigateur pour les fournisseurs d'identité externes dans *Entra ID*. Pour les domaines fédérés via *WS-Fed* ou *SAML 2.0*, l'étape d'authentification auprès du fournisseur d'identité externe s'exécute désormais dans le navigateur système plutôt que dans une *WebView* intégrée, ce qui permet d'utiliser des Passkeys et des clés de sécurité *FIDO2* émises par ce fournisseur pour se connecter à *Outlook*, *Teams*, *OneDrive*, *Word*, *Excel*, *PowerPoint* et *Microsoft To Do* sur Android, iOS et macOS géré.
+
+Voir l'article sur la migration SMS et voix vers Passkey [ICI](https://maxime.hiez.ca/blog/2026-07-30-entra-how-to-migrate-sms-voice-to-passkey), qui signalait que la prise en charge des Passkeys pour les comptes *B2B* restait à venir. Un chantier distinct comble aussi cette lacune côté invités : depuis début Octobre 2026, les utilisateurs B2B peuvent s'inscrire à une Passkey du tenant ressource pour satisfaire les exigences MFA de ce tenant.
+
+---
+
+##### Prérequis
+**<u>Licences nécessaires</u>**
+- *Microsoft Entra ID*, sur un domaine fédéré via WS-Fed ou SAML 2.0.
+
+**<u>Rôle d'administrateur</u>**
+- Un compte avec le rôle *Administrateur Global* ou des permissions *Domain-InternalFederation.ReadWrite.All* et *Domain.ReadWrite.All*, pour modifier la configuration de fédération.
+
+**<u>Autres</u>**
+- Le module *Microsoft Graph PowerShell* installé.
+- Un navigateur système et une application de broker à jour selon la plateforme ciblée : *Chrome* sur Android, *Safari* sur iOS et macOS géré, avec *Microsoft Authenticator* ou *Intune Company Portal* comme broker.
+
+---
+
+##### Étape 1 : Se connecter avec Microsoft Graph PowerShell
+Connectez-vous avec le module Microsoft Graph via la commande PowerShell suivante :
+```powershell
+Connect-MgGraph -Scopes "Domain-InternalFederation.ReadWrite.All"
+```
+
+---
+
+##### Étape 2 : Identifier la configuration de fédération du domaine
+Récupérez l'identifiant de configuration du domaine fédéré concerné. Cet identifiant est nécessaire pour l'étape d'activation suivante.
+```powershell
+Update-MgDomainFederationConfiguration -DomainId 'domain.com'
+```
+
+---
+
+##### Étape 3 : Activer l'authentification par navigateur pour les plateformes souhaitées
+Activez la fonctionnalité sur la configuration de fédération identifiée à l'étape 2, en précisant les plateformes concernées parmi *Android*, *iOS* et *macOS*.
+```powershell
+Update-MgDomainFederationConfiguration -DomainId 'domain.com' -InternalDomainFederationId '<guid>' -SystemBrowserEnabledOn "Android iOS"
+```
+
+Positionner *SystemBrowserEnabledOn* sur *none* désactive la fonctionnalité.
+
+---
+
+##### Étape 4 : Vérifier la configuration appliquée
+Interrogez à nouveau la configuration pour confirmer que les plateformes souhaitées sont bien activées.
+```powershell
+Update-MgDomainFederationConfiguration -DomainId 'domain.com' -InternalDomainFederationId '<guid>'
+```
+
+---
+
+##### Valider le résultat
+Pour confirmer que la configuration fonctionne, démarrez une connexion depuis une application Microsoft prise en charge sur un appareil éligible. Le navigateur système doit s'ouvrir pour l'étape d'authentification auprès du fournisseur d'identité externe. Une fois cette authentification terminée, un lien de redirection ramène l'utilisateur vers l'application d'origine via le broker.
+
+<Notice type="info">Si la connexion reste dans une WebView intégrée, vérifiez que le domaine est bien fédéré via WS-Fed ou SAML 2.0, que la plateforme est activée dans la configuration de fédération, et que les versions de navigateur et de broker respectent le minimum requis.</Notice>
+
+---
+
+##### Plateformes et applications prises en charge
+| Plateforme      | Navigateur requis   | Broker minimum                                                                                |
+|-----------------|---------------------|-----------------------------------------------------------------------------------------------|
+| Android         | Chrome (par défaut) | Microsoft Authenticator 6.2510.6857, Link to Windows 1.25102.138.0, Company Portal 5.0.6768.0 |
+| Android partagé | Chrome              | Broker Android compatible avec le minimum applicable                                          |
+| iOS             | Safari              | Microsoft Authenticator 6.8.29 (6.8.37 recommandé)                                            |
+| macOS géré      | Safari              | Intune Company Portal 5.2511                                                                  |
+
+Les applications Microsoft testées et prises en charge pour cette expérience sont *Outlook*, *Teams*, *OneDrive*, *Word*, *Excel*, *PowerPoint* et *Microsoft To Do*.
+
+<Notice type="note">Linux, macOS non géré et les fournisseurs d'identité sociaux *OAuth2*/*OIDC* ne sont pas pris en charge. Sous Windows, l'authentification FIDO tierce est déjà native et n'utilise pas ce mécanisme. La connexion directe à Company Portal sur Android reste également en WebView intégrée.</Notice>
+
+---
+
+##### Parcours d'authentification
+
+![image](/images/blog/entra/tuto/entra_how_to_enable_browser_authentication_external_idp_001.png)
+
+---
+
+##### Conclusion
+Vous savez maintenant comment activer l'authentification par navigateur pour les fournisseurs d'identité externes, afin de permettre l'usage de Passkeys et de clés FIDO2 émises hors d'Entra ID sur les applications Microsoft 365 mobiles et sur macOS géré.
+
+---
+
+##### Sources
+[Microsoft Learn - Authentification par navigateur pour IdP externes](https://learn.microsoft.com/fr-ca/entra/identity/authentication/concept-passkey-browser-authentication-federated-identity-provider)
+
+[Microsoft - Techcommunity](https://techcommunity.microsoft.com/blog/microsoft-entra-blog/sign-in-to-microsoft-apps-with-passkeys-from-external-identity-providers/4556448)
+
+[Microsoft Learn - Ressource internalDomainFederation](https://learn.microsoft.com/fr-ca/graph/api/resources/internaldomainfederation)
+
+---
+
+
+Avez-vous apprécié cet article ? Vous avez des questions, commentaires ou suggestions, n'hésitez pas à m'envoyer un message depuis le formulaire de contact.
+
+N'oubliez pas de nous suivre et de partager cet article.
