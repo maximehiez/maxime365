@@ -20,10 +20,10 @@ draft: false
 The DLP policies already covered on this blog each rely on an integration point specific to the targeted application : a browser extension, a Teams connector, a print driver. Network Data Security works differently : Global Secure Access directly inspects the *HTTP* and *HTTPS* network traffic sent from the device, then forwards the relevant elements to Purview for classification and policy evaluation, with no additional installation on the device beyond the Global Secure Access client already deployed.
 
 This network layer notably protects :
-- <u>Generative AI applications</u> : Interactions through a browser, app, or add-in with services like *ChatGPT*, *Gemini*, or *Claude*.
-- <u>Unmanaged cloud storage</u> : Files transferred to providers like *Dropbox*, *Box*, or *Google Drive*.
-- <u>Cloud email</u> : Emails and attachments shared through providers like *Gmail*.
-- <u>Forms and social media</u> : Online form submissions and posts on services like *Facebook* or *X*.
+- <u>Generative AI applications</u> : Interactions through a browser, app, or add-in with services like *ChatGPT*, *Gemini*, or *Claude*
+- <u>Unmanaged cloud storage</u> : Files transferred to providers like *Dropbox*, *Box*, or *Google Drive*
+- <u>Cloud email</u> : Emails and attachments shared through providers like *Gmail*
+- <u>Forms and social media</u> : Online form submissions and posts on services like *Facebook* or *X*
 
 Four activities are supported : text sent, file uploaded, text received, and file downloaded from a cloud or AI application. The classifiers used are the same ones already configured in other Purview policies, which avoids redefining sensitive information types for this new layer.
 
@@ -33,8 +33,8 @@ Four activities are supported : text sent, file uploaded, text received, and fil
 
 ##### Required licenses
 Integration with Microsoft Entra Global Secure Access requires one of the following combinations :
-- <u>Microsoft 365 E7</u> : Per-user license, sufficient on its own.
-- <u>Purview E5 and Entra Internet Access</u> : Two per-user licenses, required together.
+- <u>Microsoft 365 E7</u> : Per-user license, sufficient on its own
+- <u>Purview E5 and Entra Internet Access</u> : Two per-user licenses, required together
 
 <br/><br/>
 

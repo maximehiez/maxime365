@@ -12,7 +12,7 @@ draft: false
 ---
 
 ##### Introduction
-*Microsoft Purview* déploie depuis fin Septembre 2026 la disponibilité générale de la *Network Data Security*, l'intégration qui étend le *DLP* (*Data Loss Prevention*) au niveau réseau via *Microsoft Entra Global Secure Access*. Jusqu'ici, les politiques DLP couvertes sur ce blog agissaient au niveau applicatif : *Teams*, *Outlook*, le presse-papier, l'impression, le stockage cloud ou les sites IA dans le navigateur. Cette nouvelle couche agit un niveau plus bas, directement sur le trafic réseau du poste, sans dépendre d'une intégration spécifique à chaque application.
+*Microsoft Purview* déploie, depuis fin Septembre 2026, la disponibilité générale de la *Network Data Security*, l'intégration qui étend le *DLP* (*Data Loss Prevention*) au niveau réseau via *Microsoft Entra Global Secure Access*. Jusqu'ici, les politiques DLP couvertes sur ce blog agissaient au niveau applicatif : *Teams*, *Outlook*, le presse-papier, l'impression, le stockage cloud ou les sites IA dans le navigateur. Cette nouvelle couche agit un niveau plus bas, directement sur le trafic réseau du poste, sans dépendre d'une intégration spécifique à chaque application.
 
 ---
 
@@ -20,10 +20,10 @@ draft: false
 Les politiques DLP déjà couvertes sur ce blog s'appuient chacune sur un point d'intégration propre à l'application ciblée : une extension de navigateur, un connecteur Teams, un pilote d'impression. La Network Data Security fonctionne différemment : Global Secure Access inspecte directement le trafic réseau *HTTP* et *HTTPS* émis par le poste, puis transmet les éléments pertinents à Purview pour classification et évaluation de politique, sans installation supplémentaire sur l'appareil au-delà du client Global Secure Access déjà déployé.
 
 Cette couche réseau protège notamment :
-- <u>Applications d'IA générative</u> : Interactions via navigateur, application ou module complémentaire avec des services comme *ChatGPT*, *Gemini* ou *Claude*.
-- <u>Stockage cloud non géré</u> : Fichiers transférés vers des fournisseurs comme *Dropbox*, *Box* ou *Google Drive*.
-- <u>Courriel cloud</u> : Courriels et pièces jointes partagés via des fournisseurs comme *Gmail*.
-- <u>Formulaires et réseaux sociaux</u> : Soumissions de formulaires en ligne et publications sur des services comme *Facebook* ou *X*.
+- <u>Applications d'IA générative</u> : Interactions via navigateur, application ou module complémentaire avec des services comme *ChatGPT*, *Gemini* ou *Claude*
+- <u>Stockage cloud non géré</u> : Fichiers transférés vers des fournisseurs comme *Dropbox*, *Box* ou *Google Drive*
+- <u>Courriel cloud</u> : Courriels et pièces jointes partagés via des fournisseurs comme *Gmail*
+- <u>Formulaires et réseaux sociaux</u> : Soumissions de formulaires en ligne et publications sur des services comme *Facebook* ou *X*
 
 Quatre activités sont prises en charge : texte envoyé, fichier téléversé, texte reçu et fichier téléchargé depuis une application cloud ou d'IA. Les classificateurs utilisés sont les mêmes que ceux déjà configurés dans les autres politiques Purview, ce qui évite de redéfinir les types d'informations sensibles pour cette nouvelle couche.
 
@@ -33,8 +33,8 @@ Quatre activités sont prises en charge : texte envoyé, fichier téléversé, t
 
 ##### Licences requises
 L'intégration avec Microsoft Entra Global Secure Access nécessite l'une des combinaisons suivantes :
-- <u>Microsoft 365 E7</u> : Licence par utilisateur, suffisante seule.
-- <u>Purview E5 et Entra Internet Access</u> : Deux licences par utilisateur, requises ensemble.
+- <u>Microsoft 365 E7</u> : Licence par utilisateur, suffisante seule
+- <u>Purview E5 et Entra Internet Access</u> : Deux licences par utilisateur, requises ensemble
 
 <br/><br/>
 
