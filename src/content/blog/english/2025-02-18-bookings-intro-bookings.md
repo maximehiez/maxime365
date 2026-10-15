@@ -16,7 +16,7 @@ Managing appointments and reservations can be a challenge for many organizations
 
 ---
 
-##### What is Microsoft Bookings?
+##### What is Microsoft Bookings ?
 Microsoft Bookings is an appointment management application that is part of the Microsoft 365 suite. It allows organizations to create personalized booking pages where customers can easily book appointments online. Bookings integrates seamlessly with Outlook calendars, making it easy to manage schedules and availability.
 
 ![image](/images/blog/m365/bookings_intro_bookings_001.png)

@@ -32,7 +32,7 @@ This feature builds on the capabilities of *Microsoft Purview Data Loss Preventi
 
 ---
 
-##### How does it work?
+##### How does it work ?
 This feature is available to customers with a *Microsoft Teams Premium* license and must be enabled in the Microsoft Teams Admin Center.
 
 ![image](/images/blog/teams/teams_sensitive_content_detection_in_meetings_001.png)

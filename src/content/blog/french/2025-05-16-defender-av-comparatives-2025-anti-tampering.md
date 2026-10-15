@@ -32,7 +32,7 @@ Les techniques utilisées incluent :
 
 ---
 
-##### Comment Microsoft Defender for Endpoint protège contre ces attaques
+##### Comment Microsoft Defender for Endpoint protège contre ces attaques ?
 Microsoft Defender for Endpoint intègre une protection anti-tampering activée par défaut pour tous les clients. Elle empêche :
 - Les modifications locales ou distantes non autorisées des paramètres de sécurité
 - La désactivation de la protection en temps réel

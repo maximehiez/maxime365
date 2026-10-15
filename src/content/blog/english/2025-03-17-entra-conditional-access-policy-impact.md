@@ -25,7 +25,7 @@ The conditional access policy impact analysis feature allows administrators to g
 
 ---
 
-##### How to create a zero-impact policy?
+##### How to create a zero-impact policy ?
 *Report Only* mode is a policy state that allows administrators to test most conditional access policies before enabling them. When a policy is in *Report Only* mode, it is evaluated upon login, but access controls are not enforced. The results of this evaluation are recorded in the login logs.
 
 When a policy is in *Report Only* mode, several outcomes are possible:

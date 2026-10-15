@@ -16,12 +16,12 @@ draft: false
 
 ---
 
-##### Why this restriction
+##### Why this restriction ?
 A Teams meeting transcript can contain extremely sensitive information : a meeting about a reorganization project, a discussion of compensation changes. Microsoft doesn't want agents to have free access to this content without explicit tenant approval, including to prevent transcripts from being processed by third-party connectors such as *ChatGPT* or *Claude* without authorization.
 
 ---
 
-##### How to configure the control
+##### How to configure the control ?
 The setting is configured from the *<u>Meeting settings</u>* section of the Microsoft Teams Admin Center, or via PowerShell with the *Set-CsTeamsMeetingConfiguration* cmdlet :
 ```powershell
 Set-CsTeamsMeetingConfiguration -EnableAttributedTranscripts $true -EnableGraphTranscriptAccess $true

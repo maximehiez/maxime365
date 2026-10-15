@@ -21,7 +21,7 @@ Private Access is a *Zero Trust Network Access* (*ZTNA*) solution managed by Mic
 
 ---
 
-##### How it works and key benefits
+##### How it works and key benefits ?
 **<u>Zero Trust security</u>**
 
 An agent (*Private Access sensor*) is installed on the domain controller to intercept Kerberos requests and apply conditional access policies, even for legacy protocols that don't support modern controls. This eliminates implicit trust within the network perimeter.

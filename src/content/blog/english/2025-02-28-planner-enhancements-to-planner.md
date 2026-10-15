@@ -47,7 +47,7 @@ Integrating Planner as a tab in Teams channels provides several benefits :
 
 ---
 
-##### How to start using Planner
+##### How to start using Planner ?
 To get started using Planner in Teams channels, follow these steps :
 1. Select a standard channel in Teams.
 2. Click the *<u>Open apps</u>* icon at the top right of the channel and search for Planner.

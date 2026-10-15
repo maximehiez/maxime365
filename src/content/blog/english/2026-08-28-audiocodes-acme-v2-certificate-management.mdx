@@ -55,7 +55,7 @@ Concretely, an organization running its SBCs on the LTS 7.40A.600 branch can't g
 
 ---
 
-##### Why this is becoming urgent
+##### Why this is becoming urgent ?
 The progressive reduction of the lifetime of public certificates changes the nature of the problem. At 46 days of validity, a certificate has to be renewed about eight times a year. On a fleet of several SBCs, each with several TLS Contexts, manual renewal stops being an annual task and becomes a permanent process, with the risk of expiration that comes with it.
 
 An expired certificate on an SBC doesn't degrade the service, it interrupts it. *Direct Routing* refuses the TLS connection and all the calls stop. This is the reason why automating the renewal deserves to be handled before the constraint becomes effective.

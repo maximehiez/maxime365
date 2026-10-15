@@ -16,7 +16,7 @@ Microsoft continues to innovate to provide users with the best possible virtual 
 
 ---
 
-##### What is Super Resolution?
+##### What is Super Resolution ?
 *Super Resolution* uses artificial intelligence to improve video quality, especially in poor network conditions. When bandwidth is limited, Teams may transmit lower resolution videos, resulting in lower visual quality. Traditionally, Teams used conventional scaling methods, often responsible for blurry visuals. *Super Resolution* restores video resolution using AI, producing significantly improved images.
 
 ![image](/images/blog/teams/teams_high_quality_video_001.png)

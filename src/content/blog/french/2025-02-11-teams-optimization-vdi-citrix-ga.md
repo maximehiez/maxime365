@@ -34,7 +34,7 @@ La nouvelle optimisation repose sur quatre composants principaux qui fonctionnen
 
 ---
 
-##### Comment déployer la nouvelle optimisation
+##### Comment déployer la nouvelle optimisation ?
 - **Configurer les canaux virtuels dans Citrix Studio**
 <br/>
 Accédez à Citrix Studio et ajoutez les trois canaux virtuels personnalisés à la liste des canaux autorisés.

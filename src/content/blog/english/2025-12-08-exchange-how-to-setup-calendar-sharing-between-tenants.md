@@ -74,7 +74,7 @@ In my example, I created a Teams meeting from the calendar of the user *User@oth
 
 ---
 
-##### What if I have a hybrid Exchange configuration?
+##### What if I have a hybrid Exchange configuration ?
 If you are trying to configure an organizational relationship between a Microsoft 365 tenant and another organization with a hybrid configuration (Exchange Online + on-premises Exchange server), you must add the *mail.onmicrosoft.com* domain address of the on-premises Exchange server to the organizational relationship of the non-hybrid tenant. Without this, users will not be able to view calendar availability information.
 
 ---

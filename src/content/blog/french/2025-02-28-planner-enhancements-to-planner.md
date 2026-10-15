@@ -47,7 +47,7 @@ L'intégration de Planner en tant qu'onglet dans les canaux Teams offre plusieur
 
 ---
 
-##### Comment commencer à utiliser Planner
+##### Comment commencer à utiliser Planner ?
 Pour commencer à utiliser Planner dans les canaux Teams, suivez ces étapes :
 1. Sélectionnez un canal standard dans Teams.
 2. Cliquez sur l'icône *<u>Ouvrir les applications</u>* en haut à droite du canal et recherchez Planner.

@@ -16,7 +16,7 @@ draft: false
 
 ---
 
-##### What is the Copilot prompt gallery?
+##### What is the Copilot prompt gallery ?
 The Copilot prompt gallery is an application that allows users to find, save and share prompts. These prompts are instructions or queries that you can use to interact with Copilot and obtain specific results. The gallery offers a selection of prompts organized by role, function or industry, making it easy to find the ones most relevant to your needs.
 
 ![image](/images/blog/copilot/copilot_prompts_gallery_001.png)
@@ -32,7 +32,7 @@ The Copilot prompt gallery is an application that allows users to find, save and
 
 ---
 
-##### How to use the Copilot prompt gallery
+##### How to use the Copilot prompt gallery ?
 **<u>Go to gallery</u>**
 - Open the Microsoft 365 Copilot app and navigate to the prompt gallery from the main menu.
 - Browse the different categories to find prompts relevant to your role or industry.

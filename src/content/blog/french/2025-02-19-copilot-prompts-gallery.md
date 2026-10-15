@@ -32,7 +32,7 @@ La galerie de prompts Copilot est une application qui permet aux utilisateurs de
 
 ---
 
-##### Comment utiliser la galerie de prompts Copilot
+##### Comment utiliser la galerie de prompts Copilot ?
 **<u>Accéder à la galerie</u>**
 - Ouvrez l'application Microsoft 365 Copilot et accédez à la galerie de prompts depuis le menu principal.
 - Parcourez les différentes catégories pour trouver des prompts pertinents pour votre rôle ou votre secteur d'activité.

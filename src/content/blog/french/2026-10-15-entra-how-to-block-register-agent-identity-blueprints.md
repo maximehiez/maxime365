@@ -1,0 +1,71 @@
+---
+title: "Comment bloquer la création d'identité agents IA dans Entra ID"
+meta_title: ""
+description: ""
+date: 2026-10-15T10:00:00-05:00
+image: "/images/blog/entra/tuto/entra_how_to_block_register_agent_identity_blueprints_thumbnail.png"
+categories: ["Entra ID"]
+author: "Maxime Hiez"
+tags: ["Agent", "IA", "Sécurité", "Gouvernance"]
+draft: false
+---
+---
+
+##### Introduction
+À partir du 4 Novembre 2026, tout utilisateur par défaut (sans rôle intégré ou personnalisé dans *Entra ID*) pourra créer des *blueprints d'agents*, à moins qu'un administrateur n'ait explicitement désactivé le paramètre *"Users can register agent identity blueprints"*. Ce comportement s'applique à l'ensemble des tenants Entra ID et se déploie dans le monde entier entre début et fin Novembre 2026.
+
+Un paramètre modifié avant le déploiement effectif n'a aucun effet immédiat : le changement de comportement par défaut ne prend effet qu'à partir du moment où le déploiement atteint le tenant concerné.
+
+---
+
+##### Pourquoi c'est important ?
+Voir l'article sur les accès conditionnels pour les identités d'agents [ICI](https://maxime.hiez.ca/blog/2026-01-30-entra-conditional-access-for-agent-identities), qui présentait le *blueprint d'agent* comme le gabarit à partir duquel sont créées les identités d'agents IA. Jusqu'ici, créer un blueprint nécessitait le rôle *Agent ID Developer* ou *Agent ID Administrator*. Le nouveau paramètre par défaut étend cette capacité à tout utilisateur standard, exactement comme Entra ID le fait déjà pour l'enregistrement d'applications via le paramètre *"Users can register applications"*.
+
+Dans une organisation qui n'ajuste pas ce paramètre, n'importe quel utilisateur sans rôle d'administration pourra donc créer un blueprint d'agent, en devenir propriétaire, et ensuite créer des identités d'agents à partir de ce blueprint sans qu'aucun rôle Entra ID supplémentaire ne soit requis pour cette dernière étape.
+
+---
+
+##### Ce qui n'est pas affecté par ce changement
+- <u>Blueprints existants</u> : Aucun blueprint déjà créé n'est concerné.
+- <u>Création d'identités à partir d'un blueprint existant</u> : Reste gouvernée par les permissions actuelles (propriétaire du blueprint, ou rôle *Agent ID Developer* / *Agent ID Administrator* / *AI Administrator*).
+- <u>Applications qui créent des identités</u> : Les flux programmatiques via Microsoft Graph ne changent pas.
+- <u>Microsoft Foundry et Security Copilot</u> : Les prérequis de licences et d'abonnement Azure de ces plateformes restent inchangés.
+
+<Notice type="note">Ce paramètre est distinct de *"Users can register applications"*, qui gouverne l'enregistrement d'applications standard. Les deux paramètres doivent être passés en revue séparément.</Notice>
+
+---
+
+##### Étape 1 : Se connecter au Microsoft Entra Admin Center
+Connectez-vous au Microsoft Entra Admin Center en ouvrant votre navigateur web sur https://entra.microsoft.com.
+
+---
+
+##### Étape 2 : Restreindre la création d'identités d'agents IA
+Dans le menu de gauche, cliquez sur *<u>Users</u>*, puis sur *<u>User settings</u>*, et désactivez l'option *<u>Users can register agent identity blueprints</u>*.
+
+![image](/images/blog/entra/tuto/entra_how_to_block_register_agent_identity_blueprints_001.png)
+
+Les utilisateurs assignés au rôle *Agent ID Developer* ou *Agent ID Administrator* conservent la capacité de créer des blueprints, indépendamment de ce paramètre.
+
+<Notice type="warning">Si vous souhaitez conserver le comportement actuel, où seuls les administrateurs et les détenteurs du rôle *Agent ID Developer* peuvent créer des blueprints, il est nécessaire de désactiver ce paramètre avant la fin du déploiement, prévue fin Novembre 2026.</Notice>
+
+---
+
+##### Conclusion
+Ce changement de comportement par défaut mérite d'être traité avec la même rigueur que l'enregistrement d'applications : une organisation qui ne veut pas que n'importe quel utilisateur puisse créer des identités pour des agents IA doit revoir ce paramètre avant le déploiement complet, prévu fin Novembre 2026.
+
+---
+
+##### Sources
+[Microsoft Learn - Autorisations par défaut des utilisateurs dans Microsoft Entra ID](https://learn.microsoft.com/fr-ca/entra/fundamentals/users-default-permissions)
+
+[Microsoft Learn - Créer un blueprint d'identité d'agent](https://learn.microsoft.com/fr-ca/entra/agent-id/create-blueprint)
+
+[Microsoft Learn - Rôles intégrés Microsoft Entra](https://learn.microsoft.com/fr-ca/entra/identity/role-based-access-control/permissions-reference)
+
+---
+
+
+Avez-vous apprécié cet article ? Vous avez des questions, commentaires ou suggestions, n'hésitez pas à m'envoyer un message depuis le formulaire de contact.
+
+N'oubliez pas de nous suivre et de partager cet article.

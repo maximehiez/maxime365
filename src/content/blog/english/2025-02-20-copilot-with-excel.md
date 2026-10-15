@@ -16,7 +16,7 @@ draft: false
 
 ---
 
-##### What is Copilot in Excel?
+##### What is Copilot in Excel ?
 Copilot in Excel is an AI assistant that helps you work more efficiently with your data. It can generate analytics, create visualizations, automate repetitive tasks, and provide insights based on your data. Copilot uses advanced language models to understand your queries and provide relevant responses.
 
 ![image](/images/blog/copilot/copilot_excel_001.png)

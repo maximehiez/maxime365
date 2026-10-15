@@ -34,7 +34,7 @@ The new optimization is based on four main components that work together to prov
 
 ---
 
-##### How to deploy the new optimization
+##### How to deploy the new optimization ?
 - **Configure virtual channels in Citrix Studio**
 <br/>
 Go to Citrix Studio and add the three custom virtual channels to the list of allowed channels.

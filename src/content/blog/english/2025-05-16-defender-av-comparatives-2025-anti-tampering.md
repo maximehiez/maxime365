@@ -16,7 +16,7 @@ Microsoft recently announced that *Microsoft Defender for Endpoint* has successf
 
 ---
 
-##### What is anti-tampering protection?
+##### What is anti-tampering protection ?
 *Anti-tampering* protection refers to all the mechanisms designed to prevent unauthorized modifications to a system's security settings. When an attacker compromises an environment, one of their first actions is often to disable or bypass security solutions (antivirus, EDR, updates, etc.) in order to remain undetected, install malicious tools, exfiltrate data, or launch attacks such as ransomware.
 
 ---
@@ -32,7 +32,7 @@ Techniques used include :
 
 ---
 
-##### How Microsoft Defender for Endpoint protects against these attacks
+##### How Microsoft Defender for Endpoint protects against these attacks ?
 Microsoft Defender for Endpoint includes anti-tampering protection enabled by default for all customers. It prevents :
 - Unauthorized local or remote changes to security settings
 - Disabling real-time protection

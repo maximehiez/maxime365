@@ -150,7 +150,7 @@ New-CsTeamsEmergencyCallingPolicy -Identity global -ExternalLocationLookupMode D
 
 ---
 
-##### Comment fonctionnent les appels d'urgence dynamiques
+##### Comment fonctionnent les appels d'urgence dynamiques ?
 Lorsqu'un utilisateur se connecte à son client Teams, une requête de localisation est générée pour déterminer si l'adresse IP publique utilisée est connue du tenant.
 - S'il n'y a pas de correspondance, le client Teams ne va pas plus loin dans sa tentative de localisation puisqu'il est automatiquement détecté comme étant hors du bureau.
 - Lorsqu'il y a correspondance, alors l'adresse IP privée est reconnue et permet d'établir la localisation du site sur lequel il se trouve. Les données de localisation (adresse, ELIN, ...) sont incluses dans l'appel d'urgence.
