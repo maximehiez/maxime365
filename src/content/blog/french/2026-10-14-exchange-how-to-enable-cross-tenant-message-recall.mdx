@@ -114,7 +114,7 @@ Set-CrossTenantRecallConfiguration -AllowedSenderTenantIds @{Remove="11111111-22
 ---
 
 ##### Limites à connaître
-Le rappel entre tenants reste circonscrit aux frontières d'Exchange Online. Il ne fonctionne pas pour un rappel envoyé vers l'internet ou vers une organisation hors Exchange Online, et les clients hybrides ne peuvent pas rappeler un message envoyé depuis une boîte aux lettres cloud vers un environnement Exchange sur site.
+Le rappel entre tenants reste circonscrit aux frontières d'Exchange Online. Il ne fonctionne pas pour un rappel envoyé vers l'internet ou vers une organisation hors Exchange Online, et les clients *hybrides* ne peuvent pas rappeler un message envoyé depuis une boîte aux lettres cloud vers un environnement Exchange sur site.
 
 <Notice type="warning">Autoriser un tenant externe à rappeler des messages revient à lui donner un pouvoir de suppression sur le contenu déjà livré dans vos boîtes aux lettres. Certaines organisations préfèrent ne pas activer cette fonctionnalité pour des raisons de conformité, notamment lorsque les messages concernés sont soumis à une obligation de conservation.</Notice>
 

@@ -114,7 +114,7 @@ Set-CrossTenantRecallConfiguration -AllowedSenderTenantIds @{Remove="11111111-22
 ---
 
 ##### Limitations to know
-Cross-tenant recall remains confined to the boundaries of Exchange Online. It doesn't work for a recall sent to the internet or to an organization outside Exchange Online, and hybrid customers can't recall a message sent from a cloud mailbox to an on-premises Exchange environment.
+Cross-tenant recall remains confined to the boundaries of Exchange Online. It doesn't work for a recall sent to the internet or to an organization outside Exchange Online, and *hybrid* customers can't recall a message sent from a cloud mailbox to an on-premises Exchange environment.
 
 <Notice type="warning">Allowing an external tenant to recall messages is equivalent to giving it deletion power over content already delivered to your mailboxes. Some organizations prefer not to enable this feature for compliance reasons, particularly when the messages involved are subject to a retention obligation.</Notice>
 
