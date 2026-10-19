@@ -1,0 +1,59 @@
+---
+title: "Dépasser la limite SharePoint pour l'étiquetage auto. Purview"
+meta_title: ""
+description: ""
+date: 2026-10-19T10:00:00-05:00
+image: "/images/blog/purview/purview_auto_labeling_sharepoint_adaptive_scopes_thumbnail.png"
+categories: ["Purview"]
+author: "Maxime Hiez"
+tags: ["Sensitivity Labels", "Gouvernance"]
+draft: false
+---
+---
+
+##### Introduction
+Une politique d'*étiquetage automatique* (*auto-labeling policy*) dans *Microsoft Purview* applique une *Sensitivity Label* à des fichiers existants dans *SharePoint* et *OneDrive*, sans intervention manuelle, contrairement à l'étiquetage manuel ou à l'étiquetage côté client (*client-side*) dans les applications *Office*. Jusqu'ici, étendre une seule politique à un grand nombre de sites SharePoint se heurtait à une limite de configuration contraignante pour les grandes organisations. *Microsoft* a mis à jour la documentation pour clarifier comment la contourner.
+
+---
+
+##### La limite de sélection manuelle des sites
+Dans l'assistant de création d'une politique d'étiquetage automatique, la page de sélection des emplacements permet de choisir explicitement jusqu'à **1 000 sites SharePoint**. Pour les organisations qui gèrent plusieurs milliers de sites, cette limite obligeait soit à multiplier le nombre de politiques, soit à cibler des emplacements trop larges et moins précis.
+
+Un autre point de friction concernait l'étiquetage rétroactif de fichiers déjà existants : la documentation recommande de traiter les sites par lots de 10 à la fois, de valider les résultats, puis de remplacer la sélection par le lot suivant, une opération manuelle répétitive sur un grand périmètre.
+
+---
+
+##### Les scopes adaptatifs SharePoint, jusqu'à 50 000 sites
+Pour contourner cette limite, Microsoft Purview s'appuie sur les *scopes adaptatifs* (*adaptive scopes*), des requêtes dynamiques déjà utilisées par d'autres politiques de conformité, qui réévaluent chaque jour leur appartenance selon des propriétés de site plutôt qu'une liste figée d'URLs. Pour une politique d'étiquetage automatique, un scope adaptatif de type SharePoint permet de cibler jusqu'à **50 000 sites** en une seule politique.
+
+Le scope adaptatif se construit sur des propriétés indexées des sites, par exemple l'URL, le nom du site, ou la propriété *SiteTemplate*, qui permet d'inclure ou d'exclure des types de sites entiers (sites de communication, sites connectés à un groupe Microsoft 365, sites de canaux privés Teams, sites OneDrive, ...). Une fois le scope adaptatif créé dans le portail Purview, il s'associe à une politique d'étiquetage automatique via le paramètre *-SharePointAdaptiveScopes* de l'applet de commande *New-AutoSensitivityLabelPolicy*.
+
+<Notice type="note">Les scopes adaptatifs ne se limitent pas à l'étiquetage automatique : les politiques de rétention et de conformité des communications peuvent également s'en servir pour cibler des utilisateurs ou des groupes Microsoft 365 de façon dynamique.</Notice>
+
+---
+
+##### Ce que les administrateurs doivent savoir
+La bascule vers un scope adaptatif nécessite le rôle *Scope Manager*, inclus dans les rôles *Compliance Administrator*, *Compliance Data Administrator*, *Organization Management* et *Records Management*. La requête d'un scope adaptatif ne s'exécute qu'une fois par jour : jusqu'à cinq jours peuvent s'écouler avant qu'un scope nouvellement créé ou modifié reflète correctement son périmètre réel, un délai à anticiper avant de l'associer à une politique en production.
+
+Les autres limites de l'étiquetage automatique restent inchangées par ce changement : un maximum de 100 politiques par tenant, jusqu'à 500 000 fichiers étiquetés par jour, et jusqu'à 20 000 000 de fichiers correspondants lors d'une simulation.
+
+---
+
+##### Conclusion
+Pour les organisations dont le nombre de sites SharePoint dépasse largement la limite de sélection manuelle, les scopes adaptatifs évitent de multiplier les politiques d'étiquetage automatique ou de cibler des périmètres trop larges. Le délai de propagation de cinq jours reste le principal élément à intégrer dans la planification d'un déploiement à cette échelle.
+
+---
+
+##### Sources
+[Microsoft Learn - Appliquer automatiquement une étiquette de confidentialité](https://learn.microsoft.com/fr-ca/purview/apply-sensitivity-label-automatically)
+
+[Microsoft Learn - Scopes adaptatifs](https://learn.microsoft.com/fr-ca/purview/purview-adaptive-scopes)
+
+[Microsoft Learn - Nouveautés de Microsoft Purview](https://learn.microsoft.com/fr-ca/purview/whats-new)
+
+---
+
+
+Avez-vous apprécié cet article ? Vous avez des questions, commentaires ou suggestions, n'hésitez pas à m'envoyer un message depuis le formulaire de contact.
+
+N'oubliez pas de nous suivre et de partager cet article.

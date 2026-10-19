@@ -1,0 +1,59 @@
+---
+title: "Exceeding the SharePoint limit for auto-labeling in Purview"
+meta_title: ""
+description: ""
+date: 2026-10-19T10:00:00-05:00
+image: "/images/blog/purview/purview_auto_labeling_sharepoint_adaptive_scopes_thumbnail.png"
+categories: ["Purview"]
+author: "Maxime Hiez"
+tags: ["Sensitivity Labels", "Governance"]
+draft: false
+---
+---
+
+##### Introduction
+An *auto-labeling policy* in *Microsoft Purview* applies a *Sensitivity Label* to existing files in *SharePoint* and *OneDrive* without manual intervention, unlike manual labeling or *client-side* labeling in *Office* apps. Until now, extending a single policy to a large number of SharePoint sites ran into a configuration limit that was a real constraint for large organizations. *Microsoft* updated the documentation to clarify how to work around it.
+
+---
+
+##### The manual site selection limit
+In the auto-labeling policy creation wizard, the location selection page allows you to explicitly choose up to **1,000 SharePoint sites**. For organizations managing several thousand sites, this limit forced a choice between multiplying the number of policies or targeting broader, less precise locations.
+
+Another point of friction concerned retroactively labeling files that already existed : the documentation recommends processing sites in batches of 10 at a time, validating the results, then swapping in the next batch, a repetitive manual operation across a large scope.
+
+---
+
+##### SharePoint adaptive scopes, up to 50,000 sites
+To work around this limit, Microsoft Purview relies on *adaptive scopes*, dynamic queries already used by other compliance policies, which re-evaluate membership daily based on site properties rather than a fixed list of URLs. For an auto-labeling policy, a SharePoint-type adaptive scope can target up to **50,000 sites** in a single policy.
+
+An adaptive scope is built on indexed site properties, such as the URL, the site name, or the *SiteTemplate* property, which lets you include or exclude entire types of sites (communication sites, sites connected to a Microsoft 365 group, Teams private channel sites, OneDrive sites, ...). Once the adaptive scope is created in the Purview portal, it's attached to an auto-labeling policy through the *-SharePointAdaptiveScopes* parameter of the *New-AutoSensitivityLabelPolicy* cmdlet.
+
+<Notice type="note">Adaptive scopes aren't limited to auto-labeling : retention and communication compliance policies can also use them to dynamically target users or Microsoft 365 groups.</Notice>
+
+---
+
+##### What administrators should know
+Switching to an adaptive scope requires the *Scope Manager* role, included in the *Compliance Administrator*, *Compliance Data Administrator*, *Organization Management*, and *Records Management* roles. The adaptive scope query only runs once a day : up to five days may pass before a newly created or modified scope correctly reflects its actual membership, a delay to plan for before attaching it to a production policy.
+
+The other auto-labeling limits remain unchanged by this change : a maximum of 100 policies per tenant, up to 500,000 labeled files per day, and up to 20,000,000 matching files during a simulation.
+
+---
+
+##### Conclusion
+For organizations whose number of SharePoint sites far exceeds the manual selection limit, adaptive scopes avoid multiplying auto-labeling policies or targeting overly broad locations. The five-day propagation delay remains the main factor to account for when planning a deployment at this scale.
+
+---
+
+##### Sources
+[Microsoft Learn - Apply a sensitivity label automatically](https://learn.microsoft.com/en-us/purview/apply-sensitivity-label-automatically)
+
+[Microsoft Learn - Adaptive scopes](https://learn.microsoft.com/en-us/purview/purview-adaptive-scopes)
+
+[Microsoft Learn - What's new in Microsoft Purview](https://learn.microsoft.com/en-us/purview/whats-new)
+
+---
+
+
+Did you enjoy this post ? If you have any questions, comments or suggestions, please feel free to send me a message from the contact form.
+
+Don't forget to follow us and share this post.
