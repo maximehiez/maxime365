@@ -1,0 +1,84 @@
+---
+title: "Comment activer la Passkey Microsoft Entra sur Windows"
+meta_title: ""
+description: ""
+date: 2026-10-20T10:00:00-05:00
+image: "/images/blog/entra/tuto/entra_how_to_enable_passkey_on_windows_thumbnail.png"
+categories: ["Entra ID", "Tutoriel"]
+author: "Maxime Hiez"
+tags: ["Passkey", "Authenticator", "FIDO2", "MFA", "Sécurité"]
+draft: false
+---
+---
+
+##### Introduction
+*Microsoft Entra* passkey sur *Windows* permet d'inscrire une passkey liée à l'appareil directement dans le conteneur local *Windows Hello*, pour se connecter à *Microsoft Entra ID* avec la biométrie ou le code PIN de Windows Hello, sans que l'appareil soit joint ou inscrit à Entra ID. Le déploiement mondial et GCC s'est terminé mi-Juin 2026, et le déploiement GCC High et DoD est en cours depuis début Octobre 2026, avec une fin attendue fin Octobre 2026.
+
+Voir l'article sur l'activation de Microsoft 365 Passkey [ICI](https://maxime.hiez.ca/blog/2024-12-16-entra-how-to-activate-passkey), qui couvrait l'activation générale de la méthode *Passkey (FIDO2)*. Cette nouvelle capacité s'appuie sur cette même méthode, en ajoutant *Windows Hello* comme fournisseur de passkey supporté.
+
+---
+
+##### Prérequis
+**<u>Licences nécessaires</u>**
+- *Microsoft 365* (toutes les éditions supportant l’authentification moderne).
+
+**<u>Rôle d'administrateur</u>**
+- Un compte avec le rôle *Administrateur Global* ou *Authentication Policy Administrator* pour configurer le profil de passkey.
+
+**<u>Autres</u>**
+- un PC *Windows 10* ou *Windows 11*, sur un appareil supportant *Windows Hello*.
+- La méthode d'authentification *Passkey (FIDO2)* activée.
+
+---
+
+##### Étape 1 : Se connecter au Microsoft Entra Admin Center
+Connectez-vous au Microsoft Entra Admin Center en ouvrant votre navigateur web sur https://entra.microsoft.com.
+
+---
+
+##### Étape 2 : Configurer le profil de passkey pour Windows Hello
+Dans le menu de gauche, cliquez sur *<u>Authentication methods</u>*, puis sur *<u>Passkey (FIDO2)</u>*, et sur *<u>Configure</u>*.
+
+Cliquez sur *<u>Add profile</u>*, sélectionnez *<u>Device-bound</u>* comme type de passkey, et ajoutez l'AAGUID *<u>Windows Hello</u>* via *<u>Add AAGUID</u>*.
+
+![image](/images/blog/entra/tuto/entra_how_to_enable_passkey_on_windows_001.png)
+
+<Notice type="note">Le profil ne doit pas forcer l'attestation (*Enforce attestation* désactivé), sans quoi l'inscription de la passkey Windows échoue.</Notice>
+
+---
+
+##### Valider le résultat
+Une fois le profil enregistré, chaque utilisateur peut inscrire une passkey Windows depuis *My Sign-Ins*, en se connectant sur https://mysignins.microsoft.com/security-info, et en choisissant *<u>Add sign-in method</u>*, puis *<u>Passkey</u>*. La passkey est alors créée et stockée dans le conteneur Windows Hello local de l'appareil.
+
+Pour se connecter ensuite, l'utilisateur ouvre une ressource Microsoft Entra ID, sélectionne *<u>Face, fingerprint, PIN, or security key</u>* comme méthode de connexion, puis valide avec Windows Hello.
+
+<Notice type="warning">Si une identification *Windows Hello for Business* existe déjà pour le même compte sur l'appareil, l'inscription de la passkey Windows échoue. Ces deux méthodes ne peuvent pas coexister pour le même compte dans le même conteneur Windows Hello.</Notice>
+
+---
+
+##### Ce qui distingue cette méthode de Windows Hello for Business
+- <u>Inscription</u> : Initiée par l'utilisateur, sans jonction ni inscription de l'appareil, contrairement à *Windows Hello for Business* qui se provisionne automatiquement lors de l'inscription de l'appareil.
+- <u>Connexion à l'appareil</u> : Non supportée. La passkey Windows permet uniquement la connexion à Microsoft Entra ID, pas la connexion de session Windows ni le SSO associé.
+- <u>Gestion</u> : Pilotée par la politique *Authentication methods* d'Entra ID, et non par *Microsoft Intune* ou une *Group Policy*.
+- <u>Multi-comptes</u> : Un même appareil Windows peut stocker une passkey distincte pour plusieurs comptes Microsoft Entra.
+
+---
+
+##### Conclusion
+Vous savez maintenant comment activer la passkey Microsoft Entra sur Windows, pour permettre une connexion résistante à l'hameçonnage sur des appareils personnels, partagés ou non inscrits à Entra ID.
+
+---
+
+##### Sources
+[Microsoft Learn - Activer la passkey Microsoft Entra sur Windows](https://learn.microsoft.com/fr-ca/entra/identity/authentication/how-to-authentication-entra-passkeys-on-windows)
+
+[Microsoft Learn - Inscrire une passkey Microsoft Entra sur Windows](https://learn.microsoft.com/fr-ca/entra/identity/authentication/how-to-register-entra-passkey-windows)
+
+[Microsoft Learn - Se connecter avec une passkey Microsoft Entra sur Windows](https://learn.microsoft.com/fr-ca/entra/identity/authentication/how-to-sign-in-entra-passkey-windows)
+
+---
+
+
+Avez-vous apprécié cet article ? Vous avez des questions, commentaires ou suggestions, n'hésitez pas à m'envoyer un message depuis le formulaire de contact.
+
+N'oubliez pas de nous suivre et de partager cet article.
