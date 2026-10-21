@@ -1,0 +1,93 @@
+---
+title: "Les plugins juridiques de Copilot dans Word et Cowork"
+meta_title: ""
+description: ""
+date: 2026-10-21T10:00:00-05:00
+image: "/images/blog/copilot/copilot_legal_plugins_word_cowork_thumbnail.png"
+categories: ["Copilot"]
+author: "Maxime Hiez"
+tags: ["IA", "Droit"]
+draft: false
+---
+---
+
+##### Introduction
+Le 15 Octobre 2026, Microsoft a publié, sur son blog officiel, un billet intitulé *"Introducing Microsoft Copilot for legal"*, annonçant la disponibilité générale mondiale de plus de 20 compétences juridiques et de nouveaux plugins partenaires dans *Microsoft Copilot*. Ce titre ne doit toutefois pas être confondu avec un produit ou un vertical sectoriel distinct au catalogue Microsoft, comme il en existe pour la santé ou le commerce de détail : il n'existe ni *SKU*, ni licence, ni offre *"Legal"* à part. Ce qui existe réellement, ce sont deux plugins juridiques intégrés au produit *Microsoft 365 Copilot* existant, l'un dans *Copilot in Word*, l'autre dans *Copilot Cowork*, tous deux couverts par la licence commerciale standard de Copilot. Cet article clarifie ce qui est réellement actif aujourd'hui, ce qu'un administrateur doit activer manuellement, et ce qui reste au stade de prévisualisation.
+
+---
+
+##### Deux plugins, deux comportements d'activation
+Le premier plugin juridique s'adresse à Copilot in Word : il est activé par défaut pour l'ensemble des abonnés commerciaux de Microsoft 365 Copilot, sans configuration de la part de l'utilisateur ou de l'administrateur. Le second s'adresse à Copilot Cowork : contrairement au plugin Word, il doit être ajouté manuellement par l'utilisateur final depuis le magasin d'applications (*app store*) de Cowork.
+
+Dans les deux cas, aucune licence distincte n'est nécessaire : les deux plugins reposent sur la licence commerciale standard de Microsoft 365 Copilot déjà déployée dans le tenant. Il n'existe donc pas de SKU "Legal" à acheter séparément, contrairement à ce que certains titres de presse juridique laissent penser.
+
+- <u>Copilot in Word</u> : Activé par défaut pour tous les abonnés commerciaux, aucune action requise.
+- <u>Copilot Cowork</u> : À ajouter manuellement via l'app store de Cowork, désactivé par défaut.
+
+---
+
+##### Une vingtaine de compétences juridiques dans Cowork
+Le plugin pour Cowork, *Legal for Cowork*, expose une vingtaine de compétences (*skills*) orientées pratique juridique, nettement plus larges que la simple assistance rédactionnelle du plugin Word. Parmi les capacités documentées :
+- <u>Révision de contrats</u> : Analyse, rédaction et suivi des modifications (*redlining*)
+- <u>Comparaison inter-juridictionnelle</u> : Mise en parallèle de dispositions issues de juridictions différentes
+- <u>Chronologie d'affaires</u> : Construction d'une chronologie des faits à partir de documents sources
+- <u>Vérification des termes définis</u> : Contrôle de cohérence des définitions à travers un contrat ou un dossier
+- <u>Rédaction de mémos juridiques</u> : Production de notes d'analyse structurées
+- <u>Création de playbooks</u> : Formalisation de règles de négociation réutilisables par une équipe juridique
+
+Ces compétences restent soumises au même principe que le reste de Copilot : Microsoft précise explicitement que Copilot ne fournit pas de conseil juridique ni de détermination professionnelle, qu'il ne remplace pas le jugement d'un professionnel du droit qualifié, et que tout contenu généré par l'IA peut être inexact et doit être vérifié avant d'être utilisé.
+
+<Notice type="note">Microsoft rappelle que Copilot ne constitue ni un conseil juridique, ni une détermination professionnelle, et qu'il ne se substitue pas au jugement d'un professionnel du droit qualifié. Le contenu généré par l'IA peut être inexact : il doit être relu et vérifié avant d'être utilisé.</Notice>
+
+---
+
+##### Gouvernance administrateur : deux interfaces distinctes, et un périmètre à ne pas confondre
+Le pilotage administrateur n'est pas unifié entre les deux plugins. Pour Copilot in Word, la politique s'appelle *Legal Skills in M365 Copilot in Word* et se configure depuis le *Microsoft 365 Apps Admin Center*, dans la gestion des politiques (*Policy Management*). Pour Copilot Cowork, le contrôle se fait depuis la page *Agent Tools* du *Microsoft 365 Admin Center*, où l'administrateur active, désactive ou restreint l'accès au plugin par utilisateur ou par groupe.
+
+Cette gouvernance ne doit pas être confondue avec la conservation légale (*legal hold*) et l'eDiscovery des interactions Copilot via *Microsoft Purview*. Cette dernière capacité est générale : elle s'applique à l'ensemble des interactions Copilot dans le tenant, quel que soit le plugin utilisé, et répond à une problématique de conformité et de conservation de preuve, pas à l'activation des compétences juridiques elles-mêmes.
+
+Pour résumer la répartition des responsabilités :
+- <u>Plugin Word</u> : Politique "Legal Skills in M365 Copilot in Word" dans le Microsoft 365 Apps Admin Center
+- <u>Plugin Cowork</u> : Page Agent Tools dans le Microsoft 365 Admin Center
+- <u>Gouvernance Purview</u> : eDiscovery et legal hold à portée générale, indépendante du plugin juridique utilisé
+
+---
+
+##### Écosystème de plugins partenaires
+Au-delà des deux plugins publiés par Microsoft, de nouveaux plugins juridiques partenaires commencent à être déployés via le registre de plugins Microsoft, répartis en cinq catégories :
+- <u>Recherche juridique</u> : *Bloomberg Law*, *Trellis*, *Descrybe Legal Engine*, *Legal Data Hunter*, *Courtroom5*, *Lawstronaut*
+- <u>Gestion de documents, de dossiers et de transactions</u> : *iManage Work*, *NetDocuments*, *Box*, *Litera*, *HighQ* (Thomson Reuters), *LegalZoom*, *Solve Intelligence*
+- <u>Contrats et signature électronique</u> : *Docusign*, *Juro*, *Adobe Acrobat Sign*, *LawVu*, *SignatureAPI*, *Dropbox Sign*, *PandaDoc*
+- <u>IA juridique spécialisée</u> : *Harvey*, *Legora*, *DeepJudge*
+- <u>eDiscovery et intelligence juridique</u> : *Everlaw*, *Relativity*
+
+Ces plugins relèvent de la licence et des conditions commerciales propres à chaque éditeur partenaire : Microsoft ne détaille ni leur tarification, ni le niveau de garantie associé à leurs sorties.
+
+Comme pour les plugins Microsoft, ces intégrations ne remplacent ni un conseil juridique, ni le jugement d'un professionnel du droit : le résultat produit par un agent ou un plugin, qu'il soit signé Microsoft ou un partenaire, reste à vérifier avant exploitation.
+
+---
+
+##### Conclusion
+Le *Legal Agent* pour Word, dédié au redlining et au suivi des modifications contractuelles, avait été lancé en Avril 2026 en accès anticipé via le programme *Frontier*. Microsoft confirme dans son billet du 15 Octobre 2026 que ces capacités ont depuis évolué vers les plugins juridiques décrits dans cet article : la vingtaine de compétences juridiques et les plugins partenaires sont désormais en disponibilité générale mondiale pour l'ensemble des clients Microsoft Copilot. Une nouvelle fonctionnalité de navigation entre les termes définis et leurs définitions dans Word doit, elle, passer en prévisualisation plus tard en Octobre 2026 : c'est actuellement la seule capacité de cet ensemble encore annoncée comme non généralement disponible.
+
+---
+
+##### Sources
+[Microsoft - Techcommunity](https://techcommunity.microsoft.com/blog/microsoft-copilot-blog/introducing-microsoft-copilot-for-legal/4564246)
+
+[Microsoft Learn - Gérer Copilot pour le secteur juridique](https://learn.microsoft.com/fr-ca/microsoft-365/admin/manage/manage-copilot-for-legal?view=o365-worldwide)
+
+[Microsoft Learn - Plugins disponibles pour Cowork](https://learn.microsoft.com/fr-ca/microsoft-365/copilot/cowork/cowork-available-plugins)
+
+[Microsoft Learn - Sécurité de Copilot dans Microsoft 365 Business](https://learn.microsoft.com/fr-ca/microsoft-365/admin/security-and-compliance/m365b-copilot-security?view=o365-worldwide)
+
+[Microsoft - Roadmap Microsoft 365](https://www.microsoft.com/en-us/microsoft-365/roadmap?searchterms=legal)
+
+[Microsoft Learn - Module de formation : Copilot pour le secteur juridique](https://learn.microsoft.com/fr-ca/training/modules/empower-workforce-microsoft-365-copilot-legal-use-case/)
+
+---
+
+
+Avez-vous apprécié cet article ? Vous avez des questions, commentaires ou suggestions, n'hésitez pas à m'envoyer un message depuis le formulaire de contact.
+
+N'oubliez pas de nous suivre et de partager cet article.

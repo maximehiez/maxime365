@@ -12,7 +12,7 @@ draft: false
 ---
 
 ##### Introduction
-Announcing a visitor from the reception desk is a key step of the welcome process in a company. For a smooth handling, the reception must identify the visitor, notify the host (by phone, chat, ...), ask them to come and pick them up and, if necessary, provide an access badge. Solutions already exist on the market ; *Vizito*, *Elia* and others can be found. These solutions integrate directly with *Microsoft 365* and give an excellent first impression, secure access to the premises and streamline the handling of your guests.
+Announcing a visitor from the reception desk is a key step of the welcome process in a company. For a smooth handling, the reception must identify the visitor, notify the host (by phone, chat, etc), ask them to come and pick them up and, if necessary, provide an access badge. Solutions already exist on the market ; *Vizito*, *Elia* and others can be found. These solutions integrate directly with *Microsoft 365* and give an excellent first impression, secure access to the premises and streamline the handling of your guests.
 
 I built a simple solution in my environment using *Power Automate* combined with *Teams*, *SharePoint*, *Outlook* and *Forms*, which manages your visitors with the tools and licenses you already have.
 

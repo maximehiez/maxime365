@@ -1,0 +1,93 @@
+---
+title: "The Legal Plugins for Copilot in Word and Cowork"
+meta_title: ""
+description: ""
+date: 2026-10-21T10:00:00-05:00
+image: "/images/blog/copilot/copilot_legal_plugins_word_cowork_thumbnail.png"
+categories: ["Copilot"]
+author: "Maxime Hiez"
+tags: ["AI", "Legal"]
+draft: false
+---
+---
+
+##### Introduction
+On October 15, 2026, Microsoft published, on its official blog, a post titled *"Introducing Microsoft Copilot for legal"*, announcing the worldwide general availability of more than 20 legal skills and new partner plugins in *Microsoft Copilot*. This title shouldn't be mistaken, though, for a distinct product or industry vertical in Microsoft's catalog, the way one exists for healthcare or retail : there's no *SKU*, no license, no separate *"Legal"* offering. What actually exists is two legal plugins built into the existing *Microsoft 365 Copilot* product, one in *Copilot in Word*, the other in *Copilot Cowork*, both covered by the standard Copilot commercial license. This article clarifies what's actually active today, what an administrator has to turn on manually, and what's still in preview.
+
+---
+
+##### Two plugins, two activation behaviors
+The first legal plugin targets Copilot in Word : it's enabled by default for all Microsoft 365 Copilot commercial subscribers, with no configuration needed from the user or the administrator. The second targets Copilot Cowork : unlike the Word plugin, it has to be added manually by the end user from the Cowork app store.
+
+In both cases, no separate license is required : both plugins run on the standard Microsoft 365 Copilot commercial license already deployed in the tenant. There's therefore no "Legal" SKU to buy separately, despite what some legal trade press headlines might suggest.
+
+- <u>Copilot in Word</u> : Enabled by default for all commercial subscribers, no action required.
+- <u>Copilot Cowork</u> : To be added manually via the Cowork app store, disabled by default.
+
+---
+
+##### About 20 legal skills in Cowork
+The Cowork plugin, *Legal for Cowork*, exposes about 20 skills (*skills*) geared toward legal practice, considerably broader than the plain drafting assistance of the Word plugin. Among the documented capabilities :
+- <u>Contract review</u> : Analysis, drafting, and tracked changes (*redlining*)
+- <u>Cross-jurisdiction comparison</u> : Side-by-side comparison of provisions from different jurisdictions
+- <u>Case chronology</u> : Building a chronology of facts from source documents
+- <u>Defined-terms checking</u> : Consistency check of definitions across a contract or a matter
+- <u>Legal memo drafting</u> : Producing structured analysis notes
+- <u>Playbook creation</u> : Formalizing negotiation rules reusable by a legal team
+
+These skills remain subject to the same principle as the rest of Copilot : Microsoft explicitly states that Copilot doesn't provide legal advice or professional determinations, that it isn't a substitute for the judgment of a qualified legal professional, and that any AI-generated content may be inaccurate and must be reviewed before being used.
+
+<Notice type="note">Microsoft notes that Copilot doesn't constitute legal advice or a professional determination, and that it isn't a substitute for the judgment of a qualified legal professional. AI-generated content may be inaccurate : it must be reviewed and verified before being used.</Notice>
+
+---
+
+##### Admin governance : two separate interfaces, and a scope not to confuse
+Admin control isn't unified between the two plugins. For Copilot in Word, the policy is called *Legal Skills in M365 Copilot in Word* and is configured from the *Microsoft 365 Apps Admin Center*, under policy management (*Policy Management*). For Copilot Cowork, control happens from the *Agent Tools* page of the *Microsoft 365 Admin Center*, where the administrator enables, disables, or restricts access to the plugin by user or by group.
+
+This governance shouldn't be confused with legal hold (*legal hold*) and eDiscovery of Copilot interactions through *Microsoft Purview*. The latter capability is general : it applies to all Copilot interactions in the tenant, regardless of which plugin is used, and addresses a compliance and evidence-retention concern, not the activation of the legal skills themselves.
+
+To sum up how responsibilities break down :
+- <u>Word plugin</u> : "Legal Skills in M365 Copilot in Word" policy in the Microsoft 365 Apps Admin Center
+- <u>Cowork plugin</u> : Agent Tools page in the Microsoft 365 Admin Center
+- <u>Purview governance</u> : eDiscovery and legal hold at a general scope, independent of which legal plugin is used
+
+---
+
+##### Partner plugin ecosystem
+Beyond the two plugins published by Microsoft, new partner legal plugins are starting to roll out through the Microsoft plugin registry, organized into five categories :
+- <u>Legal research</u> : *Bloomberg Law*, *Trellis*, *Descrybe Legal Engine*, *Legal Data Hunter*, *Courtroom5*, *Lawstronaut*
+- <u>Document, matter, and transaction management</u> : *iManage Work*, *NetDocuments*, *Box*, *Litera*, *HighQ* (Thomson Reuters), *LegalZoom*, *Solve Intelligence*
+- <u>Agreements and electronic signature</u> : *Docusign*, *Juro*, *Adobe Acrobat Sign*, *LawVu*, *SignatureAPI*, *Dropbox Sign*, *PandaDoc*
+- <u>Specialized legal AI</u> : *Harvey*, *Legora*, *DeepJudge*
+- <u>eDiscovery and legal intelligence</u> : *Everlaw*, *Relativity*
+
+These plugins fall under each partner publisher's own license and commercial terms : Microsoft doesn't detail their pricing, nor the level of guarantee attached to their output.
+
+As with Microsoft's own plugins, these integrations replace neither legal advice nor the judgment of a legal professional : the output produced by an agent or plugin, whether signed by Microsoft or a partner, still needs to be verified before being acted on.
+
+---
+
+##### Conclusion
+The *Legal Agent* for Word, dedicated to redlining and tracking contractual changes, had launched in April 2026 in early access through the *Frontier* program. Microsoft confirms in its October 15, 2026 post that these capabilities have since evolved into the legal plugins described in this article : the roughly 20 legal skills and the partner plugins are now in worldwide general availability for all Microsoft Copilot customers. A new feature for navigating between defined terms and their definitions in Word, on the other hand, is set to move to preview later in October 2026 : that's currently the only capability in this set still announced as not generally available.
+
+---
+
+##### Sources
+[Microsoft - Tech Community](https://techcommunity.microsoft.com/blog/microsoft-copilot-blog/introducing-microsoft-copilot-for-legal/4564246)
+
+[Microsoft Learn - Manage Copilot for legal](https://learn.microsoft.com/en-us/microsoft-365/admin/manage/manage-copilot-for-legal?view=o365-worldwide)
+
+[Microsoft Learn - Available plugins for Cowork](https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/cowork-available-plugins)
+
+[Microsoft Learn - Secure Copilot in Microsoft 365 Business](https://learn.microsoft.com/en-us/microsoft-365/admin/security-and-compliance/m365b-copilot-security?view=o365-worldwide)
+
+[Microsoft - Microsoft 365 Roadmap](https://www.microsoft.com/en-us/microsoft-365/roadmap?searchterms=legal)
+
+[Microsoft Learn - Training module : Copilot for legal](https://learn.microsoft.com/en-us/training/modules/empower-workforce-microsoft-365-copilot-legal-use-case/)
+
+---
+
+
+Did you enjoy this post ? If you have any questions, comments or suggestions, please feel free to send me a message from the contact form.
+
+Don't forget to follow us and share this post.

@@ -26,7 +26,7 @@ Another point of friction concerned retroactively labeling files that already ex
 ##### SharePoint adaptive scopes, up to 50,000 sites
 To work around this limit, Microsoft Purview relies on *adaptive scopes*, dynamic queries already used by other compliance policies, which re-evaluate membership daily based on site properties rather than a fixed list of URLs. For an auto-labeling policy, a SharePoint-type adaptive scope can target up to **50,000 sites** in a single policy.
 
-An adaptive scope is built on indexed site properties, such as the URL, the site name, or the *SiteTemplate* property, which lets you include or exclude entire types of sites (communication sites, sites connected to a Microsoft 365 group, Teams private channel sites, OneDrive sites, ...). Once the adaptive scope is created in the Purview portal, it's attached to an auto-labeling policy through the *-SharePointAdaptiveScopes* parameter of the *New-AutoSensitivityLabelPolicy* cmdlet.
+An adaptive scope is built on indexed site properties, such as the URL, the site name, or the *SiteTemplate* property, which lets you include or exclude entire types of sites (communication sites, sites connected to a Microsoft 365 group, Teams private channel sites, OneDrive sites, etc). Once the adaptive scope is created in the Purview portal, it's attached to an auto-labeling policy through the *-SharePointAdaptiveScopes* parameter of the *New-AutoSensitivityLabelPolicy* cmdlet.
 
 <Notice type="note">Adaptive scopes aren't limited to auto-labeling : retention and communication compliance policies can also use them to dynamically target users or Microsoft 365 groups.</Notice>
 
