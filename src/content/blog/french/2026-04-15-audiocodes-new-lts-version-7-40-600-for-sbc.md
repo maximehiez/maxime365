@@ -24,7 +24,7 @@ Audiocodes propose deux familles de versions, avec une logique très structurée
 - Publiée environ tous les 4 mois
 
 **<u>Long Term Support (LTS)</u>**
-- Orientée stabilité : correctifs de bugs et de sécurité, sans nouvelles fonctionnalités
+- Orientée stabilité : Correctifs de bugs et de sécurité, sans nouvelles fonctionnalités
 - Basée sur une LR, publiée environ tous les 12 à 15 mois, avec des mises à jour environ tous les 2 mois
 
 Si votre priorité est la production *"stable"* (la majorité des environnements de téléphonie), LTS est la cible.

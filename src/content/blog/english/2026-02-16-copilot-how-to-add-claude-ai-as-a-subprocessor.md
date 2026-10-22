@@ -14,7 +14,7 @@ draft: false
 ##### Introduction
 Since its launch, *Microsoft 365 Copilot* has established itself as a cornerstone of enhanced enterprise productivity, leveraging advanced AI models to reason, analyze, and automate daily tasks. But one question frequently arose within organizations : what if a single model wasn't enough to cover all business scenarios ? Microsoft provided a clear answer by announcing a major evolution of Copilot : expanding the choice of AI models. Microsoft 365 Copilot no longer relies on a monolithic approach but adopts a multi-model strategy, combining the latest models from *OpenAI* with new models from *Anthropic*, such as *Claude Sonnet* and *Claude Opus*. This openness allows businesses to select the AI ​​engine best suited to their needs, whether for complex reasoning, in-depth search, or the creation of intelligent agents.
 
-With this announcement, Microsoft affirms a strong vision: to deliver the best in AI innovation, without compromising on integration, governance, and user experience. The models are directly accessible within existing tools, including the *Researcher* agent and *Copilot Studio*, allowing teams to leverage differentiated AI capabilities while remaining within the Microsoft 365 workflow.
+With this announcement, Microsoft affirms a strong vision : to deliver the best in AI innovation, without compromising on integration, governance, and user experience. The models are directly accessible within existing tools, including the *Researcher* agent and *Copilot Studio*, allowing teams to leverage differentiated AI capabilities while remaining within the Microsoft 365 workflow.
 
 ---
 

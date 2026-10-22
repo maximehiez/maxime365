@@ -12,7 +12,7 @@ draft: false
 ---
 
 ##### Introduction
-Artificial intelligence is rapidly growing in the finance industry, but one reality remains : real-world financial analyses are rarely clean, linear, or perfectly defined. They are built on incomplete assumptions, heterogeneous data, cross-validation, and deliverables that must be reviewed, justified, and presented in a presentable way. It is precisely in this area that *Claude Opus 4.6*, *Anthropic's* new flagship model, aims to make a difference. With this version, Anthropic promises not just faster or smarter answers, but an AI designed for financial work as it is actually practiced: complex, iterative, and highly context-dependent.
+Artificial intelligence is rapidly growing in the finance industry, but one reality remains : real-world financial analyses are rarely clean, linear, or perfectly defined. They are built on incomplete assumptions, heterogeneous data, cross-validation, and deliverables that must be reviewed, justified, and presented in a presentable way. It is precisely in this area that *Claude Opus 4.6*, *Anthropic's* new flagship model, aims to make a difference. With this version, Anthropic promises not just faster or smarter answers, but an AI designed for financial work as it is actually practiced : complex, iterative, and highly context-dependent.
 
 ---
 

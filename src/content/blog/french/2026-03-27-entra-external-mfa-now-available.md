@@ -76,7 +76,7 @@ External MFA remplace les *Custom Controls*, qui seront dépréciés le 30 Septe
 ##### Bonnes pratiques
 Voici une approche prudente et efficace pour déployer :
 - Pilote avec un groupe restreint (IT / sécurité / power users) et logs d’authentification, avant d’élargir.
-- Revoir vos règles MFA : réduire la fatigue MFA, utiliser sign-in frequency intelligemment, et éviter des prompts inutiles (risque de phishing).
+- Revoir vos règles MFA : Réduire la fatigue MFA, utiliser sign-in frequency intelligemment, et éviter des prompts inutiles (risque de phishing).
 - Planifier la migration Custom Controls avant 30/09/2026, surtout si vous devez rester conforme avec vos exigences MFA tierces.
 - Documenter l’expérience utilisateur (choix de méthode, erreurs possibles si consent manquant, processus de récupération).
 

@@ -187,6 +187,6 @@ Allez faire la mise à jour de votre module PowerShell pour Azure pour pouvoir b
 ---
 
 
-Avez-vous apprécié cet article ? Vous avez des questions, commentaires ou suggestions, n*hésitez pas à m*envoyer un message depuis le formulaire de contact.
+Avez-vous apprécié cet article ? Vous avez des questions, commentaires ou suggestions, n'hésitez pas à m'envoyer un message depuis le formulaire de contact.
 
-N*oubliez pas de nous suivre et de partager cet article.
+N'oubliez pas de nous suivre et de partager cet article.

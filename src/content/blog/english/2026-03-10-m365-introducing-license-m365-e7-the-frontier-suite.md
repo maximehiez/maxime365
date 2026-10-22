@@ -72,7 +72,6 @@ Microsoft indicates that tens of millions of agents have already appeared in the
 The Frontier Suite also relies on a layer called *Work IQ*.
 
 This technology analyzes signals from Microsoft 365 :
-
 - Outlook emails
 - Teams conversations
 - SharePoint documents
@@ -101,17 +100,15 @@ The goal is to transform Copilot into a true agent-based productivity engine, ca
 
 ##### A strategy based on "Intelligence + Trust"
 Microsoft summarizes its vision with two key concepts :
-
-- **<u>Intelligence</u>**: Using the most advanced AI models to augment human capabilities.
-
-- **<u>Trust</u>**: Ensuring security, compliance, and governance in an environment where humans and agents work together.
+- <u>Intelligence</u> : Using the most advanced AI models to augment human capabilities.
+- <u>Trust</u> : Ensuring security, compliance, and governance in an environment where humans and agents work together.
 
 This combination is at the heart of Frontier Transformation, an approach that aims to transform organizations through AI while maintaining strict control over data and systems.
 
 ---
 
 ##### Who does E7 make sense for ?
-E7 primarily targets three types of organization:
+E7 primarily targets three types of organization :
 - Those that already have Copilot and want to industrialize agents (beyond *prompting*).
 - Those that need to govern *agentic* (security, compliance, identity) before allowing AI to act on processes.
 - Those that want to standardize (rather than *assemble add-ons*) and benefit from a complete *intelligence + trust* framework.

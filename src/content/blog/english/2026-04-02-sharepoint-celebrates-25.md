@@ -6,7 +6,7 @@ date: 2026-04-02T10:00:00-05:00
 image: "/images/blog/sharepoint/sharepoint_celebrates_25_thumbnail.png"
 categories: ["SharePoint"]
 author: "Maxime Hiez"
-tags: ["IA"]
+tags: ["AI"]
 draft: false
 ---
 ---

@@ -100,10 +100,8 @@ L’objectif est de transformer Copilot en véritable moteur de productivité ag
 
 ##### Une stratégie basée sur "Intelligence + Trust"
 Microsoft résume sa vision avec deux concepts clés :
-
-- **<u>Intelligence</u>** : Utiliser les modèles d’IA les plus avancés pour augmenter les capacités humaines.
-
-- **<u>Trust</u>** : Garantir sécurité, conformité et gouvernance dans un environnement où humains et agents travaillent ensemble.
+- <u>Intelligence</u> : Utiliser les modèles d’IA les plus avancés pour augmenter les capacités humaines.
+- <u>Trust</u> : Garantir sécurité, conformité et gouvernance dans un environnement où humains et agents travaillent ensemble.
 
 Cette combinaison est au cœur de la Frontier Transformation, une approche qui vise à transformer les organisations grâce à l’IA tout en maintenant un contrôle strict sur les données et les systèmes.
 

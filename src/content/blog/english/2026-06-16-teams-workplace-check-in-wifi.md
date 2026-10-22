@@ -2,7 +2,7 @@
 title: "Workplace Check-in via WiFi for Microsoft Places and Teams"
 meta_title: ""
 description: ""
-date: 2026-06-18T10:00:00-05:00
+date: 2026-06-16T10:00:00-05:00
 image: "/images/blog/teams/teams_workplace_check_in_wifi_thumbnail.png"
 categories: ["Teams", "Places"]
 author: "Maxime Hiez"

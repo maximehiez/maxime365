@@ -50,7 +50,7 @@ Version 15.3.0 includes the following updates :
     - *Test-AzAvailabilitySetMigration* : Validates that VMs in an Availability Set can be migrated to a VMSS.
     - *Start-AzAvailabilitySetMigration* : Starts migration of an Availability Set to an existing Flexible VMSS.
     - *Stop-AzAvailabilitySetMigration* : Cancels a migration operation on an Availability Set.
-    - *Move-AzVirtualMachineToVmss*: Migrates a VM from an Availability Set to a Flexible VMSS.
+    - *Move-AzVirtualMachineToVmss* : Migrates a VM from an Availability Set to a Flexible VMSS.
 <br/><br/>
 
 **<u>Az.DataProtection</u>**

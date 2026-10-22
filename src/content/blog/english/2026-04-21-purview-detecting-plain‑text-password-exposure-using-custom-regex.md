@@ -47,7 +47,7 @@ Regex allows us to define these detection patterns by analyzing the text.
 ---
 
 ##### Implementation in Microsoft Purview
-With Microsoft Purview, you can implement *Data Loss Prevention* (*DLP*) policies to detect this content:
+With Microsoft Purview, you can implement *Data Loss Prevention* (*DLP*) policies to detect this content :
 1. Create a custom Sensitive Information Type (SIT)
     - A primary element (regex to detect a password-like string)
     - Secondary elements (keywords like *"password"*, *"login"*, etc.)
@@ -76,7 +76,7 @@ For effective detection :
 Some typical scenarios where this approach is useful :
 - A user shares a password in Microsoft Teams
 - An Excel file contains credentials in plain text
-- An email contains a line like: *"Here is the password : ..."*
+- An email contains a line like : *"Here is the password : ..."*
 
 In these cases, a well-configured DLP policy can :
 - Block the message
@@ -86,7 +86,6 @@ In these cases, a well-configured DLP policy can :
 ---
 
 ##### Conclusion
-
 Plain text password detection is an advanced but critical security feature in Microsoft 365. Thanks to Microsoft Purview's customization capabilities, it's possible to implement intelligent, context-based detection rather than simple brute-force filtering. When properly configured, this approach reduces the risk of credential leaks without penalizing users with excessive false positives.
 
 ---

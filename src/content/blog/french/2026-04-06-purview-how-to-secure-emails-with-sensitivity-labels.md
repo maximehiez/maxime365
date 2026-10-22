@@ -14,7 +14,7 @@ draft: false
 ##### Introduction
 Je vous ai montré la semaine passée comment créer des *Sensitivity Labels* afin de sécuriser vos courriels sans vous expliquer comment est-ce qu'ils fonctionnent. Je vous parle aujourd'hui de comment les utiliser et quels résultats sont obtenus lorsqu'on les applique sur nos courriels avant l'envoi.
 
-Voir l'article de la semaine passée [ICI](https://maxime.hiez.ca/blog/2026-03-30-purview-how-to-create-sensitivity-labels_for_emails).
+Voir l'article de la semaine passée [ICI](https://maxime.hiez.ca/blog/2026-03-30-purview-how-to-create-sensitivity-labels-for-emails).
 
 ---
 

@@ -24,7 +24,7 @@ Audiocodes offers two families of releases, with a very structured approach :
 - Released approximately every 4 months
 
 **<u>Long Term Support (LTS)</u>**
-- Focused on stability : bug fixes and security patches, without new features
+- Focused on stability : Bug fixes and security patches, without new features
 - Based on an LR, released approximately every 12 to 15 months, with updates approximately every 2 months
 
 If your priority is a *"stable"* production environment (the majority of telephony environments), LTS is the target.
@@ -65,7 +65,7 @@ If you use Audiocodes SBCs for your Teams Direct Routing telephony and are still
 ---
 
 ##### Conclusion
-The transition from version 7.40A.500 to 7.40A.600 is not a simple update ; it's a change in support branch. Audiocodes maintains 7.40A.500 in production but is ceasing all new maintenance on it and redirecting fixes to 7.40A.600, which is now the reference LTS starting with 7.40A.604.077. For Teams Direct Routing (and other) environments, migrating to the new LTS is the healthiest decision: support, fixes, stability, and a clear path towards upcoming innovations on the 7.6 LR side.
+The transition from version 7.40A.500 to 7.40A.600 is not a simple update ; it's a change in support branch. Audiocodes maintains 7.40A.500 in production but is ceasing all new maintenance on it and redirecting fixes to 7.40A.600, which is now the reference LTS starting with 7.40A.604.077. For Teams Direct Routing (and other) environments, migrating to the new LTS is the healthiest decision : support, fixes, stability, and a clear path towards upcoming innovations on the 7.6 LR side.
 
 ---
 

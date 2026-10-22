@@ -19,7 +19,7 @@ Microsoft Entra now treats agents as first-class identities and extends Conditio
 ---
 
 ##### What is an agent identity ?
-Microsoft Entra formalizes three concepts:
+Microsoft Entra formalizes three concepts :
 1. *<u>Agent Blueprint</u>* : A template for creating agent identities
 2. *<u>Agent Identity</u>* : A specialized machine identity for AI systems
 3. *<u>Agent User</u>* : An identity whose behavior is the same as a human's

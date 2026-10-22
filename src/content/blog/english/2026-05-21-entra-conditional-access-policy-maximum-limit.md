@@ -70,7 +70,7 @@ These commands return the total number of policies, across all states. The resul
 The increase in the limit provides headroom, but does not solve the underlying problem. The following practices help limit quota growth over the long term :
 - Group applications by profile : One policy per profile of similar requirements, not one policy per application. The *Filter for applications* filter allows dynamic targeting without a static list
 - Review temporary exclusions : A quarterly audit helps clean up obsolete policies
-- Transition *report-only* policies : A policy in *report-only* mode consumes the same quota as an active policy. Move to production or delete — do not accumulate
+- Transition *report-only* policies : A policy in *report-only* mode consumes the same quota as an active policy. Move to production or delete, do not accumulate
 - Standardize policy names : A structured naming convention (framework, scope, state) makes it easier to identify duplicates during audits
 
 For further analysis of policy impact, see the March 2025 article [Impact analysis of Entra ID conditional access policies](https://maxime.hiez.ca/en/blog/2025-03-17-entra-conditional-access-policy-impact), which covered *report-only* mode and the associated diagnostic tools.

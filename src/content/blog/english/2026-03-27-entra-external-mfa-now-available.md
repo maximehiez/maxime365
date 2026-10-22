@@ -76,7 +76,7 @@ External MFA replaces *Custom Controls*, which will be deprecated on September 3
 ##### Best practices
 Here's a cautious and effective approach to deployment :
 - Pilot with a small group (IT / security / power users) and authentication logs before expanding.
-- Review your MFA policies : reduce MFA fatigue, use sign-in frequency intelligently, and avoid unnecessary prompts (phishing risk).
+- Review your MFA policies : Reduce MFA fatigue, use sign-in frequency intelligently, and avoid unnecessary prompts (phishing risk).
 - Plan the Custom Controls migration before September 30, 2026, especially if you need to remain compliant with third-party MFA requirements.
 - Document the user experience (method choices, potential errors if consent is missing, recovery process).
 

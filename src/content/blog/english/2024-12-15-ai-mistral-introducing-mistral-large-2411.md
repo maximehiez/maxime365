@@ -6,7 +6,7 @@ date: 2024-12-15T10:00:00-05:00
 image: "/images/blog/ai/ai_mistral_introducing_large_2411_thumbnail.png"
 categories: ["Mistral AI"]
 author: "Maxime Hiez"
-tags: ["IA", "API"]
+tags: ["AI", "API"]
 draft: false
 ---
 ---
