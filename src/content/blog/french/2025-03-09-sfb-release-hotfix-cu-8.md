@@ -11,6 +11,7 @@ draft: false
 ---
 ---
 
+##### Introduction
 Microsoft vient de publier un correctif pour Skype for Business Server (7.0.2046.548 CU8HF1). Depuis la mise à jour avec le *Cumulative Update 8* (Décembre 2024), un problème provoquait, dans certains cas, l'échec de la participation à une réunion lors de l'utilisation de l'application. Ce problème est résolu avec l'installation de cette mise à jour.
 
 ---

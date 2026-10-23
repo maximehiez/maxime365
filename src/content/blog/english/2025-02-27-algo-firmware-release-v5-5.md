@@ -59,7 +59,7 @@ This release also brings improved support for Microsoft Teams, Zoom, and Informa
 ---
 
 ##### Compatible products
-Firmware 5.5 is available for the following products:
+Firmware 5.5 is available for the following products :
 - IP speakers : 8180, 8186, 8196, 8188, 8198, 8189, 8190, 8190S, 8507
 - IP paging adapters : 8301, 8305, 8373
 - IP intercoms : 8028, 8039, 8063, 8201, 8203

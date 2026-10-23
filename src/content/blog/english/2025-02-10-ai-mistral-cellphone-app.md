@@ -3,7 +3,7 @@ title: "Le Chat by Mistral AI, your personal AI assistant"
 meta_title: ""
 description: ""
 date: 2025-02-10T10:00:00-05:00
-image: "/images/blog/ai/ai_mistral_le_chat_app_thumbnail.png"
+image: "/images/blog/ai/ai_mistral_cellphone_app_thumbnail.png"
 categories: ["Mistral AI"]
 author: "Maxime Hiez"
 tags: ["AI", "Application", "Android", "Apple", "iOS"]
@@ -21,7 +21,7 @@ Check the article from December 2024 [HERE](https://maxime.hiez.ca/en/blog/2024-
 ##### Application released
 *Chat by Mistral AI* is an innovative application available on the App Store and Play Store, designed to improve both your personal and professional life. Ranked among the best productivity apps, Le Chat combines the power of advanced artificial intelligence with information from the web and high-quality journalistic sources.
 
-![image](/images/blog/ai/ai_mistral_le_chat_app_001.png)
+![image](/images/blog/ai/ai_mistral_cellphone_app_001.png)
 
 ---
 
@@ -31,14 +31,14 @@ Check the article from December 2024 [HERE](https://maxime.hiez.ca/en/blog/2024-
 - Document and Image Processing : For those working with complex documents and images, Le Chat offers the industry's best upload processing capabilities. With top-notch vision and optical character recognition (OCR) models, the application ensures maximum accuracy. Currently, Le Chat supports downloads in jpg or png format, with more file types coming soon.
 - Creativity and visual content : Le Chat also excels at generating high-quality visual content, from photorealistic images to shareable and creative corporate content. This feature is perfect for designers, marketers, and anyone who needs quality visual content.
 
-![image](/images/blog/ai/ai_mistral_le_chat_app_002.png)
+![image](/images/blog/ai/ai_mistral_cellphone_app_002.png)
 
 ---
 
 ##### Diverse uses
 Le Chat is designed to provide you with high-quality answers on almost any topic, from historical facts to complex scientific concepts. It is also a great tool for students, researchers and anyone who needs reliable information. Additionally, the app can help you with a variety of contextual tasks, like translating languages, checking the weather, and reading nutrition labels.
 
-![image](/images/blog/ai/ai_mistral_introducing_large_2411_001.png)
+![image](/images/blog/ai/ai_mistral_cellphone_app_003.png)
 
 ---
 

@@ -32,7 +32,7 @@ Starting September 30, 2025, license verification will apply to bot-initiated ca
 Administrators and developers should take the following steps to prepare for these changes :
 1. Application review : Review and update all applications using the transfer and add participant APIs to ensure they reflect the new default behavior.
 2. Customer communication : Inform customers of the change in behavior so they do not experience service disruptions.
-3. License verification: Ensure that all Teams users behind apps, such as queue apps, have a Teams telephony license.
+3. License verification : Ensure that all Teams users behind apps, such as queue apps, have a Teams telephony license.
 
 ---
 

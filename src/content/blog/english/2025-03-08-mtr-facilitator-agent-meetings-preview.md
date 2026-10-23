@@ -12,11 +12,11 @@ draft: false
 ---
 
 ##### Introduction
-Microsoft recently announced a new feature for Teams Rooms: *Facilitator* ; an AI agent that takes notes during Teams meetings. This feature is currently in pre-public release and aims to improve productivity and collaboration within Teams.
+Microsoft recently announced a new feature for Teams Rooms : *Facilitator* ; an AI agent that takes notes during Teams meetings. This feature is currently in pre-public release and aims to improve productivity and collaboration within Teams.
 
 ---
 
-##### What is Facilitator?
+##### What is Facilitator ?
 Facilitator is a collaborative communication agent built into Microsoft Teams. It uses the power of large language models (LLMs) and Teams data to capture notes and help users stay productive during meetings. With this feature, users can stay focused on the conversation while receiving AI-generated notes in a single workspace.
 
 ![image](/images/blog/mtr/mtr_facilitator_agent_meetings_preview_001.png)

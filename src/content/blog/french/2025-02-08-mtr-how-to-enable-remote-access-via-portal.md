@@ -3,7 +3,7 @@ title: "Comment activer l'accès distant au MTR via Teams Rooms Pro"
 meta_title: ""
 description: ""
 date: 2025-02-08T10:00:00-05:00
-image: "/images/blog/mtr/tuto/mtr_enable_remote_access_via_portal_thumbnail.png"
+image: "/images/blog/mtr/tuto/mtr_how_to_enable_remote_access_via_portal_thumbnail.png"
 categories: ["MTR", "Tutoriel"]
 author: "Maxime Hiez"
 tags: ["Teams Rooms", "MTRoW", "Microsoft Teams Rooms Pro Management"]
@@ -61,7 +61,7 @@ Dans le menu de gauche, cliquez sur *<u>Identity</u>*, puis sur *<u>Groups</u>*,
 
 Cliquez sur *<u>New group</u>* pour créer un nouveau groupe de sécurité qui va contenir les administrateurs qui auront les accès aux MTR.
 
-![image](/images/blog/mtr/tuto/mtr_enable_remote_access_via_portal_001.png)
+![image](/images/blog/mtr/tuto/mtr_how_to_enable_remote_access_via_portal_001.png)
 
 ---
 
@@ -75,7 +75,7 @@ Dans le menu de gauche, cliquez sur *<u>Settings</u>*, puis sur *<u>General</u>*
 
 Cochez la case *Allow Teams Rooms Pro Management Remote access* et entrez l'adresse de contact.
 
-![image](/images/blog/mtr/tuto/mtr_enable_remote_access_via_portal_002.png)
+![image](/images/blog/mtr/tuto/mtr_how_to_enable_remote_access_via_portal_002.png)
 
 ---
 
@@ -84,19 +84,19 @@ Dans le menu de gauche, cliquez sur *<u>Settings</u>*, puis sur *<u>Roles</u>*.
 
 Cliquez sur *<u>Create role</u>*, et donnez lui un nom et description.
 
-![image](/images/blog/mtr/tuto/mtr_enable_remote_access_via_portal_003.png)
+![image](/images/blog/mtr/tuto/mtr_how_to_enable_remote_access_via_portal_003.png)
 
 Cochez la case *Modify* dans *<u>Remote Access</u>*.
 
-![image](/images/blog/mtr/tuto/mtr_enable_remote_access_via_portal_004.png)
+![image](/images/blog/mtr/tuto/mtr_how_to_enable_remote_access_via_portal_004.png)
 
 Assignez le groupe de sécurité créé en étape 2.
 
-![image](/images/blog/mtr/tuto/mtr_enable_remote_access_via_portal_005.png)
+![image](/images/blog/mtr/tuto/mtr_how_to_enable_remote_access_via_portal_005.png)
 
 Assignez la ou les salles à la règle.
 
-![image](/images/blog/mtr/tuto/mtr_enable_remote_access_via_portal_006.png)
+![image](/images/blog/mtr/tuto/mtr_how_to_enable_remote_access_via_portal_006.png)
 
 ---
 
@@ -105,11 +105,11 @@ Dans le menu de gauche, cliquez sur *<u>Rooms</u>*, puis sur la salle sur laquel
 
 Cliquez sur *<u>Start session</u>*.
 
-![image](/images/blog/mtr/tuto/mtr_enable_remote_access_via_portal_007.png)
+![image](/images/blog/mtr/tuto/mtr_how_to_enable_remote_access_via_portal_007.png)
 
 Après quelques instants de chargement, la salle devrait être visible.
 
-![image](/images/blog/mtr/tuto/mtr_enable_remote_access_via_portal_008.png)
+![image](/images/blog/mtr/tuto/mtr_how_to_enable_remote_access_via_portal_008.png)
 
 ---
 

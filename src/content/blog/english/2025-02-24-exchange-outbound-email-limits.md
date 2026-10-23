@@ -34,16 +34,16 @@ Here is an overview of the new limits :
 ##### Additional information
 External recipients are those whose email address domains are not accepted domains in the tenant. TERRL limits establish base limits for all tenants, but additional restrictions may also arise due to suspicious sending behavior, spamming, fraudulent or excessively late payments, etc.<br/><br/>
 
-| Number of licenses | Sending limit  |
-| :----------------: | -------------: |
-| 1                  | 10000          |
-| 2                  | 10312          |
-| 10                 | 12006          |
-| 25                 | 14259          |
-| 100                | 22059          |
-| 1000               | 72446          |
-| 10000              | 324979         |
-| 100000             | 1590639        |
+| Number of licenses | Sending limit |
+| :----------------: | :-----------: |
+| 1                  | 10000         |
+| 2                  | 10312         |
+| 10                 | 12006         |
+| 25                 | 14259         |
+| 100                | 22059         |
+| 1000               | 72446         |
+| 10000              | 324979        |
+| 100000             | 1590639       |
 <br/>
 
 <u>Note</u> : The calculation formula is 500 * (Licenses^0.7) + 9500
@@ -53,8 +53,8 @@ External recipients are those whose email address domains are not accepted domai
 ##### Deployment schedule
 The deployment of the new TERRL limits will be done in 4 phases :
 
-| Phase |         Tenant type         |      Date      |
-| :---: | --------------------------: | -------------: |
+| Phase | Tenant type                 | Date           |
+| :---: | :-------------------------: | :------------: |
 | 1     | Tenants with ≤ 25 licenses  | March 3, 2025  |
 | 2     | Tenants with ≤ 200 licenses | March 10, 2025 |
 | 3     | Tenants with ≤ 500 licenses | March 17, 2025 |

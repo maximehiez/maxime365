@@ -46,11 +46,11 @@ These builds are the minimum versions required to take advantage of the new dedi
 ---
 
 ##### Recommended action plan for administrators
-Hotfixes are available via the *Microsoft Download Center* and can be installed manually or using standard administrative tools. It is recommended to:
+Hotfixes are available via the *Microsoft Download Center* and can be installed manually or using standard administrative tools. It is recommended to :
 1. Back up your environment before any update
 2. Retrieve the appropriate hotfixes based on your role (*Core*, *Front End*, *Edge*, *Web Components*, *Enterprise Web App*)
 3. Use the *Server Update Installer* with elevated rights (UAC disabled or run as administrator)
-4. Run the script (*<u>SFB 2015: add_sfbassets.ps1</u>* or *<u>SFB SE: ConfigureSkypeforBusinessHybridApplication.ps1</u>*)
+4. Run the script (*<u>SFB 2015 : add_sfbassets.ps1</u>* or *<u>SFB SE : ConfigureSkypeforBusinessHybridApplication.ps1</u>*)
 5. Restart services after installation to ensure the hotfixes are taken into account
 
 ---

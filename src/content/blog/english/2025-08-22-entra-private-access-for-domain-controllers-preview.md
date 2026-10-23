@@ -6,7 +6,7 @@ date: 2025-08-22T10:00:00-05:00
 image: "/images/blog/entra/entra_private_access_for_domain_controllers_preview_thumbnail.png"
 categories: ["Entra ID"]
 author: "Maxime Hiez"
-tags: ["Conditional access", "Security", "Active Directory", "Zero Trust", "MFA"]
+tags: ["Conditional Access", "Security", "Active Directory", "Zero Trust", "MFA"]
 draft: false
 ---
 ---

@@ -6,7 +6,7 @@ date: 2025-10-20T10:00:00-05:00
 image: "/images/blog/purview/tuto/purview_how_to_report_inappropriate_teams_message_thumbnail.png"
 categories: ["Purview", "Tutorial"]
 author: "Maxime Hiez"
-tags: ["Conformité"]
+tags: ["Compliance"]
 draft: false
 ---
 ---

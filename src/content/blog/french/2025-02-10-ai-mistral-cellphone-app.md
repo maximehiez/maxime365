@@ -3,7 +3,7 @@ title: "Le Chat by Mistral AI, votre assistant IA personnel"
 meta_title: ""
 description: ""
 date: 2025-02-10T10:00:00-05:00
-image: "/images/blog/ai/ai_mistral_le_chat_app_thumbnail.png"
+image: "/images/blog/ai/ai_mistral_cellphone_app_thumbnail.png"
 categories: ["Mistral AI"]
 author: "Maxime Hiez"
 tags: ["IA", "Application", "Android", "Apple", "iOS"]
@@ -21,7 +21,7 @@ Voir l'article de Décembre 2024 [ICI](https://maxime.hiez.ca/blog/2024-12-15-ai
 ##### Sortie de l'application
 *Le Chat by Mistral AI* est une application innovante disponible sur l'App Store et Play Store, conçue pour améliorer à la fois votre vie personnelle et professionnelle. Classée parmi les meilleures applications de productivité, Le Chat combine la puissance de l'intelligence artificielle avancée avec des informations provenant du web et de sources journalistiques de haute qualité.
 
-![image](/images/blog/ai/ai_mistral_le_chat_app_001.png)
+![image](/images/blog/ai/ai_mistral_cellphone_app_001.png)
 
 ---
 
@@ -31,14 +31,14 @@ Voir l'article de Décembre 2024 [ICI](https://maxime.hiez.ca/blog/2024-12-15-ai
 - Traitement de documents et images : Pour ceux qui travaillent avec des documents et des images complexes, Le Chat offre les meilleures capacités de traitement de téléchargement de l'industrie. Grâce à des modèles de vision et de reconnaissance optique de caractères (OCR) de premier ordre, l'application garantit une précision maximale. Actuellement, Le Chat prend en charge les téléchargements au format jpg ou png, avec d'autres types de fichiers à venir.
 - Créativité et contenu visuel : Le Chat excelle également dans la génération de contenu visuel de haute qualité, des images photoréalistes aux contenus partageables et créatifs d'entreprise. Cette fonctionnalité est parfaite pour les designers, les marketeurs et toute personne ayant besoin de contenu visuel de qualité.
 
-![image](/images/blog/ai/ai_mistral_le_chat_app_002.png)
+![image](/images/blog/ai/ai_mistral_cellphone_app_002.png)
 
 ---
 
 ##### Utilisations diversifiées
 Le Chat est conçu pour vous fournir des réponses de haute qualité sur presque tous les sujets, des faits historiques aux concepts scientifiques complexes. Il est également un excellent outil pour les étudiants, les chercheurs et toute personne ayant besoin d'informations fiables. De plus, l'application peut vous aider dans une variété de tâches contextuelles, comme la traduction de langues, la vérification de la météo et la lecture des étiquettes nutritionnelles.
 
-![image](/images/blog/ai/ai_mistral_introducing_large_2411_001.png)
+![image](/images/blog/ai/ai_mistral_cellphone_app_003.png)
 
 ---
 

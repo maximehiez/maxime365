@@ -40,7 +40,7 @@ On raw performance, Mistral claims a 40% reduction in end-to-end latency and thr
 In the absence of an official technical report at the time of the announcement, the results below come from secondary sources and Mistral publications. They provide a positioning indication but do not constitute a complete, independent evaluation.
 
 |               | Mistral Small 4                        | GPT-4o-mini |
-|---------------|----------------------------------------|-------------|
+| :-----------: | :------------------------------------: | :---------: |
 | GPQA Diamond  | 71.2%                                  | 40.2%       |
 | MMLU-Pro      | 78.0%                                  | 64.8%       |
 | LiveCodeBench | Outperforms GPT-OSS 120B (−20% tokens) | -           |

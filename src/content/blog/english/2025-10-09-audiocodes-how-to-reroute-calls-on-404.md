@@ -40,7 +40,7 @@ The solution is to set up routing based on the 404 code returned by Teams to the
 ##### Step 1 : Log in to the SBC
 Connect to the SBC by opening your web browser to https://YOUR_IP_ADDRESS.
 
-![image](/images/blog/sbc/tuto/sbc_audiocodes_enable_telephony_ldap_routing_001.png)
+![image](/images/blog/sbc/tuto/sbc_audiocodes_how_to_reroute_calls_on_404_002.png)
 
 ---
 

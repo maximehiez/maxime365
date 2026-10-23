@@ -26,7 +26,6 @@ Microsoft a récemment annoncé la *General Availability* de la nouvelle expéri
 ---
 
 ##### Avantages des contacts unifiés
-
 - Efficacité accrue : Les utilisateurs n'ont plus besoin de basculer entre Teams et Outlook pour gérer leurs contacts, ce qui réduit le temps et les efforts nécessaires pour maintenir les listes de contacts à jour.
 - Expérience utilisateur améliorée : La gestion des contacts dans un espace unifié facilite l'interaction entre les deux plateformes et améliore la productivité.
 - Réduction des duplications : En éliminant les duplications inutiles, cette fusion simplifie la gestion des correspondants et assure une utilisation plus fluide des interfaces.

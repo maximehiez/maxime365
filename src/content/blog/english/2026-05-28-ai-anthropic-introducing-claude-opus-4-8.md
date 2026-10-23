@@ -39,7 +39,7 @@ Three new capabilities accompany the model :
 One figure appears in the official announcement for direct comparison with Opus 4.7.
 
 |                  | Opus 4.8 | Opus 4.7 | Delta    |
-|------------------|---------:|---------:|---------:|
+| :--------------: | :------: | :------: | :------: |
 | OSWorld-Verified | 82.3%    | 78.0%    | +4.3 pts |
 
 The system card contains a broader set of evaluations covering coding tasks, reasoning, and practical knowledge work, without an aggregated table in the launch announcement.

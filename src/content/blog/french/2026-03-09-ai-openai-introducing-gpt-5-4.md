@@ -87,7 +87,7 @@ Grâce à sa compréhension avancée, sa capacité à manipuler des outils et so
 OpenAI publie plusieurs indicateurs et compare GPT‑5.4 à GPT‑5.3‑Codex et GPT‑5.2 :
 
 |                               | GPT-5.4 | GPT-5.3-Codex | GPT-5.2 |
-| :---------------------------: | ------: | ------------: | ------: |
+| :---------------------------: | :-----: | :-----------: | :-----: |
 | GDPval (victoires ou ex æquo) | 83.0%   | 70.9%         | 70.9%   |
 | SWE-Bench Pro (Public)        | 57.7%   | 56.80%        | 55.6%   |
 | OSWorld-Verified              | 75.0%   | 74%           | 47.3%   |

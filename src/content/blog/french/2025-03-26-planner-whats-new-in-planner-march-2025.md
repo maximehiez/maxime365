@@ -6,7 +6,7 @@ date: 2025-03-26T10:00:00-05:00
 image: "/images/blog/m365/planner_whats_new_in_planner_march_2025_thumbnail.png"
 categories: ["Planner"]
 author: "Maxime Hiez"
-tags: []
+tags: ["Productivité", "Mise à jour"]
 draft: false
 ---
 ---
@@ -43,7 +43,6 @@ Un problème a été corrigé pour garantir que, lorsque vous ouvrez un plan Bas
 Microsoft encourage les utilisateurs à partager leurs retours sur les nouvelles fonctionnalités de Planner en utilisant le bouton de feedback dans l'application. Les suggestions et les commentaires des utilisateurs aident à informer les mises à jour futures et à améliorer continuellement l'application.
 
 Pour plus d'informations sur les nouvelles fonctionnalités et les mises à jour de Microsoft Planner, vous pouvez consulter les ressources suivantes :
-
 - Page d'adoption de Planner : Pour des guides et des conseils sur l'utilisation de Planner.
 - Feuille de route Microsoft 365 : Pour des descriptions des fonctionnalités et des dates de sortie estimées.
 - Démos de Planner : Pour des inspirations sur la manière de tirer le meilleur parti de la nouvelle application Planner dans Microsoft Teams.

@@ -17,7 +17,7 @@ Microsoft has announced that the *Remote Desktop* app for Windows, available on 
 ---
 
 ##### Why this change ?
-Microsoft claims that the new Windows App offers improved features compared to the Remote Desktop app. Here are some of the improvements:
+Microsoft claims that the new Windows App offers improved features compared to the Remote Desktop app. Here are some of the improvements :
 - Unified access : Manage cloud PCs and virtual desktops from a single, simplified interface.
 - Improved usability : Customizable home screens, support for multiple monitors, and dynamic screen resolutions.
 - Improved performance : Device redirection, smoother integration with Microsoft Teams, and easier account switching.<br/><br/>
@@ -46,7 +46,7 @@ For those connecting to remote desktops via the Remote Desktop app, they will ne
 ---
 
 ##### Transition preparation
-Microsoft encourages administrators to prepare their organizations by encouraging Remote Desktop users to begin their transition to the new Windows App. Here are some steps to facilitate this transition:
+Microsoft encourages administrators to prepare their organizations by encouraging Remote Desktop users to begin their transition to the new Windows App. Here are some steps to facilitate this transition :
 - Download the Windows App : Available from the Microsoft Store or directly from the Microsoft website.
 - Test compatibility : Check compatibility with your current setup to avoid surprises.
 - Update internal resources : Update user guides, support documentation, and administrative materials.
@@ -54,7 +54,7 @@ Microsoft encourages administrators to prepare their organizations by encouragin
 ---
 
 ##### Known issues and limitations
-It's important to note that the new Windows App may have functional gaps compared to the Remote Desktop app. Microsoft recommends regularly reviewing the list of known issues and limitations to stay informed of updates and resolutions.
+The new Windows App may still have functional gaps compared to the Remote Desktop app. Microsoft recommends regularly reviewing the list of known issues and limitations to stay informed of updates and resolutions.
 
 ---
 

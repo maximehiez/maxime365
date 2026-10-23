@@ -3,7 +3,7 @@ title: "How to enforce email confidentiality in Exchange"
 meta_title: ""
 description: ""
 date: 2026-09-14T10:00:00-05:00
-image: "/images/blog/exchange/tuto/exchange_how_to_enforce_private_encyption_outbound_emails_thumbnail.png"
+image: "/images/blog/exchange/tuto/exchange_how_to_enforce_private_encryption_outbound_emails_thumbnail.png"
 categories: ["Exchange", "Tutorial"]
 author: "Maxime Hiez"
 tags: ["Security", "Encryption", "PowerShell"]
@@ -35,29 +35,29 @@ Sign in to the Exchange Admin Center by opening your web browser to https://admi
 ##### Step 2 : Create a transport rule
 In the left menu, click *<u>Mail flow</u>*, then *<u>Rules</u>*, and *<u>Add a rule</u>* to create a new rule.
 
-![image](/images/blog/exchange/tuto/exchange_how_to_enforce_private_encyption_outbound_emails_001.png)
+![image](/images/blog/exchange/tuto/exchange_how_to_enforce_private_encryption_outbound_emails_001.png)
 
 Apply the following settings to the rule :
 - <u>Condition #1</u> : *"The sender is a member of this group"* and choose the group containing the management team members.
 - <u>Condition #2</u> : *"The recipient is a member of this group"* and choose the group containing the other relevant members (or all internal people).
 - <u>Action #1</u> : *"Modify the message properties"*, *"set a message header"*, and assign the value *<u>Private</u>* to the *<u>Sensitivity</u>* header.
 
-![image](/images/blog/exchange/tuto/exchange_how_to_enforce_private_encyption_outbound_emails_002.png)
+![image](/images/blog/exchange/tuto/exchange_how_to_enforce_private_encryption_outbound_emails_002.png)
 
 ---
 
 ##### Step 3 : Test the behavior in Outlook
 Here, a user who is a member of the *Exchange_Private_Associates* group sends an email to a member of the *Exchange_Private_Management* group without assigning the *"Private"* attribute.
 
-![image](/images/blog/exchange/tuto/exchange_how_to_enforce_private_encyption_outbound_emails_003.png)
+![image](/images/blog/exchange/tuto/exchange_how_to_enforce_private_encryption_outbound_emails_003.png)
 
 The management team member receives the email with a *"Private"* tag automatically added ...
 
-![image](/images/blog/exchange/tuto/exchange_how_to_enforce_private_encyption_outbound_emails_004.png)
+![image](/images/blog/exchange/tuto/exchange_how_to_enforce_private_encryption_outbound_emails_004.png)
 
 ... but the delegate sees the content of the email without any restriction, through the delegation. The *"Private"* mode does not apply on the new Outlook version or on the web version.
 
-![image](/images/blog/exchange/tuto/exchange_how_to_enforce_private_encyption_outbound_emails_005.png)
+![image](/images/blog/exchange/tuto/exchange_how_to_enforce_private_encryption_outbound_emails_005.png)
 
 ---
 
@@ -65,7 +65,7 @@ The management team member receives the email with a *"Private"* tag automatical
 Edit the Exchange rule and add a setting :
 - <u>Action #2</u> : *"Modify the message security"*, *"Apply Office 365 Message Encryption and rights protection"*, and choose *<u>Encrypt</u>*.
 
-![image](/images/blog/exchange/tuto/exchange_how_to_enforce_private_encyption_outbound_emails_006.png)
+![image](/images/blog/exchange/tuto/exchange_how_to_enforce_private_encryption_outbound_emails_006.png)
 
 <Notice type="info">If *Microsoft Purview Message Encryption* is not enabled, you will not see any encryption options in the list.</Notice>
 
@@ -90,7 +90,7 @@ Set-MailboxIRMAccess -Identity User.3@hiez.ca -User User.1@hiez.ca -AccessLevel 
 ##### Results
 The delegate sees the new emails come in, but this time they are encrypted and unreadable. Emails carrying the *"Private"* attribute before the encryption setup are not affected by this configuration and remain visible.
 
-![image](/images/blog/exchange/tuto/exchange_how_to_enforce_private_encyption_outbound_emails_007.png)
+![image](/images/blog/exchange/tuto/exchange_how_to_enforce_private_encryption_outbound_emails_007.png)
 
 ---
 

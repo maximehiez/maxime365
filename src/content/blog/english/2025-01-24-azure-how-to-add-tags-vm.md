@@ -45,11 +45,11 @@ Click the virtual machine to which you want to apply your tags.
 
 In the left menu, click *<u>Tags</u>*, manually enter the name and value of each tag in the form and click *Apply*.
 
-![image](/images/blog/azure/tuto/azure_how_to_add_tags_vm_004.png)
+![image](/images/blog/azure/tuto/azure_how_to_add_tags_vm_003.png)
 
 Once validated, they will be visible after a few seconds.
 
-![image](/images/blog/azure/tuto/azure_how_to_add_tags_vm_005.png)
+![image](/images/blog/azure/tuto/azure_how_to_add_tags_vm_004.png)
 
 ---
 
@@ -71,7 +71,7 @@ Get-AzVM -Name $VirtualMachineName | Select -ExpandProperty Tags
 In the search bar at the top of the screen, type *<u>Subscritption</u>*, and click the proposed menu. If you have several, click the subscription of your choice.<br/>
 It is possible to track the consumption of your resources in Azure using tags. Note that it is possible to put it on almost all Azure resources (public IPs, network interfaces of virtual machines, resource groups, etc.) which allows for more precise results.
 
-![image](/images/blog/azure/tuto/azure_how_to_add_tags_vm_006.png)
+![image](/images/blog/azure/tuto/azure_how_to_add_tags_vm_005.png)
 
 ---
 

@@ -3,7 +3,7 @@ title: "How to get started with Copilot in Excel"
 meta_title: ""
 description: ""
 date: 2025-02-20T10:00:00-05:00
-image: "/images/blog/copilot/copilot_excel_thumbnail.png"
+image: "/images/blog/copilot/copilot_with_excel_thumbnail.png"
 categories: ["Copilot"]
 author: "Maxime Hiez"
 tags: ["AI", "Excel"]
@@ -19,7 +19,7 @@ draft: false
 ##### What is Copilot in Excel ?
 Copilot in Excel is an AI assistant that helps you work more efficiently with your data. It can generate analytics, create visualizations, automate repetitive tasks, and provide insights based on your data. Copilot uses advanced language models to understand your queries and provide relevant responses.
 
-![image](/images/blog/copilot/copilot_excel_001.png)
+![image](/images/blog/copilot/copilot_with_excel_001.png)
 
 ---
 
@@ -38,7 +38,7 @@ Copilot in Excel is an AI assistant that helps you work more efficiently with yo
 - Copilot can also offer you suggestions based on the context of your spreadsheet. For example, if you are working on a financial data table, Copilot can suggest relevant analyzes or useful visualizations.
 - Click the suggestions to apply them directly to your spreadsheet.
 
-![image](/images/blog/copilot/copilot_excel_002.png)
+![image](/images/blog/copilot/copilot_with_excel_002.png)
 
 ---
 
@@ -57,7 +57,7 @@ Copilot in Excel is an AI assistant that helps you work more efficiently with yo
 - Copilot can create charts and visualizations based on your data. It can choose the most suitable type of chart and customize it according to your needs.
 - Use prompts like *"create quarterly sales bar chart"* or *"generate expense histogram"* to visualize your data clearly and concisely.
 
-![image](/images/blog/copilot/copilot_excel_003.png)
+![image](/images/blog/copilot/copilot_with_excel_003.png)
 
 ---
 
@@ -66,7 +66,7 @@ Copilot in Excel is an AI assistant that helps you work more efficiently with yo
 - Increased accuracy : Using advanced language models, Copilot reduces errors and improves the accuracy of analytics and reporting.
 - Relevant insights : Copilot provides insights based on your data, helping you make informed decisions faster.
 
-![image](/images/blog/copilot/copilot_excel_004.png)
+![image](/images/blog/copilot/copilot_with_excel_004.png)
 
 ---
 

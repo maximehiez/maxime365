@@ -3,7 +3,7 @@ title: "Qualité vidéo Teams améliorée avec la Super Résolution"
 meta_title: ""
 description: ""
 date: 2025-02-06T10:00:00-05:00
-image: "/images/blog/teams/teams_high_quality_video_thumbnail.png"
+image: "/images/blog/teams/teams_high_resolution_quality_video_thumbnail.png"
 categories: ["Teams"]
 author: "Maxime Hiez"
 tags: ["Calendrier", "IA", "Super résolution", "Ignite"]
@@ -19,7 +19,7 @@ Microsoft continue d'innover pour offrir aux utilisateurs la meilleure expérien
 ##### Qu'est-ce que la Super Résolution ?
 La *Super Résolution* utilise l'intelligence artificielle pour améliorer la qualité des vidéos, en particulier lorsque les conditions réseau sont mauvaises. Lorsque la bande passante est limitée, Teams peut transmettre des vidéos de résolution inférieure, ce qui entraîne une diminution de la qualité visuelle. Traditionnellement, Teams utilisait des méthodes de mise à l'échelle conventionnelles, souvent responsables de visuels flous. La *Super Résolution* restaure la résolution vidéo en utilisant l'IA, produisant des images nettement améliorées.
 
-![image](/images/blog/teams/teams_high_quality_video_001.png)
+![image](/images/blog/teams/teams_high_resolution_quality_video_001.png)
 
 ---
 
@@ -31,7 +31,7 @@ Lors d'un appel Teams avec une vidéo entrante de faible résolution (par exempl
 ##### Activation automatique
 La *Super Résolution* est activée automatiquement lorsque la bande passante est limitée, garantissant ainsi une meilleure qualité vidéo sans intervention manuelle. Cependant, cette fonctionnalité est désactivée par défaut lorsque les appareils fonctionnent sur batterie pour économiser l'énergie.
 
-![image](/images/blog/teams/teams_high_quality_video_002.png)
+![image](/images/blog/teams/teams_high_resolution_quality_video_002.png)
 
 ---
 
@@ -50,6 +50,7 @@ L'introduction de la *Super Résolution* dans Microsoft Teams marque une avancé
 
 ---
 
-Avez-vous apprécié cet article ? Vous avez des questions, commentaires ou suggestions, n’hésitez pas à m'envoyer un message depuis le formulaire de contact.
+
+Avez-vous apprécié cet article ? Vous avez des questions, commentaires ou suggestions, n'hésitez pas à m'envoyer un message depuis le formulaire de contact.
 
 N'oubliez pas de nous suivre et de partager cet article.

@@ -16,13 +16,13 @@ Microsoft recently announced the *General Availability* of the Microsoft Entra P
 
 ---
 
-###### Timeline
+##### Timeline
 In 2021, Microsoft announced that the next developments on PowerShell would focus on the *Microsoft Graph PowerShell SDK*.
 
-|   Module   | End of support |           Retirement            |
-| :--------: | :------------: | :-----------------------------: |
-| AzureAD    | March, 30 2025 | After July 1, 2025              |
-| MSOnline   | March, 30 2025 | Early Apr 2025 to late May 2025 |
+| Module   | End of support | Retirement                      |
+| :------: | :------------: | :-----------------------------: |
+| AzureAD  | March, 30 2025 | After July 1, 2025              |
+| MSOnline | March, 30 2025 | Early Apr 2025 to late May 2025 |
 
 ---
 

@@ -6,7 +6,7 @@ date: 2025-03-17T10:00:00-05:00
 image: "/images/blog/entra/entra_conditional_access_policy_impact_thumbnail.png"
 categories: ["Entra ID"]
 author: "Maxime Hiez"
-tags: ["Conditional access", "Security"]
+tags: ["Conditional Access", "Security"]
 draft: false
 ---
 ---
@@ -28,11 +28,12 @@ The conditional access policy impact analysis feature allows administrators to g
 ##### How to create a zero-impact policy ?
 *Report Only* mode is a policy state that allows administrators to test most conditional access policies before enabling them. When a policy is in *Report Only* mode, it is evaluated upon login, but access controls are not enforced. The results of this evaluation are recorded in the login logs.
 
-When a policy is in *Report Only* mode, several outcomes are possible:
+When a policy is in *Report Only* mode, several outcomes are possible :
 - <u>Report Only: Success</u> : All configured policy conditions, required non-interactive lease controls, and session controls have been met.
 - <u>Report Only: Failure</u> : All configured policy conditions have been met, but not all required non-interactive lease controls or session controls.
 - <u>Report Only: User action required</u> : All conditions of the configured policy have been met, but user action would be required to satisfy the required lease or session controls.
 - <u>Report Only: Not applied</u> : Not all conditions of the configured policy have been met.
+
 ---
 
 ##### Benefits of Report Only Mode

@@ -119,7 +119,7 @@ E7 vise surtout trois profils d’organisations :
 Microsoft a annoncé  :
 
 | Licence                           | Prix         | Disponibilité                          |
-| :-------------------------------: | -----------: | -------------------------------------: |
+| :-------------------------------: | :----------: | :------------------------------------: |
 | Microsoft 365 E7 – Frontier Suite | 99$ par mois | Disponibilité générale le 1er Mai 2026 |
 | Agent 365                         | 15$ par mois | Disponibilité générale le 1er Mai 2026 |
 

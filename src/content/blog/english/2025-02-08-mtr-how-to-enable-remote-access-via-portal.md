@@ -3,7 +3,7 @@ title: "How to enable remote access to MTR via Teams Rooms Pro"
 meta_title: ""
 description: ""
 date: 2025-02-08T10:00:00-05:00
-image: "/images/blog/mtr/tuto/mtr_enable_remote_access_via_portal_thumbnail.png"
+image: "/images/blog/mtr/tuto/mtr_how_to_enable_remote_access_via_portal_thumbnail.png"
 categories: ["MTR", "Tutorial"]
 author: "Maxime Hiez"
 tags: ["Teams Rooms", "MTRoW", "Microsoft Teams Rooms Pro Management"]
@@ -61,7 +61,7 @@ In the left menu, click *<u>Identity</u>*, then *<u>Groups</u>*, and *<u>All gro
 
 Click *<u>New group</u>* to create a new security group which will contain the administrators who will have access to the MTR.
 
-![image](/images/blog/mtr/tuto/mtr_enable_remote_access_via_portal_001.png)
+![image](/images/blog/mtr/tuto/mtr_how_to_enable_remote_access_via_portal_001.png)
 
 ---
 
@@ -75,7 +75,7 @@ In the left menu, click *<u>Settings</u>*, then *<u>General</u>*.
 
 Check the *Allow Teams Rooms Pro Management Remote access* box and enter the contact address.
 
-![image](/images/blog/mtr/tuto/mtr_enable_remote_access_via_portal_002.png)
+![image](/images/blog/mtr/tuto/mtr_how_to_enable_remote_access_via_portal_002.png)
 
 ---
 
@@ -84,19 +84,19 @@ In the left menu, click *<u>Settings</u>*, then *<u>Roles</u>*.
 
 Click *<u>Create role</u>*, and give it a name and description.
 
-![image](/images/blog/mtr/tuto/mtr_enable_remote_access_via_portal_003.png)
+![image](/images/blog/mtr/tuto/mtr_how_to_enable_remote_access_via_portal_003.png)
 
 Check the *Modify* box in *<u>Remote Access</u>*.
 
-![image](/images/blog/mtr/tuto/mtr_enable_remote_access_via_portal_004.png)
+![image](/images/blog/mtr/tuto/mtr_how_to_enable_remote_access_via_portal_004.png)
 
 Assign the security group created in step 2.
 
-![image](/images/blog/mtr/tuto/mtr_enable_remote_access_via_portal_005.png)
+![image](/images/blog/mtr/tuto/mtr_how_to_enable_remote_access_via_portal_005.png)
 
 Assign the room(s) to the policy.
 
-![image](/images/blog/mtr/tuto/mtr_enable_remote_access_via_portal_006.png)
+![image](/images/blog/mtr/tuto/mtr_how_to_enable_remote_access_via_portal_006.png)
 
 ---
 
@@ -105,11 +105,11 @@ In the left menu, click *<u>Rooms</u>*, then on the room to which you wish to ga
 
 Click *<u>Start session</u>*.
 
-![image](/images/blog/mtr/tuto/mtr_enable_remote_access_via_portal_007.png)
+![image](/images/blog/mtr/tuto/mtr_how_to_enable_remote_access_via_portal_007.png)
 
 After a few moments of loading, the room should be visible.
 
-![image](/images/blog/mtr/tuto/mtr_enable_remote_access_via_portal_008.png)
+![image](/images/blog/mtr/tuto/mtr_how_to_enable_remote_access_via_portal_008.png)
 
 ---
 

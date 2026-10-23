@@ -17,7 +17,7 @@ Microsoft recently announced a major breakthrough in optimizing Microsoft Teams 
 ---
 
 ##### Key components of the new optimization
-The new optimization is based on four main components that work together to provide an improved user experience:
+The new optimization is based on four main components that work together to provide an improved user experience :
 - Virtual channel : The solution uses three custom virtual channels, which are crucial to allow in Citrix Studio. This configuration is unique but essential for proper operation.
 - Plugin : This small DLL file (220 KB) is installed in the same folder as Citrix Workspace App (CWA) and is responsible for establishing the client-side virtual channel and downloading the new media engine, SlimCore. The plugin can be deployed in several ways, including through the CWA installer, Global App Config Service, Plugin Download Manager (great for personal devices), and even through Intune/SCCM.
 - New version of Teams : Make sure you are using the latest version of Teams (24295.605.3225.8804) and client version (24110115722). This is crucial not only for the functionality to work properly, but also for future updates to the SlimCore media engine.

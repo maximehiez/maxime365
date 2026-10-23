@@ -6,7 +6,7 @@ date: 2025-03-26T10:00:00-05:00
 image: "/images/blog/m365/planner_whats_new_in_planner_march_2025_thumbnail.png"
 categories: ["Planner"]
 author: "Maxime Hiez"
-tags: []
+tags: ["Productivity", "Update"]
 draft: false
 ---
 ---
@@ -43,7 +43,6 @@ An issue has been fixed to ensure that when you open a Basic plan, it continues 
 Microsoft encourages users to share their feedback on new Planner features using the feedback button in the app. User suggestions and comments help inform future updates and continually improve the app.
 
 For more information about new features and updates to Microsoft Planner, you can consult the following resources :
-
 - Planner adoption page : For guides and tips on using Planner.
 - Microsoft 365 roadmap : For feature descriptions and estimated release dates.
 - Planner demos : For inspiration on how to get the most out of the new Planner app in Microsoft Teams.

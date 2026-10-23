@@ -47,8 +47,8 @@ Même les administrateurs locaux ou les utilisateurs privilégiés ne peuvent pa
 ##### Certification AV-Comparatives 2025
 Lors du test anti-tampering 2025 en Avril 2025, AV-Comparatives a soumis Microsoft Defender for Endpoint à une série d’attaques simulées visant à désactiver ou altérer ses protections.
 
-|                                         Test                                         | Résultat  |
-| :----------------------------------------------------------------------------------: | :-------: |
+| Test                                                                                 | Résultat |
+| :----------------------------------------------------------------------------------: | :------: |
 | Processus de l'espace utilisateur (terminer, suspendre, ...)                         | Succès ✅ |
 | Services de l'espace utilisateur (pause, arrêt, désactivation, désinstallation, ...) | Succès ✅ |
 | Clés de registre (supprimer, retirer, renommer, ajouter, ...)                        | Succès ✅ |

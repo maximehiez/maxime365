@@ -33,7 +33,7 @@ When an agent becomes available to take a call, they receive the highest-priorit
 ---
 
 ##### Configuration via PowerShell
-Currently, priority configuration is done exclusively via PowerShell. It's important to note that any subsequent changes via the Microsoft Teams Admin Center will reset the priority to the default value. As with all other new Teams features, this feature will become available via the web interface shortly.
+Currently, priority configuration is done exclusively via PowerShell. However, any later change made in the Microsoft Teams Admin Center resets the priority to the default value. As with all other new Teams features, this feature will become available via the web interface shortly.
 
 ---
 

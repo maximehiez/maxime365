@@ -52,7 +52,7 @@ Anthropic cite plusieurs benchmarks propriétaires ou de partenaires pour positi
 Sur les domaines scientifiques, deux gains spécifiques sont indiqués par rapport à Opus 4.8 :
 
 |                         | Écart vs Opus 4.8 |
-|-------------------------|------------------:|
+| :---------------------: | :---------------: |
 | Chimie organique        | +10.2 pts         |
 | Prédiction de protéines | +7.7 pts          |
 <br/><br/>

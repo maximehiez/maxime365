@@ -3,7 +3,7 @@ title: "Comment sécuriser vos courriels avec les Sensitivity Labels"
 meta_title: ""
 description: ""
 date: 2026-04-06T10:00:00-05:00
-image: "/images/blog/purview/tuto/purview_how_to_secure_emails_with_sensitivity_labels_for_emails_thumbnail.png"
+image: "/images/blog/purview/tuto/purview_how_to_secure_emails_with_sensitivity_labels_thumbnail.png"
 categories: ["Purview", "Tutoriel"]
 author: "Maxime Hiez"
 tags: ["Protection de données", "Gouvernance", "Sensitivity Labels", "Sécurité", "Encryption"]
@@ -28,17 +28,17 @@ Voir l'article de la semaine passée [ICI](https://maxime.hiez.ca/blog/2026-03-3
 ##### Étape 1 : Appliquer les Sensitivity Labels aux courriels
 Faites un 1er courriel et appliquez lui le Sensitivity Label *<u>Advanced encryption</u>*. Pour mon exemple, j'envoie du contenu sensible (numéro de sécurité sociale) à une boite *Gmail* et un utilisateur *Microsoft 365*, deux personnes externes à mon organisation.
 
-![image](/images/blog/purview/tuto/purview_how_to_secure_emails_with_sensitivity_labels_for_emails_001.png)
+![image](/images/blog/purview/tuto/purview_how_to_secure_emails_with_sensitivity_labels_001.png)
 
 On peut voir en-tête que le Sensitivity Label est appliqué.
 
-![image](/images/blog/purview/tuto/purview_how_to_secure_emails_with_sensitivity_labels_for_emails_002.png)
+![image](/images/blog/purview/tuto/purview_how_to_secure_emails_with_sensitivity_labels_002.png)
 
 Faites un 2ème courriel et appliquez lui le Sensitivity Label *<u>Basic encryption</u>*.
 
 J'envoie cette fois ci du contenu moins sensible (un numéro de téléphone) aux deux mêmes personnes.
 
-![image](/images/blog/purview/tuto/purview_how_to_secure_emails_with_sensitivity_labels_for_emails_003.png)
+![image](/images/blog/purview/tuto/purview_how_to_secure_emails_with_sensitivity_labels_003.png)
 
 ---
 
@@ -47,42 +47,42 @@ L'utilisateur Microsoft 365 reçoit les 2 courriels avec une icône de cadenas.
 
 Celui avec le Sensitivity Label *<u>Advanced encryption</u>* contenant le numéro de sécurité sociale, indique qu'il est chiffré et que le transfert est désactivé (on voit bien l'icône grisée).
 
-![image](/images/blog/purview/tuto/purview_how_to_secure_emails_with_sensitivity_labels_for_emails_004.png)
+![image](/images/blog/purview/tuto/purview_how_to_secure_emails_with_sensitivity_labels_004.png)
 
 Celui avec le Sensitivity Label *<u>Basic encryption</u>* contenant le numéro de téléphone, indique qu'il est chiffré. Le transfert est permis sur celui-ci.
 
-![image](/images/blog/purview/tuto/purview_how_to_secure_emails_with_sensitivity_labels_for_emails_005.png)
+![image](/images/blog/purview/tuto/purview_how_to_secure_emails_with_sensitivity_labels_005.png)
 
 ---
 
 ##### Étape 3 : Valider le résultat sur Gmail
 L'utilisateur Gmail reçoit les mêmes 2 courriels.
 
-![image](/images/blog/purview/tuto/purview_how_to_secure_emails_with_sensitivity_labels_for_emails_006.png)
+![image](/images/blog/purview/tuto/purview_how_to_secure_emails_with_sensitivity_labels_006.png)
 
 Celui avec le Sensitivity Label *<u>Advanced encryption</u>* indique qu'il est protégé et un bouton *Read the message* est affiché pour accéder au message.
 
-![image](/images/blog/purview/tuto/purview_how_to_secure_emails_with_sensitivity_labels_for_emails_007.png)
+![image](/images/blog/purview/tuto/purview_how_to_secure_emails_with_sensitivity_labels_007.png)
 
 Puisque Gmail n'est pas un système natif Microsoft, l'utilisateur doit se connecter. Ici, je choisis de le faire via un *One-time passcode*.
 
-![image](/images/blog/purview/tuto/purview_how_to_secure_emails_with_sensitivity_labels_for_emails_008.png)
+![image](/images/blog/purview/tuto/purview_how_to_secure_emails_with_sensitivity_labels_008.png)
 
 Un code à 8 chiffres est envoyé ...
 
-![image](/images/blog/purview/tuto/purview_how_to_secure_emails_with_sensitivity_labels_for_emails_009.png)
+![image](/images/blog/purview/tuto/purview_how_to_secure_emails_with_sensitivity_labels_009.png)
 
 ... et je l'utilise pour me connecter.
 
-![image](/images/blog/purview/tuto/purview_how_to_secure_emails_with_sensitivity_labels_for_emails_010.png)
+![image](/images/blog/purview/tuto/purview_how_to_secure_emails_with_sensitivity_labels_010.png)
 
 J'accède maintenant au courriel chiffré, et comme pour l'utilisateur Microsoft 365, il est chiffré et le transfert est désactivé.
 
-![image](/images/blog/purview/tuto/purview_how_to_secure_emails_with_sensitivity_labels_for_emails_011.png)
+![image](/images/blog/purview/tuto/purview_how_to_secure_emails_with_sensitivity_labels_011.png)
 
 En suivant la même logique, j'accède au 2èe courriel. Il est chiffré et le transfert est permis.
 
-![image](/images/blog/purview/tuto/purview_how_to_secure_emails_with_sensitivity_labels_for_emails_012.png)
+![image](/images/blog/purview/tuto/purview_how_to_secure_emails_with_sensitivity_labels_012.png)
 
 ---
 

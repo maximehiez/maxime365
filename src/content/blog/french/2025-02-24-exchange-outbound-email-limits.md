@@ -35,7 +35,7 @@ Voici un aperçu des nouvelles limites :
 Les destinataires externes sont ceux dont les domaines d'adresse courriels ne sont pas des domaines acceptés dans le tenant. Les limites TERRL établissent des limites de base pour tous les tenant, mais des restrictions supplémentaires peuvent également survenir en raison de comportements d'envoi suspects, d'envoi de spam, de paiements frauduleux ou excessivement tardifs, etc.<br/><br/>
 
 | Nombre de licences | Limite d'envoi |
-| :----------------: | -------------: |
+| :----------------: | :------------: |
 | 1                  | 10000          |
 | 2                  | 10312          |
 | 10                 | 12006          |
@@ -53,8 +53,8 @@ Les destinataires externes sont ceux dont les domaines d'adresse courriels ne so
 ##### Calendrier de déploiement
 Le déploiement des nouvelles limites TERRL se fera en 4 phases :
 
-| Phase |       Type de tenant        |     Date     |
-| :---: | --------------------------: | -----------: |
+| Phase | Type de tenant              | Date         |
+| :---: | :-------------------------: | :----------: |
 | 1     | Tenants avec ≤ 25 licences  | 3 Mars 2025  |
 | 2     | Tenants avec ≤ 200 licences | 10 Mars 2025 |
 | 3     | Tenants avec ≤ 500 licences | 17 Mars 2025 |

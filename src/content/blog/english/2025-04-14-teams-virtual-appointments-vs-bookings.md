@@ -66,7 +66,7 @@ Virtual appointments in Microsoft Teams and the Bookings app offer valuable feat
 ---
 
 ##### Sources
-[Microsoft Techcommunity](https://techcommunity.microsoft.com/blog/nonprofittechies/virtual-appointments-in-microsoft-teams-vs-bookings-app-which-is-right-for-your-/4397208)
+[Microsoft - Techcommunity](https://techcommunity.microsoft.com/blog/nonprofittechies/virtual-appointments-in-microsoft-teams-vs-bookings-app-which-is-right-for-your-/4397208)
 
 [Microsoft - Techcommunity](https://techcommunity.microsoft.com/blog/nonprofittechies/using-virtual-appointment-in-teams/4397206)
 

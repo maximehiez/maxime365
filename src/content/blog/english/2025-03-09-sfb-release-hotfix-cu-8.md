@@ -11,6 +11,7 @@ draft: false
 ---
 ---
 
+##### Introduction
 Microsoft has just released a hotfix for Skype for Business Server (7.0.2046.548 CU8HF1). Since the update with *Cumulative Update 8* (December 2024), an issue caused meeting join failure in some cases when using the application. This issue is resolved with the installation of this update.
 
 ---

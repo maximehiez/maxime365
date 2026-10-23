@@ -3,7 +3,7 @@ title: "La signature électronique avec SharePoint eSignature pour Word"
 meta_title: ""
 description: ""
 date: 2025-06-13T10:00:00-05:00
-image: "/images/blog/sharepoint/sharepoint_esignaturefor_word_thumbnail.png"
+image: "/images/blog/sharepoint/sharepoint_esignature_for_word_thumbnail.png"
 categories: ["SharePoint"]
 author: "Maxime Hiez"
 tags: ["Word", "Signature", "PDF"]
@@ -19,7 +19,7 @@ Microsoft franchit une nouvelle étape dans l’intégration de ses services de 
 ##### Une signature électronique intégrée à Word
 Grâce à cette nouveauté, les utilisateurs peuvent insérer des champs de signature dans leurs documents Word, puis envoyer une demande de signature sans quitter l’interface familière de Word. L’option est accessible depuis l’onglet *Insertion* du ruban, à condition que le document soit stocké dans un site SharePoint avec eSignature activé.
 
-![image](/images/blog/sharepoint/sharepoint_esignaturefor_word_001.png)
+![image](/images/blog/sharepoint/sharepoint_esignature_for_word_001.png)
 
 Une fois la demande envoyée :
 - Un PDF est automatiquement généré à partir du document Word
@@ -38,14 +38,14 @@ Les administrateurs peuvent :
 - Suivre les activités via les logs d’audit
 - Gérer les accès externes pour permettre la signature par des parties tierces
 
-![image](/images/blog/sharepoint/sharepoint_esignaturefor_word_002.png)
+![image](/images/blog/sharepoint/sharepoint_esignature_for_word_002.png)
 
 ---
 
 ##### Réutilisation et automatisation
 Les documents Word peuvent être enregistrés comme modèles de signature, facilitant les processus répétitifs (contrats, formulaires RH, ...). De plus, les utilisateurs reçoivent des notifications par courriel à chaque étape du processus, et peuvent suivre l’état de la demande dans l’interface Word ou SharePoint.
 
-![image](/images/blog/sharepoint/sharepoint_esignaturefor_word_003.png)
+![image](/images/blog/sharepoint/sharepoint_esignature_for_word_003.png)
 
 ---
 
@@ -54,7 +54,7 @@ La fonctionnalité est en cours de déploiement pour les utilisateurs des canaux
 
 Elle vient compléter l’offre existante de SharePoint eSignature, qui permettait déjà de signer des PDF via des intégrations avec *Adobe Acrobat Sign* et *DocuSign*.
 
-![image](/images/blog/sharepoint/sharepoint_esignaturefor_word_004.png)
+![image](/images/blog/sharepoint/sharepoint_esignature_for_word_004.png)
 
 ---
 

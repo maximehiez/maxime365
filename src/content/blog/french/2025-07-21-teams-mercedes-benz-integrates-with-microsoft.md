@@ -3,7 +3,7 @@ title: "Mercedes-Benz, votre voiture devient un bureau roulant"
 meta_title: ""
 description: ""
 date: 2025-07-21T10:00:00-05:00
-image: "/images/blog/teams/teams_mercedes_benz_integrates_with_Microsoft_thumbnail.png"
+image: "/images/blog/teams/teams_mercedes_benz_integrates_with_microsoft_thumbnail.png"
 categories: ["Teams"]
 author: "Maxime Hiez"
 tags: ["IA", "Rencontre"]
@@ -21,7 +21,7 @@ La nouvelle application *Meetings for Teams*, embarquée sur le système *MB.OS/
 
 Les participants à distance verront le conducteur, tandis que celui-ci reste fixé sur la route. La caméra peut aussi être désactivée manuellement.
 
-![image](/images/blog/teams/teams_mercedes_benz_integrates_with_Microsoft_001.png)
+![image](/images/blog/teams/teams_mercedes_benz_integrates_with_microsoft_001.png)
 
 ---
 
@@ -30,7 +30,7 @@ Mercedes-Benz est le premier constructeur à intégrer nativement Microsoft Intu
 
 Ainsi, la voiture devient un poste de travail mobile conforme aux standards d’entreprise, comme un cellulaire professionnel.
 
-![image](/images/blog/teams/teams_mercedes_benz_integrates_with_Microsoft_003.png)
+![image](/images/blog/teams/teams_mercedes_benz_integrates_with_microsoft_002.png)
 
 ---
 
@@ -43,7 +43,7 @@ Très bientôt, Microsoft Copilot s’intègrera aux futurs modèles Mercedes. P
 
 Une première mondiale : un assistant IA complet dans un véhicule, pour transformer votre trajet en moments productifs.
 
-![image](/images/blog/teams/teams_mercedes_benz_integrates_with_Microsoft_002.png)
+![image](/images/blog/teams/teams_mercedes_benz_integrates_with_microsoft_003.png)
 
 ---
 

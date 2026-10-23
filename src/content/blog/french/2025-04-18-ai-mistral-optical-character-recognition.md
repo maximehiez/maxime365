@@ -52,15 +52,15 @@ Mistral OCR a constamment surpassé les autres modèles OCR leaders dans des tes
 Mistral OCR se distingue par sa capacité à comprendre et à transcrire des documents complexes avec une précision inégalée. Contrairement à d'autres modèles OCR, Mistral OCR peut traiter des éléments multimodaux et multilingues, offrant ainsi une solution complète pour la compréhension des documents.
 
 
-|        Modèle        | Général | Mathématiques | Multilingue | Scan  | Tableaux |
-| :------------------: | :-----: | ------------: | ----------: | ----: | -------: |
-| Google Document AI   | 83.42   | 80.29         | 86.42       | 92.77 | 78.16    |
-| Azure OCR            | 89.52   | 85.72         | 87.52       | 94.65 | 89.52    |
-| Gemini-1.5-Flash-00  | 90.23   | 89.11         | 86.76       | 94.87 | 90.48    |
-| Gemini-1.5-Pro-002   | 89.92   | 88.48         | 86.33       | 96.15 | 89.71    |
-| Gemini-2.0-Flash-00  | 88.69   | 84.18         | 85.80       | 95.11 | 91.46    |
-| GPT-4o-2024-11-20    | 89.77   | 87.55         | 86.00       | 94.58 | 91.70    |
-| Mistral OCR 2503     | 94.89   | 94.29         | 89.55       | 98.96 | 96.12    |
+| Modèle              | Général | Mathématiques | Multilingue | Scan  | Tableaux |
+| :-----------------: | :-----: | :-----------: | :---------: | :---: | :------: |
+| Google Document AI  | 83.42   | 80.29         | 86.42       | 92.77 | 78.16    |
+| Azure OCR           | 89.52   | 85.72         | 87.52       | 94.65 | 89.52    |
+| Gemini-1.5-Flash-00 | 90.23   | 89.11         | 86.76       | 94.87 | 90.48    |
+| Gemini-1.5-Pro-002  | 89.92   | 88.48         | 86.33       | 96.15 | 89.71    |
+| Gemini-2.0-Flash-00 | 88.69   | 84.18         | 85.80       | 95.11 | 91.46    |
+| GPT-4o-2024-11-20   | 89.77   | 87.55         | 86.00       | 94.58 | 91.70    |
+| Mistral OCR 2503    | 94.89   | 94.29         | 89.55       | 98.96 | 96.12    |
 
 ---
 

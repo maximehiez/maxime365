@@ -3,7 +3,7 @@ title: "Electronic signature with SharePoint eSignature for Word"
 meta_title: ""
 description: ""
 date: 2025-06-13T10:00:00-05:00
-image: "/images/blog/sharepoint/sharepoint_esignaturefor_word_thumbnail.png"
+image: "/images/blog/sharepoint/sharepoint_esignature_for_word_thumbnail.png"
 categories: ["SharePoint"]
 author: "Maxime Hiez"
 tags: ["Word", "Signature", "PDF"]
@@ -19,7 +19,7 @@ Microsoft is taking the next step in integrating its productivity services with 
 ##### An electronic signature integrated into Word
 With this new feature, users can insert signature fields into their Word documents and then send a signature request without leaving the familiar Word interface. This option is accessible from the *Insert* tab of the ribbon, provided the document is stored on a SharePoint site with eSignature enabled.
 
-![image](/images/blog/sharepoint/sharepoint_esignaturefor_word_001.png)
+![image](/images/blog/sharepoint/sharepoint_esignature_for_word_001.png)
 
 Once the request is submitted :
 - A PDF is automatically generated from the Word document
@@ -38,14 +38,14 @@ Administrators can :
 - Track activities via audit logs
 - Manage external access to allow signing by third parties
 
-![image](/images/blog/sharepoint/sharepoint_esignaturefor_word_002.png)
+![image](/images/blog/sharepoint/sharepoint_esignature_for_word_002.png)
 
 ---
 
 ##### Reuse and automation
 Word documents can be saved as signature templates, facilitating repetitive processes (contracts, HR forms, etc.). Additionally, users receive email notifications at every step of the process, and can track the status of the request in the Word or SharePoint interface.
 
-![image](/images/blog/sharepoint/sharepoint_esignaturefor_word_003.png)
+![image](/images/blog/sharepoint/sharepoint_esignature_for_word_003.png)
 
 ---
 
@@ -54,7 +54,7 @@ The feature is currently rolling out to users in the Microsoft 365 *Beta* and *C
 
 It complements the existing SharePoint eSignature offering, which already allowed signing PDFs via integrations with *Adobe Acrobat Sign* and *DocuSign*.
 
-![image](/images/blog/sharepoint/sharepoint_esignaturefor_word_004.png)
+![image](/images/blog/sharepoint/sharepoint_esignature_for_word_004.png)
 
 ---
 

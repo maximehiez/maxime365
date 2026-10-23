@@ -14,7 +14,7 @@ draft: false
 ##### Introduction
 Microsoft Teams offre une fonctionnalité puissante pour la gestion des *rendez-vous virtuels*, permettant aux organisations de planifier et de gérer efficacement leurs engagements avec les clients. En parallèle, l'application Microsoft *Bookings*, dont je vous ai parlé en Février dernier, propose une solution complète pour la gestion des rendez-vous. Cet article explore les fonctionnalités des rendez-vous virtuels dans Microsoft Teams et compare cette solution avec l'application Bookings pour aider les organisations à choisir l'outil le mieux adapté à leurs besoins.
 
-Voir l'article de Février 2025 [ICI](https://maxime.hiez.ca/en/blog/2025-02-18-bookings-intro-bookings).
+Voir l'article de Février 2025 [ICI](https://maxime.hiez.ca/blog/2025-02-18-bookings-intro-bookings).
 
 ---
 
@@ -66,7 +66,7 @@ Les rendez-vous virtuels dans Microsoft Teams et l'application Bookings offrent 
 ---
 
 ##### Sources
-[Microsoft Techcommunity](https://techcommunity.microsoft.com/blog/nonprofittechies/virtual-appointments-in-microsoft-teams-vs-bookings-app-which-is-right-for-your-/4397208)
+[Microsoft - Techcommunity](https://techcommunity.microsoft.com/blog/nonprofittechies/virtual-appointments-in-microsoft-teams-vs-bookings-app-which-is-right-for-your-/4397208)
 
 [Microsoft - Techcommunity](https://techcommunity.microsoft.com/blog/nonprofittechies/using-virtual-appointment-in-teams/4397206)
 

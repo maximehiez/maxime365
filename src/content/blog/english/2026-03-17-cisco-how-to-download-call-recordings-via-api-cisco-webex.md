@@ -3,7 +3,7 @@ title: "How to download Cisco Webex recorded calls via API"
 meta_title: ""
 description: ""
 date: 2026-03-17T10:00:00-05:00
-image: "/images/blog/cisco/tuto/cisco_how_to_download_call_recordings_cisco_webex_via_api_thumbnail.png"
+image: "/images/blog/cisco/tuto/cisco_how_to_download_call_recordings_via_api_cisco_webex_thumbnail.png"
 categories: ["Cisco", "Tutorial"]
 author: "Maxime Hiez"
 tags: ["Telephony", "Recording", "Webex", "Contact Center", "API", "Postman"]
@@ -40,11 +40,11 @@ In the *My Webex Apps* menu, create a new API integration. Set a name, descripti
 
 Enter the value *https://oauth.pstmn.io/v1/callback* in the *Redirect URI(s)* attribute, and check the 4 boxes *cjp:config*, *cjp:config_write*, *cjp:config_read* and *cjp:user*.
 
-![image](/images/blog/cisco/tuto/cisco_how_to_download_call_recordings_cisco_webex_via_api_001.png)
+![image](/images/blog/cisco/tuto/cisco_how_to_download_call_recordings_via_api_cisco_webex_001.png)
 
 Save the values ​​*Client ID*, *Client Secret* and *OAuth Authorization URL*.
 
-![image](/images/blog/cisco/tuto/cisco_how_to_download_call_recordings_cisco_webex_via_api_002.png)
+![image](/images/blog/cisco/tuto/cisco_how_to_download_call_recordings_via_api_cisco_webex_002.png)
 
 ---
 
@@ -55,11 +55,11 @@ Paste the *Client ID*, *Client Secret* and *Scope* values ​​copied in the pr
 
 Enter the values ​​*https://oauth.pstmn.io/v1/callback*, *https://webexapis.com/v1/authorize* and *https://webexapis.com/v1/access_token* in the attributes *Callback URL*, *Auth URL* and *Access token URL*.
 
-![image](/images/blog/cisco/tuto/cisco_how_to_download_call_recordings_cisco_webex_via_api_003.png)
+![image](/images/blog/cisco/tuto/cisco_how_to_download_call_recordings_via_api_cisco_webex_003.png)
 
 If all the information is entered correctly, Postman will send an authentication popup to connect to Cisco Webex and then validate the token.
 
-![image](/images/blog/cisco/tuto/cisco_how_to_download_call_recordings_cisco_webex_via_api_004.png)
+![image](/images/blog/cisco/tuto/cisco_how_to_download_call_recordings_via_api_cisco_webex_004.png)
 
 ---
 
@@ -83,11 +83,11 @@ Enter the query below :
 
 Click *Send* to get the *filePath* to download the recording.
 
-![image](/images/blog/cisco/tuto/cisco_how_to_download_call_recordings_cisco_webex_via_api_005.png)
+![image](/images/blog/cisco/tuto/cisco_how_to_download_call_recordings_via_api_cisco_webex_005.png)
 
 You can download the file locally.
 
-![image](/images/blog/cisco/tuto/cisco_how_to_download_call_recordings_cisco_webex_via_api_006.png)
+![image](/images/blog/cisco/tuto/cisco_how_to_download_call_recordings_via_api_cisco_webex_006.png)
 
 ---
 

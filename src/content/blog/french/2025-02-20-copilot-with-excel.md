@@ -3,7 +3,7 @@ title: "Comment démarrer avec Copilot dans Excel"
 meta_title: ""
 description: ""
 date: 2025-02-20T10:00:00-05:00
-image: "/images/blog/copilot/copilot_excel_thumbnail.png"
+image: "/images/blog/copilot/copilot_with_excel_thumbnail.png"
 categories: ["Copilot"]
 author: "Maxime Hiez"
 tags: ["IA", "Excel"]
@@ -19,7 +19,7 @@ draft: false
 ##### Qu'est-ce que Copilot dans Excel ?
 Copilot dans Excel est un assistant IA qui vous aide à travailler plus efficacement avec vos données. Il peut générer des analyses, créer des visualisations, automatiser des tâches répétitives et fournir des informations basées sur vos données. Copilot utilise des modèles de langage avancés pour comprendre vos requêtes et fournir des réponses pertinentes.
 
-![image](/images/blog/copilot/copilot_excel_001.png)
+![image](/images/blog/copilot/copilot_with_excel_001.png)
 
 ---
 
@@ -38,12 +38,11 @@ Copilot dans Excel est un assistant IA qui vous aide à travailler plus efficace
 - Copilot peut également vous proposer des suggestions basées sur le contexte de votre feuille de calcul. Par exemple, si vous travaillez sur un tableau de données financières, Copilot peut suggérer des analyses pertinentes ou des visualisations utiles.
 - Cliquez sur les suggestions pour les appliquer directement à votre feuille de calcul.
 
-![image](/images/blog/copilot/copilot_excel_002.png)
+![image](/images/blog/copilot/copilot_with_excel_002.png)
 
 ---
 
 ##### Fonctionnalités clés de Copilot dans Excel
-
 **<u>Analyse des données</u>**
 - Copilot peut analyser vos données et fournir des informations précieuses. Par exemple, il peut identifier des tendances, des anomalies ou des corrélations dans vos données.
 - Utilisez des prompts comme *"analyse des ventes par région"* ou *"identifier les tendances de croissance"* pour obtenir des analyses détaillées.
@@ -58,7 +57,7 @@ Copilot dans Excel est un assistant IA qui vous aide à travailler plus efficace
 - Copilot peut créer des graphiques et des visualisations basés sur vos données. Il peut choisir le type de graphique le plus approprié et le personnaliser selon vos besoins.
 - Utilisez des prompts comme *"créer un graphique à barres des ventes trimestrielles"* ou *"générer un histogramme des dépenses"* pour visualiser vos données de manière claire et concise.
 
-![image](/images/blog/copilot/copilot_excel_003.png)
+![image](/images/blog/copilot/copilot_with_excel_003.png)
 
 ---
 
@@ -67,7 +66,7 @@ Copilot dans Excel est un assistant IA qui vous aide à travailler plus efficace
 - Précision accrue : En utilisant des modèles de langage avancés, Copilot réduit les erreurs et améliore la précision des analyses et des rapports.
 - Informations pertinents : Copilot fournit des informations basées sur vos données, vous aidant à prendre des décisions éclairées plus rapidement.
 
-![image](/images/blog/copilot/copilot_excel_004.png)
+![image](/images/blog/copilot/copilot_with_excel_004.png)
 
 ---
 

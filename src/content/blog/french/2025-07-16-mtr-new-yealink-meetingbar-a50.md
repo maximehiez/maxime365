@@ -61,7 +61,7 @@ Elle offre également un obturateur de confidentialité électronique pour la ca
 ---
 
 ##### Comparaison avec la MeetingBar A40
-| Caractéristique |         MeetingBar A40         |             MeetingBar A50              |
+| Caractéristique | MeetingBar A40                 | MeetingBar A50                          |
 | :-------------: | :----------------------------: | :-------------------------------------: |
 | Taille de salle | Petite à moyenne (≤10 pers.)   | Moyenne à grande (10–20+ pers.)         |
 | Caméras         | Double 48MP                    | Triple 50MP                             |

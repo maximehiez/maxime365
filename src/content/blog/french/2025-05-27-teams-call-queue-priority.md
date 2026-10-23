@@ -33,7 +33,7 @@ Lorsqu'un agent devient disponible pour prendre un appel, il reçoit l'appel pri
 ---
 
 ##### Configuration via PowerShell
-Actuellement, la configuration des priorités s’effectue exclusivement via PowerShell. Il est important de noter que toute modification ultérieure via le Microsoft Teams Admin Center réinitialisera la priorité à la valeur par défaut. Comme pour toutes les autres nouvelles fonctionnalités de Teams, elle deviendra disponible via l'interface web rapidement.
+Actuellement, la configuration des priorités s’effectue exclusivement via PowerShell. Toute modification ultérieure via le Microsoft Teams Admin Center réinitialise toutefois la priorité à la valeur par défaut. Comme pour toutes les autres nouvelles fonctionnalités de Teams, elle deviendra disponible via l'interface web rapidement.
 
 ---
 

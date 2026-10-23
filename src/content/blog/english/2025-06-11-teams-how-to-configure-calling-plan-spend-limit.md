@@ -2,7 +2,7 @@
 title: "How to configure a calling plan spend limit in Teams"
 meta_title: ""
 description: ""
-date: 2025-06-11T11:00:00-05:00
+date: 2025-06-11T10:00:00-05:00
 image: "/images/blog/teams/tuto/teams_how_to_configure_calling_plan_spend_limit_thumbnail.png"
 categories: ["Teams", "Tutorial"]
 author: "Maxime Hiez"

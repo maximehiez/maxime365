@@ -3,7 +3,7 @@ title: "Comment forcer la confidentialité des courriels dans Exchange"
 meta_title: ""
 description: ""
 date: 2026-09-14T10:00:00-05:00
-image: "/images/blog/exchange/tuto/exchange_how_to_enforce_private_encyption_outbound_emails_thumbnail.png"
+image: "/images/blog/exchange/tuto/exchange_how_to_enforce_private_encryption_outbound_emails_thumbnail.png"
 categories: ["Exchange", "Tutoriel"]
 author: "Maxime Hiez"
 tags: ["Sécurité", "Encryption", "PowerShell"]
@@ -35,29 +35,29 @@ Connectez-vous au Exchange Admin Center en ouvrant votre navigateur web sur http
 ##### Étape 2 : Créer une règle de transport
 Dans le menu de gauche, cliquez sur *<u>Mail flow</u>*, puis sur *<u>Rules</u>*, et sur *<u>Add a rule</u>* pour créer une nouvelle règle.
 
-![image](/images/blog/exchange/tuto/exchange_how_to_enforce_private_encyption_outbound_emails_001.png)
+![image](/images/blog/exchange/tuto/exchange_how_to_enforce_private_encryption_outbound_emails_001.png)
 
 Appliquez les paramètres suivants à la règle :
 - <u>Condition #1</u> : *"The sender is a member of this group"* et choisissez le groupe contenant les membres de la direction.
 - <u>Condition #2</u> : *"The recipient is a member of this group"* et choisissez le groupe contenant les autres membres concernés (ou toutes les personnes internes).
 - <u>Action #1</u> : *"Modify the message properties"*, *"set a message header"*, et assignez la valeur *<u>Private</u>* à l'entête *<u>Sensitivity</u>*.
 
-![image](/images/blog/exchange/tuto/exchange_how_to_enforce_private_encyption_outbound_emails_002.png)
+![image](/images/blog/exchange/tuto/exchange_how_to_enforce_private_encryption_outbound_emails_002.png)
 
 ---
 
 ##### Étape 3 : Tester le fonctionnement dans Outlook
 Ici, l'utilisateur membre du groupe *Exchange_Private_Associates* envoie un courriel à un membre du groupe *Exchange_Private_Management* sans attribuer l'attribut *"Private"*. 
 
-![image](/images/blog/exchange/tuto/exchange_how_to_enforce_private_encyption_outbound_emails_003.png)
+![image](/images/blog/exchange/tuto/exchange_how_to_enforce_private_encryption_outbound_emails_003.png)
 
 Le membre de la direction reçoit le courriel avec un tag *"Private"* automatiquement ajouté ...
 
-![image](/images/blog/exchange/tuto/exchange_how_to_enforce_private_encyption_outbound_emails_004.png)
+![image](/images/blog/exchange/tuto/exchange_how_to_enforce_private_encryption_outbound_emails_004.png)
 
 ... mais le délégué voit le contenu du courriel sans aucune restriction, au travers de la délégation. Le mode *"Private"* ne s'applique pas sur la nouvelle version Outlook ainsi que la version web. 
 
-![image](/images/blog/exchange/tuto/exchange_how_to_enforce_private_encyption_outbound_emails_005.png)
+![image](/images/blog/exchange/tuto/exchange_how_to_enforce_private_encryption_outbound_emails_005.png)
 
 ---
 
@@ -65,7 +65,7 @@ Le membre de la direction reçoit le courriel avec un tag *"Private"* automatiqu
 Éditez la règle Exchange et ajouter un paramètre :
 - <u>Action #2</u> : *"Modify the message security"*, *"Apply Office 365 Message Encryption and rights protection"*, et choisissez *<u>Encrypt</u>*.
 
-![image](/images/blog/exchange/tuto/exchange_how_to_enforce_private_encyption_outbound_emails_006.png)
+![image](/images/blog/exchange/tuto/exchange_how_to_enforce_private_encryption_outbound_emails_006.png)
 
 <Notice type="info">Si *Microsoft Purview Message Encryption* n'est pas activé, vous ne verrez aucune option de chiffrement dans la liste.</Notice>
 
@@ -90,7 +90,7 @@ Set-MailboxIRMAccess -Identity User.3@hiez.ca -User User.1@hiez.ca -AccessLevel 
 ##### Résultats
 Le délégué voit les nouveaux courriels entrer mais ils sont cette fois-ci chiffrés et non lisibles. Les courriels avec l'attribut *"Private"* avant l'encryption ne sont pas concernés par la configuration et sont toujours visibles.
 
-![image](/images/blog/exchange/tuto/exchange_how_to_enforce_private_encyption_outbound_emails_007.png)
+![image](/images/blog/exchange/tuto/exchange_how_to_enforce_private_encryption_outbound_emails_007.png)
 
 ---
 

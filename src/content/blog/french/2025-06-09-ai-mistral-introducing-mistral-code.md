@@ -29,6 +29,8 @@ Le tout est intégré dans une interface fluide compatible avec *VS Code* et les
 
 -----
 
+---
+
 ##### Fonctionnalités clés
 Mistral Code se distingue par une combinaison de puissance et de contrôle :
 - Complétion intelligente : Suggestions en temps réel, multi-lignes, adaptées au contexte du projet.

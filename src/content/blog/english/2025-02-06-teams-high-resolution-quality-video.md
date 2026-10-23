@@ -3,10 +3,10 @@ title: "Improved Teams video quality with Super Resolution"
 meta_title: ""
 description: ""
 date: 2025-02-06T10:00:00-05:00
-image: "/images/blog/teams/teams_high_quality_video_thumbnail.png"
+image: "/images/blog/teams/teams_high_resolution_quality_video_thumbnail.png"
 categories: ["Teams"]
 author: "Maxime Hiez"
-tags: ["Calendrier", "AI", "Super resolution", "Ignite"]
+tags: ["Calendar", "AI", "Super resolution", "Ignite"]
 draft: false
 ---
 ---
@@ -19,7 +19,7 @@ Microsoft continues to innovate to provide users with the best possible virtual 
 ##### What is Super Resolution ?
 *Super Resolution* uses artificial intelligence to improve video quality, especially in poor network conditions. When bandwidth is limited, Teams may transmit lower resolution videos, resulting in lower visual quality. Traditionally, Teams used conventional scaling methods, often responsible for blurry visuals. *Super Resolution* restores video resolution using AI, producing significantly improved images.
 
-![image](/images/blog/teams/teams_high_quality_video_001.png)
+![image](/images/blog/teams/teams_high_resolution_quality_video_001.png)
 
 ---
 
@@ -31,7 +31,7 @@ During a Teams call with low resolution incoming video (e.g. 360p), *Super Resol
 ##### Automatic activation
 *Super Resolution* is automatically enabled when bandwidth is limited, ensuring better video quality without manual intervention. However, this feature is disabled by default when devices are running on battery power to save power.
 
-![image](/images/blog/teams/teams_high_quality_video_002.png)
+![image](/images/blog/teams/teams_high_resolution_quality_video_002.png)
 
 ---
 

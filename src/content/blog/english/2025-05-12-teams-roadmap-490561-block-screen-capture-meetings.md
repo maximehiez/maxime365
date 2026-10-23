@@ -34,7 +34,7 @@ While Microsoft has not yet released all the details, it is likely that this fea
 ---
 
 ##### Feature limitations
-It's important to note that even if screenshots are blocked, sensitive information shared in Teams meetings can still be captured by taking a picture of the screen with another device, such as a smartphone. This protective measure cannot completely prevent the capture of shared information, but it significantly reduces the risks.
+Even with screenshots blocked, sensitive information shared in Teams meetings can still be captured by photographing the screen with another device, such as a smartphone. This protective measure cannot completely prevent the capture of shared information, but it significantly reduces the risks.
 
 ---
 

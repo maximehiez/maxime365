@@ -39,11 +39,11 @@ Sur le plan des performances brutes, Mistral annonce une réduction de latence d
 ##### Benchmarks
 En l'absence de rapport technique officiel au moment de l'annonce, les résultats ci-dessous proviennent de sources secondaires et de publications Mistral. Ils donnent une indication de positionnement mais ne constituent pas une évaluation complète et indépendante.
 
-|               | Mistral Small 4                      | GPT-4o-mini |
-|---------------|--------------------------------------|-------------|
-| GPQA Diamond  | 71.2%                                | 40.2%       |
-| MMLU-Pro      | 78.0%                                | 64.8%       |
-| LiveCodeBench | Surpasse GPT-OSS 120B (−20% tokens)  | -           |
+|               | Mistral Small 4                     | GPT-4o-mini |
+| :-----------: | :---------------------------------: | :---------: |
+| GPQA Diamond  | 71.2%                               | 40.2%       |
+| MMLU-Pro      | 78.0%                               | 64.8%       |
+| LiveCodeBench | Surpasse GPT-OSS 120B (−20% tokens) | -           |
 
 Sur le benchmark *AA LCR* (longueur de réponse pondérée), *Small 4* obtient un score de 0.72 pour 1 600 caractères, contre des plages de 5 800 à 6 100 caractères pour *Qwen 3.5-122B*, ce qui reflète une concision marquée des réponses.
 

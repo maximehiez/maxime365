@@ -3,7 +3,7 @@ title: "Mercedes-Benz, your car becomes a rolling office"
 meta_title: ""
 description: ""
 date: 2025-07-21T10:00:00-05:00
-image: "/images/blog/teams/teams_mercedes_benz_integrates_with_Microsoft_thumbnail.png"
+image: "/images/blog/teams/teams_mercedes_benz_integrates_with_microsoft_thumbnail.png"
 categories: ["Teams"]
 author: "Maxime Hiez"
 tags: ["AI", "Meeting"]
@@ -12,7 +12,7 @@ draft: false
 ---
 
 ##### Introduction
-In an automotive market increasingly focused on smart and connected mobility, *Mercedes-Benz* is taking a giant leap forward. With the new generation of the *CLA* model, the German manufacturer is moving beyond simple connectivity. Thanks to its partnership with Microsoft, it is installing a range of tools dedicated to professionals in its vehicles: *Microsoft Teams*, *Intune*, and soon *Copilot*. It's no longer just about traveling. It's about working on the move, without sacrificing safety or compliance.
+In an automotive market increasingly focused on smart and connected mobility, *Mercedes-Benz* is taking a giant leap forward. With the new generation of the *CLA* model, the German manufacturer is moving beyond simple connectivity. Thanks to its partnership with Microsoft, it is installing a range of tools dedicated to professionals in its vehicles : *Microsoft Teams*, *Intune*, and soon *Copilot*. It's no longer just about traveling. It's about working on the move, without sacrificing safety or compliance.
 
 ---
 
@@ -21,7 +21,7 @@ The new *Meetings for Teams* application, embedded in the *MB.OS/MBUX 4* system,
 
 Remote participants will see the driver, while the driver remains focused on the road. The camera can also be manually disabled.
 
-![image](/images/blog/teams/teams_mercedes_benz_integrates_with_Microsoft_001.png)
+![image](/images/blog/teams/teams_mercedes_benz_integrates_with_microsoft_001.png)
 
 ---
 
@@ -30,7 +30,7 @@ Mercedes-Benz is the first manufacturer to natively integrate Microsoft Intune i
 
 Thus, the car becomes a mobile workstation that complies with corporate standards, just like a professional smartphone.
 
-![image](/images/blog/teams/teams_mercedes_benz_integrates_with_Microsoft_003.png)
+![image](/images/blog/teams/teams_mercedes_benz_integrates_with_microsoft_002.png)
 
 ---
 
@@ -43,7 +43,7 @@ Very soon, Microsoft Copilot will be integrated into future Mercedes models. Usi
 
 A world first : a complete AI assistant in a vehicle, to transform your journey into productive moments.
 
-![image](/images/blog/teams/teams_mercedes_benz_integrates_with_Microsoft_002.png)
+![image](/images/blog/teams/teams_mercedes_benz_integrates_with_microsoft_003.png)
 
 ---
 
@@ -55,7 +55,7 @@ A world first : a complete AI assistant in a vehicle, to transform your journey 
 ---
 
 ##### Conclusion
-With this suite of advanced tools (Teams, Intune, Copilot), Mercedes-Benz and Microsoft are marking a strategic shift: the car is no longer just a means of transportation, but an intelligent mobile workspace. This bold shift, introduced via the new CLA, heralds a future rollout to other MB.OS models. Now the challenge is to balance productivity and security: how can we ensure that these features don't become distractions? The coming months, and their adoption by end users, will be decisive. But for now, Mercedes is paving the way for a future where commutes become valuable work time.
+With this suite of advanced tools (Teams, Intune, Copilot), Mercedes-Benz and Microsoft are marking a strategic shift : the car is no longer just a means of transportation, but an intelligent mobile workspace. This bold shift, introduced via the new CLA, heralds a future rollout to other MB.OS models. Now the challenge is to balance productivity and security : how can we ensure that these features don't become distractions ? The coming months, and their adoption by end users, will be decisive. But for now, Mercedes is paving the way for a future where commutes become valuable work time.
 
 ---
 

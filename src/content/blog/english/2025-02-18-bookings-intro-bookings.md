@@ -65,7 +65,7 @@ People who have access to your Bookings page will be able to choose which person
 ---
 
 ##### Conclusion
-Microsoft Bookings is a powerful tool to simplify appointment management and improve the efficiency of your organization. By automating the booking process, reducing no-shows and integrating your team's calendars, Bookings allows you to focus on what really matters: providing excellent service to your customers.
+Microsoft Bookings is a powerful tool to simplify appointment management and improve the efficiency of your organization. By automating the booking process, reducing no-shows and integrating your team's calendars, Bookings allows you to focus on what really matters : providing excellent service to your customers.
 
 ---
 

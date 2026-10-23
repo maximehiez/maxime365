@@ -52,7 +52,7 @@ Anthropic cites several proprietary or partner benchmarks to position Opus 5. No
 On scientific domains, two specific gains are indicated compared to Opus 4.8 :
 
 |                    | Delta vs Opus 4.8 |
-|--------------------|------------------:|
+| :----------------: | :---------------: |
 | Organic chemistry  | +10.2 pts         |
 | Protein prediction | +7.7 pts          |
 <br/><br/>

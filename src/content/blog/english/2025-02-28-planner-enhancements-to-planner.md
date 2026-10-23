@@ -6,7 +6,7 @@ date: 2025-02-28T10:00:00-05:00
 image: "/images/blog/m365/planner_enhancements_to_planner_thumbnail.png"
 categories: ["Planner"]
 author: "Maxime Hiez"
-tags: ["Réservation", "Calendrier", "Outlook"]
+tags: ["Channel", "Calendar", "Outlook"]
 draft: false
 ---
 ---

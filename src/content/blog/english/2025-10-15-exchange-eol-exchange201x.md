@@ -46,9 +46,9 @@ The end of support for Exchange Server marks an important step in the transition
 
 [Microsoft - Techcommunity](https://techcommunity.microsoft.com/blog/exchange/exchange-server-subscription-edition-se-is-now-available/4424924)
 
-[Microsoft Learn - Exchange Server 2019](https://learn.microsoft.com/fr-ca/lifecycle/products/exchange-server-2019)
+[Microsoft Learn - Exchange Server 2019](https://learn.microsoft.com/en-us/lifecycle/products/exchange-server-2019)
 
-[Microsoft Learn - Exchange Server 2016](https://learn.microsoft.com/fr-ca/lifecycle/products/exchange-server-2016)
+[Microsoft Learn - Exchange Server 2016](https://learn.microsoft.com/en-us/lifecycle/products/exchange-server-2016)
 
 ---
 

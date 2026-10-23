@@ -39,7 +39,7 @@ Trois nouvelles capacités accompagnent le modèle :
 Un seul chiffre figure dans l'annonce officielle pour la comparaison directe avec Opus 4.7.
 
 |                  | Opus 4.8 | Opus 4.7 | Écart    |
-|------------------|---------:|---------:|---------:|
+| :--------------: | :------: | :------: | :------: |
 | OSWorld-Verified | 82.3%    | 78.0%    | +4.3 pts |
 
 La fiche système contient un éventail d'évaluations plus large sur les tâches de codage, de raisonnement et de connaissances pratiques, sans tableau agrégé dans l'annonce de lancement.

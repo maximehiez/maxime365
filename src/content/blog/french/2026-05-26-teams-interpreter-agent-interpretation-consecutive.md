@@ -3,7 +3,7 @@ title: "Interprétation bilingue en mode consécutif dans Teams"
 meta_title: ""
 description: ""
 date: 2026-05-26T10:00:00-05:00
-image: "/images/blog/teams/teams_interpreter_agent_consecutive_interpretation_thumbnail.png"
+image: "/images/blog/teams/teams_interpreter_agent_interpretation_consecutive_thumbnail.png"
 categories: ["Teams"]
 author: "Maxime Hiez"
 tags: ["IA", "Interprète", "Rencontre", "PowerShell"]
@@ -20,7 +20,7 @@ L'agent *Interprète* de *Microsoft Teams* proposait jusqu'ici uniquement un mod
 Les deux modes reposent sur des philosophies différentes et ne couvrent pas les mêmes scénarios.
 
 |                               | Mode simultané                            | Mode consécutif                                            |
-|-------------------------------|-------------------------------------------|------------------------------------------------------------|
+| :---------------------------: | :---------------------------------------: | :--------------------------------------------------------: |
 | Déclenchement                 | En temps réel, pendant la prise de parole | Après la fin de chaque intervention                        |
 | Expérience                    | Individuelle (casque recommandé)          | Partagée, l'agent apparaît sur la scène                    |
 | Risque de chevauchement audio | Élevé                                     | N/A                                                        |
@@ -41,11 +41,11 @@ La contrainte propre au mode consécutif est le caractère bilingue de chaque se
 ##### Comment activer l'interprétation consécutive ?
 Les utilisateurs pourront activer la fonctionnalité en cliquant sur *<u>More</u>*, puis sur *<u>Language and speech</u>*, et sur *<u>Turn on Interpreter for me</u>*.
 
-![image](/images/blog/teams/teams_interpreter_agent_consecutive_interpretation_001.png)
+![image](/images/blog/teams/teams_interpreter_agent_interpretation_consecutive_001.png)
 
 Le choix des langues sera ensuite offert.
 
-![image](/images/blog/teams/teams_interpreter_agent_consecutive_interpretation_002.png)
+![image](/images/blog/teams/teams_interpreter_agent_interpretation_consecutive_002.png)
 
 ---
 

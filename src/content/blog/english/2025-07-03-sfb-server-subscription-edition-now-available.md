@@ -19,7 +19,7 @@ While Microsoft is pushing aggressively toward the cloud with *Microsoft Teams*,
 ##### What is Skype for Business Server SE ?
 Skype for Business Server SE is a subscription edition of Skype for Business Server, designed to replace traditional fixed-lifecycle releases. It is based on the code base of *2019 CU8HF1*, but adopts a rolling update model (*Modern Lifecycle Policy*), with no future major releases.
 
-What's changing:
+What's changing :
 - No more *year* versions (e.g., 2015, 2019), SE is a scalable platform
 - Updates are cumulative and regular, with no complete migration required
 - Support is continuous, as long as the environment remains up to date
@@ -40,7 +40,7 @@ What's not changing :
 ---
 
 ##### Low upgrade risk
-Unlike previous versions, where each new release involved major changes to code, features, and requirements, the Subscription Edition was designed as an incremental evolution of the 2019 version:
+Unlike previous versions, where each new release involved major changes to code, features, and requirements, the Subscription Edition was designed as an incremental evolution of the 2019 version :
 - The base code is identical to that of the 2019 version
 - Features were stabilized before release
 - Security fixes and updates have been ported from the previous version

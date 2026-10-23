@@ -47,8 +47,8 @@ Even local administrators or privileged users cannot bypass these protections wi
 ##### AV-Comparatives 2025 Certification
 During the 2025 Anti-Tampering Test in April 2025, AV-Comparatives subjected Microsoft Defender for Endpoint to a series of simulated attacks aimed at disabling or impairing its protections.
 
-|                                 Test                                 |   Result   |
-| :------------------------------------------------------------------: | :--------: |
+| Test                                                                 | Result    |
+| :------------------------------------------------------------------: | :-------: |
 | User-space processes (terminate, suspend, etc.)                      | Success ✅ |
 | User-space services (pause, stop, disable, uninstall, etc.)          | Success ✅ |
 | Registry keys (delete, remove, rename, add, etc.)                    | Success ✅ |

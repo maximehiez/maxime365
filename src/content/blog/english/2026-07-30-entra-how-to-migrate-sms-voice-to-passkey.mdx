@@ -19,13 +19,13 @@ In many *Microsoft 365* tenants, SMS and voice call remain the last MFA safety n
 ##### The retirement timeline
 The retirement spans six months and each milestone opens a different action.
 
-| Date                 | What changes                                                                                                | Expected action                                                             |
-|----------------------|-------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------|
-| August 1, 2026       | The API and the documentation for the temporary opt-out are published                                        | Decide whether the tenant needs to delay the automatic enablement           |
-| September 1, 2026    | Passkeys become the default experience, SMS and voice users are enabled and prompted at sign-in              | Notify the users and prepare the registration campaign                      |
-| September 18, 2026   | Third-party telecom provider offers are published in the *Microsoft Security Store*                          | Evaluate the options if an exception is justified                           |
-| October 30, 2026     | Selecting and configuring a telecom provider becomes possible                                                | Sign the contract and validate with a pilot group                           |
-| February 1, 2027     | SMS and voice call provided by Microsoft are retired from *Entra ID*                                         | Have every account moved to a phishing-resistant method                     |
+| Date               | What changes                                                                                    | Expected action                                                   |
+| :----------------: | :---------------------------------------------------------------------------------------------: | :---------------------------------------------------------------: |
+| August 1, 2026     | The API and the documentation for the temporary opt-out are published                           | Decide whether the tenant needs to delay the automatic enablement |
+| September 1, 2026  | Passkeys become the default experience, SMS and voice users are enabled and prompted at sign-in | Notify the users and prepare the registration campaign            |
+| September 18, 2026 | Third-party telecom provider offers are published in the *Microsoft Security Store*             | Evaluate the options if an exception is justified                 |
+| October 30, 2026   | Selecting and configuring a telecom provider becomes possible                                   | Sign the contract and validate with a pilot group                 |
+| February 1, 2027   | SMS and voice call provided by Microsoft are retired from *Entra ID*                            | Have every account moved to a phishing-resistant method           |
 
 On September 1, 2026, users enabled for SMS or voice will be automatically moved into a profile allowing all Passkey types. The tenant registration campaign will switch to the *Microsoft Managed* state and will include those accounts automatically. The prompt will appear at the next sign-in with MFA, and will remain skippable indefinitely by default.
 

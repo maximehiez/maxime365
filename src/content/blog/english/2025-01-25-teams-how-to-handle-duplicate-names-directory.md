@@ -6,7 +6,7 @@ date: 2025-01-25T10:00:00-05:00
 image: "/images/blog/teams/tuto/teams_how_to_handle_duplicate_names_directory_thumbnail.png"
 categories: ["Teams", "Tutorial"]
 author: "Maxime Hiez"
-tags: ["Telephony", "Direct Routing", "Calling Plan", "Operator Connect", "Directory", "Dial by name", "Dial by extension", "Auto attendant", "PowerShell"]
+tags: ["Telephony", "Direct Routing", "Calling Plan", "Operator Connect", "Directory", "Dial by name", "Dial by extension", "Auto Attendant", "PowerShell"]
 draft: false
 ---
 ---
@@ -19,9 +19,9 @@ Microsoft recently announced a significant optimization for the search by name a
 ##### Optimization details
 The new *UserNameExtension* attribute is added to attendants ; this is a string that specifies how to expand usernames in search by adding additional information after the name. When multiple search results are found, this attribute activates and returns the value of another attribute chosen by the administrator.
 
-- None : default value, the username is pronounced as is
-- Office : adds the information of the office configured in Entra ID
-- Department : adds the information of the department configured in Entra ID
+- None : Default value, the username is pronounced as is
+- Office : Adds the information of the office configured in Entra ID
+- Department : Adds the information of the department configured in Entra ID
 
 ---
 
@@ -35,7 +35,7 @@ $AAToModify.UserNameExtension = "Department"
 Set-CsAutoAttendant -Instance $$AAToModify = Get-CsAutoAttendant -Identity 45693a48-7f85-aaaa-bbbb-cccccccccccc
 ```
 
-The configuration may take several minutes to be effective. Your menu should then look like this:
+The configuration may take several minutes to be effective. Your menu should then look like this :
 
 ![image](/images/blog/teams/tuto/teams_how_to_handle_duplicate_names_directory_001.png)
 

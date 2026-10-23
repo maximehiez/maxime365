@@ -32,7 +32,6 @@ Microsoft continue d'innover pour améliorer l'expérience des utilisateurs dans
 
 ##### Configuration de la vue multi-caméras
 Pour configurer la vue multi-caméras dans Microsoft Teams Rooms sur Windows, suivez ces étapes :
-
 1. Accéder aux paramètres Teams Rooms : Ouvrez l'application Teams Rooms sur votre appareil Windows et accédez aux paramètres.
 2. Ajouter des caméras : Ajoutez les caméras supplémentaires que vous souhaitez utiliser dans la salle de réunion.
 3. Configurer les angles de vue : Utilisez les options de contrôle de la caméra pour ajuster les angles de vue, le zoom, le panoramique et l'inclinaison.

@@ -91,7 +91,7 @@ Vous savez maintenant comment activer Defender EDR en Block Mode.
 ---
 
 ##### Sources
-[Microsoft Learn - Détection de point de terminaison et réponse en Block Mode](https://learn.microsoft.com/fr-fr/defender-endpoint/edr-in-block-mode)
+[Microsoft Learn - Détection de point de terminaison et réponse en Block Mode](https://learn.microsoft.com/fr-ca/defender-endpoint/edr-in-block-mode)
 
 ---
 

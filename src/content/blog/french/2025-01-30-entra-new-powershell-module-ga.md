@@ -16,13 +16,13 @@ Microsoft a récemment annoncé la *General Availability* du module PowerShell d
 
 ---
 
-###### Chronologie
+##### Chronologie
 En 2021, Microsoft a annoncé que les prochains développements sur PowerShell porteraient sur le *Microsoft Graph PowerShell SDK*.
 
-|   Module   | Fin du support |        Suppression         |
-| :--------: | :------------: | :------------------------: |
-| AzureAD    | 30 Mars 2025   | Après le 1er Juillet 2025  |
-| MSOnline   | 30 Mars 2025   | Début Avril à fin Mai 2025 |
+| Module   | Fin du support | Suppression                |
+| :------: | :------------: | :------------------------: |
+| AzureAD  | 30 Mars 2025   | Après le 1er Juillet 2025  |
+| MSOnline | 30 Mars 2025   | Début Avril à fin Mai 2025 |
 
 ---
 

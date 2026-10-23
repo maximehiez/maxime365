@@ -3,7 +3,7 @@ title: "Consecutive bilingual interpretation in Teams"
 meta_title: ""
 description: ""
 date: 2026-05-26T10:00:00-05:00
-image: "/images/blog/teams/teams_interpreter_agent_consecutive_interpretation_thumbnail.png"
+image: "/images/blog/teams/teams_interpreter_agent_interpretation_consecutive_thumbnail.png"
 categories: ["Teams"]
 author: "Maxime Hiez"
 tags: ["AI", "Interpreter", "Meeting", "PowerShell"]
@@ -19,13 +19,13 @@ The *Interpreter* agent in *Microsoft Teams* previously offered only a simultane
 ##### Simultaneous vs consecutive : two modes, two contexts
 The two modes are built on different philosophies and do not cover the same scenarios.
 
-|                        | Simultaneous mode                       | Consecutive mode                                          |
-|------------------------|-----------------------------------------|-----------------------------------------------------------|
-| Trigger                | Real time, while the speaker is talking | After each speaker finishes                               |
-| Experience             | Individual (headset recommended)        | Shared, the agent appears on stage                        |
-| Audio overlap risk     | High                                    | N/A                                                       |
-| Languages per session  | Up to 9                                 | 2 languages maximum                                       |
-| Typical use case       | Presentations, large broadcasts         | Bilingual discussions, negotiations, interactive meetings |
+|                       | Simultaneous mode                       | Consecutive mode                                          |
+| :-------------------: | :-------------------------------------: | :-------------------------------------------------------: |
+| Trigger               | Real time, while the speaker is talking | After each speaker finishes                               |
+| Experience            | Individual (headset recommended)        | Shared, the agent appears on stage                        |
+| Audio overlap risk    | High                                    | N/A                                                       |
+| Languages per session | Up to 9                                 | 2 languages maximum                                       |
+| Typical use case      | Presentations, large broadcasts         | Bilingual discussions, negotiations, interactive meetings |
 
 In consecutive mode, the Interpreter agent joins the meeting as a full participant and is visible to everyone present. The experience is no longer individual, all participants hear the translation at the same moment, which eliminates the desynchronization felt in simultaneous mode.
 
@@ -41,11 +41,11 @@ The constraint specific to consecutive mode is the bilingual nature of each sess
 ##### How to enable consecutive interpretation ?
 Users can enable the feature by clicking *<u>More</u>*, then *<u>Language and speech</u>*, and *<u>Turn on Interpreter for me</u>*.
 
-![image](/images/blog/teams/teams_interpreter_agent_consecutive_interpretation_001.png)
+![image](/images/blog/teams/teams_interpreter_agent_interpretation_consecutive_001.png)
 
 The language selection will then be offered.
 
-![image](/images/blog/teams/teams_interpreter_agent_consecutive_interpretation_002.png)
+![image](/images/blog/teams/teams_interpreter_agent_interpretation_consecutive_002.png)
 
 ---
 

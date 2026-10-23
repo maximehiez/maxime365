@@ -27,7 +27,7 @@ The location displayed to colleagues can be :
 
 The check-in clears automatically at the end of the user's working hours. It works only on corporate networks configured in the tenant, and requires the Teams desktop app (Windows or macOS). Web and mobile clients are not supported.
 
-![image](/images/blog/teams/teams_microsoft_places_workplace_check_in_wifi_001.png)
+![image](/images/blog/teams/teams_workplace_check_in_wifi_001.png)
 
 ---
 

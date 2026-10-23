@@ -18,9 +18,9 @@ Microsoft a officiellement annoncé la retraite des adresses IP publiques Azure 
 
 ##### Pourquoi passer au SKU Standard ?
 Le SKU Standard offre plusieurs avantages par rapport au SKU Basic :
-- Sécurité par défaut : les flux entrants sont bloqués sauf autorisation explicite via un *NSG* (*Network Security Group*)
-- Compatibilité étendue : fonctionne avec *Azure Firewall*, *Standard Load Balancer*, *NAT Gateway*, ...
-- Résilience accrue : support des zones de disponibilité (zonal et zone-redundant)
+- Sécurité par défaut : Les flux entrants sont bloqués sauf autorisation explicite via un *NSG* (*Network Security Group*)
+- Compatibilité étendue : Fonctionne avec *Azure Firewall*, *Standard Load Balancer*, *NAT Gateway*, ...
+- Résilience accrue : Support des zones de disponibilité (zonal et zone-redundant)
 - Meilleure intégration avec les services modernes d’Azure
 
 ---

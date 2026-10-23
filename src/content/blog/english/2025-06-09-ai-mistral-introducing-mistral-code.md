@@ -29,6 +29,8 @@ All of this is integrated into a seamless interface compatible with *VS Code* an
 
 -----
 
+---
+
 ##### Key features
 Mistral Code stands out for its combination of power and control :
 - Smart completion : Real-time, multi-line suggestions tailored to the project context.

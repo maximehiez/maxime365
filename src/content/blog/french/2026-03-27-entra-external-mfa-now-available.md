@@ -6,7 +6,7 @@ date: 2026-03-27T10:00:00-05:00
 image: "/images/blog/entra/entra_external_mfa_now_available_thumbnail.png"
 categories: ["Entra ID"]
 author: "Maxime Hiez"
-tags: ["Accès conditionnels", "Sécurité", "Zero Trust", "MFA"]
+tags: ["Accès Conditionnels", "Sécurité", "Zero Trust", "MFA"]
 draft: false
 ---
 ---

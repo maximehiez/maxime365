@@ -61,7 +61,7 @@ It also offers an electronic privacy shutter for the camera, enhancing physical 
 ---
 
 ##### Comparison with the MeetingBar A40
-| Characteristic |         MeetingBar A40         |             MeetingBar A50              |
+| Characteristic | MeetingBar A40                 | MeetingBar A50                          |
 | :------------: | :----------------------------: | :-------------------------------------: |
 | Room size      | Small to medium (≤10 people)   | Medium to large (10–20+ people)         |
 | Cameras        | Double 48MP                    | Triple 50MP                             |

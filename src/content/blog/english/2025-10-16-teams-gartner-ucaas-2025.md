@@ -34,7 +34,7 @@ Notable new features include :
 ---
 
 ##### Simplifying communications
-Teams continues to reduce complexity with features such as:
+Teams continues to reduce complexity with features such as :
 - UCaaS + CCaaS telephony integration via Dynamics 365 and ISV partners
 - SMS support (US and Canada) directly in Teams
 - Advanced supervisor tools in the Queues app (listening, coaching, call handling)

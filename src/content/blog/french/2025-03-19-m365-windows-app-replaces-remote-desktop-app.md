@@ -54,7 +54,7 @@ Microsoft encourage les administrateurs à préparer leurs organisations en inci
 ---
 
 ##### Problèmes connus et limitations
-Il est important de noter que la nouvelle Windows App peut présenter des lacunes fonctionnelles par rapport à l'application Remote Desktop. Microsoft recommande de consulter régulièrement la liste des problèmes connus et des limitations pour rester informé des mises à jour et des résolutions.
+La nouvelle Windows App peut toutefois présenter des lacunes fonctionnelles par rapport à l'application Remote Desktop. Microsoft recommande de consulter régulièrement la liste des problèmes connus et des limitations pour rester informé des mises à jour et des résolutions.
 
 ---
 
