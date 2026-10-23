@@ -1,9 +1,9 @@
 ---
-title: "Mistral Large 24.11 transforme des industries avec l'IA de pointe"
+title: "Mistral Large 24.11 transforme des industries avec l'IA"
 meta_title: ""
 description: ""
 date: 2024-12-15T10:00:00-05:00
-image: "/images/blog/ai/ai_mistral_introducing_large_2411_thumbnail.png"
+image: "/images/blog/ai/ai_mistral_introducing_mistral_large_2411_thumbnail.png"
 categories: ["Mistral AI"]
 author: "Maxime Hiez"
 tags: ["IA", "API"]
@@ -32,7 +32,7 @@ Avec le lancement de Mistral Large 24.11, les entreprises peuvent :
 - Intégrer facilement des capacités avancées d'IA dans leurs flux de travail existants grâce aux appels de fonctions natifs et au support JSON du modèle.
 - Préparer leurs initiatives d'IA pour l'avenir avec un modèle conçu pour évoluer à travers les industries et les cas d'utilisation.
 
-![image](/images/blog/ai/ai_mistral_introducing_large_2411_001.png)
+![image](/images/blog/ai/ai_mistral_introducing_mistral_large_2411_001.png)
 
 ---
 
@@ -65,6 +65,8 @@ Mistral Large 24.11 représente une avancée majeure dans le domaine de l'intell
 [Mars Science & Diagnostics](https://www.microsoft.com/en/customers/story/19756-mars-azure-machine-learning)
 
 [Doctolib](https://www.microsoft.com/en/customers/story/19557-doctolib-azure-open-ai-service)
+
+[Tester Le Chat de Mistral AI](https://chat.mistral.ai/chat)
 
 ---
 

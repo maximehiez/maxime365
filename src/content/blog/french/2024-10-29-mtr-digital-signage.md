@@ -29,7 +29,6 @@ Lorsque vos Teams Rooms ne sont pas utilisés pour des réunions ou des présent
 
 ##### Configuration et gestion
 Pour configurer l'affichage dynamique dans vos Teams Rooms, suivez ces étapes :
-
 1. Licences : Assignez une licence <u>Teams Rooms Pro</u> à chaque compte de salle qui fera de l'affichage dynamique.
 2. Activer l'affichage dynamique : Activez cette fonctionnalité pour votre tenant et ajoutez des sources de contenu, y compris des intégrations tierces si nécessaire.
 3. Assigner des sources et des paramètres : Configurez les salles pour qu'elles affichent le contenu souhaité en mode affichage dynamique.
@@ -51,7 +50,6 @@ Microsoft s'est associé avec *Appspace* et *XOGO* pour développer des intégra
 ---
 
 ##### Conclusion
-
 La fonctionnalité d'affichage dynamique dans Microsoft Teams Rooms représente une avancée significative pour améliorer la communication interne et l'engagement des employés. En utilisant cette fonctionnalité, les organisations peuvent maximiser l'utilisation de leurs ressources et offrir une expérience de travail plus dynamique et connectée. Essayez l'affichage dynamique dans Teams Rooms pour découvrir comment il peut transformer vos espaces de réunion.
 
 ---

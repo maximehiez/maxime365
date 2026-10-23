@@ -25,9 +25,10 @@ When your Teams Rooms are not being used for meetings or presentations, you can 
 
 ![image](/images/blog/mtr/mtr_digital_signage_001.png)
 
+---
+
 ##### Configuration and management
 To configure digital signage in your Teams Rooms, follow these steps :
-
 1. Licenses : Assign a <u>Teams Rooms Pro</u> license to each room account that will use digital signage.
 2. Enable digital signage : Activate this feature for your tenant and add content sources, including third-party integrations if necessary.
 3. Assign sources and settings : Configure the rooms to display the desired content in signage mode.
@@ -47,7 +48,6 @@ Microsoft has partnered with *Appspace* and *XOGO* to develop native integration
 ![image](/images/blog/mtr/mtr_digital_signage_002.png)
 
 ---
-
 
 ##### Conclusion
 The digital signage feature in Microsoft Teams Rooms represents a significant advancement in improving internal communication and employee engagement. By using this feature, organizations can maximize the use of their resources and provide a more digital and connected work experience. Try digital signage in Teams Rooms to see how it can transform your meeting spaces.

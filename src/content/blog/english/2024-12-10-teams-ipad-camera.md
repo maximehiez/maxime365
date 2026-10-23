@@ -3,7 +3,7 @@ title: "External USB webcam on iPad with Teams"
 meta_title: ""
 description: ""
 date: 2024-12-10T10:00:00-05:00
-image: "/images/blog/teams/teams_ipad_webcam_thumbnail.png"
+image: "/images/blog/teams/teams_ipad_camera_thumbnail.png"
 categories: ["Teams"]
 author: "Maxime Hiez"
 tags: ["Apple", "iPad", "Webcam"]
@@ -17,8 +17,7 @@ The use of iPads in the professional environment has significantly increased, wi
 ---
 
 ##### Plug & Play
-The setup is straightforward:
-
+The setup is straightforward :
 - Connect your camera : Plug your external camera into your iPad’s USB-C port.
 - Join your meeting : You can connect your camera either before or during a Teams meeting.
 - Disconnect the camera : To switch back to the default iPad camera, simply disconnect the camera from your iPad.

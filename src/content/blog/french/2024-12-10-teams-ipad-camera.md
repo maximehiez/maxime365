@@ -3,7 +3,7 @@ title: "Support des webcam USB sur iPad avec Teams"
 meta_title: ""
 description: ""
 date: 2024-12-10T10:00:00-05:00
-image: "/images/blog/teams/teams_ipad_webcam_thumbnail.png"
+image: "/images/blog/teams/teams_ipad_camera_thumbnail.png"
 categories: ["Teams"]
 author: "Maxime Hiez"
 tags: ["Apple", "iPad", "Webcam"]
@@ -18,7 +18,6 @@ L'utilisation des iPads dans le milieu professionnel a considérablement augment
 
 ##### Plug & Play
 La configuration est simple :
-
 - Connectez votre caméra : Branchez votre caméra externe sur le port USB C de votre iPad.
 - Rejoignez votre réunion : Vous pouvez connecter votre caméra avant ou pendant une réunion Teams.
 - Déconnectez la caméra : Pour revenir à la caméra par défaut de l'iPad, déconnectez simplement la caméra de votre iPad.

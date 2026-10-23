@@ -19,7 +19,7 @@ Microsoft Teams continues to evolve, offering comprehensive communication and co
 ##### Availability
 This feature will be available to users with the Teams Calling Plan telephony feature in the US and Canada only (to start). The deployment will be gradual from February 2025.
 
-![image](/images/blog/teams/teams_roadmap_470999_sms.png)
+![image](/images/blog/teams/teams_roadmap_470999_sms_001.png)
 
 ---
 

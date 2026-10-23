@@ -1,9 +1,9 @@
 ---
-title: "Mistral Large 24.11 transforms industries with cutting-edge AI"
+title: "Mistral Large 24.11 transforms industries with AI"
 meta_title: ""
 description: ""
 date: 2024-12-15T10:00:00-05:00
-image: "/images/blog/ai/ai_mistral_introducing_large_2411_thumbnail.png"
+image: "/images/blog/ai/ai_mistral_introducing_mistral_large_2411_thumbnail.png"
 categories: ["Mistral AI"]
 author: "Maxime Hiez"
 tags: ["AI", "API"]
@@ -32,7 +32,7 @@ With the launch of Mistral Large 24.11, organizations can :
 - Easily integrate advanced AI capabilities into their existing workflows with native function calls and model JSON support.
 - Future-proof their AI initiatives with a model designed to scale across industries and use cases.
 
-![image](/images/blog/ai/ai_mistral_introducing_large_2411_001.png)
+![image](/images/blog/ai/ai_mistral_introducing_mistral_large_2411_001.png)
 
 ---
 
@@ -65,6 +65,8 @@ Mistral Large 24.11 represents a major advancement in the field of artificial in
 [Mars Science & Diagnostics](https://www.microsoft.com/en/customers/story/19756-mars-azure-machine-learning)
 
 [Doctolib](https://www.microsoft.com/en/customers/story/19557-doctolib-azure-open-ai-service)
+
+[Try Le Chat from Mistral AI](https://chat.mistral.ai/chat)
 
 ---
 

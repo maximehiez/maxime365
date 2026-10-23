@@ -12,7 +12,7 @@ draft: false
 ---
 
 ##### Introduction
-Le 31 août 2023, Microsoft a annoncé d'importants changements dans ses licenses Microsoft 365 et Office 365 en réponse aux préoccupations soulevées par la Commission européenne concernant la concurrence dans l'Espace Économique Européen (EEE) et en Suisse. Ces changements visent à résoudre les problèmes liés au regroupement de Microsoft Teams avec Microsoft 365 et Office 365, afin de garantir un environnement concurrentiel plus équitable.
+Le 31 Août 2023, Microsoft a annoncé d'importants changements dans ses licenses Microsoft 365 et Office 365 en réponse aux préoccupations soulevées par la Commission européenne concernant la concurrence dans l'Espace Économique Européen (EEE) et en Suisse. Ces changements visent à résoudre les problèmes liés au regroupement de Microsoft Teams avec Microsoft 365 et Office 365, afin de garantir un environnement concurrentiel plus équitable.
 
 ---
 
@@ -36,36 +36,43 @@ Les clients existants déjà abonnés à des licences Microsoft 365 ou Office 36
 ---
 
 ##### Nouveaux tarifs
-
 <br/>
 
-###### Modifications apportées aux licences Enterprise
-|    Licences existantes avec Teams    |    Nouvelles licences sans Teams (après le 1er Avril)    |     Prix      |
-| :----------------------------------: | :------------------------------------------------------: | ------------: |
-| Office 365 E1                        | Office 365 E1 (no Teams)                                 | 7.75$ (USD)   |
-| Office 365 E3                        | Office 365 E3 (no Teams)                                 | 20.75$ (USD)  |
-| Office 365 E5                        | Office 365 E5 (no Teams)                                 | 35.75$ (USD)  |
-| Microsoft 365 E3                     | Microsoft 365 E3 (no Teams)                              | 33.75$ (USD)  |
-| Microsoft 365 E5                     | Microsoft 365 E5 (no Teams)                              | 54.75$ (USD)  |
+---
 
-###### Modifications apportées aux licences Frontline
-|    Licences existantes avec Teams    |     Prix      |    Nouvelles licences sans Teams (après le 1er Avril)    |     Prix      |
-| :----------------------------------: | ------------: | :------------------------------------------------------: | ------------: |
-| Microsoft 365 F1                     | 2.25$ (USD)   | Microsoft 365 F1 (no Teams)                              | 1.75$ (USD)   |
-| Microsoft 365 F3                     | 8.00$ (USD)   | Microsoft 365 F3 (no Teams)                              | 7.50$ (USD)   |
-| Office 365 F3                        | 4.00$ (USD)   | Office 365 F3 (no Teams)                                 | 3.50$ (USD)   |
+##### Modifications apportées aux licences Enterprise
+| Licences existantes avec Teams | Nouvelles licences sans Teams (après le 1er Avril) | Prix         |
+| :----------------------------: | :------------------------------------------------: | :----------: |
+| Office 365 E1                  | Office 365 E1 (no Teams)                           | 7.75$ (USD)  |
+| Office 365 E3                  | Office 365 E3 (no Teams)                           | 20.75$ (USD) |
+| Office 365 E5                  | Office 365 E5 (no Teams)                           | 35.75$ (USD) |
+| Microsoft 365 E3               | Microsoft 365 E3 (no Teams)                        | 33.75$ (USD) |
+| Microsoft 365 E5               | Microsoft 365 E5 (no Teams)                        | 54.75$ (USD) |
 
-###### Modifications apportées aux licences Business
-|    Licences existantes avec Teams    |     Prix      |    Nouvelles licences sans Teams (après le 1er Avril)    |     Prix      |
-| :----------------------------------: | ------------: | :------------------------------------------------------: | ------------: |
-| Microsoft 365 Business Basic         | 6.00$ (USD)   | Microsoft 365 Business Basic (no Teams)                  | 4.75$ (USD)   |
-| Microsoft 365 Business Standard​      | 12.50$ (USD)  | Microsoft 365 Business Standard​ (no Teams)               | 10.25$ (USD)  |
-| Microsoft 365 Business Premium       | 22.00$ (USD)  | Microsoft 365 Business Premium (no Teams)                | 19.75$ (USD)  |
+---
 
-###### Présentation d'une nouvelle licence autonome Teams
-|    Nouvelle licence Teams autonome (après le 1er Avril)    |     Prix      |
-| :--------------------------------------------------------: | ------------: |
-| Microsoft Teams Enterprise                                 | 5.25$ (USD)   |
+##### Modifications apportées aux licences Frontline
+| Licences existantes avec Teams | Prix        | Nouvelles licences sans Teams (après le 1er Avril) | Prix        |
+| :----------------------------: | :---------: | :------------------------------------------------: | :---------: |
+| Microsoft 365 F1               | 2.25$ (USD) | Microsoft 365 F1 (no Teams)                        | 1.75$ (USD) |
+| Microsoft 365 F3               | 8.00$ (USD) | Microsoft 365 F3 (no Teams)                        | 7.50$ (USD) |
+| Office 365 F3                  | 4.00$ (USD) | Office 365 F3 (no Teams)                           | 3.50$ (USD) |
+
+---
+
+##### Modifications apportées aux licences Business
+| Licences existantes avec Teams   | Prix         | Nouvelles licences sans Teams (après le 1er Avril) | Prix         |
+| :------------------------------: | :----------: | :------------------------------------------------: | :----------: |
+| Microsoft 365 Business Basic     | 6.00$ (USD)  | Microsoft 365 Business Basic (no Teams)            | 4.75$ (USD)  |
+| Microsoft 365 Business Standard​ | 12.50$ (USD) | Microsoft 365 Business Standard​ (no Teams)        | 10.25$ (USD) |
+| Microsoft 365 Business Premium   | 22.00$ (USD) | Microsoft 365 Business Premium (no Teams)          | 19.75$ (USD) |
+
+---
+
+##### Présentation d'une nouvelle licence autonome Teams
+| Nouvelle licence Teams autonome (après le 1er Avril) | Prix        |
+| :--------------------------------------------------: | :---------: |
+| Microsoft Teams Enterprise                           | 5.25$ (USD) |
 
 ---
 
