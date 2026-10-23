@@ -50,6 +50,7 @@ Cliquez sur *<u>Add profile</u>*, sélectionnez *<u>Device-bound</u>* comme type
 ##### Valider le résultat
 Une fois le profil enregistré, chaque utilisateur peut inscrire une passkey Windows depuis *My Sign-Ins*, en se connectant sur https://mysignins.microsoft.com/security-info, et en choisissant *<u>Add sign-in method</u>*, puis *<u>Passkey</u>*. La passkey est alors créée et stockée dans le conteneur Windows Hello local de l'appareil.
 
+
 Pour se connecter ensuite, l'utilisateur ouvre une ressource Microsoft Entra ID, sélectionne *<u>Face, fingerprint, PIN, or security key</u>* comme méthode de connexion, puis valide avec Windows Hello.
 
 <Notice type="warning">Si une identification *Windows Hello for Business* existe déjà pour le même compte sur l'appareil, l'inscription de la passkey Windows échoue. Ces deux méthodes ne peuvent pas coexister pour le même compte dans le même conteneur Windows Hello.</Notice>

@@ -50,6 +50,8 @@ Click *<u>Add profile</u>*, select *<u>Device-bound</u>* as the passkey type, an
 ##### Validate the result
 Once the profile is saved, each user can register a Windows passkey from *My Sign-Ins*, by signing in at https://mysignins.microsoft.com/security-info, and choosing *<u>Add sign-in method</u>*, then *<u>Passkey</u>*. The passkey is then created and stored in the device's local Windows Hello container.
 
+![image](/images/blog/entra/tuto/entra_how_to_enable_passkey_on_windows_002.png)
+
 To sign in afterward, the user opens a Microsoft Entra ID resource, selects *<u>Face, fingerprint, PIN, or security key</u>* as the sign-in method, then validates with Windows Hello.
 
 <Notice type="warning">If a *Windows Hello for Business* credential already exists for the same account on the device, Windows passkey registration fails. These two methods can't coexist for the same account in the same Windows Hello container.</Notice>
