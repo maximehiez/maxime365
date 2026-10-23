@@ -1,0 +1,101 @@
+---
+title: "Mistral Voxtral 3, a model family and voice agent SDK"
+meta_title: ""
+description: ""
+date: 2026-10-22T10:00:00-05:00
+image: "/images/blog/ai/ai_mistral_introducing_voxtral_3_thumbnail.png"
+categories: ["Mistral AI"]
+author: "Maxime Hiez"
+tags: ["AI", "Voxtral", "API", "Transcription", "Agentic"]
+draft: false
+---
+---
+
+##### Introduction
+A voice agent chains three building blocks : transcription, reasoning and speech synthesis. On October 20, 2026, *Mistral AI* launched *Voxtral 3*, a family of four voice models in public preview, along with a voice agent SDK. Mistral now provides all three building blocks, with transcription expanded to 50 languages.
+
+Check the Voxtral Transcribe 2 article [HERE](https://maxime.hiez.ca/en/blog/2026-02-05-ai-mistral-voxtral-transcribe-2).
+
+---
+
+##### Transcription : Small, Mini and Realtime
+Batch transcription relies on two models. *Voxtral Small Transcribe 3* (*voxtral-small-transcribe-3-0*) is the most accurate in the family ; its size hasn't been published. *Voxtral Mini Transcribe 3* (*voxtral-mini-transcribe-3-0*), with 4 billion parameters, is built for speed. Both cover 50 languages, including the 24 official languages of the European Union, with diarization and context biasing, which accepts a list of key terms or free text.
+
+*Voxtral Mini Transcribe Realtime 3* (*voxtral-mini-transcribe-realtime-3-0*) is designed for agents : Mistral claims latency under 500 ms in more than 35 languages. A single *WebSocket* session brings together end-of-turn detection, context biasing and diarization.
+
+---
+
+##### Text-to-speech with Voxtral TTS 3
+*Voxtral TTS 3* (*voxtral-mini-tts-3-0*) succeeds *Voxtral TTS*, released in March 2026. According to the announcement, it covers more than 35 languages and more than 50 dialects.
+
+Features include :
+- <u>Instructions</u> : Prompt-based instruction following and contextual synthesis
+- <u>Voice control</u> : Emotion, pacing and emphasis, with 34 emotion tags and 2 pacing tags (*slow* and *fast*)
+- <u>Streaming</u> : About 90 ms to first audio
+- <u>Formats</u> : Five output formats, including 24 kHz WAV
+- <u>Voice cloning</u> : *Zero-shot* from a short recording, or professional cloning (*Pro Voice*), for which the documentation recommends 30 minutes to 3 hours of single-speaker audio
+
+<br/>
+A cloned voice isn't limited to the language of its recording. It's kept for 30 days by default, adjustable from 1 to 365 days through the API, and the reference clip is sent as base64, never as a URL.
+
+---
+
+##### An SDK for voice agents
+The voice agent SDK relies on *LiveKit* for real-time audio transport. It exposes *Voice Agents*, a bidirectional voice pipeline managed by Mistral. The agent answers phone calls over *SIP* and runs in browsers and apps over *WebRTC*. No stage waits for the previous one, which, according to Mistral, keeps each conversational turn under one second.
+
+![image](/images/blog/ai/ai_mistral_introducing_voxtral_3_001.png)
+
+With the browser SDK, the server creates the session : the API key never reaches the browser. The model used at each stage can be chosen per agent or per session.
+
+<Notice type="note">The documentation restricts telephony at launch : it's reserved for enterprise customers, enabled by the account team and not available as self-service. Only inbound calls are supported. The agent can't place a call or transfer a call to a person, and only server-side tools run during a call.</Notice>
+
+---
+
+##### What's changed since Voxtral Transcribe 2
+Compared with the previous generation :
+- <u>Languages</u> : Transcription goes from 13 to 50 languages
+- <u>Batch transcription</u> : From 0.003$ per minute for *Voxtral Mini Transcribe V2* to 0.0035$ for Mini Transcribe 3
+- <u>Real time</u> : From 0.006$ to 0.008$ per minute
+- <u>Text-to-speech</u> : From 16$ / 1M characters for Voxtral TTS to 13$ / 1M characters
+- <u>Open weights</u> : *Voxtral Realtime* (Apache 2.0) and Voxtral TTS (CC BY-NC 4.0) were released as open weights ; the Voxtral 3 announcement mentions neither open weights nor a license
+
+<br/>
+The *Voxtral 2* documentation is now marked *Deprecated*, with a migration guide but no retirement date.
+
+---
+
+##### Pricing and availability
+Voxtral 3 is available in public preview through the Mistral API, billed by usage, and can be tried in the *Mistral Studio* playgrounds. Prices, in USD :
+
+|                                    | Input               | Cache (read)         |
+| :--------------------------------: | :-----------------: | :------------------: |
+| Voxtral Mini Transcribe 3          | 0.0035$ / min       | 0.00035$ / min       |
+| Voxtral Small Transcribe 3         | 0.004$ / min        | 0.0004$ / min        |
+| Voxtral Mini Transcribe Realtime 3 | 0.008$ / min        | 0.0008$ / min        |
+| Voxtral TTS 3                      | 13$ / 1M characters | 1.3$ / 1M characters |
+
+<br/>
+Voice agents are billed per minute of conversation : 0.04$ with *Mistral Small 4* for reasoning, 0.08$ with a larger model that Mistral doesn't name. Mistral positions its text-to-speech pricing as lower than that of *OpenAI TTS-1*, *Deepgram*, *ElevenLabs Flash* and *Gemini Flash*.
+
+<Notice type="note">No pricing is published for SIP telephony or for self-deployment. Running the full stack on-premises or in a private cloud goes through Mistral's sales team.</Notice>
+
+---
+
+##### Conclusion
+Voxtral 3 makes Mistral an end-to-end provider for voice agents, with pay-as-you-go pricing that's easy to estimate. For a Teams and voice admin, it isn't a contact center solution yet : telephony remains reserved for enterprise customers, inbound only and with no transfer to a person. Today, Voxtral 3 is mainly a prototyping tool ; what to watch is telephony opening up and any open-weights announcement, since open weights are what made Voxtral 2 attractive for self-hosting.
+
+---
+
+##### Sources
+[Mistral AI - Voxtral 3](https://mistral.ai/news/voxtral-3/)
+
+[Mistral AI Docs - Telephony (SIP)](https://docs.mistral.ai/studio/audio/voice-agents/telephony)
+
+[Try Le Chat from Mistral AI](https://chat.mistral.ai/chat)
+
+---
+
+
+Did you enjoy this post ? If you have any questions, comments or suggestions, please feel free to send me a message from the contact form.
+
+Don't forget to follow us and share this post.

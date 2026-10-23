@@ -1,0 +1,101 @@
+---
+title: "Mistral Voxtral 3, une famille de modèles et SDK d'agents vocaux"
+meta_title: ""
+description: ""
+date: 2026-10-22T10:00:00-05:00
+image: "/images/blog/ai/ai_mistral_introducing_voxtral_3_thumbnail.png"
+categories: ["Mistral AI"]
+author: "Maxime Hiez"
+tags: ["IA", "Voxtral", "API", "Transcription", "Agentique"]
+draft: false
+---
+---
+
+##### Introduction
+Un agent vocal enchaîne trois briques : la transcription, le raisonnement et la synthèse vocale. *Mistral AI* a lancé, le 20 Octobre 2026, *Voxtral 3*, une famille de quatre modèles vocaux en préversion publique (*Public Preview*), accompagnée d'un SDK d'agents vocaux. Mistral fournit désormais les trois briques, avec une transcription étendue à 50 langues.
+
+Voir l'article sur Voxtral Transcribe 2 [ICI](https://maxime.hiez.ca/blog/2026-02-05-ai-mistral-voxtral-transcribe-2).
+
+---
+
+##### Transcription : Small, Mini et Realtime
+La transcription par lots repose sur deux modèles. *Voxtral Small Transcribe 3* (*voxtral-small-transcribe-3-0*) est le plus précis de la famille ; sa taille n'est pas publiée. *Voxtral Mini Transcribe 3* (*voxtral-mini-transcribe-3-0*), avec 4 milliards de paramètres, mise sur la rapidité. Les deux couvrent 50 langues, dont les 24 langues officielles de l'Union européenne, avec la diarisation et le biais de contexte (*context biasing*), qui accepte une liste de termes clés ou du texte libre.
+
+*Voxtral Mini Transcribe Realtime 3* (*voxtral-mini-transcribe-realtime-3-0*) est conçu pour les agents : Mistral annonce une latence inférieure à 500 ms dans plus de 35 langues. Une seule session *WebSocket* regroupe la détection de fin de tour, le biais de contexte et la diarisation.
+
+---
+
+##### Synthèse vocale avec Voxtral TTS 3
+*Voxtral TTS 3* (*voxtral-mini-tts-3-0*) prend la suite de *Voxtral TTS*, sorti en Mars 2026. Selon l'annonce, il couvre plus de 35 langues et plus de 50 dialectes.
+
+Parmi les fonctionnalités :
+- <u>Instructions</u> : Suivi d'instructions par prompt et synthèse contextuelle
+- <u>Contrôle de la voix</u> : Émotion, rythme et emphase, avec 34 balises d'émotion et 2 balises de rythme (*slow* et *fast*)
+- <u>Streaming</u> : Environ 90 ms avant le premier son
+- <u>Formats</u> : Cinq formats de sortie, dont le WAV en 24 kHz
+- <u>Clonage de voix</u> : En *zero-shot* à partir d'un court enregistrement, ou en clonage professionnel (*Pro Voice*), pour lequel la documentation recommande de 30 minutes à 3 heures d'audio avec un seul intervenant
+
+<br/>
+Une voix clonée n'est pas limitée à la langue de son enregistrement. Elle est conservée 30 jours par défaut, une durée réglable de 1 à 365 jours via l'API, et l'extrait de référence s'envoie en base64, jamais par URL.
+
+---
+
+##### Un SDK pour les agents vocaux
+Le SDK d'agents vocaux s'appuie sur *LiveKit* pour le transport audio en temps réel. Il expose *Voice Agents*, un pipeline vocal bidirectionnel géré par Mistral. L'agent répond aux appels téléphoniques via *SIP* et fonctionne dans les navigateurs et les applications via *WebRTC*. Aucune étape n'attend la précédente, ce qui permet selon Mistral de boucler chaque tour de parole en moins d'une seconde.
+
+![image](/images/blog/ai/ai_mistral_introducing_voxtral_3_001.png)
+
+Pour le SDK navigateur, c'est le serveur qui crée la session : la clé d'API n'atteint jamais le navigateur. Le modèle de chaque étape se choisit par agent ou par session.
+
+<Notice type="note">La documentation limite la téléphonie au lancement : elle est réservée aux clients entreprise, activée par l'équipe de compte et non disponible en libre-service. Seuls les appels entrants sont pris en charge. L'agent ne peut ni passer d'appel ni transférer un appel vers une personne, et seuls les outils côté serveur s'exécutent pendant un appel.</Notice>
+
+---
+
+##### Ce qui change depuis Voxtral Transcribe 2
+Par rapport à la génération précédente :
+- <u>Langues</u> : La transcription passe de 13 à 50 langues
+- <u>Transcription par lots</u> : De 0.003$ la minute pour *Voxtral Mini Transcribe V2* à 0.0035$ pour Mini Transcribe 3
+- <u>Temps réel</u> : De 0.006$ à 0.008$ la minute
+- <u>Synthèse vocale</u> : De 16$ / 1M caractères pour Voxtral TTS à 13$ / 1M caractères
+- <u>Poids ouverts</u> : *Voxtral Realtime* (Apache 2.0) et Voxtral TTS (CC BY-NC 4.0) étaient publiés en poids ouverts ; l'annonce de Voxtral 3 ne mentionne ni poids ouverts ni licence
+
+<br/>
+La documentation de *Voxtral 2* passe en *Deprecated*, avec un guide de migration mais sans date de retrait.
+
+---
+
+##### Tarification et disponibilité
+Voxtral 3 est disponible en préversion publique via l'API Mistral, facturé à l'usage, et s'essaie dans les espaces de test de *Mistral Studio*. Les tarifs, en USD :
+
+|                                    | Entrée              | Cache (lecture)      |
+| :--------------------------------: | :-----------------: | :------------------: |
+| Voxtral Mini Transcribe 3          | 0.0035$ / min       | 0.00035$ / min       |
+| Voxtral Small Transcribe 3         | 0.004$ / min        | 0.0004$ / min        |
+| Voxtral Mini Transcribe Realtime 3 | 0.008$ / min        | 0.0008$ / min        |
+| Voxtral TTS 3                      | 13$ / 1M caractères | 1.3$ / 1M caractères |
+
+<br/>
+Les agents vocaux sont facturés à la minute de conversation : 0.04$ avec *Mistral Small 4* pour le raisonnement, 0.08$ avec un modèle plus grand que Mistral ne nomme pas. Mistral présente son tarif de synthèse vocale comme inférieur à ceux d'*OpenAI TTS-1*, *Deepgram*, *ElevenLabs Flash* et *Gemini Flash*.
+
+<Notice type="note">Aucun tarif n'est publié pour la téléphonie SIP ni pour l'auto-déploiement. L'exécution de la pile complète sur site ou en cloud privé passe par l'équipe commerciale de Mistral.</Notice>
+
+---
+
+##### Conclusion
+Voxtral 3 fait de Mistral un fournisseur complet pour les agents vocaux, avec des tarifs à l'usage simples à estimer. Pour un administrateur Teams et voix, ce n'est pas encore une solution de centre de contact : la téléphonie reste réservée aux clients entreprise, en appels entrants et sans transfert vers une personne. Aujourd'hui, Voxtral 3 sert surtout à prototyper ; reste à surveiller l'ouverture de la téléphonie et une éventuelle annonce de poids ouverts, qui faisaient l'intérêt de Voxtral 2 pour l'auto-hébergement.
+
+---
+
+##### Sources
+[Mistral AI - Voxtral 3](https://mistral.ai/news/voxtral-3/)
+
+[Mistral AI Docs - Telephony (SIP)](https://docs.mistral.ai/studio/audio/voice-agents/telephony)
+
+[Tester Le Chat de Mistral AI](https://chat.mistral.ai/chat)
+
+---
+
+
+Avez-vous apprécié cet article ? Vous avez des questions, commentaires ou suggestions, n'hésitez pas à m'envoyer un message depuis le formulaire de contact.
+
+N'oubliez pas de nous suivre et de partager cet article.
