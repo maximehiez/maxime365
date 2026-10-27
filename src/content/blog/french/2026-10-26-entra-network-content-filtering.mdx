@@ -1,0 +1,70 @@
+---
+title: "Filtrage de fichiers par type dans Entra Global Secure Access"
+meta_title: ""
+description: ""
+date: 2026-10-26T10:00:00-05:00
+image: "/images/blog/entra/entra_network_content_filtering_thumbnail.png"
+categories: ["Entra ID"]
+author: "Maxime Hiez"
+tags: ["Sécurité", "Gouvernance"]
+draft: false
+---
+---
+
+##### Introduction
+*Microsoft Entra Global Secure Access* propose les *content policies*, des politiques qui contrôlent en temps réel ce que les utilisateurs et les agents partagent avec les applications d'IA générative, les applications cloud non gérées et les autres destinations internet. Deux actions sont disponibles : le *filtrage de contenu de base*, qui bloque ou autorise des types de fichiers précis sans dépendre de *Purview*, et le *Scan with Purview*, qui inspecte le contenu via les politiques *DLP* de *Microsoft Purview*.
+
+Voir l'article sur le DLP réseau Purview dans Entra Global Secure Access [ICI](https://maxime.hiez.ca/blog/2026-10-13-purview-network-layer-dlp-global-secure-access-ga), qui couvrait l'action *Scan with Purview*. Cet article couvre l'autre action, le filtrage de contenu de base, qui ne nécessite pas de licence Purview.
+
+---
+
+##### Comment fonctionne le filtrage de contenu de base
+Le filtrage de contenu de base détecte le type *MIME* du fichier ou le type de texte dans le trafic *HTTP* et *HTTPS*, puis applique une action *Allow* ou *Block* directement dans Global Secure Access, sans transmettre le contenu à Purview. Chaque règle cible une ou plusieurs destinations (URL, FQDN ou catégorie web) et une ou plusieurs activités (téléversement, téléchargement).
+
+Quelques scénarios types couverts par cette fonctionnalité :
+- <u>Fuite via une IA non gérée</u> : Bloquer le téléversement de documents vers *ChatGPT* ou d'autres applications d'IA générative non gérées
+- <u>Exfiltration par courriel personnel</u> : Bloquer le téléversement de fichiers vers *Gmail*
+- <u>Stockage cloud non autorisé</u> : Bloquer le téléversement de fichiers vers *Dropbox* ou d'autres fournisseurs de stockage non gérés
+- <u>Menace interne</u> : Bloquer le téléchargement de types de fichiers spécifiques avant un départ
+
+<Notice type="note">La détection par type MIME nécessite l'inspection *TLS* (*Transport Layer Security*) : sans déchiffrement du trafic, Global Secure Access ne peut pas identifier le type d'un fichier transporté en HTTPS.</Notice>
+
+---
+
+##### Prérequis
+Le filtrage de contenu de base nécessite :
+- <u>Microsoft Entra Internet Access</u> : Licence requise pour accéder aux content policies
+- <u>Rôle Global Secure Access Administrator</u> : Pour configurer les content policies
+- <u>Rôle Conditional Access Administrator</u> : Pour lier le profil de sécurité à une politique d'accès conditionnel
+
+<br/>
+
+Contrairement à l'action *<u>Scan with Purview</u>*, le filtrage de contenu de base ne nécessite aucune licence Microsoft Purview : c'est la voie la plus simple pour une organisation qui veut bloquer des types de fichiers sans déployer de politique DLP.
+
+---
+
+##### Ce que les administrateurs doivent évaluer
+Avant de déployer une règle de filtrage de contenu, plusieurs limites connues méritent attention. Les caractères génériques (\*) dans les destinations ne peuvent pas cibler un domaine de premier ou second niveau : *\*.contoso.com* fonctionne, mais *\*.com* ou *contoso.\** ne sont pas supportés. Le trafic *WebSocket* contourne entièrement le filtrage par type de fichier, seul le type de texte y reste évalué. Au-delà d'un certain volume de requêtes, le trafic excédentaire est automatiquement bloqué par limitation de débit (*fail-closed*).
+
+Le blocage des types de texte *HTML* ou *JSON* demande une prudence particulière : ces formats sont omniprésents dans le trafic web normal, et un blocage trop large peut casser des requêtes *GET*, *POST* ou *PUT* légitimes.
+
+<Notice type="note">Le filtrage de contenu réseau n'est disponible que sur le profil Internet Access, et nécessite que le client Global Secure Access soit installé sur un appareil joint à Microsoft Entra ID ou en jonction hybride.</Notice>
+
+---
+
+##### Conclusion
+Le filtrage de contenu de base donne aux organisations une option rapide pour bloquer des types de fichiers sensibles vers des destinations non gérées, sans dépendre d'une licence ou d'une politique Purview. Pour les scénarios qui exigent une inspection du contenu réel plutôt qu'un simple blocage par type de fichier, l'action *Scan with Purview* couverte dans l'article sur le DLP réseau reste la bonne option.
+
+---
+
+##### Sources
+[Microsoft Learn - Créer des content policies pour le filtrage réseau](https://learn.microsoft.com/fr-ca/entra/global-secure-access/how-to-network-content-filtering)
+
+[Microsoft Learn - Tutoriel sur les content policies](https://learn.microsoft.com/fr-ca/entra/global-secure-access/tutorial-internet-access-content-policies)
+
+---
+
+
+Avez-vous apprécié cet article ? Vous avez des questions, commentaires ou suggestions, n'hésitez pas à m'envoyer un message depuis le formulaire de contact.
+
+N'oubliez pas de nous suivre et de partager cet article.

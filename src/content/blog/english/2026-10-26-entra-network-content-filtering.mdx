@@ -1,0 +1,70 @@
+---
+title: "File type filtering in Entra Global Secure Access"
+meta_title: ""
+description: ""
+date: 2026-10-26T10:00:00-05:00
+image: "/images/blog/entra/entra_network_content_filtering_thumbnail.png"
+categories: ["Entra ID"]
+author: "Maxime Hiez"
+tags: ["Security", "Governance"]
+draft: false
+---
+---
+
+##### Introduction
+*Microsoft Entra Global Secure Access* offers *content policies*, which control in real time what users and agents share with generative AI applications, unmanaged cloud applications and other internet destinations. Two actions are available : *basic content filtering*, which blocks or allows specific file types without depending on *Purview*, and *Scan with Purview*, which inspects the content against the *DLP* policies of *Microsoft Purview*.
+
+Check the Purview network DLP in Entra Global Secure Access article [HERE](https://maxime.hiez.ca/en/blog/2026-10-13-purview-network-layer-dlp-global-secure-access-ga), which covered the Scan with Purview action. This post covers the other action, basic content filtering, which doesn't require a Purview license.
+
+---
+
+##### How basic content filtering works
+Basic content filtering detects the file's *MIME* type or the text type in *HTTP* and *HTTPS* traffic, then applies an *Allow* or *Block* action directly in Global Secure Access, without sending the content to Purview. Each rule targets one or more destinations (URL, FQDN or web category) and one or more activities (upload, download).
+
+A few typical scenarios this feature covers :
+- <u>Leakage through unmanaged AI</u> : Block document uploads to *ChatGPT* or other unmanaged generative AI applications
+- <u>Exfiltration through personal email</u> : Block file uploads to *Gmail*
+- <u>Unauthorized cloud storage</u> : Block file uploads to *Dropbox* or other unmanaged storage providers
+- <u>Insider threat</u> : Block downloads of specific file types ahead of an employee's departure
+
+<Notice type="note">MIME type detection requires *TLS* (*Transport Layer Security*) inspection : without decrypting the traffic, Global Secure Access can't identify the type of a file sent over HTTPS.</Notice>
+
+---
+
+##### Prerequisites
+Basic content filtering requires :
+- <u>Microsoft Entra Internet Access</u> : License required to access content policies
+- <u>Global Secure Access Administrator role</u> : To configure content policies
+- <u>Conditional Access Administrator role</u> : To link the security profile to a Conditional Access policy
+
+<br/>
+
+Unlike the *<u>Scan with Purview</u>* action, basic content filtering doesn't require any Microsoft Purview license : it's the simplest path for an organization that wants to block file types without deploying a DLP policy.
+
+---
+
+##### What administrators should evaluate
+Before deploying a content filtering rule, a few known limitations deserve attention. Wildcards (\*) in destinations can't target a top-level or second-level domain : *\*.contoso.com* works, but *\*.com* or *contoso.\** aren't supported. *WebSocket* traffic bypasses file type filtering entirely, and only the text type is still evaluated there. Beyond a certain request volume, excess traffic is automatically blocked by rate limiting (*fail-closed*).
+
+Blocking the *HTML* or *JSON* text types calls for particular caution : these formats are everywhere in normal web traffic, and an overly broad block can break legitimate *GET*, *POST* or *PUT* requests.
+
+<Notice type="note">Network content filtering is only available on the Internet Access profile, and requires the Global Secure Access client to be installed on a Microsoft Entra joined or Microsoft Entra hybrid joined device.</Notice>
+
+---
+
+##### Conclusion
+Basic content filtering gives organizations a quick way to block sensitive file types to unmanaged destinations, without depending on a Purview license or policy. For scenarios that call for inspecting the actual content rather than simply blocking by file type, the Scan with Purview action covered in the network DLP article remains the right option.
+
+---
+
+##### Sources
+[Microsoft Learn - Create content policies for network content filtering](https://learn.microsoft.com/en-us/entra/global-secure-access/how-to-network-content-filtering)
+
+[Microsoft Learn - Content policies tutorial](https://learn.microsoft.com/en-us/entra/global-secure-access/tutorial-internet-access-content-policies)
+
+---
+
+
+Did you enjoy this post ? If you have any questions, comments or suggestions, please feel free to send me a message from the contact form.
+
+Don't forget to follow us and share this post.
