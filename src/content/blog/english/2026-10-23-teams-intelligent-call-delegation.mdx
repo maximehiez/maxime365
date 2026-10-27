@@ -1,0 +1,109 @@
+---
+title: "Teams adds intelligent call delegation"
+meta_title: ""
+description: ""
+date: 2026-10-23T10:00:00-05:00
+image: "/images/blog/teams/teams_intelligent_call_delegation_thumbnail.png"
+categories: ["Teams"]
+author: "Maxime Hiez"
+tags: ["Telephony", "AI", "Recording", "Delegation", "Roadmap"]
+draft: false
+---
+---
+
+##### Introduction
+An incoming call often interrupts work with no way of knowing whether it's worth taking. *Microsoft Teams* hands that triage to an AI attendant with *Intelligent Call Delegation*, whose rollout is announced in *MC1519860* (roadmap item *565216*). Already offered in preview to customers of the *Frontier* program, the feature moves to a worldwide *Public Preview* starting mid-November 2026, then to general availability starting January 2027. This article covers how it works, how to control it and its current limits.
+
+Check the 2026 UCaaS Magic Quadrant article [HERE](https://maxime.hiez.ca/en/blog/2026-08-12-teams-gartner-ucaas-2026), which already mentioned it as a preview reserved for the Frontier program.
+
+---
+
+##### What intelligent call delegation does
+The attendant answers incoming Teams calls on the user's behalf and gathers context about the call to help them decide whether to take it. It can :
+- Screen calls and collect the caller's intent
+- Route urgent calls to the user
+- Schedule a callback through *Microsoft Bookings*
+- Send suspected spam calls to voicemail
+
+<br/>
+The caller sees an avatar and hears an announcement telling them they're speaking with an attendant, not a person. The user gets a notification, and a banner shows that the call is being screened. They can take over the call at any time with *Pick up* from the call history, or follow it in a *live preview*, which isn't available when recording and transcription are turned off.
+
+For callbacks, the attendant relies on a private Bookings calendar, which doesn't exist by default and is created in the background when the user turns on the *Schedule follow-ups* option. If the administrator allows calendar access, the user must also enter a Bookings link in the attendant's settings.
+
+Once the license is assigned, the user turns the feature on themselves from *Settings and more > Settings > Calls*, then *Set up Intelligent Call Delegation* under *Manage Intelligent Call Delegation*. If the option isn't there, they need to contact their Teams administrator.
+
+![image](/images/blog/teams/teams_intelligent_call_delegation_001.png)
+
+---
+
+##### Controlling Intelligent Call Delegation with PowerShell
+MC1519860 announces *Personal attendant policies* without saying where they're managed. For now, Microsoft Learn only documents PowerShell : *TeamsPersonalAttendantPolicy* is managed with the *[New|Set|Get|Grant|Remove]-CsTeamsPersonalAttendantPolicy* cmdlets, whose pages still carry the *Limited Preview* label (access restricted to authorized organizations). Besides *PersonalAttendant*, the policy has seven settings :
+- *<u>CallScreening</u>* : Call context evaluation
+- *<u>CalendarBookings</u>* : Calendar features (Bookings callbacks)
+- *<u>InboundInternalCalls</u>* : Incoming calls from the user's domain
+- *<u>InboundFederatedCalls</u>* : Incoming calls from other domains
+- *<u>InboundPSTNCalls</u>* : Incoming PSTN calls
+- *<u>AutomaticTranscription</u>* : Automatic storage of attendant call transcripts
+- *<u>AutomaticRecording</u>* : Automatic storage of attendant call recordings
+
+<br/>
+Each setting accepts *"EnabledUserOverride"*, *"Enabled"* or *"Disabled"*, and all of them default to *"EnabledUserOverride"* : every choice is then left to the user. However, a user who has never touched their settings starts with the attendant off but with screening, all three incoming call types, and automatic transcription and recording turned on ; only Bookings callbacks are off. If they turn the attendant on without changing these settings, the calls it handles are therefore transcribed and recorded.
+
+An organization that wants to take back control changes the *Global* instance via the following PowerShell command :
+```powershell
+Set-CsTeamsPersonalAttendantPolicy -Identity Global -AutomaticRecording Disabled -AutomaticTranscription Disabled
+```
+
+Users then lose the live preview.
+
+The policy can also be assigned to a user or to a group (ranked with *-Rank*) via *Grant-CsTeamsPersonalAttendantPolicy*, and *Get-CsOnlineUser* has shown it since version 8.0.0 of the module. On the user side, *Set-CsPersonalAttendantSettings* configures an account's attendant directly, provided the account has a *Phone System* license ; all mandatory settings must then be supplied every time.
+
+<Notice type="warning">The attendant replaces the user's existing call routing. With *Set-CsPersonalAttendantSettings*, call forwarding that's already in place causes a validation error ; forwarding unanswered calls to voicemail, however, can coexist with the attendant.</Notice>
+
+---
+
+##### Licenses, languages and current limits
+During the Frontier phase, each user needs a *Microsoft Copilot* license. MC1519860 only mentions *"appropriate Teams licensing"*, without naming a SKU ; neither the license required at general availability nor a price has been published.
+
+The current limits, which are those of the Frontier program, are as follows :
+- <u>Language</u> : Teams app set to English only
+- <u>Platforms</u> : Windows and Mac (in English) and Web, no iOS or Android
+- <u>Duration</u> : 4 minutes maximum per call
+- <u>Volume</u> : 15,000 minutes per tenant per month
+- <u>Concurrency</u> : Processing limited by the number of simultaneous calls over a rolling two-minute window
+
+<br/>
+When a limit applies, calls may fall back to the existing routing or to voicemail. MC1519860 and the roadmap only list Desktop and Mac, and Microsoft Learn gives a preliminary list of 28 languages the attendant can speak, including *fr-FR* and *fr-CA*, with *en-US* as the default. Nothing says yet what will apply in Public Preview or at general availability.
+
+---
+
+##### Conclusion
+Intelligent Call Delegation gives every user first-level call screening, but the point to watch lies elsewhere : by default, the policy leaves everything to the user, including automatic recording and transcription, which are on out of the box. As soon as the policy is available in the tenant, and by mid-November 2026 at the latest, it's best to set these two settings in the Global instance according to the organization's compliance requirements, and to warn users who rely on call forwarding. The license required at general availability is still one to watch between now and January 2027.
+
+---
+
+##### Sources
+[Microsoft 365 Message Center - MC1519860](https://mc.merill.net/message/MC1519860)
+
+[Microsoft 365 Roadmap - ID 565216](https://www.microsoft.com/en-us/microsoft-365/roadmap?id=565216)
+
+[Microsoft Support - Use Intelligent Call Delegation in Microsoft Teams](https://support.microsoft.com/en-us/topic/d6b59f6d-443b-4bea-9a05-769fe0f12901)
+
+[Microsoft Learn - New-CsTeamsPersonalAttendantPolicy](https://learn.microsoft.com/en-us/powershell/module/microsoftteams/new-csteamspersonalattendantpolicy?view=teams-ps)
+
+[Microsoft Learn - Set-CsTeamsPersonalAttendantPolicy](https://learn.microsoft.com/en-us/powershell/module/microsoftteams/set-csteamspersonalattendantpolicy?view=teams-ps)
+
+[Microsoft Learn - Grant-CsTeamsPersonalAttendantPolicy](https://learn.microsoft.com/en-us/powershell/module/microsoftteams/grant-csteamspersonalattendantpolicy?view=teams-ps)
+
+[Microsoft Learn - Set-CsPersonalAttendantSettings](https://learn.microsoft.com/en-us/powershell/module/microsoftteams/set-cspersonalattendantsettings?view=teams-ps)
+
+[Microsoft Learn - Get-CsPersonalAttendantSettings](https://learn.microsoft.com/en-us/powershell/module/microsoftteams/get-cspersonalattendantsettings?view=teams-ps)
+
+[Microsoft Learn - Teams PowerShell release notes](https://learn.microsoft.com/en-us/microsoftteams/teams-powershell-release-notes)
+
+---
+
+
+Did you enjoy this post ? If you have any questions, comments or suggestions, please feel free to send me a message from the contact form.
+
+Don't forget to follow us and share this post.
