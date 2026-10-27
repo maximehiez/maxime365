@@ -1,0 +1,83 @@
+---
+title: "Les courriels de messagerie vocale Teams changent d'expéditeur"
+meta_title: ""
+description: ""
+date: 2026-10-28T10:00:00-05:00
+image: "/images/blog/teams/teams_voicemail_email_sender_change_thumbnail.png"
+categories: ["Teams"]
+author: "Maxime Hiez"
+tags: ["Téléphonie", "Courriels", "Sécurité", "Domaine", "File d'attente", "Standard automatique"]
+draft: false
+---
+---
+
+##### Introduction
+Dans *Microsoft Teams*, un message vocal arrive dans la boîte aux lettres *Exchange Online* sous la forme d'un courriel avec une pièce jointe audio, et beaucoup d'organisations ont bâti des règles autour de ces courriels. Avec l'annonce *MC1511072*, publiée le 16 Octobre 2026 et classée *Major change*, Microsoft modifie leur expéditeur et leur objet : le champ De (*From*) affichera *"Microsoft Teams"* avec une adresse no-reply sur le domaine du tenant, et les informations de l'appelant passeront dans l'objet. Le déploiement mondial est estimé entre début Mars 2027 et fin Juin 2027.
+
+Voir l'article sur l'historique de la messagerie vocale partagée des Auto Attendants [ICI](https://maxime.hiez.ca/blog/2026-09-17-teams-how-to-manage-auto-attendant-shared-voicemail).
+
+---
+
+##### Ce qui change dans les courriels de messagerie vocale
+Le champ De des courriels de messagerie vocale ne contiendra plus le nom, le numéro de téléphone ou l'adresse courriel de l'appelant. Ces informations passent dans l'objet et restent présentes dans le corps du message. Pour la messagerie vocale personnelle, MC1511072 décrit l'avant et l'après suivants :
+
+| Champ           | Aujourd'hui                                                                                                                 | Après le changement                                                                                                                    |
+| :-------------: | :-------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------: |
+| De              | Nom et adresse de l'appelant identifié, ou numéro de l'appelant non identifié, avec *noreply@skype.voicemail.microsoft.com* | *"Microsoft Teams"* avec *no-reply@* sur le domaine par défaut du tenant, ou un domaine personnalisé du tenant lorsqu'il est configuré |
+| Objet           | *"Voice mail (22 seconds)"*                                                                                                 | Appelant (nom et numéro, ou numéro seul), *"Voicemail"* et durée, par exemple *"John Smith (+19371817273) - Voicemail (00:22)"*        |
+| Domaine d'envoi | *skype.voicemail.microsoft.com* pour les appels RTC (*PSTN*), domaine du tenant pour les appels Teams à Teams               | Domaine par défaut du tenant, ou domaine personnalisé du tenant lorsqu'il est configuré                                                |
+
+<br/>
+L'orthographe compte : l'adresse actuelle s'écrit *noreply@*, la nouvelle *no-reply@*, avec un trait d'union. Une règle qui cherche la chaîne *"noreply"* ne trouvera donc plus rien. Dans Teams, en revanche, les informations de l'appelant s'affichent comme aujourd'hui.
+
+---
+
+##### La messagerie vocale partagée des files d'attente et des Auto Attendants
+La messagerie vocale partagée des files d'attente (*Call Queues*) et des *Auto Attendants* change aussi de format. Aujourd'hui, le champ De affiche *"Shared Voicemail"* suivi, entre parenthèses, du nom de la file d'attente ou de l'Auto Attendant.
+
+Après le changement, cette mention laisse place à l'appelant, au nom de la file ou de l'Auto Attendant et à la durée, par exemple *"John Smith - Shared voicemail in [nom de la file] (00:05)"* pour un appel Teams à Teams. Pour un appel RTC, le nom et le numéro de l'appelant apparaissent lorsque le contact est trouvé dans *Microsoft Entra ID*, sinon son numéro seul. MC1511072 ne permet pas encore de savoir si cette chaîne figurera dans le champ De ou dans l'objet. Les règles *Outlook* basées sur l'expéditeur *"Shared Voicemail"* devront de toute façon être revues.
+
+---
+
+##### Un domaine d'envoi personnalisé pour la messagerie vocale
+L'adresse d'expéditeur prendra en charge le *Bring Your Own Domain* (BYOD) : avec leur propre domaine, les organisations pourront appliquer leurs politiques *SPF*, *DKIM*, *DMARC* et de protection de domaine existantes contre l'usurpation et l'emprunt d'identité. Le gain n'est pas anodin : selon *Microsoft Learn*, les messages vocaux générés par *Cloud Voicemail* ne sont aujourd'hui pas signés DKIM.
+
+Au 22 Octobre 2026, ni MC1511072 ni Microsoft Learn n'expliquent comment configurer ce domaine, et aucune applet de commande n'est publiée.
+
+---
+
+##### Ce que les administrateurs doivent préparer
+Le changement concerne les organisations qui utilisent la téléphonie Teams (*Teams Calling*), et MC1511072 ne mentionne aucun moyen de conserver le format actuel. Microsoft recommande de passer en revue les règles de flux de courrier, les listes d'autorisation et les automatisations qui dépendent de l'identité ou du domaine actuel de l'expéditeur, et de se préparer à les mettre à jour. Microsoft ne détaille pas ces catégories ; concrètement, voici où chercher en priorité :
+- Règles de flux de courrier : Les règles de transport qui ciblent *noreply@skype.voicemail.microsoft.com* ou son domaine.
+- Filtrage et listes d'autorisation : Les contournements anti-spam et les règles de passerelles tierces construits sur l'expéditeur actuel.
+- Routage et automatisations : Les règles Outlook, flux *Power Automate* ou intégrations de billetterie qui lisent l'appelant dans le champ De.
+
+<br/>
+L'article de dépannage de Microsoft Learn illustre ce qui est en jeu : pour des messages vocaux filtrés comme spam, il propose d'ajouter les adresses IP du service à un enregistrement SPF, ou une règle de transport qui contourne le filtrage pour ces adresses. Ce sont typiquement les configurations à relire avant Mars 2027.
+
+Aucune nouvelle licence n'est mentionnée (Cloud Voicemail ne nécessite pas de licence *Teams Phone*), ni aucune exigence de conformité supplémentaire.
+
+<Notice type="note">Les dates de MC1511072 sont des estimations et le calendrier peut changer : Microsoft publiera une mise à jour du message avec le calendrier confirmé et les actions requises. L'annonce ne mentionne ni phase de *Targeted Release*, ni les clouds gouvernementaux.</Notice>
+
+---
+
+##### Conclusion
+Dans Teams, rien ne change pour les utilisateurs ; dans Outlook, ils verront *"Microsoft Teams"* comme expéditeur et l'appelant dans l'objet. Pour l'administration de la messagerie, l'impact est plus net : une règle bâtie sur *noreply@skype.voicemail.microsoft.com* ou sur l'appelant dans le champ De cessera de correspondre dès le déploiement. L'inventaire peut commencer dès maintenant, sans attendre le domaine personnalisé, puisque l'adresse par défaut change de toute façon. Reste à guetter la mise à jour de MC1511072 pour le calendrier confirmé et, idéalement, la configuration du domaine personnalisé.
+
+---
+
+##### Sources
+[Message Center - MC1511072](https://admin.cloud.microsoft/#/MessageCenter/:/messages/MC1511072)
+
+[Microsoft Learn - Configurer la messagerie vocale cloud](https://learn.microsoft.com/fr-ca/microsoftteams/set-up-phone-system-voicemail)
+
+[Microsoft Learn - Gérer la messagerie vocale partagée pour les standards automatiques et les files d'attente](https://learn.microsoft.com/fr-ca/microsoftteams/manage-shared-voicemail)
+
+[Microsoft Learn - Messages vocaux non remis dans Teams](https://learn.microsoft.com/fr-ca/troubleshoot/microsoftteams/phone-system/voicemails-not-delivered)
+
+---
+
+
+Avez-vous apprécié cet article ? Vous avez des questions, commentaires ou suggestions, n'hésitez pas à m'envoyer un message depuis le formulaire de contact.
+
+N'oubliez pas de nous suivre et de partager cet article.
