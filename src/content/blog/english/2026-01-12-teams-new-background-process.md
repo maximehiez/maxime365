@@ -43,7 +43,7 @@ This new ms-teams_modulehost.exe process marks a strategic evolution for Teams, 
 ---
 
 ##### Sources
-[Message Center - MC1189656](https://admin.cloud.microsoft/?source=applauncher#/MessageCenter/:/messages/MC1189656)
+[Message Center - MC1189656](https://admin.cloud.microsoft/#/MessageCenter/:/messages/MC1189656)
 
 ---
 

@@ -1,0 +1,79 @@
+---
+title: "File blocking in Teams with Weaponizable File Protection"
+meta_title: ""
+description: ""
+date: 2026-10-24T10:00:00-05:00
+image: "/images/blog/teams/teams_weaponizable_file_protection_custom_extensions_thumbnail.png"
+categories: ["Teams"]
+author: "Maxime Hiez"
+tags: ["Security", "PowerShell", "Roadmap"]
+draft: false
+---
+---
+
+##### Introduction
+Since January 12, 2026, *Weaponizable File Protection* in *Microsoft Teams* has been on by default in tenants still on the original settings : it blocks messages that contain a potentially dangerous file type, based on a list of extensions defined by Microsoft. With the announcement *MC1509801* (roadmap item *571298*), Microsoft is opening this list to administrators, who will be able to keep the Microsoft list or replace it with a custom list. Worldwide general availability begins in early November 2026 and should be complete by mid-November 2026. No action is required.
+
+---
+
+##### What Weaponizable File Protection blocks
+Announced in September 2025 with *MC1148540*, the protection blocks messages that contain a file type that could be exploited for malicious purposes, in chats and channels alike. The whole message is blocked, not just the attachment. The recipient sees an indication but can neither read the content nor download the file ; the sender can edit the message to remove the file and resend it. In external collaboration, it only takes one organization in the conversation to have the protection turned on for it to apply to everyone.
+
+The setting lives in the Teams Admin Center, under *<u>Messaging settings</u>* > *<u>Messaging safety</u>*, with the *Scan messages for file types that are not allowed* option : the same section as [malicious URL protection](https://maxime.hiez.ca/en/blog/2025-10-14-teams-malicious-url-protection). In PowerShell, it maps to the *FileTypeCheck* parameter of the *Set-CsTeamsMessagingConfiguration* cmdlet, added in version 6.7.0 of the *MicrosoftTeams* module (November 2024) and documented with *"Enabled"* as the default value.
+
+The Microsoft list published on Microsoft Learn has 53 extensions, including *exe*, *dll*, *msi*, *iso*, *lnk*, *bat*, *docm* and *ppam*. The Learn page dedicated to the feature, updated on February 25, 2026, still says this list isn't configurable : it simply hasn't caught up with the announcement.
+
+---
+
+##### Microsoft list or custom list ?
+Organizations will have two options : keep the list recommended by Microsoft, or create a custom list in which administrators add or remove extensions based on their own security needs. Once a list is customized, that's the one the tenant applies.
+
+The choice comes with a trade-off. Organizations that stay on the Microsoft list automatically receive its future updates ; those that switch to a custom list no longer do. An administrator can return to the Microsoft list at any time, which restores automatic updates.
+
+Nothing changes for users : the blocking experience stays the same, only the list of affected extensions differs.
+
+---
+
+##### Configuration in PowerShell
+The documentation for *Set-CsTeamsMessagingConfiguration* already lists two new parameters alongside *FileTypeCheck* :
+```powershell
+Set-CsTeamsMessagingConfiguration
+   [-FileTypeCustomizationSetting <string>]
+   [-FileTypeBlockList <string[]>]
+```
+
+- <u>FileTypeCustomizationSetting</u> : Selects which list applies. *"MicrosoftRecommendedBlockList"*, the default value, keeps the current behavior ; *"CustomBlockList"* blocks the file types specified in *FileTypeBlockList* instead of the Microsoft list.
+- <u>FileTypeBlockList</u> : A string array that only applies when *FileTypeCheck* is set to *"Enabled"* and *FileTypeCustomizationSetting* is set to *"CustomBlockList"*. With *"CustomBlockList"*, it must contain at least one entry.
+
+Switching back to *"MicrosoftRecommendedBlockList"* clears the custom list : a carefully built list doesn't survive a rollback, so it's worth keeping a copy somewhere else before any switch. Since the messaging configuration is a single, global configuration for each tenant, the list applies to the whole organization.
+
+![image](/images/blog/teams/teams_weaponizable_file_protection_custom_extensions_001.png)
+
+These parameters are documented even though the feature hasn't rolled out yet. So far, no release note for the *MicrosoftTeams* module mentions them : not the stable 8.0.0 release of September 15, 2026, nor the 8.0.1-preview of October 12, 2026. At this stage, neither the message center nor the documentation describes a Teams Admin Center setting for the custom list.
+
+<Notice type="note">The two new parameters aren't available in GCC, GCC High and DoD environments. Roadmap item *571298* only targets the worldwide instance (*Worldwide, Standard Multi-Tenant*).</Notice>
+
+---
+
+##### Conclusion
+The Microsoft list remains the right default : it evolves without any intervention, whereas a custom list becomes a list you have to maintain yourself as the Microsoft list changes. Customizing makes sense for an organization that needs to block an extension missing from the list, or to allow one its business depends on. In that case, it's best to wait for the rollout to finish, expected by mid-November 2026, check that the installed *MicrosoftTeams* module actually exposes the two parameters, and keep a copy of the list before any return to the Microsoft list.
+
+---
+
+##### Sources
+[Microsoft 365 Roadmap - ID 571298](https://www.microsoft.com/en-us/microsoft-365/roadmap?id=571298)
+
+[Microsoft Learn - Weaponizable File Protection in Teams](https://learn.microsoft.com/en-us/microsoftteams/weaponizable-file-protection-teams)
+
+[Microsoft Learn - Set-CsTeamsMessagingConfiguration](https://learn.microsoft.com/en-us/powershell/module/microsoftteams/set-csteamsmessagingconfiguration)
+
+[Message Center - MC1509801](https://admin.cloud.microsoft/#/MessageCenter/:/messages/MC1509801)
+
+[Microsoft Learn - Release notes](https://learn.microsoft.com/en-us/microsoftteams/teams-powershell-release-notes)
+
+---
+
+
+Did you enjoy this post ? If you have any questions, comments or suggestions, please feel free to send me a message from the contact form.
+
+Don't forget to follow us and share this post.

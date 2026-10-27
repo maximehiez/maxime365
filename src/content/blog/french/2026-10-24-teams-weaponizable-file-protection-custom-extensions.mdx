@@ -1,0 +1,79 @@
+---
+title: "Blocage des fichiers dans Teams via Weaponizable File Protection"
+meta_title: ""
+description: ""
+date: 2026-10-24T10:00:00-05:00
+image: "/images/blog/teams/teams_weaponizable_file_protection_custom_extensions_thumbnail.png"
+categories: ["Teams"]
+author: "Maxime Hiez"
+tags: ["Sécurité", "PowerShell", "Roadmap"]
+draft: false
+---
+---
+
+##### Introduction
+Depuis le 12 Janvier 2026, la protection *Weaponizable File Protection* de *Microsoft Teams* est activée par défaut dans les tenants restés sur les paramètres d'origine : elle bloque les messages qui contiennent un type de fichier potentiellement dangereux, selon une liste d'extensions définie par Microsoft. Avec l'annonce *MC1509801* (élément de roadmap *571298*), Microsoft ouvre cette liste aux administrateurs, qui pourront conserver la liste Microsoft ou la remplacer par une liste personnalisée. La disponibilité générale mondiale débute début Novembre 2026 et doit se terminer d'ici la mi-Novembre 2026. Aucune action n'est requise.
+
+---
+
+##### Ce que bloque Weaponizable File Protection
+Annoncée en Septembre 2025 avec *MC1148540*, la protection bloque, en conversation comme en canal, les messages qui contiennent un type de fichier potentiellement exploitable à des fins malveillantes. Le blocage porte sur le message entier, pas seulement sur la pièce jointe. Le destinataire voit une indication, mais ne peut ni lire le contenu ni télécharger le fichier ; l'expéditeur, lui, peut modifier son message pour retirer le fichier et le renvoyer. En collaboration externe, il suffit qu'une seule des organisations présentes dans la conversation ait activé la protection pour qu'elle s'applique à tout le monde.
+
+Le réglage se trouve dans le Teams Admin Center, sous *<u>Messaging settings</u>* > *<u>Messaging safety</u>*, avec l'option *Scan messages for file types that are not allowed* : la même section que la [protection contre les URL malveillantes](https://maxime.hiez.ca/blog/2025-10-14-teams-malicious-url-protection). En PowerShell, il correspond au paramètre *FileTypeCheck* de l'applet de commande *Set-CsTeamsMessagingConfiguration*, ajouté dans la version 6.7.0 du module *MicrosoftTeams* (Novembre 2024) et documenté avec la valeur *"Enabled"* par défaut.
+
+La liste Microsoft publiée sur Microsoft Learn compte 53 extensions, parmi lesquelles *exe*, *dll*, *msi*, *iso*, *lnk*, *bat*, *docm* ou *ppam*. La page Learn consacrée à la fonctionnalité, mise à jour le 25 Février 2026, indique encore que cette liste n'est pas configurable : elle n'a simplement pas suivi l'annonce.
+
+---
+
+##### Liste Microsoft ou liste personnalisée ?
+Deux options s'offriront aux organisations : garder la liste recommandée par Microsoft, ou créer une liste personnalisée dans laquelle les administrateurs ajoutent ou retirent des extensions selon leurs propres besoins de sécurité. Dès qu'une liste est personnalisée, c'est elle que le tenant applique.
+
+Le choix a une contrepartie. Les organisations qui restent sur la liste Microsoft reçoivent automatiquement ses futures mises à jour ; celles qui passent à une liste personnalisée ne les reçoivent plus. Un administrateur peut revenir à la liste Microsoft à tout moment, ce qui rétablit les mises à jour automatiques.
+
+Côté utilisateurs, rien ne change : l'expérience de blocage reste la même, seule la liste des extensions concernées diffère.
+
+---
+
+##### Configuration en PowerShell
+La documentation de *Set-CsTeamsMessagingConfiguration* liste déjà deux nouveaux paramètres à côté de *FileTypeCheck* :
+```powershell
+Set-CsTeamsMessagingConfiguration
+   [-FileTypeCustomizationSetting <string>]
+   [-FileTypeBlockList <string[]>]
+```
+
+- <u>FileTypeCustomizationSetting</u> : Choisit la liste appliquée. *"MicrosoftRecommendedBlockList"*, la valeur par défaut, conserve le comportement actuel ; *"CustomBlockList"* bloque les types de fichiers indiqués dans *FileTypeBlockList* à la place de la liste Microsoft.
+- <u>FileTypeBlockList</u> : Tableau de chaînes qui ne s'applique que si *FileTypeCheck* vaut *"Enabled"* et *FileTypeCustomizationSetting* vaut *"CustomBlockList"*. Avec *"CustomBlockList"*, il doit contenir au moins une entrée.
+
+Revenir à *"MicrosoftRecommendedBlockList"* efface la liste personnalisée : une liste construite avec soin ne survit donc pas à un retour en arrière, et mérite d'être conservée ailleurs avant toute bascule. La configuration de messagerie étant unique et globale pour chaque tenant, la liste s'applique à toute l'organisation.
+
+![image](/images/blog/teams/teams_weaponizable_file_protection_custom_extensions_001.png)
+
+Ces paramètres sont documentés alors que la fonctionnalité n'est pas encore déployée. Aucune note de version du module *MicrosoftTeams* ne les mentionne pour l'instant, ni la version stable 8.0.0 du 15 Septembre 2026, ni la 8.0.1-preview du 12 Octobre 2026. Ni le message center ni la documentation ne décrivent, à ce stade, de réglage dans le Teams Admin Center pour la liste personnalisée.
+
+<Notice type="note">Les deux nouveaux paramètres ne sont pas disponibles dans les environnements GCC, GCC High et DoD. L'élément de roadmap *571298* ne cible que l'instance mondiale (*Worldwide, Standard Multi-Tenant*).</Notice>
+
+---
+
+##### Conclusion
+La liste Microsoft reste le bon choix par défaut : elle évolue sans intervention, alors qu'une liste personnalisée devient une liste à maintenir soi-même face aux changements de la liste Microsoft. La personnalisation se justifie pour une organisation qui doit bloquer une extension absente de la liste, ou en autoriser une dont son activité a besoin. Dans ce cas, mieux vaut attendre la fin du déploiement, prévue d'ici la mi-Novembre 2026, vérifier que le module *MicrosoftTeams* installé expose bien les deux paramètres, et garder une copie de la liste avant tout retour à la liste Microsoft.
+
+---
+
+##### Sources
+[Microsoft 365 Roadmap - ID 571298](https://www.microsoft.com/fr-ca/microsoft-365/roadmap?id=571298)
+
+[Microsoft Learn - Weaponizable File Protection dans Teams](https://learn.microsoft.com/fr-ca/microsoftteams/weaponizable-file-protection-teams)
+
+[Microsoft Learn - Set-CsTeamsMessagingConfiguration](https://learn.microsoft.com/fr-ca/powershell/module/microsoftteams/set-csteamsmessagingconfiguration)
+
+[Message Center - MC1509801](https://admin.cloud.microsoft/#/MessageCenter/:/messages/MC1509801)
+
+[Microsoft Learn - Notes de publication](https://learn.microsoft.com/fr-ca/microsoftteams/teams-powershell-release-notes)
+
+---
+
+
+Avez-vous apprécié cet article ? Vous avez des questions, commentaires ou suggestions, n'hésitez pas à m'envoyer un message depuis le formulaire de contact.
+
+N'oubliez pas de nous suivre et de partager cet article.
