@@ -1,0 +1,87 @@
+---
+title: "Teams blurs and scans QR codes in messages"
+meta_title: ""
+description: ""
+date: 2026-10-29T10:00:00-05:00
+image: "/images/blog/teams/teams_qr_code_protection_messages_thumbnail.png"
+categories: ["Teams"]
+author: "Maxime Hiez"
+tags: ["Security", "Phishing", "Roadmap"]
+draft: false
+---
+---
+
+##### Introduction
+In *Microsoft Teams*, links shared in chats already go through Malicious URL protection. A QR code, however, arrives as an image. Microsoft has two separate protections for it, both on by default : blurring of QR code images sent by external users, with the announcement *MC1470410* (roadmap item *570439*), whose general availability, pushed back from mid-October, is rolling out in late October 2026 ; and detection of malicious QR codes, with the announcement *MC1526651* (roadmap item *576198*), whose general availability starts in early November 2026 and is due to finish in mid-November 2026.
+
+Check the article on phishing detection in Teams conversations [HERE](https://maxime.hiez.ca/en/blog/2026-10-27-teams-phishing-detection-messaging).
+
+---
+
+##### Blurring of QR codes sent by external users
+When an external user sends an image that contains a QR code, Teams blurs it by default. To view or scan the code, the recipient has to reveal the image explicitly by clicking *Reveal QR code*. They can do so if they trust the sender.
+
+![image](/images/blog/teams/teams_qr_code_protection_messages_001.png)
+
+The blur is not a verdict : a blurred QR code doesn't mean Teams judged it malicious. It's a precaution applied to QR codes coming from outside. Those sent by internal users aren't blurred, except for Teams users on mobile in China, where blurring also applies to internal senders.
+
+![image](/images/blog/teams/teams_qr_code_protection_messages_002.png)
+
+Blurring is supported on *Android*, *iOS*, *Desktop*, *Mac* and *Web*. No configuration or policy change is required to turn it on or off.
+
+---
+
+##### Detection of malicious QR codes
+The second protection goes further : Teams decodes the QR codes in images embedded in messages (inline images) and evaluates their destination, in near real time according to the roadmap. It covers one-on-one chats, group chats, meeting chats and channels, and applies to both internal and external exchanges. The announcement only targets these inline images.
+
+When a malicious QR code is detected, users see the warning *"This message contains a link that might be harmful"*.
+
+Detection has no setting of its own : it depends on the existing [Malicious URL protection](https://maxime.hiez.ca/en/blog/2025-10-14-teams-malicious-url-protection) setting, and the roadmap presents it as an extension of that protection to QR code attacks. The rollout goes straight to general availability, with no *Targeted Release* phase. No Microsoft Learn page describes the feature yet.
+
+---
+
+##### What administrators need to know
+Neither announcement mentions a license or a compliance consideration. Malicious URL protection, which detection depends on, requires no additional license and is part of the baseline protection for all Teams users.
+
+As for controls, blurring offers none. Detection is controlled indirectly through the *Scan messages for unsafe URLs* setting, in the *Messaging safety* section of the *Microsoft Teams Admin Center*, which maps to the *UrlReputationCheck* parameter of the *Set-CsTeamsMessagingConfiguration* cmdlet (*"Enabled"* by default, or *"Disabled"*). As of October 29, 2026, that cmdlet has no QR code-specific parameter.
+
+That's where to look. The setting is on by default, but Microsoft Learn describes it as built into the baseline protection of new tenants, while existing tenants that still show the setting can view or change it. Organizations where Malicious URL protection is turned on get QR code detection automatically. It's therefore worth checking the setting's value in existing tenants, especially those where an administrator may have changed it, with the following PowerShell command :
+```powershell
+Connect-MicrosoftTeams
+
+Get-CsTeamsMessagingConfiguration | Select-Object UrlReputationCheck
+```
+
+Microsoft recommends informing users and support of the warning's arrival, making clear that blurring is a separate precaution, and updating the support documentation. Several points remain undocumented :
+- External users : Neither announcement defines this term (external access, guests, personal Teams accounts).
+- Detection reporting : The *Security detections* report in the *Microsoft Teams Admin Center* lists the *Impersonation*, *Malicious URL* and *Weaponizable File* types, with no QR code type, and nothing says whether a QR code detection shows up there as Malicious URL.
+- Reporting a mistake : Nothing specifies whether the *Report incorrect security detections* option covers these warnings.
+
+<Notice type="note">On the roadmap, blurring only targets the *Worldwide (Standard Multi-Tenant)* cloud, while detection also covers *GCC*, *GCC High* and *DoD*.</Notice>
+
+---
+
+##### Conclusion
+Blurring asks nothing of administrators, except to tell support that a blurred QR code from outside is not a verdict. Detection matters more : it also covers internal exchanges and relies on a setting that some existing tenants may have changed. Between now and early November 2026, the work comes down to two things, checking *UrlReputationCheck* and explaining to users the difference between a blur and a warning. What's left is to wait for a dedicated Microsoft Learn page, which will need to say who sees the warning and whether detections show up in the Security detections report.
+
+---
+
+##### Sources
+[Microsoft 365 Roadmap - ID 570439](https://www.microsoft.com/en-us/microsoft-365/roadmap?id=570439)
+
+[Microsoft 365 Roadmap - ID 576198](https://www.microsoft.com/en-us/microsoft-365/roadmap?id=576198)
+
+[Microsoft Learn - QR code obscuring in Microsoft Teams](https://learn.microsoft.com/en-us/microsoftteams/qr-code-obscuring-teams-messages)
+
+[Microsoft Learn - Malicious URL protection in Teams](https://learn.microsoft.com/en-us/microsoftteams/malicious-url-protection-teams)
+
+[Microsoft Learn - Set-CsTeamsMessagingConfiguration](https://learn.microsoft.com/en-us/powershell/module/microsoftteams/set-csteamsmessagingconfiguration)
+
+[Microsoft Learn - Security detections report in Teams](https://learn.microsoft.com/en-us/microsoftteams/teams-analytics-and-reports/security-detections-report)
+
+---
+
+
+Did you enjoy this post ? If you have any questions, comments or suggestions, please feel free to send me a message from the contact form.
+
+Don't forget to follow us and share this post.

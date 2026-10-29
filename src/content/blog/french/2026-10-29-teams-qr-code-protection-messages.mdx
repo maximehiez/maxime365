@@ -1,0 +1,87 @@
+---
+title: "Teams floute et analyse les codes QR dans les messages"
+meta_title: ""
+description: ""
+date: 2026-10-29T10:00:00-05:00
+image: "/images/blog/teams/teams_qr_code_protection_messages_thumbnail.png"
+categories: ["Teams"]
+author: "Maxime Hiez"
+tags: ["Sécurité", "Phishing", "Roadmap"]
+draft: false
+---
+---
+
+##### Introduction
+Dans *Microsoft Teams*, les liens partagés en conversation passent déjà par la protection contre les URL malveillantes (*Malicious URL protection*). Un code QR, lui, arrive sous forme d'image. Microsoft lui consacre deux protections distinctes, actives par défaut : le floutage des images de codes QR envoyées par des utilisateurs externes, avec l'annonce *MC1470410* (élément de roadmap *570439*), dont la disponibilité générale, repoussée de mi-Octobre, se déploie fin Octobre 2026 ; et la détection des codes QR malveillants, avec l'annonce *MC1526651* (élément de roadmap *576198*), dont la disponibilité générale débute début Novembre 2026 et doit se terminer mi-Novembre 2026.
+
+Voir l'article sur la détection de l'hameçonnage dans les conversations Teams [ICI](https://maxime.hiez.ca/blog/2026-10-27-teams-phishing-detection-messaging).
+
+---
+
+##### Le floutage des codes QR envoyés par des utilisateurs externes
+Quand un utilisateur externe envoie une image qui contient un code QR, Teams la floute par défaut. Pour voir ou scanner le code, le destinataire doit révéler l'image explicitement en cliquant sur *Reveal QR code*. Il peut le faire s'il fait confiance à l'expéditeur.
+
+![image](/images/blog/teams/teams_qr_code_protection_messages_001.png)
+
+Le flou n'est pas un verdict : un code QR flouté ne signifie pas que Teams l'a jugé malveillant. Il s'agit d'une précaution appliquée aux codes QR venus de l'extérieur. Ceux qu'envoient les utilisateurs internes ne sont pas floutés, sauf pour les utilisateurs de Teams sur mobile en Chine, chez qui le floutage s'applique aussi aux expéditeurs internes.
+
+![image](/images/blog/teams/teams_qr_code_protection_messages_002.png)
+
+Le floutage est pris en charge sur *Android*, *iOS*, *Desktop*, *Mac* et *Web*. Aucune configuration ni modification de politique n'est requise pour l'activer ou le désactiver.
+
+---
+
+##### La détection des codes QR malveillants
+La seconde protection va plus loin : Teams décode les codes QR présents dans les images intégrées aux messages (*inline images*) et évalue leur destination, quasiment en temps réel selon la roadmap. Elle couvre les conversations individuelles, les conversations de groupe, les conversations de réunion et les canaux, et s'applique aux échanges internes comme externes. L'annonce ne vise que ces images intégrées.
+
+Lorsqu'un code QR malveillant est détecté, les utilisateurs voient l'avertissement *"This message contains a link that might be harmful"*.
+
+La détection n'a pas de réglage propre : elle dépend du paramètre existant de [protection contre les URL malveillantes](https://maxime.hiez.ca/blog/2025-10-14-teams-malicious-url-protection), et la roadmap la présente comme une extension de cette protection aux attaques par code QR. Le déploiement passe directement en disponibilité générale, sans phase *Targeted Release*. Aucune page Microsoft Learn ne décrit encore la fonctionnalité.
+
+---
+
+##### Ce que les administrateurs doivent savoir
+Aucune des deux annonces ne mentionne de licence ni de considération de conformité. La protection contre les URL malveillantes, dont dépend la détection, ne demande aucune licence supplémentaire et fait partie de la protection de base de tous les utilisateurs Teams.
+
+Côté contrôle, le floutage n'en offre aucun. La détection se pilote indirectement par le réglage *Scan messages for unsafe URLs*, dans la section *Messaging safety* du *Microsoft Teams Admin Center*, qui correspond au paramètre *UrlReputationCheck* de l'applet de commande *Set-CsTeamsMessagingConfiguration* (*"Enabled"* par défaut, ou *"Disabled"*). Au 29 Octobre 2026, cette applet de commande ne propose aucun paramètre propre aux codes QR.
+
+Le point à vérifier se trouve là. Le réglage est activé par défaut, mais Microsoft Learn le décrit comme intégré à la protection de base des nouveaux tenants, tandis que les tenants existants qui affichent encore le réglage peuvent le consulter ou le modifier. Les organisations où la protection contre les URL malveillantes est activée reçoivent automatiquement la détection des codes QR. Mieux vaut donc contrôler la valeur du réglage dans les tenants existants, surtout ceux où un administrateur a pu le modifier, via la commande PowerShell suivante :
+```powershell
+Connect-MicrosoftTeams
+
+Get-CsTeamsMessagingConfiguration | Select-Object UrlReputationCheck
+```
+
+Microsoft recommande d'informer les utilisateurs et le support de l'arrivée de l'avertissement, de préciser que le floutage est une précaution distincte et de mettre à jour la documentation du support. Plusieurs points restent non documentés :
+- Utilisateurs externes : Les deux annonces ne définissent pas ce terme (accès externe, invités, comptes Teams personnels).
+- Remontée des détections : Le rapport *Security detections* du Microsoft Teams Admin Center liste les types *Impersonation*, *Malicious URL* et *Weaponizable File*, sans type dédié aux codes QR, et rien ne dit si une détection de code QR y apparaît comme Malicious URL.
+- Signalement d'une erreur : Rien ne précise si l'option *Report incorrect security detections* couvre ces avertissements.
+
+<Notice type="note">Sur la roadmap, le floutage ne cible que le cloud *Worldwide (Standard Multi-Tenant)*, alors que la détection couvre aussi *GCC*, *GCC High* et *DoD*.</Notice>
+
+---
+
+##### Conclusion
+Le floutage ne demande rien aux administrateurs, sinon de prévenir le support qu'un code QR flouté venu de l'extérieur n'est pas un verdict. La détection compte davantage : elle couvre aussi les échanges internes et repose sur un réglage que certains tenants existants ont pu modifier. D'ici début Novembre 2026, le travail tient en deux gestes, vérifier *UrlReputationCheck* et expliquer aux utilisateurs la différence entre un flou et un avertissement. Reste à attendre une page Microsoft Learn dédiée, qui devra dire qui voit l'avertissement et si les détections remontent dans le rapport Security detections.
+
+---
+
+##### Sources
+[Microsoft 365 Roadmap - ID 570439](https://www.microsoft.com/fr-ca/microsoft-365/roadmap?id=570439)
+
+[Microsoft 365 Roadmap - ID 576198](https://www.microsoft.com/fr-ca/microsoft-365/roadmap?id=576198)
+
+[Microsoft Learn - Masquage du code QR dans Microsoft Teams](https://learn.microsoft.com/fr-ca/microsoftteams/qr-code-obscuring-teams-messages)
+
+[Microsoft Learn - Protection contre les URL malveillantes dans Teams](https://learn.microsoft.com/fr-ca/microsoftteams/malicious-url-protection-teams)
+
+[Microsoft Learn - Set-CsTeamsMessagingConfiguration](https://learn.microsoft.com/fr-ca/powershell/module/microsoftteams/set-csteamsmessagingconfiguration)
+
+[Microsoft Learn - Rapport des détections de sécurité dans Teams](https://learn.microsoft.com/fr-ca/microsoftteams/teams-analytics-and-reports/security-detections-report)
+
+---
+
+
+Avez-vous apprécié cet article ? Vous avez des questions, commentaires ou suggestions, n'hésitez pas à m'envoyer un message depuis le formulaire de contact.
+
+N'oubliez pas de nous suivre et de partager cet article.

@@ -19,7 +19,7 @@ Since January 12, 2026, *Weaponizable File Protection* in *Microsoft Teams* has 
 ##### What Weaponizable File Protection blocks
 Announced in September 2025 with *MC1148540*, the protection blocks messages that contain a file type that could be exploited for malicious purposes, in chats and channels alike. The whole message is blocked, not just the attachment. The recipient sees an indication but can neither read the content nor download the file ; the sender can edit the message to remove the file and resend it. In external collaboration, it only takes one organization in the conversation to have the protection turned on for it to apply to everyone.
 
-The setting lives in the Teams Admin Center, under *<u>Messaging settings</u>* > *<u>Messaging safety</u>*, with the *Scan messages for file types that are not allowed* option : the same section as [malicious URL protection](https://maxime.hiez.ca/en/blog/2025-10-14-teams-malicious-url-protection). In PowerShell, it maps to the *FileTypeCheck* parameter of the *Set-CsTeamsMessagingConfiguration* cmdlet, added in version 6.7.0 of the *MicrosoftTeams* module (November 2024) and documented with *"Enabled"* as the default value.
+The setting lives in the *Microsoft Teams Admin Center*, under *<u>Messaging settings</u>* > *<u>Messaging safety</u>*, with the *Scan messages for file types that are not allowed* option : the same section as [malicious URL protection](https://maxime.hiez.ca/en/blog/2025-10-14-teams-malicious-url-protection). In PowerShell, it maps to the *FileTypeCheck* parameter of the *Set-CsTeamsMessagingConfiguration* cmdlet, added in version 6.7.0 of the *MicrosoftTeams* module (November 2024) and documented with *"Enabled"* as the default value.
 
 The Microsoft list published on Microsoft Learn has 53 extensions, including *exe*, *dll*, *msi*, *iso*, *lnk*, *bat*, *docm* and *ppam*. The Learn page dedicated to the feature, updated on February 25, 2026, still says this list isn't configurable : it simply hasn't caught up with the announcement.
 
@@ -49,7 +49,7 @@ Switching back to *"MicrosoftRecommendedBlockList"* clears the custom list : a c
 
 ![image](/images/blog/teams/teams_weaponizable_file_protection_custom_extensions_001.png)
 
-These parameters are documented even though the feature hasn't rolled out yet. So far, no release note for the *MicrosoftTeams* module mentions them : not the stable 8.0.0 release of September 15, 2026, nor the 8.0.1-preview of October 12, 2026. At this stage, neither the message center nor the documentation describes a Teams Admin Center setting for the custom list.
+These parameters are documented even though the feature hasn't rolled out yet. So far, no release note for the *MicrosoftTeams* module mentions them : not the stable 8.0.0 release of September 15, 2026, nor the 8.0.1-preview of October 12, 2026. At this stage, neither the message center nor the documentation describes a Microsoft Teams Admin Center setting for the custom list.
 
 <Notice type="note">The two new parameters aren't available in GCC, GCC High and DoD environments. Roadmap item *571298* only targets the worldwide instance (*Worldwide, Standard Multi-Tenant*).</Notice>
 

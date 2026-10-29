@@ -1,0 +1,81 @@
+---
+title: "Purview retire Copilot des politiques de rétention Teams"
+meta_title: ""
+description: ""
+date: 2026-10-29T10:00:00-05:00
+image: "/images/blog/purview/purview_teams_retention_copilot_interactions_thumbnail.png"
+categories: ["Purview"]
+author: "Maxime Hiez"
+tags: ["Gouvernance", "Conformité", "IA"]
+draft: false
+---
+---
+
+##### Introduction
+Depuis Septembre 2025, *Microsoft Purview* gère la rétention des interactions *Microsoft 365 Copilot* sur un emplacement distinct des conversations *Teams*. Pourtant, certaines politiques de rétention Teams héritées s'appliquent encore aujourd'hui aux interactions Copilot. L'annonce *MC1481313* (élément de roadmap *571306*), classée changement majeur (*Major change*), y met fin : ces politiques deviendront des politiques Teams uniquement, avec un déploiement mondial de mi-Janvier à fin Janvier 2027. Une action est requise pour les organisations qui comptent sur elles pour conserver ou supprimer les interactions Copilot.
+
+---
+
+##### Ce qui change pour les interactions Copilot
+Une fois le changement déployé, les politiques de rétention Teams existantes qui couvrent aujourd'hui Copilot ne s'appliqueront plus à cette charge de travail. Les interactions Copilot ne seront plus ni conservées ni supprimées par ces politiques héritées : elles relèveront uniquement des politiques configurées explicitement pour Copilot. Côté Teams, le comportement de rétention reste inchangé.
+
+Ces politiques héritées sont un reste de l'ancien modèle. Les messages Copilot tombaient automatiquement dans l'emplacement *Teams chats and Copilot interactions*, parce qu'ils étaient conservés et supprimés par les mêmes mécanismes que les conversations Teams, même pour des utilisateurs qui n'utilisaient pas Teams. L'annonce *MC926899* a séparé ces emplacements, avec une disponibilité générale déployée à partir de mi-Septembre 2025 ; les nouvelles politiques s'appuient depuis sur l'emplacement *Microsoft Copilot experiences*.
+
+Le calendrier a déjà bougé une fois : la première version de MC1481313, publiée le 28 Septembre 2026, annonçait un déploiement de fin Octobre à mi-Novembre 2026. *Microsoft* ne fixe aucune date limite d'action en dehors de cette fenêtre, et les deux pages *Microsoft Learn* de référence sur la rétention de Copilot, mises à jour pour la dernière fois le 25 Juin 2026, ne mentionnent pas encore le changement.
+
+<Notice type="warning">Une fois le changement déployé, entre mi-Janvier et fin Janvier 2027, les interactions Copilot couvertes jusqu'ici par une politique Teams héritée ne relèvent plus d'aucune politique de rétention Purview si aucune politique ne cible l'emplacement Microsoft Copilot experiences.</Notice>
+
+---
+
+##### Repérer les politiques de rétention concernées
+L'annonce ne fournit ni applet de commande ni méthode pour identifier les politiques touchées : elle demande seulement de passer en revue les politiques de rétention Purview existantes. Le plus simple est de passer par le portail. Dans *Data Lifecycle Management*, ouvrir chaque politique de rétention qui cible les conversations Teams et vérifier si son emplacement s'intitule Teams chats and Copilot interactions : c'est cet emplacement hérité qui couvre encore Copilot.
+
+Une politique combinée ne peut plus être modifiée une fois les emplacements séparés disponibles, mais sa réduction aux seules conversations Teams reste possible avant l'échéance, via la commande suivante, à exécuter dans *Security & Compliance PowerShell* :
+```powershell
+Set-RetentionCompliancePolicy -Identity "<policy name>" -Applications "User:TeamsChatUserInteractions"
+```
+
+Mieux vaut créer d'abord la politique Copilot et attendre qu'elle soit appliquée, ce qui peut prendre jusqu'à sept jours, avant de réduire la politique héritée, pour ne pas laisser de période sans couverture.
+
+---
+
+##### Créer la politique pour Microsoft Copilot experiences
+La politique se crée dans le portail Microsoft Purview, sous *Solutions* > *Data Lifecycle Management* > *Policies* > *Retention policies* > *New retention policy*.
+
+![image](/images/blog/purview/purview_teams_retention_copilot_interactions_001.png)
+
+La politique porte sur les invites des utilisateurs et les réponses de Copilot (texte, liens et références, ainsi que les résumés en fil pour Copilot dans Teams) ; les messages *"in progress"* ne sont pas capturés. Pour Microsoft 365 Copilot et Copilot Studio, aucune politique de collecte n'est nécessaire, contrairement aux autres applications d'IA.
+
+Les délais sont à prévoir : une nouvelle politique peut prendre jusqu'à sept jours pour s'appliquer, et le traitement de rétention d'*Exchange* prend généralement 1 à 7 jours. Une suppression après 1 jour peut ainsi prendre jusqu'à 16 jours avant que le message disparaisse des recherches *eDiscovery*. Les utilisateurs ne sont pas avertis quand une politique supprime leurs messages Copilot.
+
+---
+
+##### Licences requises
+Toutes les combinaisons listées par Microsoft incluent Microsoft 365 Copilot :
+- <u>Politique de rétention Copilot</u> : *Microsoft 365 E3* ou *E5*, ou Microsoft 365 E3 avec *Microsoft Purview Suite* ou *E5 Information Protection and Governance*, chaque fois avec Microsoft 365 Copilot
+- <u>Avec un scope adaptatif</u> : Microsoft 365 E5, ou Microsoft 365 E3 avec Microsoft Purview Suite ou E5 Information Protection and Governance, chaque fois avec Microsoft 365 Copilot
+
+---
+
+##### Conclusion
+Le changement ne touche pas Teams, mais il retire aux interactions Copilot une couverture sur laquelle certains tenants comptent encore sans le savoir. Le report à Janvier 2027 laisse le temps de faire l'inventaire dans le portail et de créer la politique sur Microsoft Copilot experiences, à condition de ne pas attendre la mise à jour de Learn ni un second report. Microsoft recommande aussi de mettre à jour la documentation de conformité et de prévenir les responsables de la gestion des enregistrements, pour que la nouvelle politique soit connue au-delà de l'équipe Purview.
+
+---
+
+##### Sources
+[Microsoft 365 Roadmap - 571306](https://www.microsoft.com/microsoft-365/roadmap?id=571306)
+
+[Microsoft Learn - Rétention pour Copilot et les applications IA](https://learn.microsoft.com/fr-ca/purview/retention-policies-copilot)
+
+[Microsoft Learn - Créer et configurer des politiques de rétention](https://learn.microsoft.com/fr-ca/purview/create-retention-policies)
+
+[Microsoft Learn - Applets de commande PowerShell pour la rétention](https://learn.microsoft.com/fr-ca/purview/retention-cmdlets)
+
+[Microsoft Learn - Description de service Microsoft Purview](https://learn.microsoft.com/fr-ca/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-tenantlevel-services-licensing-guidance/microsoft-purview-service-description)
+
+---
+
+
+Avez-vous apprécié cet article ? Vous avez des questions, commentaires ou suggestions, n'hésitez pas à m'envoyer un message depuis le formulaire de contact.
+
+N'oubliez pas de nous suivre et de partager cet article.
