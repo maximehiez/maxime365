@@ -25,7 +25,7 @@ Le champ De des courriels de messagerie vocale ne contiendra plus le nom, le num
 | :-------------: | :-------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------: |
 | De              | Nom et adresse de l'appelant identifié, ou numéro de l'appelant non identifié, avec *noreply@skype.voicemail.microsoft.com* | *"Microsoft Teams"* avec *no-reply@* sur le domaine par défaut du tenant, ou un domaine personnalisé du tenant lorsqu'il est configuré |
 | Objet           | *"Voice mail (22 seconds)"*                                                                                                 | Appelant (nom et numéro, ou numéro seul), *"Voicemail"* et durée, par exemple *"John Smith (+19371817273) - Voicemail (00:22)"*        |
-| Domaine d'envoi | *skype.voicemail.microsoft.com* pour les appels RTC (*PSTN*), domaine du tenant pour les appels Teams à Teams               | Domaine par défaut du tenant, ou domaine personnalisé du tenant lorsqu'il est configuré                                                |
+| Domaine d'envoi | *skype.voicemail.microsoft.com* pour les appels PSTN, domaine du tenant pour les appels Teams à Teams                       | Domaine par défaut du tenant, ou domaine personnalisé du tenant lorsqu'il est configuré                                                |
 
 L'orthographe compte : l'adresse actuelle s'écrit *noreply@*, la nouvelle *no-reply@*, avec un trait d'union. Une règle qui cherche la chaîne *"noreply"* ne trouvera donc plus rien. Dans Teams, en revanche, les informations de l'appelant s'affichent comme aujourd'hui.
 
@@ -34,7 +34,7 @@ L'orthographe compte : l'adresse actuelle s'écrit *noreply@*, la nouvelle *no-r
 ##### La messagerie vocale partagée des files d'attente et des Auto Attendants
 La messagerie vocale partagée des files d'attente (*Call Queues*) et des *Auto Attendants* change aussi de format. Aujourd'hui, le champ De affiche *"Shared Voicemail"* suivi, entre parenthèses, du nom de la file d'attente ou de l'Auto Attendant.
 
-Après le changement, cette mention laisse place à l'appelant, au nom de la file ou de l'Auto Attendant et à la durée, par exemple *"John Smith - Shared voicemail in [nom de la file] (00:05)"* pour un appel Teams à Teams. Pour un appel RTC, le nom et le numéro de l'appelant apparaissent lorsque le contact est trouvé dans *Microsoft Entra ID*, sinon son numéro seul. MC1511072 ne permet pas encore de savoir si cette chaîne figurera dans le champ De ou dans l'objet. Les règles *Outlook* basées sur l'expéditeur *"Shared Voicemail"* devront de toute façon être revues.
+Après le changement, cette mention laisse place à l'appelant, au nom de la file ou de l'Auto Attendant et à la durée, par exemple *"John Smith - Shared voicemail in [nom de la file] (00:05)"* pour un appel Teams à Teams. Pour un appel PSTN, le nom et le numéro de l'appelant apparaissent lorsque le contact est trouvé dans *Microsoft Entra ID*, sinon son numéro seul. MC1511072 ne permet pas encore de savoir si cette chaîne figurera dans le champ De ou dans l'objet. Les règles *Outlook* basées sur l'expéditeur *"Shared Voicemail"* devront de toute façon être revues.
 
 ---
 
@@ -66,8 +66,6 @@ Dans Teams, rien ne change pour les utilisateurs ; dans Outlook, ils verront *"M
 ---
 
 ##### Sources
-[Message Center - MC1511072](https://admin.cloud.microsoft/#/MessageCenter/:/messages/MC1511072)
-
 [Microsoft Learn - Configurer la messagerie vocale cloud](https://learn.microsoft.com/fr-ca/microsoftteams/set-up-phone-system-voicemail)
 
 [Microsoft Learn - Gérer la messagerie vocale partagée pour les standards automatiques et les files d'attente](https://learn.microsoft.com/fr-ca/microsoftteams/manage-shared-voicemail)
