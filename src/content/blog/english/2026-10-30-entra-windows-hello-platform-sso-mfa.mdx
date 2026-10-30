@@ -1,0 +1,88 @@
+---
+title: "WHfB and Platform SSO become standalone MFA factors in Entra ID"
+meta_title: ""
+description: ""
+date: 2026-10-30T10:00:00-05:00
+image: "/images/blog/entra/entra_windows_hello_platform_sso_mfa_thumbnail.png"
+categories: ["Entra ID"]
+author: "Maxime Hiez"
+tags: ["MFA", "Passkey", "Conditional Access", "Security"]
+draft: false
+---
+---
+
+##### Introduction
+*Windows Hello for Business* (*WHfB*) and *Platform SSO* on *macOS* already satisfy the MFA requirement at primary sign-in in *Microsoft Entra ID*, but a *step-up* prompt, an *authentication strength* or a *sign-in frequency* check can still require a passkey or another method. *MC1450134* makes WHfB and Platform SSO standalone MFA factors. A second announcement, *MC1450133*, lets users register a passkey as their first MFA method, without going through SMS or voice call first. Both are in *General Availability* (*Worldwide* and *GCC*), with a rollout starting in early November 2026.
+
+Check the Microsoft Entra passkey on Windows article [HERE](https://maxime.hiez.ca/en/blog/2026-10-20-entra-how-to-enable-passkey-on-windows). That passkey is part of the first phase of MC1450133 : it will be able to serve as a user's first MFA method.
+
+---
+
+##### What changes for Windows Hello for Business and Platform SSO
+With MC1450134, a user signed in with WHfB or Platform SSO completes supported MFA challenges without a separate passkey, in three situations :
+- <u>Step-up</u> : MFA requirements for step-up authentication
+- <u>Authentication strength</u> : Requirements of an authentication strength policy
+- <u>Sign-in frequency</u> : Sign-in frequency checks
+<br/>
+
+A user whose only MFA method is WHfB or Platform SSO becomes *MFA-capable*. If they sign in with a password alone, they'll no longer be prompted to register an additional method. These credentials will show up in *My Security Info* as auto-registered passkeys.
+
+The rollout begins in early November 2026 and is expected to complete in late December 2026 ; the October 27 update only shifted this timeline.
+
+---
+
+##### A passkey as the first MFA method
+Until now, users had to register a method such as SMS or voice call before adding a passkey (*FIDO2*), WHfB or Platform SSO. With MC1450133, a user who only has a password can register a passkey or passwordless sign-in directly as their first MFA method, in two phases :
+
+| Phase   | Methods covered                                                                                              | Rollout                                    |
+| :-----: | :----------------------------------------------------------------------------------------------------------: | :----------------------------------------: |
+| Phase 1 | Synced passkeys, Microsoft Entra passkeys on Windows, FIDO2 security keys                                    | Early November 2026 to early January 2027  |
+| Phase 2 | Windows Hello for Business, Platform SSO on macOS, Authenticator passkey, Authenticator passwordless sign-in | Expected to complete by late February 2027 |
+
+*Security Defaults* MFA registration prompts will adopt this experience between January and February 2027.
+
+The two announcements don't follow the same timeline : WHfB and Platform SSO become standalone MFA factors from early November 2026, but registering them as a first MFA method falls under phase 2.
+
+In registration flows, including those triggered by MFA enforcement or by an authentication strength, a user enabled for passkeys will be offered a passkey by default. The levers stay the same as today : the authentication methods policy and Conditional Access. Microsoft recommends reviewing the Conditional Access policies that govern security info registration, considering requiring MFA for that registration if the organization calls for additional verification, and updating onboarding and registration guides.
+
+---
+
+##### What administrators should check
+Neither announcement requires any configuration or mentions a license or an opt-out. Authentication strengths do rely on Conditional Access, however, which requires *Microsoft Entra ID P1*.
+
+The real concern : WHfB and Platform SSO are device-bound. A user whose only MFA method is one of them may be unable to complete MFA from another device, and will no longer be guided automatically to a second method. Microsoft recommends :
+- Portable method : Have users register at least one portable method, for example a synced passkey or a *Microsoft Authenticator* passkey
+- Custom authentication strengths : Check that WHfB and Platform SSO are allowed where appropriate ; the built-in authentication strengths already include them and can't be modified
+- Documentation : Update user documentation
+<br/>
+
+For the portable method, the lever available today is a *registration campaign* targeting passkeys, which requires the *Passkey (FIDO2)* method with the *Allow self-service setup* option. It already treats WHfB and Platform SSO as passkeys that suppress the nudge, but only on their own platform : a user who only has WHfB won't be nudged on *Windows*.
+
+Conditional Access policies that target *Register security information* apply before this nudge, and have covered WHfB and Platform SSO registration since July 6, 2026.
+
+<Notice type="note">If the Passkey (FIDO2) configuration restricts keys by AAGUID, the AAGUID of the macOS *Platform Credential* must be allowed : *7FD635B3-2EF9-4542-8D9D-164F2C771EFC*.</Notice>
+
+---
+
+##### Conclusion
+MC1450133 finally takes SMS and voice call off the path to passwordless, just as Microsoft-provided SMS and voice retire on February 1, 2027 (July 1, 2027 for Global Administrators and external users). The risk lies in accounts whose only MFA method is tied to a device : they count as MFA-capable, and registration no longer pushes them to add another one. From early November 2026, admins should find them, review custom authentication strengths and have users register a synced or Authenticator passkey, without counting on the registration campaign for Windows users who only have WHfB.
+
+---
+
+##### Sources
+[Microsoft Learn - Conditional Access authentication strengths](https://learn.microsoft.com/en-us/entra/identity/authentication/concept-authentication-strengths)
+
+[Microsoft Learn - Protect security info registration with Conditional Access](https://learn.microsoft.com/en-us/entra/identity/conditional-access/policy-all-users-security-info-registration)
+
+[Microsoft Learn - Registration campaign for a passkey or Authenticator](https://learn.microsoft.com/en-us/entra/identity/authentication/how-to-mfa-registration-campaign)
+
+[Microsoft Learn - Platform Credential for macOS](https://learn.microsoft.com/en-us/entra/identity/authentication/concept-authentication-platform-credential-for-macos)
+
+[Microsoft Learn - Passkeys by default and retirement of SMS and voice](https://learn.microsoft.com/en-us/entra/identity/authentication/concept-sms-voice-retirement)
+
+---
+
+
+Did you enjoy this post ? If you have any questions, comments or suggestions, please feel free to send me a message from the contact form.
+
+Don't forget to follow us and share this post.

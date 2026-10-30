@@ -1,0 +1,88 @@
+---
+title: "WHfB et Platform SSO, facteurs MFA autonomes dans Entra ID"
+meta_title: ""
+description: ""
+date: 2026-10-30T10:00:00-05:00
+image: "/images/blog/entra/entra_windows_hello_platform_sso_mfa_thumbnail.png"
+categories: ["Entra ID"]
+author: "Maxime Hiez"
+tags: ["MFA", "Passkey", "Accès Conditionnels", "Sécurité"]
+draft: false
+---
+---
+
+##### Introduction
+*Windows Hello for Business* (*WHfB*) et *Platform SSO* sur *macOS* satisfont déjà l'exigence MFA à la connexion principale dans *Microsoft Entra ID*, mais une réauthentification (*step-up*), une *authentication strength* ou un contrôle de *sign-in frequency* peut encore exiger une passkey ou une autre méthode. *MC1450134* fait de WHfB et de Platform SSO des facteurs MFA autonomes. Une seconde annonce, *MC1450133*, permet d'inscrire une passkey comme première méthode MFA, sans passer d'abord par le SMS ou l'appel vocal. Les deux sont en *General Availability* (*Worldwide* et *GCC*), avec un déploiement qui commence début Novembre 2026.
+
+Voir l'article sur la passkey Microsoft Entra sur Windows [ICI](https://maxime.hiez.ca/blog/2026-10-20-entra-how-to-enable-passkey-on-windows). Cette passkey fait partie de la première phase de MC1450133 : elle pourra être la première méthode MFA d'un utilisateur.
+
+---
+
+##### Ce qui change pour Windows Hello for Business et Platform SSO
+Avec MC1450134, un utilisateur connecté avec WHfB ou Platform SSO répond aux demandes MFA prises en charge sans passkey distincte, dans trois situations :
+- <u>Step-up</u> : Les exigences MFA d'une réauthentification
+- <u>Authentication strength</u> : Les exigences d'une politique d'authentication strength
+- <u>Sign-in frequency</u> : Les contrôles de fréquence de connexion
+<br/>
+
+Un utilisateur dont la seule méthode MFA est WHfB ou Platform SSO devient capable de MFA (*MFA-capable*). S'il se connecte avec un mot de passe seul, il ne sera plus invité à inscrire une méthode supplémentaire. Ces informations d'identification apparaîtront dans *My Security Info* comme des passkeys inscrites automatiquement.
+
+Le déploiement commence début Novembre 2026 et doit se terminer fin Décembre 2026 ; la mise à jour du 27 Octobre n'a fait que décaler ce calendrier.
+
+---
+
+##### Une passkey comme première méthode MFA
+Jusqu'ici, il fallait inscrire une méthode comme le SMS ou l'appel vocal avant d'ajouter une passkey (*FIDO2*), WHfB ou Platform SSO. Avec MC1450133, un utilisateur qui n'a qu'un mot de passe peut inscrire directement une passkey ou une connexion sans mot de passe (*passwordless*) comme première méthode MFA, en deux phases :
+
+| Phase   | Méthodes concernées                                                                                                  | Déploiement                              |
+| :-----: | :------------------------------------------------------------------------------------------------------------------: | :--------------------------------------: |
+| Phase 1 | Passkeys synchronisées, passkeys Microsoft Entra sur Windows, clés de sécurité FIDO2                                 | Début Novembre 2026 à début Janvier 2027 |
+| Phase 2 | Windows Hello for Business, Platform SSO sur macOS, passkey Authenticator, connexion sans mot de passe Authenticator | Fin prévue fin Février 2027              |
+
+Les invites d'inscription MFA des *Security Defaults* adopteront cette expérience entre Janvier et Février 2027.
+
+Les deux annonces ne suivent pas le même calendrier : WHfB et Platform SSO deviennent des facteurs MFA autonomes à partir de début Novembre 2026, mais leur inscription comme première méthode MFA relève de la phase 2.
+
+Dans les parcours d'inscription, y compris ceux déclenchés par l'application du MFA ou par une authentication strength, un utilisateur activé pour les passkeys se verra proposer une passkey par défaut. Les leviers restent ceux d'aujourd'hui : la politique des méthodes d'authentification et l'accès conditionnel. Microsoft recommande de revoir les politiques d'accès conditionnel qui encadrent l'inscription des informations de sécurité, d'envisager d'exiger le MFA pour cette inscription si l'organisation demande une vérification supplémentaire, et de mettre à jour les guides d'accueil et d'inscription.
+
+---
+
+##### Ce que les administrateurs doivent vérifier
+Aucune des deux annonces ne demande de configuration ni ne mentionne de licence ou d'*opt-out*. Les authentication strengths reposent toutefois sur l'accès conditionnel, qui exige *Microsoft Entra ID P1*.
+
+Le vrai point d'attention : WHfB et Platform SSO sont liés à l'appareil. Un utilisateur dont c'est la seule méthode MFA risque de ne pas pouvoir répondre au MFA depuis un autre appareil, et il ne sera plus guidé automatiquement vers une seconde méthode. Microsoft recommande :
+- Méthode portable : Faire inscrire au moins une méthode portable, par exemple une passkey synchronisée ou une passkey *Microsoft Authenticator*
+- Authentication strengths personnalisées : Vérifier que WHfB et Platform SSO y sont autorisés là où c'est pertinent ; les authentication strengths intégrées les incluent déjà et ne peuvent pas être modifiées
+- Documentation : Mettre à jour la documentation utilisateur
+<br/>
+
+Pour la méthode portable, le levier disponible aujourd'hui est la campagne d'inscription (*registration campaign*) ciblant les passkeys, qui exige la méthode *Passkey (FIDO2)* avec l'option *Allow self-service setup*. Elle traite déjà WHfB et Platform SSO comme des passkeys qui suppriment la sollicitation, mais seulement sur leur propre plateforme : un utilisateur qui n'a que WHfB ne sera pas sollicité sur *Windows*.
+
+Les politiques d'accès conditionnel qui ciblent *Register security information* s'appliquent avant cette sollicitation et couvrent l'inscription de WHfB et Platform SSO depuis le 6 Juillet 2026.
+
+<Notice type="note">Si la configuration Passkey (FIDO2) restreint les clés par AAGUID, celui de la *Platform Credential* pour macOS doit être autorisé : *7FD635B3-2EF9-4542-8D9D-164F2C771EFC*.</Notice>
+
+---
+
+##### Conclusion
+MC1450133 sort enfin le SMS et l'appel vocal du chemin vers le sans mot de passe, au moment où Microsoft retire le SMS et la voix qu'il fournit, le 1er Février 2027 (1er Juillet 2027 pour les Administrateurs Globaux et les utilisateurs externes). Le risque, ce sont des comptes dont la seule méthode MFA est liée à un appareil, jugés capables de MFA et que l'inscription ne pousse plus à en ajouter une autre. Dès début Novembre 2026, il faut les repérer, revoir les authentication strengths personnalisées et faire inscrire une passkey synchronisée ou Authenticator, sans compter sur la campagne d'inscription pour les utilisateurs Windows qui n'ont que WHfB.
+
+---
+
+##### Sources
+[Microsoft Learn - Authentication strengths de l'accès conditionnel](https://learn.microsoft.com/fr-ca/entra/identity/authentication/concept-authentication-strengths)
+
+[Microsoft Learn - Protéger l'inscription des informations de sécurité avec l'accès conditionnel](https://learn.microsoft.com/fr-ca/entra/identity/conditional-access/policy-all-users-security-info-registration)
+
+[Microsoft Learn - Campagne d'inscription pour une passkey ou Authenticator](https://learn.microsoft.com/fr-ca/entra/identity/authentication/how-to-mfa-registration-campaign)
+
+[Microsoft Learn - Platform Credential pour macOS](https://learn.microsoft.com/fr-ca/entra/identity/authentication/concept-authentication-platform-credential-for-macos)
+
+[Microsoft Learn - Passkeys par défaut et retrait du SMS et de la voix](https://learn.microsoft.com/fr-ca/entra/identity/authentication/concept-sms-voice-retirement)
+
+---
+
+
+Avez-vous apprécié cet article ? Vous avez des questions, commentaires ou suggestions, n'hésitez pas à m'envoyer un message depuis le formulaire de contact.
+
+N'oubliez pas de nous suivre et de partager cet article.
