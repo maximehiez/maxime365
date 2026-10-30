@@ -1,0 +1,93 @@
+---
+title: "Recording consent for PSTN calls in Teams"
+meta_title: ""
+description: ""
+date: 2026-10-30T10:00:00-05:00
+image: "/images/blog/teams/teams_pstn_recording_transcription_consent_thumbnail.png"
+categories: ["Teams"]
+author: "Maxime Hiez"
+tags: ["Telephony", "Recording", "Transcription", "Roadmap"]
+draft: false
+---
+---
+
+##### Introduction
+Since January 2026, the *Microsoft Teams* calling policy can require explicit consent from participants before a one-on-one call is recorded or transcribed. One exception remains : the party joining over the public switched telephone network (PSTN) is auto-consented. Roadmap item *577543*, published on October 23, 2026, closes that gap by letting the PSTN party accept or decline from their phone keypad. The feature is in development, with general availability planned for December 2026 for the *Worldwide (Standard Multi-Tenant)* cloud only.
+
+Check the article on consent before joining a Teams meeting [HERE](https://maxime.hiez.ca/en/blog/2026-09-16-teams-pre-meeting-consent), a separate mechanism.
+
+---
+
+##### What changes for the PSTN party
+Today, *Microsoft Learn* lists PSTN endpoints in one-on-one calls among the participants that are auto-consented : no interaction, just a consent notification, and consent logged as *"not applicable"* or *"auto consent"*. The recording audio announcement is also on by default for the PSTN party, and the *RecordingAndTranscriptionAudioNotification* parameter doesn't control it.
+
+With 577543, when explicit consent is required :
+- Audio prompt : The PSTN party hears a prompt when recording or transcription starts.
+- Keypad response : They accept or decline with their phone keypad.
+- Declining : They stay in the call, but muted.
+
+<br/>
+In VoIP calls, the Teams party already gets the equivalent. The person who starts the recording or transcription is considered to have consented ; the other participant is muted, with their camera and content sharing turned off. When they want to unmute, turn on their camera or share content, they have to answer *"Yes"* or *"No"*, and declining leaves them with a view-only experience. For the PSTN party, the audio prompt and the keypad play that role.
+
+---
+
+##### The calling policy setting
+No new setting has been announced : the roadmap presents the feature as an extension of the explicit consent the calling policy already provides. In the *Microsoft Teams Admin Center*, that's the *Require participant agreement for recording and transcription* setting. When it's on, participants must agree to be recorded and transcribed, and their audio, video and content sharing stay off until they agree.
+
+In PowerShell, the setting maps to the *ExplicitRecordingConsent* parameter of the *New-CsTeamsCallingPolicy* and *Set-CsTeamsCallingPolicy* cmdlets, added in [version 7.3.0](https://maxime.hiez.ca/en/blog/2025-08-12-teams-update-module-powershell-7-3-0) of the *MicrosoftTeams* module. It accepts *"Enabled"* or *"Disabled"*, which is the default. It covers one-on-one VoIP and PSTN calls ; group calls and audio conferencing fall under the meeting policy. The announcement *MC1163766* gives an example of turning it on in the global policy, via the following PowerShell command :
+```powershell
+Connect-MicrosoftTeams
+
+Set-CsTeamsCallingPolicy -Identity Global -ExplicitRecordingConsent "Enabled"
+```
+
+Microsoft doesn't put it this way, but for users whose calling policy already has this setting on, it should also apply to PSTN parties once 577543 rolls out, with no further action.
+
+Each participant's choice is logged in the *Microsoft Purview* audit log, where administrators can find it with the *Added information about call participants* filter.
+
+---
+
+##### Prerequisites, limits and licenses
+Consent only applies to calls that are already allowed to be recorded or transcribed, and a few cases remain out of scope :
+- Recording and transcription : The *Cloud recording for calling* (*AllowCloudRecordingForCalls*) and *Transcription* (*AllowTranscriptionForCalling*) settings of the calling policy must allow them ; call transcription is off by default.
+- Call queues : Explicit consent isn't supported for call queue calls.
+- Teams phones : *Teams Phone* devices only support explicit consent in one-on-one calls with the latest app version (*MC1216032*).
+- Licenses : Recording PSTN calls requires *Microsoft 365 E5*, *Office 365 E5*, or *Microsoft 365 E3* or *Office 365 E3* with the Teams Phone add-on.
+
+Neither roadmap item mentions a license for the consent itself.
+
+---
+
+##### Timeline and scope
+The base feature is listed under roadmap item *503295* and was announced with MC1163766 : *Targeted Release* in January 2026, then general availability from mid-January to late April 2026 depending on the cloud. Yet the roadmap still lists it as *Rolling out*. MC1163766 already warned that PSTN endpoints would be auto-consented, and that their explicit consent would come in a future release : that's what 577543 describes, still in development as of October 30, 2026, with no Targeted Release phase and no *Message Center* announcement.
+
+<Notice type="note">Roadmap item 577543 only targets the Worldwide cloud, with no date for GCC, GCC High or DoD, while 503295 covers all four clouds. It only carries the *Android* and *iOS* platform tags, where 503295 shows *Desktop* and *Mac* : Microsoft doesn't specify which Teams clients are covered.</Notice>
+
+---
+
+##### Conclusion
+This extension closes the remaining gap in explicit consent for one-on-one calls : until now, a call with an external number was exempt from the agreement Teams participants must give. Since it arrives without a new setting, the work has to be done ahead of time. Between now and December 2026, it's worth taking stock of the calling policies where *ExplicitRecordingConsent* is set to *"Enabled"* and warning the staff who record calls with customers : a PSTN party who declines will stay on the line, but muted. As general availability approaches, it will still be worth checking which Teams clients and clouds are actually covered.
+
+---
+
+##### Sources
+[Microsoft 365 Roadmap - ID 577543](https://www.microsoft.com/en-us/microsoft-365/roadmap?id=577543)
+
+[Microsoft 365 Roadmap - ID 503295](https://www.microsoft.com/en-us/microsoft-365/roadmap?id=503295)
+
+[Microsoft Learn - Configure call recording, transcription, and captions in Teams](https://learn.microsoft.com/en-us/microsoftteams/call-recording-transcription-captions)
+
+[Microsoft Learn - Manage participant agreement for recording and transcription](https://learn.microsoft.com/en-us/microsoftteams/participant-agreement-recording-transcription)
+
+[Microsoft Learn - Calling policies in Teams](https://learn.microsoft.com/en-us/microsoftteams/teams-calling-policy)
+
+[Microsoft Learn - Set-CsTeamsCallingPolicy](https://learn.microsoft.com/en-us/powershell/module/microsoftteams/set-csteamscallingpolicy)
+
+[Microsoft Learn - Introduction to Teams recording](https://learn.microsoft.com/en-us/microsoftteams/teams-recording-policy)
+
+---
+
+
+Did you enjoy this post ? If you have any questions, comments or suggestions, please feel free to send me a message from the contact form.
+
+Don't forget to follow us and share this post.

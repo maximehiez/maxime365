@@ -1,0 +1,93 @@
+---
+title: "Consentement à l'enregistrement des appels PSTN dans Teams"
+meta_title: ""
+description: ""
+date: 2026-10-30T10:00:00-05:00
+image: "/images/blog/teams/teams_pstn_recording_transcription_consent_thumbnail.png"
+categories: ["Teams"]
+author: "Maxime Hiez"
+tags: ["Téléphonie", "Enregistrement", "Transcription", "Roadmap"]
+draft: false
+---
+---
+
+##### Introduction
+Depuis Janvier 2026, la politique d'appel (*calling policy*) de *Microsoft Teams* permet d'exiger le consentement explicite des participants avant l'enregistrement ou la transcription d'un appel en tête-à-tête. Une exception demeure : l'interlocuteur joint par le réseau téléphonique commuté (RTC, *PSTN*) est réputé avoir consenti d'office. L'élément de roadmap *577543*, publié le 23 Octobre 2026, comble cet écart en laissant l'interlocuteur PSTN accepter ou refuser depuis le clavier de son téléphone. La fonctionnalité est en développement, avec une disponibilité générale prévue en Décembre 2026 pour le seul cloud *Worldwide (Standard Multi-Tenant)*.
+
+Voir l'article sur le consentement avant de rejoindre une réunion Teams [ICI](https://maxime.hiez.ca/blog/2026-09-16-teams-pre-meeting-consent), un mécanisme distinct.
+
+---
+
+##### Ce qui change pour l'interlocuteur PSTN
+Aujourd'hui, *Microsoft Learn* range les points de terminaison PSTN des appels en tête-à-tête parmi les participants réputés consentants d'office : aucune interaction, une simple notification de consentement, et un consentement consigné comme *"not applicable"* ou *"auto consent"*. L'annonce audio de l'enregistrement est d'ailleurs activée par défaut pour l'interlocuteur PSTN, et le paramètre *RecordingAndTranscriptionAudioNotification* ne la contrôle pas.
+
+Avec 577543, lorsque le consentement explicite est exigé :
+- Invite audio : L'interlocuteur PSTN entend une invite au démarrage de l'enregistrement ou de la transcription.
+- Réponse au clavier : Il accepte ou refuse avec le clavier de son téléphone.
+- Refus : Il reste dans l'appel, mais en sourdine.
+
+<br/>
+En appel VoIP, l'interlocuteur Teams connaît déjà l'équivalent. La personne qui lance l'enregistrement ou la transcription est réputée avoir consenti ; l'autre participant est mis en sourdine, caméra et partage de contenu coupés. Lorsqu'il veut réactiver son micro ou sa caméra, ou partager du contenu, il doit répondre *"Oui"* ou *"Non"*, et un refus lui laisse une expérience en lecture seule. Pour l'interlocuteur PSTN, l'invite audio et le clavier tiennent ce rôle.
+
+---
+
+##### Le paramètre de la politique d'appel
+Aucun nouveau paramètre n'est annoncé : la roadmap présente la fonctionnalité comme une extension du consentement explicite déjà prévu par la politique d'appel. Dans le *Microsoft Teams Admin Center*, il s'agit du réglage *Require participant agreement for recording and transcription*. Lorsqu'il est activé, les participants doivent accepter d'être enregistrés et transcrits, et leur audio, leur vidéo et leur partage de contenu restent coupés jusqu'à leur accord.
+
+En PowerShell, le réglage correspond au paramètre *ExplicitRecordingConsent* des applets de commande *New-CsTeamsCallingPolicy* et *Set-CsTeamsCallingPolicy*, ajouté dans la [version 7.3.0](https://maxime.hiez.ca/blog/2025-08-12-teams-update-module-powershell-7-3-0) du module *MicrosoftTeams*. Il accepte *"Enabled"* ou *"Disabled"*, la valeur par défaut. Il couvre les appels VoIP et PSTN en tête-à-tête ; les appels de groupe et l'audioconférence relèvent de la politique de réunion. L'annonce *MC1163766* donne l'exemple de son activation dans la politique globale, via la commande PowerShell suivante :
+```powershell
+Connect-MicrosoftTeams
+
+Set-CsTeamsCallingPolicy -Identity Global -ExplicitRecordingConsent "Enabled"
+```
+
+Microsoft ne le formule pas ainsi, mais pour les utilisateurs dont la politique d'appel active déjà ce réglage, il devrait s'appliquer aussi aux interlocuteurs PSTN une fois 577543 déployé, sans nouvelle intervention.
+
+Le choix de chaque participant est consigné dans le journal d'audit de *Microsoft Purview*, où l'administrateur le retrouve avec le filtre *Added information about call participants*.
+
+---
+
+##### Prérequis, limites et licences
+Le consentement ne s'applique qu'à des appels déjà autorisés à l'enregistrement ou à la transcription, et quelques cas restent en dehors :
+- Enregistrement et transcription : Les réglages *Cloud recording for calling* (*AllowCloudRecordingForCalls*) et *Transcription* (*AllowTranscriptionForCalling*) de la politique d'appel doivent les autoriser ; la transcription des appels est désactivée par défaut.
+- Files d'attente : Le consentement explicite n'est pas pris en charge pour les appels des files d'attente (*Call Queues*).
+- Téléphones Teams : Les appareils *Teams Phone* ne prennent en charge le consentement explicite en tête-à-tête qu'avec la dernière version de l'application (*MC1216032*).
+- Licences : L'enregistrement des appels PSTN exige *Microsoft 365 E5*, *Office 365 E5*, ou *Microsoft 365 E3* ou *Office 365 E3* avec le module complémentaire Teams Phone.
+
+Aucune des deux entrées de roadmap ne mentionne de licence pour le consentement lui-même.
+
+---
+
+##### Calendrier et périmètre
+La fonctionnalité de base figure sous l'élément de roadmap *503295* et a été annoncée avec MC1163766 : *Targeted Release* en Janvier 2026, puis disponibilité générale de mi-Janvier à fin Avril 2026 selon les clouds. La roadmap l'affiche pourtant toujours en cours de déploiement (*Rolling out*). MC1163766 prévenait déjà que les points de terminaison PSTN seraient réputés consentants d'office, et que leur consentement explicite viendrait dans une version ultérieure : c'est ce que décrit 577543, toujours en développement au 30 Octobre 2026, sans phase de Targeted Release ni annonce au *Message Center*.
+
+<Notice type="note">L'élément de roadmap 577543 ne cible que le cloud Worldwide, sans date pour GCC, GCC High ou DoD, alors que 503295 couvre les quatre clouds. Il ne porte que les étiquettes de plateforme *Android* et *iOS*, là où 503295 indique *Desktop* et *Mac* : Microsoft ne précise pas quels clients Teams sont concernés.</Notice>
+
+---
+
+##### Conclusion
+Cette extension referme l'écart qui restait dans le consentement explicite des appels en tête-à-tête : jusqu'ici, un appel avec un numéro externe échappait à l'accord exigé des participants Teams. Comme elle arrive sans nouveau réglage, le travail se fait en amont. D'ici Décembre 2026, il vaut la peine de recenser les politiques d'appel où *ExplicitRecordingConsent* vaut *"Enabled"* et de prévenir les équipes qui enregistrent des appels avec des clients : un interlocuteur PSTN qui refuse restera en ligne, mais en sourdine. Reste à vérifier, à l'approche de la disponibilité générale, les clients Teams et les clouds réellement couverts.
+
+---
+
+##### Sources
+[Microsoft 365 Roadmap - ID 577543](https://www.microsoft.com/fr-ca/microsoft-365/roadmap?id=577543)
+
+[Microsoft 365 Roadmap - ID 503295](https://www.microsoft.com/fr-ca/microsoft-365/roadmap?id=503295)
+
+[Microsoft Learn - Configurer l'enregistrement, la transcription et les sous-titres des appels dans Teams](https://learn.microsoft.com/fr-ca/microsoftteams/call-recording-transcription-captions)
+
+[Microsoft Learn - Gérer l'accord de participation pour l'enregistrement et la transcription](https://learn.microsoft.com/fr-ca/microsoftteams/participant-agreement-recording-transcription)
+
+[Microsoft Learn - Politiques d'appel dans Teams](https://learn.microsoft.com/fr-ca/microsoftteams/teams-calling-policy)
+
+[Microsoft Learn - Set-CsTeamsCallingPolicy](https://learn.microsoft.com/fr-ca/powershell/module/microsoftteams/set-csteamscallingpolicy)
+
+[Microsoft Learn - Présentation de l'enregistrement Teams](https://learn.microsoft.com/fr-ca/microsoftteams/teams-recording-policy)
+
+---
+
+
+Avez-vous apprécié cet article ? Vous avez des questions, commentaires ou suggestions, n'hésitez pas à m'envoyer un message depuis le formulaire de contact.
+
+N'oubliez pas de nous suivre et de partager cet article.
