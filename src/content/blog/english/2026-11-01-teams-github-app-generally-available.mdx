@@ -1,0 +1,71 @@
+---
+title: "GitHub app in Teams generally available"
+meta_title: ""
+description: ""
+date: 2026-11-01T10:00:00-05:00
+image: "/images/blog/teams/teams_github_app_generally_available_thumbnail.png"
+categories: ["Teams"]
+author: "Maxime Hiez"
+tags: ["Governance", "AI", "Licenses"]
+draft: false
+---
+---
+
+##### Introduction
+Development teams already get their *GitHub* notifications in *Microsoft Teams*, and the arrival of *GitHub Copilot* in conversations adds a second app to govern. With announcement *MC1515929*, published on October 19, 2026, Microsoft merges the two : the *GitHub* app becomes the single app, generally available, with a worldwide rollout that started in mid-October 2026 and is due to finish in mid-November 2026. The old app will be renamed *"GitHub (deprecated)"* and then retired on November 16, 2026.
+
+---
+
+##### What the app does
+The app carries over the existing notifications : subscribing a channel to a repository (*subscribe OWNER/REPO*, *subscribe list*), link previews and reminders. The old app and the notifications app are two separate apps. Users of the notifications app update it, and their subscriptions and reminders are kept.
+What's new is Copilot. By replying to a notification and mentioning *@GitHub*, a user hands a task to the Copilot cloud agent, which then works from the context of the conversation. The user can choose a model per conversation, connect *MCP* servers and start sessions across several repositories, up to 11 repositories per session, all under the same owner.
+
+---
+
+##### What the Teams admin needs to do
+Installation goes through a Teams workspace admin first ; each user then connects their own GitHub account with *@GitHub*. The app only needs to be installed once per team.
+
+In the *Microsoft Teams Admin Center*, the checklist is as follows :
+- App permission policies : Check that the app is allowed for the right users. Availability is managed with app permission policies and app management controls, which can target a *Microsoft Entra ID* group.
+- Resource-specific consent (*RSC*) : If it is restricted, configure the team and chat consent policies so that the app gets its RSC permissions. These are what allow Copilot to use conversation and thread history as context.
+- Old app : Ask users of the old app to remove it from their conversations and add the new one before November 16, 2026, get the notifications app updated, check that notifications arrive in the right conversations, and update the internal documentation.
+
+<br/>
+
+No new communication between users, tenants or subscriptions is introduced.
+
+---
+
+##### Licensing, permissions and limits
+Copilot features require a GitHub account with a paid Copilot plan. The Copilot cloud agent policy is enabled by default ; an organization or enterprise owner can disable it.
+
+Only users with write access to all the selected repositories can start or steer a Copilot session. Guests and outside collaborators are excluded, even though any participant in the conversation can add information. Copilot's work in a shared context runs with the app's identity, and a pull request requires an additional approval when the repository already requires at least one. MCP servers, their allowed tools and their credentials are configured by repository admins.
+
+The permissions requested in Teams cover private chats with the app, link previews, the *@GitHub* command, the name and icon of the workspace or organization, and posting messages as the app. On the GitHub side, the app reads issues, metadata, pull requests, discussions and projects, reads code snippets, and writes to actions, issues and pull requests. The Copilot cloud agent adds write access to content and read and write access to workflows.
+
+---
+
+##### Conclusion
+For teams that already have the notifications app, updating is enough ; those still using the old app must install the new one before November 16, 2026. The real work is elsewhere : deciding who can start Copilot in conversations, which comes down to app access and RSC on the Teams side, and to the Copilot cloud agent policy and write permissions on the GitHub side. It's best to check your Teams policies now and confirm the rollout schedule in the *Message Center*.
+
+---
+
+##### Sources
+[GitHub Changelog - Turn notifications into code with GitHub Copilot in Teams](https://github.blog/changelog/2026-10-23-turn-notifications-into-code-with-github-copilot-in-teams)
+
+[GitHub Docs - Use GitHub in Teams](https://docs.github.com/en/integrations/how-tos/teams/use-github-in-teams)
+
+[GitHub Docs - Integrate Copilot cloud agent with Teams](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/cloud-agent/integrate-cloud-agent-with-teams)
+
+[GitHub Docs - Permissions for GitHub in Teams](https://docs.github.com/en/integrations/reference/teams-permissions)
+
+[GitHub Docs - Integrate GitHub with Teams](https://docs.github.com/en/integrations/how-tos/teams/integrate-github-with-teams)
+
+[Microsoft Learn - Manage custom apps and app policies](https://learn.microsoft.com/en-us/microsoftteams/teams-custom-app-policies-and-settings)
+
+---
+
+
+Did you enjoy this post ? If you have any questions, comments or suggestions, please feel free to send me a message from the contact form.
+
+Don't forget to follow us and share this post.

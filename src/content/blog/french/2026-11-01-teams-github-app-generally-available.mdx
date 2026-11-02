@@ -1,0 +1,71 @@
+---
+title: "L'application GitHub dans Teams en disponibilité générale"
+meta_title: ""
+description: ""
+date: 2026-11-01T10:00:00-05:00
+image: "/images/blog/teams/teams_github_app_generally_available_thumbnail.png"
+categories: ["Teams"]
+author: "Maxime Hiez"
+tags: ["Gouvernance", "IA", "Licences"]
+draft: false
+---
+---
+
+##### Introduction
+Les équipes de développement reçoivent déjà leurs notifications *GitHub* dans *Microsoft Teams*, et l'arrivée de *GitHub Copilot* dans les conversations ajoute une deuxième application à gouverner. Avec l'annonce *MC1515929*, publiée le 19 Octobre 2026, Microsoft consolide les deux : l'application *GitHub* devient l'application unique, en disponibilité générale, avec un déploiement mondial qui débute mi-Octobre 2026 et doit se terminer mi-Novembre 2026. L'ancienne application sera renommée *"GitHub (deprecated)"* puis retirée le 16 Novembre 2026.
+
+---
+
+##### Ce que fait l'application
+L'application reprend les notifications existantes : abonnement d'un canal à un dépôt (*subscribe OWNER/REPO*, *subscribe list*), aperçus de liens, rappels. L'ancienne application et l'application de notifications sont deux applications distinctes. Les utilisateurs de l'application de notifications la mettent à jour, et leurs abonnements et rappels sont conservés.
+La nouveauté tient à Copilot. En répondant à une notification et en mentionnant *@GitHub*, un utilisateur confie une tâche à l'agent cloud de Copilot (*Copilot cloud agent*), qui travaille ensuite à partir du contexte de la conversation. L'utilisateur peut choisir un modèle par conversation, connecter des serveurs *MCP* et lancer des sessions sur plusieurs dépôts, jusqu'à 11 dépôts par session, tous sous un même propriétaire.
+
+---
+
+##### Ce que l'administrateur Teams doit faire
+L'installation passe d'abord par un administrateur de l'espace Teams ; chaque utilisateur connecte ensuite son propre compte GitHub avec *@GitHub*. L'application n'est à installer qu'une seule fois par équipe.
+
+Côté *Microsoft Teams Admin Center*, la liste de contrôle est la suivante :
+- Stratégies d'accès aux applications : Vérifier que l'application est autorisée aux bons utilisateurs. La disponibilité se pilote avec les stratégies d'accès aux applications et les contrôles de gestion des applications, ciblables par groupe *Microsoft Entra ID*.
+- Consentement spécifique à la ressource (*RSC*) : S'il est restreint, configurer les stratégies de consentement des équipes et des conversations pour que l'application obtienne ses permissions RSC. Ce sont elles qui permettent à Copilot d'utiliser l'historique des conversations et des fils comme contexte.
+- Ancienne application : Demander aux utilisateurs de l'ancienne application de la retirer de leurs conversations et d'ajouter la nouvelle avant le 16 Novembre 2026, faire mettre à jour l'application de notifications, vérifier que les notifications arrivent dans les bonnes conversations, et mettre à jour la documentation interne.
+
+<br/>
+
+Aucune nouvelle communication entre utilisateurs, tenants ou abonnements n'est introduite.
+
+---
+
+##### Licences, permissions et limites
+Les fonctions Copilot demandent un compte GitHub avec un forfait Copilot payant. La stratégie Copilot cloud agent est activée par défaut ; un propriétaire d'organisation ou d'entreprise peut la désactiver.
+
+Seuls les utilisateurs qui ont un accès en écriture à tous les dépôts sélectionnés peuvent lancer ou orienter une session Copilot. Les invités et les collaborateurs externes en sont exclus, même si tout participant à la conversation peut ajouter des informations. Le travail de Copilot dans un contexte partagé s'exécute avec l'identité de l'application, et une demande de tirage (*pull request*) exige une approbation supplémentaire lorsque le dépôt en demande déjà au moins une. Les serveurs MCP, leurs outils autorisés et leurs identifiants sont configurés par les administrateurs de dépôt.
+
+Les permissions demandées dans Teams couvrent les conversations privées avec l'application, les aperçus de liens, la commande *@GitHub*, le nom et l'icône de l'espace de travail ou de l'organisation, et la publication de messages en tant qu'application. Côté GitHub, l'application lit les tickets, les métadonnées, les demandes de tirage, les discussions et les projets, lit des extraits de code et écrit dans les actions, les tickets et les demandes de tirage. L'agent cloud de Copilot ajoute l'écriture sur le contenu et la lecture et l'écriture sur les workflows.
+
+---
+
+##### Conclusion
+Pour les équipes qui ont déjà l'application de notifications, la mise à jour suffit ; celles qui utilisent encore l'ancienne application doivent installer la nouvelle avant le 16 Novembre 2026. Le vrai travail est ailleurs : décider qui peut lancer Copilot dans les conversations, ce qui relève de l'accès aux applications et du RSC côté Teams, et de la stratégie Copilot cloud agent et des droits d'écriture côté GitHub. Mieux vaut vérifier les stratégies Teams dès maintenant et confirmer le calendrier de déploiement dans le *Message Center*.
+
+---
+
+##### Sources
+[GitHub Changelog - Turn notifications into code with GitHub Copilot in Teams](https://github.blog/changelog/2026-10-23-turn-notifications-into-code-with-github-copilot-in-teams)
+
+[GitHub Docs - Use GitHub in Teams](https://docs.github.com/en/integrations/how-tos/teams/use-github-in-teams)
+
+[GitHub Docs - Integrate Copilot cloud agent with Teams](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/cloud-agent/integrate-cloud-agent-with-teams)
+
+[GitHub Docs - Permissions for GitHub in Teams](https://docs.github.com/en/integrations/reference/teams-permissions)
+
+[GitHub Docs - Integrate GitHub with Teams](https://docs.github.com/en/integrations/how-tos/teams/integrate-github-with-teams)
+
+[Microsoft Learn - Gérer les applications personnalisées et les stratégies d'applications](https://learn.microsoft.com/fr-ca/microsoftteams/teams-custom-app-policies-and-settings)
+
+---
+
+
+Avez-vous apprécié cet article ? Vous avez des questions, commentaires ou suggestions, n'hésitez pas à m'envoyer un message depuis le formulaire de contact.
+
+N'oubliez pas de nous suivre et de partager cet article.
