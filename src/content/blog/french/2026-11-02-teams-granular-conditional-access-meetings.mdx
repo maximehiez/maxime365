@@ -1,0 +1,69 @@
+---
+title: "L'accès conditionnel granulaire pour les réunions Teams"
+meta_title: ""
+description: ""
+date: 2026-11-02T10:00:00-05:00
+image: "/images/blog/teams/teams_granular_conditional_access_meetings_thumbnail.png"
+categories: ["Teams"]
+author: "Maxime Hiez"
+tags: ["Sécurité", "Rencontre", "Roadmap"]
+draft: false
+---
+---
+
+##### Introduction
+Aujourd'hui, *Microsoft Teams* est une application cloud à part entière dans l'accès conditionnel (*Conditional Access*) de *Microsoft Entra* : une politique qui exige l'authentification multifacteur ou un appareil conforme s'applique à toute l'application, pas à une réunion en particulier. Microsoft annonce de quoi appliquer ces exigences à des réunions Teams choisies, avec l'annonce *MC1532256* publiée le 30 Octobre 2026 (élément de roadmap *571879*). La roadmap affiche le statut "En développement". Selon l'annonce, la préversion publique (*Public Preview*) débute fin Novembre 2026 et la disponibilité générale début Janvier 2027, pour se terminer fin Janvier 2027. Rien n'est donc disponible aujourd'hui.
+
+---
+
+##### Ce que la fonctionnalité doit changer
+Les administrateurs pourront utiliser des politiques d'accès conditionnel pour fixer des exigences d'accès à des réunions sélectionnées. Les organisateurs pourront alors demander une vérification supplémentaire, comme l'authentification multifacteur, la conformité de l'appareil ou des contrôles fondés sur l'emplacement. Les participants devront répondre à la politique avant de rejoindre la réunion.
+
+Le mécanisme s'appuie sur les contextes d'authentification (*authentication context*) d'Entra, qui servent déjà à appliquer des politiques granulaires à des données et à des actions sensibles plutôt qu'au seul niveau de l'application.
+
+<Notice type="note">La fonctionnalité sera prise en charge sur *Android*, *iOS*, *Desktop*, *Mac* et *Web*.</Notice>
+
+---
+
+##### Comment l'activer
+L'action des administrateurs tient en trois étapes :
+- Configurer dans *Microsoft Entra* les contextes d'authentification requis et les politiques d'accès conditionnel associées.
+- Publier ces contextes d'authentification vers *Microsoft Teams*.
+- Activer les exigences d'authentification des réunions dans les stratégies de réunion Teams.
+
+C'est tout ce que l'annonce décrit. Aucune page Microsoft Learn ne documente encore la fonctionnalité : le nom exact du paramètre de la stratégie de réunion et l'applet de commande correspondante ne sont pas publiés, et rien ne précise si l'organisateur choisit le contexte réunion par réunion. Si la fonctionnalité est désactivée tant que le paramètre de la stratégie de réunion n'est pas activé, il s'agit d'une déduction à partir des trois étapes, pas d'une valeur par défaut annoncée.
+
+---
+
+##### Ce que les administrateurs doivent savoir
+Le déploiement est mondial ; l'annonce ne dit rien des clouds *GCC*, *GCC High* et *DoD*. Elle ne mentionne aucune licence non plus, et aucun prix : il faut attendre la documentation avant de dire ce qu'exige la fonctionnalité.
+
+Les dates ne se recoupent pas tout à fait. L'annonce place la préversion publique fin Novembre 2026 et la disponibilité générale début Janvier 2027. L'élément de roadmap, modifié pour la dernière fois le 28 Septembre 2026, indique plutôt Novembre 2026 comme date de divulgation publique, sans date de préversion, et le rattache aux phases *Targeted Release* et disponibilité générale, sans date précise pour cette dernière.
+
+Plusieurs points restent ouverts :
+- Participants anonymes et externes : Rien ne dit si la politique les couvre.
+- Types de réunions : *Teams Rooms*, réunions de canal et webinaires ne sont pas mentionnés.
+- Organisateurs : Le rôle exact qu'ils jouent dans le choix de l'exigence n'est pas décrit.
+
+---
+
+##### Conclusion
+L'idée est bonne : protéger les réunions sensibles sans durcir toute l'application Teams. Mais avec trois étapes et aucune documentation, il est trop tôt pour s'engager sur une conception. La première étape annoncée se passe dans Entra, avec les contextes d'authentification et les politiques d'accès conditionnel. Reste à attendre la page Microsoft Learn, qui devra dire quelle licence est requise, quels participants sont couverts et comment les organisateurs choisissent une exigence.
+
+---
+
+##### Sources
+[Microsoft 365 Roadmap - ID 571879](https://www.microsoft.com/fr-ca/microsoft-365/roadmap?id=571879)
+
+[Microsoft Learn - Cibler des ressources dans l'accès conditionnel](https://learn.microsoft.com/fr-ca/entra/identity/conditional-access/concept-conditional-access-cloud-apps#authentication-context)
+
+[Microsoft Learn - Guide du développeur sur le contexte d'authentification](https://learn.microsoft.com/fr-ca/entra/identity-platform/developer-guide-conditional-access-authentication-context)
+
+[Microsoft Learn - Sécurité et conformité dans Microsoft Teams](https://learn.microsoft.com/fr-ca/microsoftteams/security-compliance-overview#security)
+
+---
+
+
+Avez-vous apprécié cet article ? Vous avez des questions, commentaires ou suggestions, n'hésitez pas à m'envoyer un message depuis le formulaire de contact.
+
+N'oubliez pas de nous suivre et de partager cet article.

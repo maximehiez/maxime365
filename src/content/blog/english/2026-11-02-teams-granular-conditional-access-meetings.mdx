@@ -1,0 +1,69 @@
+---
+title: "Granular Conditional Access for Teams meetings"
+meta_title: ""
+description: ""
+date: 2026-11-02T10:00:00-05:00
+image: "/images/blog/teams/teams_granular_conditional_access_meetings_thumbnail.png"
+categories: ["Teams"]
+author: "Maxime Hiez"
+tags: ["Security", "Meeting", "Roadmap"]
+draft: false
+---
+---
+
+##### Introduction
+Today, *Microsoft Teams* is a single cloud app in *Microsoft Entra* *Conditional Access* : a policy that requires multifactor authentication or a compliant device applies to the whole app, not to one particular meeting. Microsoft is announcing a way to apply these requirements to selected Teams meetings, in announcement *MC1532256* published on October 30, 2026 (roadmap item *571879*). The roadmap status is "In development". According to the announcement, the public preview starts in late November 2026 and general availability in early January 2027, finishing in late January 2027. Nothing is available today.
+
+---
+
+##### What the feature is meant to change
+Admins will be able to use Conditional Access policies to set access requirements for selected meetings. Organizers will then be able to ask for an additional check, such as multifactor authentication, device compliance or location-based controls. Participants will have to satisfy the policy before joining the meeting.
+
+The mechanism relies on Entra *authentication contexts*, which are already used to apply granular policies to sensitive data and actions rather than at the app level alone.
+
+<Notice type="note">The feature will be supported on *Android*, *iOS*, *Desktop*, *Mac* and *Web*.</Notice>
+
+---
+
+##### How to enable it
+The admin work comes down to three steps :
+- Configure the required authentication contexts and the matching Conditional Access policies in *Microsoft Entra*.
+- Publish these authentication contexts to *Microsoft Teams*.
+- Turn on the meeting authentication requirements in the Teams meeting policies.
+
+That is all the announcement describes. No Microsoft Learn page documents the feature yet : the exact name of the meeting policy setting and the matching cmdlet are not published, and nothing says whether the organizer picks the context meeting by meeting. If the feature stays off until the meeting policy setting is turned on, that is an inference from the three steps, not an announced default.
+
+---
+
+##### What admins need to know
+The rollout is worldwide ; the announcement says nothing about the *GCC*, *GCC High* and *DoD* clouds. It doesn't mention any license or price either : wait for the documentation before saying what the feature requires.
+
+The dates don't quite match. The announcement puts the public preview in late November 2026 and general availability in early January 2027. The roadmap item, last modified on September 28, 2026, gives November 2026 as the public disclosure date instead, with no preview date, and ties it to the *Targeted Release* and general availability phases, with no exact date for the latter.
+
+Several points remain open :
+- Anonymous and external participants : Nothing says whether the policy covers them.
+- Meeting types : *Teams Rooms*, channel meetings and webinars are not mentioned.
+- Organizers : The exact role they play in choosing the requirement is not described.
+
+---
+
+##### Conclusion
+The idea is a good one : protect sensitive meetings without tightening the whole Teams app. But with three steps and no documentation, it's too early to commit to a design. The first announced step happens in Entra, with authentication contexts and Conditional Access policies. What's left is to wait for the Microsoft Learn page, which will have to say which license is required, which participants are covered and how organizers choose a requirement.
+
+---
+
+##### Sources
+[Microsoft 365 Roadmap - ID 571879](https://www.microsoft.com/en-us/microsoft-365/roadmap?id=571879)
+
+[Microsoft Learn - Target resources in Conditional Access](https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-conditional-access-cloud-apps#authentication-context)
+
+[Microsoft Learn - Developer guide to Conditional Access authentication context](https://learn.microsoft.com/en-us/entra/identity-platform/developer-guide-conditional-access-authentication-context)
+
+[Microsoft Learn - Security and compliance in Microsoft Teams](https://learn.microsoft.com/en-us/microsoftteams/security-compliance-overview#security)
+
+---
+
+
+Did you enjoy this post ? If you have any questions, comments or suggestions, please feel free to send me a message from the contact form.
+
+Don't forget to follow us and share this post.
