@@ -1,0 +1,91 @@
+---
+title: "GPT-6.1 Terra available in Microsoft Foundry"
+meta_title: ""
+description: ""
+date: 2026-11-02T10:00:00-05:00
+image: "/images/blog/foundry/foundry_gpt_6_1_terra_available_thumbnail.png"
+categories: ["Foundry"]
+author: "Maxime Hiez"
+tags: ["AI", "GPT", "Terra"]
+draft: false
+---
+---
+
+##### Introduction
+*GPT-6.1 Terra* has been generally available in *Microsoft Foundry* since October 26, 2026, the same day *OpenAI* launched it. Two deployment types are offered, *Global Standard* and *Data Zone Standard*. The *Responses* API requires no new SDK.
+
+Check the GPT-6.1 Terra article [HERE](https://maxime.hiez.ca/en/blog/2026-10-31-ai-openai-introducing-gpt-6-1-terra).
+
+---
+
+##### Deployment and regions
+In the new Foundry portal, deployment goes through *Discover* > *Models*, the model card, then *Deploy*. The deployment name is the value to pass in the *model* parameter of the *https://resource-name.openai.azure.com/openai/v1/* route, without *api-version*. The project and the resource must be in a supported region.
+
+*gpt-6.1-terra* (version *2026-10-26*) carries no *Preview* label : it follows the lifecycle of generally available models. The context window is 1,050,000 tokens, of which 922,000 are input and 128,000 are output.
+
+Global Standard is offered in all supported regions except *eastus2* and *northeurope*; Data Zone Standard covers the United States (without *eastus2*), Europe (without *northeurope*) and Asia-Pacific. *Canada Central* and *Canada East* are available in Global Standard only.
+
+<Notice type="info">There is no Canadian data zone, and Terra is neither in regional *Standard* nor in *Provisioned*. *Batch* support for Terra is not documented anywhere. A tenant whose rule is "processing stays in Canada" therefore has no documented option : Global Standard can process data in any Azure region.</Notice>
+
+---
+
+##### Billing and quotas
+Billing is per token, with no *Azure Marketplace* subscription. Prices from the Microsoft article, in US dollars per 1M tokens :
+
+| Deployment                                | Context | Input | Output |
+| :---------------------------------------: | :-----: | :---: | :----: |
+| Global Standard                           | Short   | 1.00$ | 5.00$  |
+| Global Standard                           | Long    | 2.00$ | 7.50$  |
+| Data Zone Standard (United States)        | Short   | 1.10$ | 5.50$  |
+| Data Zone Standard (United States)        | Long    | 2.20$ | 8.25$  |
+| Data Zone Standard (Europe, Asia-Pacific) | Short   | 1.20$ | 6.00$  |
+| Data Zone Standard (Europe, Asia-Pacific) | Long    | 2.40$ | 9.00$  |
+
+The article also publishes cache prices. The Global rows match the Azure pricing page exactly. Its only Data Zone row repeats the article's US figures, rounded for the cache, so the European and Asia-Pacific prices rest on the article alone.
+
+Short or long context is measured on the input tokens of a single request. Learn does not state the threshold for Terra.
+
+Default quotas depend on the subscription tier. In Global Standard, they range from 250 requests and 250,000 tokens per minute at tier 1 to 8,000 and 8,000,000 at tier 6 (4,000 and 4,000,000 at tier 4). In Data Zone Standard, they range from 100 and 100,000 to 2,667 and 2,667,000.
+
+From tier 4 onward, they are lower than those of *GPT-6.1 Sol* (15,000 requests per minute in Global Standard at tier 6) and *GPT-5.6 Terra*. For Terra, nothing indicates that an access request is required, whereas for Sol the reasoning models page says *"No access request needed."* An additional quota request remains possible through a form, and the subscription tier stays the same.
+
+---
+
+##### What admins need to know
+*Azure Policy* can block a deployment type, by SKU name *GlobalStandard* or *DataZoneStandard*, at the subscription level. It is the lever for a tenant under a residency constraint.
+
+No retirement date for *gpt-6.1-terra* appears in the deprecation schedule; the lifecycle policy provides for a date set at launch, available through the *Models* API, and at least 60 days' notice before retirement. Automatic upgrades are controlled with *versionUpgradeOption*.
+
+---
+
+##### What the model brings
+Benchmarks and general capabilities are covered in the launch article. Foundry adds multi-agent orchestration, in preview.
+
+---
+
+##### Conclusion
+Terra follows the lifecycle of generally available models, which Microsoft defines as production-ready. In Canada, it runs in Global Standard only, with no guarantee that processing stays in the country, and default quotas are lower than Sol's from tier 4. To check before deploying : the resource region, the tier, and the threshold between short and long context.
+
+---
+
+##### Sources
+[Microsoft - Techcommunity](https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/gpt-6-1-terra-now-generally-available-in-microsoft-foundry-build-agents-that-see/4567769)
+
+[Microsoft Learn - Foundry models sold directly by Azure](https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/models-sold-directly-by-azure)
+
+[Microsoft Learn - Region availability](https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/models-sold-directly-by-azure-region-availability)
+
+[Microsoft Learn - Quotas and limits](https://learn.microsoft.com/en-us/azure/foundry/openai/quotas-limits)
+
+[Microsoft Learn - Deployment types](https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/deployment-types)
+
+[Microsoft Learn - Model lifecycle](https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirements)
+
+[Azure - Azure OpenAI pricing](https://azure.microsoft.com/en-us/pricing/details/azure-openai)
+
+---
+
+
+Did you enjoy this post ? If you have any questions, comments or suggestions, please feel free to send me a message from the contact form.
+
+Don't forget to follow us and share this post.

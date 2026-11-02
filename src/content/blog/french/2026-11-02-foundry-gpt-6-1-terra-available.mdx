@@ -1,0 +1,91 @@
+---
+title: "GPT-6.1 Terra disponible dans Microsoft Foundry"
+meta_title: ""
+description: ""
+date: 2026-11-02T10:00:00-05:00
+image: "/images/blog/foundry/foundry_gpt_6_1_terra_available_thumbnail.png"
+categories: ["Foundry"]
+author: "Maxime Hiez"
+tags: ["IA", "GPT", "Terra"]
+draft: false
+---
+---
+
+##### Introduction
+*GPT-6.1 Terra* est en disponibilité générale dans *Microsoft Foundry* depuis le 26 Octobre 2026, le jour même du lancement par *OpenAI*. Deux types de déploiement sont offerts, *Global Standard* et *Data Zone Standard*. L'API *Responses* ne demande aucun nouveau SDK.
+
+Voir l'article sur GPT-6.1 Terra [ICI](https://maxime.hiez.ca/blog/2026-10-31-ai-openai-introducing-gpt-6-1-terra).
+
+---
+
+##### Déploiement et régions
+Dans le nouveau portail Foundry, le déploiement passe par *Discover* > *Models*, la fiche du modèle, puis *Deploy*. Le nom du déploiement est la valeur à passer dans le paramètre *model* de la route *https://nom-de-la-ressource.openai.azure.com/openai/v1/*, sans *api-version*. Le projet et la ressource doivent se trouver dans une région supportée.
+
+*gpt-6.1-terra* (version *2026-10-26*) est sans étiquette *Aperçu* : il suit le cycle de vie des modèles en disponibilité générale. La fenêtre de contexte est de 1 050 000 tokens, dont 922 000 en entrée et 128 000 en sortie.
+
+Global Standard est offert dans toutes les régions supportées, à l'exception de *eastus2* et *northeurope* ; Data Zone Standard couvre les États-Unis (sans *eastus2*), l'Europe (sans *northeurope*) et l'Asie-Pacifique. *Canada Central* et *Canada East* ne figurent qu'en Global Standard.
+
+<Notice type="info">Il n'existe pas de zone de données canadienne, et Terra n'est ni en *Standard* régional ni en *Provisioned*. Le support de *Batch* pour Terra n'est documenté nulle part. Un tenant dont la règle est « le traitement reste au Canada » n'a donc aucune option documentée : Global Standard peut traiter les données dans n'importe quelle région Azure.</Notice>
+
+---
+
+##### Facturation et quotas
+Facturation au token, sans abonnement à l'*Azure Marketplace*. Prix de l'article de Microsoft, en dollars américains par 1M de tokens :
+
+| Déploiement                                 | Contexte | Entrée | Sortie |
+| :-----------------------------------------: | :------: | :----: | :----: |
+| Global Standard                             | Court    | 1.00$  | 5.00$  |
+| Global Standard                             | Long     | 2.00$  | 7.50$  |
+| Data Zone Standard (États-Unis)             | Court    | 1.10$  | 5.50$  |
+| Data Zone Standard (États-Unis)             | Long     | 2.20$  | 8.25$  |
+| Data Zone Standard (Europe, Asie-Pacifique) | Court    | 1.20$  | 6.00$  |
+| Data Zone Standard (Europe, Asie-Pacifique) | Long     | 2.40$  | 9.00$  |
+
+L'article publie aussi les prix du cache. Les lignes Global se retrouvent à l'identique sur la page de tarification d'Azure, dont la seule ligne Data Zone reprend les chiffres américains de l'article, arrondis pour le cache : les prix européens et asiatiques reposent sur l'article seul.
+
+Le contexte court ou long se mesure aux tokens d'entrée d'une seule requête. Learn n'indique pas le seuil pour Terra.
+
+Les quotas par défaut dépendent du palier de l'abonnement. En Global Standard, ils vont de 250 requêtes et 250 000 tokens par minute au palier 1 à 8 000 et 8 000 000 au palier 6 (4 000 et 4 000 000 au palier 4). En Data Zone Standard, de 100 et 100 000 à 2 667 et 2 667 000.
+
+À partir du palier 4, ils sont inférieurs à ceux de *GPT-6.1 Sol* (15 000 requêtes par minute en Global Standard au palier 6) et de *GPT-5.6 Terra*. Pour Terra, rien n'indique qu'une demande d'accès soit nécessaire, alors que pour Sol la page des modèles à raisonnement dit *"Aucune demande d'accès n'est nécessaire."* Une demande de quota supplémentaire reste possible par formulaire, le palier de l'abonnement restant le même.
+
+---
+
+##### Ce que les admins doivent savoir
+*Azure Policy* permet de bloquer un type de déploiement, par le nom de SKU *GlobalStandard* ou *DataZoneStandard*, à l'échelle de l'abonnement. C'est le levier pour un tenant soumis à une contrainte de résidence.
+
+Aucune date de retrait de *gpt-6.1-terra* ne figure au calendrier de mise hors service ; la politique de cycle de vie prévoit une date fixée au lancement, consultable par l'API *Models*, et au moins 60 jours de préavis avant le retrait. Les mises à niveau automatiques se contrôlent avec *versionUpgradeOption*.
+
+---
+
+##### Ce que le modèle apporte
+Les benchmarks et les capacités générales sont dans l'article de lancement. Foundry ajoute l'orchestration multi-agent, en préversion.
+
+---
+
+##### Conclusion
+Terra suit le cycle de vie des modèles en disponibilité générale, que Microsoft définit comme prêt pour la production. Au Canada, il s'exécute en Global Standard seulement, sans garantie que le traitement reste dans le pays, et les quotas par défaut sont plus bas que ceux de Sol dès le palier 4. À vérifier avant de déployer : la région de la ressource, le palier, et le seuil entre contexte court et long.
+
+---
+
+##### Sources
+[Microsoft - Techcommunity](https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/gpt-6-1-terra-now-generally-available-in-microsoft-foundry-build-agents-that-see/4567769)
+
+[Microsoft Learn - Modèles Foundry vendus par Azure](https://learn.microsoft.com/fr-ca/azure/foundry/foundry-models/concepts/models-sold-directly-by-azure)
+
+[Microsoft Learn - Disponibilité des régions](https://learn.microsoft.com/fr-ca/azure/foundry/foundry-models/concepts/models-sold-directly-by-azure-region-availability)
+
+[Microsoft Learn - Quotas et limites](https://learn.microsoft.com/fr-ca/azure/foundry/openai/quotas-limits)
+
+[Microsoft Learn - Types de déploiement](https://learn.microsoft.com/fr-ca/azure/foundry/foundry-models/concepts/deployment-types)
+
+[Microsoft Learn - Cycle de vie des modèles](https://learn.microsoft.com/fr-ca/azure/foundry/openai/concepts/model-retirements)
+
+[Azure - Tarification Azure OpenAI](https://azure.microsoft.com/fr-ca/pricing/details/azure-openai)
+
+---
+
+
+Avez-vous apprécié cet article ? Vous avez des questions, commentaires ou suggestions, n'hésitez pas à m'envoyer un message depuis le formulaire de contact.
+
+N'oubliez pas de nous suivre et de partager cet article.
