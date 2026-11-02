@@ -1,0 +1,85 @@
+---
+title: "OpenAI dévoile GPT-6.1 Terra"
+meta_title: ""
+description: ""
+date: 2026-10-31T10:00:00-05:00
+image: "/images/blog/ai/ai_openai_introducing_gpt_6_1_terra_thumbnail.png"
+categories: ["OpenAI"]
+author: "Maxime Hiez"
+tags: ["IA", "GPT", "Terra", "Agentique", "API"]
+draft: false
+---
+---
+
+##### Introduction
+*OpenAI* a publié, le 26 Octobre 2026, *GPT-6.1 Terra*, un modèle rapide et efficace qui associe un raisonnement visuel détaillé et une utilisation précise de l'ordinateur à une rédaction plus claire. Selon OpenAI, il progresse nettement par rapport à *GPT-5.6 Terra* pour les tâches de la journée de travail. Il coûte la moitié du tarif par token de *GPT-6.1 Sol*.
+
+Voir l'article sur GPT-6.1 Sol [ICI](https://maxime.hiez.ca/blog/2026-10-02-ai-openai-introducing-gpt-6-1-sol).
+
+---
+
+##### Performances
+Tous les résultats ci-dessous sont ceux d'OpenAI, obtenus avec ses propres méthodes :
+
+|                                         | GPT-6.1 Terra | Référence (GPT-5.6 Terra) |
+| :-------------------------------------: | :-----------: | :-----------------------: |
+| *Terminal-Bench 4.0* (effort maximal)   | 50.3%         | 21.5%                     |
+| Taux d'erreur factuelle (effort faible) | 16.7%         | 53.6%                     |
+
+Le taux d'erreur factuelle est mesuré sur un benchmark interne de prompts susceptibles d'induire des erreurs. À effort maximal, il baisse de 18 points pour atteindre 4.3%, se rapprochant de *GPT-6 Astra* et de Sol.
+
+Sur *Agents' Last Exam*, un benchmark de tâches professionnelles, Terra obtient à effort moyen 15 points de pourcentage de plus que GPT-5.6 Terra, pour un coût environ trois fois inférieur, et OpenAI le dit comparable à Astra pour un prix par token dix fois inférieur. À effort maximal, toujours selon OpenAI, il est plus de trois fois plus efficace que *Claude Opus 5.5* en tokens, pour un coût par tâche environ neuf fois inférieur. Cette comparaison avec *Anthropic* est celle d'OpenAI, non vérifiée. Terra dépasse GPT-5.6 Terra sur *MMMU-Pro* (raisonnement visuel) et, avec un effort de raisonnement moyen, sur *OSWorld 2.1* (utilisation d'ordinateur).
+
+OpenAI ajoute qu'il accomplit les tâches plus de trois fois plus vite qu'Astra et Sol, mais garde ces deux modèles comme meilleurs choix pour la programmation la plus complexe.
+
+---
+
+##### Sécurité et alignement
+Selon OpenAI, Terra atteint *"le seuil critique en cybersécurité"* défini par son cadre de préparation et conserve les protections développées pour Astra. OpenAI indique aussi que, dans ses évaluations, Terra respecte mieux le périmètre de la tâche que GPT-5.6 Terra et signale plus honnêtement ses limites, et qu'il a montré une forte résistance aux injections de prompt. Le texte de l'annonce ne donne aucun taux : ce sont des tests d'OpenAI, pas une garantie. Une fiche système détaille ces points.
+
+---
+
+##### Vision, utilisation d'ordinateur et API
+Parmi les usages mis en avant : la rédaction de propositions, l'interprétation de dessins techniques, le remplissage de formulaires, ou encore le montage vidéo. Le modèle accepte du texte et des images en entrée et produit du texte. Dans l'API *Responses*, il donne accès à l'utilisation d'ordinateur, à *MCP*, à la recherche web et de fichiers, à l'interpréteur de code et à d'autres outils.
+
+Il est exposé sous l'identifiant *gpt-6.1-terra*, avec 1 050 000 tokens de contexte (922 000 en entrée, 128 000 en sortie) et des connaissances au 1er Juin 2026. Le paramètre *reasoning.effort* va de *"none"* à *"max"* (*"medium"* par défaut) ; Terra accepte *"none"*, contrairement à Astra et Sol. L'appel d'outils exige l'API Responses.
+
+---
+
+##### Tarification et disponibilité
+Terra est disponible depuis le 26 Octobre 2026 pour les utilisateurs *Plus*, *Pro*, *Enterprise* et *Edu* dans *ChatGPT Work* et *Codex*. *Business* n'est pas cité. Un même quota d'utilisation y couvre davantage de tâches qu'avec GPT-5.6 Terra, et nettement plus qu'avec Sol ou Astra, sans chiffre dans le texte de l'annonce. Les développeurs y accèdent via l'API sous le nom *gpt-6.1-terra*, aux tarifs Standard suivants, par million de tokens (au-delà de 272K tokens en entrée, le tarif s'applique à toute la requête) :
+
+|                         | Jusqu'à 272K | Au-delà de 272K |
+| :---------------------: | :----------: | :-------------: |
+| Entrée                  | 1$           | 2$              |
+| Sortie                  | 5$           | 7.50$           |
+| Cache (lecture)         | 0.05$        | 0.10$           |
+| Cache (écriture) 30 min | 1.25$        | 2.50$           |
+| Cache (écriture) 12 h   | 2.50$        | 5$              |
+
+Les modes *Batch* et *Flex* coûtent 50% de moins que le mode Standard, le traitement régional ajoute 10% et le mode *Fast* est facturé le double.
+
+Sur la page de tarifs, Sol est à 2$ en entrée et 10$ en sortie, Astra à 10$ et 50$, GPT-5.6 Terra à 2$ et 12$. Terra coûte donc exactement la moitié de Sol et dix fois moins qu'Astra. Face à GPT-5.6 Terra, seule l'entrée est à moitié prix : la sortie passe de 12$ à 5$.
+
+<Notice type="note">Terra n'est pas proposé dans *Copilot Cowork* (constat du 28 Octobre 2026), dont la liste reste GPT 6.1 Sol, GPT 6 Astra et GPT 5.6 Terra.</Notice>
+
+---
+
+##### Conclusion
+Terra vise les charges de travail qui lisent des images et des écrans à volume élevé, là où le tarif par token pèse plus que la profondeur de raisonnement. Les chiffres d'OpenAI, dont la baisse du taux d'erreur et la comparaison avec Opus 5.5, restent ceux de l'éditeur : un test sur vos propres workflows, au même effort que GPT-5.6 Terra, dira si Terra suffit avant de passer à Sol.
+
+---
+
+##### Sources
+[OpenAI - Présentation de GPT-6.1 Terra](https://openai.com/fr-FR/index/introducing-gpt-6-1-terra)
+
+[OpenAI - GPT-6.1 Terra](https://developers.openai.com/api/docs/models/gpt-6.1-terra)
+
+[OpenAI - Utiliser GPT-6](https://developers.openai.com/api/docs/guides/latest-model)
+
+---
+
+
+Avez-vous apprécié cet article ? Vous avez des questions, commentaires ou suggestions, n'hésitez pas à m'envoyer un message depuis le formulaire de contact.
+
+N'oubliez pas de nous suivre et de partager cet article.
