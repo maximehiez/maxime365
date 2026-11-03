@@ -1,0 +1,83 @@
+---
+title: "Teams ajoute deux protections pour les réunions et les invités"
+meta_title: ""
+description: ""
+date: 2026-11-03T10:00:00-05:00
+image: "/images/blog/teams/teams_meeting_impersonation_protection_guest_reporting_thumbnail.png"
+categories: ["Teams"]
+author: "Maxime Hiez"
+tags: ["Sécurité", "Rencontre", "Roadmap"]
+draft: false
+---
+---
+
+##### Introduction
+Dans *Microsoft Teams*, une réunion ou une invitation d'invité repose sur une question simple que l'utilisateur doit trancher seul : cette personne est-elle bien celle qu'elle prétend être ? Deux annonces publiées le 29 Octobre 2026 s'attaquent à ce point. La première, *MC1530615* (élément de roadmap *571297*), permettra de signaler une invitation d'invité suspecte lorsqu'on la refuse, avec une disponibilité générale mondiale qui débute début Novembre 2026. La seconde, *MC1530613* (élément de roadmap *573157*), affichera des avertissements quand une usurpation d'identité sera détectée dans une réunion, avec un déploiement mondial prévu à partir de mi-Décembre 2026.
+
+Voir l'article sur la protection contre les bots dans les réunions [ICI](https://maxime.hiez.ca/blog/2026-07-21-teams-bot-protection-meetings).
+
+---
+
+##### Signaler une invitation d'invité suspecte
+Lorsqu'un utilisateur refuse une invitation d'invité dans Teams, il pourra la signaler comme suspecte. Le signalement arrivera chez les administrateurs, dans le rapport *User reported security submissions* du *Microsoft Teams Admin Center*, et chez Microsoft pour examen. La fonctionnalité est prise en charge sur *Desktop*, *Mac* et *Web*, mais ni sur *iOS* ni sur *Android*.
+
+Le déploiement est mondial, en disponibilité générale, de début à mi-Novembre 2026. La roadmap indique le statut *In development* (dernière modification le 16 Septembre 2026) et l'étiquette *Targeted Release*, également présente sur l'élément 573157.
+
+---
+
+##### Ce que l'administrateur contrôle pour le signalement
+Le contrôle passe par le paramètre *Report a security concern* des politiques de messagerie (*Messaging policies*). Les organisations qui l'ont déjà activé n'ont rien à faire. Ce paramètre est activé par défaut, s'applique par politique de messagerie et commande déjà le signalement des messages et des utilisateurs : désactivé, les utilisateurs ne peuvent signaler ni messages ni utilisateurs.
+
+Les signalements d'utilisateurs externes figurent déjà dans le rapport *User reported security submissions*, catégorie *User*, sous *Analytics & reports*, *Protection reports*, puis *View reports*. Les invitations d'invités ne figurent pas encore comme source dans la documentation du rapport. Le signalement des utilisateurs externes n'est pas encore pris en charge dans *Microsoft Defender*, où seuls les messages le sont. Rien ne précise si les signalements d'invitations y remonteront ; seuls le *Microsoft Teams Admin Center* et Microsoft sont cités.
+
+---
+
+##### Protection contre l'usurpation d'identité dans les réunions
+Pour la seconde annonce, Teams affichera des avertissements et des indicateurs de risque lorsqu'il détectera une tentative potentielle d'usurpation d'identité de la part d'un participant ou de l'organisateur d'une réunion. L'utilisateur peut ainsi juger si la personne est bien celle qu'elle prétend être ; la roadmap parle d'aider à repérer des participants potentiellement trompeurs.
+
+Elle diffère du signalement d'une réunion ou d'un participant décrit dans la page Microsoft Learn sur le signalement d'un problème de sécurité dans les réunions Teams (en préversion), une fonctionnalité distincte pilotée par la politique *Allow users to report meetings*.
+
+Aucun paramètre d'administration, politique ou paramètre PowerShell n'est nommé pour l'usurpation d'identité. Au 30 Octobre 2026, aucun contrôle documenté ne ressort donc des sources, ce qui ne prouve pas qu'il n'en existe pas.
+
+<Notice type="note">La protection est prise en charge sur *Android*, *Desktop*, *iOS*, *Mac* et *Web*.</Notice>
+
+---
+
+##### Disponibilité et actions à prévoir
+| Fonctionnalité                 | Annonce   | Déploiement mondial (GA)          |
+| :----------------------------: | :-------: | :-------------------------------: |
+| Signalement d'invitations      | MC1530615 | Début Novembre à mi-Novembre 2026 |
+| Protection contre l'usurpation | MC1530613 | Mi-Décembre à fin Décembre 2026   |
+
+Pour les deux éléments, la roadmap indique le cloud *Worldwide (Standard Multi-Tenant)* uniquement et aucune phase de préversion n'est annoncée.
+
+Aucune action immédiate n'est requise pour la protection contre l'usurpation d'identité, mais il est recommandé de connaître la nouvelle expérience et d'en informer les utilisateurs et les équipes de sécurité. Aucune des deux annonces ne précise de licence ni de prix. Les prérequis de licence de la fonctionnalité de signalement des réunions, liés à *Defender for Office 365* ou *Defender XDR*, concernent une autre fonctionnalité ; rien n'indique qu'ils valent pour ces deux annonces.
+
+<Notice type="note">Aucune page Microsoft Learn ne décrit encore ces deux fonctionnalités : le niveau de détail s'arrête à celui des annonces, et le libellé exact des avertissements reste à confirmer.</Notice>
+
+---
+
+##### Conclusion
+Le signalement des invitations d'invités se règle dans un paramètre que beaucoup de tenants ont déjà : il suffit de vérifier la valeur de *Report a security concern* dans les politiques de messagerie avant début Novembre 2026, puis de prévenir le support que les rapports arrivent dans *User reported security submissions*. La protection contre l'usurpation d'identité se prépare par la communication, puisqu'aucun contrôle n'est documenté : mieux vaut expliquer aux utilisateurs ce que signifie un avertissement avant mi-Décembre 2026. Restent à confirmer la licence, le réglage éventuel de l'usurpation d'identité et le chemin des signalements vers Defender, et il faudra attendre les pages Microsoft Learn pour trancher.
+
+---
+
+##### Sources
+[Microsoft 365 Roadmap - ID 571297](https://www.microsoft.com/fr-ca/microsoft-365/roadmap?id=571297)
+
+[Microsoft 365 Roadmap - ID 573157](https://www.microsoft.com/fr-ca/microsoft-365/roadmap?id=573157)
+
+[Microsoft Learn - Rapports des utilisateurs finaux pour la sécurité](https://learn.microsoft.com/fr-ca/microsoftteams/end-user-reporting-security)
+
+[Microsoft Learn - Rapport des soumissions de sécurité signalées par les utilisateurs](https://learn.microsoft.com/fr-ca/microsoftteams/end-user-reported-security-signal)
+
+[Microsoft Learn - Signaler un problème de sécurité dans les réunions Teams](https://learn.microsoft.com/fr-ca/microsoftteams/end-user-reporting-teams-meeting)
+
+[Microsoft Learn - Paramètres signalés par les utilisateurs dans Teams](https://learn.microsoft.com/fr-ca/defender-office-365/submissions-teams)
+
+---
+
+
+Avez-vous apprécié cet article ? Vous avez des questions, commentaires ou suggestions, n'hésitez pas à m'envoyer un message depuis le formulaire de contact.
+
+N'oubliez pas de nous suivre et de partager cet article.
