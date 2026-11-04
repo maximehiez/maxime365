@@ -1,0 +1,73 @@
+---
+title: "Copilot Chat shows the memory sources behind a response"
+meta_title: ""
+description: ""
+date: 2026-11-03T10:00:00-05:00
+image: "/images/blog/copilot/copilot_chat_memory_sources_thumbnail.png"
+categories: ["Copilot"]
+author: "Maxime Hiez"
+tags: ["AI", "Copilot Chat", "Privacy", "Governance"]
+draft: false
+---
+---
+
+##### Introduction
+When *Copilot Chat* answers based on what it has retained about a user, that user doesn't always know where the personalization comes from. Message Center entry *MC1530959*, published on October 29, 2026, announces that users will now be able to view the memory sources used to personalize a response. The matching roadmap item, *574111*, published on October 14, 2026, has the status Launched, with a rollout announced for late October 2026, on the Web, worldwide. This article covers what the user sees, what administrators control, and what this transparency doesn't change.
+
+---
+
+##### What the user sees
+Under a Copilot Chat response, the user opens *Sources*, then the *Personalization* tab. There they see which of their items were used to personalize the response :
+- <u>Custom instructions</u> : The instructions the user wrote
+- <u>Saved memories</u> : The memories saved by the user
+- <u>Learned memories</u> : The memories inferred by Copilot
+- <u>Past chats</u> : Previous conversations, shown as inline citations
+
+From the citation, the user opens a saved memory in the settings to review or delete it. A past chat citation leads back to that conversation.
+
+These citations aren't systematic : they appear only when memory actually influences the response, so some personalized responses will have none. They also follow each user's settings : if saved memories or chat history are turned off, those sources aren't shown.
+
+---
+
+##### What administrators control
+No control is added. The change doesn't alter what Copilot remembers, how memory is stored, or the existing admin controls. There is no separate setting for the citations, and no action is required.
+
+The lever remains the *Enhanced personalization* control, turned on by default. It can be turned off for the whole tenant or for a group of users, and Copilot memory depends on it. The *Global Administrator* and *People Administrator* roles can manage it, and it can also be scripted through the *enhancedPersonalizationSetting* resource in *Microsoft Graph*. Turning it off stops Copilot from applying saved memories and custom instructions, but doesn't delete them.
+
+The same sources diverge on two points, which this article doesn't settle.
+
+- <u>License</u> : The Message Center requires a *Microsoft 365 Copilot (Premium)* license, whereas Microsoft Learn states that memory is available to Copilot Chat users with and without a Copilot license
+- <u>Status</u> : The Message Center and the roadmap announce general availability, whereas the Microsoft Learn page, last updated on October 13, 2026, still carries a preview banner (*Frontier*)
+
+<Notice type="info">Before communicating to users, check the license and the status in the *MC1530959* entry of the admin center.</Notice>
+
+---
+
+##### Compliance and retention : what doesn't change
+Memories, whether saved, inferred from history or coming from custom instructions, are stored in the user's Exchange mailbox, in a hidden folder, under the mailbox's security and compliance policies (Customer Lockbox, encryption at rest). The following limits remain in place :
+- *Microsoft Purview* retention policies and labels don't apply to Copilot memory, and no admin control makes it possible to enforce dedicated retention rules.
+- Memory and personalization actions generate no entry in the Purview audit log.
+- An administrator can't restrict the type of information added to memory.
+- A saved memory is kept until the user deletes it in *Settings* > *Personalization*, and deleting a chat doesn't delete the memories that came from it.
+- Chat history details disappear within seven days once all source chats are deleted, and within 30 days if *Enhanced personalization* is turned off by the administrator or history by the user.
+
+On the search side, saved and inferred memories are discoverable with *eDiscovery* and *Graph Explorer* : they are in the *CopilotMemory* folder, with the *IPM.Contact* item class. Custom instructions aren't yet, but users can export them themselves from *Settings* > *Personalization*.
+
+---
+
+##### Conclusion
+This new feature helps users understand and correct what Copilot retains about them, while giving nothing to the administrator. The governance gaps (Purview retention, audit, content restriction) remain, and become more visible now that users see memory at work. Before leaving memory turned on, you therefore need to decide whether these limits are acceptable for the tenant, and if not, use *Enhanced personalization* to turn it off or limit it to a group. The license and status points should be checked in the *MC1530959* entry.
+
+---
+
+##### Sources
+[Microsoft Learn - Manage Copilot personalization and memory](https://learn.microsoft.com/en-us/microsoft-365/copilot/copilot-personalization-memory)
+
+[Microsoft Learn - Enhanced personalization control overview](https://learn.microsoft.com/en-us/graph/control-enhanced-personalization-privacy)
+
+---
+
+
+Did you enjoy this post ? If you have any questions, comments or suggestions, please feel free to send me a message from the contact form.
+
+Don't forget to follow us and share this post.

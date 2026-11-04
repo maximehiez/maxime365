@@ -1,0 +1,73 @@
+---
+title: "Copilot Chat affiche les sources de mémoire d'une réponse"
+meta_title: ""
+description: ""
+date: 2026-11-03T10:00:00-05:00
+image: "/images/blog/copilot/copilot_chat_memory_sources_thumbnail.png"
+categories: ["Copilot"]
+author: "Maxime Hiez"
+tags: ["IA", "Copilot Chat", "Confidentialité", "Gouvernance"]
+draft: false
+---
+---
+
+##### Introduction
+Quand *Copilot Chat* répond en s'appuyant sur ce qu'il a retenu d'un utilisateur, ce dernier ne sait pas toujours d'où vient la personnalisation. L'entrée du Message Center *MC1530959*, publiée le 29 Octobre 2026, annonce que les utilisateurs pourront désormais consulter les sources de mémoire utilisées pour personnaliser une réponse. L'élément de feuille de route correspondant, *574111*, publié le 14 Octobre 2026, est au statut lancé, avec un déploiement annoncé pour fin Octobre 2026, sur le Web, à l'échelle mondiale. Cet article détaille ce que voit l'utilisateur, ce que les administrateurs contrôlent et ce que cette transparence ne change pas.
+
+---
+
+##### Ce que voit l'utilisateur
+Sous une réponse de Copilot Chat, l'utilisateur ouvre *Sources*, puis l'onglet *Personalization*. Il y voit lesquels de ses éléments ont servi à personnaliser la réponse :
+- <u>Custom instructions</u> : Les instructions personnalisées
+- <u>Saved memories</u> : Les mémoires enregistrées
+- <u>Learned memories</u> : Les mémoires déduites
+- <u>Past chats</u> : Les conversations passées, affichées sous forme de citations en ligne
+
+Depuis la citation, l'utilisateur ouvre une mémoire enregistrée dans les paramètres pour la revoir ou la supprimer. Une citation de conversation passée ramène à cette conversation.
+
+Ces citations ne sont pas systématiques : elles n'apparaissent que lorsque la mémoire influence réellement la réponse, et certaines réponses personnalisées n'en auront donc aucune. Elles suivent aussi les réglages de chaque utilisateur : si les mémoires enregistrées ou l'historique des conversations sont désactivés, ces sources ne sont pas affichées.
+
+---
+
+##### Ce que les administrateurs contrôlent
+Aucun contrôle n'est ajouté. Le changement ne modifie ni ce que Copilot retient, ni le stockage de la mémoire, ni les contrôles d'administration existants. Il n'existe pas de réglage distinct pour les citations, et aucune action n'est requise.
+
+Le levier reste le contrôle *Enhanced personalization*, activé par défaut. Il peut être désactivé pour tout le tenant ou pour un groupe d'utilisateurs, et la mémoire de Copilot en dépend. Les rôles *Administrateur Global* et *Administrateur de personnes* peuvent le gérer, et il est aussi pilotable par script via la ressource *enhancedPersonalizationSetting* de *Microsoft Graph*. Le désactiver empêche Copilot d'appliquer les mémoires enregistrées et les instructions personnalisées, mais ne les supprime pas.
+
+Les mêmes sources divergent sur deux points, que cet article ne tranche pas.
+
+- <u>Licence</u> : Le Message Center exige une licence *Microsoft 365 Copilot (Premium)*, alors que Microsoft Learn indique que la mémoire est disponible pour les utilisateurs de Copilot Chat avec et sans licence Copilot
+- <u>Statut</u> : Le Message Center et la feuille de route annoncent la disponibilité générale, alors que la page Microsoft Learn, dernière mise à jour le 13 Octobre 2026, porte toujours une bannière de préversion (*Frontier*)
+
+<Notice type="info">Avant de communiquer aux utilisateurs, vérifier la licence et le statut dans l'entrée *MC1530959* du centre d'administration.</Notice>
+
+---
+
+##### Conformité et rétention : ce qui ne change pas
+Les mémoires, qu'elles soient enregistrées, déduites de l'historique ou issues des instructions personnalisées, sont stockées dans la boîte aux lettres Exchange de l'utilisateur, dans un dossier masqué, sous les politiques de sécurité et de conformité de la boîte (Customer Lockbox, chiffrement au repos). Les limites suivantes restent en place :
+- Les politiques et étiquettes de rétention *Microsoft Purview* ne s'appliquent pas à la mémoire de Copilot, et aucun contrôle d'administration ne permet d'imposer des règles de rétention dédiées.
+- Les actions de mémoire et de personnalisation ne génèrent aucune entrée dans le journal d'audit Purview.
+- Un administrateur ne peut pas restreindre le type d'information ajouté à la mémoire.
+- Une mémoire enregistrée est conservée jusqu'à ce que l'utilisateur la supprime dans *Settings* > *Personalization*, et supprimer une conversation ne supprime pas les mémoires qui en découlent.
+- Les détails de l'historique des conversations disparaissent sous sept jours une fois toutes les conversations sources supprimées, et sous 30 jours si *Enhanced personalization* est désactivé par l'administrateur ou l'historique par l'utilisateur.
+
+Côté recherche, les mémoires enregistrées et déduites sont découvrables avec *eDiscovery* et *Graph Explorer* : elles se trouvent dans le dossier *CopilotMemory*, avec la classe d'élément *IPM.Contact*. Les instructions personnalisées ne le sont pas encore, l'utilisateur peut les exporter lui-même depuis *Settings* > *Personalization*.
+
+---
+
+##### Conclusion
+Cette nouveauté aide l'utilisateur à comprendre et à corriger ce que Copilot retient de lui, sans rien apporter à l'administrateur. Les lacunes de gouvernance (rétention Purview, audit, restriction du contenu) subsistent, et deviennent plus visibles maintenant que les utilisateurs voient la mémoire à l'œuvre. Avant de laisser la mémoire activée, il faut donc décider si ces limites sont acceptables pour le tenant, sinon utiliser *Enhanced personalization* pour la couper ou la limiter à un groupe. Les points de licence et de statut sont à vérifier dans l'entrée *MC1530959*.
+
+---
+
+##### Sources
+[Microsoft Learn - Gérer la personnalisation et la mémoire de Copilot](https://learn.microsoft.com/fr-ca/microsoft-365/copilot/copilot-personalization-memory)
+
+[Microsoft Learn - Contrôle de personnalisation amélioré de Microsoft Copilot](https://learn.microsoft.com/fr-ca/graph/control-enhanced-personalization-privacy)
+
+---
+
+
+Avez-vous apprécié cet article ? Vous avez des questions, commentaires ou suggestions, n'hésitez pas à m'envoyer un message depuis le formulaire de contact.
+
+N'oubliez pas de nous suivre et de partager cet article.
