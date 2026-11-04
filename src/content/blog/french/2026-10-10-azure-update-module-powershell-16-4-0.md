@@ -39,12 +39,12 @@ La version 16.4.0 contient les mises à jour suivantes :
 
 **<u>Az.Compute</u>**
 - Ajout des paramètres *-ScheduleProfileStart* et *-MinimumCommitmentDayCount* à *New-AzCapacityReservation* pour créer des réservations de capacité différées (*Future Capacity Reservations*), et exposition de la propriété en lecture seule *ScheduleProfile* (incluant *ModifiableUntil*) ainsi que de la vue d'instance *ReservationStateInfo* dans la sortie de *Get-AzCapacityReservation*.
-- Ajout de *SpotPlus* comme valeur prise en charge pour le paramètre *-Priority* des cmdlets *New-AzVM*, *New-AzVMConfig*, *New-AzVmss* et *New-AzVmssConfig*. 
+- Ajout de *SpotPlus* comme valeur prise en charge pour le paramètre *-Priority* des applets de commande *New-AzVM*, *New-AzVMConfig*, *New-AzVmss* et *New-AzVmssConfig*. 
     - *SpotPlus* représente la nouvelle génération d'Azure Spot pour les déploiements de machines virtuelles (VM) et de groupes de machines virtuelles identiques (VMSS) ; il offre une fiabilité accrue et une durée d'exécution plus longue que *Spot*. 
     - Les paramètres *-EvictionPolicy* et *-MaxPrice* fonctionnent de la même manière que pour *Spot*. 
     - Nécessite l'inscription de la fonctionnalité d'abonnement *Microsoft.Compute/SpotPlus* et l'utilisation d'une région où cette fonctionnalité est activée.
-- Pour *New-AzVM* : en cas d'échec de la recherche de version d'extension dans le catalogue, la cmdlet utilise la version par défaut de l'extension BGInfo (Background Information) ; les échecs d'installation génèrent désormais un avertissement au lieu d'interrompre l'exécution de la cmdlet.
-- Ajout de cmdlets et de paramètres pour configurer des balises de service propriétaires (*first-party service tags*) pour les adresses IP publiques implicites sur les machines virtuelles (VM) et les groupes de machines virtuelles identiques (VMSS).
+- Pour *New-AzVM* : en cas d'échec de la recherche de version d'extension dans le catalogue, l'applet de commande utilise la version par défaut de l'extension BGInfo (Background Information) ; les échecs d'installation génèrent désormais un avertissement au lieu d'interrompre l'exécution de l'applet de commande.
+- Ajout des applets de commande et de paramètres pour configurer des balises de service propriétaires (*first-party service tags*) pour les adresses IP publiques implicites sur les machines virtuelles (VM) et les groupes de machines virtuelles identiques (VMSS).
 - Ajout de la prise en charge des métadonnées de publication d'extension dans *Get-AzVMExtensionImage*. 
     - Utilisation de *-Expand Properties* lors de la liste des versions d'extension pour inclure les métadonnées relatives à la catégorie de publication, au niveau d'urgence et au profil d'exécution.[Azure/azure-powershell-cmdlet-review-pr#1571](https://github.com/Azure/azure-powershell-cmdlet-review-pr/issues/1571)
 <br/><br/>
@@ -116,7 +116,7 @@ La version 16.4.0 contient les mises à jour suivantes :
 - Ajout de commandes de migration de connexions croisées ExpressRoute gérées par le fournisseur.
 - Ajout de la prise en charge de l'association de balises de service propriétaires (First Party Service Tags) aux balises IP utilisées par *New-AzPublicIpPrefix*.
 - Ajout de la prise en charge du provisionnement d'un circuit ExpressRoute sur une ressource *ExpressRouteLag* (API Microsoft.Network *2026-01-01*).
-- Ajout de *MigrateGatewayForPointToSiteProfile* comme valeur prise en charge pour le paramètre *-MigrationType* de *New-AzVirtualNetworkGatewayMigrationParameter*, et correction du cmdlet pour qu'il respecte la valeur *-MigrationType* fournie par l'utilisateur.
+- Ajout de *MigrateGatewayForPointToSiteProfile* comme valeur prise en charge pour le paramètre *-MigrationType* de *New-AzVirtualNetworkGatewayMigrationParameter*, et correction de l'applet de commande pour qu'il respecte la valeur *-MigrationType* fournie par l'utilisateur.
 - Ajout de la prise en charge du routage avancé pour Application Gateway.
 - Ajout de *AdvancedRouting* comme valeur prise en charge pour *-RuleType* dans *New-AzApplicationGatewayRequestRoutingRule*, *Add-AzApplicationGatewayRequestRoutingRule* et *Set-AzApplicationGatewayRequestRoutingRule*.
 - Ajout du paramètre *-VerifyClientAuthMode* aux applets de commande *New-AzApplicationGatewayClientAuthConfiguration* et *Set-AzApplicationGatewayClientAuthConfiguration* pour sélectionner le mode de vérification du certificat client TLS mutuel (mTLS) côté frontal.
@@ -142,7 +142,7 @@ La version 16.4.0 contient les mises à jour suivantes :
 <br/><br/>
 
 **<u>Az.Resources</u>**
-- Alignement de la conservation des balises dans le résultat WhatIf des piles de déploiement avec le comportement des cmdlets de piles de déploiement lorsque le paramètre *-Tag* est omis ou se voit attribuer explicitement une valeur nulle.
+- Alignement de la conservation des balises dans le résultat WhatIf des piles de déploiement avec le comportement des applets de commande de piles de déploiement lorsque le paramètre *-Tag* est omis ou se voit attribuer explicitement une valeur nulle.
 <br/><br/>
 
 **<u>Az.ServiceBus</u>**
@@ -162,11 +162,11 @@ La version 16.4.0 contient les mises à jour suivantes :
 **<u>Az.StorageSync</u>**
 - Amélioration de l'aide pour le paramètre *ChangeEnumerationIntervalDay*.
 - Correction de *Set-AzStorageSyncServer* pour récupérer le serveur inscrit à l'aide de l'ID de serveur validé.
-- Ajout du paramètre *ChangeEnumerationIntervalDay* à la cmdlet *New-AzStorageSyncCloudEndpoint*. 
+- Ajout du paramètre *ChangeEnumerationIntervalDay* à l'applet de commande *New-AzStorageSyncCloudEndpoint*. 
     - Permet aux clients de configurer l'intervalle (en jours) entre les opérations d'énumération des modifications pour les points de terminaison cloud. 
     - Paramètre facultatif offrant un contrôle sur la fréquence de détection des modifications. 
     - Plage valide : 1 à 20 jours.
-- Ajout de la cmdlet *Set-AzStorageSyncCloudEndpoint*. 
+- Ajout de l'applet de commande *Set-AzStorageSyncCloudEndpoint*. 
     - Permet aux clients de mettre à jour la propriété *ChangeEnumerationIntervalDay* d'un point de terminaison cloud existant. 
     - Plage valide : 1 à 20 jours.
 <br/><br/>
