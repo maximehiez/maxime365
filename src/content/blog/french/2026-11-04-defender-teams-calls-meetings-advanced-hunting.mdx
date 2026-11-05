@@ -1,0 +1,80 @@
+---
+title: "Hunting avancé des appels et réunions Teams dans Defender"
+meta_title: ""
+description: ""
+date: 2026-11-04T10:00:00-05:00
+image: "/images/blog/defender/defender_teams_calls_meetings_advanced_hunting_thumbnail.png"
+categories: ["Defender"]
+author: "Maxime Hiez"
+tags: ["Sécurité", "Rencontre"]
+draft: false
+---
+---
+
+##### Introduction
+Un signalement d'utilisateur indique qu'un appel ou une réunion *Microsoft Teams* était suspect, mais il ne dit pas ce qui s'est réellement passé. Pour enquêter, l'équipe sécurité a besoin des événements eux-mêmes. L'annonce *MC1532241* ajoute à *Microsoft Defender XDR* la table *CallActivityEvents* du hunting avancé (*advanced hunting*), qui couvre les activités des appels et des réunions Teams. La fonctionnalité est en disponibilité générale : le déploiement débute début Novembre 2026 et doit se terminer mi-Novembre 2026, dans le monde entier. Aucun identifiant Roadmap n'est annoncé.
+
+Voir l'article sur le signalement des problèmes de sécurité dans les réunions Teams [ICI](https://maxime.hiez.ca/blog/2026-08-21-teams-report-security-concern-meetings).
+
+---
+
+##### Ce que contient la table
+*CallActivityEvents* décrit les activités réalisées pendant les appels et réunions Teams de l'organisation : qui les a initiées, qui est l'organisateur, et si l'activité a réussi ou échoué. Les colonnes clés sont les suivantes :
+- <u>ActivityTimestamp</u>, <u>CallId</u> et <u>ActivityId</u> : Date de l'activité et identifiants de l'appel et de l'activité.
+- <u>ActivityType</u>, <u>ActivityStatus</u> et <u>ActivityDetail</u> : Type de l'activité, succès ou échec, et détail.
+- <u>CallType</u> et <u>CallSchedulingType</u> : Appel en tête-à-tête (P2P) ou de groupe (réunion, conférence, appel élargi), et planification (*Adhoc*, *Scheduled* ou *Recurring*).
+- <u>ThreadId</u> : Identifiant de la conversation associée à l'appel.
+<br/>
+
+Les initiateurs et les destinataires ont chacun leurs colonnes : identifiant, UPN, nom, numéro de téléphone, type de compte et tenant d'origine, avec en plus la région du tenant et la plateforme (*Desktop*, *Mobile* ou *Web*) pour l'initiateur. Le type de compte distingue les comptes *Entra*, grand public (*consumer*), *Azure Communication Services*, le réseau téléphonique commuté (*RTC* / *PSTN*) et les participants non authentifiés. Le tenant, la région et le numéro permettent de repérer les parties externes. L'organisateur dispose lui aussi de ses colonnes (*OriginatorUpn*, *OriginatorObjectId*, etc.).
+
+Voici une requête KQL de départ :
+```kusto
+CallActivityEvents
+| where ActivityTimestamp > ago(7d)
+| project ActivityTimestamp, ActivityType, ActivityStatus, ActivityInitiatorUpn,
+          ActivityInitiatorAccountType, ActivityInitiatorTenantDisplayName, CallType, ThreadId
+| sort by ActivityTimestamp desc
+```
+
+---
+
+##### Relier les appels aux messages
+La colonne *ThreadId* permet de joindre la table à *MessageEvents*, déjà disponible pour les messages Teams, afin de relier un appel à sa conversation. *MessageEvents* ne couvre que les conversations externes et les messages internes qui contiennent des URL. Les données sont aussi accessibles par l'API de streaming d'événements et par l'API de *Microsoft Sentinel*.
+
+<Notice type="note">Dans Sentinel, la table du même nom a un schéma différent de celui du hunting avancé : *TimeGenerated* remplace *ActivityTimestamp*, et *OriginatorUserObjectId* remplace *OriginatorObjectId*. Les deux listes de colonnes ne se mélangent pas dans une même requête.</Notice>
+
+---
+
+##### Ce que les administrateurs doivent savoir
+- Licence : *Microsoft Defender for Office 365 Plan 2*, inclus dans *Microsoft 365 E5*. Le Plan 1 n'ouvre pas cette fonctionnalité.
+- Prérequis : *Defender for Office 365* doit être déployé dans le portail Defender, sans quoi les requêtes ne renvoient aucun résultat.
+- Permissions : Les analystes ont besoin de l'accès au hunting avancé.
+- Contrôles : Aucun réglage d'activation ni prix supplémentaire n'est annoncé.
+<br/>
+La documentation décrit déjà la table avant la fin du déploiement : jusqu'à mi-Novembre 2026, elle peut donc ne pas apparaître dans un tenant. Il est conseillé de prévenir les équipes SecOps, de relire le schéma, de confirmer l'accès des analystes et, si l'API de streaming ou celle de *Microsoft Sentinel* est utilisée, de vérifier l'ingestion.
+
+La table contient des UPN, des noms, des numéros de téléphone et des liens de participation : cet accès mérite d'être réservé aux analystes concernés.
+
+---
+
+##### Conclusion
+Avec le signalement des réunions, les équipes sécurité reçoivent d'un côté l'alerte d'un utilisateur et de l'autre les événements qui permettent de la vérifier. Il vaut la peine de préparer dès maintenant l'accès des analystes et quelques requêtes de base sur les parties externes, à tester dès l'apparition de la table dans le tenant. Un bémol : la documentation ne liste pas les valeurs d'*ActivityType*, il faudra donc les découvrir dans les données avant d'écrire des filtres.
+
+---
+
+##### Sources
+[Microsoft Learn - Table CallActivityEvents](https://learn.microsoft.com/fr-ca/defender-xdr/advanced-hunting-callactivityevents-table)
+
+[Microsoft Learn - Prise en charge de Teams par Defender for Office 365](https://learn.microsoft.com/fr-ca/defender-office-365/mdo-support-teams-about)
+
+[Microsoft Learn - Table MessageEvents](https://learn.microsoft.com/fr-ca/defender-xdr/advanced-hunting-messageevents-table)
+
+[Microsoft Learn - Table CallActivityEvents pour Sentinel](https://learn.microsoft.com/fr-ca/azure/azure-monitor/reference/tables/callactivityevents)
+
+---
+
+
+Avez-vous apprécié cet article ? Vous avez des questions, commentaires ou suggestions, n'hésitez pas à m'envoyer un message depuis le formulaire de contact.
+
+N'oubliez pas de nous suivre et de partager cet article.

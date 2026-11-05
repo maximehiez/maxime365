@@ -1,0 +1,80 @@
+---
+title: "Advanced hunting for Teams calls and meetings in Defender"
+meta_title: ""
+description: ""
+date: 2026-11-04T10:00:00-05:00
+image: "/images/blog/defender/defender_teams_calls_meetings_advanced_hunting_thumbnail.png"
+categories: ["Defender"]
+author: "Maxime Hiez"
+tags: ["Security", "Meeting"]
+draft: false
+---
+---
+
+##### Introduction
+A user report says a *Microsoft Teams* call or meeting was suspicious, but it doesn't say what actually happened. To investigate, the security team needs the events themselves. Message center post *MC1532241* adds the *CallActivityEvents* advanced hunting table to *Microsoft Defender XDR*, covering Teams call and meeting activities. The feature is generally available : the rollout starts in early November 2026 and should finish by mid-November 2026, worldwide. No Roadmap ID has been announced.
+
+Check the article on reporting security concerns in Teams meetings [HERE](https://maxime.hiez.ca/en/blog/2026-08-21-teams-report-security-concern-meetings).
+
+---
+
+##### What the table contains
+*CallActivityEvents* describes the activities performed during your organization's Teams calls and meetings : who initiated them, who the organizer is, and whether the activity succeeded or failed. The key columns are :
+- <u>ActivityTimestamp</u>, <u>CallId</u> and <u>ActivityId</u> : Date of the activity, and the call and activity identifiers.
+- <u>ActivityType</u>, <u>ActivityStatus</u> and <u>ActivityDetail</u> : Type of the activity, success or failure, and detail.
+- <u>CallType</u> and <u>CallSchedulingType</u> : One-to-one call (P2P) or group call (meeting, conference, escalated call), and scheduling (*Adhoc*, *Scheduled* or *Recurring*).
+- <u>ThreadId</u> : Identifier of the conversation tied to the call.
+<br/>
+
+Initiators and recipients each have their own columns : ID, UPN, name, phone number, account type and home tenant, plus the tenant region and the platform (*Desktop*, *Mobile* or *Web*) for the initiator. The account type distinguishes *Entra*, consumer, *Azure Communication Services*, public switched telephone network (*PSTN*) and unauthenticated participants. The tenant, region and number help you spot external parties. The organizer has its own columns too (*OriginatorUpn*, *OriginatorObjectId*, etc.).
+
+Here is a starter KQL query :
+```kusto
+CallActivityEvents
+| where ActivityTimestamp > ago(7d)
+| project ActivityTimestamp, ActivityType, ActivityStatus, ActivityInitiatorUpn,
+          ActivityInitiatorAccountType, ActivityInitiatorTenantDisplayName, CallType, ThreadId
+| sort by ActivityTimestamp desc
+```
+
+---
+
+##### Linking calls to messages
+The *ThreadId* column lets you join the table to *MessageEvents*, already available for Teams messages, to link a call to its conversation. *MessageEvents* only covers external conversations and internal messages that contain URLs. The data is also available through the event streaming API and the *Microsoft Sentinel* API.
+
+<Notice type="note">In Sentinel, the table of the same name has a different schema from the advanced hunting one : *TimeGenerated* replaces *ActivityTimestamp*, and *OriginatorUserObjectId* replaces *OriginatorObjectId*. The two column lists can't be mixed in a single query.</Notice>
+
+---
+
+##### What admins need to know
+- License : *Microsoft Defender for Office 365 Plan 2*, included in *Microsoft 365 E5*. Plan 1 doesn't unlock this feature.
+- Prerequisite : *Defender for Office 365* must be deployed in the Defender portal, otherwise queries return no results.
+- Permissions : Analysts need advanced hunting access.
+- Controls : No enablement setting or extra cost has been announced.
+<br/>
+The documentation already describes the table before the rollout is complete, so until mid-November 2026 it may not appear in your tenant. We recommend warning your SecOps teams, reviewing the schema, confirming analyst access and, if you use the streaming API or the *Microsoft Sentinel* API, checking ingestion.
+
+The table contains UPNs, names, phone numbers and join links : access is best limited to the analysts who need it.
+
+---
+
+##### Conclusion
+With meeting reporting, security teams get the user's alert on one side and the events to verify it on the other. It's worth preparing analyst access now, along with a few baseline queries on external parties, to test as soon as the table shows up in your tenant. One caveat : the documentation doesn't list the *ActivityType* values, so you will need to discover them in the data before writing filters.
+
+---
+
+##### Sources
+[Microsoft Learn - CallActivityEvents table](https://learn.microsoft.com/en-us/defender-xdr/advanced-hunting-callactivityevents-table)
+
+[Microsoft Learn - Microsoft Defender for Office 365 support for Teams](https://learn.microsoft.com/en-us/defender-office-365/mdo-support-teams-about)
+
+[Microsoft Learn - MessageEvents table](https://learn.microsoft.com/en-us/defender-xdr/advanced-hunting-messageevents-table)
+
+[Microsoft Learn - CallActivityEvents table for Sentinel](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/callactivityevents)
+
+---
+
+
+Did you enjoy this post ? If you have any questions, comments or suggestions, please feel free to send me a message from the contact form.
+
+Don't forget to follow us and share this post.
