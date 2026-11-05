@@ -1,0 +1,76 @@
+---
+title: "Purview network DLP with Palo Alto Prisma Access"
+meta_title: ""
+description: ""
+date: 2026-11-04T10:00:00-05:00
+image: "/images/blog/purview/purview_dlp_palo_alto_prisma_access_thumbnail.png"
+categories: ["Purview"]
+author: "Maxime Hiez"
+tags: ["DLP", "Security", "Data protection", "Licenses", "Pay-As-You-Go"]
+draft: false
+---
+---
+
+##### Introduction
+Network *DLP* in *Microsoft Purview* has so far relied on *Microsoft Entra Global Secure Access* ; it is now opening up to a non-Microsoft *SASE* solution, *Palo Alto Prisma Access*, to discover and protect sensitive data shared with unmanaged cloud apps over *HTTP* and *HTTPS*. The integration is described in the *MC1257999* message and in roadmap item *558939*, both updated in early November 2026 with a new schedule : general availability is now planned for June 2027 (originally late October to late November 2026).
+
+Check the Purview network DLP in Entra Global Secure Access article [HERE](https://maxime.hiez.ca/en/blog/2026-10-13-purview-network-layer-dlp-global-secure-access-ga).
+
+---
+
+##### What the integration adds
+Until now, the network layer of Purview DLP relied on Global Secure Access. Prisma Access becomes a second source of network traffic for the same policies : collection policies and DLP policies use the same classifiers, sensitive information types and Sensitivity Labels as the rest of Purview. There is no new rule set to build.
+
+The integration is configured in the *Security Store* of Purview DLP, where non-Microsoft solutions are listed as generally available or in preview depending on the integration.
+
+---
+
+##### Schedule and status
+This is a feature still in development, with no general availability date before next year :
+- <u>Public preview</u> : Rollout announced from mid-April to mid-May 2026, schedule unchanged between the two versions of the message
+- <u>General availability</u> : June 2027, according to version 2 of the message published on November 2, 2026
+
+<br/>
+
+Nothing confirms that the preview can be used in a tenant today, and the reason for the general availability delay is not given.
+
+---
+
+##### Licenses and prerequisites
+The licensing model differs from Global Secure Access : *Purview E5* (or equivalent) per user, plus Purview *Pay-As-You-Go* billing, metered per request, meaning each network call from a device or browser to a website or an API. The Prisma Access license remains separate, on the Palo Alto side.
+
+<Notice type="note">Neither *Microsoft 365 E7* nor *Entra Internet Access* applies here : those licenses belong to the Global Secure Access route.</Notice>
+
+---
+
+##### What admins need to know
+The integration is off by default. It appears in the Security Store during rollout, and once an administrator turns it on, existing collection and network DLP policies apply automatically. Users are not affected until the integration is turned on and network policies are configured.
+
+The general Network Data Security limits apply :
+- No enforcement for B2B guest users
+- Evaluation limited to 4MB for text and 3MB for files
+- Up to 24 hours for policies to reach the network solution
+- Up to 30 minutes before a request shows up in the audit log and activity explorer
+
+<br/>
+
+Supported activities and actions, as well as *WebSocket* support, can vary from one solution to another. What Prisma Access supports remains to be confirmed with Palo Alto Networks. The partner can also access policy configuration, user identifiers included, and store it under its own terms.
+
+---
+
+##### Conclusion
+With general availability in June 2027, this integration is not one to plan for production before mid-2027. For organizations running Prisma Access, now is the time to check the Purview E5 license and to open up Pay-As-You-Go billing as soon as the preview becomes available in their tenant.
+
+---
+
+##### Sources
+[Microsoft 365 Roadmap - 558939](https://www.microsoft.com/microsoft-365/roadmap?id=558939)
+
+[Microsoft Learn - Microsoft Purview Network Data Security](https://learn.microsoft.com/en-us/purview/dlp-network-data-security-learn)
+
+---
+
+
+Did you enjoy this post ? If you have any questions, comments or suggestions, please feel free to send me a message from the contact form.
+
+Don't forget to follow us and share this post.

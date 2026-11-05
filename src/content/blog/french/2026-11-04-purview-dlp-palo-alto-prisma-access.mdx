@@ -1,0 +1,76 @@
+---
+title: "DLP réseau Purview avec Palo Alto Prisma Access"
+meta_title: ""
+description: ""
+date: 2026-11-04T10:00:00-05:00
+image: "/images/blog/purview/purview_dlp_palo_alto_prisma_access_thumbnail.png"
+categories: ["Purview"]
+author: "Maxime Hiez"
+tags: ["DLP", "Sécurité", "Protection de données", "Licences", "Pay-As-You-Go"]
+draft: false
+---
+---
+
+##### Introduction
+Le *DLP* réseau de *Microsoft Purview* reposait jusqu'ici sur *Microsoft Entra Global Secure Access* ; il s'ouvre maintenant à une solution *SASE* non-Microsoft, *Palo Alto Prisma Access*, pour découvrir et protéger les données sensibles partagées avec des applications cloud non gérées en *HTTP* et *HTTPS*. Cette intégration est décrite dans le message *MC1257999* et dans l'élément de roadmap *558939*, tous deux mis à jour début Novembre 2026 avec un nouveau calendrier : la disponibilité générale est maintenant prévue en Juin 2027 (initialement prévue de fin Octobre à fin Novembre 2026).
+
+Voir l'article sur le DLP réseau Purview dans Entra Global Secure Access [ICI](https://maxime.hiez.ca/blog/2026-10-13-purview-network-layer-dlp-global-secure-access-ga).
+
+---
+
+##### Ce que l'intégration ajoute
+Jusqu'ici, la couche réseau du DLP Purview reposait sur Global Secure Access. Prisma Access devient une seconde source de trafic réseau pour les mêmes politiques : celles de collecte (*collection policies*) et les politiques DLP utilisent les mêmes classificateurs, types d'informations sensibles et étiquettes de confidentialité que le reste de Purview. Il n'y a donc pas de nouveau jeu de règles à construire.
+
+L'intégration se configure dans le *Security Store* de Purview DLP, où les solutions non-Microsoft sont listées en disponibilité générale ou en préversion selon l'intégration.
+
+---
+
+##### Calendrier et statut
+Le statut est celui d'une fonctionnalité en cours de développement, sans date de disponibilité générale avant l'an prochain :
+- <u>Préversion publique</u> : Déploiement annoncé de mi-Avril à mi-Mai 2026, calendrier inchangé entre les deux versions du message
+- <u>Disponibilité générale</u> : Juin 2027, selon la version 2 du message publiée le 2 Novembre 2026
+
+<br/>
+
+Rien ne permet de confirmer que la préversion est utilisable dans un tenant aujourd'hui, et la raison du report de la disponibilité générale n'est pas indiquée.
+
+---
+
+##### Licences et prérequis
+Le modèle de licence diffère de celui de Global Secure Access : *Purview E5* (ou équivalent) par utilisateur, plus la facturation à l'usage (*Pay-As-You-Go*) de Purview, mesurée à la requête, c'est-à-dire chaque appel réseau d'un appareil ou d'un navigateur vers un site web ou une API. La licence Prisma Access reste distincte, côté Palo Alto.
+
+<Notice type="note">Ni *Microsoft 365 E7* ni *Entra Internet Access* ne sont concernés : ces licences relèvent de la voie Global Secure Access.</Notice>
+
+---
+
+##### Ce que les administrateurs doivent savoir
+L'intégration est désactivée par défaut. Elle apparaît dans le Security Store pendant le déploiement, et une fois activée par un administrateur, les politiques de collecte et DLP réseau existantes s'appliquent automatiquement. Les utilisateurs ne sont pas touchés tant que l'intégration n'est pas activée et que des politiques réseau ne sont pas configurées.
+
+Les limites générales de la Network Data Security s'appliquent :
+- Aucune application aux utilisateurs invités B2B
+- Évaluation limitée à 4Mo pour le texte et à 3Mo pour les fichiers
+- Jusqu'à 24 heures pour la distribution des politiques vers la solution réseau
+- Jusqu'à 30 minutes avant qu'une requête apparaisse dans le journal d'audit et l'explorateur d'activités
+
+<br/>
+
+Les activités et actions prises en charge, ainsi que le support de *WebSocket*, peuvent varier d'une solution à l'autre. Ce que Prisma Access prend en charge reste à confirmer auprès de Palo Alto Networks. Le partenaire peut aussi accéder à la configuration des politiques, identifiants d'utilisateurs compris, et la stocker selon ses propres conditions.
+
+---
+
+##### Conclusion
+Avec une disponibilité générale en Juin 2027, cette intégration ne se planifie pas pour une mise en production avant la mi-2027. Pour les organisations sous Prisma Access, le moment est celui de vérifier la licence Purview E5 et d'ouvrir la facturation à l'usage dès que la préversion sera accessible dans leur tenant.
+
+---
+
+##### Sources
+[Microsoft 365 Roadmap - 558939](https://www.microsoft.com/microsoft-365/roadmap?id=558939)
+
+[Microsoft Learn - Microsoft Purview Network Data Security](https://learn.microsoft.com/fr-ca/purview/dlp-network-data-security-learn)
+
+---
+
+
+Avez-vous apprécié cet article ? Vous avez des questions, commentaires ou suggestions, n'hésitez pas à m'envoyer un message depuis le formulaire de contact.
+
+N'oubliez pas de nous suivre et de partager cet article.
