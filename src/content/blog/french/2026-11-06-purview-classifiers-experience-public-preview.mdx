@@ -1,0 +1,61 @@
+---
+title: "Purview unifie la gestion des SIT en Public Preview"
+meta_title: ""
+description: ""
+date: 2026-11-06T10:00:00-05:00
+image: "/images/blog/purview/purview_classifiers_experience_public_preview_thumbnail.png"
+categories: ["Purview"]
+author: "Maxime Hiez"
+tags: ["Protection de données", "SIT", "Gouvernance"]
+draft: false
+---
+---
+
+##### Introduction
+Dans *Microsoft Purview*, une nouvelle page *Classifiers* réunit les *Sensitive Information Types* (*SIT*) en une seule expérience, en Public Preview depuis le 30 Septembre 2026. Les deux sources officielles ne s'accordent pas sur la disponibilité générale : l'annonce *MC1486289* la situe de mi-Novembre à fin Novembre 2026, alors que l'élément de la feuille de route *570844*, modifié le 30 Octobre 2026 et au statut *In development*, l'indique pour Mars 2027.
+
+Voir l'article sur la création de types d'informations sensibles [ICI](https://maxime.hiez.ca/blog/2026-07-07-purview-how-to-create-sensitive-info-types).
+
+---
+
+##### Une seule page pour tous les Sensitive Information Types
+La page *Classifiers* permet de découvrir, créer, inspecter et gérer les Sensitive Information Types au même endroit. Elle couvre notamment les Sensitive Information Types, les entités nommées, la correspondance exacte des données (*EDM*), les classifieurs entraînables, les informations d'identification, les empreintes de documents et la reconnaissance optique de caractères. L'annonce *MC1486289* limite le périmètre aux SIT, EDM, classifieurs entraînables et empreintes de documents.
+
+Elle s'ouvre depuis *Information Protection*, *Data Loss Prevention* ou *DSPM*, selon la disponibilité dans le tenant. L'expérience coexiste avec les anciennes : un Sensitive Information Type créé, modifié ou supprimé dans l'une apparaît dans l'autre.
+
+![image](/images/blog/purview/purview_classifiers_experience_public_preview_001.png)
+
+---
+
+##### Ce que la page apporte à l'administrateur
+À la création, la page présente le fonctionnement de chaque type de Sensitive Information Type pour aider à choisir celui qui correspond au scénario.
+
+Pour un Sensitive Information Type existant, elle affiche le nombre d'éléments classifiés, le nombre de politiques qui l'utilisent et leurs dépendances. Ces informations sont utiles avant toute modification. La validation des éléments correspondants se fait dans *Data Explorer*, qui exige les autorisations adaptées pour lister les éléments et lire leur contenu.
+
+La page ne documente pas de nouvel outil de test ou d'ajustement. Les retours *Match* / *Not a match* et le mode de simulation (*MC1185445*) sont des fonctionnalités existantes ou distinctes, sans lien établi avec la nouvelle page.
+
+---
+
+##### Permissions et contrôles
+L'accès passe par un rôle d'administrateur *Microsoft Entra* (*Global administrator*, *Compliance administrator*, *Security administrator*, *Compliance data administrator*) ou par un groupe de rôles Purview comme *Information Protection*, avec le principe du moindre privilège. Aucune licence, limite, région ni commande pour activer ou désactiver la nouvelle expérience n'est documentée.
+
+---
+
+##### Conclusion
+La page est surtout une vue d'inventaire utile : voir en un coup d'œil quels Sensitive Information Types existent et quelles politiques en dépendent réduit le risque de casser une politique DLP en modifiant un classifieur. Comme les fonctionnalités peuvent encore changer avant la disponibilité générale, et que sa date reste incertaine entre Novembre 2026 et Mars 2027, il est raisonnable de la parcourir dès maintenant dans le tenant et d'attendre la disponibilité générale avant d'adapter les procédures internes.
+
+---
+
+##### Sources
+[Microsoft 365 Roadmap - 570844](https://www.microsoft.com/microsoft-365/roadmap?id=570844)
+
+[Microsoft - Techcommunity](https://techcommunity.microsoft.com/blog/microsoft-purview-blog/meet-the-new-microsoft-purview-classifiers-experience-your-admin-playbook-for-pu/4561324)
+
+[Microsoft Learn - Sensitive Information Types](https://learn.microsoft.com/fr-ca/purview/data-classification-overview)
+
+---
+
+
+Avez-vous apprécié cet article ? Vous avez des questions, commentaires ou suggestions, n'hésitez pas à m'envoyer un message depuis le formulaire de contact.
+
+N'oubliez pas de nous suivre et de partager cet article.

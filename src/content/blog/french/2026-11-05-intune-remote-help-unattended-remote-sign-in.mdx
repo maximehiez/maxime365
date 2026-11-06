@@ -1,0 +1,73 @@
+---
+title: "Remote Help permet l'assistance sans surveillance sur Windows"
+meta_title: ""
+description: ""
+date: 2026-11-05T10:00:00-05:00
+image: "/images/blog/intune/intune_remote_help_unattended_remote_sign_in_thumbnail.png"
+categories: ["Intune"]
+author: "Maxime Hiez"
+tags: ["Remote Help", "Bureau à distance", "Sécurité"]
+draft: false
+---
+---
+
+##### Introduction
+*Microsoft Intune* permet désormais à un agent du support d'ouvrir, avec ses propres identifiants, une session sur un appareil Windows sans que l'utilisateur soit présent ni n'ait à agir : c'est l'assistance sans surveillance (*unattended*) de *Remote Help*, avec connexion à distance (*remote sign-in*).
+
+---
+
+##### Ce que fait la connexion sans surveillance
+L'agent ouvre une session Windows distincte de celle de l'utilisateur. Si personne n'est connecté, la session de l'utilisateur reste verrouillée et préservée : il voit l'écran de verrouillage et ne peut pas observer ce qui se passe dans la session de l'agent. Si un utilisateur est connecté, une invite lui est affichée : *<u>Yes</u>* poursuit, *<u>No</u>* annule, et sans réponse au bout de 30 secondes la session démarre automatiquement. L'utilisateur peut reprendre son poste en se reconnectant depuis l'écran de verrouillage, et l'agent en est averti.
+
+Côté agent, tout part de la fiche de l'appareil dans le centre d'administration Intune : *Devices* > *All devices* > l'appareil > *New remote assistance session* > *Remote Help* > *Initiate unattended control*. La session s'ouvre dans *Windows App* (client web), dans un nouvel onglet, avec le compte utilisé pour le centre d'administration. Dans la session, l'agent se connecte avec un compte local, de domaine AD, UPN ou Entra ID. Un compte standard n'obtient pas de droits d'administrateur.
+
+Un seul agent et une seule session sans surveillance sont possibles à la fois sur un appareil. D'après le billet Tech Community, une session dure 12 heures au maximum, durée non configurable.
+
+---
+
+##### Ce qu'il faut activer
+Rien ne fonctionne par défaut : *Remote Help* est désactivé dans le tenant, et la nouvelle permission n'est dans aucun rôle intégré. Quatre étapes sont nécessaires :
+- <u>Tenant</u> : Passer *Enable Remote Help* à *Enabled* sous *Tenant administration* > *Remote Help* > *Settings*
+- <u>Rôle personnalisé</u> : Créer un rôle Intune avec la permission *Remote Help app - Windows unattended control remote sign-in*, attribuée explicitement et limitée aux appareils concernés
+- <u>Agents sur les appareils</u> : Déployer en applications Win32 l'agent *Azure Virtual Desktop* puis son *bootloader*, qui dépend de l'agent
+- <u>Bureau à distance</u> : Activer *Remote Desktop* par un profil du catalogue de paramètres (*Allow users to connect remotely by using Remote Desktop Services*), après avoir vérifié que le pare-feu autorise le trafic RDP
+
+Le rôle intégré *Help Desk Operator* inclut la plupart des permissions requises, mais pas celle-ci : un rôle personnalisé est donc obligatoire. L'agent a aussi besoin des permissions *Remote Tasks - Offer Remote Assistance* et *Remote Assistance Connector - read*, ainsi que d'au moins une permission Remote Help.
+
+Pour l'installation des agents, le champ du jeton d'enregistrement est prérempli avec *INVALID_TOKEN* et doit rester tel quel. L'agent se met à jour seul, sans que l'administrateur puisse piloter ce processus. L'appareil doit enfin être allumé et en ligne : un poste en veille, en hibernation ou éteint ne peut pas recevoir d'assistance sans surveillance. Le trafic passe par le port 443, vers *https://remotehelp.microsoft.com*, en RDP.
+
+---
+
+##### Licences et limites
+Une licence Remote Help est requise pour tous les utilisateurs ciblés, agents comme utilisateurs assistés, en plus d'*Intune Plan 1* ou *Plan 2*. D'après le billet Tech Community, Remote Help est inclus dans *Intune Suite*, vendu en module complémentaire autonome (*Remote Help add-on*) ou compris dans *Microsoft 365* E3 et E5. Aucun prix n'est repris ici.
+
+<Notice type="note">Le périmètre est étroit : appareils Windows physiques x64, détenus par l'entreprise, gérés par Intune et joints à *Microsoft Entra* ou en jonction hybride. Les machines virtuelles (*Windows 365*, *Azure Virtual Desktop*), les appareils non inscrits et les appareils personnels (BYOD) ne sont pas pris en charge pour le contrôle sans surveillance, mais restent éligibles à l'assistance classique. Les tenants hébergés dans la région *Switzerland North* sont exclus.</Notice>
+
+Côté contrôles, l'appareil non conforme déclenche seulement une bannière d'avertissement. Les politiques de *Conditional Access* propres à Remote Help et le chat ne s'appliquent pas à l'accès sans surveillance, alors qu'il est recommandé de protéger les comptes des agents par *Conditional Access* (MFA ou appareil conforme). Aucune session n'est enregistrée par le service, et les métadonnées de session sont conservées 30 jours. Pour le suivi, le billet Tech Community indique, sous *Tenant administration* > *Remote Help*, l'onglet *Monitor* (sessions actives, durée moyenne, total) et l'onglet *Remote Help sessions* (agent, destinataire, appareil, type de session), ainsi que les journaux d'audit (*Tenant administration* > *Audit logs*) filtrés sur la catégorie *RemoteHelp*. Il précise aussi que les sessions sans surveillance se lancent uniquement depuis la fiche de l'appareil, pas depuis l'application Remote Help.
+
+---
+
+##### Conclusion
+Pour un support qui gère des postes physiques à distance, la fonctionnalité règle un vrai cas : dépanner un poste dont l'utilisateur est absent, laissé verrouillé. Mais elle ouvre un accès sans enregistrement de session, hors des politiques de *Conditional Access* propres à Remote Help. Il vaut mieux garder le rôle personnalisé très étroit, le limiter à des groupes d'appareils précis et surveiller les journaux d'audit dès le premier jour. La licence mérite aussi une vérification avant tout déploiement : un abonnement Remote Help s'ajoute à Intune, et la couverture par E3 ou E5 reste à confirmer dans votre tenant.
+
+---
+
+##### Sources
+[Microsoft - Techcommunity](https://techcommunity.microsoft.com/blog/intunecustomersuccess/remote-help-on-windows-unattended-support-with-remote-sign-in-is-here/4549772)
+
+[Microsoft Learn - Nouveautés de Microsoft Intune](https://learn.microsoft.com/fr-ca/intune/whats-new)
+
+[Microsoft Learn - Planifier Remote Help](https://learn.microsoft.com/fr-ca/intune/remote-help/plan)
+
+[Microsoft Learn - Déployer Remote Help](https://learn.microsoft.com/fr-ca/intune/remote-help/deploy)
+
+[Microsoft Learn - Utiliser Remote Help](https://learn.microsoft.com/fr-ca/intune/remote-help/start-session)
+
+[Microsoft Learn - Remote Help avec Microsoft Intune](https://learn.microsoft.com/fr-ca/intune/remote-help)
+
+---
+
+
+Avez-vous apprécié cet article ? Vous avez des questions, commentaires ou suggestions, n'hésitez pas à m'envoyer un message depuis le formulaire de contact.
+
+N'oubliez pas de nous suivre et de partager cet article.

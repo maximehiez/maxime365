@@ -1,0 +1,61 @@
+---
+title: "Purview unifies SIT management in Public Preview"
+meta_title: ""
+description: ""
+date: 2026-11-06T10:00:00-05:00
+image: "/images/blog/purview/purview_classifiers_experience_public_preview_thumbnail.png"
+categories: ["Purview"]
+author: "Maxime Hiez"
+tags: ["Data protection", "SIT", "Governance"]
+draft: false
+---
+---
+
+##### Introduction
+In *Microsoft Purview*, a new *Classifiers* page brings *Sensitive Information Types* (*SIT*) together in a single experience, in Public Preview since September 30, 2026. The two official sources disagree on general availability : announcement *MC1486289* places it between mid-November and late November 2026, while roadmap item *570844*, last modified on October 30, 2026 and with an *In development* status, gives March 2027.
+
+Check the article on creating sensitive information types [HERE](https://maxime.hiez.ca/en/blog/2026-07-07-purview-how-to-create-sensitive-info-types).
+
+---
+
+##### One page for all Sensitive Information Types
+The *Classifiers* page lets you discover, create, inspect and manage Sensitive Information Types in one place. It covers Sensitive Information Types, named entities, exact data match (*EDM*), trainable classifiers, credentials, document fingerprints and optical character recognition. Announcement *MC1486289* limits the scope to SIT, EDM, trainable classifiers and document fingerprints.
+
+It opens from *Information Protection*, *Data Loss Prevention* or *DSPM*, depending on availability in the tenant. The new experience coexists with the old ones : a Sensitive Information Type created, modified or deleted in one shows up in the other.
+
+![image](/images/blog/purview/purview_classifiers_experience_public_preview_001.png)
+
+---
+
+##### What the page brings to the admin
+When you create a Sensitive Information Type, the page explains how each type works, to help pick the one that fits the scenario.
+
+For an existing Sensitive Information Type, it shows the number of classified items, the number of policies that use it and their dependencies. This is useful information before any change. Matching items are validated in *Data Explorer*, which requires the right permissions to list items and read their content.
+
+The page does not document any new testing or tuning tool. The *Match* / *Not a match* feedback and simulation mode (*MC1185445*) are existing or separate features, with no established link to the new page.
+
+---
+
+##### Permissions and controls
+Access goes through a *Microsoft Entra* admin role (*Global administrator*, *Compliance administrator*, *Security administrator*, *Compliance data administrator*) or a Purview role group such as *Information Protection*, following the principle of least privilege. No license, limit, region or toggle for the new experience is documented.
+
+---
+
+##### Conclusion
+Above all, the page is a useful inventory view : seeing at a glance which Sensitive Information Types exist and which policies depend on them reduces the risk of breaking a DLP policy by changing a classifier. Since features may still change before general availability, and its date remains uncertain between November 2026 and March 2027, it makes sense to browse it in the tenant now and wait for general availability before adapting internal procedures.
+
+---
+
+##### Sources
+[Microsoft 365 Roadmap - 570844](https://www.microsoft.com/microsoft-365/roadmap?id=570844)
+
+[Microsoft - Techcommunity](https://techcommunity.microsoft.com/blog/microsoft-purview-blog/meet-the-new-microsoft-purview-classifiers-experience-your-admin-playbook-for-pu/4561324)
+
+[Microsoft Learn - Sensitive Information Types](https://learn.microsoft.com/en-us/purview/data-classification-overview)
+
+---
+
+
+Did you enjoy this post ? If you have any questions, comments or suggestions, please feel free to send me a message from the contact form.
+
+Don't forget to follow us and share this post.
