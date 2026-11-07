@@ -1,0 +1,87 @@
+---
+title: "Comment transférer la propriété d’une réunion dans Exchange"
+meta_title: ""
+description: ""
+date: 2026-11-07T10:00:00-05:00
+image: "/images/blog/exchange/tuto/exchange_how_to_transfer_meeting_ownership_thumbnail.png"
+categories: ["Exchange", "Tutoriel"]
+author: "Maxime Hiez"
+tags: ["PowerShell", "Rencontre"]
+draft: false
+---
+---
+
+##### Introduction
+Lorsque des utilisateurs quittent l’entreprise (ou changent de rôle), ils laissent souvent derrière eux un calendrier rempli de réunions dont ils demeurent les *"organisateurs"*. La personne qui reprenait le rôle devait alors recréer les rencontres en envoyant de nouvelles invitations, et perdait l'historique, les notes, etc, puisqu'il n’existait, jusqu’à présent, aucun moyen pour modifier l’organisateur d’une réunion existante. L’applet de commande *Invoke-ChangeMeetingOrganizer* permet désormais à un administrateur de changer l’organisateur d’une réunion ou d’une série de réunions existante, sans rien avoir à recréer.
+
+---
+
+##### Prérequis
+**<u>Rôle d'administrateur</u>**
+- Un compte avec le rôle *Administrateur Global* ou *Administrateur Exchange* pour accéder à Microsoft Exchange Online.
+
+---
+
+##### Étape 1 : Se connecter à Microsoft Exchange Online en PowerShell
+Connectez-vous à Microsoft Exchange Online via la commande PowerShell suivante :
+```powershell
+Connect-ExchangeOnline
+```
+
+---
+
+##### Étape 2 : Transférer la réunion au nouveau propriétaire
+Le transfert se fait via la commande PowerShell suivante :
+```powershell
+Invoke-ChangeMeetingOrganizer -Identity user.3@domain.com -Subject "Budget discussion" -NewOrganizer user.2@domain.com
+```
+Avec *-Subject*, le transfert n’a lieu que si une seule réunion correspond. Sinon, la commande retourne la liste des réunions trouvées et il suffit de la relancer avec *-EventId*, dont la valeur doit identifier la série récurrente et non une occurrence.
+
+Si l’applet de commande n’est pas encore disponible dans le tenant, vous obtenez le message *"Transfer meeting action is disabled"* et aucune modification n’est apportée.
+
+<Notice type="note">Par défaut, le transfert de propriété d’une réunion récurrente prend effet à compter de la prochaine occurrence de la série. Vous pouvez ajouter le paramètre *-TransferSeriesStartDate* si vous souhaitez que ce changement s’applique à partir d’une date spécifique, qui doit être future et saisie au format de date courte défini dans les paramètres régionaux de l’ordinateur où la commande est exécutée.</Notice>
+
+<Notice type="warning">Pour les réunions Teams, l’organisateur de la réunion Teams associée n’est pas mis à jour automatiquement. Le nouvel organisateur doit mettre à jour manuellement la série de réunions avec les nouvelles informations de la réunion Teams afin de pouvoir rejoindre et gérer la réunion en ligne.</Notice>
+
+---
+
+##### Valider le résultat
+Avant le transfert, la réunion (récurrente) est dans le calendrier de *User 3* ...
+
+![image](/images/blog/exchange/tuto/exchange_how_to_transfer_meeting_ownership_001.png)
+
+... avec *User 1* et *User 2* comme participants.
+
+![image](/images/blog/exchange/tuto/exchange_how_to_transfer_meeting_ownership_002.png)
+
+Après quelques minutes, la réunion est transférée dans le calendrier du nouvel organisateur.
+
+![image](/images/blog/exchange/tuto/exchange_how_to_transfer_meeting_ownership_003.png)
+
+Les participants internes (même organisation Exchange Online) n’ont rien à refaire : leurs instances sont mises à jour silencieusement et leurs paramètres locaux (rappel, catégorie, *Afficher comme*) sont conservés. Les participants externes, ainsi que ceux dont la boîte aux lettres est hébergée localement dans un déploiement hybride, reçoivent l’annulation de l’ancienne série, puis une invitation du nouvel organisateur pour la nouvelle série. Les participants externes doivent confirmer à nouveau leur présence et recréer leurs modifications locales. Pour les pièces jointes et les liens OneDrive, le nouvel organisateur peut ne pas avoir accès au fichier et doit supprimer manuellement le fichier ou le lien, puis en rajouter une copie.
+
+---
+
+##### Limites à connaître
+- Les réunions dans une boîte définitivement supprimée ne peuvent pas être transférées.
+- Le nouvel organisateur doit appartenir à la même organisation Exchange Online que l’organisateur actuel.
+- Seules les réunions stockées dans le calendrier par défaut de l’organisateur peuvent être transférées.
+- Dans le cas de réunions récurrentes, les administrateurs ne peuvent pas transférer la partie de la série qui demeure dans le calendrier de l’organisateur initial après un transfert. Les futures occurrences de la série transférée peuvent, si nécessaire, être transférées de nouveau depuis le calendrier du nouvel organisateur vers un autre organisateur.
+- Les réunions situées dans des boîtes aux lettres partagées ou dans des boîtes aux lettres de groupes Microsoft 365 ne peuvent pas être transférées. Si vous souhaitez qu’un autre utilisateur gère ces réunions, accordez-lui les autorisations nécessaires pour accéder au calendrier de la boîte aux lettres et le gérer.
+
+---
+
+##### Conclusion
+Vous savez maintenant comment transférer la propriété d’une réunion à un nouvel utilisateur dans Exchange.
+
+---
+
+##### Sources
+[Microsoft Learn - Invoke-ChangeMeetingOrganizer](https://learn.microsoft.com/fr-ca/powershell/module/exchangepowershell/invoke-changemeetingorganizer)
+
+---
+
+
+Avez-vous apprécié cet article ? Vous avez des questions, commentaires ou suggestions, n'hésitez pas à m'envoyer un message depuis le formulaire de contact.
+
+N'oubliez pas de nous suivre et de partager cet article.

@@ -1,0 +1,87 @@
+---
+title: "How to transfer meeting ownership in Exchange"
+meta_title: ""
+description: ""
+date: 2026-11-07T10:00:00-05:00
+image: "/images/blog/exchange/tuto/exchange_how_to_transfer_meeting_ownership_thumbnail.png"
+categories: ["Exchange", "Tutorial"]
+author: "Maxime Hiez"
+tags: ["PowerShell", "Meeting"]
+draft: false
+---
+---
+
+##### Introduction
+When users leave the company (or change roles), they often leave behind a calendar full of meetings they are still the *"organizers"* of. Whoever took over their role had to recreate the meetings by sending new invitations, losing the history, the notes and so on, since until now there was no way to change the organizer of an existing meeting. The *Invoke-ChangeMeetingOrganizer* cmdlet now lets an administrator change the organizer of an existing meeting or meeting series, without recreating anything.
+
+---
+
+##### Prerequisites
+**<u>Administrator role</u>**
+- An account with the *Global Administrator* or *Exchange Administrator* role to access Microsoft Exchange Online.
+
+---
+
+##### Step 1 : Sign in to Microsoft Exchange Online in PowerShell
+Sign in to Microsoft Exchange Online using the following PowerShell command :
+```powershell
+Connect-ExchangeOnline
+```
+
+---
+
+##### Step 2 : Transfer the meeting to the new owner
+Transfer the meeting using the following PowerShell command :
+```powershell
+Invoke-ChangeMeetingOrganizer -Identity user.3@domain.com -Subject "Budget discussion" -NewOrganizer user.2@domain.com
+```
+With *-Subject*, the transfer only happens if a single meeting matches. Otherwise, the command returns the list of meetings found, and you just run it again with *-EventId*, whose value must identify the recurring series, not an occurrence.
+
+If the cmdlet isn't available in the tenant yet, you get the message *"Transfer meeting action is disabled"* and no change is made.
+
+<Notice type="note">By default, transferring ownership of a recurring meeting takes effect from the next occurrence of the series. You can add the *-TransferSeriesStartDate* parameter if you want the change to apply from a specific date, which must be in the future and entered in the short date format defined in the regional settings of the computer where the command is run.</Notice>
+
+<Notice type="warning">For Teams meetings, the organizer of the associated Teams meeting isn't updated automatically. The new organizer must manually update the meeting series with the new Teams meeting information to be able to join and manage the online meeting.</Notice>
+
+---
+
+##### Validate the result
+Before the transfer, the (recurring) meeting is in *User 3*'s calendar ...
+
+![image](/images/blog/exchange/tuto/exchange_how_to_transfer_meeting_ownership_001.png)
+
+... with *User 1* and *User 2* as attendees.
+
+![image](/images/blog/exchange/tuto/exchange_how_to_transfer_meeting_ownership_002.png)
+
+After a few minutes, the meeting is moved to the new organizer's calendar.
+
+![image](/images/blog/exchange/tuto/exchange_how_to_transfer_meeting_ownership_003.png)
+
+Internal attendees (same Exchange Online organization) don't have to do anything : their instances are updated silently and their local settings (reminder, category, *Show as*) are kept. External attendees, as well as those whose mailbox is hosted on-premises in a hybrid deployment, receive a cancellation for the old series, then an invitation from the new organizer for the new series. External attendees must confirm their attendance again and recreate their local changes. For attachments and OneDrive links, the new organizer may not have access to the file and must manually remove the file or link, then add a copy.
+
+---
+
+##### Limitations to know
+- Meetings in a permanently deleted mailbox can't be transferred.
+- The new organizer must belong to the same Exchange Online organization as the current organizer.
+- Only meetings stored in the organizer's default calendar can be transferred.
+- For recurring meetings, administrators can't transfer the part of the series that remains in the original organizer's calendar after a transfer. If needed, the future occurrences of the transferred series can be transferred again from the new organizer's calendar to another organizer.
+- Meetings in shared mailboxes or Microsoft 365 group mailboxes can't be transferred. If you want another user to manage these meetings, grant them the permissions needed to access and manage the mailbox calendar.
+
+---
+
+##### Conclusion
+You now know how to transfer meeting ownership to a new user in Exchange.
+
+---
+
+##### Sources
+[Microsoft Learn - Invoke-ChangeMeetingOrganizer](https://learn.microsoft.com/en-us/powershell/module/exchangepowershell/invoke-changemeetingorganizer)
+
+---
+
+
+Did you enjoy this post ? If you have any questions, comments or suggestions, please feel free to send me a message from the contact form.
+
+Don't forget to follow us and share this post.

@@ -1,0 +1,97 @@
+---
+title: "OpenAI unveils GPT-6 Cyber"
+meta_title: ""
+description: ""
+date: 2026-11-06T10:00:00-05:00
+image: "/images/blog/ai/ai_openai_introducing_gpt_6_cyber_thumbnail.png"
+categories: ["OpenAI"]
+author: "Maxime Hiez"
+tags: ["AI", "GPT", "Cyber", "Security", "API"]
+draft: false
+---
+---
+
+##### Introduction
+*OpenAI* released *GPT-6 Cyber* on November 5, 2026, a variant of *GPT-6 Astra* built for authorized security work : investigating a vulnerability, reproducing it in an authorized test environment or verifying a fix. The public version of Astra refuses advanced offensive tasks; GPT-6 Cyber is not public and goes through the *Daybreak* program, with a separate approval.
+
+Check the GPT-6 Astra article [HERE](https://maxime.hiez.ca/en/blog/2026-09-08-ai-openai-introducing-gpt-6-astra).
+
+---
+
+##### Who can access it ?
+GPT-6 Cyber is available first through the API and *Codex*, for a limited group of approved *Daybreak Red* customers. OpenAI plans to gradually extend access to all Daybreak Red customers *"soon"*, with no date. In parallel, *GPT-5.6 Cyber* is open to all Red customers, and alpha access to *Daybreak Blue* is expanding for Astra.
+
+To use the model in the API, an organization needs Daybreak Red access and an approval for this model, which its OpenAI account team can confirm. The requirements :
+- Allowlisted IP addresses : Required by default in the API for Daybreak Red
+- Organization requirements : Single sign-on, MFA, managed devices and least-privilege access (system card)
+
+<br/>
+
+OpenAI also announces a *Daybreak Red for critical infrastructure* group and a grant program, *Daybreak for Frontline Defenders*, backed by a billion dollars.
+
+---
+
+##### Performance
+The results below are OpenAI's own, with two baselines : the announcement mostly compares GPT-6 Cyber with GPT-5.6 Cyber, the system card with GPT-6 Astra.
+
+|                                                              | GPT-6 Cyber | Reference (GPT-6 Astra) | Reference (GPT-5.6 Cyber) |
+| :----------------------------------------------------------: | :---------: | :---------------------: | :-----------------------: |
+| *ExploitGym* (announcement)                                  | 48.5%       | n/a                     | 32.1%                     |
+| *ExploitGym* (system card)                                   | 48.45%      | 42.43%                  | n/a                       |
+| *ExploitGym Hardened* (system card)                          | 36.94%      | 29.69%                  | n/a                       |
+| Web penetration testing, vulnerability recall (announcement) | 40.3%       | 32.0%                   | n/a                       |
+
+OpenAI puts the relative improvement on ExploitGym over GPT-5.6 Cyber at 51%. On *RemoteExploitBench*, a new benchmark whose targets are *GitLab*, *PostgreSQL* and *Jenkins*, Astra with Daybreak Blue refused 100% of the tasks, while GPT-6 Cyber completed 95% of them. According to the system card, the model does no better than Astra at general programming (*ExpertSWE* : 82.95% against 83.24%).
+
+---
+
+##### Vulnerability research
+OpenAI presents three results, to be read as its own account :
+- <u>Firefox</u> : 81 previously unknown vulnerabilities, rated high severity by *Mozilla*, and 30 known issues that turned out to be more serious than expected. Mozilla has started integrating the fixes.
+- <u>Linux kernel</u> : 1,724 vulnerabilities reproduced, with working exploits for 948 of them, against 166 for *GPT-5.6 Sol* with the same harness. 304 critical issues were reported to the maintainers, with proposed fixes.
+- <u>Brotli</u> : A remote code execution flaw was demonstrated, but with other OpenAI models, not with GPT-6 Cyber.
+
+---
+
+##### Alignment and safeguards
+In OpenAI's *Preparedness Framework*, GPT-6 Cyber is at the Critical level in cybersecurity, like Astra, whereas GPT-5.6 Cyber was at the High level. On safeguards, OpenAI cites *Private Safety Processing* (encrypted records kept for 30 days in the customer's storage for zero-retention customers), targeted monitoring and credential theft monitoring, and recommends sandboxing and review of actions. The system card adds blocks on high-risk assistance touching industrial controls, essential services and election systems, evaluated with *Dragos*, an industrial security specialist.
+
+On *ExploitGym Honeypot*, which tests whether the model exploits an out-of-scope service, the system card gives 0.07% exploitation without deployment safety instructions, against 5.51% for GPT-5.6 Cyber and 0% for Astra, and 0% with the instructions. The announcement expresses the same measure the other way around : 99.93% without instructions. That 0.07% is not zero.
+
+---
+
+##### Pricing and availability
+The announcement gives no price : the rates come from the model page in the API documentation, with no visible date. Per million tokens, at the Standard rate with short context :
+
+|                      | GPT-6 Cyber |
+| :------------------: | :---------: |
+| Input                | 20$         |
+| Output               | 100$        |
+| Cache (read)         | 2$          |
+| Cache (write) 30 min | 25$         |
+| Cache (write) 12 h   | 50$         |
+
+That is double Astra (10$ for input, 50$ for output). The page does not publish a rate for long context.
+
+The model is called *gpt-6-cyber*. It accepts text and images as input, produces text, and offers 1,050,000 tokens of context (922,000 input, 128,000 output). Only the *Chat Completions* (*v1/chat/completions*) and *Responses* (*v1/responses*) endpoints support it; *Batch*, *Realtime* and *Embeddings* are not available.
+
+---
+
+##### Conclusion
+For a Microsoft 365 security admin, GPT-6 Cyber is not a tool to turn on : no Microsoft license is involved, access is a contract with OpenAI, and the effect is indirect (interpretation). It is worth asking your penetration testing provider whether it relies on Daybreak Red models, and keeping browsers and *Linux* hosts up to date, given the volume of reported flaws. OpenAI itself rates the model at the Critical level in cybersecurity : it is reasonable to expect these capabilities to show up on the attackers' side too (interpretation).
+
+---
+
+##### Sources
+[OpenAI - Introducing GPT-6 Cyber](https://openai.com/index/introducing-gpt-6-cyber)
+
+[OpenAI - GPT-6 Cyber system card](https://deploymentsafety.openai.com/gpt-6-cyber)
+
+[OpenAI - GPT-6 Cyber](https://developers.openai.com/api/docs/models/gpt-6-cyber)
+
+---
+
+
+Did you enjoy this post ? If you have any questions, comments or suggestions, please feel free to send me a message from the contact form.
+
+Don't forget to follow us and share this post.
