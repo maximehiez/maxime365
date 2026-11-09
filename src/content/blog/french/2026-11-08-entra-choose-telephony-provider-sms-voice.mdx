@@ -1,0 +1,104 @@
+---
+title: "Choix du fournisseur de téléphonie MFA dans Entra"
+meta_title: ""
+description: ""
+date: 2026-11-08T10:00:00-05:00
+image: "/images/blog/entra/entra_choose_telephony_provider_sms_voice_thumbnail.png"
+categories: ["Entra ID"]
+author: "Maxime Hiez"
+tags: ["MFA", "Passkey", "Téléphonie", "Sécurité"]
+draft: false
+---
+---
+
+##### Introduction
+À partir du 1er Février 2027 (1er Juillet 2027 pour les *Global Administrators* et les utilisateurs externes), *Microsoft* ne livre plus lui-même les SMS et les appels vocaux d'authentification dans *Microsoft Entra*. Les organisations qui doivent conserver ces méthodes peuvent confier la livraison à leur propre fournisseur avec *Choose Your Own Telephony* (*CYOT*), en disponibilité générale depuis le 30 Octobre 2026 pour les tenants *Microsoft Entra ID* de type workforce dans *Azure* global. L'annonce est passée dans *MC1519855*, qui ne cite pas d'identifiant de feuille de route, puis dans le récapitulatif Entra du 6 Novembre 2026. Trois fournisseurs sont disponibles : *Soprano*, *Telesign* et *Infobip*.
+
+Voir l'article sur la migration des utilisateurs SMS et voix vers Passkey [ICI](https://maxime.hiez.ca/blog/2026-07-30-entra-how-to-migrate-sms-voice-to-passkey).
+
+---
+
+##### Ce que fait CYOT
+Entra continue de gérer l'expérience d'authentification, y compris la génération et la validation du code à usage unique. Seule la livraison du SMS ou de l'appel passe par le fournisseur choisi. Une *Azure Function*, déployée dans l'abonnement Azure du client, relie Entra au fournisseur. Chaque offre se trouve dans le *Microsoft Security Store* :
+- Soprano
+- Telesign
+- Infobip
+
+Un fournisseur peut livrer le SMS et un autre la voix. Les passkeys restent la recommandation de Microsoft, la téléphonie étant réservée aux exigences métier, réglementaires ou techniques.
+
+---
+
+##### Que se passe-t-il le 1er Février 2027 sans fournisseur ?
+Sans fournisseur configuré, les utilisateurs concernés ne peuvent plus utiliser le SMS ni la voix pour le MFA. Ceux dont c'est la seule méthode reçoivent une invite bloquante pour inscrire une passkey, sans opt-out. Ce n'est pas un verrouillage du compte : l'utilisateur poursuit sa connexion une fois la passkey inscrite. Les utilisateurs qui ont inscrit *TOTP* ne reçoivent pas l'invite.
+
+Avec un fournisseur configuré et les utilisateurs migrés avant la date, l'invite n'apparaît pas ; ceux qui restent sur la livraison de Microsoft y sont soumis. La réinitialisation de mot de passe en libre service (*SSPR*) est aussi concernée. L'opt-out temporaire ne couvre que l'activation automatique des passkeys et la campagne d'inscription, jamais l'application du retrait.
+
+<Notice type="note">Le 1er Juillet 2027 est la date du retrait pour les Global Administrators (tant que le rôle est actif) et les utilisateurs externes. Un Global Administrator éligible par *PIM* mais non activé compte comme un utilisateur ordinaire, soumis au 1er Février 2027, et les invités internes suivent aussi le 1er Février.</Notice>
+
+---
+
+##### Comment configurer CYOT ?
+Le point d'entrée est le centre d'administration Microsoft Entra, sous *Entra ID* > *Authentication methods* > *Policies* > *Add telecom profile*. Il faut un abonnement Azure avec un moyen de paiement valide, *Azure Cloud Shell* en mode PowerShell (recommandé) ou PowerShell 7.0 ou plus avec *Azure CLI* 2.61 ou plus, et un utilisateur de test doté d'un numéro de téléphone.
+
+![image](/images/blog/entra/entra_choose_telephony_provider_sms_voice_001.png)
+
+Les rôles requis :
+- <u>Subscription Owner</u> : Sur l'abonnement, ou *Contributor* avec *Role Based Access Control Administrator*
+- <u>Privileged Role Administrator</u> : Accès au répertoire pendant le déploiement
+- <u>Authentication Policy Administrator</u> : Création des profils
+
+<br/>
+
+La mise en place suit cinq étapes :
+- Acheter l'offre du fournisseur dans le Microsoft Security Store
+- Exécuter le script *Setup-Epp.ps1* depuis Cloud Shell, qui crée l'application Entra et déploie les ressources Azure
+- Terminer l'inscription chez le fournisseur avec l'*Application (client) ID*
+- Créer un profil par canal, SMS ou voix
+- Tester
+
+<br/>
+
+Le déploiement est progressif. En mode *Evaluation*, une part des requêtes (*Evaluation sampling percentage*) va vers l'intégration pendant que Microsoft continue de livrer les codes. En mode *Production*, le pourcentage de trafic routé par le fournisseur (*Traffic routed through provider percentage*) monte jusqu'à 100. Un changement de politique prend jusqu'à environ une heure.
+
+<Notice type="note">Les utilisateurs ciblés sont partagés avec la politique SMS et voix existante : un changement ici touche aussi ceux qui se connectent avec le SMS ou la voix aujourd'hui.</Notice>
+
+---
+
+##### Coûts, limites et responsabilités
+Le coût se divise en deux : le fournisseur fixe le prix du SMS et de la voix, et l'hébergement Azure est facturé à l'abonnement du client. Aucun prix n'est publié dans la documentation : il se trouve dans l'offre de chaque fournisseur du Security Store. Migrer vers une passkey ne coûte rien de plus.
+
+Le client déploie et exploite l'intégration, gère le compte chez le fournisseur, renouvelle les identifiants et certificats et règle les contrôles de fraude (destinations, canaux, plafonds de dépenses, notifications) avant la production. Le déploiement multirégion et le fournisseur secondaire ne sont qu'un guide d'exemple, à tester avant d'en dépendre. Microsoft assure le support de l'authentification, l'équipe Azure du client celui de la Function et le fournisseur celui de la livraison.
+
+Les limites :
+- Tenants : Workforce uniquement, ni *Microsoft Entra External ID* ni *Azure AD B2C*
+- Cloud : Azure global ; la chronologie du retrait couvre aussi GCC, mais la disponibilité de CYOT n'y est pas documentée
+- Connexion : Le SMS et la voix comme vérification seulement, pas comme connexion principale
+
+---
+
+##### Conclusion
+CYOT est la bonne réponse pour les populations qui ont réellement besoin du SMS ou de la voix, mais elle déplace vers le client le coût, l'exploitation de la Function, les certificats et la lutte contre la fraude. Pour tous les autres, les passkeys restent la voie recommandée, sans coût de migration supplémentaire. Avant le 1er Février 2027, il faut compter les comptes dont c'est la seule méthode MFA, relever les prix dans les offres du Security Store et démarrer l'évaluation sur un groupe pilote.
+
+---
+
+##### Sources
+[Microsoft - Techcommunity](https://techcommunity.microsoft.com/t5/microsoft-entra-blog/what-s-new-in-microsoft-entra-november-2026/ba-p/4556457)
+
+[Microsoft Learn - Choisir son fournisseur de téléphonie pour le SMS et la voix](https://learn.microsoft.com/fr-ca/entra/identity/authentication/concept-phone-providers)
+
+[Microsoft Learn - FAQ sur les fournisseurs de téléphonie](https://learn.microsoft.com/fr-ca/entra/identity/authentication/phone-providers-faq)
+
+[Microsoft Learn - Configurer le SMS et la voix avec son propre fournisseur](https://learn.microsoft.com/fr-ca/entra/identity/authentication/choose-your-own-telephony-set-up)
+
+[Microsoft Learn - Passkeys par défaut et retrait du SMS et de la voix](https://learn.microsoft.com/fr-ca/entra/identity/authentication/concept-sms-voice-retirement)
+
+[Microsoft Learn - FAQ sur le retrait du SMS et de la voix](https://learn.microsoft.com/fr-ca/entra/identity/authentication/concept-sms-voice-retirement-faq)
+
+[Microsoft Learn - Se protéger contre la fraude téléphonique](https://learn.microsoft.com/fr-ca/entra/identity/authentication/choose-your-own-telephony-fraud-costs)
+
+---
+
+
+Avez-vous apprécié cet article ? Vous avez des questions, commentaires ou suggestions, n'hésitez pas à m'envoyer un message depuis le formulaire de contact.
+
+N'oubliez pas de nous suivre et de partager cet article.

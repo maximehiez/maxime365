@@ -1,0 +1,100 @@
+---
+title: "Conditional Access policy plans in Entra in Public Preview"
+meta_title: ""
+description: ""
+date: 2026-11-09T10:00:00-05:00
+image: "/images/blog/entra/entra_conditional_access_policy_plans_thumbnail.png"
+categories: ["Entra ID"]
+author: "Maxime Hiez"
+tags: ["Conditional Access", "Security"]
+draft: false
+---
+---
+
+##### Introduction
+In a tenant with many Conditional Access policies, the same targets and exclusions repeat from one policy to the next, and a forgotten exclusion is a common cause of lockouts. *Microsoft Entra Conditional Access* *policy plans* group these related policies under shared assignments and conditions, defined once. The feature is in *Public Preview*, no general availability date has been published, and the announcement cites neither a Message Center ID nor a roadmap ID. It relies on the *Microsoft Entra ID P1* license and the *Conditional Access Administrator* role.
+
+Check the article on the Conditional Access policy limit [HERE](https://maxime.hiez.ca/en/blog/2026-05-21-entra-conditional-access-policy-maximum-limit).
+
+---
+
+##### How a plan works
+A plan is made of three parts :
+- <u>Plan details</u> : Name, description, optional tags and owners, which are for accountability only and grant no permissions
+- <u>Shared conditions</u> : Identities, resources, user actions, authentication context, risk levels, device platforms, network locations and client app types, all optional
+- <u>Rules</u> : A plan contains at least one, and each inherits the plan's targeting before adding its own
+
+<br/>
+
+A rule can't remove or bypass the plan's exclusions, but it can add its own : if the plan excludes emergency account groups A and B and a rule excludes group C, the effective list is A, B and C.
+
+The *"All users"* target isn't available in the shared conditions, only in rules, and *"All resources"* is also reserved for rules.
+
+At runtime, each rule is evaluated as a standalone policy and appears separately in the sign-in logs.
+
+---
+
+##### Create a plan or migrate existing policies
+Plans are in the Microsoft Entra admin center, under *Entra ID* > *Conditional Access* > *Policy plans (Preview)*. You can create a plan from one or more combined templates, or from scratch. Rules that come from a template start in the *Off* state.
+
+For existing policies, the *Policies* page shows a *Migrate to Conditional Access Policy plans (Preview)* banner :
+- <u>Selection</u> : Choose the policies to group, ideally by protected resource, persona or condition
+- <u>Analysis</u> : The tool finds the common conditions, maps each policy to a rule and suggests a structure to review
+- <u>Creation</u> : The plan only exists after *Create policy plan*
+
+<br/>
+
+Migration is incremental. The generated rules start in the *Off* state, and the original policies aren't modified. Those set to *On* keep enforcing access.
+
+---
+
+##### Validate in report-only, then turn off the originals
+The documented sequence sets each rule to *Report-only*, compares the results with the original policy using policy impact metrics or the sign-in logs (*Entra ID* > *Monitoring & health* > *Sign-in logs*), then turns the rule on. The results must be equivalent.
+
+Check the article on Conditional Access policy impact analysis [HERE](https://maxime.hiez.ca/en/blog/2025-03-17-entra-conditional-access-policy-impact).
+
+The original policies are set to *Off* once the rules are validated and sign-in behavior is confirmed. A new scenario with the same goal is added as a rule in the existing plan rather than as a standalone policy.
+
+<Notice type="note">A plan adds to the existing model, it doesn't replace anything. All applicable policies and rules must be satisfied, with no precedence between them. Migrated rules start *Off*, so nothing applies twice until a rule is *On*. Once a rule is *On* and its original policy is too, both apply independently, and access is only granted if both are satisfied.</Notice>
+
+---
+
+##### What to know before you start
+- <u>Public Preview limitation</u> : Plans that target users with location as a condition get one-hour access tokens, with no instant IP address check
+- <u>Automation</u> : No *Microsoft Graph* or *PowerShell* support is documented for plans
+- <u>Control</u> : No tenant-level switch is documented, but nothing changes on its own, since rules start *Off* and the original policies stay unchanged
+
+<br/>
+
+The per-tenant policy limit applies to all policies, whatever their state. Nothing says whether a plan or its rules count toward that limit, or whether there's a limit on plans or on rules per plan. The plan is presented as a structure that grows without increasing the number of policies, but its effect on the quota isn't defined.
+
+*Microsoft Entra ID P2* is only required for risk conditions.
+
+---
+
+##### Conclusion
+Plans tackle the duplication of targets and exclusions, not, according to the documentation, the policy quota : until how a rule counts toward it is documented, don't build a consolidation on that assumption. The best starting point is a single group of related policies, migrated with the rules *Off*, validated in *Report-only*, then switched over by turning off the originals. Given the one-hour tokens, it's better to keep policies that use the location condition out of the pilot while the feature remains in Public Preview.
+
+---
+
+##### Sources
+[Microsoft - Techcommunity](https://techcommunity.microsoft.com/t5/microsoft-entra-blog/scale-access-controls-with-microsoft-entra-conditional-access/ba-p/4569647)
+
+[Microsoft Learn - What are Conditional Access policy plans ?](https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-conditional-access-policy-plans)
+
+[Microsoft Learn - Create a Conditional Access policy plan](https://learn.microsoft.com/en-us/entra/identity/conditional-access/how-to-create-conditional-access-policy-plan)
+
+[Microsoft Learn - Migrate Conditional Access policies to a policy plan](https://learn.microsoft.com/en-us/entra/identity/conditional-access/how-to-migrate-conditional-access-policy-plan)
+
+[Microsoft Learn - What is Conditional Access ?](https://learn.microsoft.com/en-us/entra/identity/conditional-access/overview)
+
+[Microsoft Learn - Plan a Conditional Access deployment](https://learn.microsoft.com/en-us/entra/identity/conditional-access/plan-conditional-access)
+
+[Microsoft Learn - Microsoft Entra service limits and restrictions](https://learn.microsoft.com/en-us/entra/identity/users/directory-service-limits-restrictions)
+
+---
+
+
+Did you enjoy this post ? If you have any questions, comments or suggestions, please feel free to send me a message from the contact form.
+
+Don't forget to follow us and share this post.

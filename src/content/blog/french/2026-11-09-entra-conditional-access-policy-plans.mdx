@@ -1,0 +1,100 @@
+---
+title: "Policy plans d'accès conditionnel dans Entra en Public Preview"
+meta_title: ""
+description: ""
+date: 2026-11-09T10:00:00-05:00
+image: "/images/blog/entra/entra_conditional_access_policy_plans_thumbnail.png"
+categories: ["Entra ID"]
+author: "Maxime Hiez"
+tags: ["Accès Conditionnels", "Sécurité"]
+draft: false
+---
+---
+
+##### Introduction
+Dans un tenant qui compte beaucoup de politiques d'accès conditionnel, les mêmes cibles et exclusions se répètent d'une politique à l'autre, et une exclusion oubliée est une source courante de verrouillage. Les *policy plans* de *Microsoft Entra Conditional Access* regroupent ces politiques liées sous des affectations et des conditions communes, définies une seule fois. La fonctionnalité est en *Public Preview*, aucune date de disponibilité générale n'est publiée, et l'annonce ne cite ni identifiant du Message Center ni identifiant de la feuille de route. Elle repose sur la licence *Microsoft Entra ID P1* et sur le rôle *Conditional Access Administrator*.
+
+Voir l'article sur la limite de politiques d'accès conditionnel [ICI](https://maxime.hiez.ca/blog/2026-05-21-entra-conditional-access-policy-maximum-limit).
+
+---
+
+##### Comment fonctionne un plan
+Un plan se compose de trois parties :
+- <u>Détails du plan</u> : Nom, description, étiquettes facultatives et propriétaires, qui ne servent qu'à la responsabilisation et n'accordent aucune permission
+- <u>Conditions partagées</u> : Identités, ressources, actions utilisateur, contexte d'authentification, niveaux de risque, plateformes d'appareils, emplacements réseau et types d'applications clientes, toutes facultatives
+- <u>Règles</u> : Un plan en contient au moins une, et chacune hérite du ciblage du plan avant d'ajouter le sien
+
+<br/>
+
+Les exclusions du plan ne peuvent être ni retirées ni contournées par une règle, alors qu'une règle peut ajouter les siennes : si le plan exclut les groupes de comptes d'urgence A et B et qu'une règle exclut le groupe C, la liste effective est A, B et C.
+
+Le ciblage *"Tous les utilisateurs"* n'est pas disponible dans les conditions partagées, seulement dans les règles, et *"Toutes les ressources"* reste réservé aux règles.
+
+À l'exécution, chaque règle est évaluée comme une politique autonome et apparaît séparément dans les journaux de connexion.
+
+---
+
+##### Créer un plan ou migrer des politiques existantes
+Les plans se trouvent dans le centre d'administration Microsoft Entra, sous *Entra ID* > *Conditional Access* > *Policy plans (Preview)*. Un plan se crée à partir d'un ou de plusieurs modèles combinés, ou de zéro. Les règles issues d'un modèle démarrent à l'état *Off*.
+
+Pour les politiques existantes, la page *Policies* affiche une bannière *Migrate to Conditional Access Policy plans (Preview)* :
+- <u>Sélection</u> : Choisir les politiques à regrouper, idéalement par ressource protégée, par persona ou par condition
+- <u>Analyse</u> : L'outil repère les conditions communes, fait correspondre chaque politique à une règle et propose une structure à examiner
+- <u>Création</u> : Le plan n'existe qu'après *Create policy plan*
+
+<br/>
+
+La migration est incrémentale. Les règles générées démarrent à l'état *Off*, et les politiques d'origine ne sont pas modifiées. Celles qui sont à *On* continuent d'appliquer l'accès.
+
+---
+
+##### Valider en report-only, puis désactiver les originales
+La séquence documentée passe chaque règle en *Report-only*, compare les résultats avec la politique d'origine à l'aide des métriques d'impact des politiques ou des journaux de connexion (*Entra ID* > *Monitoring & health* > *Sign-in logs*), puis active la règle. Les résultats doivent être équivalents.
+
+Voir l'article sur l'analyse d'impact des politiques d'accès conditionnel [ICI](https://maxime.hiez.ca/blog/2025-03-17-entra-conditional-access-policy-impact).
+
+Les politiques d'origine se mettent à *Off* une fois les règles validées et le comportement de connexion confirmé. Un nouveau scénario qui poursuit le même objectif s'ajoute comme règle du plan existant plutôt que comme politique autonome.
+
+<Notice type="note">Un plan s'ajoute au modèle existant, il ne remplace rien. Toutes les politiques et toutes les règles applicables doivent être satisfaites, sans priorité de l'une sur l'autre. Les règles migrées démarrent à *Off*, donc rien ne s'applique deux fois tant qu'une règle n'est pas à *On*. Dès qu'une règle est à *On* et que la politique d'origine l'est aussi, les deux s'appliquent indépendamment, et l'accès n'est accordé que si les deux sont satisfaites.</Notice>
+
+---
+
+##### Ce qu'il faut savoir avant de s'y lancer
+- <u>Limite en Public Preview</u> : Les plans qui ciblent des utilisateurs avec l'emplacement comme condition reçoivent des jetons d'accès d'une heure, sans vérification instantanée de l'adresse IP
+- <u>Automatisation</u> : Aucune prise en charge de *Microsoft Graph* ou de *PowerShell* n'est documentée pour les plans
+- <u>Contrôle</u> : Aucun interrupteur au niveau du tenant n'est documenté, mais rien ne change seul, les règles démarrant à *Off* et les politiques d'origine restant inchangées
+
+<br/>
+
+La limite de politiques par tenant s'applique à toutes les politiques, quel que soit leur état. Rien n'indique si un plan ou ses règles comptent dans cette limite, ni s'il existe une limite de plans ou de règles par plan. Le plan est présenté comme une structure qui grandit sans faire augmenter le nombre de politiques, sans que l'effet sur le quota soit défini.
+
+*Microsoft Entra ID P2* n'est requis que pour les conditions de risque.
+
+---
+
+##### Conclusion
+Les plans s'attaquent à la duplication des cibles et des exclusions, pas, d'après la documentation, au quota de politiques : tant que la façon dont une règle y compte n'est pas documentée, il ne faut pas bâtir une consolidation sur cette hypothèse. Le meilleur point de départ est un seul groupe de politiques liées, migré avec les règles à *Off*, validé en *Report-only*, puis basculé en désactivant les originales. Vu les jetons d'une heure, mieux vaut laisser hors du pilote les politiques qui utilisent la condition d'emplacement tant que la fonctionnalité reste en Public Preview.
+
+---
+
+##### Sources
+[Microsoft - Techcommunity](https://techcommunity.microsoft.com/t5/microsoft-entra-blog/scale-access-controls-with-microsoft-entra-conditional-access/ba-p/4569647)
+
+[Microsoft Learn - Qu'est-ce que les policy plans d'accès conditionnel ?](https://learn.microsoft.com/fr-ca/entra/identity/conditional-access/concept-conditional-access-policy-plans)
+
+[Microsoft Learn - Créer un policy plan d'accès conditionnel](https://learn.microsoft.com/fr-ca/entra/identity/conditional-access/how-to-create-conditional-access-policy-plan)
+
+[Microsoft Learn - Migrer des politiques d'accès conditionnel vers un policy plan](https://learn.microsoft.com/fr-ca/entra/identity/conditional-access/how-to-migrate-conditional-access-policy-plan)
+
+[Microsoft Learn - Qu'est-ce que l'accès conditionnel ?](https://learn.microsoft.com/fr-ca/entra/identity/conditional-access/overview)
+
+[Microsoft Learn - Planifier un déploiement d'accès conditionnel](https://learn.microsoft.com/fr-ca/entra/identity/conditional-access/plan-conditional-access)
+
+[Microsoft Learn - Limites et restrictions du service Microsoft Entra](https://learn.microsoft.com/fr-ca/entra/identity/users/directory-service-limits-restrictions)
+
+---
+
+
+Avez-vous apprécié cet article ? Vous avez des questions, commentaires ou suggestions, n'hésitez pas à m'envoyer un message depuis le formulaire de contact.
+
+N'oubliez pas de nous suivre et de partager cet article.
