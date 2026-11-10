@@ -1,0 +1,104 @@
+---
+title: "Anthropic dévoile Claude Fable 5.2 et Claude Mythos 5.2"
+meta_title: ""
+description: ""
+date: 2026-11-09T10:00:00-05:00
+image: "/images/blog/ai/ai_anthropic_introducing_fable_5_2_thumbnail.png"
+categories: ["Anthropic"]
+author: "Maxime Hiez"
+tags: ["IA", "Claude", "Fable", "Mythos", "API", "Agentique"]
+draft: false
+---
+---
+
+##### Introduction
+*Anthropic* annonce *Claude Fable 5.2* et *Claude Mythos 5.2*, deux déclinaisons d'un même modèle qui succèdent à *Claude Fable 5.1* et *Claude Mythos 5.1*. L'annonce date du 9 Novembre 2026 : le tarif baisse de 20%, un mode rapide fait son apparition, et quatre changements d'API peuvent casser du code existant. Côté *Microsoft Foundry*, le modèle n'est qu'en Preview.
+
+Voir l'article sur Claude Fable 5.1 [ICI](https://maxime.hiez.ca/blog/2026-09-02-ai-anthropic-introducing-claude-fable-5-1).
+
+---
+
+##### Deux modèles, un socle commun
+- <u>Claude Fable 5.2</u> : Version ouverte à tous les clients de l'API, avec les garde-fous cyber et biologie les plus forts. Identifiant *claude-fable-5-2*.
+- <u>Claude Mythos 5.2</u> : Mêmes capacités, réservées aux organisations vérifiées par les programmes de vérification d'Anthropic. Identifiant *claude-mythos-5-2*.
+
+Les deux modèles offrent une fenêtre de contexte de 1M tokens et jusqu'à 128K tokens en sortie. Le raisonnement adaptatif est toujours actif, avec un effort par défaut à *high*. Anthropic recommande de commencer avec *Claude Opus 5.5* pour la plupart des charges et de passer à Fable 5.2 pour le raisonnement exigeant et les tâches agentiques longues, ou lorsque les évaluations sur Opus 5.5 à un effort élevé restent insuffisantes.
+
+---
+
+##### Tarification
+Le tarif au token baisse de 20% par rapport à Fable 5.1 :
+
+|                 | Fable 5.2 | Fable 5.1 |
+| :-------------: | :-------: | :-------: |
+| Entrée          | 8$        | 10$       |
+| Sortie          | 40$       | 50$       |
+| Cache (lecture) | 0.20$     | 0.25$     |
+
+Les prix sont en dollars américains par million de tokens. L'écriture de cache coûte 10$ / 1M tokens pour 5 minutes et 16$ / 1M tokens pour 1 heure.
+
+Le mode rapide (*fast mode*) génère jusqu'à 2.5 fois plus de tokens par seconde, à 16$ / 1M tokens en entrée et 80$ / 1M tokens en sortie. Il s'active avec le paramètre *speed* à la valeur *"fast"*, sans en-tête bêta.
+
+<Notice type="note">Un prix au token plus bas ne garantit pas une facture plus basse : l'effort par défaut est *high* et la réflexion est toujours active.</Notice>
+
+---
+
+##### Changements d'API à vérifier avant de migrer
+Quatre points renvoient une erreur ou perdent des informations :
+- Vérification du préfixe pour tous les comptes : une requête qui renvoie un bloc de réflexion invalide sans définir *prefix_mismatch_behavior* reçoit une erreur 400, quel que soit l'âge du compte. Sur Fable 5.1, seuls les comptes créés à partir du 31 Août 2026 étaient concernés.
+- Blocs de réflexion liés au modèle : seuls Fable 5.2 et Mythos 5.2 les lisent. En passant à Opus 5.5, Fable 5.1, Mythos 5.1 ou à un modèle de repli, le raisonnement est ignoré et non facturé.
+- Utilisation d'ordinateur : un outil *computer_20251124* renvoie une erreur 400 sur toutes les plateformes sauf *Amazon Bedrock*. Il faut passer à *computer_toolset_20260801*.
+- Outil advisor (bêta) : avec Fable 5.2 comme exécutant, seuls Fable 5.2 ou Mythos 5.2 sont acceptés comme conseiller. Un conseiller Fable 5.1 renvoie une erreur 400.
+
+Les requêtes qui forcent l'usage d'un outil via *tool_choice* (*any* ou *tool*) renvoient aussi une erreur 400, mais ce n'est pas nouveau depuis Fable 5.1 ou Opus 5.5 : seules les migrations depuis Fable 5 ou Opus 5 et antérieurs sont touchées. Le premier point concrétise ce que la sortie de Fable 5.1 annonçait : la restriction anti-distillation devait s'appliquer à tous les utilisateurs lors des prochaines sorties de modèles.
+
+---
+
+##### Disponibilité et statut
+Fable 5.2 est disponible pour les clients de l'API Claude, sur *Amazon Bedrock* (*anthropic.claude-fable-5-2*), la *Claude Platform on AWS*, *Google Cloud* et Microsoft Foundry. Mythos 5.2 reste limité aux organisations vérifiées.
+
+Dans Microsoft Foundry, le statut est plus nuancé :
+- <u>claude-fable-5-2</u> : Preview, hébergé chez Anthropic. Aucune version hébergée sur Azure n'est listée.
+- <u>claude-fable-5-2-fast</u> : Le mode rapide est un modèle distinct, également en Preview et hébergé chez Anthropic uniquement.
+- <u>claude-mythos-5-2</u> : Gated research preview.
+
+La Preview est fournie sans SLA et Microsoft ne la recommande pas pour la production. La facturation passe par les *Claude Consumption Units* (CCU), éligibles au *MACC*, facturées à l'heure et regroupées sur une facture mensuelle.
+
+---
+
+##### Rétention des données et gouvernance
+Comme Fable 5.1, les deux modèles exigent une rétention des données de 30 jours et ne sont pas disponibles en rétention zéro (ZDR), sauf autorisation expresse d'Anthropic. Dans Foundry, un abonnement configuré en ZDR voit l'appel échouer avec une erreur 400 *invalid_request_error*. Les nouveaux abonnements ont la rétention activée par défaut, et le réglage est géré par Anthropic, pas par Microsoft.
+
+Les classifieurs de sécurité peuvent aussi refuser une requête. Dans Foundry, la réponse est alors un HTTP 200 avec *stop_reason* à *"refusal"*, et les tokens d'entrée refusés ne sont pas facturés. Une supervision qui ne regarde que les codes d'état passera donc à côté des refus.
+
+---
+
+##### Cycle de vie
+Fable 5.2 est actif, avec un retrait au plus tôt le 9 Novembre 2027. Fable 5.1 reste actif jusqu'au 1er Septembre 2027 au plus tôt. Aucune dépréciation de Fable n'accompagne ce lancement.
+
+---
+
+##### Conclusion
+Fable 5.2 est une mise à jour à prix réduit, mais sa migration demande de vérifier le code avant de basculer. Les équipes qui réécrivent l'historique des conversations, utilisent l'outil d'utilisation d'ordinateur, un conseiller 5.1 ou un routeur qui change de modèle doivent tester avant de basculer. Côté Azure, la Preview chez Anthropic, sans SLA, n'est pas recommandée par Microsoft pour la production, et la rétention de 30 jours est à valider avec la conformité : Opus 5.5, disponible hébergé sur Azure en disponibilité générale, reste le point de départ.
+
+---
+
+##### Sources
+[Anthropic - Claude Fable 5.2](https://www.anthropic.com/claude-fable-and-mythos-5-2)
+
+[Parler avec Claude Fable 5.2](https://claude.ai)
+
+[Anthropic - Claude Fable 5.2 (documentation)](https://platform.claude.com/docs/en/models/fable-5-2/overview)
+
+[Anthropic - Nouveautés de Claude Fable 5.2](https://platform.claude.com/docs/en/models/fable-5-2/whats-new-fable-5-2)
+
+[Microsoft Learn - Claude dans Foundry](https://learn.microsoft.com/fr-ca/azure/foundry/foundry-models/concepts/claude-models)
+
+[Microsoft Learn - Facturation CCU de Claude](https://learn.microsoft.com/fr-ca/azure/foundry/foundry-models/concepts/claude-models-billing)
+
+---
+
+
+Avez-vous apprécié cet article ? Vous avez des questions, commentaires ou suggestions, n'hésitez pas à m'envoyer un message depuis le formulaire de contact.
+
+N'oubliez pas de nous suivre et de partager cet article.

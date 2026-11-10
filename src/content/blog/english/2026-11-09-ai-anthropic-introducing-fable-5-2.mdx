@@ -1,0 +1,104 @@
+---
+title: "Anthropic unveils Claude Fable 5.2 and Claude Mythos 5.2"
+meta_title: ""
+description: ""
+date: 2026-11-09T10:00:00-05:00
+image: "/images/blog/ai/ai_anthropic_introducing_fable_5_2_thumbnail.png"
+categories: ["Anthropic"]
+author: "Maxime Hiez"
+tags: ["AI", "Claude", "Fable", "Mythos", "API", "Agentic"]
+draft: false
+---
+---
+
+##### Introduction
+*Anthropic* announces *Claude Fable 5.2* and *Claude Mythos 5.2*, two variants of a single model succeeding *Claude Fable 5.1* and *Claude Mythos 5.1*. The announcement came on November 9, 2026 : pricing drops by 20%, a fast mode appears, and four API changes can break existing code. On *Microsoft Foundry*, the model is only in Preview.
+
+Check the Claude Fable 5.1 article [HERE](https://maxime.hiez.ca/en/blog/2026-09-02-ai-anthropic-introducing-claude-fable-5-1).
+
+---
+
+##### Two models, one shared foundation
+- <u>Claude Fable 5.2</u> : Version open to all API customers, with the strongest cyber and biology safeguards. Identifier *claude-fable-5-2*.
+- <u>Claude Mythos 5.2</u> : Same capabilities, reserved for organizations vetted through Anthropic's verification programs. Identifier *claude-mythos-5-2*.
+
+Both models offer a 1M token context window and up to 128K output tokens. Adaptive thinking is always on, with a default effort of *high*. Anthropic recommends starting with *Claude Opus 5.5* for most workloads and moving to Fable 5.2 for demanding reasoning and long-running agentic tasks, or when evaluations on Opus 5.5 at high effort remain insufficient.
+
+---
+
+##### Pricing
+Token pricing drops by 20% compared to Fable 5.1 :
+
+|              | Fable 5.2 | Fable 5.1 |
+| :----------: | :-------: | :-------: |
+| Input        | 8$        | 10$       |
+| Output       | 40$       | 50$       |
+| Cache (read) | 0.20$     | 0.25$     |
+
+Prices are in US dollars per million tokens. Cache writes cost 10$ / 1M tokens for 5 minutes and 16$ / 1M tokens for 1 hour.
+
+Fast mode generates up to 2.5 times more tokens per second, at 16$ / 1M input tokens and 80$ / 1M output tokens. It is enabled with the *speed* parameter set to *"fast"*, with no beta header.
+
+<Notice type="note">A lower token price does not guarantee a lower bill : the default effort is *high* and thinking is always on.</Notice>
+
+---
+
+##### API changes to check before migrating
+Four points return an error or lose information :
+- Prefix verification for all accounts : a request that returns an invalid thinking block without setting *prefix_mismatch_behavior* gets a 400 error, regardless of account age. On Fable 5.1, only accounts created from August 31, 2026 onwards were affected.
+- Model-bound thinking blocks : Only Fable 5.2 and Mythos 5.2 read them. When switching to Opus 5.5, Fable 5.1, Mythos 5.1 or a fallback model, the reasoning is ignored and not billed.
+- Computer use : A *computer_20251124* tool returns a 400 error on every platform except *Amazon Bedrock*. You need to switch to *computer_toolset_20260801*.
+- Advisor tool (beta) : With Fable 5.2 as the executor, only Fable 5.2 or Mythos 5.2 are accepted as the advisor. A Fable 5.1 advisor returns a 400 error.
+
+Requests that force tool use through *tool_choice* (*any* or *tool*) also return a 400 error, but this is not new since Fable 5.1 or Opus 5.5 : only migrations from Fable 5 or Opus 5 and earlier are affected. The first point confirms what the Fable 5.1 release announced : the anti-distillation restriction was set to apply to all users with future model releases.
+
+---
+
+##### Availability and status
+Fable 5.2 is available to Claude API customers, on *Amazon Bedrock* (*anthropic.claude-fable-5-2*), the *Claude Platform on AWS*, *Google Cloud* and Microsoft Foundry. Mythos 5.2 remains limited to vetted organizations.
+
+In Microsoft Foundry, the status is more nuanced :
+- <u>claude-fable-5-2</u> : Preview, hosted by Anthropic. No Azure-hosted version is listed.
+- <u>claude-fable-5-2-fast</u> : Fast mode is a separate model, also in Preview and hosted by Anthropic only.
+- <u>claude-mythos-5-2</u> : Gated research preview.
+
+The Preview comes with no SLA and Microsoft does not recommend it for production. Billing goes through *Claude Consumption Units* (CCU), which are *MACC* eligible, billed hourly and grouped on a monthly invoice.
+
+---
+
+##### Data retention and governance
+Like Fable 5.1, both models require 30-day data retention and are not available with zero data retention (ZDR), unless Anthropic expressly approves it. In Foundry, a subscription configured with ZDR gets a 400 *invalid_request_error* on the call. New subscriptions have retention enabled by default, and the setting is managed by Anthropic, not by Microsoft.
+
+Safety classifiers can also refuse a request. In Foundry, the response is then an HTTP 200 with *stop_reason* set to *"refusal"*, and the refused input tokens are not billed. Monitoring that only looks at status codes will therefore miss refusals.
+
+---
+
+##### Lifecycle
+Fable 5.2 is active, with retirement no earlier than November 9, 2027. Fable 5.1 remains active until September 1, 2027 at the earliest. No Fable deprecation accompanies this launch.
+
+---
+
+##### Conclusion
+Fable 5.2 is a reduced-price update, but migrating requires checking your code before switching. Teams that rewrite conversation history, use the computer use tool, a 5.1 advisor or a router that changes models must test before switching. On the Azure side, the Preview hosted by Anthropic, with no SLA, is not recommended by Microsoft for production, and the 30-day retention needs to be validated with compliance : Opus 5.5, generally available and hosted on Azure, remains the starting point.
+
+---
+
+##### Sources
+[Anthropic - Claude Fable 5.2](https://www.anthropic.com/claude-fable-and-mythos-5-2)
+
+[Chat with Claude Fable 5.2](https://claude.ai)
+
+[Anthropic - Claude Fable 5.2 (documentation)](https://platform.claude.com/docs/en/models/fable-5-2/overview)
+
+[Anthropic - What's new in Claude Fable 5.2](https://platform.claude.com/docs/en/models/fable-5-2/whats-new-fable-5-2)
+
+[Microsoft Learn - Claude in Foundry](https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/claude-models)
+
+[Microsoft Learn - Claude CCU billing](https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/claude-models-billing)
+
+---
+
+
+Did you enjoy this post ? If you have any questions, comments or suggestions, please feel free to send me a message from the contact form.
+
+Don't forget to follow us and share this post.
