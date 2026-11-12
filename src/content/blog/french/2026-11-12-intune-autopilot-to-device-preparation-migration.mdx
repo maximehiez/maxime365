@@ -1,0 +1,98 @@
+---
+title: "Passer d'Autopilot à Autopilot Device Preparation dans Intune"
+meta_title: ""
+description: ""
+date: 2026-11-12T10:00:00-05:00
+image: "/images/blog/intune/intune_autopilot_to_device_preparation_migration_thumbnail.png"
+categories: ["Intune"]
+author: "Maxime Hiez"
+tags: ["Autopilot", "Windows 11", "OOBE"]
+draft: false
+---
+---
+
+##### Introduction
+*Windows Autopilot Device preparation* est en disponibilité générale depuis le 3 Juin 2024, mais la documentation était jusqu'ici plus réservée sur la migration. Le ton a changé : c'est désormais la solution recommandée pour les scénarios *user-driven*, et l'association d'appareils (*Device Association*), annoncée le 27 Août 2026, s'y ajoute, sans identifiant du centre de messages ni de la roadmap et sans libellé preview ou GA dans la documentation. Cet article fait le point sur ce qui change, ce qui reste sur *Autopilot* classique et comment migrer.
+
+---
+
+##### Ce que Device Preparation change
+Les deux solutions cohabitent dans un tenant, mais un appareil ne peut exécuter que l'une des deux. Device Preparation remplace le couple profil de déploiement et profil *ESP* par une seule politique, et l'étape ESP devient une page de préparation de l'appareil pendant l'*OOBE*. L'enregistrement de l'appareil n'est plus requis.
+
+<br/>
+
+| Autopilot classique                | Device Preparation                                       |
+| :--------------------------------: | :------------------------------------------------------: |
+| Profil de déploiement + profil ESP | Une politique unique                                     |
+| Enregistrement de l'appareil       | Association optionnelle                                  |
+| Group tag et groupe dynamique      | Groupe de sécurité statique (*enrollment time grouping*) |
+| Modèle de nom dans le profil       | Modèle de nom dans la politique                          |
+| Rapport des déploiements Autopilot | Rapport des déploiements device Preparation              |
+
+Côté administrateur, il faut une politique et un groupe de sécurité d'appareils dont le propriétaire est *Intune Provisioning Client*. Le rapport est quasi temps réel et couvre tous les déploiements, là où celui d'Autopilot classique ne montre que les appareils enregistrés. Les applications *LOB* et *Win32* peuvent aussi être mélangées dans un même déploiement, et les licences sont celles déjà requises pour Autopilot.
+
+---
+
+##### Ce qui migre et ce qui reste sur Autopilot classique
+Le périmètre recommandé pour la migration est celui des appareils *Windows 11* appartenant à l'entreprise, en jointure *Microsoft Entra* et en mode user-driven, ainsi que *Windows 365*, dont le mode automatique est en disponibilité générale depuis le 11 Mai 2026 (Enterprise, *Flex* dédié, *Flex* partagé, Cloud Apps).
+
+Tout le reste reste sur Autopilot classique :
+- Le pré-provisionnement (*pre-provisioning*) et le mode *self-deploying*
+- La jointure hybride Microsoft Entra, qui n'est pas prise en charge
+- Autopilot avec la cogestion
+- *Windows Autopilot Reset*, *Windows 10*, *DFCI*, *HoloLens* et les salles *Teams*
+
+Les limites comptent aussi : jusqu'à 25 applications et 10 scripts *PowerShell*, configurés au niveau de l'appareil seulement pendant l'OOBE. Le passage à 25 applications date du 30 Janvier 2026, mais plusieurs pages Learn parlent encore de 10.
+
+---
+
+##### L'association d'appareils
+L'association lie un appareil physique Windows 11 au tenant avant l'inscription, par un marqueur d'affinité écrit dans le firmware *UEFI* et adossé au *TPM*. Elle est optionnelle et constitue une alternative aux identifiants d'entreprise (*corporate identifiers*) : il suffit de l'un des deux, et seulement si l'inscription des appareils personnels est bloquée. Elle donne aussi accès à l'assignation d'une politique par appareil, qui prime sur celle de l'utilisateur, au marquage automatique comme appareil d'entreprise, au modèle de nom et à la personnalisation de l'OOBE.
+
+Les prérequis sont plus stricts que ceux de device preparation :
+- Appareil physique, les machines virtuelles ne sont pas prises en charge
+- TPM 2.0 activé
+- Windows 11 25H2, ou 24H2 avec le correctif *KB5120998* ou ultérieur
+- Accès réseau en TCP 443 à *ztd.dds.microsoft.com* et aux points de terminaison régionaux *\*.attest.azure.net*
+
+Le flux de pré-association passe par un fichier CSV *DeviceLink*, exporté depuis le menu Autopilot pendant l'OOBE ou depuis les journaux de diagnostic d'un appareil déjà en service, puis téléversé dans le centre d'administration *Intune*. Un seul appareil par fichier CSV est accepté pour l'instant. Les fournisseurs et les OEM ne peuvent pas encore pré-associer, et l'association n'est pas encore disponible dans les clouds souverains.
+
+<Notice type="warning">Il n'est pas possible de retirer une association depuis Intune : il faut exécuter un script *PowerShell* sur l'appareil, et le marqueur UEFI survit à une réinitialisation, une réinstallation ou un retrait d'Intune.</Notice>
+
+---
+
+##### Migrer par vagues
+La migration suit un plan en huit étapes : définir la population, concevoir le regroupement à l'inscription, recréer les équivalents de politique, décider si l'association est nécessaire, pré-associer, piloter un OOBE complet, étendre par vagues, puis retirer les anciens profils, ESP, groupes et enregistrements. Aucune réinitialisation n'est forcée : un appareil bascule à sa prochaine réinitialisation, et la pré-association ne perturbe pas son usage courant.
+
+Pour un appareil déjà enregistré, l'état d'association tranche : non associé, le profil Autopilot l'emporte ; associé, c'est device preparation. Il n'y a donc pas de repli automatique vers Autopilot une fois l'appareil enregistré et associé, ce que le pilote doit prévoir. Pour utiliser device preparation sans association, il faut d'abord retirer l'enregistrement. Il est toutefois déconseillé de le faire trop tôt, car cela peut retirer des propriétés Autopilot et modifier l'appartenance aux groupes dynamiques.
+
+---
+
+##### Conclusion
+Pour les appareils Windows 11 en jointure Microsoft Entra et en user-driven, il est raisonnable de basculer maintenant, par vagues, en gardant Autopilot classique partout où une limite ci-dessus s'applique. Le plus gros point d'attention est l'association : un fichier CSV par appareil et un retrait uniquement sur la machine rendent une pré-association en masse lourde, il vaut donc mieux la réserver aux cas qui la justifient plutôt que de la promettre à tout le parc.
+
+---
+
+##### Sources
+[Microsoft - Techcommunity](https://techcommunity.microsoft.com/blog/intunecustomersuccess/moving-from-windows-autopilot-to-windows-autopilot-device-preparation/4557269)
+
+[Microsoft - Techcommunity](https://techcommunity.microsoft.com/t5/intune-customer-success/introducing-device-association-for-windows-autopilot-device/ba-p/4550603)
+
+[Microsoft Learn - Comparer la préparation de l'appareil Windows Autopilot et Windows Autopilot](https://learn.microsoft.com/fr-ca/autopilot/device-preparation/compare)
+
+[Microsoft Learn - Vue d'ensemble de l'association de périphériques Windows Autopilot](https://learn.microsoft.com/fr-ca/autopilot/device-preparation/device-association/overview)
+
+[Microsoft Learn - Configuration requise pour l'association d'appareils Windows Autopilot](https://learn.microsoft.com/fr-ca/autopilot/device-preparation/device-association/requirements)
+
+[Microsoft Learn - Gestion du cycle de vie des associations d'appareils](https://learn.microsoft.com/fr-ca/autopilot/device-preparation/device-association/lifecycle-management)
+
+[Microsoft Learn - Associer des appareils](https://learn.microsoft.com/fr-ca/autopilot/device-preparation/tutorial/user-driven/entra-join-device-association)
+
+[Microsoft Learn - Nouveautés de la préparation de l'appareil Windows Autopilot](https://learn.microsoft.com/fr-ca/autopilot/device-preparation/whats-new)
+
+---
+
+
+Avez-vous apprécié cet article ? Vous avez des questions, commentaires ou suggestions, n'hésitez pas à m'envoyer un message depuis le formulaire de contact.
+
+N'oubliez pas de nous suivre et de partager cet article.

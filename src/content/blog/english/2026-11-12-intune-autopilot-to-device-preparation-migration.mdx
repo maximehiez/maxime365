@@ -1,0 +1,98 @@
+---
+title: "Moving from Autopilot to Autopilot Device Preparation in Intune"
+meta_title: ""
+description: ""
+date: 2026-11-12T10:00:00-05:00
+image: "/images/blog/intune/intune_autopilot_to_device_preparation_migration_thumbnail.png"
+categories: ["Intune"]
+author: "Maxime Hiez"
+tags: ["Autopilot", "Windows 11", "OOBE"]
+draft: false
+---
+---
+
+##### Introduction
+*Windows Autopilot Device Preparation* has been generally available since June 3, 2024, but until now the documentation was more reserved about migration. The tone has changed : it's now the recommended solution for *user-driven* scenarios, and *Device Association*, announced on August 27, 2026, comes on top of it, with no Message center or roadmap ID and no preview or GA label in the documentation. This post covers what changes, what stays on classic *Autopilot* and how to migrate.
+
+---
+
+##### What Device Preparation changes
+The two solutions coexist in a tenant, but a device can only run one of them. Device Preparation replaces the pair of deployment profile and *ESP* profile with a single policy, and the ESP stage becomes a device preparation page during the *OOBE*. Device registration is no longer required.
+
+<br/>
+
+| Classic Autopilot                | Device Preparation                                 |
+| :------------------------------: | :------------------------------------------------: |
+| Deployment profile + ESP profile | A single policy                                    |
+| Device registration              | Optional association                               |
+| Group tag and dynamic group      | Static security group (*enrollment time grouping*) |
+| Naming template in the profile   | Naming template in the policy                      |
+| Autopilot deployments report     | Device Preparation deployments report              |
+
+On the admin side, you need a policy and a device security group owned by *Intune Provisioning Client*. The report is near real time and covers all deployments, whereas the classic Autopilot one only shows registered devices. *LOB* and *Win32* apps can also be mixed in a single deployment, and the licenses are the ones already required for Autopilot.
+
+---
+
+##### What migrates and what stays on classic Autopilot
+The recommended migration scope is company-owned *Windows 11* devices with *Microsoft Entra* join in user-driven mode, as well as *Windows 365*, whose automatic mode has been generally available since May 11, 2026 (Enterprise, dedicated *Flex*, shared *Flex*, Cloud Apps).
+
+Everything else stays on classic Autopilot :
+- Pre-provisioning and self-deploying mode
+- Microsoft Entra hybrid join, which isn't supported
+- Autopilot with co-management
+- *Windows Autopilot Reset*, *Windows 10*, *DFCI*, *HoloLens* and *Teams* rooms
+
+The limits matter too : up to 25 apps and 10 *PowerShell* scripts, configured at the device level only during the OOBE. The increase to 25 apps dates from January 30, 2026, but several Learn pages still say 10.
+
+---
+
+##### Device Association
+Association links a physical Windows 11 device to the tenant before enrollment, through an affinity marker written to the *UEFI* firmware and backed by the *TPM*. It's optional and is an alternative to corporate identifiers : you only need one of the two, and only if personal device enrollment is blocked. It also gives access to per-device policy assignment, which takes precedence over the user's, to automatic marking as a corporate device, to the naming template and to OOBE customization.
+
+The prerequisites are stricter than those of Device Preparation :
+- Physical device, virtual machines aren't supported
+- TPM 2.0 enabled
+- Windows 11 25H2, or 24H2 with update *KB5120998* or later
+- Network access over TCP 443 to *ztd.dds.microsoft.com* and to the regional *\*.attest.azure.net* endpoints
+
+The pre-association flow uses a *DeviceLink* CSV file, exported from the Autopilot menu during the OOBE or from the diagnostic logs of a device already in service, then uploaded to the *Intune* admin center. Only one device per CSV file is accepted for now. Vendors and OEMs can't pre-associate yet, and association isn't available in sovereign clouds yet.
+
+<Notice type="warning">An association can't be removed from Intune : you have to run a *PowerShell* script on the device, and the UEFI marker survives a reset, a reinstall or removal from Intune.</Notice>
+
+---
+
+##### Migrating in waves
+The migration follows an eight-step plan : define the population, design enrollment time grouping, recreate the policy equivalents, decide whether association is needed, pre-associate, pilot a full OOBE, expand in waves, then remove the old profiles, ESPs, groups and registrations. No reset is forced : a device switches at its next reset, and pre-association doesn't disrupt its day-to-day use.
+
+For a device that's already registered, the association state decides : if it isn't associated, the Autopilot profile wins; if it is, Device Preparation applies. There is therefore no automatic fallback to Autopilot once the device is registered and associated, which the pilot has to plan for. To use Device Preparation without association, you must first remove the registration. It's not recommended to do so too early, though, as it can remove Autopilot properties and change dynamic group membership.
+
+---
+
+##### Conclusion
+For Windows 11 devices with Microsoft Entra join in user-driven mode, it's reasonable to switch now, in waves, keeping classic Autopilot wherever one of the limits above applies. The biggest point of attention is association : one CSV file per device and removal only on the machine make mass pre-association heavy, so it's better to reserve it for the cases that justify it rather than promise it for the whole fleet.
+
+---
+
+##### Sources
+[Microsoft - Techcommunity](https://techcommunity.microsoft.com/blog/intunecustomersuccess/moving-from-windows-autopilot-to-windows-autopilot-device-preparation/4557269)
+
+[Microsoft - Techcommunity](https://techcommunity.microsoft.com/t5/intune-customer-success/introducing-device-association-for-windows-autopilot-device/ba-p/4550603)
+
+[Microsoft Learn - Compare Windows Autopilot device preparation and Windows Autopilot](https://learn.microsoft.com/en-us/autopilot/device-preparation/compare)
+
+[Microsoft Learn - Overview of Windows Autopilot device association](https://learn.microsoft.com/en-us/autopilot/device-preparation/device-association/overview)
+
+[Microsoft Learn - Requirements for Windows Autopilot device association](https://learn.microsoft.com/en-us/autopilot/device-preparation/device-association/requirements)
+
+[Microsoft Learn - Device association lifecycle management](https://learn.microsoft.com/en-us/autopilot/device-preparation/device-association/lifecycle-management)
+
+[Microsoft Learn - Associate devices](https://learn.microsoft.com/en-us/autopilot/device-preparation/tutorial/user-driven/entra-join-device-association)
+
+[Microsoft Learn - What's new in Windows Autopilot device preparation](https://learn.microsoft.com/en-us/autopilot/device-preparation/whats-new)
+
+---
+
+
+Did you enjoy this post ? If you have any questions, comments or suggestions, please feel free to send me a message from the contact form.
+
+Don't forget to follow us and share this post.
