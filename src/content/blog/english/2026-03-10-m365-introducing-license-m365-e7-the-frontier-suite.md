@@ -6,7 +6,7 @@ date: 2026-03-10T10:00:00-05:00
 image: "/images/blog/m365/m365_introducing_license_m365_e7_the_frontier_suite_thumbnail.png"
 categories: ["Microsoft 365"]
 author: "Maxime Hiez"
-tags: ["Licenses", "E7", "Frontier Suite", "AI", "Agents"]
+tags: ["Licenses", "E7", "Frontier Suite", "AI", "Agent"]
 draft: false
 ---
 ---

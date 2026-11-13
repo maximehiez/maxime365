@@ -1,0 +1,93 @@
+---
+title: "SIP direct pour les agents vocaux Foundry en Preview"
+meta_title: ""
+description: ""
+date: 2026-11-13T10:00:00-05:00
+image: "/images/blog/foundry/foundry_voice_agent_byo_telephony_sip_thumbnail.png"
+categories: ["Foundry"]
+author: "Maxime Hiez"
+tags: ["IA", "Voice Live", "Agent", "SBC"]
+draft: false
+---
+---
+
+##### Introduction
+Brancher un agent vocal sur une ligne téléphonique passe jusqu'ici par *Teams* et *Azure Communication Services*, ou par *Twilio*. Les agents vocaux de *Microsoft Foundry* et la *Voice Live API* acceptent maintenant des appels arrivant directement d'un trunk SIP ou d'un SBC, selon l'annonce du 29 Octobre 2026. Le service est en preview, sans SLA et non recommandé en production (*public preview* pour Voice Live SIP). Ni date de disponibilité générale, ni identifiant du *Message Center* ou du roadmap, ni prix n'ont été trouvés.
+
+Voir l'article sur les agents vocaux natifs dans Foundry [ICI](https://maxime.hiez.ca/blog/2026-05-05-foundry-voice-native-agents-preview).
+
+---
+
+##### Comment l'appel arrive à l'agent
+Un appel entrant suit ce chemin : l'appelant, son fournisseur ou le système de téléphonie de l'entreprise, un trunk SIP ou un SBC, le point de terminaison SIP de Foundry, un *telephony binding*, puis l'agent vocal. Chaque binding génère une URI d'entrée SIP ou SIPS vers laquelle router les appels.
+
+Dans le portail, la création suit ce chemin : *Build* > *Agents* > l'agent > *Channels* > *Phone numbers* > *Add a number* > *Direct SIP*. Il faut ensuite choisir une connexion *SipInbound* compatible et copier l'URI. Un binding relie une seule connexion *SipInbound* à un seul agent vocal.
+
+Ce mode n'exige ni ressource *Azure Communication Services*, ni compte ressource Teams, ni compte Twilio, ni abonnement *Event Grid*.
+
+---
+
+##### Prérequis et régions
+Côté trunk ou SBC, la prise en charge de SIP sur TLS est nécessaire et, pour le sortant, du SRTP SDES sans ICE (*srtp*). L'authentification se fait par Digest ou par adresse IP source, et par adresse IP seulement pour *SipOutbound*. Côté Azure, le rôle *Foundry User* sur le projet est requis (ancien *Azure AI User*).
+
+La ressource Foundry doit se trouver dans une région supportée :
+- <u>Entrant</u> : *East US 2*, *France Central*, *Southeast Asia*, *Sweden Central* et *West US*
+- <u>Sortant</u> : *Southeast Asia* seulement
+
+---
+
+##### Voice Live SIP, un second chemin
+L'annonce couvre les deux services, mais ils ne fonctionnent pas pareil. Avec la *Voice Live API*, l'application garde le contrôle de l'admission : un webhook signé accepte ou rejette l'appel dans une fenêtre de 30 secondes par défaut. Elle gère aussi le transfert et le raccrochage. Voice Live SIP n'a pas de SDK dédié pour l'instant.
+
+Plusieurs éléments diffèrent de Direct SIP :
+- <u>Accès</u> : À activer par ressource via un onboarding, avec un modèle de la famille *gpt-realtime*, un numéro que l'on possède et un webhook HTTPS public
+- <u>Régions</u> : Six, soit les cinq ci-dessus et *West US 2*
+
+<br/>
+
+Ni *Canada Central* ni *Canada East* ne figurent parmi ces régions, ni parmi celles de Direct SIP : c'est un constat à la lecture des listes, pas une phrase de la documentation.
+
+Un appel sortant dont la création reste incertaine ne doit pas être relancé automatiquement : une seconde requête peut produire un second appel facturable.
+
+---
+
+##### Contrôles, limites et sécurité
+Une liste d'adresses IP source vide autorise toutes les adresses (64 entrées au maximum sinon). Le filtre d'appelants du binding, indépendant de cette politique, accepte jusqu'à 64 motifs de 256 caractères, en E.164 ancré sans expression régulière libre ; une liste vide laisse passer tous les numéros. Un binding peut être suspendu, mais aucun commutateur au niveau du tenant ni dans le centre d'administration Teams n'a été trouvé : la gouvernance relève du RBAC Azure et du projet Foundry.
+
+Pour le sortant, le portail ne couvre que la connexion : les appels se placent par le SDK Python ou l'API REST.
+
+L'identifiant de l'appelant est une donnée de signalisation déclarée, pas une preuve d'identité. Je n'ai trouvé aucune limite d'appels simultanés dans la documentation.
+
+---
+
+##### Direct SIP ou voie Teams Phone ?
+Pour un administrateur Teams Voice, la voie Teams garde le numéro dans Teams : l'agent devient une destination parmi d'autres, derrière les *Auto Attendants* et les files d'attente d'appels existants. Elle demande une licence *Teams Phone Resource Account*, un numéro de service Teams (*Calling Plan*, *Operator Connect* ou *Direct Routing*) et un abonnement Azure avec Azure Communication Services.
+
+Direct SIP n'exige ni ressource Azure Communication Services, ni compte ressource Teams ; aucune licence Microsoft 365 ou Teams n'est mentionnée. Un SBC déjà en place pourrait, selon mon interprétation (la documentation dit seulement « trunk ou SBC »), ajouter une route vers l'URI de Foundry à côté du trunk Direct Routing. L'annonce présente Direct SIP comme une simplification : il supprime le pont audio intermédiaire géré par le client, qui ajoute complexité, latence potentielle et charge d'exploitation, sans chiffre à l'appui.
+
+<Notice type="note">La page *Intégrer des canaux de téléphonie avec un agent vocal* ne décrit que Teams Phone et Twilio, et réserve la destination de transfert *sip* à Twilio. L'annonce et la page SIP présentent pourtant Direct SIP comme une troisième voie. La documentation n'est peut-être pas à jour.</Notice>
+
+---
+
+##### Conclusion
+Direct SIP simplifie le raccordement d'un agent vocal à un SBC ou à un opérateur, mais il reste en preview, avec peu de régions et sans prix publié. Mon avis : l'essayer sur un numéro de laboratoire pour valider le trunk et l'authentification, garder la voie Teams Phone quand le numéro vit dans Teams, et ne rien mettre en production avant une disponibilité générale datée.
+
+---
+
+##### Sources
+[Microsoft - Techcommunity](https://techcommunity.microsoft.com/t5/microsoft-foundry-blog/bring-your-own-telephony-to-voice-agents-via-sip/ba-p/4562702)
+
+[Microsoft Learn - Connecter un agent vocal à la téléphonie à l’aide de SIP](https://learn.microsoft.com/fr-ca/azure/foundry/agents/how-to/voice-agent-telephony-channels-sip)
+
+[Microsoft Learn - Connecter l’API Voice Live à la téléphonie à l’aide de SIP](https://learn.microsoft.com/fr-ca/azure/ai-services/speech-service/voice-live-sip)
+
+[Microsoft Learn - Intégrer des canaux de téléphonie avec un agent vocal](https://learn.microsoft.com/fr-ca/azure/foundry/agents/how-to/voice-agent-telephony-channels)
+
+[Microsoft Learn - Activation vocale agents Microsoft Foundry](https://learn.microsoft.com/fr-ca/microsoftteams/aa-cq-direct-foundry)
+
+---
+
+
+Avez-vous apprécié cet article ? Vous avez des questions, commentaires ou suggestions, n'hésitez pas à m'envoyer un message depuis le formulaire de contact.
+
+N'oubliez pas de nous suivre et de partager cet article.

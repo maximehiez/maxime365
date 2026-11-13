@@ -1,0 +1,93 @@
+---
+title: "Direct SIP for Foundry voice agents in Preview"
+meta_title: ""
+description: ""
+date: 2026-11-13T10:00:00-05:00
+image: "/images/blog/foundry/foundry_voice_agent_byo_telephony_sip_thumbnail.png"
+categories: ["Foundry"]
+author: "Maxime Hiez"
+tags: ["AI", "Voice Live", "Agent", "SBC"]
+draft: false
+---
+---
+
+##### Introduction
+Until now, connecting a voice agent to a phone line meant going through *Teams* and *Azure Communication Services*, or through *Twilio*. *Microsoft Foundry* voice agents and the *Voice Live API* now accept calls arriving directly from a SIP trunk or an SBC, according to the October 29, 2026 announcement. The service is in preview, with no SLA and not recommended for production (*public preview* for Voice Live SIP). No general availability date, no *Message Center* or roadmap ID and no pricing were found.
+
+Check the voice-native agents in Foundry article [HERE](https://maxime.hiez.ca/en/blog/2026-05-05-foundry-voice-native-agents-preview).
+
+---
+
+##### How the call reaches the agent
+An inbound call follows this path : the caller, their provider or the company's telephony system, a SIP trunk or an SBC, the Foundry SIP endpoint, a *telephony binding*, then the voice agent. Each binding generates a SIP or SIPS entry URI to route calls to.
+
+In the portal, creation follows this path : *Build* > *Agents* > the agent > *Channels* > *Phone numbers* > *Add a number* > *Direct SIP*. You then pick a compatible *SipInbound* connection and copy the URI. A binding links a single *SipInbound* connection to a single voice agent.
+
+This mode requires no *Azure Communication Services* resource, no Teams resource account, no Twilio account and no *Event Grid* subscription.
+
+---
+
+##### Prerequisites and regions
+On the trunk or SBC side, SIP over TLS support is required and, for outbound, SRTP SDES without ICE (*srtp*). Authentication uses Digest or the source IP address, and the IP address only for *SipOutbound*. On the Azure side, the *Foundry User* role on the project is required (formerly *Azure AI User*).
+
+The Foundry resource must be in a supported region :
+- <u>Inbound</u> : *East US 2*, *France Central*, *Southeast Asia*, *Sweden Central* and *West US*
+- <u>Outbound</u> : *Southeast Asia* only
+
+---
+
+##### Voice Live SIP, a second path
+The announcement covers both services, but they don't work the same way. With the *Voice Live API*, the application keeps control of admission : a signed webhook accepts or rejects the call within a 30-second window by default. It also handles transfer and hang-up. Voice Live SIP has no dedicated SDK for now.
+
+Several things differ from Direct SIP :
+- <u>Access</u> : To be enabled per resource through an onboarding, with a model from the *gpt-realtime* family, a number you own and a public HTTPS webhook
+- <u>Regions</u> : Six, the five above plus *West US 2*
+
+<br/>
+
+Neither *Canada Central* nor *Canada East* appears among these regions or among those of Direct SIP : this is an observation from reading the lists, not a sentence from the documentation.
+
+An outbound call whose creation status is uncertain should not be retried automatically : a second request may produce a second billable call.
+
+---
+
+##### Controls, limits and security
+An empty source IP address list allows all addresses (64 entries at most otherwise). The binding's caller filter, independent of that policy, accepts up to 64 patterns of 256 characters, as anchored E.164 patterns, with no free-form regular expressions ; an empty list lets every number through. A binding can be suspended, but no tenant-level switch and none in the Microsoft Teams Admin Center was found : governance falls to Azure RBAC and the Foundry project.
+
+For outbound, the portal only covers the connection : calls are placed through the Python SDK or the REST API.
+
+The caller ID is declared signaling data, not proof of identity. I found no concurrent call limit in the documentation.
+
+---
+
+##### Direct SIP or the Teams Phone path ?
+For a Teams Voice admin, the Teams path keeps the number in Teams : the agent becomes one destination among others, behind existing *Auto Attendants* and call queues. It requires a *Teams Phone Resource Account* license, a Teams service number (*Calling Plan*, *Operator Connect* or *Direct Routing*) and an Azure subscription with Azure Communication Services.
+
+Direct SIP requires no Azure Communication Services resource and no Teams resource account ; no Microsoft 365 or Teams license is mentioned. An SBC already in place could, in my interpretation (the documentation only says "trunk or SBC"), add a route to the Foundry URI alongside the Direct Routing trunk. The announcement presents Direct SIP as a simplification : it removes the customer-managed intermediate audio bridge, which adds complexity, potential latency and operational load, with no figure to back it up.
+
+<Notice type="note">The *Integrate telephony channels with a voice agent* page only describes Teams Phone and Twilio, and reserves the *sip* transfer destination for Twilio. Yet the announcement and the SIP page present Direct SIP as a third path. The documentation may not be up to date.</Notice>
+
+---
+
+##### Conclusion
+Direct SIP simplifies connecting a voice agent to an SBC or a carrier, but it is still in preview, with few regions and no published pricing. My take : try it on a lab number to validate the trunk and authentication, keep the Teams Phone path when the number lives in Teams, and put nothing in production before a dated general availability.
+
+---
+
+##### Sources
+[Microsoft - Techcommunity](https://techcommunity.microsoft.com/t5/microsoft-foundry-blog/bring-your-own-telephony-to-voice-agents-via-sip/ba-p/4562702)
+
+[Microsoft Learn - Connect a voice agent to telephony by using SIP](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/voice-agent-telephony-channels-sip)
+
+[Microsoft Learn - Connect Voice Live API to telephony by using SIP](https://learn.microsoft.com/en-us/azure/ai-services/speech-service/voice-live-sip)
+
+[Microsoft Learn - Integrate telephony channels with a voice agent](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/voice-agent-telephony-channels)
+
+[Microsoft Learn - Voice enable Microsoft Foundry agents](https://learn.microsoft.com/en-us/microsoftteams/aa-cq-direct-foundry)
+
+---
+
+
+Did you enjoy this post ? If you have any questions, comments or suggestions, please feel free to send me a message from the contact form.
+
+Don't forget to follow us and share this post.
