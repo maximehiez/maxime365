@@ -1,0 +1,100 @@
+---
+title: "Appareil et risque dans la CAE de Global Secure Access"
+meta_title: ""
+description: ""
+date: 2026-11-13T10:00:00-05:00
+image: "/images/blog/entra/entra_universal_cae_device_risk_signals_thumbnail.png"
+categories: ["Entra ID"]
+author: "Maxime Hiez"
+tags: ["Accès Conditionnels", "Sécurité"]
+draft: false
+---
+---
+
+##### Introduction
+Un appareil qui devient non conforme ou un compte jugé à risque élevé ne perd pas son accès au même moment : tant que le jeton d'accès est valide, la session continue. La *Universal Continuous Access Evaluation* (*Universal CAE*) de *Microsoft Entra Global Secure Access* réduit cet écart et réagit désormais aux appareils désactivés, supprimés ou non conformes, ainsi qu'au risque utilisateur élevé détecté par *Microsoft Entra ID Protection*. Après une Public Preview annoncée en Octobre 2026, ces signaux sont présentés en disponibilité générale début Novembre 2026, sans date précise. Le sujet ne concerne que les tenants qui utilisent Global Secure Access, pas la CAE d'Entra ID en général.
+
+Voir l'article sur le filtrage de fichiers par type dans Entra Global Secure Access [ICI](https://maxime.hiez.ca/blog/2026-10-26-entra-network-content-filtering).
+
+---
+
+##### Ce que fait la CAE universelle
+La CAE classique oblige chaque charge de travail à adopter des bibliothèques particulières et se limite aux applications Microsoft de première partie. La CAE universelle étend ce principe à toute application atteinte par Global Secure Access, qu'elle soit compatible CAE ou non : l'accès est validé à chaque nouvelle connexion vers une ressource.
+
+Les jetons d'accès de Global Secure Access sont valides entre 60 et 90 minutes. Sans la CAE universelle, désactiver un utilisateur invalide ses jetons d'actualisation tout de suite, mais ses jetons d'accès peuvent rester valides jusqu'à 90 minutes.
+
+Quand le signal arrive, le client affiche une notification et demande une nouvelle authentification. Le délai de grâce est de 2 minutes ; sans réponse, tous les tunnels sont coupés et la connectivité vers les applications tombe, jusqu'à la réauthentification. La durée totale documentée est détaillée plus bas.
+
+---
+
+##### Les signaux pris en charge
+Côté appareil, deux événements sont pris en compte :
+- L'appareil utilisé pour l'accès est supprimé ou désactivé
+- L'appareil utilisé pour l'accès est détecté comme non conforme
+
+<br/>
+
+Côté utilisateur, la liste couvre :
+- Compte supprimé ou désactivé
+- Mot de passe modifié ou réinitialisé
+- Authentification multifacteur activée pour l'utilisateur
+- Révocation de tous les jetons d'actualisation par un administrateur
+- Risque utilisateur élevé détecté par Microsoft Entra ID Protection
+
+---
+
+##### Ce qu'il faut vérifier dans l'accès conditionnel
+La CAE universelle ne décide rien seule. Les signaux de conformité et de risque sont prévus pour fonctionner avec une politique d'accès conditionnel correspondante : sans elle, la réauthentification est silencieuse et rien n'agit sur l'événement. Deux exemples de politiques :
+- <u>Appareil conforme</u> : *All users* > *All internet resources with Global Secure Access* > *Require compliant device*
+- <u>Risque utilisateur</u> : *All users* > *All resources* > *User risk = High* > *Require risk remediation*
+
+<br/>
+
+Le piège se trouve dans la première politique. Bloquer la ressource *Internet Access* sur les appareils non conformes empêche ces appareils de rejoindre les services qui les remettraient en conformité. Il faut ajouter les points de terminaison réseau de *Microsoft Intune* et les destinations des scripts de découverte de conformité personnalisés au contournement personnalisé du profil de transfert Internet Access.
+
+Autres points à contrôler :
+- La CAE n'a pas été désactivée dans le tenant. Aucun réglage propre à Global Secure Access n'est documenté, et la désactiver coupe la CAE pour tous les services.
+- Si le mode *Strict Enforcement* est utilisé, aucune politique basée sur l'adresse IP ne cible des ressources non Microsoft via Global Secure Access, sinon des utilisateurs situés dans une plage d'adresses approuvée sont bloqués.
+- Les rôles *Global Secure Access Administrator* et *Conditional Access Administrator* sont nécessaires pour configurer l'ensemble.
+
+<Notice type="warning">Si les points de terminaison Intune ne sont pas contournés, un appareil qui devient non conforme ne peut plus atteindre le service qui le remettrait en conformité.</Notice>
+
+---
+
+##### Délais, licences et limites
+La synthèse de Novembre parle d'une réauthentification déclenchée en deux minutes. La page des limitations connues décrit un parcours plus long : de 2 à 5 minutes pour que le signal atteigne le client, trois invites successives avec 2 minutes de grâce chacune, soit une déconnexion après environ 10 minutes. Rien n'indique quel parcours décrit exactement les nouveaux signaux d'appareil et de risque, et le délai entre un changement de conformité dans Intune et son arrivée au client n'est pas documenté.
+
+Côté prérequis :
+- <u>Client</u> : Seul le client Windows, version 1.8.239.0 ou ultérieure, prend en charge la CAE universelle ; sur les autres plateformes, le client utilise des jetons d'accès classiques
+- <u>Comportement par défaut</u> : La CAE universelle est opportuniste, un jeton d'accès classique est émis si le client ne peut pas obtenir de jeton CAE
+- <u>Licences</u> : *Microsoft Entra ID P1* ou *P2* pour le profil de trafic Microsoft, licence Internet Access ou *Private Access* pour les deux autres profils, en plus de P1 ou P2
+- <u>Clouds</u> : Global Secure Access n'est pas encore pris en charge dans GCC-H ni DoD
+
+---
+
+##### Conclusion
+Cette évolution est utile pour les organisations qui ont déjà déployé le client Windows de Global Secure Access, mais elle ne vaut que par la politique d'accès conditionnel qui la complète : sans règle de conformité ou de risque, la réauthentification ne bloque personne. Avant de promettre une coupure en deux minutes aux équipes sécurité, mieux vaut mesurer le délai réel dans un pilote, puis valider le contournement Intune avant d'imposer un appareil conforme sur tout le trafic internet.
+
+---
+
+##### Sources
+[Microsoft - Techcommunity](https://techcommunity.microsoft.com/t5/microsoft-entra-blog/what-s-new-in-microsoft-entra-november-2026/ba-p/4556457)
+
+[Microsoft - Techcommunity](https://techcommunity.microsoft.com/blog/microsoft-entra-blog/global-secure-access-private-and-internet-access-in-one-offering/4569098)
+
+[Microsoft - Techcommunity](https://techcommunity.microsoft.com/blog/microsoft-entra-blog/what%e2%80%99s-new-in-microsoft-entra-october-2026/4556460)
+
+[Microsoft Learn - Universal Continuous Access Evaluation](https://learn.microsoft.com/fr-ca/entra/global-secure-access/concept-universal-continuous-access-evaluation)
+
+[Microsoft Learn - Limitations connues de Global Secure Access](https://learn.microsoft.com/fr-ca/entra/global-secure-access/reference-current-known-limitations)
+
+[Microsoft Learn - Qu'est-ce que Global Secure Access ?](https://learn.microsoft.com/fr-ca/entra/global-secure-access/overview-what-is-global-secure-access)
+
+[Microsoft Learn - Accès conditionnel universel via Global Secure Access](https://learn.microsoft.com/fr-ca/entra/global-secure-access/concept-universal-conditional-access)
+
+---
+
+
+Avez-vous apprécié cet article ? Vous avez des questions, commentaires ou suggestions, n'hésitez pas à m'envoyer un message depuis le formulaire de contact.
+
+N'oubliez pas de nous suivre et de partager cet article.

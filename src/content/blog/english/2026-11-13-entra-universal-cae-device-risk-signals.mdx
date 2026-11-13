@@ -1,0 +1,100 @@
+---
+title: "Device and risk signals in Global Secure Access CAE"
+meta_title: ""
+description: ""
+date: 2026-11-13T10:00:00-05:00
+image: "/images/blog/entra/entra_universal_cae_device_risk_signals_thumbnail.png"
+categories: ["Entra ID"]
+author: "Maxime Hiez"
+tags: ["Conditional Access", "Security"]
+draft: false
+---
+---
+
+##### Introduction
+A device that becomes noncompliant or an account judged high risk doesn't lose access at the same moment : as long as the access token is valid, the session carries on. *Universal Continuous Access Evaluation* (*Universal CAE*) in *Microsoft Entra Global Secure Access* narrows that gap and now reacts to disabled, deleted or noncompliant devices, as well as to high user risk detected by *Microsoft Entra ID Protection*. After a Public Preview announced in October 2026, these signals are presented as generally available in early November 2026, with no precise date. The topic only concerns tenants that use Global Secure Access, not Entra ID CAE in general.
+
+Check the article on file type filtering in Entra Global Secure Access [HERE](https://maxime.hiez.ca/en/blog/2026-10-26-entra-network-content-filtering).
+
+---
+
+##### What Universal CAE does
+Standard CAE requires each workload to adopt specific libraries and is limited to first-party Microsoft applications. Universal CAE extends the principle to any application reached through Global Secure Access, whether or not it is CAE-capable : access is validated on every new connection to a resource.
+
+Global Secure Access access tokens are valid for 60 to 90 minutes. Without Universal CAE, disabling a user invalidates their refresh tokens right away, but their access tokens can remain valid for up to 90 minutes.
+
+When the signal arrives, the client displays a notification and prompts for a new sign-in. The grace period is 2 minutes ; with no response, all tunnels are cut and connectivity to applications drops until the user reauthenticates. The total documented duration is detailed below.
+
+---
+
+##### Supported signals
+On the device side, two events are taken into account :
+- The device used for access is deleted or disabled
+- The device used for access is detected as noncompliant
+
+<br/>
+
+On the user side, the list covers :
+- Account deleted or disabled
+- Password changed or reset
+- Multifactor authentication enabled for the user
+- All refresh tokens revoked by an administrator
+- High user risk detected by Microsoft Entra ID Protection
+
+---
+
+##### What to check in Conditional Access
+Universal CAE doesn't decide anything on its own. The compliance and risk signals are designed to work with a matching Conditional Access policy : without one, reauthentication is silent and nothing acts on the event. Two example policies :
+- <u>Compliant device</u> : *All users* > *All internet resources with Global Secure Access* > *Require compliant device*
+- <u>User risk</u> : *All users* > *All resources* > *User risk = High* > *Require risk remediation*
+
+<br/>
+
+The catch is in the first policy. Blocking the *Internet Access* resource on noncompliant devices stops those devices from reaching the services that would bring them back into compliance. The *Microsoft Intune* network endpoints and the destinations of custom compliance discovery scripts must be added to the custom bypass of the Internet Access forwarding profile.
+
+Other points to check :
+- CAE hasn't been disabled in the tenant. No Global Secure Access-specific setting is documented, and disabling it turns CAE off for all services.
+- If *Strict Enforcement* mode is used, no IP-based policy targets non-Microsoft resources through Global Secure Access, otherwise users located in a trusted IP range are blocked.
+- The *Global Secure Access Administrator* and *Conditional Access Administrator* roles are required to configure everything.
+
+<Notice type="warning">If the Intune endpoints aren't bypassed, a device that becomes noncompliant can no longer reach the service that would bring it back into compliance.</Notice>
+
+---
+
+##### Timing, licensing and limits
+The November roundup mentions reauthentication triggered within two minutes. The known limitations page describes a longer path : 2 to 5 minutes for the signal to reach the client, then three successive prompts with 2 minutes of grace each, for a disconnection after about 10 minutes. Nothing says which path exactly describes the new device and risk signals, and the delay between a compliance change in Intune and its arrival at the client isn't documented.
+
+Prerequisites :
+- <u>Client</u> : Only the Windows client, version 1.8.239.0 or later, supports Universal CAE ; on other platforms, the client uses standard access tokens
+- <u>Default behavior</u> : Universal CAE is opportunistic, a standard access token is issued if the client can't obtain a CAE token
+- <u>Licensing</u> : *Microsoft Entra ID P1* or *P2* for the Microsoft traffic profile, Internet Access or *Private Access* license for the other two profiles, on top of P1 or P2
+- <u>Clouds</u> : Global Secure Access isn't supported yet in GCC-H or DoD
+
+---
+
+##### Conclusion
+This change is useful for organizations that have already deployed the Global Secure Access Windows client, but it is only as good as the Conditional Access policy that completes it : without a compliance or risk rule, reauthentication blocks no one. Before promising security teams a cutoff within two minutes, it is better to measure the real delay in a pilot, then validate the Intune bypass before requiring a compliant device on all internet traffic.
+
+---
+
+##### Sources
+[Microsoft - Techcommunity](https://techcommunity.microsoft.com/t5/microsoft-entra-blog/what-s-new-in-microsoft-entra-november-2026/ba-p/4556457)
+
+[Microsoft - Techcommunity](https://techcommunity.microsoft.com/blog/microsoft-entra-blog/global-secure-access-private-and-internet-access-in-one-offering/4569098)
+
+[Microsoft - Techcommunity](https://techcommunity.microsoft.com/blog/microsoft-entra-blog/what%e2%80%99s-new-in-microsoft-entra-october-2026/4556460)
+
+[Microsoft Learn - Universal Continuous Access Evaluation](https://learn.microsoft.com/en-us/entra/global-secure-access/concept-universal-continuous-access-evaluation)
+
+[Microsoft Learn - Known limitations for Global Secure Access](https://learn.microsoft.com/en-us/entra/global-secure-access/reference-current-known-limitations)
+
+[Microsoft Learn - What is Global Secure Access ?](https://learn.microsoft.com/en-us/entra/global-secure-access/overview-what-is-global-secure-access)
+
+[Microsoft Learn - Universal Conditional Access through Global Secure Access](https://learn.microsoft.com/en-us/entra/global-secure-access/concept-universal-conditional-access)
+
+---
+
+
+Did you enjoy this post ? If you have any questions, comments or suggestions, please feel free to send me a message from the contact form.
+
+Don't forget to follow us and share this post.
