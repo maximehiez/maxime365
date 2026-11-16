@@ -1,0 +1,69 @@
+---
+title: "Étiquetage automatique Purview des anciens formats Office"
+meta_title: ""
+description: ""
+date: 2026-11-14T10:00:00-05:00
+image: "/images/blog/purview/purview_auto_labeling_legacy_office_formats_thumbnail.png"
+categories: ["Purview"]
+author: "Maxime Hiez"
+tags: ["Sensitivity Labels", "Protection de données", "Gouvernance"]
+draft: false
+---
+---
+
+##### Introduction
+Les archives *SharePoint* et *OneDrive* contiennent souvent de vieux fichiers *.doc*, *.xls* et *.ppt* que l'étiquetage automatique de *Microsoft Purview* ignore aujourd'hui. L'annonce *MC1530948*, publiée le 29 Octobre 2026, étend l'étiquetage automatique côté service à ces trois formats. La fonctionnalité est annoncée, pas disponible : la Public Preview est prévue de début à mi-Novembre 2026 et la disponibilité générale à fin Novembre 2026. Cet article détaille ce qui change et ce que les administrateurs doivent préparer.
+
+Voir l'article sur l'étiquetage automatique et les scopes adaptatifs [ICI](https://maxime.hiez.ca/blog/2026-10-19-purview-auto-labeling-sharepoint-adaptive-scopes).
+
+---
+
+##### Ce qui change pour l'étiquetage automatique
+L'étiquetage automatique côté service évalue et applique des *Sensitivity Labels* aux fichiers Word (*.doc*), Excel (*.xls*) et PowerPoint (*.ppt*) dans SharePoint et OneDrive, en mode simulation comme en mode application. Jusqu'ici, l'étiquetage automatique ne prend en charge que les fichiers *.docx*, *.xlsx*, *.pptx* et les *PDF*, et la documentation Learn n'est pas encore mise à jour pour les anciens formats.
+
+Côté calendrier, l'élément de la feuille de route *574363* (Worldwide, statut *In development*) indique la preview et la disponibilité générale en Novembre 2026. Pour *DoD*, *GCC* et *GCC High*, l'élément *578872* (statut *In development*) prévoit la disponibilité générale en Décembre 2026.
+
+---
+
+##### Ce que les administrateurs doivent faire
+Les nouvelles politiques d'étiquetage automatique couvrent automatiquement les anciens formats. Les politiques existantes demandent une action : une petite modification (par exemple ajouter ou retirer un commentaire), l'enregistrement, puis une nouvelle exécution pour relancer l'analyse.
+
+La démarche annoncée tient en quelques étapes :
+- Passer en revue les étiquettes et les politiques d'étiquetage automatique, emplacements SharePoint et OneDrive compris
+- Identifier les politiques à étendre
+- Modifier légèrement chaque politique, l'enregistrer, puis la relancer
+- Exécuter d'abord les politiques mises à jour en mode simulation et vérifier les résultats avant l'application
+
+Aucun interrupteur dédié n'est rapporté : le levier est la politique elle-même.
+
+---
+
+##### Points de vigilance
+Les sources ne mentionnent aucun changement aux limites de l'étiquetage automatique : 500 000 fichiers par jour au maximum pour le tenant, 100 politiques, 1 000 sites SharePoint sélectionnés explicitement et 20 000 000 de fichiers correspondants par simulation. Le plafond quotidien devra désormais couvrir plus de fichiers, ce qui laisse attendre plus de correspondances et des exécutions plus longues (interprétation, pas un fait annoncé).
+
+Les prérequis restent ceux du service : étiquettes activées pour SharePoint et OneDrive, rôle *Compliance Administrator* ou *Compliance Data Administrator*, et un fichier ouvert en modification ne peut pas être étiqueté. Les applications Office n'étiquettent pas nativement le format 97-2003, et dans le client de protection des informations, enregistrer en 97-2003 un fichier étiqueté retire l'étiquette. On ne sait pas si ce comportement s'applique à une étiquette posée par le service.
+
+Le chiffrement des fichiers étiquetés, les licences et la nécessité d'une inscription à la preview ne sont pas documentés. Le seul repère est général : l'étiquetage automatique dépend de la licence.
+
+---
+
+##### Conclusion
+Ce changement comble un trou connu : des archives entières échappaient aux politiques parce qu'elles étaient restées en *.doc* ou *.xls*. La preview est annoncée pour ce mois-ci : il est utile de repérer dès maintenant les politiques à relancer. Après son arrivée dans le tenant, la simulation d'abord, puis l'application, sont la voie la plus sûre. Tant que la disponibilité générale n'est pas confirmée et que le chiffrement et les licences ne sont pas documentés, mieux vaut ne rien promettre aux métiers.
+
+---
+
+##### Sources
+[Microsoft 365 Roadmap - 574363](https://www.microsoft.com/microsoft-365/roadmap?id=574363)
+
+[Microsoft 365 Roadmap - 578872](https://www.microsoft.com/microsoft-365/roadmap?id=578872)
+
+[Microsoft Learn - Appliquer automatiquement une étiquette de confidentialité aux données Microsoft 365](https://learn.microsoft.com/fr-ca/purview/apply-sensitivity-label-automatically)
+
+[Microsoft Learn - Résoudre les problèmes liés aux stratégies d’étiquetage automatique Microsoft Purview](https://learn.microsoft.com/fr-ca/troubleshoot/microsoft-365/purview/sensitivity-labels/troubleshoot-auto-labeling-policies)
+
+---
+
+
+Avez-vous apprécié cet article ? Vous avez des questions, commentaires ou suggestions, n'hésitez pas à m'envoyer un message depuis le formulaire de contact.
+
+N'oubliez pas de nous suivre et de partager cet article.
