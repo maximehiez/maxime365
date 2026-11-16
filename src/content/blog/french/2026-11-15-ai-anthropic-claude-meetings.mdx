@@ -1,0 +1,98 @@
+---
+title: "Anthropic dévoile Claude Meetings en bêta"
+meta_title: ""
+description: ""
+date: 2026-11-15T10:00:00-05:00
+image: "/images/blog/ai/ai_anthropic_claude_meetings_thumbnail.png"
+categories: ["Anthropic"]
+author: "Maxime Hiez"
+tags: ["IA", "Claude", "Rencontre", "Transcription"]
+draft: false
+---
+---
+
+##### Introduction
+*Anthropic* a lancé le 12 Novembre 2026 *Claude Meetings*, en bêta : *Claude* rejoint un appel vidéo comme participant visible, suit la conversation, répond aux questions et démarre du travail pendant la réunion. Le 10 Novembre, la fonction n'était encore annoncée que comme à venir. Pour un administrateur *Microsoft 365*, le point essentiel tient en une ligne : la seule plateforme prise en charge au lancement est *Google Meet*, donc Claude ne rejoint pas, pour l'instant, une réunion *Microsoft Teams*.
+
+Voir l'article sur la protection contre les bots dans les réunions [ICI](https://maxime.hiez.ca/blog/2026-07-21-teams-bot-protection-meetings).
+
+---
+
+##### Que fait Claude pendant l'appel ?
+Claude prend des notes, répond aux questions et produit des documents, des tableaux blancs et des diapositives. On s'adresse à lui en disant son nom à voix haute ou en écrivant dans le clavardage de Meet. Par défaut, il répond par écrit dans ce clavardage, et tout ce qu'il y publie est visible de tous les participants.
+
+Il peut aussi utiliser les outils connectés de la personne qui lui demande quelque chose, avec sa permission : demandée la première fois, puis à chaque fois pour une demande à voix haute, afin de confirmer qui parle. L'exemple donné est l'envoi d'un message *Slack*.
+
+Côté utilisateur, il faut connecter *Google Calendar* (un propriétaire doit d'abord l'activer pour l'organisation), choisir une réunion et cliquer sur *Add Claude*. L'ajout automatique se règle par utilisateur, pour toutes les réunions ou toutes sauf les réunions individuelles ; un propriétaire ne peut pas le définir à sa place.
+
+---
+
+##### Après l'appel
+Claude conserve une transcription, un résumé et des descriptions d'écran, mais pas l'audio. Tout se retrouve sur la page de la réunion dans *claude.ai* : transcription en direct, clavardage, notes, résumé, actions à mener et documents créés. Les membres de l'organisation présents sur l'invitation reçoivent un courriel de récapitulatif avec un lien, peuvent consulter les notes et modifier ce que Claude a produit. Un clavardage normal avec Claude permet d'interroger les réunions passées auxquelles on a accès.
+
+![image](/images/blog/ai/ai_anthropic_claude_meetings_001.png)
+
+---
+
+##### Plateformes prises en charge
+Au lancement, Claude Meetings fonctionne avec Google Meet uniquement. D'autres plateformes de visioconférence sont annoncées comme arrivant bientôt, sans plateforme nommée ni date.
+
+*Teams* et *Zoom* ne sont mentionnés dans aucune des pages officielles sur Claude Meetings. Cela ne dit rien de leur prise en charge future. L'exposition d'un tenant Microsoft 365 est donc indirecte : un utilisateur peut inviter Claude dans un appel Google Meet auquel participent des utilisateurs du tenant Microsoft 365 (interprétation).
+
+---
+
+##### Contrôles d'administration
+La page se trouve sous *Organization settings*, *Products*, *Claude Meetings (beta)*, accessible aux propriétaires (*Owner* et *Primary Owner*). Sur Enterprise, un rôle personnalisé avec l'accès propriétaire peut aussi l'ouvrir. Les réglages par défaut diffèrent selon le forfait :
+
+|                                 | Team             | Enterprise        |
+| :-----------------------------: | :--------------: | :---------------: |
+| *Claude Meetings*               | Activé pour tous | Désactivé         |
+| *Meetings with external guests* | Autorisé         | Interne seulement |
+
+Un troisième réglage, *Members' connectors in meetings*, contrôle si Claude peut utiliser les connecteurs des membres. Sur Enterprise, deux capacités de rôle personnalisé, *Claude Meetings* et *Meetings with external guests*, permettent d'activer la fonction pour une partie de l'organisation seulement.
+
+Quand les invités externes ne sont pas autorisés, Claude reste hors de l'appel si une personne extérieure est invitée, et le quitte si elle arrive en cours de route, robot de prise de notes d'une autre entreprise compris. Quand ils sont autorisés, il écoute, prend des notes et publie sa notification dans le clavardage sans y répondre. Les propos des invités figurent dans les notes et la transcription, mais ils ne reçoivent ni la page ni le courriel de récapitulatif.
+
+La bêta n'est pas offerte à certaines organisations, notamment celles en rétention zéro des données (ZDR), en configuration prête pour HIPAA ou avec des clés de chiffrement gérées par le client (CMEK).
+
+---
+
+##### Confidentialité et consentement
+Claude apparaît comme participant et publie dans le clavardage une notification accompagnée d'un lien vers la page de la réunion. Anthropic recommande de s'assurer que tous les participants acceptent d'être transcrits. Claude entre en général sans demander ; s'il demande, l'organisateur peut l'admettre, et s'il est refusé il ne réessaie pas tant que personne ne l'ajoute de nouveau. Il reste jusqu'à huit heures et prévient avant de partir, et on peut le retirer depuis la page de la réunion.
+
+Plusieurs points ne sont pas documentés : la durée de rétention, les régions, les langues prises en charge, les limites de taille de réunion, et la couverture par les journaux d'audit ou la *Compliance API*.
+
+---
+
+##### Tarification et disponibilité
+Claude Meetings est en bêta sur les forfaits Team et Enterprise, dans Claude et *Claude Desktop*. Côté coûts :
+- Notes et transcriptions : Incluses pendant la bêta
+- Réponses en réunion : Gratuites, sauf si Claude utilise un outil connecté, auquel cas l'usage compte dans le forfait de la personne et peut entraîner des frais pour l'organisation.
+- Documents, tableaux blancs et autres artefacts : Gratuits jusqu'au 10 Février 2027
+
+<Notice type="note">Aucun prix en dollars n'est publié, et aucune date de disponibilité générale n'est annoncée.</Notice>
+
+---
+
+##### Conclusion
+Pour un administrateur Teams, Claude Meetings ne change rien aux réunions Teams elles-mêmes. Si l'organisation a un espace de travail Claude Team, la fonction est active par défaut et les invités externes sont autorisés : ces deux réglages sont à vérifier dès maintenant. La rétention, les régions et l'audit n'étant pas documentés, il est raisonnable d'attendre avant d'activer la fonction largement sur Enterprise (interprétation). Les autres plateformes sont annoncées sans nom ni date : mieux vaut ne rien en déduire pour Teams.
+
+---
+
+##### Sources
+[Anthropic - Claude Meetings](https://claude.com/resources/articles/claude-meetings)
+
+[Anthropic - Plus de façons de travailler avec Claude](https://claude.com/resources/articles/more-ways-to-work-with-claude-sheets-whiteboards-and-interactive-connectors)
+
+[Parler avec Claude](https://claude.ai)
+
+[Anthropic - Utiliser Claude Meetings](https://support.claude.com/en/articles/18325154-use-claude-meetings)
+
+[Anthropic - Notes de version de Claude](https://support.claude.com/en/articles/12138966-release-notes)
+
+---
+
+
+Avez-vous apprécié cet article ? Vous avez des questions, commentaires ou suggestions, n'hésitez pas à m'envoyer un message depuis le formulaire de contact.
+
+N'oubliez pas de nous suivre et de partager cet article.

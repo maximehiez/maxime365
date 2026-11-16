@@ -1,0 +1,98 @@
+---
+title: "Anthropic unveils Claude Meetings in beta"
+meta_title: ""
+description: ""
+date: 2026-11-15T10:00:00-05:00
+image: "/images/blog/ai/ai_anthropic_claude_meetings_thumbnail.png"
+categories: ["Anthropic"]
+author: "Maxime Hiez"
+tags: ["AI", "Claude", "Meeting", "Transcription"]
+draft: false
+---
+---
+
+##### Introduction
+*Anthropic* launched *Claude Meetings* in beta on November 12, 2026 : *Claude* joins a video call as a visible participant, follows the conversation, answers questions and starts work during the meeting. On November 10, the feature had only been announced as coming soon. For a *Microsoft 365* admin, the key point fits in one line : the only platform supported at launch is *Google Meet*, so for now Claude does not join a *Microsoft Teams* meeting.
+
+Check the article on bot protection in Teams meetings [HERE](https://maxime.hiez.ca/en/blog/2026-07-21-teams-bot-protection-meetings).
+
+---
+
+##### What does Claude do during the call ?
+Claude takes notes, answers questions and produces documents, whiteboards and slides. You address it by saying its name out loud or by typing in the Meet chat. By default, it replies in writing in that chat, and everything it posts there is visible to all participants.
+
+It can also use the connected tools of the person asking it something, with that person's permission : requested the first time, then every time for a spoken request, to confirm who is speaking. The example given is sending a *Slack* message.
+
+On the user side, you need to connect *Google Calendar* (an owner must first enable it for the organization), pick a meeting and click *Add Claude*. Automatic joining is set per user, for all meetings or all except one-on-one meetings ; an owner cannot set it on a user's behalf.
+
+---
+
+##### After the call
+Claude keeps a transcript, a summary and descriptions of the screen, but not the audio. Everything is available on the meeting page in *claude.ai* : live transcript, chat, notes, summary, action items and created documents. Organization members on the invitation receive a recap email with a link, can view the notes and can edit what Claude produced. A regular chat with Claude lets you query past meetings you have access to.
+
+![image](/images/blog/ai/ai_anthropic_claude_meetings_001.png)
+
+---
+
+##### Supported platforms
+At launch, Claude Meetings works with Google Meet only. Other video conferencing platforms are announced as coming soon, with no platform named and no date.
+
+*Teams* and *Zoom* are mentioned in none of the official pages about Claude Meetings. That says nothing about future support. A Microsoft 365 tenant's exposure is therefore indirect : a user can invite Claude to a Google Meet call that includes users from the Microsoft 365 tenant (interpretation).
+
+---
+
+##### Admin controls
+The page is under *Organization settings*, *Products*, *Claude Meetings (beta)*, and is available to owners (*Owner* and *Primary Owner*). On Enterprise, a custom role with owner access can also open it. The default settings differ by plan :
+
+|                                 | Team            | Enterprise    |
+| :-----------------------------: | :-------------: | :-----------: |
+| *Claude Meetings*               | On for everyone | Off           |
+| *Meetings with external guests* | Allowed         | Internal only |
+
+A third setting, *Members' connectors in meetings*, controls whether Claude can use members' connectors. On Enterprise, two custom role capabilities, *Claude Meetings* and *Meetings with external guests*, make it possible to enable the feature for only part of the organization.
+
+When external guests are not allowed, Claude stays out of the call if an outside person is invited, and leaves if one joins mid-call, another company's note-taking bot included. When they are allowed, it listens, takes notes and posts its notification in the chat without replying to them. Guests' words appear in the notes and the transcript, but they do not receive the recap page or email.
+
+The beta is not available to some organizations, notably those on zero data retention (ZDR), in a HIPAA-ready configuration or with customer-managed encryption keys (CMEK).
+
+---
+
+##### Privacy and consent
+Claude appears as a participant and posts a notification in the chat with a link to the meeting page. Anthropic recommends making sure all participants agree to being transcribed. Claude generally joins without asking ; if it asks, the organizer can admit it, and if it is declined it does not try again until someone adds it again. It stays for up to eight hours and warns before leaving, and you can remove it from the meeting page.
+
+Several points are not documented : the retention period, the regions, the supported languages, the meeting size limits, and coverage by audit logs or the *Compliance API*.
+
+---
+
+##### Pricing and availability
+Claude Meetings is in beta on the Team and Enterprise plans, in Claude and *Claude Desktop*. On costs :
+- Notes and transcripts : Included during the beta
+- Replies in meetings : Free, unless Claude uses a connected tool, in which case the usage counts toward that person's plan and may incur charges for the organization.
+- Documents, whiteboards and other artifacts : Free until February 10, 2027
+
+<Notice type="note">No dollar price is published, and no general availability date is announced.</Notice>
+
+---
+
+##### Conclusion
+For a Teams admin, Claude Meetings changes nothing about Teams meetings themselves. If the organization has a Claude Team workspace, the feature is on by default and external guests are allowed : both settings should be checked now. With retention, regions and audit undocumented, it is reasonable to wait before enabling the feature broadly on Enterprise (interpretation). Other platforms are announced with no name or date : better not to infer anything about Teams.
+
+---
+
+##### Sources
+[Anthropic - Claude Meetings](https://claude.com/resources/articles/claude-meetings)
+
+[Anthropic - More ways to work with Claude](https://claude.com/resources/articles/more-ways-to-work-with-claude-sheets-whiteboards-and-interactive-connectors)
+
+[Chat with Claude](https://claude.ai)
+
+[Anthropic - Use Claude Meetings](https://support.claude.com/en/articles/18325154-use-claude-meetings)
+
+[Anthropic - Claude release notes](https://support.claude.com/en/articles/12138966-release-notes)
+
+---
+
+
+Did you enjoy this post ? If you have any questions, comments or suggestions, please feel free to send me a message from the contact form.
+
+Don't forget to follow us and share this post.
