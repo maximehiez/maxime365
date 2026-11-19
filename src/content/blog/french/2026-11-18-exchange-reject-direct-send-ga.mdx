@@ -1,0 +1,82 @@
+---
+title: "Reject Direct Send disponible dans Exchange Online"
+meta_title: ""
+description: ""
+date: 2026-11-18T10:00:00-05:00
+image: "/images/blog/exchange/exchange_reject_direct_send_ga_thumbnail.png"
+categories: ["Exchange"]
+author: "Maxime Hiez"
+tags: ["Sécurité", "Courriels"]
+draft: false
+---
+---
+
+##### Introduction
+Le *Direct Send* permet à un appareil ou à une application d'envoyer un courriel directement vers le point MX d'un tenant, sans authentification, en utilisant l'un de ses domaines comme expéditeur. L'équipe *Exchange Online* a annoncé le 16 Novembre 2026 la disponibilité générale de *Reject Direct Send*, le paramètre qui permet de refuser ce trafic à l'échelle du tenant. La préversion datait d'Avril 2025.
+
+Le paramètre est désactivé par défaut sur les tenants existants, et Microsoft prévoit de l'activer par défaut, sans possibilité de le désactiver, sur les nouveaux tenants. Le déploiement était en cours à la publication. La disponibilité générale concerne les tenants *worldwide*.
+
+---
+
+##### Ce que le paramètre bloque
+Exchange Online rejette les messages anonymes dont l'adresse d'enveloppe (*P1 MAIL FROM*) appartient à l'un de vos domaines acceptés. Est "*anonyme*" un message qui n'est rattaché à aucun connecteur de flux de courriels. L'en-tête *From* (*P2*) n'est pas vérifié, et l'emplacement du MX n'a pas d'incidence. Les sous-domaines sont couverts lorsque l'option d'acceptation du courriel pour tous les sous-domaines est active (*MatchSubDomains* à *True*).
+
+Côté Learn, le paramètre est défini ainsi : *"The RejectDirectSend parameter specifies whether to block Direct Send in your organization."*. Il n'existe que dans le service cloud : *"This parameter is available only in the cloud-based service."*.
+
+Un message refusé n'est pas mis en file d'attente, il est rejeté avec le code suivant : *"550 5.7.68 TenantInboundAttribution; Direct Send not allowed for this organization from unauthorized sources"*.
+
+---
+
+##### Disponibilité et valeurs par défaut
+Le comportement dépend de l'ancienneté du tenant :
+- <u>Tenants existants</u> : Option à activer, désactivée par défaut (*$false*)
+- <u>Nouveaux tenants</u> : Activation par défaut prévue, sans possibilité de la désactiver ; le déploiement était en cours à la publication de l'annonce
+- <u>GCC High et DoD</u> : Non disponible
+
+Plus de 70 000 organisations l'ont déjà activé. Aucune licence n'est mentionnée dans l'annonce, et le seul réglage est un booléen valable pour tout le tenant : les sources ne décrivent pas d'interrupteur par domaine ou par expéditeur. Les exceptions passent par des connecteurs entrants.
+
+<Notice type="note">*MC1093237* (12 Juin 2025) annonçait une disponibilité générale pour début Septembre 2025. Elle est intervenue le 16 Novembre 2026.</Notice>
+
+---
+
+##### Ce qu'il faut vérifier avant d'activer
+Les appareils (imprimantes, numériseurs), les applications métier et les services tiers qui envoient avec votre propre domaine directement vers votre MX, sans connecteur, seront rejetés avec le code *550 5.7.68*. La vérification se fait en quatre temps :
+- <u>Change Optics Report</u> : Dans le centre d'administration Exchange, *Rapports > Flux de courriels > Change Optics Report*, le scénario *DRS* présente le trafic *Direct Send* reçu par le tenant, avec un échantillon de messages (rapport en disponibilité générale via *MC1526668*)
+- <u>SPF</u> : Revoir les enregistrements SPF du domaine
+- <u>Connecteurs</u> : Créer pour chaque expéditeur légitime un connecteur entrant de type partenaire, la correspondance par certificat TLS étant recommandée et l'adresse IP d'envoi l'alternative
+- <u>Attribution</u> : Contrôler qu'un message est bien rattaché à son connecteur avec *Get-MessageTraceV2* puis *Get-MessageTraceDetailV2*
+
+Pour les expéditeurs impossibles à relier à un connecteur, les règles de transport restent une solution de rechange. Un cas connu est la redirection par un service tiers sans *Sender Rewriting Scheme* (*SRS*) : le message revient avec votre expéditeur d'origine, échoue au contrôle SPF et, sans connecteur partenaire, il est rejeté. Depuis la préversion, l'incident connu avec *Azure Communication Services Email* a été corrigé.
+
+---
+
+##### Activer et contrôler
+L'activation demande le rôle *Organization Configuration* et se fait via la commande PowerShell suivante :
+```powershell
+Connect-ExchangeOnline
+
+Set-OrganizationConfig -RejectDirectSend $true
+```
+
+Le changement peut prendre jusqu'à 30 minutes pour se propager. L'état se vérifie avec *Get-OrganizationConfig | Format-List RejectDirectSend*.
+
+---
+
+##### Conclusion
+Le risque n'est pas l'attaque que le paramètre bloque, c'est le trafic légitime que personne n'a recensé : un numériseur oublié ou une application métier suffisent à perdre du courriel, sans file d'attente pour amortir la surprise. Pour un tenant existant, le bon ordre est de lire le scénario *DRS* du rapport pendant quelques jours, de créer les connecteurs, puis d'activer. Pour un tenant neuf, l'activation par défaut est prévue : les appareils doivent être déclarés dès le départ.
+
+---
+
+##### Sources
+[Microsoft - Techcommunity](https://techcommunity.microsoft.com/t5/exchange-team-blog/reject-direct-send-now-generally-available-in-exchange-online/ba-p/4573787)
+
+[Microsoft - Techcommunity](https://techcommunity.microsoft.com/blog/exchange/introducing-more-control-over-direct-send-in-exchange-online/4408790)
+
+[Microsoft Learn - Set-OrganizationConfig](https://learn.microsoft.com/fr-ca/powershell/module/exchangepowershell/set-organizationconfig?view=exchange-ps)
+
+---
+
+
+Avez-vous apprécié cet article ? Vous avez des questions, commentaires ou suggestions, n'hésitez pas à m'envoyer un message depuis le formulaire de contact.
+
+N'oubliez pas de nous suivre et de partager cet article.

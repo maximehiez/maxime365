@@ -47,7 +47,7 @@ Check the article about Teams Phone Agent and Copilot Studio voice agents [HERE]
 ##### Smarter and more secure collaboration
 - <u>Facilitator agent</u> : Builds and tracks the agenda, answers questions and tracks tasks on behalf of everyone in the meeting
 - <u>Audio and video recaps</u> : The meeting recap can be consulted as a podcast-style narrated summary, for up to eight meetings, or as a video reel of the most important moments
-- <u>New Teams events experience</u> : Webinars and town halls brought together in a single flow, from preparation to post-event follow-up, with up to 100,000 concurrent attendees through *Attendee Capacity Packs*
+- <u>New Teams events experience</u> : Webinars and town halls brought together in a single flow, from preparation to post-event follow-up, with up to 100 000 concurrent attendees through *Attendee Capacity Packs*
 - <u>Trust Indicators</u> : Badges show the status of external people, external-familiar, external-unfamiliar, guest, email-verified or unverified
 - <u>Meeting bot detection</u> : Teams identifies bots in the lobby and flags them to the organizer before anyone is admitted
 - <u>Brand impersonation detection</u> : A warning is displayed when a call shows signs of impersonation, with the option to report it from the call history

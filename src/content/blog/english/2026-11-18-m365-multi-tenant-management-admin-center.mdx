@@ -1,0 +1,80 @@
+---
+title: "Managing multiple tenants via an M365 portal in Public Preview"
+meta_title: ""
+description: ""
+date: 2026-11-18T10:00:00-05:00
+image: "/images/blog/m365/m365_multi_tenant_management_admin_center_thumbnail.png"
+categories: ["Microsoft 365"]
+author: "Maxime Hiez"
+tags: ["Multi tenant", "Governance"]
+draft: false
+---
+---
+
+##### Introduction
+Consultants, partners and IT teams who administer multiple tenants still spend their day switching sessions, accounts and portals. The *Microsoft 365 Admin Center* adds an *All tenants* scope that lets you link several tenants and manage them from a single interface (announcement *MC1558024*). The feature is in Public Preview : rollout starts in mid-November 2026 and is expected to finish in early December 2026. The message mentions no roadmap ID, no general availability date, and nothing about sovereign clouds.
+
+---
+
+##### The All tenants scope and the tenant picker
+The admin center's left-hand menu gains a *<u>Tenants</u>* entry, with a consolidated list of linked tenants and a tenant picker in the command bar. The picker lets you move from one eligible tenant to another without signing out, without opening a separate session and without a local account in each tenant : your identity stays that of the governing tenant, and delegated roles apply in the selected tenant.
+
+Linking tenants doesn't merge the directories and doesn't remove the isolation between them.
+
+---
+
+##### Prerequisites : relationships, roles and licenses
+Access relies entirely on a relationship between the governing tenant and each managed tenant, and nothing shows up without one. Two models exist :
+- <u>Partner / CSP</u> : A customer relationship in *Partner Center* and granular delegated admin privileges (*GDAP*), limited in time and by role.
+- <u>Enterprise</u> : A directional relationship in *Microsoft Entra Tenant Governance*, requested from the governing tenant, approved by the target tenant, then completed by assigning delegated access, to be repeated for each tenant.
+
+Roles are evaluated tenant by tenant. A page or an action can be read-only or unavailable in another tenant, and switching context doesn't automatically grant permissions on workloads.
+
+On the licensing side, a Tenant Governance relationship with cross-tenant GDAP requires *Microsoft Entra ID P1*, *P2* or *ID Governance* only in the governing tenant, with one license per administrator who configures relationships, not per relationship. The managed tenant needs no license. P1 is included in *Microsoft 365 E3* and *Business Premium*, *P2* in *E5*, and ID Governance in *Entra Suite* and *Microsoft 365 E7*.
+
+<Notice type="note">The sources consulted don't specify the license required for the path that goes through Partner Center only. No switch to turn the experience on or off at the tenant level is described either.</Notice>
+
+---
+
+##### What you can do from All tenants
+Three areas are added on top of basic tenant management. The feature is in preview, and the documentation explicitly says so for configuration management and agent management.
+
+1. Configuration management lets you create *baselines*, either provided by Microsoft or custom, and assign them to one or more tenants, which deploys the configuration and starts background monitoring. It adds snapshots, comparison of two tenants at a time and a drift status (*Compliant*, *Drifted*, *Not monitored*, *Unknown*) with a *Fix drifts* action. The example resources visible in the preview cover *Copilot*, *Entra*, *Exchange*, *Intune*, *Security & Compliance* and *Teams*. Assigning a baseline or fixing a drift changes the configuration of the managed tenants, so handle it with the same care as a production deployment.
+
+2. Agent management, in Public Preview, offers a cross-tenant agent inventory, adding, installing or blocking agents, risk and activity views and a CSV export of activity. The *AI Administrator* and *Global Administrator* roles can view and manage, while *Global Reader* can only view. Viewing and managing agents requires no additional license, but the risk and activity views require a *Microsoft Agent 365* license assigned to the end user.
+
+3. Cost management brings together the *Copilot Credits* of the managed tenants, with spending templates defined in the governing tenant. Applying a template creates an independent policy in each selected tenant, with no persistent link or synchronization, and a bulk action may only partly succeed.
+
+<Notice type="note">The configuration management documentation page still contains an unfinished sentence : its details, notably the result states of a baseline deployment, should be treated as provisional.</Notice>
+
+---
+
+##### Not the same as the Multitenant Organization
+This management is built on Entra Tenant Governance and isn't the Microsoft 365 *Multitenant Organization* (MTO), which is used for cross-tenant collaboration. It isn't a B2B guest account model either.
+
+---
+
+##### Conclusion
+For an MSP or a consultant already on GDAP, the preview is worth a try : a single entry point, without multiplying sessions, as long as you first confirm the licenses and the Tenant Governance prerequisite announced in the message. For a multi-tenant enterprise, you first need to set up the Tenant Governance relationships and plan the Entra licenses of the governing tenant. Test the preview with a lab tenant before any customer, especially for baselines and drift fixing, which write to the managed tenants. The general availability date and the scope for sovereign clouds remain to be seen.
+
+---
+
+##### Sources
+[Microsoft Learn - Manage multiple tenants in the Microsoft 365 admin center](https://learn.microsoft.com/en-us/microsoft-365/admin/multi-tenant/manage)
+
+[Microsoft Learn - Manage configurations across multiple tenants in the Microsoft 365 admin center](https://learn.microsoft.com/en-us/microsoft-365/admin/multi-tenant/configure-multi-tenant)
+
+[Microsoft Learn - Manage agents across multiple tenants in the Microsoft 365 admin center (preview)](https://learn.microsoft.com/en-us/microsoft-agent-365/admin/agent-multi-tenant)
+
+[Microsoft Learn - Manage costs across multiple tenants](https://learn.microsoft.com/en-us/microsoft-365/admin/multi-tenant/manage-costs-across-multiple-tenants)
+
+[Microsoft Learn - What is Microsoft Entra Tenant Governance ?](https://learn.microsoft.com/en-us/entra/id-governance/tenant-governance/overview)
+
+[Microsoft Learn - Licensing for Microsoft Entra Tenant Governance](https://learn.microsoft.com/en-us/entra/id-governance/tenant-governance/licensing)
+
+---
+
+
+Did you enjoy this post ? If you have any questions, comments or suggestions, please feel free to send me a message from the contact form.
+
+Don't forget to follow us and share this post.

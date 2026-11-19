@@ -20,7 +20,7 @@ Managing multiple specialized models within a single AI pipeline adds deployment
 *Mistral Small 4* is built on a *Mixture of Experts* (*MoE*) architecture with 119 billion total parameters, of which approximately 6 billion are activated per token. The model uses 128 experts with 4 active simultaneously, keeping the computational footprint at inference low despite the model's raw size.
 
 Key characteristics :
-- <u>Context window</u> : 256,000 tokens, sufficient to process long documents or extended conversation histories.
+- <u>Context window</u> : 256 000 tokens, sufficient to process long documents or extended conversation histories.
 - <u>Native multimodality</u> : Text and image as input, text as output. *Small 3* was strictly text-only; that limitation is gone.
 - <u>Configurable reasoning</u> : The new *reasoning_effort* parameter accepts the values *none* or *high*, making it possible to switch between a fast response and deep reasoning based on the use case, without changing models.
 - <u>Language support</u> : 24 languages including French, English, Spanish, German, Chinese, Japanese, and Arabic.
@@ -45,7 +45,7 @@ In the absence of an official technical report at the time of the announcement, 
 | MMLU-Pro      | 78.0%                                  | 64.8%       |
 | LiveCodeBench | Outperforms GPT-OSS 120B (−20% tokens) | -           |
 
-On the *AA LCR* (weighted response length) benchmark, *Small 4* scores 0.72 for 1,600 characters, against ranges of 5800 to 6100 characters for *Qwen 3.5-122B*, reflecting a notably concise output style.
+On the *AA LCR* (weighted response length) benchmark, *Small 4* scores 0.72 for 1 600 characters, against ranges of 5800 to 6100 characters for *Qwen 3.5-122B*, reflecting a notably concise output style.
 
 ---
 

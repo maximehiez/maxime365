@@ -1,0 +1,82 @@
+---
+title: "Reject Direct Send now available in Exchange Online"
+meta_title: ""
+description: ""
+date: 2026-11-18T10:00:00-05:00
+image: "/images/blog/exchange/exchange_reject_direct_send_ga_thumbnail.png"
+categories: ["Exchange"]
+author: "Maxime Hiez"
+tags: ["Security", "Emails"]
+draft: false
+---
+---
+
+##### Introduction
+*Direct Send* lets a device or an application send an email straight to a tenant's MX endpoint, without authentication, using one of its domains as the sender. On November 16, 2026, the *Exchange Online* team announced the general availability of *Reject Direct Send*, the setting that blocks this traffic across the tenant. The preview dated from April 2025.
+
+The setting is off by default on existing tenants, and Microsoft plans to turn it on by default, with no way to turn it off, on new tenants. The rollout was in progress at the time of publication. General availability covers *worldwide* tenants.
+
+---
+
+##### What the setting blocks
+Exchange Online rejects anonymous messages whose envelope address (*P1 MAIL FROM*) belongs to one of your accepted domains. A message is "*anonymous*" when it isn't tied to any mail flow connector. The *From* header (*P2*) isn't checked, and the location of the MX has no effect. Subdomains are covered when the option to accept mail for all subdomains is on (*MatchSubDomains* set to *True*).
+
+On Learn, the setting is defined as follows : *"The RejectDirectSend parameter specifies whether to block Direct Send in your organization."*. It only exists in the cloud service : *"This parameter is available only in the cloud-based service."*.
+
+A rejected message isn't queued, it is bounced with the following code : *"550 5.7.68 TenantInboundAttribution; Direct Send not allowed for this organization from unauthorized sources"*.
+
+---
+
+##### Availability and defaults
+The behavior depends on the age of the tenant :
+- <u>Existing tenants</u> : Opt-in, off by default (*$false*)
+- <u>New tenants</u> : Planned to be on by default for new tenants, with no way to turn it off ; the rollout was in progress when the announcement was published
+- <u>GCC High and DoD</u> : Not available
+
+More than 70 000 organizations have already turned it on. The announcement mentions no license, and the only setting is a Boolean that applies to the whole tenant : the sources don't describe a per-domain or per-sender switch. Exceptions go through inbound connectors.
+
+<Notice type="note">*MC1093237* (June 12, 2025) announced general availability for early September 2025. It arrived on November 16, 2026.</Notice>
+
+---
+
+##### What to check before turning it on
+Devices (printers, scanners), line-of-business applications and third-party services that send with your own domain directly to your MX, without a connector, will be rejected with the *550 5.7.68* code. The check takes four steps :
+- <u>Change Optics Report</u> : In the Exchange admin center, *Reports > Mail flow > Change Optics Report*, the *DRS* scenario shows the *Direct Send* traffic received by the tenant, with a sample of messages (report generally available through *MC1526668*)
+- <u>SPF</u> : Review the domain's SPF records
+- <u>Connectors</u> : Create a partner inbound connector for each legitimate sender, with TLS certificate matching recommended and the sending IP address as the alternative
+- <u>Attribution</u> : Confirm that a message is tied to its connector with *Get-MessageTraceV2* then *Get-MessageTraceDetailV2*
+
+For senders that can't be tied to a connector, transport rules remain a fallback. One known case is forwarding by a third-party service without *Sender Rewriting Scheme* (*SRS*) : the message comes back with your original sender, fails the SPF check and, without a partner connector, is rejected. Since the preview, the known issue with *Azure Communication Services Email* has been fixed.
+
+---
+
+##### Turn it on and check it
+Turning it on requires the *Organization Configuration* role and is done with the following PowerShell command :
+```powershell
+Connect-ExchangeOnline
+
+Set-OrganizationConfig -RejectDirectSend $true
+```
+
+The change can take up to 30 minutes to propagate. The state can be checked with *Get-OrganizationConfig | Format-List RejectDirectSend*.
+
+---
+
+##### Conclusion
+The risk isn't the attack the setting blocks, it's the legitimate traffic nobody has inventoried : a forgotten scanner or a line-of-business application is enough to lose mail, with no queue to cushion the surprise. For an existing tenant, the right order is to read the report's *DRS* scenario for a few days, create the connectors, then turn it on. For a new tenant, it is planned to be on by default : devices must be declared from day one.
+
+---
+
+##### Sources
+[Microsoft - Techcommunity](https://techcommunity.microsoft.com/t5/exchange-team-blog/reject-direct-send-now-generally-available-in-exchange-online/ba-p/4573787)
+
+[Microsoft - Techcommunity](https://techcommunity.microsoft.com/blog/exchange/introducing-more-control-over-direct-send-in-exchange-online/4408790)
+
+[Microsoft Learn - Set-OrganizationConfig](https://learn.microsoft.com/en-us/powershell/module/exchangepowershell/set-organizationconfig?view=exchange-ps)
+
+---
+
+
+Did you enjoy this post ? If you have any questions, comments or suggestions, please feel free to send me a message from the contact form.
+
+Don't forget to follow us and share this post.

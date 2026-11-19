@@ -21,7 +21,7 @@ Check the GPT-6.1 Terra article [HERE](https://maxime.hiez.ca/en/blog/2026-10-31
 ##### Deployment and regions
 In the new Foundry portal, deployment goes through *Discover* > *Models*, the model card, then *Deploy*. The deployment name is the value to pass in the *model* parameter of the *https://resource-name.openai.azure.com/openai/v1/* route, without *api-version*. The project and the resource must be in a supported region.
 
-*gpt-6.1-terra* (version *2026-10-26*) carries no *Preview* label : it follows the lifecycle of generally available models. The context window is 1,050,000 tokens, of which 922,000 are input and 128,000 are output.
+*gpt-6.1-terra* (version *2026-10-26*) carries no *Preview* label : it follows the lifecycle of generally available models. The context window is 1 050 000 tokens, of which 922 000 are input and 128 000 are output.
 
 Global Standard is offered in all supported regions except *eastus2* and *northeurope*; Data Zone Standard covers the United States (without *eastus2*), Europe (without *northeurope*) and Asia-Pacific. *Canada Central* and *Canada East* are available in Global Standard only.
 
@@ -45,9 +45,9 @@ The article also publishes cache prices. The Global rows match the Azure pricing
 
 Short or long context is measured on the input tokens of a single request. Learn does not state the threshold for Terra.
 
-Default quotas depend on the subscription tier. In Global Standard, they range from 250 requests and 250,000 tokens per minute at tier 1 to 8,000 and 8,000,000 at tier 6 (4,000 and 4,000,000 at tier 4). In Data Zone Standard, they range from 100 and 100,000 to 2,667 and 2,667,000.
+Default quotas depend on the subscription tier. In Global Standard, they range from 250 requests and 250 000 tokens per minute at tier 1 to 8 000 and 8 000 000 at tier 6 (4 000 and 4 000 000 at tier 4). In Data Zone Standard, they range from 100 and 100 000 to 2 667 and 2 667 000.
 
-From tier 4 onward, they are lower than those of *GPT-6.1 Sol* (15,000 requests per minute in Global Standard at tier 6) and *GPT-5.6 Terra*. For Terra, nothing indicates that an access request is required, whereas for Sol the reasoning models page says *"No access request needed."* An additional quota request remains possible through a form, and the subscription tier stays the same.
+From tier 4 onward, they are lower than those of *GPT-6.1 Sol* (15 000 requests per minute in Global Standard at tier 6) and *GPT-5.6 Terra*. For Terra, nothing indicates that an access request is required, whereas for Sol the reasoning models page says *"No access request needed."* An additional quota request remains possible through a form, and the subscription tier stays the same.
 
 ---
 

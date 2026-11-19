@@ -38,15 +38,15 @@ Grok 4.6 is one of the models sold by *Azure*, so it is not billed through the *
 
 The deployment characteristics are the following :
 - <u>Deployment type</u> : *Global Standard* only, in all supported regions
-- <u>Context window</u> : 200,000 tokens, input and output combined
-- <u>Maximum output</u> : 128,000 tokens, or the remaining context budget if that is smaller
+- <u>Context window</u> : 200 000 tokens, input and output combined
+- <u>Maximum output</u> : 128 000 tokens, or the remaining context budget if that is smaller
 - <u>Supported inputs</u> : Text and image
 - <u>API</u> : *Chat Completions* and *Responses*
 - <u>Authentication</u> : *Entra ID* recommended, or an API key for the Foundry resource
 
-The *Cognitive Services Contributor* role on the Foundry resource is required to deploy the model. Quotas depend on the subscription tier : 50,000 tokens per minute and 50 requests per minute on the Medium tier, 5,000,000 tokens per minute and 5,000 requests per minute on the High tier.
+The *Cognitive Services Contributor* role on the Foundry resource is required to deploy the model. Quotas depend on the subscription tier : 50 000 tokens per minute and 50 requests per minute on the Medium tier, 5 000 000 tokens per minute and 5 000 requests per minute on the High tier.
 
-<Notice type="info">The direct SpaceXAI API advertises a 500,000 token context window for Grok 4.6, with pricing doubled beyond 200,000 tokens. In Foundry, the window is capped at 200,000 tokens : a request that exceeds this limit fails instead of switching to the long-context pricing.</Notice>
+<Notice type="info">The direct SpaceXAI API advertises a 500 000 token context window for Grok 4.6, with pricing doubled beyond 200 000 tokens. In Foundry, the window is capped at 200 000 tokens : a request that exceeds this limit fails instead of switching to the long-context pricing.</Notice>
 
 ---
 

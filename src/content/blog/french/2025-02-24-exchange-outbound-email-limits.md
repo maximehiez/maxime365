@@ -63,7 +63,7 @@ Le déploiement des nouvelles limites TERRL se fera en 4 phases :
 ---
 
 ##### Impact sur les utilisateurs
-Selon les données de télémétrie de service, la majorité des clients Exchange Online ne seront pas impactés par ces nouvelles limites. Un nouveau rapport, intitulé *Tenant Outbound External Recipients*, sera disponible dans le Centre d'administration Exchange (EAC) d'ici fin Février 2025. Ce rapport permettra aux administrateurs de voir la limite de leur tenant.
+Selon les données de télémétrie de service, la majorité des clients Exchange Online ne seront pas impactés par ces nouvelles limites. Un nouveau rapport, intitulé *Tenant Outbound External Recipients*, sera disponible dans le centre d'administration Exchange (EAC) d'ici fin Février 2025. Ce rapport permettra aux administrateurs de voir la limite de leur tenant.
 
 ![image](/images/blog/exchange/exchange_outbound_email_limits_002.png)
 

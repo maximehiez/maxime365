@@ -17,14 +17,14 @@ An *auto-labeling policy* in *Microsoft Purview* applies a *Sensitivity Label* t
 ---
 
 ##### The manual site selection limit
-In the auto-labeling policy creation wizard, the location selection page allows you to explicitly choose up to **1,000 SharePoint sites**. For organizations managing several thousand sites, this limit forced a choice between multiplying the number of policies or targeting broader, less precise locations.
+In the auto-labeling policy creation wizard, the location selection page allows you to explicitly choose up to **1 000 SharePoint sites**. For organizations managing several thousand sites, this limit forced a choice between multiplying the number of policies or targeting broader, less precise locations.
 
 Another point of friction concerned retroactively labeling files that already existed : the documentation recommends processing sites in batches of 10 at a time, validating the results, then swapping in the next batch, a repetitive manual operation across a large scope.
 
 ---
 
-##### SharePoint adaptive scopes, up to 50,000 sites
-To work around this limit, Microsoft Purview relies on *adaptive scopes*, dynamic queries already used by other compliance policies, which re-evaluate membership daily based on site properties rather than a fixed list of URLs. For an auto-labeling policy, a SharePoint-type adaptive scope can target up to **50,000 sites** in a single policy.
+##### SharePoint adaptive scopes, up to 50 000 sites
+To work around this limit, Microsoft Purview relies on *adaptive scopes*, dynamic queries already used by other compliance policies, which re-evaluate membership daily based on site properties rather than a fixed list of URLs. For an auto-labeling policy, a SharePoint-type adaptive scope can target up to **50 000 sites** in a single policy.
 
 An adaptive scope is built on indexed site properties, such as the URL, the site name, or the *SiteTemplate* property, which lets you include or exclude entire types of sites (communication sites, sites connected to a Microsoft 365 group, Teams private channel sites, OneDrive sites, etc). Once the adaptive scope is created in the Purview portal, it's attached to an auto-labeling policy through the *-SharePointAdaptiveScopes* parameter of the *New-AutoSensitivityLabelPolicy* cmdlet.
 
@@ -35,7 +35,7 @@ An adaptive scope is built on indexed site properties, such as the URL, the site
 ##### What administrators should know
 Switching to an adaptive scope requires the *Scope Manager* role, included in the *Compliance Administrator*, *Compliance Data Administrator*, *Organization Management*, and *Records Management* roles. The adaptive scope query only runs once a day : up to five days may pass before a newly created or modified scope correctly reflects its actual membership, a delay to plan for before attaching it to a production policy.
 
-The other auto-labeling limits remain unchanged by this change : a maximum of 100 policies per tenant, up to 500,000 labeled files per day, and up to 20,000,000 matching files during a simulation.
+The other auto-labeling limits remain unchanged by this change : a maximum of 100 policies per tenant, up to 500 000 labeled files per day, and up to 20 000 000 matching files during a simulation.
 
 ---
 

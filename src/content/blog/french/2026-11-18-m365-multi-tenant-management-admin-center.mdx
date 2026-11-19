@@ -1,0 +1,80 @@
+---
+title: "Gérer plusieurs tenants via un portail M365 en Public Preview"
+meta_title: ""
+description: ""
+date: 2026-11-18T10:00:00-05:00
+image: "/images/blog/m365/m365_multi_tenant_management_admin_center_thumbnail.png"
+categories: ["Microsoft 365"]
+author: "Maxime Hiez"
+tags: ["Multi tenant", "Gouvernance"]
+draft: false
+---
+---
+
+##### Introduction
+Les consultants, les partenaires et les équipes IT qui administrent plusieurs tenants passent encore leur journée à changer de session, de compte et de portail. Le *Centre d'administration Microsoft 365* ajoute un périmètre *All tenants* qui permet de lier plusieurs tenants et de les gérer depuis une seule interface (annonce *MC1558024*). La fonctionnalité est en Public Preview : le déploiement débute mi-Novembre 2026 et doit se terminer début Décembre 2026. Le message ne mentionne ni identifiant de roadmap, ni date de disponibilité générale, ni précision sur les clouds souverains.
+
+---
+
+##### Le périmètre All tenants et le sélecteur de tenant
+Le menu de gauche du centre d'administration gagne une entrée *<u>Tenants</u>*, avec une liste consolidée des tenants liés et un sélecteur de tenant dans la barre de commandes. Ce sélecteur permet de passer d'un tenant éligible à un autre sans se déconnecter, sans ouvrir de session distincte et sans compte local dans chaque tenant : l'identité reste celle du tenant gouvernant, et les rôles délégués s'appliquent dans le tenant sélectionné.
+
+Lier des tenants ne fusionne pas les annuaires et ne supprime pas l'isolation entre eux.
+
+---
+
+##### Prérequis : relations, rôles et licences
+L'accès repose entièrement sur une relation entre le tenant gouvernant et chaque tenant géré, rien n'apparaît sans elle. Deux modèles existent :
+- <u>Partenaire / CSP</u> : Une relation client dans *Partner Center* et des privilèges d'administration délégués granulaires (*GDAP*), limités dans le temps et par rôle.
+- <u>Entreprise</u> : Une relation directionnelle dans *Microsoft Entra Tenant Governance*, demandée depuis le tenant gouvernant, approuvée par le tenant cible, puis complétée par l'attribution d'un accès délégué, à répéter pour chaque tenant.
+
+Les rôles sont évalués tenant par tenant. Une page ou une action peut être en lecture seule ou indisponible dans un autre tenant, et changer de contexte n'accorde pas automatiquement de permissions sur les charges de travail.
+
+Côté licences, une relation Tenant Governance avec GDAP inter-tenants exige *Microsoft Entra ID P1*, *P2* ou *ID Governance* uniquement dans le tenant gouvernant, à raison d'une licence par administrateur qui configure les relations, et non par relation. Le tenant géré n'a besoin d'aucune licence. P1 est inclus dans *Microsoft 365 E3* et *Business Premium*, *P2* dans *E5*, et ID Governance dans *Entra Suite* et *Microsoft 365 E7*.
+
+<Notice type="note">Les sources consultées ne précisent pas la licence requise pour le chemin qui passe uniquement par Partner Center. Aucun interrupteur permettant d'activer ou de désactiver l'expérience au niveau du tenant n'est décrit non plus.</Notice>
+
+---
+
+##### Ce que l'on peut faire depuis All tenants
+Trois volets s'ajoutent à la gestion de base des tenants. La fonctionnalité est en préversion, la gestion de la configuration et celle des agents l'indiquant explicitement dans la documentation.
+
+1. La gestion de la configuration permet de créer des *baselines*, fournies par Microsoft ou personnalisées, et de les assigner à un ou plusieurs tenants, ce qui déploie la configuration et lance une surveillance en arrière-plan. Elle ajoute des instantanés, la comparaison de deux tenants à la fois et un état de dérive (*Compliant*, *Drifted*, *Not monitored*, *Unknown*) avec une action *Fix drifts*. Les exemples de ressources visibles dans la préversion couvrent *Copilot*, *Entra*, *Exchange*, *Intune*, *Security & Compliance* et *Teams*. Assigner une baseline ou corriger une dérive modifie la configuration des tenants gérés, à manier avec le même soin qu'un déploiement en production.
+
+2. La gestion des agents, en Public Preview, offre un inventaire d'agents entre tenants, l'ajout, l'installation ou le blocage d'agents, des vues de risque et d'activité et un export CSV de l'activité. Les rôles *AI Administrator* et *Global Administrator* peuvent consulter et gérer, *Global Reader* peut seulement consulter. Voir et gérer les agents ne demande aucune licence supplémentaire, mais les vues de risque et d'activité exigent une licence *Microsoft Agent 365* attribuée à l'utilisateur final.
+
+3. La gestion des coûts regroupe les *Copilot Credits* des tenants gérés, avec des modèles de dépenses définis dans le tenant gouvernant. Appliquer un modèle crée une politique indépendante dans chaque tenant sélectionné, sans lien persistant ni synchronisation, et une action groupée peut réussir en partie seulement.
+
+<Notice type="note">La page de documentation sur la gestion de la configuration contient encore une formulation inachevée : ses détails, notamment les états de résultat d'un déploiement de baseline, sont à considérer comme provisoires.</Notice>
+
+---
+
+##### Pas la même chose que le Multitenant Organization
+Cette gestion repose sur Entra Tenant Governance et n'est pas le *Multitenant Organization* (MTO) de Microsoft 365, qui sert à la collaboration entre tenants. Il ne s'agit pas non plus d'un modèle de comptes invités B2B.
+
+---
+
+##### Conclusion
+Pour un MSP ou un consultant déjà en GDAP, la préversion mérite un essai : un seul point d'entrée, sans multiplier les sessions, à condition de confirmer d'abord les licences et le prérequis Tenant Governance annoncé par le message. Pour une entreprise multi-tenant, il faut d'abord monter les relations Tenant Governance et prévoir les licences Entra du tenant gouvernant. La préversion se teste avec un tenant de lab avant tout client, surtout pour les baselines et la correction de dérive, qui écrivent dans les tenants gérés. Il reste à voir la date de disponibilité générale et le périmètre des clouds souverains.
+
+---
+
+##### Sources
+[Microsoft Learn - Gérer plusieurs locataires dans le Centre d’administration Microsoft 365](https://learn.microsoft.com/fr-ca/microsoft-365/admin/multi-tenant/manage)
+
+[Microsoft Learn - Gérer les configurations sur plusieurs locataires dans le Centre d’administration Microsoft 365](https://learn.microsoft.com/fr-ca/microsoft-365/admin/multi-tenant/configure-multi-tenant)
+
+[Microsoft Learn - Gérer les agents dans plusieurs locataires dans le Centre d’administration Microsoft 365](https://learn.microsoft.com/fr-ca/microsoft-agent-365/admin/agent-multi-tenant)
+
+[Microsoft Learn - Gérer les coûts sur plusieurs locataires dans le Centre dʼadministration Microsoft 365](https://learn.microsoft.com/fr-ca/microsoft-365/admin/multi-tenant/manage-costs-across-multiple-tenants)
+
+[Microsoft Learn - Qu’est-ce que Microsoft Entra Tenant Governance ?](https://learn.microsoft.com/fr-ca/entra/id-governance/tenant-governance/overview)
+
+[Microsoft Learn - Octroi de licences pour la gouvernance des locataires Microsoft Entra](https://learn.microsoft.com/fr-ca/entra/id-governance/tenant-governance/licensing)
+
+---
+
+
+Avez-vous apprécié cet article ? Vous avez des questions, commentaires ou suggestions, n'hésitez pas à m'envoyer un message depuis le formulaire de contact.
+
+N'oubliez pas de nous suivre et de partager cet article.
