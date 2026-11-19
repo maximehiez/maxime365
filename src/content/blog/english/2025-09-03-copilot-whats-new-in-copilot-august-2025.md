@@ -19,7 +19,7 @@ Microsoft releases a monthly update to *Microsoft 365 Copilot* to keep admins an
 ##### For administrators : Copilot Control System
 **<u>Inventory of agents in the administration center</u>**
 
-- *SharePoint agents* are joining the Microsoft 365 admin center's agent inventory, alongside agents developed internally and deployed across Microsoft 365 interfaces, agents created by users with *Microsoft Copilot Studio* in *Copilot Chat*, and third-party agents with governance actions (blocking, unblocking).
+- *SharePoint agents* are joining the *Microsoft 365 Admin Center*'s agent inventory, alongside agents developed internally and deployed across Microsoft 365 interfaces, agents created by users with *Microsoft Copilot Studio* in *Copilot Chat*, and third-party agents with governance actions (blocking, unblocking).
 - Rollout : September
 
 ![image](/images/blog/copilot/copilot_whats_new_in_copilot_august_2025_001.png)
