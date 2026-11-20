@@ -1,0 +1,79 @@
+---
+title: "La délégation intelligente des appels Teams en Public Preview"
+meta_title: ""
+description: ""
+date: 2026-11-19T10:00:00-05:00
+image: "/images/blog/teams/teams_intelligent_call_delegation_public_preview_thumbnail.png"
+categories: ["Teams"]
+author: "Maxime Hiez"
+tags: ["Téléphonie", "IA", "Délégation", "Licences", "Roadmap"]
+draft: false
+---
+---
+
+##### Introduction
+Un assistant qui trie les appels entrants a un coût, et Microsoft le fait désormais apparaître. L'annonce *MC1537490* fait passer la délégation intelligente des appels (*Intelligent Call Delegation*) de *Microsoft Teams* du programme *Frontier* à la *Public Preview* (anneau 3.6), avec un déploiement mondial jusqu'à mi-Décembre. La disponibilité générale est annoncée de mi à fin Janvier 2027, et l'élément de roadmap *565216* est passé en cours de déploiement (*Rolling out*) le 17 Novembre. Surtout, la fonctionnalité est maintenant facturée à l'usage en *Copilot Credits*, ce qui touche directement les tenants issus de Frontier.
+
+Voir l'article sur l'arrivée de la délégation intelligente des appels [ICI](https://maxime.hiez.ca/blog/2026-10-23-teams-intelligent-call-delegation), dont cet article ne reprend pas le fonctionnement.
+
+---
+
+##### Facturation en Copilot Credits
+Pendant la Public Preview, la délégation intelligente des appels utilise une facturation à l'usage (*usage-based billing*) en *Copilot Credits*. Les frais ne démarrent qu'une fois la dépense configurée par un administrateur dans le *Microsoft 365 Admin Center*. Les prérequis sont les suivants :
+- Licence : Chaque utilisateur doit avoir une licence *Microsoft Copilot* ; l'annonce parle de licence *Microsoft 365 Copilot* là où elle est requise
+- Facturation : L'administrateur met en place la facturation à l'usage des Copilot Credits
+- Politique de dépenses : Elle est créée dans le Microsoft 365 Admin Center pour la seule délégation intelligente des appels
+
+<br/>
+Dans la politique de dépenses, sous *Agents and services*, seul *Intelligent call delegation* doit être coché, les autres services étant décochés. L'étendue (utilisateurs ou groupes) se choisit avant d'attribuer la politique.
+
+Les Copilot Credits se paient selon une méthode de facturation qui dépend du service : abonnement *Azure* en *Pay-As-You-Go*, plan de prépaiement *P3* ou packs de capacité prépayés. Les pages consultées ne disent pas lesquelles s'appliquent à cette fonctionnalité, et aucun prix par minute ou par appel n'est publié.
+
+<Notice type="note">Microsoft Learn cite un tarif de 0.01$ par Copilot Credit en Pay-As-You-Go, mais dans un exemple générique consacré à un autre service : ce n'est pas un tarif annoncé pour la délégation intelligente des appels, et rien ne permet d'en déduire un coût par appel.</Notice>
+
+---
+
+##### Ce qui arrive aux tenants Frontier
+Les tenants qui utilisaient la fonctionnalité dans Frontier et qui ne configurent pas de dépense ne voient plus leurs appels entrants filtrés par l'assistant. Le sort de ces appels, routage normal ou messagerie vocale, n'est pas précisé. Les sources consultées ne disent pas non plus si l'accès Frontier s'arrête le 17 Novembre ou plus tard, ni ce qu'il advient des limites de Frontier (4 minutes par appel, 15 000 minutes par tenant et par mois) en Public Preview. Les langues et les plateformes prises en charge ne sont pas confirmées non plus : l'annonce ne liste que *Desktop* et *Mac*.
+
+---
+
+##### Un nouvel emplacement dans le Microsoft Teams Admin Center
+L'article du 23 Octobre signalait que la gestion de la politique ne passait que par PowerShell. Ce n'est plus le cas : le *Microsoft Teams Admin Center* propose *<u>Voice</u>* > *<u>Personal attendant policies</u>*, avec un réglage *Enable Personal Attendant* au niveau de la politique et quatre sections :
+1. *Choose how Personal Attendant speaks* : Nom préféré, voix de l'assistant, langue et ton de la conversation
+2. *Choose which calls Personal Attendant answers* : Appels Teams internes, Teams fédérés et PSTN externes
+3. *Choose what Personal Attendant can do* : Filtrage avant connexion, intégration du calendrier, rappels pour les personnes hors des contacts
+4. *Manage recording and transcription* : Enregistrement et transcription automatiques
+
+<br/>
+Les valeurs par défaut ne changent pas : l'assistant est activé dans la politique et chaque utilisateur choisit de l'activer ou non dans ses paramètres Teams. La page de Learn liste la voix, la langue et le ton comme réglages de politique ; leur effet réel n'a pas été vérifié ici. La politique accepte aussi PowerShell, par exemple pour désactiver l'intégration du calendrier via la commande suivante :
+```powershell
+New-CsTeamsPersonalAttendantPolicy -Identity SalesPersonalAttendantPolicy -CalendarBookings Disabled
+```
+
+Learn ajoute quelques capacités : l'envoi des appels suspectés indésirables vers la messagerie vocale quand le filtrage antispam est activé, les rappels et réunions de suivi (y compris au retour d'une absence), l'aperçu en direct et un résumé d'appel dans l'historique des appels, quand il est disponible.
+
+---
+
+##### Conclusion
+Le changement le plus concret n'est pas la préversion mais la facturation : sans politique de dépenses, une organisation issue de Frontier perd le filtrage de ses appels entrants. Aucune date limite n'ayant été relevée dans les sources consultées, il vaut mieux créer la politique de dépenses et choisir son étendue dès maintenant, en commençant par un groupe pilote, puis décider de l'enregistrement et de la transcription automatiques dans la politique Teams. Reste à surveiller le coût réel, puisqu'aucun prix par appel ou par minute n'est publié, ainsi que les langues, les plateformes et les limites en Public Preview.
+
+---
+
+##### Sources
+[Microsoft 365 Roadmap - ID 565216](https://www.microsoft.com/fr-ca/microsoft-365/roadmap?id=565216)
+
+[Microsoft Learn - Gérer la délégation d’appel intelligente dans Microsoft Teams](https://learn.microsoft.com/fr-ca/microsoftteams/intelligent-call-delegation)
+
+[Microsoft Learn - Usage-Based Facturation et gestion des coûts pour les crédits Copilot](https://learn.microsoft.com/fr-ca/copilot/plan/usage-based-billing-overview-copilot-credits)
+
+[Microsoft Learn - Configurer la facturation basée sur l’utilisation pour les crédits Copilot](https://learn.microsoft.com/fr-ca/copilot/implement/usage-based-billing-copilot-credits-setup)
+
+[Microsoft Learn - Crédit Copilot P3](https://learn.microsoft.com/fr-ca/azure/cost-management-billing/reservations/copilot-credit-p3)
+
+---
+
+
+Avez-vous apprécié cet article ? Vous avez des questions, commentaires ou suggestions, n'hésitez pas à m'envoyer un message depuis le formulaire de contact.
+
+N'oubliez pas de nous suivre et de partager cet article.

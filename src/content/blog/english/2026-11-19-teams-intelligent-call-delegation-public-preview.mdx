@@ -1,0 +1,79 @@
+---
+title: "Teams intelligent call delegation in Public Preview"
+meta_title: ""
+description: ""
+date: 2026-11-19T10:00:00-05:00
+image: "/images/blog/teams/teams_intelligent_call_delegation_public_preview_thumbnail.png"
+categories: ["Teams"]
+author: "Maxime Hiez"
+tags: ["Telephony", "AI", "Delegation", "Licenses", "Roadmap"]
+draft: false
+---
+---
+
+##### Introduction
+An assistant that screens incoming calls has a cost, and Microsoft now makes it visible. Announcement *MC1537490* moves *Intelligent Call Delegation* in *Microsoft Teams* from the *Frontier* program to *Public Preview* (ring 3.6), with a worldwide rollout through mid-December. General availability is announced for mid to late January 2027, and roadmap item *565216* moved to *Rolling out* on November 17. Most importantly, the feature is now billed on usage in *Copilot Credits*, which directly affects tenants coming from Frontier.
+
+Check the intelligent call delegation article [HERE](https://maxime.hiez.ca/en/blog/2026-10-23-teams-intelligent-call-delegation), which this article doesn't re-explain.
+
+---
+
+##### Billing in Copilot Credits
+During the Public Preview, intelligent call delegation uses *usage-based billing* in *Copilot Credits*. Charges only start once an administrator has configured spending in the *Microsoft 365 Admin Center*. The prerequisites are the following :
+- License : Each user must have a *Microsoft Copilot* license ; the announcement mentions a *Microsoft 365 Copilot* license where one is required
+- Billing : The administrator sets up usage-based billing for Copilot Credits
+- Spending policy : Created in the Microsoft 365 Admin Center for intelligent call delegation only
+
+<br/>
+In the spending policy, under *Agents and services*, only *Intelligent call delegation* should be selected, with the other services cleared. The scope (users or groups) is chosen before the policy is assigned.
+
+Copilot Credits are paid through a billing method that depends on the service : an *Azure* subscription on *Pay-As-You-Go*, the *P3* pre-purchase plan or prepaid capacity packs. The pages consulted don't say which ones apply to this feature, and no price per minute or per call is published.
+
+<Notice type="note">Microsoft Learn quotes a rate of 0.01$ per Copilot Credit on Pay-As-You-Go, but in a generic example about another service : it isn't a rate announced for intelligent call delegation, and nothing allows a cost per call to be derived from it.</Notice>
+
+---
+
+##### What happens to Frontier tenants
+Tenants that used the feature in Frontier and don't configure spending no longer have their incoming calls screened by the assistant. What happens to those calls, normal routing or voicemail, isn't specified. The sources consulted also don't say whether Frontier access ends on November 17 or later, or what happens to the Frontier limits (4 minutes per call, 15 000 minutes per tenant per month) in Public Preview. Supported languages and platforms aren't confirmed either : the announcement only lists *Desktop* and *Mac*.
+
+---
+
+##### A new location in the Microsoft Teams Admin Center
+The October 23 article noted that the policy could only be managed through PowerShell. That's no longer the case : the *Microsoft Teams Admin Center* now offers *<u>Voice</u>* > *<u>Personal attendant policies</u>*, with an *Enable Personal Attendant* setting at the policy level and four sections :
+1. *Choose how Personal Attendant speaks* : Preferred name, assistant voice, conversation language and tone
+2. *Choose which calls Personal Attendant answers* : Internal Teams, federated Teams and external PSTN calls
+3. *Choose what Personal Attendant can do* : Screening before connecting, calendar integration, callbacks for people outside the user's contacts
+4. *Manage recording and transcription* : Automatic recording and transcription
+
+<br/>
+The defaults haven't changed : the assistant is enabled in the policy, and each user chooses whether to turn it on in their Teams settings. The Learn page lists voice, language and tone as policy settings ; their actual effect hasn't been verified here. The policy also accepts PowerShell, for example to disable calendar integration with the following command :
+```powershell
+New-CsTeamsPersonalAttendantPolicy -Identity SalesPersonalAttendantPolicy -CalendarBookings Disabled
+```
+
+Learn adds a few capabilities : sending suspected spam calls to voicemail when spam filtering is on, callbacks and follow-up meetings (including when the user returns from being out of office), live preview and a call summary in call history, when available.
+
+---
+
+##### Conclusion
+The most concrete change isn't the preview but the billing : without a spending policy, an organization coming from Frontier loses screening of its incoming calls. As no deadline appears in the sources consulted, it's best to create the spending policy and choose its scope now, starting with a pilot group, then decide on automatic recording and transcription in the Teams policy. Still to watch are the real cost, since no price per call or per minute is published, as well as languages, platforms and limits in Public Preview.
+
+---
+
+##### Sources
+[Microsoft 365 Roadmap - ID 565216](https://www.microsoft.com/en-us/microsoft-365/roadmap?id=565216)
+
+[Microsoft Learn - Manage Intelligent call delegation in Microsoft Teams](https://learn.microsoft.com/en-us/microsoftteams/intelligent-call-delegation)
+
+[Microsoft Learn - Usage-Based Billing and Cost Management for Copilot Credits](https://learn.microsoft.com/en-us/copilot/plan/usage-based-billing-overview-copilot-credits)
+
+[Microsoft Learn - Set up usage-based billing for Copilot Credits](https://learn.microsoft.com/en-us/copilot/implement/usage-based-billing-copilot-credits-setup)
+
+[Microsoft Learn - Copilot Credit P3](https://learn.microsoft.com/en-us/azure/cost-management-billing/reservations/copilot-credit-p3)
+
+---
+
+
+Did you enjoy this post ? If you have any questions, comments or suggestions, please feel free to send me a message from the contact form.
+
+Don't forget to follow us and share this post.
