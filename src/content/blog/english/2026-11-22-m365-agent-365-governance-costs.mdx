@@ -1,0 +1,102 @@
+---
+title: "Agent 365 plugin governance is GA, costs are in Frontier"
+meta_title: ""
+description: ""
+date: 2026-11-22T10:00:00-05:00
+image: "/images/blog/m365/m365_agent_365_governance_costs_thumbnail.png"
+categories: ["Microsoft 365"]
+author: "Maxime Hiez"
+tags: ["Agent", "Governance", "Licenses"]
+draft: false
+---
+---
+
+##### Introduction
+The more agents, plugins and MCP servers pile up in a tenant, the more you need to know who uses them, what risks they carry and what they cost. For *Ignite 2026*, Microsoft announced several additions to *Agent 365* with different statuses : plugin and skill governance is GA, as are agent analytics without an *Agent 365* license. *Business Analytics* has been in *Frontier* since November 17, 2026, *Dynamic Agent Risk* is in preview and the action center only arrives in December 2026. No Message Center or roadmap ID was found for these items.
+
+Check the Copilot plugin registry article [HERE](https://maxime.hiez.ca/en/blog/2026-10-07-copilot-plugin-registry).
+
+---
+
+##### Plugin and skill governance is GA
+Access to plugins and skills can be assigned to specific users or groups from the *Microsoft 365 admin center*, under *Agents* > *Tools*. On a package, the possible actions are :
+- Install or uninstall
+- Manage availability : All users, no users, or specific users and groups
+- Delete, for packages uploaded by the tenant only
+- Block
+
+A second level is set under *Agents* > *Settings* > *Agent and plugin access*, by publisher category : Microsoft, your organization, certified external publishers. If none is checked, plugins remain visible but show *"This plugin is blocked by your organization's policy."* The *Agents* > *Settings* > *User access* setting is *All users* by default.
+
+These controls apply to the package, not to its connections. Approving or blocking a plugin neither grants nor removes permissions on the connected services. Blocking a plugin blocks its bundled agents ; MCP servers and shared connectors may remain available to other plugins. Tool-by-tool control inside an MCP server is rolling out and only applies to some servers registered in Agent 365. Support for *Azure AI Gateway* and *LiteLLM* is in preview.
+
+<Notice type="note">The MCP requests tab is still labeled *Requests (preview)*.</Notice>
+
+---
+
+##### Dynamic Agent Risk and the action center
+*Dynamic Agent Risk* is in preview, and in expanded limited preview in *Microsoft Perception*. I haven't found a Learn page or a date yet. It combines runtime signals, posture and blast radius into a risk assessment : partners (*Check Point*, *Cyera*, *Darktrace*, *Zenity*) send their signals through *Microsoft Sentinel*, but Microsoft calculates the final score. No license prerequisite is listed.
+
+The action center is expected in December 2026, in private preview according to the Book of News and in preview according to Tech Community.
+
+Today, the agent registry already shows a *Risks* column (high, medium, low) based on *Entra*, *Purview* and *Defender* signals. It requires an *E7* or *Agent 365* license.
+
+---
+
+##### Agent analytics without an Agent 365 license
+For Microsoft prebuilt agents and those created on Microsoft platforms, the overview, active users and usage metrics are available in the admin center without an *Agent 365* license. This change is GA. The license is only required for third-party agents, and their data collection starts when it is activated.
+
+*Agent 365*, GA since May 1, 2026, costs 15$ USD per user per month on its own, or is included in *Microsoft 365 E7*. It is still required for non-Microsoft agents.
+
+*Viva Insights* also drops the *Agent 365* license requirement for its agent analytics, but keeps a minimum of 50 assigned Copilot licenses. The Learn page for the agent dashboard, in preview, still requires *Agent 365* for the *All agents* view and may not reflect the announcement yet.
+
+---
+
+##### Business Analytics and Cost Management
+*Agent 365 Business Analytics* has been available in the Frontier program since November 17, 2026, with a gradual rollout, so under preview conditions. It only covers pay-as-you-go billing, not Copilot licenses. The *Spend cap* and *Model mix change* simulations only change the forecast, not the actual policies.
+
+The license threshold for Microsoft services differs depending on the source :
+- <u>At least 50 Copilot licenses</u> : According to the AI FinOps post of November 17, 2026 (at least 50 at launch, then at least one from mid-December) and the Learn page, which also requires spending policies and billing to be enabled
+- <u>At least one Copilot license</u> : According to the Book of News and the *What's new* post
+
+Non-Microsoft services require *Agent 365* or *E7*. According to the AI FinOps post, creating policies, limits and alerts in Business Analytics arrives in December 2026.
+
+*Cost Management* (*Copilot > Cost Management*) has a less clear status. The Book of News lists spend visibility, policies, limits and alerts as *Preview*, while the Learn pages describe the dashboard without a preview banner. Everything there is expressed in *Copilot Credits*, not in currency.
+
+<Notice type="note">The status of *Cost Management* remains to be confirmed : only the Book of News mentions a preview.</Notice>
+
+---
+
+##### Conclusion
+What is GA can be set up right now : check the *User access* setting (open to everyone by default), set plugin access by group and choose the allowed publisher categories. Microsoft agent analytics without a license are enough for a first inventory, before deciding whether *Agent 365* is justified for third-party agents. *Business Analytics* should be tested outside production, after checking the 50 Copilot licenses that Learn requires. *Dynamic Agent Risk* and the action center shouldn't be planned until there is a date and a Learn page.
+
+---
+
+##### Sources
+[Microsoft - Techcommunity](https://techcommunity.microsoft.com/blog/agent-365-blog/whats-new-in-microsoft-agent-365-ignite-2026/4571753)
+
+[Microsoft - Techcommunity](https://techcommunity.microsoft.com/blog/ai-finops-blog/introducing-microsoft-agent-365-business-analytics-turn-ai-investment-into-busin/4574149)
+
+[Microsoft - Book of News](https://news.microsoft.com/events/ignite/2026/book-of-news)
+
+[Microsoft Learn - Manage plugins, skills, and MCP servers](https://learn.microsoft.com/en-us/microsoft-agent-365/admin/manage-plugins-skills-mcp-servers)
+
+[Microsoft Learn - Agent management in Microsoft 365 admin center](https://learn.microsoft.com/en-us/microsoft-agent-365/admin/agent-365-overview)
+
+[Microsoft Learn - Manage agent registry in Microsoft 365 admin center](https://learn.microsoft.com/en-us/microsoft-agent-365/admin/agent-registry-overview)
+
+[Microsoft Learn - How to use the Agent 365 Business Analytics Cost & forecast page (Frontier)](https://learn.microsoft.com/en-us/a365-business-analytics/cost-forecast)
+
+[Microsoft Learn - Monitor Copilot Credit spending](https://learn.microsoft.com/en-us/copilot/implement/usage-based-billing-copilot-credits-monitor-spending)
+
+[Microsoft Learn - Agent settings in Microsoft 365 admin center](https://learn.microsoft.com/en-us/microsoft-agent-365/admin/agent-settings)
+
+[Microsoft Learn - Introduction to Agent 365 Business Analytics (Frontier)](https://learn.microsoft.com/en-us/a365-business-analytics/introduction)
+
+[Microsoft Security Blog - Agent 365 now generally available](https://www.microsoft.com/security/blog/2026/05/01/microsoft-agent-365-now-generally-available-expands-capabilities-and-integrations)
+
+---
+
+
+Did you enjoy this post ? If you have any questions, comments or suggestions, please feel free to send me a message from the contact form.
+
+Don't forget to follow us and share this post.

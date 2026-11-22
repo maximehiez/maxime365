@@ -1,0 +1,106 @@
+---
+title: "Microsoft Perception generally available"
+meta_title: ""
+description: ""
+date: 2026-11-21T10:00:00-05:00
+image: "/images/blog/defender/defender_microsoft_perception_ga_thumbnail.png"
+categories: ["Defender"]
+author: "Maxime Hiez"
+tags: ["Security", "Agent", "AI"]
+draft: false
+---
+---
+
+##### Introduction
+Alert triage, investigation and exposure remediation make up most of a SOC's workload, and Microsoft wants to hand part of it to AI agents. Announced in July 2026 as *Project Perception*, *Microsoft Perception* becomes generally available at *Ignite* 2026, on November 17, 2026. This multi-agent system in the *Microsoft Defender* portal splits the work between red agents (expose vulnerabilities), blue agents (detect, triage, investigate) and green agents (fix and harden). Several agents and integrations remain in Preview, and no Roadmap ID has been announced.
+
+<Notice type="note">GA is announced by the Microsoft Security blog and the Book of News, but the Microsoft Learn *Get started* and *Identity Risk Reduction Agent* pages still describe an invitation-only Limited Public Preview. Nothing confirms yet that every Defender tenant can use it, so check your portal.</Notice>
+
+---
+
+##### Red, blue and green agents
+Each team has its own agents, with different statuses :
+
+| Team  | Agent                                                                          | Status                           |
+| :---: | :----------------------------------------------------------------------------: | :------------------------------: |
+| Red   | *Recon Agent* (Azure environment analysis)                                     | GA                               |
+| Red   | *Web App Pen Test Agent*                                                       | Preview                          |
+| Blue  | *Triage*, *Attack Investigation*, *Detection Authoring*, *Threat Intelligence* | GA                               |
+| Green | *Posture Prioritization Agent*                                                 | GA                               |
+| Green | *Risk Reduction Agent*                                                         | Public Preview                   |
+| Green | *Identity Risk Reduction Agent*                                                | Limited Public Preview per Learn |
+
+The *Recon* agent analyzes attack paths, choke points and excessive permissions in Azure environments, read-only : it doesn't modify or exploit anything. The *Triage* agent can handle about 80% of the alerts in a typical Defender queue, a rate Microsoft doesn't guarantee for any given customer. Third-party signals (*Okta*, *Salesforce*, *AWS*) are supported depending on the agent, with other vendors announced without a date, but the blog lists these integrations as Preview.
+
+The *Posture Prioritization* agent ranks issues by real risk, exposure, exploitability and asset criticality. Its "action" half, *Risk Reduction*, remains in Preview : it can coordinate a fix through *Intune* (the IT team stays in control of the deployment) and suggest *vulnerability shielding*, targeted temporary protections when no patch exists.
+
+---
+
+##### Playbooks
+The agents are orchestrated by playbooks, which Microsoft manages : you can't create, edit or delete them. They include *Detect emerging threats*, *Run web pen test*, *Protect against a threat* (from a threat analytics article), *Protect web app* and *Reduce exposure risk* (the last two in Preview). *AI Readiness Initiatives* arrives in Preview in January 2027.
+
+A playbook runs on demand, from an incident page or a threat intelligence article, or through an automation rule (event or schedule). High-impact actions go through an approval request.
+
+---
+
+##### Web app testing and repository scanning
+The *Web App Pen Test Agent* (Preview) tests an authorized web application the way an attacker would (authentication, APIs, injection, business logic) and returns evidence, affected endpoints, severity and proofs of concept. In a Microsoft benchmark, it solves 31.0% of tasks on average, against about 15.2% for *OpenAI Codex*, and stays within test boundaries in 91% of constrained tests. The *Protect web app* playbook chains a test with fixes, which the Microsoft Security blog says are pushed all the way into the code on *GitHub*.
+
+*Codename MDASH*, an agentic code scanner in expanded preview, scans repositories up to 5GB, from the portal, the command line or CI/CD (*GitHub Actions*, *Azure DevOps*). The *MAI-Cyber-2* model (Preview) is available there by nomination from the account team.
+
+Playbooks can also be launched from ITSM, SIEM or SOAR tools through APIs and *MCP*, with sessions and artifacts returned. The blog lists these integrations as Preview, a label missing from the other sources.
+
+---
+
+##### Licensing and pricing
+No price has been published, and no license has been announced for the platform. Only the *Identity Risk Reduction Agent* requires *Microsoft 365 E7*. The Security blog also mentions, with no established link to Perception, the Defender *Integrated Security Operations Center*, whose Sentinel SIEM features are included for *Defender Suite*, *Microsoft 365 E5* and *E7*. Only usage dashboards and a cost estimator have been announced.
+
+---
+
+##### What admins need to do
+Nothing turns on by itself : the agents appear under "Ready for setup".
+- Prerequisites : Access to the Defender portal and *URBAC* enabled on all Defender workloads.
+- Configuration : Defender portal, *Perception*, *Agents*, *Set up*. *Entra* creates a dedicated agent identity, to which the admin grants permissions and resources. The *Recon* agent has its own setup, with a PowerShell script.
+- Roles : *Security Administrator* configures and removes agents, *Security Reader* runs and views sessions. Permissions apply to the agent, not to the playbook.
+- Controls : Stopping a session, rejecting an action with alternative instructions, removing an agent (which stops active sessions), immutable sessions serving as an audit trail.
+<br/>
+If the agent's identity has fewer scopes than the analysts, sessions fail or return incomplete results.
+
+---
+
+##### Conclusion
+Perception targets SOCs that already use Defender, and the GA blue agents are the right starting point : *Triage* and *Threat Intelligence* are the first agents Learn recommends configuring, because their permissions are limited. The green agents and web testing, in Preview, can wait. Until licensing and pricing are known, it's best to confirm availability in your tenant and ask your account team for the terms.
+
+---
+
+##### Sources
+[Microsoft - Techcommunity](https://techcommunity.microsoft.com/blog/perception-blog/whats-new-with-microsoft-perception-at-ignite-2026/4571834)
+
+[Microsoft - Techcommunity](https://techcommunity.microsoft.com/t5/intune-customer-success/microsoft-perception-helps-it-drive-outcomes-and-scale/ba-p/4573285)
+
+[Microsoft Security - Blog](https://www.microsoft.com/en-us/security/blog/2026/11/17/security-for-the-agentic-era-powered-by-microsoft-perception)
+
+[Microsoft Ignite 2026 - Book of News](https://news.microsoft.com/events/ignite/2026/book-of-news)
+
+[Microsoft Learn - What is Perception ?](https://learn.microsoft.com/en-us/security/agentic-security/agentic-security-overview)
+
+[Microsoft Learn - Get started with Project Perception](https://learn.microsoft.com/en-us/security/agentic-security/agentic-security-get-started)
+
+[Microsoft Learn - Work with agents in Project Perception](https://learn.microsoft.com/en-us/security/agentic-security/agentic-security-agents)
+
+[Microsoft Learn - Agent categories in Project Perception](https://learn.microsoft.com/en-us/security/agentic-security/agentic-security-agent-categories)
+
+[Microsoft Learn - Key concepts in Perception](https://learn.microsoft.com/en-us/security/agentic-security/agentic-security-concepts)
+
+[Microsoft Learn - Application card for Perception](https://learn.microsoft.com/en-us/security/agentic-security/agentic-security-application-card)
+
+[Microsoft Learn - Set up and manage the Recon Agent in Microsoft Perception](https://learn.microsoft.com/en-us/security/agentic-security/recon-agent-setup)
+
+[Microsoft Learn - Use the Identity Risk Reduction Agent in Project Perception](https://learn.microsoft.com/en-us/security/agentic-security/identity-risk-reduction-agent)
+
+---
+
+
+Did you enjoy this post ? If you have any questions, comments or suggestions, please feel free to send me a message from the contact form.
+
+Don't forget to follow us and share this post.

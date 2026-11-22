@@ -1,0 +1,102 @@
+---
+title: "Gouvernance des plugins Agent 365 en GA, coûts en Frontier"
+meta_title: ""
+description: ""
+date: 2026-11-22T10:00:00-05:00
+image: "/images/blog/m365/m365_agent_365_governance_costs_thumbnail.png"
+categories: ["Microsoft 365"]
+author: "Maxime Hiez"
+tags: ["Agent", "Gouvernance", "Licences"]
+draft: false
+---
+---
+
+##### Introduction
+Plus les agents, les plugins et les serveurs MCP se multiplient dans un tenant, plus il faut savoir qui les utilise, ce qu'ils risquent et ce qu'ils coûtent. Pour *Ignite 2026*, Microsoft a annoncé plusieurs ajouts à *Agent 365* dont les statuts diffèrent : la gouvernance des plugins et des compétences est en GA, tout comme les analyses d'agents sans licence *Agent 365*. *Business Analytics* est en *Frontier* depuis le 17 Novembre 2026, *Dynamic Agent Risk* est en préversion et le centre d'actions n'arrive qu'en Décembre 2026. Aucun identifiant de Message Center ni de roadmap n'a été trouvé pour ces éléments.
+
+Voir l'article sur le registre de plugins Copilot [ICI](https://maxime.hiez.ca/blog/2026-10-07-copilot-plugin-registry).
+
+---
+
+##### Gouvernance des plugins et des compétences en GA
+L'accès aux plugins et aux compétences (*skills*) s'attribue à des utilisateurs ou à des groupes précis depuis le *Microsoft 365 Admin Center*, dans *Agents* > *Tools*. Sur un paquet, les actions possibles sont :
+- Installer ou désinstaller
+- Gérer la disponibilité : Tous les utilisateurs, aucun utilisateur, ou des utilisateurs et groupes précis
+- Supprimer, pour les paquets téléversés par le tenant seulement
+- Bloquer
+
+Un second niveau se règle dans *Agents* > *Settings* > *Agent and plugin access*, par catégorie d'éditeur : Microsoft, votre organisation, éditeurs externes certifiés. Si aucune n'est cochée, les plugins restent visibles mais affichent *"This plugin is blocked by your organization's policy."* Le réglage *Agents* > *Settings* > *User access* est sur *All users* par défaut.
+
+Ces contrôles portent sur le paquet, pas sur ses connexions. Approuver ou bloquer un plugin n'accorde ni ne retire d'autorisations sur les services connectés. Bloquer un plugin bloque ses agents inclus ; les serveurs MCP et les connecteurs partagés peuvent rester disponibles pour d'autres plugins. Le contrôle outil par outil dans un serveur MCP est en cours de déploiement et ne vaut que pour certains serveurs enregistrés dans Agent 365. La prise en charge d'*Azure AI Gateway* et de *LiteLLM* est en préversion.
+
+<Notice type="note">L'onglet des demandes MCP s'intitule encore *Requests (preview)*.</Notice>
+
+---
+
+##### Dynamic Agent Risk et centre d'actions
+*Dynamic Agent Risk* est en préversion, et en préversion limitée élargie dans *Microsoft Perception*. Je n'ai pas trouvé de page Learn ni de date pour l'instant. Il combine signaux d'exécution, posture et rayon d'impact en une évaluation du risque : des partenaires (*Check Point*, *Cyera*, *Darktrace*, *Zenity*) envoient leurs signaux par *Microsoft Sentinel*, mais Microsoft calcule la note finale. Aucun prérequis de licence n'est indiqué.
+
+Le centre d'actions est attendu en Décembre 2026, en préversion privée selon le Book of News et en préversion selon Tech Community.
+
+Aujourd'hui, le registre d'agents affiche déjà une colonne *Risks* (élevé, moyen, faible) à partir de signaux *Entra*, *Purview* et *Defender*. Il faut une licence *E7* ou *Agent 365*.
+
+---
+
+##### Analyses d'agents sans licence Agent 365
+Pour les agents préconstruits de Microsoft et ceux créés sur les plateformes Microsoft, la vue d'ensemble, les utilisateurs actifs et les métriques d'usage sont disponibles dans le centre d'administration sans licence *Agent 365*. Ce changement est en GA. La licence n'est requise que pour les agents tiers, dont la collecte de données démarre à son activation.
+
+*Agent 365*, en GA depuis le 1er Mai 2026, coûte 15$ USD par utilisateur par mois seul, ou est inclus dans *Microsoft 365 E7*. Il reste nécessaire pour les agents non-Microsoft.
+
+*Viva Insights* retire aussi l'exigence de licence *Agent 365* pour ses analyses d'agents, mais garde un minimum de 50 licences Copilot attribuées. La page Learn du tableau de bord d'agents, en préversion, demande encore *Agent 365* pour la vue *All agents* et peut ne pas encore refléter l'annonce.
+
+---
+
+##### Business Analytics et Cost Management
+*Agent 365 Business Analytics* est disponible dans le programme Frontier depuis le 17 Novembre 2026, avec un déploiement progressif, donc sous les conditions des préversions. Il ne couvre que la facturation à l'usage, pas les licences Copilot. Les simulations *Spend cap* et *Model mix change* modifient seulement la prévision, pas les politiques réelles.
+
+Le seuil de licence pour les services Microsoft diffère selon les sources :
+- <u>Au moins 50 licences Copilot</u> : Selon le billet AI FinOps du 17 Novembre 2026 (au lancement, puis une ou plus à la mi-Décembre) et la page Learn, qui demande aussi des politiques de dépenses et la facturation activées
+- <u>Au moins une licence Copilot</u> : Selon le Book of News et le billet *What's new*
+
+Les services non-Microsoft demandent *Agent 365* ou *E7*. Selon le billet AI FinOps, la création de politiques, de limites et d'alertes dans Business Analytics arrive en Décembre 2026.
+
+*Cost Management* (*Copilot > Cost Management*) a un statut moins clair. Le Book of News classe en *Preview* la visibilité des dépenses, les politiques, les limites et les alertes, alors que les pages Learn décrivent le tableau de bord sans bannière de préversion. Tout y est exprimé en *Copilot Credits*, pas en devise.
+
+<Notice type="note">Le statut de *Cost Management* reste à confirmer : seul le Book of News parle de préversion.</Notice>
+
+---
+
+##### Conclusion
+Ce qui est en GA se met en place dès maintenant : vérifier le réglage *User access* (ouvert à tous par défaut), régler l'accès aux plugins par groupe et choisir les catégories d'éditeurs autorisées. Les analyses d'agents Microsoft sans licence suffisent pour un premier inventaire, avant de décider si *Agent 365* se justifie pour les agents tiers. *Business Analytics* se teste hors production, après avoir vérifié les 50 licences Copilot exigées par Learn. *Dynamic Agent Risk* et le centre d'actions ne se planifient pas avant d'avoir une date et une page Learn.
+
+---
+
+##### Sources
+[Microsoft - Techcommunity](https://techcommunity.microsoft.com/blog/agent-365-blog/whats-new-in-microsoft-agent-365-ignite-2026/4571753)
+
+[Microsoft - Techcommunity](https://techcommunity.microsoft.com/blog/ai-finops-blog/introducing-microsoft-agent-365-business-analytics-turn-ai-investment-into-busin/4574149)
+
+[Microsoft - Book of News](https://news.microsoft.com/events/ignite/2026/book-of-news)
+
+[Microsoft Learn - Gérer les plug-ins, les compétences et les serveurs MCP](https://learn.microsoft.com/fr-ca/microsoft-agent-365/admin/manage-plugins-skills-mcp-servers)
+
+[Microsoft Learn - Gestion des agents dans le Centre d’administration Microsoft 365](https://learn.microsoft.com/fr-ca/microsoft-agent-365/admin/agent-365-overview)
+
+[Microsoft Learn - Gérer le registre des agents dans le Centre d’administration Microsoft 365](https://learn.microsoft.com/fr-ca/microsoft-agent-365/admin/agent-registry-overview)
+
+[Microsoft Learn - Utilisation de la page de prévision des coûts & de Agent 365 Business Analytics (Frontier)](https://learn.microsoft.com/fr-ca/a365-business-analytics/cost-forecast)
+
+[Microsoft Learn - Surveiller les dépenses de crédit de Copilot](https://learn.microsoft.com/fr-ca/copilot/implement/usage-based-billing-copilot-credits-monitor-spending)
+
+[Microsoft Learn - Paramètres de l'agent dans le Centre d'administration Microsoft 365](https://learn.microsoft.com/fr-ca/microsoft-agent-365/admin/agent-settings)
+
+[Microsoft Learn - Introduction to Agent 365 Business Analytics (Frontier)](https://learn.microsoft.com/fr-ca/a365-business-analytics/introduction)
+
+[Microsoft Security Blog - Agent 365 now generally available](https://www.microsoft.com/security/blog/2026/05/01/microsoft-agent-365-now-generally-available-expands-capabilities-and-integrations)
+
+---
+
+
+Avez-vous apprécié cet article ? Vous avez des questions, commentaires ou suggestions, n'hésitez pas à m'envoyer un message depuis le formulaire de contact.
+
+N'oubliez pas de nous suivre et de partager cet article.
