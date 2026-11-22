@@ -1,0 +1,95 @@
+---
+title: "Gestion de Windows Servers Insider avec Intune en préversion"
+meta_title: ""
+description: ""
+date: 2026-11-20T10:00:00-05:00
+image: "/images/blog/intune/intune_windows_servers_management_thumbnail.png"
+categories: ["Intune"]
+author: "Maxime Hiez"
+tags: ["Windows Server", "Insider", "Sécurité"]
+draft: false
+---
+---
+
+##### Introduction
+Gérer les serveurs depuis la même console que les postes de travail est ce que propose désormais *Microsoft Intune*, mais seulement en préversion : uniquement des builds *Windows Server Insider*, pour des tests hors production, sans prise en charge de Microsoft en production ni inscription dans un environnement Intune de production. Cette préversion est disponible depuis la semaine du 16 Novembre 2026, avec la version de service 2611, sans date de disponibilité générale ni identifiant du centre de messages ou de la roadmap. Voici les serveurs admissibles, l'inscription, ce qui fonctionne, ce qui est exclu et les risques d'assignation.
+
+---
+
+##### Quels serveurs sont admissibles ?
+Une seule version est admissible : *Windows Server vNext Insider Preview*, build 29621.1000 ou ultérieur. Aucun Windows Server publié n'est listé comme pris en charge. La documentation de Windows Server l'appelle *Windows Server 2028 Preview* (build 29706, 17 Novembre 2026).
+
+Le périmètre est étroit : serveurs physiques et machines virtuelles persistants avec Desktop Experience. *Server Core* et les hôtes multisession, éphémères ou non persistants sont exclus.
+
+![image](/images/blog/intune/intune_windows_servers_management_001.png)
+
+---
+
+##### Comment inscrire un serveur ?
+L'inscription est désactivée par défaut : les serveurs sont bloqués dans les restrictions d'inscription. Pour une inscription par *Add work or school account*, il faut autoriser à la fois *Server devices* et *Personally owned devices*. L'étendue utilisateur MDM doit aussi couvrir les comptes concernés (*Some* pour un pilote).
+
+Deux chemins existent :
+- <u>Jointure Microsoft Entra</u> : Pour une nouvelle installation, depuis *Settings* > *Accounts* > *Access work or school*
+- <u>Jointure hybride</u> : Avec l'inscription automatique par stratégie de groupe, pour un serveur pilote qui dépend du domaine
+
+La jointure hybride exige un utilisateur de domaine synchronisé avec une licence Intune valide, et *Microsoft Entra ID* P1 ou P2 pour l'inscription automatique. L'inscription sans utilisateur (*userless*) n'est pas prise en charge.
+
+Aucun abonnement Windows Server supplémentaire n'est requis pour la préversion, mais cela ne vaut pas pour les conditions futures.
+
+---
+
+##### Ce qui fonctionne
+- <u>Stratégies</u> : Catalogue de paramètres (une cinquantaine de groupes de CSP, dont *Kerberos* et *SecureBoot*), profils personnalisés, modèles ADMX (*Edge*, *Microsoft 365 Apps*, *OneDrive*, *Chrome*), modèles de sécurité des points de terminaison (antivirus, chiffrement de disque, pare-feu, *LAPS*, réduction de la surface d'attaque)
+- <u>Conformité</u> : Prise en charge, utilisable comme signal pour l'accès conditionnel
+- <u>Applications</u> : Déploiement et suivi des applications Win32
+- <u>Mises à jour</u> : Paramètres des anneaux de mise à jour (*Windows Update for Business*)
+- <u>Actions à distance</u> : *Sync*, *Restart*, dont la rotation des clés *BitLocker* et du mot de passe administrateur local, *Retire*, *Delete* et *Wipe*
+
+Aucun nouveau rôle RBAC n'est ajouté.
+
+---
+
+##### Ce qui est exclu
+Les limites à connaître pour un pilote :
+- Les politiques séparées de mises à jour de qualité, de mises à jour de fonctionnalités et de pilotes sont exclues, alors que les paramètres de report des mises à jour de qualité dans les anneaux restent valables
+- Dans la conformité, les vérifications *Configuration Manager*, pare-feu, antivirus et antispyware sont exclues et remontent *Error* ou *Not applicable*
+- La cogestion avec *Configuration Manager*, les fonctions *MMPC* (*Endpoint Privilege Management*, *Resource Explorer*), le passage de la gestion des paramètres de sécurité *Defender* vers le MDM et les serveurs déconnectés ne font pas partie de la préversion
+- Un accès conditionnel qui exige la MFA peut interrompre la synchronisation sans inviter à se connecter : l'utilisateur doit lancer *Sync* et s'authentifier
+
+Le rôle de *Windows Autopatch* dans la gestion des mises à jour des serveurs reste flou : seuls les anneaux de mise à jour, fenêtres de maintenance comprises, sont documentés pour la préversion. Mieux vaut ne pas compter sur des politiques Autopatch pour les serveurs. Par ailleurs, *Windows Autopilot* ne s'applique pas aux serveurs, et l'inscription MDM seule, l'inscription en masse et l'inscription automatique des appareils cogérés ne sont pas encore disponibles.
+
+---
+
+##### Avant d'activer
+Le premier risque est l'assignation. Les assignations Windows existantes, *All devices*, utilisateurs et groupes dynamiques, peuvent atteindre les serveurs : créer un groupe de serveurs pilote ne les exclut pas des politiques déjà en place. Les ensembles de politiques (*policy sets*) et les scripts *PowerShell* ne prennent pas en charge les filtres d'assignation.
+
+Pour séparer les serveurs, les filtres d'assignation disposent de nouvelles valeurs *operatingSystemSKU* : *Datacenter* (8), *Datacenter evaluation* (80), *Standard* (7), *Standard evaluation* (79) et *Datacenter: Azure Edition* (407). La valeur *Windows Server* ajoutée au filtre d'édition du sélecteur de paramètres ne sert qu'à l'affichage : elle ne réserve aucun paramètre aux serveurs et ne contrôle pas qui reçoit la politique.
+
+Sur une machine virtuelle *Azure*, l'inscription donne le contrôle aux rôles Intune applicables, sans passer par le RBAC Azure ni le JIT. Enfin, *Azure Arc* n'est pas requis, mais il reste recommandé pour la production et les infrastructures serveur cloud ou locales. Intune vise les serveurs associés à une identité d'utilisateur ; il faut éviter des politiques concurrentes entre les deux.
+
+<Notice type="warning">Passez en revue toutes les assignations Windows (*All devices*, utilisateurs, groupes dynamiques, scripts, ensembles de politiques) avant d'autoriser l'inscription des serveurs : un serveur inscrit peut recevoir des politiques conçues pour des postes de travail.</Notice>
+
+---
+
+##### Conclusion
+Pour l'instant, c'est un terrain d'essai : un build Insider, des serveurs non critiques et aucun support en production. L'intérêt vise les serveurs proches d'un poste de travail. Il faut s'y essayer dans un tenant de test, pas dans celui de production : vérifier les assignations existantes d'abord, puis n'inscrire qu'un serveur pilote avec l'étendue MDM la plus étroite. Le reste attend la disponibilité générale, Autopatch clarifié et des conditions de licence connues.
+
+---
+
+##### Sources
+[Microsoft - Techcommunity](https://techcommunity.microsoft.com/t5/intune-customer-success/manage-windows-servers-alongside-pcs-with-microsoft-intune/ba-p/4572643)
+
+[Microsoft Learn - Prise en main de la gestion de Windows Server (Insider preview)](https://learn.microsoft.com/fr-ca/intune/solutions/end-to-end-guides/windows-server-endpoints-get-started)
+
+[Microsoft Learn - Nouveautés de Microsoft Intune](https://learn.microsoft.com/fr-ca/intune/whats-new)
+
+[Microsoft Learn - Systèmes d'exploitation et navigateurs pris en charge dans Intune](https://learn.microsoft.com/fr-ca/intune/fundamentals/ref-supported-platforms)
+
+[Microsoft Learn - Nouveautés dans Windows Server 2028 Preview](https://learn.microsoft.com/fr-ca/windows-server/get-started/whats-new-windows-server-2028)
+
+---
+
+
+Avez-vous apprécié cet article ? Vous avez des questions, commentaires ou suggestions, n'hésitez pas à m'envoyer un message depuis le formulaire de contact.
+
+N'oubliez pas de nous suivre et de partager cet article.

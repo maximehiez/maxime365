@@ -1,0 +1,90 @@
+---
+title: "Copilot Autopilot en préversion et Workspaces dans Frontier"
+meta_title: ""
+description: ""
+date: 2026-11-21T10:00:00-05:00
+image: "/images/blog/copilot/copilot_autopilot_workspaces_frontier_thumbnail.png"
+categories: ["Copilot"]
+author: "Maxime Hiez"
+tags: ["IA", "Agentique", "Gouvernance", "Copilot Credits", "Copilot Autopilot"]
+draft: false
+---
+---
+
+##### Introduction
+Microsoft a lancé *Autopilot*, un agent *Copilot* persistant qui travaille en continu dans le cloud, tandis que *Copilot Workspaces*, le nouveau nom de *Copilot Notebooks*, reçoit de nouvelles fonctions. Autopilot est une préversion, réservée au programme *Frontier*, d'abord aux États-Unis, optimisée pour l'anglais, désactivée par défaut et facturée en *Copilot Credits* par-dessus une licence Copilot.
+
+Voir l'article sur le modèle de tarification de Copilot et les crédits [ICI](https://maxime.hiez.ca/blog/2026-10-05-copilot-pricing-model-evolution-credits).
+
+---
+
+##### Autopilot : prérequis, facturation et activation
+Chaque personne peut avoir un Autopilot, doté de sa propre identité *Microsoft Entra*, de sa mémoire, de sa boîte aux lettres, de son calendrier et de son poste de travail. Les conditions d'accès s'empilent :
+- <u>Frontier</u> : Les utilisateurs doivent être inscrits au programme, depuis *Copilot* > *Settings* > *Copilot Frontier*
+- <u>Licence</u> : L'utilisateur responsable a besoin d'une licence *Microsoft 365 Copilot*, qui n'inclut pas l'usage d'Autopilot
+- <u>Facturation</u> : La facturation à l'usage et une politique de dépenses (*spending policy*) couvrent Autopilot, en Copilot Credits
+- <u>Activation</u> : L'agent *Autopilot (Frontier)* s'active dans le *Microsoft 365 Admin Center*, sous *Agents* > *All agents*
+- <u>Sécurité</u> : Les journaux d'audit, l'exécution isolée (*Microsoft Intune Plan 1* ou *Microsoft 365 E3*) et *Entra Agent ID* sont requis
+
+Aucune étape ne suffit seule : activer Frontier ne rend pas Autopilot disponible. Si l'utilisateur n'est pas couvert par la politique de dépenses, ou si elle n'a plus de crédits, Autopilot cesse de fonctionner sans afficher d'explication. Aucun prix propre à Autopilot n'est publié ; le seul repère est l'article lié plus haut : 1 crédit Copilot vaut 0.01$ USD.
+
+<Notice type="note">La disponibilité initiale est limitée à certains clients Frontier éligibles aux États-Unis, les nouveaux tenants Frontier suivant progressivement. Aucune date de disponibilité générale n'est annoncée, et les pages Learn sont des documents de préversion susceptibles de changer.</Notice>
+
+---
+
+##### Autopilot : ce que l'administrateur voit et contrôle
+Les leviers existent : la liste *Instances* d'*Autopilot (Frontier)* montre les Autopilots créés dans l'organisation, et l'activation, la politique de dépenses et le réglage des fournisseurs d'IA restent sous contrôle de l'administrateur.
+La visibilité est en revanche partielle. Ce qu'Autopilot fait avec sa propre identité, comme envoyer un message Teams à un collègue, apparaît sous son nom dans le journal d'audit unifié. Les lectures de fichiers et de courriels faites au nom du propriétaire sont rattachées au propriétaire, sans identifiant d'agent, et le journal n'offre aucune garantie d'un enregistrement complet. Autopilot n'élargit pas l'accès d'un utilisateur aux données Microsoft 365.
+
+Plusieurs contrôles manquent dans cette version :
+- Les conversations Autopilot échappent à *eDiscovery*, à la rétention et à la conservation légale (*legal hold*), et n'apparaissent ni dans *DSPM for AI* ni dans *Activity explorer*.
+- La mémoire ne peut pas être désactivée, les réglages de personnalisation de Copilot ne s'y appliquent pas, et l'administrateur peut l'exporter mais pas la supprimer.
+- Aucun réglage d'administrateur ou d'utilisateur n'existe pour la revue automatisée des actions.
+- Les politiques d'accès conditionnel ciblant *All users* n'incluent pas les utilisateurs agents.
+
+Arrêter un Autopilot n'est pas immédiat : retirer l'utilisateur de la portée d'activation ne supprime pas l'instance existante. Il faut aussi le retirer de la politique de dépenses, puis bloquer ou supprimer l'instance. Le blocage peut prendre environ une heure à atteindre Autopilot, et le travail fait au nom du propriétaire peut continuer plus longtemps. Microsoft recommande de ne pas activer Autopilot pour les utilisateurs soumis à une conservation légale ou à des exigences de rétention strictes.
+
+Côté Teams, les sources divergent. Le blog de Microsoft et le *Ignite 2026 Book of News* parlent de conversations de groupe et de canaux où l'on pourra mentionner ou solliciter l'Autopilot d'un collègue ; Learn ne décrit qu'une conversation privée un à un avec son propriétaire, et précise que *@Copilot* dans Teams est distinct. Tant que Learn ne tranche pas, ce point n'est pas acquis.
+
+---
+
+##### Copilot Workspaces : nouveau nom de Notebooks
+Les carnets existants deviennent automatiquement des espaces de travail. Les *Workspaces* servent le travail de groupe, alors que les *Projects* couvrent le travail individuel. Aucune action d'administrateur n'est requise.
+
+Les entrées *MC1559638* et *MC1559632*, publiées le 18 Novembre 2026, ajoutent un fil d'activité, des espaces suggérés, la présence des équipes, la propriété de groupe, la possibilité d'ajouter un Project comme fichiers de référence, et une mémoire d'espace de travail. Ces entrées ayant été lues dans une copie du Message Center, les dates ci-dessous sont à confirmer dans le centre d'administration avant de les communiquer.
+
+Aucune source consultée n'indique de licence ou de prix propre aux Workspaces.
+
+|        | Autopilot                              | Workspaces                                       | Mémoire des Workspaces                                                         |
+| :----: | :------------------------------------: | :----------------------------------------------: | :----------------------------------------------------------------------------: |
+| Statut | Préversion Frontier                    | Frontier, puis disponibilité générale            | Préversion publique                                                            |
+| Date   | Déploiement depuis le 17 Novembre 2026 | Disponibilité générale attendue en Décembre 2026 | Disponibilité générale attendue à partir de Décembre 2026, jusqu'au début 2027 |
+
+---
+
+##### Conclusion
+Autopilot ne se déploie pas par accident : trois étapes, un budget de crédits et une licence Copilot sont nécessaires. Le vrai sujet est ce qui manque : eDiscovery, rétention, mémoire qu'on ne peut ni couper ni supprimer, audit incomplet. Un pilote sur un petit groupe hors conservation légale est raisonnable, à condition de plafonner la politique de dépenses. Pour la production, mieux vaut attendre la disponibilité générale et une documentation qui tranche sur Teams. Pour les Workspaces, aucune action n'est requise, mais Microsoft recommande d'informer les utilisateurs du nouveau comportement de la mémoire.
+
+---
+
+##### Sources
+[Microsoft - Techcommunity](https://techcommunity.microsoft.com/t5/microsoft-copilot-blog/autopilot-meet-your-trusted-personal-teammate/ba-p/4572611)
+
+[Microsoft Learn - Vue d’ensemble d’Autopilot (Frontier)](https://learn.microsoft.com/fr-ca/copilot/autopilot/overview)
+
+[Microsoft Learn - Configuration requise pour Autopilot (Frontier)](https://learn.microsoft.com/fr-ca/copilot/autopilot/requirements)
+
+[Microsoft Learn - Configurer Autopilot (Frontier) pour votre organisation](https://learn.microsoft.com/fr-ca/copilot/autopilot/admin-configure)
+
+[Microsoft Learn - Utiliser Autopilot (Frontier)](https://learn.microsoft.com/fr-ca/copilot/autopilot/using)
+
+[Microsoft Learn - Démarrage avec le programme Microsoft Frontier](https://learn.microsoft.com/fr-ca/microsoft-365/admin/manage/get-started-frontier)
+
+[Microsoft - Ignite 2026 Book of News](https://news.microsoft.com/events/ignite/2026/book-of-news)
+
+---
+
+
+Avez-vous apprécié cet article ? Vous avez des questions, commentaires ou suggestions, n'hésitez pas à m'envoyer un message depuis le formulaire de contact.
+
+N'oubliez pas de nous suivre et de partager cet article.

@@ -1,0 +1,90 @@
+---
+title: "Copilot Autopilot in preview and Workspaces in Frontier"
+meta_title: ""
+description: ""
+date: 2026-11-21T10:00:00-05:00
+image: "/images/blog/copilot/copilot_autopilot_workspaces_frontier_thumbnail.png"
+categories: ["Copilot"]
+author: "Maxime Hiez"
+tags: ["AI", "Agentic", "Governance", "Copilot Credits", "Copilot Autopilot"]
+draft: false
+---
+---
+
+##### Introduction
+Microsoft has launched *Autopilot*, a persistent *Copilot* agent that works continuously in the cloud, while *Copilot Workspaces*, the new name for *Copilot Notebooks*, gets new features. Autopilot is a preview, limited to the *Frontier* program, available first in the United States, optimized for English, turned off by default and billed in *Copilot Credits* on top of a Copilot license.
+
+Check the Copilot pricing model and credits article [HERE](https://maxime.hiez.ca/en/blog/2026-10-05-copilot-pricing-model-evolution-credits).
+
+---
+
+##### Autopilot : requirements, billing and activation
+Each person can have an Autopilot, with its own *Microsoft Entra* identity, memory, mailbox, calendar and workstation. The access requirements stack up :
+- <u>Frontier</u> : Users must be enrolled in the program, from *Copilot* > *Settings* > *Copilot Frontier*.
+- <u>License</u> : The responsible user needs a *Microsoft 365 Copilot* license, which doesn't include Autopilot usage.
+- <u>Billing</u> : Pay-as-you-go billing and a spending policy cover Autopilot, in Copilot Credits.
+- <u>Activation</u> : The *Autopilot (Frontier)* agent is turned on in the *Microsoft 365 Admin Center*, under *Agents* > *All agents*.
+- <u>Security</u> : Audit logs, isolated execution (*Microsoft Intune Plan 1* or *Microsoft 365 E3*) and *Entra Agent ID* are required.
+
+No single step is enough : turning on Frontier doesn't make Autopilot available. If the user isn't covered by the spending policy, or if it has run out of credits, Autopilot stops working without displaying any explanation. No Autopilot-specific price is published ; the only benchmark is the article linked above : 1 Copilot credit is worth 0.01$ USD.
+
+<Notice type="note">Initial availability is limited to certain eligible Frontier customers in the United States, with new Frontier tenants following gradually. No general availability date has been announced, and the Learn pages are preview documents that may change.</Notice>
+
+---
+
+##### Autopilot : what the administrator sees and controls
+The levers exist : the *Instances* list in *Autopilot (Frontier)* shows the Autopilots created in the organization, and activation, the spending policy and the AI provider settings remain under administrator control.
+Visibility, however, is partial. What Autopilot does with its own identity, such as sending a Teams message to a colleague, appears under its name in the unified audit log. File and email reads made on the owner's behalf are attributed to the owner, with no agent identifier, and the log offers no guarantee of a complete record. Autopilot doesn't widen a user's access to Microsoft 365 data.
+
+Several controls are missing in this release :
+- Autopilot conversations are outside the scope of *eDiscovery*, retention and legal hold, and don't appear in *DSPM for AI* or *Activity explorer*.
+- Memory can't be turned off, Copilot personalization settings don't apply to it, and the administrator can export it but not delete it.
+- No administrator or user setting exists for automated review of actions.
+- Conditional Access policies targeting *All users* don't include agent users.
+
+Stopping an Autopilot isn't immediate : removing the user from the activation scope doesn't delete the existing instance. You also have to remove the user from the spending policy, then block or delete the instance. The block can take about an hour to reach Autopilot, and work done on the owner's behalf can continue longer. Microsoft recommends not turning on Autopilot for users subject to legal hold or strict retention requirements.
+
+On the Teams side, the sources disagree. The Microsoft blog and the *Ignite 2026 Book of News* talk about group chats and channels where you will be able to mention or call on a colleague's Autopilot ; Learn describes only a private one-to-one conversation with its owner, and specifies that *@Copilot* in Teams is separate. Until Learn settles it, this point isn't established.
+
+---
+
+##### Copilot Workspaces : new name for Notebooks
+Existing notebooks automatically become workspaces. *Workspaces* are for group work, while *Projects* cover individual work. No administrator action is required.
+
+Entries *MC1559638* and *MC1559632*, published on November 18, 2026, add an activity feed, suggested workspaces, team presence, group ownership, the ability to add a Project as reference files, and workspace memory. Since these entries were read in a copy of the Message Center, the dates below must be confirmed in the admin center before you communicate them.
+
+No source consulted mentions a license or price specific to Workspaces.
+
+|        | Autopilot                           | Workspaces                                     | Workspaces memory                                                    |
+| :----: | :---------------------------------: | :--------------------------------------------: | :------------------------------------------------------------------: |
+| Status | Frontier preview                    | Frontier, then general availability            | Public preview                                                       |
+| Date   | Rolling out since November 17, 2026 | General availability expected in December 2026 | General availability expected from December 2026, through early 2027 |
+
+---
+
+##### Conclusion
+Autopilot doesn't get deployed by accident : three steps, a credit budget and a Copilot license are needed. The real issue is what's missing : eDiscovery, retention, memory you can neither turn off nor delete, incomplete auditing. A pilot with a small group outside legal hold is reasonable, as long as the spending policy is capped. For production, it's better to wait for general availability and documentation that settles the Teams question. For Workspaces, no action is required, but Microsoft recommends informing users about the new memory behavior.
+
+---
+
+##### Sources
+[Microsoft - Techcommunity](https://techcommunity.microsoft.com/t5/microsoft-copilot-blog/autopilot-meet-your-trusted-personal-teammate/ba-p/4572611)
+
+[Microsoft Learn - Autopilot (Frontier) overview](https://learn.microsoft.com/en-us/copilot/autopilot/overview)
+
+[Microsoft Learn - Autopilot (Frontier) requirements](https://learn.microsoft.com/en-us/copilot/autopilot/requirements)
+
+[Microsoft Learn - Configure Autopilot (Frontier) for your organization](https://learn.microsoft.com/en-us/copilot/autopilot/admin-configure)
+
+[Microsoft Learn - Use Autopilot (Frontier)](https://learn.microsoft.com/en-us/copilot/autopilot/using)
+
+[Microsoft Learn - Get started with the Microsoft Frontier program](https://learn.microsoft.com/en-us/microsoft-365/admin/manage/get-started-frontier)
+
+[Microsoft - Ignite 2026 Book of News](https://news.microsoft.com/events/ignite/2026/book-of-news)
+
+---
+
+
+Did you enjoy this post ? If you have any questions, comments or suggestions, please feel free to send me a message from the contact form.
+
+Don't forget to follow us and share this post.
