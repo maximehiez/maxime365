@@ -1,0 +1,101 @@
+---
+title: "Intune gère les agents IA locaux en préversion"
+meta_title: ""
+description: ""
+date: 2026-11-23T10:00:00-05:00
+image: "/images/blog/intune/intune_local_ai_agents_governance_thumbnail.png"
+categories: ["Intune"]
+author: "Maxime Hiez"
+tags: ["IA", "Agent", "Sécurité", "Accès Conditionnels"]
+draft: false
+---
+---
+
+##### Introduction
+Les agents IA qui s'exécutent sur le poste échappent souvent à l'inventaire de l'entreprise. Annoncé à Ignite 2026, le 17 Novembre, *Microsoft Intune* propose deux leviers : une politique de conformité logicielle qui marque les appareils non conformes quand une application interdite est présente, et une politique de confinement pour les agents approuvés, basée sur *Microsoft Execution Containers* (*MXC*). Le statut reste partagé : préversion publique pour la conformité logicielle, statut contradictoire pour le confinement. Dans les sources consultées, aucun identifiant du centre de messages ou de la roadmap, aucune date de disponibilité générale et aucune condition de licence n'ont été trouvés.
+
+Voir l'article sur la DLP des terminaux et les agents IA locaux [ICI](https://maxime.hiez.ca/blog/2026-11-19-purview-endpoint-dlp-local-ai-agents).
+
+---
+
+##### Comment Intune détecte-t-il les agents locaux ?
+La détection repose sur l'inventaire des applications d'*Intune*, pas sur l'identité de l'agent. Chaque application est repérée par un identifiant propre à la plateforme : le code de produit MSI pour Win32, le nom complet du package pour le Store. Seules ces applications hôtes apparaissent aujourd'hui dans l'inventaire.
+
+Il faut un appareil Windows 10 ou 11 inscrit dans Intune et joint à Microsoft Entra, avec un profil *Properties catalog* qui active *ApplicationProperties*.
+
+*Agent 365* sert d'étape de découverte : il rassemble les signaux de *Microsoft Defender*, de *Microsoft Entra* et d'*Intune* pour repérer les agents en cours d'exécution, y compris non approuvés. Rien n'indique qu'il alimente la politique de conformité, qui évalue les applications installées par identifiant.
+
+---
+
+##### Comment marquer un appareil non conforme ?
+La politique de conformité logicielle (*software compliance policy*) permet de lister des logiciels restreints. Un appareil Windows qui en exécute un est marqué non conforme, l'accès conditionnel bloque les ressources de l'entreprise, et l'utilisateur est invité à retirer l'agent. Le statut annoncé est la préversion publique.
+
+Les étapes décrites sont les suivantes :
+1. Créer une politique de conformité logicielle dans la console Intune
+2. Ajouter l'identifiant de l'application comme entrée de logiciel restreint
+3. Assigner la politique à un groupe d'appareils ou d'utilisateurs
+4. Créer une politique d'accès conditionnel qui exige un appareil conforme
+
+![image](/images/blog/intune/intune_local_ai_agents_governance_001.png)
+
+Le blocage vise tout l'appareil, même quand l'agent est inactif. Après la désinstallation, l'utilisateur peut demander une vérification immédiate.
+
+Rien n'indique que *Claude Code* soit couvert : tout dépend de l'application hôte installée.
+- La politique évalue des identifiants d'applications, pas des identifiants d'agents : un agent qui a plusieurs applications hôtes peut demander plusieurs entrées
+- Les extensions d'éditeur, les packages npm et les exécutables autonomes ne peuvent pas être sélectionnés
+
+<Notice type="note">Les publications Intune d'Ignite parlent de préversion publique. La page Learn *"En développement"* liste, elle, l'élément *"Marquer les appareils Windows non conformes lorsque des agents IA interdits sont découverts"*. Ce n'est peut-être pas la même politique : la page parle d'une liste d'agents interdits dans une politique de conformité Windows, avec *OpenClaw* en exemple, alors que les publications visent des identifiants d'applications hôtes. Aucune page Learn ne documente cette dernière : les étapes reposent sur le guide d'*Intune Customer Success*.</Notice>
+
+---
+
+##### Comment confiner les agents approuvés avec MXC ?
+*MXC* est une technologie open source qui exécute des charges de travail avec des permissions de ressources définies. Intune en fait un plafond d'entreprise : Windows applique la limite configurée indépendamment de l'agent, et refuse toute demande au-delà.
+
+La politique se trouve sous *Endpoint security* > *Agent containment*. Elle règle l'accès aux dossiers (refus, lecture seule ou lecture-écriture), l'accès réseau (boucle locale ou externe) et peut cibler tous les agents compatibles MXC ou un seul agent pris en charge. La couverture initiale concerne les processus conteneurisés, en commençant par *GitHub Copilot CLI* et *OpenAI Codex CLI*.
+
+Les prérequis annoncés sont une version de Windows compatible MXC, une version d'agent prise en charge et des appareils intégrés à *Microsoft Defender for Endpoint*, avec l'antivirus à jour et la protection en temps réel active. *MXC* a trois états :
+- <u>Enforcement</u> : Bloque sans rien enregistrer
+- <u>Learning</u> : Bloque et enregistre
+- <u>Permissive</u> : Autorise et enregistre, pour un pilote contrôlé
+
+![image](/images/blog/intune/intune_local_ai_agents_governance_002.png)
+
+Le guide d'*Intune Customer Success* présente MXC comme généralement disponible sur Windows 11 et ne donne aucun statut pour la politique de confinement. Le blog des développeurs Windows intitule la configuration par Intune *"Private Preview"*, et le blog Intune écrit que ces politiques sont en cours de déploiement.
+
+---
+
+##### Ce que les administrateurs doivent savoir
+Aucune licence n'est précisée pour la conformité logicielle ni pour le confinement. D'après Learn, l'accès conditionnel demande *Microsoft Entra ID* P1 et la découverte par *Defender* demande *Defender for Endpoint* Plan 2. Les politiques doivent être créées et assignées.
+
+Mieux vaut piloter par anneaux, avec des exceptions limitées dans le temps. Le confinement limite ce qu'une charge de travail peut faire, sans rendre ses résultats dignes de confiance, et ne concerne que les agents dont l'éditeur prend en charge MXC. Côté Defender, la protection à l'exécution des agents (*Claude Code*, *Codex CLI*, *GitHub Copilot CLI*) est traitée à part.
+
+---
+
+##### Conclusion
+Intune apporte enfin des leviers concrets contre les agents locaux non approuvés, mais les politiques sont en préversion ou en déploiement, sans licence ni date publiées. La conformité logicielle est fragile, car elle cible l'application hôte plutôt que l'agent, et MXC dépend du bon vouloir des éditeurs. À essayer dans un groupe pilote avant d'en faire un contrôle d'accès.
+
+---
+
+##### Sources
+[Microsoft - Techcommunity](https://techcommunity.microsoft.com/blog/intunecustomersuccess/a-guide-to-governing-local-ai-agents-with-intune/4573284)
+
+[Microsoft - Techcommunity](https://techcommunity.microsoft.com/blog/microsoftintuneblog/what%E2%80%99s-new-in-microsoft-intune-at-ignite/4570003)
+
+[Microsoft - Windows Developer Blog](https://blogs.windows.com/windowsdeveloper/2026/11/17/enterprise-deployment-of-governed-agents-on-windows)
+
+[Microsoft Learn - Conteneurs d’exécution Microsoft](https://learn.microsoft.com/fr-ca/windows/apps/develop/mxc)
+
+[Microsoft Learn - Découvrez des agents IA locaux avec Microsoft Defender for Endpoint](https://learn.microsoft.com/fr-ca/defender-endpoint/discover-local-ai-agents)
+
+[Microsoft Learn - En développement pour Microsoft Intune](https://learn.microsoft.com/fr-ca/intune/whats-new/in-development)
+
+[Microsoft Learn - Inventaire des applications pour les appareils Windows dans Microsoft Intune](https://learn.microsoft.com/fr-ca/intune/app-management/deployment/enhanced-app-inventory)
+
+[Microsoft Learn - Qu’est-ce que l’accès conditionnel ?](https://learn.microsoft.com/fr-ca/entra/identity/conditional-access/overview)
+
+---
+
+
+Avez-vous apprécié cet article ? Vous avez des questions, commentaires ou suggestions, n'hésitez pas à m'envoyer un message depuis le formulaire de contact.
+
+N'oubliez pas de nous suivre et de partager cet article.

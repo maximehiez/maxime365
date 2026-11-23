@@ -32,7 +32,7 @@ Each team has its own agents, with different statuses :
 
 The *Recon* agent analyzes attack paths, choke points and excessive permissions in Azure environments, read-only : it doesn't modify or exploit anything. The *Triage* agent can handle about 80% of the alerts in a typical Defender queue, a rate Microsoft doesn't guarantee for any given customer. Third-party signals (*Okta*, *Salesforce*, *AWS*) are supported depending on the agent, with other vendors announced without a date, but the blog lists these integrations as Preview.
 
-The *Posture Prioritization* agent ranks issues by real risk, exposure, exploitability and asset criticality. Its "action" half, *Risk Reduction*, remains in Preview : it can coordinate a fix through *Intune* (the IT team stays in control of the deployment) and suggest *vulnerability shielding*, targeted temporary protections when no patch exists.
+The *Posture Prioritization* agent ranks issues by real risk, exposure, exploitability and asset criticality. Its *"action"* half, *Risk Reduction*, remains in Preview : it can coordinate a fix through *Intune* (the IT team stays in control of the deployment) and suggest *vulnerability shielding*, targeted temporary protections when no patch exists.
 
 ---
 
@@ -58,7 +58,7 @@ No price has been published, and no license has been announced for the platform.
 ---
 
 ##### What admins need to do
-Nothing turns on by itself : the agents appear under "Ready for setup".
+Nothing turns on by itself : the agents appear under *"Ready for setup"*.
 - Prerequisites : Access to the Defender portal and *URBAC* enabled on all Defender workloads.
 - Configuration : Defender portal, *Perception*, *Agents*, *Set up*. *Entra* creates a dedicated agent identity, to which the admin grants permissions and resources. The *Recon* agent has its own setup, with a PowerShell script.
 - Roles : *Security Administrator* configures and removes agents, *Security Reader* runs and views sessions. Permissions apply to the agent, not to the playbook.

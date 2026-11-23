@@ -1,0 +1,101 @@
+---
+title: "Intune manages local AI agents in preview"
+meta_title: ""
+description: ""
+date: 2026-11-23T10:00:00-05:00
+image: "/images/blog/intune/intune_local_ai_agents_governance_thumbnail.png"
+categories: ["Intune"]
+author: "Maxime Hiez"
+tags: ["AI", "Agent", "Security", "Conditional Access"]
+draft: false
+---
+---
+
+##### Introduction
+AI agents that run on the workstation often escape the company's inventory. Announced at Ignite 2026 on November 17, *Microsoft Intune* offers two levers : a software compliance policy that marks devices as noncompliant when a prohibited application is present, and a containment policy for approved agents, based on *Microsoft Execution Containers* (*MXC*). The status is mixed : public preview for software compliance, conflicting status for containment. In the sources reviewed, no Message Center or roadmap ID, no general availability date and no licensing requirement were found.
+
+Check the endpoint DLP and local AI agents article [HERE](https://maxime.hiez.ca/en/blog/2026-11-19-purview-endpoint-dlp-local-ai-agents).
+
+---
+
+##### How does Intune detect local agents ?
+Detection relies on the *Intune* application inventory, not on the agent's identity. Each application is identified by a platform-specific identifier : the MSI product code for Win32, the package full name for the Store. Only these host applications appear in the inventory today.
+
+You need a Windows 10 or 11 device enrolled in Intune and joined to Microsoft Entra, with a *Properties catalog* profile that enables *ApplicationProperties*.
+
+*Agent 365* acts as a discovery step : it gathers signals from *Microsoft Defender*, *Microsoft Entra* and *Intune* to spot running agents, including unapproved ones. Nothing indicates that it feeds the compliance policy, which evaluates installed applications by identifier.
+
+---
+
+##### How do you mark a device as noncompliant ?
+The software compliance policy lets you list restricted software. A Windows device that runs one is marked noncompliant, Conditional Access blocks company resources, and the user is prompted to remove the agent. The announced status is public preview.
+
+The steps described are the following :
+1. Create a software compliance policy in the Intune console
+2. Add the application identifier as a restricted software entry
+3. Assign the policy to a device or user group
+4. Create a Conditional Access policy that requires a compliant device
+
+![image](/images/blog/intune/intune_local_ai_agents_governance_001.png)
+
+The block applies to the whole device, even when the agent is idle. After uninstalling, the user can request an immediate check.
+
+Nothing indicates that *Claude Code* is covered : everything depends on the host application installed.
+- The policy evaluates application identifiers, not agent identifiers : an agent with several host applications may need several entries
+- Editor extensions, npm packages and standalone executables cannot be selected
+
+<Notice type="note">The Intune posts from Ignite talk about public preview. The Learn page *"In development"*, on the other hand, lists the item *"Mark Windows devices noncompliant when prohibited AI agents are discovered"*. It may not be the same policy : the page describes a list of prohibited agents in a Windows compliance policy, with *OpenClaw* as an example, whereas the posts target host application identifiers. No Learn page documents the latter : the steps rely on the *Intune Customer Success* guide.</Notice>
+
+---
+
+##### How do you contain approved agents with MXC ?
+*MXC* is an open source technology that runs workloads with defined resource permissions. Intune turns it into an enterprise ceiling : Windows enforces the configured limit regardless of the agent, and denies any request beyond it.
+
+The policy is under *Endpoint security* > *Agent containment*. It sets folder access (deny, read-only or read-write) and network access (loopback or external), and can target all MXC-compatible agents or a single supported agent. Initial coverage is for containerized processes, starting with *GitHub Copilot CLI* and *OpenAI Codex CLI*.
+
+The announced prerequisites are an MXC-compatible Windows version, a supported agent version and devices onboarded to *Microsoft Defender for Endpoint*, with an up-to-date antivirus and real-time protection turned on. *MXC* has three states :
+- <u>Enforcement</u> : Blocks without logging anything
+- <u>Learning</u> : Blocks and logs
+- <u>Permissive</u> : Allows and logs, for a controlled pilot
+
+![image](/images/blog/intune/intune_local_ai_agents_governance_002.png)
+
+The *Intune Customer Success* guide presents MXC as generally available on Windows 11 and gives no status for the containment policy. The Windows developer blog titles the Intune configuration *"Private Preview"*, and the Intune blog says these policies are rolling out.
+
+---
+
+##### What admins need to know
+No licensing is specified for software compliance or for containment. According to Learn, Conditional Access requires *Microsoft Entra ID* P1 and discovery through *Defender* requires *Defender for Endpoint* Plan 2. The policies must be created and assigned.
+
+It is better to roll out in rings, with time-limited exceptions. Containment restricts what a workload can do without making its output trustworthy, and it only applies to agents whose vendor supports MXC. On the Defender side, runtime protection for agents (*Claude Code*, *Codex CLI*, *GitHub Copilot CLI*) is covered separately.
+
+---
+
+##### Conclusion
+Intune finally brings concrete levers against unapproved local agents, but the policies are in preview or rolling out, with no published licensing or dates. Software compliance is fragile, because it targets the host application rather than the agent, and MXC depends on vendors' goodwill. Try it in a pilot group before turning it into an access control.
+
+---
+
+##### Sources
+[Microsoft - Techcommunity](https://techcommunity.microsoft.com/blog/intunecustomersuccess/a-guide-to-governing-local-ai-agents-with-intune/4573284)
+
+[Microsoft - Techcommunity](https://techcommunity.microsoft.com/blog/microsoftintuneblog/what%E2%80%99s-new-in-microsoft-intune-at-ignite/4570003)
+
+[Microsoft - Windows Developer Blog](https://blogs.windows.com/windowsdeveloper/2026/11/17/enterprise-deployment-of-governed-agents-on-windows)
+
+[Microsoft Learn - Microsoft Execution Containers](https://learn.microsoft.com/en-us/windows/apps/develop/mxc)
+
+[Microsoft Learn - Discover local AI agents with Microsoft Defender for Endpoint](https://learn.microsoft.com/en-us/defender-endpoint/discover-local-ai-agents)
+
+[Microsoft Learn - In development for Microsoft Intune](https://learn.microsoft.com/en-us/intune/whats-new/in-development)
+
+[Microsoft Learn - App inventory for Windows devices in Microsoft Intune](https://learn.microsoft.com/en-us/intune/app-management/deployment/enhanced-app-inventory)
+
+[Microsoft Learn - What is Conditional Access ?](https://learn.microsoft.com/en-us/entra/identity/conditional-access/overview)
+
+---
+
+
+Did you enjoy this post ? If you have any questions, comments or suggestions, please feel free to send me a message from the contact form.
+
+Don't forget to follow us and share this post.
