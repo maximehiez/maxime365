@@ -1,0 +1,102 @@
+---
+title: "Defender protects local AI agents"
+meta_title: ""
+description: ""
+date: 2026-11-24T10:00:00-05:00
+image: "/images/blog/defender/defender_runtime_protection_local_ai_agents_thumbnail.png"
+categories: ["Defender"]
+author: "Maxime Hiez"
+tags: ["Security", "Agent", "AI"]
+draft: false
+---
+---
+
+##### Introduction
+A local AI agent reads files, calls tools and processes external content that can hide instructions (prompt injection). *Microsoft Defender for Endpoint* adds runtime protection for these agents on Windows, in *Audit* or *Block* mode. Its status is contradictory : on November 17, 2026, the Techcommunity post and the *Ignite* 2026 Book of News call it generally available, while every Microsoft Learn page consulted still labels it *Preview*. No Message Center or Roadmap ID appears in the sources consulted.
+
+Check the article on Purview protection for local agents [HERE](https://maxime.hiez.ca/en/blog/2026-11-19-purview-endpoint-dlp-local-ai-agents).
+
+Check the article on *Microsoft Perception* [HERE](https://maxime.hiez.ca/en/blog/2026-11-21-defender-microsoft-perception-ga).
+
+<Notice type="note">The Techcommunity post writes *"generally available\*"* without explaining the asterisk. The Book of News declares GA for every agent listed, but the Learn matrix keeps the whole Windows table in preview, and the Learn pages carry *"(Preview)"* with a known issues section. Read the known issues before deploying.</Notice>
+
+---
+
+##### What Defender detects
+Defender inspects the points where content enters or leaves the agent's reasoning. A Learn example : a page contains hidden text telling the agent to read the local *.env* file and send it to an external URL. Defender detects the injection in the tool response and blocks the action before the data leaves the device.
+
+Two inspection methods coexist, each with its own setting :
+- <u>Agent-native event inspection</u> : Relies on the hooks of agents such as *Claude Code* and *GitHub Copilot CLI*. Each scan is a fast inline check with minimal latency.
+- <u>Network inspection</u> : Inspects traffic to known inference services. Agents that use certificate pinning or HTTP/3 are not supported.
+
+A detection raises the *Suspicious AI prompt injection* alert, correlated into incidents. In Block mode, the user sees the block in the agent and through a Windows toast notification. In Audit mode, the action goes ahead and the alert is Informational.
+
+---
+
+##### Covered agents
+Only Windows is listed, with no Windows version named.
+
+| Method       | Listed agents                                                                                                                                  |
+| :----------: | :--------------------------------------------------------------------------------------------------------------------------------------------: |
+| Agent-native | *Claude Code*, *GitHub Copilot CLI*, *GitHub Copilot app*, *Claude Desktop* (Code mode), *GitHub Copilot* and *Claude Code* VS Code extensions |
+| Network      | *OpenClaw*, *Ollama Desktop*, *ChatGPT Classic*, *ChatGPT Desktop* (Chat mode, minimum tested version 26.810.52044)                            |
+
+The meaning of the *"Mode"* column in the Learn matrix is not explained : *Claude Desktop* and *ChatGPT Desktop* are listed for one specific mode, and the page doesn't say the other modes are unprotected.
+
+---
+
+##### Turning on the protection
+Both settings are disabled by default. There are three ways to enable them, and *Intune* is not required :
+- <u>PowerShell</u> : On the device, in an elevated session.
+- <u>Intune</u> : Endpoint security, Antivirus, Create policy, *Microsoft Defender AI agent runtime protection* profile.
+- <u>Defender portal</u> : Endpoint security policies, Windows policies, Create new policy, *Microsoft Defender AI agent runtime protection* template.
+<br/>
+
+The Defender portal policy applies to devices enrolled in Intune and to those managed through Defender for Endpoint security settings management, the latter through *Microsoft Entra* device groups, with no user targeting. The setting is protected by tamper protection.
+
+Here is the local configuration, in an elevated session, via the following PowerShell command :
+```powershell
+Set-MpPreference -AiAgentProtection Audit
+Set-MpPreference -AiAgentNetworkInspection Audit
+Get-MpPreference | Select-Object AiAgentProtection, AiAgentNetworkInspection
+```
+
+The possible values are *Audit*, *Block* and *Disabled*, and the check returns 0 (Disabled), 1 (Block) or 2 (Audit). Then open a new terminal before starting the agent.
+
+The device must be onboarded to Defender for Endpoint, with *Microsoft Defender Antivirus* in active mode and real-time protection on, and *AntivirusSignatureVersion* 1.451.224.0 or later.
+
+---
+
+##### What admins need to know
+- Licensing : Learn lists *Defender for Endpoint Plan 2*, *Microsoft 365 E5*, *Microsoft Agent 365* or *Microsoft 365 E7*, while the Book of News names only Plan 2, in the future tense (*"will be available"*), in an item that nonetheless announces GA. No price appears in the sources consulted.
+- Block limit : *Claude Code* can keep processing a tool response even in Block mode, when Defender reports a block after the response. Inspection happens after the tool has run and can't undo what it already did : this is a limit of the block itself, not just of what is displayed.
+- Misleading alert : In Audit mode, the portal may wrongly display *Suspicious AI prompt injection blocked*. The title is therefore no proof of a block.
+- Rollout : Start in Audit on a few devices, read the alerts for one to two weeks, extend in Audit, then switch to Block where wanted.
+<br/>
+
+Prompt Evidence Collection raises privacy concerns. When enabled, it sends prompts and tool calls, arguments included, to the cloud without masking, and this content can appear in alerts. It is off by default, but a future Defender Antivirus platform release will turn it on by default, with no date. The setting requires the October 2026 platform and engine updates or later. It is set with *Set-MpPreference -PromptEvidenceCollection*, with the Intune or Defender policy taking precedence over PowerShell, and turning it off doesn't turn off runtime protection.
+
+---
+
+##### Conclusion
+The risk is real, but the status is unsettled : an announced GA, Preview documentation, an unexplained asterisk. A pilot in Audit mode is reasonable now, without relying on Block for *Claude Code* as long as the known limit exists. Also check prompt collection before its default value changes.
+
+---
+
+##### Sources
+[Microsoft - Techcommunity](https://techcommunity.microsoft.com/blog/microsoftthreatprotectionblog/ignite-2026-whats-new-in-microsoft-defender--sentinel/4569975)
+
+[Microsoft Ignite 2026 - Book of News](https://news.microsoft.com/events/ignite/2026/book-of-news)
+
+[Microsoft Learn - AI agent runtime protection with Microsoft Defender for Endpoint (Preview)](https://learn.microsoft.com/en-us/defender-endpoint/ai-agent-runtime-protection-overview)
+
+[Microsoft Learn - Set up AI agent runtime protection with Microsoft Defender for Endpoint (Preview)](https://learn.microsoft.com/en-us/defender-endpoint/configure-ai-agent-runtime-protection)
+
+[Microsoft Learn - Microsoft Defender for Endpoint AI agent support matrix](https://learn.microsoft.com/en-us/defender-endpoint/ai-agent-support-matrix)
+
+---
+
+
+Did you enjoy this post ? If you have any questions, comments or suggestions, please feel free to send me a message from the contact form.
+
+Don't forget to follow us and share this post.

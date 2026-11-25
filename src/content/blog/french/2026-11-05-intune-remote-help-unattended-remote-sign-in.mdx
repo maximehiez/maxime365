@@ -21,7 +21,7 @@ L'agent ouvre une session Windows distincte de celle de l'utilisateur. Si person
 
 Côté agent, tout part de la fiche de l'appareil dans le centre d'administration Intune : *Devices* > *All devices* > l'appareil > *New remote assistance session* > *Remote Help* > *Initiate unattended control*. La session s'ouvre dans *Windows App* (client web), dans un nouvel onglet, avec le compte utilisé pour le centre d'administration. Dans la session, l'agent se connecte avec un compte local, de domaine AD, UPN ou Entra ID. Un compte standard n'obtient pas de droits d'administrateur.
 
-Un seul agent et une seule session sans surveillance sont possibles à la fois sur un appareil. D'après le billet Tech Community, une session dure 12 heures au maximum, durée non configurable.
+Un seul agent et une seule session sans surveillance sont possibles à la fois sur un appareil. D'après le billet Techcommunity, une session dure 12 heures au maximum, durée non configurable.
 
 ---
 
@@ -39,11 +39,11 @@ Pour l'installation des agents, le champ du jeton d'enregistrement est prérempl
 ---
 
 ##### Licences et limites
-Une licence Remote Help est requise pour tous les utilisateurs ciblés, agents comme utilisateurs assistés, en plus d'*Intune Plan 1* ou *Plan 2*. D'après le billet Tech Community, Remote Help est inclus dans *Intune Suite*, vendu en module complémentaire autonome (*Remote Help add-on*) ou compris dans *Microsoft 365* E3 et E5. Aucun prix n'est repris ici.
+Une licence Remote Help est requise pour tous les utilisateurs ciblés, agents comme utilisateurs assistés, en plus d'*Intune Plan 1* ou *Plan 2*. D'après le billet Techcommunity, Remote Help est inclus dans *Intune Suite*, vendu en module complémentaire autonome (*Remote Help add-on*) ou compris dans *Microsoft 365* E3 et E5. Aucun prix n'est repris ici.
 
 <Notice type="note">Le périmètre est étroit : appareils Windows physiques x64, détenus par l'entreprise, gérés par Intune et joints à *Microsoft Entra* ou en jonction hybride. Les machines virtuelles (*Windows 365*, *Azure Virtual Desktop*), les appareils non inscrits et les appareils personnels (BYOD) ne sont pas pris en charge pour le contrôle sans surveillance, mais restent éligibles à l'assistance classique. Les tenants hébergés dans la région *Switzerland North* sont exclus.</Notice>
 
-Côté contrôles, l'appareil non conforme déclenche seulement une bannière d'avertissement. Les politiques de *Conditional Access* propres à Remote Help et le chat ne s'appliquent pas à l'accès sans surveillance, alors qu'il est recommandé de protéger les comptes des agents par *Conditional Access* (MFA ou appareil conforme). Aucune session n'est enregistrée par le service, et les métadonnées de session sont conservées 30 jours. Pour le suivi, le billet Tech Community indique, sous *Tenant administration* > *Remote Help*, l'onglet *Monitor* (sessions actives, durée moyenne, total) et l'onglet *Remote Help sessions* (agent, destinataire, appareil, type de session), ainsi que les journaux d'audit (*Tenant administration* > *Audit logs*) filtrés sur la catégorie *RemoteHelp*. Il précise aussi que les sessions sans surveillance se lancent uniquement depuis la fiche de l'appareil, pas depuis l'application Remote Help.
+Côté contrôles, l'appareil non conforme déclenche seulement une bannière d'avertissement. Les politiques de *Conditional Access* propres à Remote Help et le chat ne s'appliquent pas à l'accès sans surveillance, alors qu'il est recommandé de protéger les comptes des agents par *Conditional Access* (MFA ou appareil conforme). Aucune session n'est enregistrée par le service, et les métadonnées de session sont conservées 30 jours. Pour le suivi, le billet Techcommunity indique, sous *Tenant administration* > *Remote Help*, l'onglet *Monitor* (sessions actives, durée moyenne, total) et l'onglet *Remote Help sessions* (agent, destinataire, appareil, type de session), ainsi que les journaux d'audit (*Tenant administration* > *Audit logs*) filtrés sur la catégorie *RemoteHelp*. Il précise aussi que les sessions sans surveillance se lancent uniquement depuis la fiche de l'appareil, pas depuis l'application Remote Help.
 
 ---
 

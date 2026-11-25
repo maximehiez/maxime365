@@ -21,7 +21,7 @@ The agent opens a Windows session separate from the user's. If nobody is signed 
 
 On the agent side, everything starts from the device page in the Intune admin center : *Devices* > *All devices* > the device > *New remote assistance session* > *Remote Help* > *Initiate unattended control*. The session opens in *Windows App* (web client), in a new tab, with the account used for the admin center. Inside the session, the agent signs in with a local, AD domain, UPN or Entra ID account. A standard account doesn't get administrator rights.
 
-Only one agent and one unattended session are possible at a time on a device. According to the Tech Community post, a session lasts 12 hours at most, and this can't be configured.
+Only one agent and one unattended session are possible at a time on a device. According to the Techcommunity post, a session lasts 12 hours at most, and this can't be configured.
 
 ---
 
@@ -39,11 +39,11 @@ When installing the agents, the registration token field is prefilled with *INVA
 ---
 
 ##### Licensing and limits
-A Remote Help license is required for all targeted users, agents and supported users alike, in addition to *Intune Plan 1* or *Plan 2*. According to the Tech Community post, Remote Help is included in *Intune Suite*, sold as a standalone add-on (*Remote Help add-on*) or included in *Microsoft 365* E3 and E5. No price is quoted here.
+A Remote Help license is required for all targeted users, agents and supported users alike, in addition to *Intune Plan 1* or *Plan 2*. According to the Techcommunity post, Remote Help is included in *Intune Suite*, sold as a standalone add-on (*Remote Help add-on*) or included in *Microsoft 365* E3 and E5. No price is quoted here.
 
 <Notice type="note">The scope is narrow : physical x64 Windows devices, company-owned, managed by Intune and joined to *Microsoft Entra* or hybrid joined. Virtual machines (*Windows 365*, *Azure Virtual Desktop*), unenrolled devices and personal devices (BYOD) aren't supported for unattended control, but remain eligible for standard assistance. Tenants hosted in the *Switzerland North* region are excluded.</Notice>
 
-As for controls, a noncompliant device only triggers a warning banner. Remote Help's own *Conditional Access* policies and chat don't apply to unattended access, even though it's recommended to protect agent accounts with *Conditional Access* (MFA or compliant device). The service doesn't record any session, and session metadata is kept for 30 days. For monitoring, the Tech Community post points to the *Monitor* tab (active sessions, average duration, total) and the *Remote Help sessions* tab (agent, recipient, device, session type) under *Tenant administration* > *Remote Help*, as well as the audit logs (*Tenant administration* > *Audit logs*) filtered on the *RemoteHelp* category. It also states that unattended sessions can only be launched from the device page, not from the Remote Help app.
+As for controls, a noncompliant device only triggers a warning banner. Remote Help's own *Conditional Access* policies and chat don't apply to unattended access, even though it's recommended to protect agent accounts with *Conditional Access* (MFA or compliant device). The service doesn't record any session, and session metadata is kept for 30 days. For monitoring, the Techcommunity post points to the *Monitor* tab (active sessions, average duration, total) and the *Remote Help sessions* tab (agent, recipient, device, session type) under *Tenant administration* > *Remote Help*, as well as the audit logs (*Tenant administration* > *Audit logs*) filtered on the *RemoteHelp* category. It also states that unattended sessions can only be launched from the device page, not from the Remote Help app.
 
 ---
 
