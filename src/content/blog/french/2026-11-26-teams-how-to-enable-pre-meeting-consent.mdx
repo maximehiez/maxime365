@@ -1,0 +1,96 @@
+---
+title: "Comment exiger le consentement avant une réunion Teams"
+meta_title: ""
+description: ""
+date: 2026-11-26T10:00:00-05:00
+image: "/images/blog/teams/tuto/teams_how_to_enable_pre_meeting_consent_thumbnail.png"
+categories: ["Teams", "Tutoriel"]
+author: "Maxime Hiez"
+tags: ["Sécurité", "Gouvernance", "Rencontre"]
+draft: false
+---
+---
+
+##### Introduction
+Microsoft Teams introduit un consentement obligatoire avant l’entrée en réunion. Cette fonctionnalité permet aux organisations de répondre aux exigences réglementaires et de conformité en obligeant les participants à reconnaître des informations importantes avant de rejoindre une réunion. Vous pouvez présenter des conditions générales personnalisées, des exclusions de responsabilité, des avis d’enregistrement, des directives d’utilisation responsable de l’IA et d’autres déclarations liées à la conformité aux participants de la réunion.
+
+Voir l'annonce de Septembre 2026 [ICI](https://maxime.hiez.ca/blog/2026-09-16-teams-pre-meeting-consent).
+
+---
+
+##### Prérequis
+**<u>Rôle d'administrateur</u>**
+- Un compte avec le rôle *Administrateur Global* ou *Administrateur Teams* pour accéder au Microsoft Teams Admin Center.
+
+---
+
+##### Étape 1 : Se connecter au Microsoft Teams Admin Center
+Connectez-vous au Microsoft Teams Admin Center en ouvrant votre navigateur web sur https://admin.teams.microsoft.com.
+
+---
+
+##### Étape 2 : Activer le consentement
+Dans le menu de gauche, cliquez sur *<u>Meetings</u>*, puis sur *<u>Meeting policies</u>*, et éditez la politique *Global (Org-wide default)* ou créez une nouvelle.
+
+Activez l'interrupteur *Enable pre-meeting consent*.
+
+![image](/images/blog/teams/tuto/teams_how_to_enable_pre_meeting_consent_001.png)
+
+---
+
+##### Étape 3 : Configurer le message personnalisé
+Cliquez sur *<u>Customize message</u>* et saisissez le message que vous désirez afficher dans le consentement (jusqu'à 1500 caractères)
+
+![image](/images/blog/teams/tuto/teams_how_to_enable_pre_meeting_consent_002.png)
+
+<Notice type="note">Vous pouvez configurer jusqu'à 4 langues supplémentaires.</Notice>
+
+---
+
+##### Configuration en PowerShell
+Les paramètres se configurent depuis le module Teams PowerShell :
+```powershell
+Connect-MicrosoftTeams
+
+$englishContent = New-CsTeamsLocalizedContent -LanguageId "en-US" -Title "Consent required before joining" -Content "By joining this meeting, you agree to Maxime's meeting terms. Read the [privacy statement](https://contoso.com/privacy)." -IsDefault $true
+
+$frenchContent = New-CsTeamsLocalizedContent -LanguageId "fr-CA" -Title "Consentement requis avant de rejoindre la réunion" -Content "En rejoignant cette réunion, vous acceptez les conditions de réunion de Maxime. Consultez la [déclaration de confidentialité](https://contoso.com/privacy)." -IsDefault $false
+
+$consent = New-CsPreMeetingConsent -LocalizedContent @(
+        $englishContent
+        $frenchContent
+    )
+
+$consent
+```
+
+L'assignation de la configuration se fait via la commande PowerShell :
+```powershell
+$policyIdentity = "Global"
+
+Set-CsTeamsMeetingPolicy -Identity $policyIdentity -PreMeetingConsentContentIdentifier $consentId -EnablePreMeetingConsent $true
+```
+
+---
+
+##### Valider le résultat
+Dès la connexion à la rencontre, le message s'affiche dans un popup. En cliquant sur *<u>Accept</u>*, on peut entrer dans la rencontre. En revanche, en cliquant sur *<u>Decline</u>*, la fenêtre se ferme.
+
+![image](/images/blog/teams/tuto/teams_how_to_enable_pre_meeting_consent_003.png)
+
+---
+
+##### Conclusion
+Vous savez maintenant comment activer le consentement obligatoire avant de rejoindre une réunion Teams.
+
+---
+
+##### Sources
+[Microsoft Learn - Exiger le consentement des participants avant une rencontre Teams](https://learn.microsoft.com/fr-ca/microsoftteams/pre-meeting-consent)
+
+---
+
+
+Avez-vous apprécié cet article ? Vous avez des questions, commentaires ou suggestions, n'hésitez pas à m'envoyer un message depuis le formulaire de contact.
+
+N'oubliez pas de nous suivre et de partager cet article.

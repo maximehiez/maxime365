@@ -1,0 +1,96 @@
+---
+title: "How to require consent before a Teams meeting"
+meta_title: ""
+description: ""
+date: 2026-11-26T10:00:00-05:00
+image: "/images/blog/teams/tuto/teams_how_to_enable_pre_meeting_consent_thumbnail.png"
+categories: ["Teams", "Tutorial"]
+author: "Maxime Hiez"
+tags: ["Security", "Governance", "Meeting"]
+draft: false
+---
+---
+
+##### Introduction
+Microsoft Teams introduces mandatory consent before joining a meeting. This feature helps organizations meet regulatory and compliance requirements by requiring participants to acknowledge important information before they join. You can present custom terms and conditions, disclaimers, recording notices, responsible AI use guidelines and other compliance-related statements to meeting participants.
+
+Check the September 2026 announcement [HERE](https://maxime.hiez.ca/en/blog/2026-09-16-teams-pre-meeting-consent).
+
+---
+
+##### Prerequisites
+**<u>Administrator role</u>**
+- An account with the *Global Administrator* or *Teams Administrator* role to access the Microsoft Teams Admin Center.
+
+---
+
+##### Step 1 : Sign in to the Microsoft Teams Admin Center
+Sign in to the Microsoft Teams Admin Center by opening your web browser to https://admin.teams.microsoft.com.
+
+---
+
+##### Step 2 : Enable consent
+In the left menu, click *<u>Meetings</u>*, then *<u>Meeting policies</u>*, and edit the *Global (Org-wide default)* policy or create a new one.
+
+Turn on the *Enable pre-meeting consent* toggle.
+
+![image](/images/blog/teams/tuto/teams_how_to_enable_pre_meeting_consent_001.png)
+
+---
+
+##### Step 3 : Configure the custom message
+Click *<u>Customize message</u>* and enter the message you want to display in the consent prompt (up to 1500 characters).
+
+![image](/images/blog/teams/tuto/teams_how_to_enable_pre_meeting_consent_002.png)
+
+<Notice type="note">You can configure up to 4 additional languages.</Notice>
+
+---
+
+##### Configuration in PowerShell
+The settings can be configured with the Teams PowerShell module :
+```powershell
+Connect-MicrosoftTeams
+
+$englishContent = New-CsTeamsLocalizedContent -LanguageId "en-US" -Title "Consent required before joining" -Content "By joining this meeting, you agree to Maxime's meeting terms. Read the [privacy statement](https://contoso.com/privacy)." -IsDefault $true
+
+$frenchContent = New-CsTeamsLocalizedContent -LanguageId "fr-CA" -Title "Consentement requis avant de rejoindre la réunion" -Content "En rejoignant cette réunion, vous acceptez les conditions de réunion de Maxime. Consultez la [déclaration de confidentialité](https://contoso.com/privacy)." -IsDefault $false
+
+$consent = New-CsPreMeetingConsent -LocalizedContent @(
+        $englishContent
+        $frenchContent
+    )
+
+$consent
+```
+
+The configuration is assigned with this PowerShell command :
+```powershell
+$policyIdentity = "Global"
+
+Set-CsTeamsMeetingPolicy -Identity $policyIdentity -PreMeetingConsentContentIdentifier $consentId -EnablePreMeetingConsent $true
+```
+
+---
+
+##### Validate the result
+As soon as participants connect to the meeting, the message appears in a pop-up. Clicking *<u>Accept</u>* lets them into the meeting. Clicking *<u>Decline</u>* closes the window.
+
+![image](/images/blog/teams/tuto/teams_how_to_enable_pre_meeting_consent_003.png)
+
+---
+
+##### Conclusion
+You now know how to enable mandatory consent before joining a Teams meeting.
+
+---
+
+##### Sources
+[Microsoft Learn - Require participant consent before joining Teams meetings](https://learn.microsoft.com/en-us/microsoftteams/pre-meeting-consent)
+
+---
+
+
+Did you enjoy this post ? If you have any questions, comments or suggestions, please feel free to send me a message from the contact form.
+
+Don't forget to follow us and share this post.
